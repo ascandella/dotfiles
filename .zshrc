@@ -39,15 +39,15 @@ alias c='gitx -c'
 alias gco='git checkout'
 alias testbt='sbt-test.rb'
 
-alias gvim='open -a MacVim'
 alias mvim='mvim-space.sh'
+#alias gvim='open -a MacVim'
 
 # -- Socrata aliases --
 export SOCRATA_CREDENTIALS='aiden:nediaa'
 export MAVEN_OPTS=-Xmx2048m
 alias psqlprod='psql -h metadbm.sea1.socrata.com -U echo -W blist_prod'
 alias shuffle='git stash && git pull --rebase && git stash pop'
-source ~/src/socrata-toolbox/etc/aliases
+#source ~/src/socrata-toolbox/etc/aliases
 # -- End Socrata aliases --
 
 #export PS1="[%n]%~%# "
