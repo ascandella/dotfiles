@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/Users/echo/src/socrata/snapper2/java/com/socrata/snapper'
+let g:netrw_dirhist_2='/Users/echo/src/moviecat'
+let g:netrw_dirhist_3='/Users/echo/src/socrata/frontend'
+let g:netrw_dirhist_4='/Users/echo/Dropbox/401/project'
+let g:netrw_dirhist_5='/Users/echo/src/socrata/frontend/app/models/displays'
+let g:netrw_dirhist_6='/Users/echo/src/socrata/frontend/app/helpers'
+let g:netrw_dirhist_7='/Users/echo/src/socrata/syphon/backend'
