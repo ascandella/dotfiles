@@ -52,10 +52,11 @@ map <F2> :NERDTreeToggle<CR>
 map <C-t> :CommandT<CR>
 
 map <F10> :FufFile **/<CR>
-map <F1> :MRU<CR>
+map <C-m> :MRU<CR>
 map :ws :w !sudo tee %<CR>
 map <S-Esc> :bd<CR>
-map <C-m> :TComment<CR>
+map <C-b> :TComment<CR>
+map <C-c> :silent !gitx<CR>
 colorscheme desert
 
 set scrolloff=3
@@ -111,4 +112,4 @@ let g:CommandTMatchWindowAtTop = 1
 
 
 " Ignore files
-" set wildignore+=*.o,*.obj,.git,*.class,vendor/rails/**,*.jar,*.zip,*.md5,public/packages/
+set wildignore+=*.o,*.obj,.git,*.class,vendor/rails/**,*.jar,*.zip,*.md5,public/packages/,*.pyc
