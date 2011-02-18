@@ -37,8 +37,10 @@ alias ws='cd ~/src'
 alias g='git'
 alias c='gitx -c'
 alias gco='git checkout'
+alias testbt='sbt-test.rb'
 
 alias gvim='open -a MacVim'
+alias mvim='mvim-space.sh'
 
 # -- Socrata aliases --
 export SOCRATA_CREDENTIALS='aiden:nediaa'
@@ -77,9 +79,6 @@ export DISABLE_AUTO_UPDATE="true"
 source $ZSH/oh-my-zsh.sh
 
 
-##
-# Your previous /Users/echo/.profile file was backed up as /Users/echo/.profile.macports-saved_2009-05-06_at_15:01:48
-##
 
 # MacPorts Installer addition on 2009-05-06_at_15:01:48: adding an appropriate PATH variable for use with MacPorts.
 export PATH=/opt/local/lib/postgresql84/bin:/usr/local/mysql/bin:/opt/local/bin:/opt/local/sbin:$PATH
@@ -96,7 +95,22 @@ export ANT_OPTS="-Xms900m -Xmx900m"
 
 export SVN_EDITOR="vim"
 #source .rake_completion.zsh
+export NODE_PATH=/usr/local/lib/node
 
+# Directory bookmarking
+alias m1='alias g1="cd `pwd`"'
+alias m2='alias g2="cd `pwd`"'
+alias m3='alias g3="cd `pwd`"'
+alias m4='alias g4="cd `pwd`"'
+alias m5='alias g5="cd `pwd`"'
+alias m6='alias g6="cd `pwd`"'
+alias m7='alias g7="cd `pwd`"'
+alias m8='alias g8="cd `pwd`"'
+alias m9='alias g9="cd `pwd`"'
+alias mdump='alias|grep -e "alias g[0-9]"|grep -v "alias m" > ~/.bookmarks'
+alias lma='alias | grep -e "alias g[0-9]"|grep -v "alias m"|sed "s/alias //"'
+touch ~/.bookmarks
+source ~/.bookmarks
 
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
 
