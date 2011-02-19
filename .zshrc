@@ -113,7 +113,7 @@ touch ~/.bookmarks
 source ~/.bookmarks
 
 HOST=`hostname`
-source .zshrc.$HOST
+source ~/.zshrc.$HOST
 
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
 
