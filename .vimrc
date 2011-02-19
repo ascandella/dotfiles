@@ -112,4 +112,4 @@ let g:CommandTMatchWindowAtTop = 1
 
 
 " Ignore files
-set wildignore+=*.o,*.obj,.git,*.class,vendor/rails/**,*.jar,*.zip,*.md5,public/packages/,*.pyc
+set wildignore+=*.o,*.obj,.git,*.class,vendor/rails/**,*.jar,*.zip,*.md5,public/packages/,target/**,mvn-local-repo/**
