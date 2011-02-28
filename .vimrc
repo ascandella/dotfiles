@@ -89,7 +89,7 @@ endfunction
 
 command! -nargs=+ -complete=file Ack call AckGrep(<q-args>)
 
-let mapleader = ","
+let mapleader = "\\"
 map <Leader>a :Ack<space>
 " Close quicfix window
 map <F8> :ccl<CR>
@@ -110,6 +110,7 @@ let g:miniBufExplModSelTarget = 1
 
 let g:CommandTMatchWindowAtTop = 1
 
+call pathogen#runtime_append_all_bundles()
 
 " Ignore files
 set wildignore+=*.o,*.obj,.git,*.class,vendor/rails/**,*.jar,*.zip,*.md5,public/packages/,target/**,mvn-local-repo/**
