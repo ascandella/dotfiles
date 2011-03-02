@@ -20,6 +20,7 @@ alias ll='ls -l'
 alias drop='cd ~/Dropbox/'
 alias t='tmux -u'
 
+alias socia='cd ~/src/socia/rails'
 alias vihosts='sudo mvim /etc/hosts'
 alias diffed='git diff --cached | pbcopy'
 
