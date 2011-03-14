@@ -57,7 +57,8 @@ map :ws :w !sudo tee %<CR>
 map <S-Esc> :bd<CR>
 map <C-b> :TComment<CR>
 map <C-c> :silent !gitx<CR>
-colorscheme desert
+colorscheme herald
+" colorscheme desert
 
 set scrolloff=3
 
