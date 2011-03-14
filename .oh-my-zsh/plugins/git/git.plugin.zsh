@@ -15,6 +15,7 @@ alias gcount='git shortlog -sn'
 alias gcp='git cherry-pick'
 alias gcb='git checkout -b'
 alias glg='git log --stat --max-count=5'
+alias gri='git rebase -i origin/master'
 
 # Git and svn mix
 alias git-svn-dcommit-push='git svn dcommit && git push github master:svntrunk'

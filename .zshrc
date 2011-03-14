@@ -102,4 +102,4 @@ source $ZSH/oh-my-zsh.sh
 unsetopt auto_name_dirs
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
 
-export PATH=/Users/echo/src/scripts:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/echo/.rvm/bin
+export PATH=/Users/echo/src/scripts:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/echo/.rvm/bin
