@@ -74,7 +74,8 @@ touch ~/.bookmarks
 source ~/.bookmarks
 
 HOST=`hostname`
-test -r ~/zshrc.$HOST && . ~/.zshrc.$HOST
+test -r ~/.zshrc.$HOST && . ~/.zshrc.$HOST
+test -r ~/.zshrc.local && . ~/.zshrc.local
 
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.oh-my-zsh
