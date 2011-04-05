@@ -48,7 +48,7 @@ set incsearch
 " set hlsearch
 
 
-map <F2> :NERDTreeToggle<CR>
+map <F2> :CommandTFlush<CR>
 map <C-t> :CommandT<CR>
 
 map <F10> :FufFile **/<CR>
