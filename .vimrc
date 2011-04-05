@@ -50,6 +50,7 @@ set incsearch
 
 map <F2> :CommandTFlush<CR>
 map <C-t> :CommandT<CR>
+map <C-n> :CommandTBuffer<CR>
 
 map <F10> :FufFile **/<CR>
 map <C-m> :MRU<CR>
