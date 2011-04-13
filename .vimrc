@@ -62,13 +62,6 @@ colorscheme herald
 " colorscheme desert
 
 set scrolloff=3
-
-syntax on
-
-filetype on
-filetype plugin on
-filetype indent on
-
 set listchars=tab:>-,trail:·,eol:$
 nmap <silent> <Leader>s :set nolist!<CR>
 
@@ -113,6 +106,13 @@ let g:miniBufExplModSelTarget = 1
 let g:CommandTMatchWindowAtTop = 1
 
 call pathogen#runtime_append_all_bundles()
+
+
+syntax on
+
+filetype on
+filetype plugin on
+filetype indent on
 
 " Ignore files
 set wildignore+=*.o,*.obj,.git,*.class,vendor/rails/**,*.jar,*.zip,*.md5,public/packages/,target/**,mvn-local-repo/**
