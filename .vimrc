@@ -47,7 +47,6 @@ set incsearch
 " Highlighting is obnoxiouz
 " set hlsearch
 
-
 map <F2> :CommandTFlush<CR>
 map <C-t> :CommandT<CR>
 map <C-n> :CommandTBuffer<CR>
@@ -107,7 +106,6 @@ let g:CommandTMatchWindowAtTop = 1
 
 call pathogen#runtime_append_all_bundles()
 
-
 syntax on
 
 filetype on
@@ -115,4 +113,4 @@ filetype plugin on
 filetype indent on
 
 " Ignore files
-set wildignore+=*.o,*.obj,.git,*.class,vendor/rails/**,*.jar,*.zip,*.md5,public/packages/,target/**,mvn-local-repo/**
+set wildignore+=*.o,*.obj,.git,dev-server/**,*.class,vendor/rails/**,*.jar,*.zip,*.md5,public/packages/,target/**,mvn-local-repo/**
