@@ -25,6 +25,9 @@ iabbrev crme Reviewed-by: Aiden Scandella <aiden.scandella@socrata.com>
 iabbrev crmay Reviewed-by: May Peria <may.peria@socrata.com>
 iabbrev crtodd Reviewed-by: Todd Stavish <todd.stavish@socrata.com>
 
+" Programming abbreviations
+iabbrev endd <%- end -%>
+
 set expandtab
 set softtabstop=4
 set sw=4
