@@ -47,7 +47,7 @@ set incsearch
 " Highlighting is obnoxiouz
 " set hlsearch
 
-map <F2> :CommandTFlush<CR>
+map <F3> :CommandTFlush<CR>
 map <C-t> :CommandT<CR>
 map <C-n> :CommandTBuffer<CR>
 
@@ -57,6 +57,10 @@ map :ws :w !sudo tee %<CR>
 map <S-Esc> :bd<CR>
 map <C-b> :TComment<CR>
 map <C-c> :silent !gitx<CR>
+
+map <F1> zfap
+map <F2> zo
+
 colorscheme herald
 " colorscheme desert
 
