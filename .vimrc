@@ -61,7 +61,7 @@ map <C-c> :silent !gitx<CR>
 map <F1> zfap
 map <F2> zo
 
-colorscheme herald
+colorscheme tomorrow_night
 " colorscheme desert
 
 set scrolloff=3
