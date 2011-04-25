@@ -24,11 +24,12 @@ alias socia='cd ~/src/socia'
 alias vihosts='sudo mvim /etc/hosts'
 alias diffed='git diff --cached | pbcopy'
 
+alias scp='noglob scp'
 alias socra='cd ~/src/socrata'
 alias sfr='cd ~/src/socrata/frontend'
 alias scr='cd ~/src/socrata/core'
 alias ws='cd ~/src'
-alias g='git'
+alias g='noglob git'
 alias c='gitx -c'
 alias gco='git checkout'
 alias testbt='sbt-test.rb'
@@ -50,6 +51,7 @@ if [ $? -eq 1 ] ; then
     PATH=$PATH:/usr/local/bin
     export PATH
 fi
+
 
 export ANT_OPTS="-Xms900m -Xmx900m"
 
@@ -103,3 +105,9 @@ unsetopt auto_name_dirs
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
 
 export PATH=/Users/echo/src/scripts:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/echo/.rvm/bin
+
+echo $PATH | grep -q -s "/Users/echo/Library/Haskell/bin"
+if [ $? -eq 1 ] ; then
+    PATH=$PATH:/Users/echo/Library/Haskell/bin
+    export PATH
+fi

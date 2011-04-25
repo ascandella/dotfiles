@@ -120,4 +120,4 @@ filetype plugin on
 filetype indent on
 
 " Ignore files
-set wildignore+=*.o,*.obj,.git,dev-server/**,*.class,vendor/rails/**,*.jar,*.zip,*.md5,public/packages/,target/**,mvn-local-repo/**
+set wildignore+=*.o,*.obj,.git,dev-server/**,*.class,public/packages/**,public/assets/**,vendor/rails/**,*.jar,*.zip,*.md5,target/**,mvn-local-repo/**
