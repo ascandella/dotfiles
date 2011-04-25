@@ -24,7 +24,7 @@ alias socia='cd ~/src/socia'
 alias vihosts='sudo mvim /etc/hosts'
 alias diffed='git diff --cached | pbcopy'
 
-alias scp='noglob scp'
+# alias scp='noglob scp'
 alias socra='cd ~/src/socrata'
 alias sfr='cd ~/src/socrata/frontend'
 alias scr='cd ~/src/socrata/core'
