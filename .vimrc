@@ -119,5 +119,6 @@ filetype on
 filetype plugin on
 filetype indent on
 
+let g:delimitMate_autoclose=0
 " Ignore files
 set wildignore+=*.o,*.obj,.git,dev-server/**,*.class,public/packages/**,public/assets/**,vendor/rails/**,*.jar,*.zip,*.md5,target/**,mvn-local-repo/**
