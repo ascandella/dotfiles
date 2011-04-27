@@ -1,0 +1,71 @@
+background yes
+use_xft yes
+xftfont Sans:size=8
+xftalpha 1
+update_interval 1.0
+total_run_times 0
+own_window yes
+own_window_transparent no
+own_window_type desktop
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+minimum_size 200 200
+maximum_width 200
+draw_shades yes
+draw_outline no
+draw_borders no
+draw_graph_borders yes
+default_color white
+default_shade_color black
+default_outline_color white
+alignment middle_right
+gap_x 2
+gap_y 0
+no_buffers yes
+uppercase no
+cpu_avg_samples 2
+override_utf8_locale no
+
+TEXT
+${font sans-serif:bold:size=8}SYSTEM ${hr 2}
+${font sans-serif:normal:size=8}$sysname $kernel $alignr $machine
+Uptime:$alignr$uptime
+
+DATE ${hr 2}
+${alignc 20}${font MS:size=20}${time %H:%M}${font}
+
+${font sans-serif:bold:size=8}PROCESSORS ${hr 2}
+${font sans-serif:normal:size=8}${cpugraph cpu0}
+CPU0: ${cpu cpu1}% ${cpubar cpu0}
+${font sans-serif:normal:size=8}${cpugraph cpu1}
+CPU1: ${cpu cpu1}% ${cpubar cpu1}
+
+${font sans-serif:bold:size=8}MEMORY ${hr 2}
+${font sans-serif:normal:size=8}RAM $alignc $mem / $memmax $alignr $memperc%
+$membar
+
+${font sans-serif:bold:size=8}DISKS ${hr 2}
+${font sans-serif:normal:size=8}/ $alignc ${fs_used /} / ${fs_size /} $alignr ${fs_used_perc /}%
+${fs_bar /}
+SWAP $alignc ${swap} / ${swapmax} $alignr ${swapperc}%
+${swapbar}
+
+${font sans-serif:bold:size=8}TOP PROCESSES ${hr 2}
+${font sans-serif:normal:size=8}${top_mem name 1}${alignr}${top mem 1} %
+${top_mem name 2}${alignr}${top mem 2} %
+$font${top_mem name 3}${alignr}${top mem 3} %
+$font${top_mem name 4}${alignr}${top mem 4} %
+$font${top_mem name 5}${alignr}${top mem 5} %
+
+${font sans-serif:bold:size=8}NETWORK ${hr 2}
+${font sans-serif:normal:size=8}IP address: $alignr ${addr eth0}
+${downspeedgraph eth0}
+DLS:${downspeed eth0} kb/s $alignr total: ${totaldown ath0}
+${upspeedgraph eth0}
+ULS:${upspeed eth0} kb/s $alignr total: ${totalup ath0}
+
+WEATHER ${hr 2}
+${if_existing /proc/net/route eth0}
+${voffset -8}${alignr 56}${font ConkyWeather:style=Bold:size=40}${execi 600 conkyForecast --location=USWA0395 --datatype=WF}${font}
+${voffset -8}${font}${voffset -38}${font MS:size=26}${execi 600 conkyForecast --location=USWA0395 --datatype=HT --imperial -u -x}${font}degrees
+${endif}
