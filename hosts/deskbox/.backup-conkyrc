@@ -1,0 +1,15 @@
+background no
+out_to_x on
+own_window no
+out_to_console yes
+update_interval 1.0
+
+TEXT
+Uptime $alignr$uptime  \
+Load $alignr$loadavg  \
+^i(.dzen/bitmaps/sm4tik/cpu.xbm) CPU0 $alignr${cpu cpu0}%  \
+^i(.dzen/bitmaps/sm4tik/cpu.xbm) CPU1 $alignr${cpu cpu1}%  \
+^i(.dzen/bitmaps/sm4tik/mem.xbm) MEM $alignr$memperc%  \
+In $alignr${downspeed eth0} \
+Out $alignr${upspeed eth0} \
+^i(.dzen/bitmaps/sm4tik/clock.xbm) ${time %b %e %H:%M:%S}
