@@ -106,7 +106,7 @@ source $ZSH/oh-my-zsh.sh
 unsetopt auto_name_dirs
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
 
-export PATH=/Users/echo/src/scripts:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/echo/.rvm/bin
+export PATH=$HOME/src/scripts:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:$HOME/.rvm/bin
 
 echo $PATH | grep -q -s "/Users/echo/Library/Haskell/bin"
 if [ $? -eq 1 ] ; then
