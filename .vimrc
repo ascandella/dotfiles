@@ -56,24 +56,12 @@ map <C-t> :CommandT<CR>
 map <C-n> :CommandTBuffer<CR>
 
 
-" Navigation
-" Text-bubbling (using unimpaired for boundaries)
-nnoremap <A-n> [e
-nmap <A-t> ]e
-imap <A-n> [e
-imap <A-t> ]e
-
-" Visual mode
-vmap <A-Up> [egv
-vmap <A-Down> ]egv
-vmap <A-n> [egv
-vmap <A-t> ]egv
 
 map <C-m> :MRU<CR>
-map :ws :w !sudo tee %<CR>
 map <S-Esc> :bd<CR>
 map <C-b> :TComment<CR>
 map <C-c> :silent !gitx<CR>
+map :ws :w !sudo tee %<CR>
 map <C-s> :w<CR>
 colorscheme tomorrow_night
 " colorscheme desert
@@ -101,7 +89,7 @@ endfunction
 
 command! -nargs=+ -complete=file Ack call AckGrep(<q-args>)
 
-let mapleader = "\\"
+let mapleader = "\_"
 map <Leader>a :Ack<space>
 " Close quicfix window
 map <F8> :ccl<CR>
@@ -131,6 +119,22 @@ filetype on
 filetype plugin on
 filetype indent on
 
+" Navigation
+" Text-bubbling (using unimpaired for boundaries)
+" unmap <Leader>n
+" unmap <Leader>t
+
+" nnoremap <Leader>n [e
+" nmap <Leader>t ]e
+" imap <Leader>n [e
+" imap <Leader>t ]e
+" 
+" " Visual mode
+" vnoremap <Leader><Up> [egv
+" unmap <A-Down>
+" vnoremap <A-Down> ]egv
+" vnoremap <Leader>n [egv
+" vnoremap <Leader>t ]egv
 let g:delimitMate_autoclose=0
 " Ignore files
 set wildignore+=*.o,*.obj,.git,dev-server/**,*.class,public/packages/**,public/assets/**,vendor/rails/**,*.jar,*.zip,*.md5,target/**,mvn-local-repo/**
