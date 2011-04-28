@@ -50,20 +50,19 @@ set incsearch
 " Highlighting is obnoxiouz
 " set hlsearch
 
+map <F2> :GundoToggle<CR>
 map <F3> :CommandTFlush<CR>
 map <C-t> :CommandT<CR>
 map <C-n> :CommandTBuffer<CR>
 
-map <F10> :FufFile **/<CR>
+
+
 map <C-m> :MRU<CR>
-map :ws :w !sudo tee %<CR>
 map <S-Esc> :bd<CR>
 map <C-b> :TComment<CR>
 map <C-c> :silent !gitx<CR>
-
-map <F1> zfap
-map <F2> zo
-
+map :ws :w !sudo tee %<CR>
+map <C-s> :w<CR>
 colorscheme tomorrow_night
 " colorscheme desert
 
@@ -90,11 +89,12 @@ endfunction
 
 command! -nargs=+ -complete=file Ack call AckGrep(<q-args>)
 
-let mapleader = "\\"
+let mapleader = "\_"
 map <Leader>a :Ack<space>
 " Close quicfix window
 map <F8> :ccl<CR>
 map! <Leader>e <C-x><C-n>
+map <Leader>w :Gwrite<CR>
 
 
 " Allow yanking/pasting directly to/from OS X clipboard
@@ -119,6 +119,22 @@ filetype on
 filetype plugin on
 filetype indent on
 
+" Navigation
+" Text-bubbling (using unimpaired for boundaries)
+" unmap <Leader>n
+" unmap <Leader>t
+
+" nnoremap <Leader>n [e
+" nmap <Leader>t ]e
+" imap <Leader>n [e
+" imap <Leader>t ]e
+" 
+" " Visual mode
+" vnoremap <Leader><Up> [egv
+" unmap <A-Down>
+" vnoremap <A-Down> ]egv
+" vnoremap <Leader>n [egv
+" vnoremap <Leader>t ]egv
 let g:delimitMate_autoclose=0
 " Ignore files
 set wildignore+=*.o,*.obj,.git,dev-server/**,*.class,public/packages/**,public/assets/**,vendor/rails/**,*.jar,*.zip,*.md5,target/**,mvn-local-repo/**
