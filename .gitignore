@@ -1,4 +1,6 @@
 .vim/view/
+.vim/ruby/
 .DS_Store
 hosts/*/.xmonad/xmonad-*
 hosts/*/.xmonad/xmonad.o
+.oh-my-zsh/cache
