@@ -1,2 +1,4 @@
 .vim/view/
 .DS_Store
+hosts/*/.xmonad/xmonad-*
+hosts/*/.xmonad/xmonad.o

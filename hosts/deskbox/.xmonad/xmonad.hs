@@ -10,6 +10,7 @@ import System.IO
 -- myConfig = defaultConfig {
 main = do
     statuspipe <- spawnPipe "dzen2 -bg black -fg white -ta l -w 1680"
+    spawn "conky -d"
 --    bar <- spawnPipe myDateBar
     xmonad $ defaultConfig {
         modMask = mod4Mask
@@ -41,7 +42,6 @@ myKeys =
         ]
 
 myFocusedBorderColor = "#F3D26B"
--- myNormalBorderColor = "#5058FC"
 myNormalBorderColor = "#000000"
 myDateBar = "conky | dzen2 -ta r -h 14 -w 1280 -x 1280 -bg black -fg white"
 
