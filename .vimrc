@@ -111,6 +111,8 @@ let g:miniBufExplModSelTarget = 1
 
 let g:CommandTMatchWindowAtTop = 1
 
+# Buffer remains hidden on deletion
+set hidden
 call pathogen#runtime_append_all_bundles()
 
 syntax on
@@ -119,6 +121,7 @@ filetype on
 filetype plugin on
 filetype indent on
 
+nmap <C-W>! <Plug>Kwbd
 " Navigation
 " Text-bubbling (using unimpaired for boundaries)
 " unmap <Leader>n
