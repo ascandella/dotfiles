@@ -111,7 +111,7 @@ let g:miniBufExplModSelTarget = 1
 
 let g:CommandTMatchWindowAtTop = 1
 
-# Buffer remains hidden on deletion
+" Buffer remains hidden on deletion
 set hidden
 call pathogen#runtime_append_all_bundles()
 
