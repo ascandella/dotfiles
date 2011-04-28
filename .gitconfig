@@ -1,0 +1,18 @@
+[core]
+	editor = /usr/bin/vim
+	whitespace = trailing-space,space-before-tab
+[user]
+	name = Aiden Scandella
+	email = aiden.scandella@socrata.com
+[push]
+	default = tracking
+[diff]
+	renames = copies
+	mnemonicprefix = true
+[branch]
+	autosetupmerge = true
+[alias]
+        ir = !git rebase -i origin/master
+        up = !git fetch origin && git rebase origin/master
+        rmb = !sh -c 'git branch -D $1 && git push origin :$1' -
+        who = shortlog -n -s --no-merges
