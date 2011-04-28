@@ -55,13 +55,26 @@ map <F3> :CommandTFlush<CR>
 map <C-t> :CommandT<CR>
 map <C-n> :CommandTBuffer<CR>
 
+
+" Navigation
+" Text-bubbling (using unimpaired for boundaries)
+nnoremap <A-n> [e
+nmap <A-t> ]e
+imap <A-n> [e
+imap <A-t> ]e
+
+" Visual mode
+vmap <A-Up> [egv
+vmap <A-Down> ]egv
+vmap <A-n> [egv
+vmap <A-t> ]egv
+
 map <C-m> :MRU<CR>
 map :ws :w !sudo tee %<CR>
 map <S-Esc> :bd<CR>
 map <C-b> :TComment<CR>
 map <C-c> :silent !gitx<CR>
-
-
+map <C-s> :w<CR>
 colorscheme tomorrow_night
 " colorscheme desert
 
@@ -93,6 +106,7 @@ map <Leader>a :Ack<space>
 " Close quicfix window
 map <F8> :ccl<CR>
 map! <Leader>e <C-x><C-n>
+map <Leader>w :Gwrite<CR>
 
 
 " Allow yanking/pasting directly to/from OS X clipboard
