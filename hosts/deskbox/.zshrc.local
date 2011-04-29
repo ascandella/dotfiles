@@ -1,0 +1,4 @@
+alias simba='~/bin/simba.sh'
+alias dock='ssh simba killall Dock'
+export PATH=$PATH:~/bin/
+alias mvim='gvim'
