@@ -74,4 +74,4 @@ ${voffset -8}${font}${voffset -38}${font MS:size=26}${execi 600 conkyForecast --
 ${endif}
 
 LOGS ${hr 2}
-${font WenQuanYi Micro Hei Mono:size=9}${execi 1 sudo /usr/bin/tail /var/log/syslog | grep -E --invert-match "(sudo)|(CRON)" | tail -n 4 | sed 's/[^ ]* [^ ]* //' | fold -w28}{$font}
+${font WenQuanYi Micro Hei Mono:size=9}${execi 1 sudo /usr/bin/tail /var/log/syslog | grep -E --invert-match "(sudo)|(CRON)" | tail -n 4 | sed 's/[^ ]* [^ ]* //' | fold -w28}${font}
