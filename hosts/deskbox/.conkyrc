@@ -48,6 +48,8 @@ $membar
 ${font sans-serif:bold:size=8}DISKS ${hr 2}
 ${font sans-serif:normal:size=8}/ $alignc ${fs_used /} / ${fs_size /} $alignr ${fs_used_perc /}%
 ${fs_bar /}
+${font sans-serif:normal:size=8}BACKUP $alignc ${fs_used /media/backup} / ${fs_size /media/backup} $alignr ${fs_used_perc /media/backup}%
+${fs_bar /}
 SWAP $alignc ${swap} / ${swapmax} $alignr ${swapperc}%
 ${swapbar}
 
@@ -61,9 +63,9 @@ $font${top_mem name 5}${alignr}${top mem 5} %
 ${font sans-serif:bold:size=8}NETWORK ${hr 2}
 ${font sans-serif:normal:size=8}IP address: $alignr ${addr eth0}
 ${downspeedgraph eth0}
-DLS:${downspeed eth0} kb/s $alignr total: ${totaldown ath0}
+DLS:${downspeed eth0} kb/s $alignr total: ${totaldown eth0}
 ${upspeedgraph eth0}
-ULS:${upspeed eth0} kb/s $alignr total: ${totalup ath0}
+ULS:${upspeed eth0} kb/s $alignr total: ${totalup eth0}
 
 WEATHER ${hr 2}
 ${if_existing /proc/net/route eth0}
@@ -72,4 +74,4 @@ ${voffset -8}${font}${voffset -38}${font MS:size=26}${execi 600 conkyForecast --
 ${endif}
 
 LOGS ${hr 2}
-${execi 1 sudo /usr/bin/tail /var/log/syslog | grep --invert-match "sudo" | tail -n 4 | fold -w34}
+${font WenQuanYi Micro Hei Mono:size=9}${execi 1 sudo /usr/bin/tail /var/log/syslog | grep -E --invert-match "(sudo)|(CRON)" | tail -n 4 | sed 's/[^ ]* [^ ]* //' | fold -w28}{$font}
