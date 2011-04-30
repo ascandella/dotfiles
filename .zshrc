@@ -17,6 +17,7 @@ alias lions='ssh lions'
 alias attu='ssh aiden@attu.cs.washington.edu'
 alias vpn='ssh lvpn'
 alias ll='ls -l'
+alias ltr='ls -ltr'
 alias drop='cd ~/Dropbox/'
 alias t='tmux -u'
 
