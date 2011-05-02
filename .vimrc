@@ -14,7 +14,6 @@ no L N
 
 nnoremap ; :
 
-iabbrev crchris Reviewed-by: Chris Metcalf <chris.metcalf@socrata.com>
 iabbrev crjeff Reviewed-by: Jeff Scherpelz <jeff.scherpelz@socrata.com>
 iabbrev crrobert Reviewed-by: Robert Macomber <robert.macomber@socrata.com>
 iabbrev crpaul Reviewed-by: Paul Paradise <paul.paradise@socrata.com>
@@ -22,8 +21,7 @@ iabbrev crsam Reviewed-by: Sam Gibson <sam.gibson@socrata.com>
 iabbrev crclint Reviewed-by: Clint Tseng <clint.tseng@socrata.com>
 iabbrev crchi Reviewed-by: Chi Tang <chi.tang@socrata.com>
 iabbrev crme Reviewed-by: Aiden Scandella <aiden.scandella@socrata.com>
-iabbrev crmay Reviewed-by: May Peria <may.peria@socrata.com>
-iabbrev crtodd Reviewed-by: Todd Stavish <todd.stavish@socrata.com>
+iabbrev crchris Reviewed-by: Chris Metcalf <chris.metcalf@socrata.com>
 
 " Programming abbreviations
 iabbrev endd <%- end -%>
@@ -89,7 +87,7 @@ endfunction
 
 command! -nargs=+ -complete=file Ack call AckGrep(<q-args>)
 
-let mapleader = "\_"
+" let mapleader = "\_"
 map <Leader>a :Ack<space>
 " Close quicfix window
 map <F8> :ccl<CR>
@@ -110,6 +108,13 @@ let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
 
 let g:CommandTMatchWindowAtTop = 1
+
+" Zen Coding
+let g:user_zen_expandabbr_key = '<c-e>'
+let g:use_zen_complete_tag = 1
+let g:user_zen_settings = {
+\ 'indentation': '  '
+\}
 
 " Buffer remains hidden on deletion
 set hidden
