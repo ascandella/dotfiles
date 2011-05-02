@@ -1,4 +1,4 @@
-background no
+background yes
 use_xft yes
 xftfont Sans:size=8
 xftalpha 0.8
@@ -9,18 +9,18 @@ own_window_transparent no
 own_window_type panel
 own_window_hints undecorated,sticky,skip_taskbar,skip_pager
 double_buffer yes
-minimum_size 200 200
+minimum_size 200 1024
 maximum_width 200
 draw_shades yes
 draw_outline no
 draw_borders no
-draw_graph_borders yes
+draw_graph_borders no
 default_color white
 default_shade_color black
 default_outline_color white
 alignment middle_right
-gap_x 2
-gap_y 0
+gap_x 4
+gap_y 10
 no_buffers yes
 uppercase no
 cpu_avg_samples 2
