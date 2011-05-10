@@ -11,6 +11,8 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+export OPSCODE_USER="aidenscandella"
+
 alias dante='ssh scandac@dante.u.washington.edu'
 alias tf='ssh scandac@techfee.washington.edu'
 alias lions='ssh lions'
@@ -31,6 +33,7 @@ alias 'pa'='ps aux | grep '
 alias socra='cd ~/src/socrata'
 alias sfr='cd ~/src/socrata/frontend'
 alias scr='cd ~/src/socrata/core'
+alias chef='cd ~/src/socrata/chef'
 alias ws='cd ~/src'
 alias g='noglob git'
 alias c='gitx -c'
