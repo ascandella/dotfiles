@@ -49,11 +49,12 @@ set incsearch
 " set hlsearch
 
 map <F2> :GundoToggle<CR>
-map <F3> :CommandTFlush<CR>
+map <F1> :CommandTFlush<CR>
 map <C-t> :CommandT<CR>
 map <C-n> :CommandTBuffer<CR>
 
-
+" I never use :ex, this is always by accident
+map Q :set sts=4:set sw=4
 
 map <C-m> :MRU<CR>
 map <S-Esc> :bd<CR>
@@ -126,7 +127,7 @@ filetype on
 filetype plugin on
 filetype indent on
 
-nmap <C-W>! <Plug>Kwbd
+nmap <C-W>m <Plug>Kwbd
 " Navigation
 " Text-bubbling (using unimpaired for boundaries)
 " unmap <Leader>n
