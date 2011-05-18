@@ -93,7 +93,7 @@ case $HOST {
     # simba|brooke) export ZSH_THEME="candy" ;;
     simba|brooke) export ZSH_THEME="nanotech" ;;
     crunchy|aiden-u10) export ZSH_THEME="daveverwer" ;;
-    util[0-9]{2}) export ZSH_THEME="Soliah" ;;
+    util[0-9]*) export ZSH_THEME="Soliah" ;;
     *) export ZSH_THEME="daveverwer" ;;
     # daveverwer candy Soliah kennethreitz random
 }
