@@ -15,6 +15,7 @@ main = do
 --    bar <- spawnPipe myDateBar
     xmonad $ defaultConfig {
         modMask = mod4Mask
+        , terminal = myTerminal
         , borderWidth = 2
         , focusedBorderColor = myFocusedBorderColor
         , normalBorderColor  = myNormalBorderColor
@@ -47,3 +48,5 @@ myNormalBorderColor = "#000000"
 myDateBar = "conky | dzen2 -ta r -h 14 -w 1280 -x 1280 -bg black -fg white"
 myScreensaver = "xscreensaver &"
 myStartupHook = return ()
+myTerminal :: String
+myTerminal = "gnome-terminal --maximize"
