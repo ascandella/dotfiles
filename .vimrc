@@ -12,7 +12,9 @@ no S :
 no l n
 no L N
 
-nnoremap ; :
+
+" Changed my mind: I like ; as repeat find
+" nnoremap ; :
 
 iabbrev crjeff Reviewed-by: Jeff Scherpelz <jeff.scherpelz@socrata.com>
 iabbrev crrobert Reviewed-by: Robert Macomber <robert.macomber@socrata.com>
@@ -35,7 +37,8 @@ set autoindent
 set number
 set ruler
 " Hide tool bar for mvim / gvim
-set go-=T
+set go=a
+set go-=Trm
 
 set hidden
 set viminfo='20,\"500
@@ -66,7 +69,7 @@ colorscheme tomorrow_night
 " colorscheme desert
 
 set scrolloff=3
-set listchars=tab:>-,trail:·,eol:$
+set listchars=tab:>-,trail:_,eol:$
 nmap <silent> <Leader>s :set nolist!<CR>
 
 augroup myfiletypes
@@ -110,7 +113,7 @@ let g:miniBufExplModSelTarget = 1
 
 let g:CommandTMatchWindowAtTop = 1
 
-" Zen Coding
+" Zen CodinG
 let g:user_zen_expandabbr_key = '<c-e>'
 let g:use_zen_complete_tag = 1
 let g:user_zen_settings = {

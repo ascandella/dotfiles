@@ -1,5 +1,5 @@
 [core]
-	editor = /usr/bin/vim
+	editor = /usr/local/bin/vim -X
 	whitespace = trailing-space,space-before-tab
 [user]
 	name = Aiden Scandella
