@@ -80,7 +80,7 @@ alias lma='alias | grep -e "alias g[0-9]"|grep -v "alias m"|sed "s/alias //"'
 touch ~/.bookmarks
 source ~/.bookmarks
 
-HOST=`hostname`
+HOST=`hostname -s`
 test -r ~/.zshrc.$HOST && . ~/.zshrc.$HOST
 test -r ~/.zshrc.local && . ~/.zshrc.local
 
@@ -89,8 +89,15 @@ export ZSH=$HOME/.oh-my-zsh
 
 # Set to the name theme to load.
 # Look in ~/.oh-my-zsh/themes/
-export ZSH_THEME="kennethreitz"
-
+case $HOST {
+    # simba|brooke) export ZSH_THEME="candy" ;;
+    simba|brooke) export ZSH_THEME="nanotech" ;;
+    crunchy|aiden-u10) export ZSH_THEME="daveverwer" ;;
+    util[0-9]{2}) export ZSH_THEME="Soliah" ;;
+    *) export ZSH_THEME="daveverwer" ;;
+    # daveverwer candy Soliah kennethreitz random
+}
+#
 # Set to this to use case-sensitive completion
 # export CASE_SENSITIVE="true"
 
