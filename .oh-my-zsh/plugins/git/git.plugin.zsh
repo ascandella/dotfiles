@@ -13,7 +13,7 @@ gdv() { git-diff -w "$@" | view - }
 compdef _git gdv=git-diff
 alias gc='git commit -v'
 compdef _git gc=git-commit
-alias gca='git commit -v -a'
+alias gca='git commit --amend'
 compdef _git gca=git-commit
 alias gco='git checkout'
 compdef _git gco=git-checkout
