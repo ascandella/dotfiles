@@ -22,10 +22,13 @@ alias ll='ls -l'
 alias ltr='ls -ltr'
 alias drop='cd ~/Dropbox/'
 alias t='tmux -u'
+alias tls='tmux -u ls'
+alias ta='tmux -u att'
 
 alias socia='cd ~/src/socia'
 alias vihosts='sudo mvim /etc/hosts'
 alias diffed='git diff --cached | pbcopy'
+alias vim='vim -X'
 
 alias 'pa'='ps aux | grep '
 
