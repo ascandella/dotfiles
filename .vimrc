@@ -24,6 +24,7 @@ iabbrev crclint Reviewed-by: Clint Tseng <clint.tseng@socrata.com>
 iabbrev crchi Reviewed-by: Chi Tang <chi.tang@socrata.com>
 iabbrev crme Reviewed-by: Aiden Scandella <aiden.scandella@socrata.com>
 iabbrev crchris Reviewed-by: Chris Metcalf <chris.metcalf@socrata.com>
+iabbrev crmichael Reviewed-by: Michael Chui <michael.chui@socrata.com>
 
 " Programming abbreviations
 iabbrev endd <%- end -%>
