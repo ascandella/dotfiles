@@ -1,7 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/Users/echo/.dotfiles/.vim'
-let g:netrw_dirhist_2='/Users/echo/.dotfiles'
-let g:netrw_dirhist_3='/Users/echo/.dotfiles/.vim/bundle/align/plugin'
-let g:netrw_dirhist_4='/Users/echo/.dotfiles'
-let g:netrw_dirhist_5='/etc/wpa_supplicant'
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/Users/echo/src/socrata/frontend/vendor/rails'
+let g:netrw_dirhist_2='/Users/echo/src/socrata/frontend/vendor/rails/actionpack'
+let g:netrw_dirhist_3='/Users/echo/src/socrata/frontend/vendor/rails/actionpack/lib'
+let g:netrw_dirhist_4='/Users/echo/src/socrata/frontend/vendor/rails/actionpack/lib/action_controller'
+let g:netrw_dirhist_5='/Users/echo/src/socrata/frontend/vendor'
+let g:netrw_dirhist_6='/Users/echo/src/socrata/theming/nola'

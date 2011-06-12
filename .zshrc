@@ -28,7 +28,7 @@ alias ta='tmux -u att'
 alias socia='cd ~/src/socia'
 alias vihosts='sudo mvim /etc/hosts'
 alias diffed='git diff --cached | pbcopy'
-alias vim='vim -X'
+# alias vim='vim -X'
 
 alias 'pa'='ps aux | grep '
 
@@ -64,7 +64,7 @@ fi
 
 export ANT_OPTS="-Xms900m -Xmx900m"
 
-export SVN_EDITOR="vim"
+export EDITOR=/usr/bin/vim
 #source .rake_completion.zsh
 export NODE_PATH=/usr/local/lib/node
 
@@ -116,7 +116,12 @@ plugins=(git brew gem)
 
 source $ZSH/oh-my-zsh.sh
 
-export PATH=$HOME/src/scripts:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:$HOME/.rvm/bin
+#
+# This line is to fix some RVM/ZSH interactions for determining the current path
+unsetopt auto_name_dirs
+[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
+
+export PATH=$HOME/src/scripts:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:$HOME/.rvm/bin
 
 echo $PATH | grep -q -s "/Users/echo/Library/Haskell/bin"
 if [ $? -eq 1 ] ; then
@@ -124,6 +129,7 @@ if [ $? -eq 1 ] ; then
     export PATH
 fi
 
-# This line is to fix some RVM/ZSH interactions for determining the current path
-unsetopt auto_name_dirs
-[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
+case ${TERM} in
+  screen-256color) TERM=xterm-color
+  ;;
+esac

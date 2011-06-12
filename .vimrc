@@ -59,12 +59,13 @@ map <C-n> :CommandTBuffer<CR>
 " I never use :ex, this is always by accident
 map Q :set sts=4:set sw=4
 
-map <C-m> :MRU<CR>
+" map <C-m> :MRU<CR>
 map <S-Esc> :bd<CR>
 map <C-b> :TComment<CR>
 map <C-c> :silent !gitx<CR>
 map :ws :w !sudo tee %<CR>
 map <C-s> :w<CR>
+imap <C-s> <Esc>:w<CR>a
 colorscheme tomorrow_night
 " colorscheme desert
 
@@ -149,4 +150,4 @@ nmap <C-W>m <Plug>Kwbd
 " vnoremap <Leader>t ]egv
 let g:delimitMate_autoclose=0
 " Ignore files
-set wildignore+=*.o,*.obj,.git,dev-server/**,*.class,public/packages/**,public/assets/**,vendor/rails/**,*.jar,*.zip,*.md5,target/**,mvn-local-repo/**
+set wildignore+=*.o,*.obj,.git,dev-server/**,*.class,public/packages/**,public/assets/**,vendor/rails/**,*.jar,*.zip,*.md5,target/**,mvn-local-repo/**,public/images/**,public/stylesheets/images/**
