@@ -1,0 +1,6 @@
+URxvt*transparent:true
+URxvt*background:Black
+URxvt*foreground:White
+URxvt*shading:40
+URxvt*font: xft:Inconsolata:pixelsize=14
+Rxvt*scrollbar:false

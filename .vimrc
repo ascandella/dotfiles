@@ -19,7 +19,6 @@ no L N
 iabbrev crjeff Reviewed-by: Jeff Scherpelz <jeff.scherpelz@socrata.com>
 iabbrev crrobert Reviewed-by: Robert Macomber <robert.macomber@socrata.com>
 iabbrev crpaul Reviewed-by: Paul Paradise <paul.paradise@socrata.com>
-iabbrev crsam Reviewed-by: Sam Gibson <sam.gibson@socrata.com>
 iabbrev crclint Reviewed-by: Clint Tseng <clint.tseng@socrata.com>
 iabbrev crchi Reviewed-by: Chi Tang <chi.tang@socrata.com>
 iabbrev crme Reviewed-by: Aiden Scandella <aiden.scandella@socrata.com>
