@@ -34,7 +34,7 @@ set sw=4
 set cindent
 set smartindent
 set autoindent
-set number
+set nonumber
 set ruler
 " Hide tool bar for mvim / gvim
 set go=a
@@ -48,8 +48,8 @@ set ignorecase
 
 " Start searching incrementally (immediately)
 set incsearch
-" Highlighting is obnoxiouz
-" set hlsearch
+" Highlighting is obnoxious
+set hlsearch
 
 map <F2> :GundoToggle<CR>
 map <F1> :CommandTFlush<CR>
@@ -64,7 +64,8 @@ map <S-Esc> :bd<CR>
 map <C-b> :TComment<CR>
 map <C-c> :silent !gitx<CR>
 map :ws :w !sudo tee %<CR>
-map <C-s> :w<CR>
+map <C-s> <C-w>l
+" map <C-s> :w<CR>
 imap <C-s> <Esc>:w<CR>a
 colorscheme tomorrow_night
 " colorscheme desert
