@@ -49,7 +49,7 @@ set ignorecase
 " Start searching incrementally (immediately)
 set incsearch
 " Highlighting is obnoxious
-set hlsearch
+set nohlsearch
 
 map <F2> :GundoToggle<CR>
 map <F1> :CommandTFlush<CR>
