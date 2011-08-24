@@ -6,3 +6,4 @@ hosts/*/.xmonad/xmonad.o
 .oh-my-zsh/cache
 .AppleDouble
 .vim/.netrwhist
+hosts/*/.weechat/logs/
