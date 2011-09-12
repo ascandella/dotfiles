@@ -1,7 +1,7 @@
 # Aliases
 alias g='git'
 compdef g=git
-alias gst='git status'
+alias gst='git status -sb'
 compdef _git gst=git-status
 alias gl='git pull'
 compdef _git gl=git-pull
