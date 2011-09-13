@@ -11,10 +11,12 @@
 	mnemonicprefix = true
 [branch]
 	autosetupmerge = true
+	autosetuprebase = always
 [alias]
         ir = !git rebase -i origin/master
         up = !git fetch origin && git rebase origin/master
         rmb = !sh -c 'git branch -D $1 && git push origin :$1' -
         who = shortlog -n -s --no-merges
+        lol = log --oneline --decorate
 [color]
 	ui = true
