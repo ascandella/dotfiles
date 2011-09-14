@@ -48,7 +48,9 @@ export SOCRATA_CREDENTIALS='aiden:nediaa'
 export MAVEN_OPTS=-Xmx2048m
 alias psqlprod='psql -h metadbm.sea1.socrata.com -U echo -W blist_prod'
 alias shuffle='git stash && git pull --rebase && git stash pop'
-#source ~/src/socrata-toolbox/etc/aliases
+
+alias tailcore='cd ~/src/socrata/chef && knife ssh "role:coreserver AND app_environment:production" -- tail -f /srv/core/shared/log/core-server.log'
+#source ~/src/socrata/socrata-toolbox/etc/aliases
 # -- End Socrata aliases --
 
 #export PS1="[%n]%~%# "
