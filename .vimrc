@@ -24,6 +24,7 @@ iabbrev crchi Reviewed-by: Chi Tang <chi.tang@socrata.com>
 iabbrev crme Reviewed-by: Aiden Scandella <aiden.scandella@socrata.com>
 iabbrev crchris Reviewed-by: Chris Metcalf <chris.metcalf@socrata.com>
 iabbrev crmichael Reviewed-by: Michael Chui <michael.chui@socrata.com>
+iabbrev crrohan Reviewed-by: Rohan Singh <rohan.singh@socrata.com>
 
 " Programming abbreviations
 iabbrev endd <%- end -%>
@@ -151,4 +152,4 @@ nmap <C-W>m <Plug>Kwbd
 " vnoremap <Leader>t ]egv
 let g:delimitMate_autoclose=0
 " Ignore files
-set wildignore+=*.o,*.obj,.git,dev-server/**,*.class,public/packages/**,public/assets/**,vendor/rails/**,*.jar,*.zip,*.md5,target/**,mvn-local-repo/**,public/images/**,public/stylesheets/images/**
+set wildignore+=*.o,*.obj,.git,dev-server/**,*.class,public/packages/**,public/assets/**,vendor/rails/**,*.jar,*.zip,*.md5,target/**,mvn-local-repo/**,public/images/**,public/stylesheets/images/**,vendor/**
