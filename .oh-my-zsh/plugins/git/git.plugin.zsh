@@ -28,6 +28,9 @@ compdef _git gcp=git-cherry-pick
 alias glg='git log --stat --max-count=5'
 compdef _git glg=git-log
 
+# also 'shuffle'
+alias gs='git stash --include-untracked && git pull --rebase && git stash pop'
+
 # Git and svn mix
 alias git-svn-dcommit-push='git svn dcommit && git push github master:svntrunk'
 compdef git-svn-dcommit-push=git
