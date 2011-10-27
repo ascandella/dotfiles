@@ -1,1 +1,1 @@
-alias brooke='ssh -t brooke /opt/local/bin/tmux attach -t socrata'
+alias simba='ssh -t simba /opt/local/bin/tmux attach -t socrata'
