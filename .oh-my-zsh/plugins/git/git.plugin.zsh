@@ -27,6 +27,8 @@ alias gcp='git cherry-pick'
 compdef _git gcp=git-cherry-pick
 alias glg='git log --stat --max-count=5'
 compdef _git glg=git-log
+alias gld='git log --decorate'
+compdef _git gld=git-log
 
 # also 'shuffle'
 alias gs='git stash --include-untracked && git pull --rebase && git stash pop'

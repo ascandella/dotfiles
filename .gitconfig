@@ -18,7 +18,7 @@
         rmb = !sh -c 'git branch -D $1 && git push origin :$1' -
         who = shortlog -n -s --no-merges
         lol = log --oneline --decorate
-        edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
+        edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; $VIM_DIFFER `f` +Gdiff"
         add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
 
 [color]

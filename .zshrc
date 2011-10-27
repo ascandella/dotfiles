@@ -96,10 +96,10 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 case $HOST {
     # simba|brooke) export ZSH_THEME="candy" ;;
-    simba|banksy) export ZSH_THEME="nanotech" ;;
-    crunchy|aiden-u10) export ZSH_THEME="Soliah" ;;
-    util[0-9]*) export ZSH_THEME="daveverwer" ;;
-    *) export ZSH_THEME="daveverwer" ;;
+    simba|banksy) export ZSH_THEME="nanotech" ; export VIM_DIFFER=/usr/local/bin/mvim ;;
+    crunchy|aiden-u10) export ZSH_THEME="Soliah" ; export VIM_DIFFER=gvim ;;
+    util[0-9]*) export ZSH_THEME="daveverwer" ; export VIM_DIFFER=`which vim` ;;
+    *) export ZSH_THEME="daveverwer" ; export VIM_DIFFER=`which vim` ;;
     # daveverwer candy Soliah kennethreitz random
 }
 #
