@@ -256,11 +256,18 @@ elseif &background=='dark'
   " DARK COLOR DEFINE START
 
   hi Normal		guifg=#d0d0d0	guibg=#202020	gui=NONE
-  hi Comment		guifg=#d0d090	guibg=NONE	gui=NONE
-  hi Constant		guifg=#80c0e0	guibg=NONE	gui=NONE
+  hi Comment		guifg=#bafdbb	guibg=NONE	gui=NONE
+  hi Constant		guifg=#4f96e7	guibg=NONE	gui=NONE
   hi Number		guifg=#e0c060	guibg=NONE	gui=NONE
   hi Identifier		guifg=#f0c0f0	guibg=NONE	gui=NONE
-  hi Statement		guifg=#c0d8f8	guibg=NONE	gui=NONE
+  " Customizations
+  hi Statement		guifg=#8eb8ff	guibg=NONE	gui=NONE
+  hi String             guifg=#7fdc56   gui=none 
+  hi Function           guifg=#f2a973   gui=none 
+  hi Operator           guifg=#a5e564   gui=none 
+  hi Delimiter          guifg=#d09562   gui=none 
+  hi Structure          guifg=#ba9ac2   gui=none 
+  " End customizations
   hi PreProc		guifg=#60f080	guibg=NONE	gui=NONE
   hi Type		guifg=#b0d0f0	guibg=NONE	gui=NONE
   hi Special		guifg=#e0c060	guibg=NONE	gui=NONE
