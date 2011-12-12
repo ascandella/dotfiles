@@ -67,6 +67,7 @@ map <C-c> :silent !gitx<CR>
 map :ws :w !sudo tee %<CR>
 map <C-s> <C-w>l
 imap <C-s> <Esc>:w<CR>a
+set background=dark
 colorscheme peaksea
 " colorscheme desert
 

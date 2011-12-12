@@ -313,7 +313,7 @@ elseif &background=='dark'
     hi TabLineFill	guifg=fg	guibg=#008000	gui=NONE
     hi TabLineSel	guifg=fg	guibg=NONE	gui=NONE
     hi CursorColumn	guifg=NONE	guibg=#800000	gui=NONE
-    hi CursorLine	guifg=NONE	guibg=NONE	gui=underline
+    hi CursorLine	guibg=#404040   gui=NONE
     hi MatchParen	guifg=NONE	guibg=#800080
   endif
 
@@ -333,7 +333,7 @@ elseif &background=='dark'
     hi TabLine		gui=underline  
     hi TabLineFill	gui=underline  
     hi Underlined	gui=underline  
-    hi CursorLine	gui=underline 
+    " hi CursorLine	gui=underline 
   endif
 
   " gui define for background=dark end here
