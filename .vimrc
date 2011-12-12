@@ -134,6 +134,11 @@ filetype plugin on
 filetype indent on
 
 nmap <C-W>m <Plug>Kwbd
+
+if has("autocmd")
+    " Delete fugitive buffers on hide
+    autocmd BufReadPost fugitive://* set bufhidden=delete
+endif
 " Navigation
 " Text-bubbling (using unimpaired for boundaries)
 " unmap <Leader>n
@@ -150,6 +155,11 @@ nmap <C-W>m <Plug>Kwbd
 " vnoremap <A-Down> ]egv
 " vnoremap <Leader>n [egv
 " vnoremap <Leader>t ]egv
+"
+"
+
+" au FileType html,xml,erb so ~/.vim/bundle/html-autoclose/ftplugin/html_autoclosetag.vim
+
 let g:delimitMate_autoclose=0
 " Ignore files
 set wildignore+=*.o,*.obj,.git,dev-server/**,*.class,public/packages/**,public/assets/**,vendor/rails/**,*.jar,*.zip,*.md5,target/**,mvn-local-repo/**,public/images/**,public/stylesheets/images/**,vendor/**

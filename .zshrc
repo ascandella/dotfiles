@@ -24,6 +24,7 @@ alias drop='cd ~/Dropbox/'
 alias t='tmux -u'
 alias tls='tmux -u ls'
 alias ta='tmux -u att'
+alias ftfy='fc'
 
 alias socia='cd ~/src/socia'
 alias vihosts='sudo mvim /etc/hosts'
