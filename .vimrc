@@ -66,9 +66,8 @@ map <C-b> :TComment<CR>
 map <C-c> :silent !gitx<CR>
 map :ws :w !sudo tee %<CR>
 map <C-s> <C-w>l
-" map <C-s> :w<CR>
 imap <C-s> <Esc>:w<CR>a
-colorscheme tomorrow_night
+colorscheme peaksea
 " colorscheme desert
 
 set scrolloff=3
