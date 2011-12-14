@@ -16,3 +16,6 @@
 [submodule ".vim/bundle/css-colors"]
 	path = .vim/bundle/css-colors
 	url = https://github.com/skammer/vim-css-color.git
+[submodule ".vim/bundle/snipmate"]
+        path = .vim/bundle/snipmate
+        url = git@github.com:sectioneight/snipmate.vim.git
