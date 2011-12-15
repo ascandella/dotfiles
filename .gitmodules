@@ -19,3 +19,12 @@
 [submodule ".vim/bundle/snipmate"]
         path = .vim/bundle/snipmate
         url = git@github.com:sectioneight/snipmate.vim.git
+[submodule ".vim/bundle/tagbar"]
+	path = .vim/bundle/tagbar
+	url = https://github.com/majutsushi/tagbar.git
+[submodule ".vim/bundle/surround"]
+	path = .vim/bundle/surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule ".vim/bundle/markdown"]
+	path = .vim/bundle/markdown
+	url = https://github.com/hallison/vim-markdown.git
