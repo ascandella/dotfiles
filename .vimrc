@@ -125,6 +125,9 @@ let g:user_zen_settings = {
 \ 'indentation': '  '
 \}
 
+" Powerline stuff
+let g:Powerline_symbols = 'fancy'
+
 " Buffer remains hidden on deletion
 set hidden
 call pathogen#runtime_append_all_bundles()
