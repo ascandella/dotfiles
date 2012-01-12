@@ -2,6 +2,8 @@ set nocompatible
 set nobackup
 set noswapfile
 set pastetoggle=<F3>
+" Always show the status bar
+set laststatus=2
 
 " Dvorak mappings
 no h h
