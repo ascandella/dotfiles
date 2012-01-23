@@ -61,8 +61,9 @@ map <C-n> :CommandTBuffer<CR>
 
 " I never use :ex, this is always by accident
 map Q :set sts=4:set sw=4
+map <Leader>2 :set sts=2:set sw=2
 
-" map <C-m> :MRU<CR>
+map <C-m> :MRU<CR>
 map <S-Esc> :bd<CR>
 map <C-b> :TComment<CR>
 map <C-c> :silent !gitx<CR>
@@ -96,12 +97,12 @@ endfunction
 
 command! -nargs=+ -complete=file Ack call AckGrep(<q-args>)
 
-" let mapleader = "\_"
+let mapleader = "\_"
 map <Leader>a :Ack<space>
 " Close quicfix window
 map <F8> :ccl<CR>
 map! <Leader>e <C-x><C-n>
-map <Leader>w :Gwrite<CR>
+" map <Leader>w :Gwrite<CR>
 
 
 " Allow yanking/pasting directly to/from OS X clipboard
@@ -144,6 +145,15 @@ if has("autocmd")
     " Delete fugitive buffers on hide
     autocmd BufReadPost fugitive://* set bufhidden=delete
 endif
+
+nmap <silent> <A-Up> :wincmd k<CR>
+nmap <silent> <A-Down> :wincmd j<CR>
+nmap <silent> <A-Left> :wincmd h<CR>
+nmap <silent> <A-Right> :wincmd l<CR>
+imap <silent> <A-Up> <Esc>:wincmd k<CR>a
+imap <silent> <A-Down> <Esc>:wincmd j<CR>a
+imap <silent> <A-Left> <Esc>:wincmd h<CR>a
+imap <silent> <A-Right> <Esc>:wincmd l<CR>a
 " Navigation
 " Text-bubbling (using unimpaired for boundaries)
 " unmap <Leader>n
