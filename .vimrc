@@ -37,7 +37,7 @@ set sw=4
 set cindent
 set smartindent
 set autoindent
-set relativenumber
+" set relativenumber
 set ruler
 " Hide tool bar for mvim / gvim
 set go=a
