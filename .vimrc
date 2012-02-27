@@ -178,3 +178,8 @@ imap <silent> <A-Right> <Esc>:wincmd l<CR>a
 let g:delimitMate_autoclose=0
 " Ignore files
 set wildignore+=*.o,*.obj,.git,dev-server/**,*.class,public/packages/**,public/assets/**,vendor/rails/**,*.jar,*.zip,*.md5,target/**,mvn-local-repo/**,public/images/**,public/stylesheets/images/**,vendor/**
+
+" save and load views (fold lists)
+au BufWinLeave * silent! mkview
+au BufWinEnter * silent! loadview
+ 
