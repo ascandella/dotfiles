@@ -13,6 +13,7 @@
 	autosetupmerge = true
 	autosetuprebase = always
 [alias]
+        ca = commit --amend
         ir = !git rebase -i origin/master
         up = !git fetch origin && git rebase origin/master
         rmb = !sh -c 'git branch -D $1 && git push origin :$1' -

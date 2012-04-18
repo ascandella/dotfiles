@@ -122,6 +122,8 @@ plugins=(git brew gem)
 
 source $ZSH/oh-my-zsh.sh
 
+alias gca='git commit --amend'
+
 #
 # This line is to fix some RVM/ZSH interactions for determining the current path
 unsetopt auto_name_dirs

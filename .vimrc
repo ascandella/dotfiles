@@ -26,7 +26,7 @@ iabbrev crchi Reviewed-by: Chi Tang <chi.tang@socrata.com>
 iabbrev crme Reviewed-by: Aiden Scandella <aiden.scandella@socrata.com>
 iabbrev crchris Reviewed-by: Chris Metcalf <chris.metcalf@socrata.com>
 iabbrev crmichael Reviewed-by: Michael Chui <michael.chui@socrata.com>
-iabbrev crrohan Reviewed-by: Rohan Singh <rohan.singh@socrata.com>
+iabbrev crmarc Reviewed-by: Marc Millstone <marc.millstone@socrata.com>
 
 " Programming abbreviations
 iabbrev endd <%- end -%>
@@ -37,7 +37,7 @@ set sw=4
 set cindent
 set smartindent
 set autoindent
-" set relativenumber
+set relativenumber
 set ruler
 " Hide tool bar for mvim / gvim
 set go=a
@@ -63,7 +63,7 @@ map <C-n> :CommandTBuffer<CR>
 map Q :set sts=4:set sw=4
 map <Leader>2 :set sts=2:set sw=2
 
-map <C-m> :MRU<CR>
+map <C-m> ciw
 map <S-Esc> :bd<CR>
 map <C-b> :TComment<CR>
 map <C-c> :silent !gitx<CR>
@@ -97,11 +97,16 @@ endfunction
 
 command! -nargs=+ -complete=file Ack call AckGrep(<q-args>)
 
-let mapleader = "\_"
+" let mapleader = "\_"
+nmap " " <Nop>
+let mapleader = " "
+
 map <Leader>a :Ack<space>
+map <Leader>h :foldclose<CR>
+map <Leader>t :foldopen<CR>
 " Close quicfix window
 map <F8> :ccl<CR>
-map! <Leader>e <C-x><C-n>
+" map! <Leader>e <C-x><C-n>
 " map <Leader>w :Gwrite<CR>
 
 
@@ -126,8 +131,10 @@ let g:user_zen_settings = {
 \ 'indentation': '  '
 \}
 
-" Powerline stuff
-let g:Powerline_symbols = 'fancy'
+" Turn on fancy symbols for powerline status bar
+if has('gui_running')
+  let g:Powerline_symbols = 'fancy'
+endif
 
 " Buffer remains hidden on deletion
 set hidden
