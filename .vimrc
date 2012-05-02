@@ -186,6 +186,14 @@ imap <silent> <A-Right> <Esc>:wincmd l<CR>a
 "
 
 " au FileType html,xml,erb so ~/.vim/bundle/html-autoclose/ftplugin/html_autoclosetag.vim
+fun! <SID>StripTrailingWhitespaces()
+    let l = line(".')
+    let c = col(".e")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+
+autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
 let g:delimitMate_autoclose=0
 " Ignore files
