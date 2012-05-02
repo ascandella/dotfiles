@@ -23,5 +23,14 @@
         add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
         l = log --decorate --stat
 
+    graph = log --oneline --graph
+
+    amend = commit --amend
+    # Amend previous commit
+
+    sha1 = rev-parse HEAD
+    # Current SHA
+
+
 [color]
 	ui = true
