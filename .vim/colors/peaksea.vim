@@ -40,6 +40,8 @@ let g:colors_name = expand("<sfile>:t:r")
 
 " DARK COLOR DEFINE START
 
+hi ColorColumn ctermbg=darkgrey guibg=#222222
+
 hi Normal		guifg=#d0d0d0	guibg=#202020	gui=NONE
 hi Comment		guifg=#bafdbb	guibg=NONE	gui=NONE
 hi Constant		guifg=#4f96e7	guibg=NONE	gui=NONE

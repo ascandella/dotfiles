@@ -136,6 +136,11 @@ if has('gui_running')
   let g:Powerline_symbols = 'fancy'
 endif
 
+" Character color after 80 chars
+if exists('+colorcolumn')
+    set cc=80
+endif
+
 " Buffer remains hidden on deletion
 set hidden
 call pathogen#runtime_append_all_bundles()
@@ -170,7 +175,7 @@ imap <silent> <A-Right> <Esc>:wincmd l<CR>a
 " nmap <Leader>t ]e
 " imap <Leader>n [e
 " imap <Leader>t ]e
-" 
+"
 " " Visual mode
 " vnoremap <Leader><Up> [egv
 " unmap <A-Down>
@@ -189,4 +194,4 @@ set wildignore+=*.o,*.obj,.git,dev-server/**,*.class,public/packages/**,public/a
 " save and load views (fold lists)
 au BufWinLeave * silent! mkview
 au BufWinEnter * silent! loadview
- 
+
