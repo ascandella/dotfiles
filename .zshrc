@@ -96,30 +96,17 @@ test -r ~/.zshrc.local && . ~/.zshrc.local
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.oh-my-zsh
 
-# Set to the name theme to load.
 # Look in ~/.oh-my-zsh/themes/
 case $HOST {
-    # simba|brooke) export ZSH_THEME="candy" ;;
     simba|banksy) export ZSH_THEME="nanotech" ; export VIM_DIFFER=/usr/local/bin/mvim ;;
     crunchy|aiden-u10) export ZSH_THEME="Soliah" ; export VIM_DIFFER=gvim ;;
     util[0-9]*) export ZSH_THEME="daveverwer" ; export VIM_DIFFER=`which vim` ;;
     *) export ZSH_THEME="daveverwer" ; export VIM_DIFFER=`which vim` ;;
     # daveverwer candy Soliah kennethreitz random
 }
-#
-# Set to this to use case-sensitive completion
-# export CASE_SENSITIVE="true"
 
-# Comment this out to disable weekly auto-update checks
 export DISABLE_AUTO_UPDATE="true"
-
-# Uncomment following line if you want to disable colors in ls
-# export DISABLE_LS_COLORS="true"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew gem)
-
+plugins=(git brew gem knife rails ruby)
 source $ZSH/oh-my-zsh.sh
 
 alias gca='git commit --amend'
