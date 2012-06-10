@@ -37,3 +37,6 @@
 [submodule ".vim/bundle/syntastic"]
 	path = .vim/bundle/syntastic
 	url = git://github.com/scrooloose/syntastic.git
+[submodule ".vim/bundle/vim-eunuch"]
+	path = .vim/bundle/vim-eunuch
+	url = git://github.com/tpope/vim-eunuch.git
