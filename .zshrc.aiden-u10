@@ -1,1 +1,0 @@
-alias simba='ssh -t simba /opt/local/bin/tmux attach -t socrata'
