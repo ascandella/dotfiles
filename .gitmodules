@@ -40,3 +40,6 @@
 [submodule ".vim/bundle/vim-eunuch"]
 	path = .vim/bundle/vim-eunuch
 	url = git://github.com/tpope/vim-eunuch.git
+[submodule "zsh-extensions/zsh-syntax-highlighting"]
+	path = zsh-extensions/zsh-syntax-highlighting
+	url = git://github.com/zsh-users/zsh-syntax-highlighting.git

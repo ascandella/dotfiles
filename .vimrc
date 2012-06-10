@@ -14,22 +14,8 @@ no S :
 no l n
 no L N
 
-
 " Changed my mind: I like ; as repeat find
 " nnoremap ; :
-
-iabbrev crjeff Reviewed-by: Jeff Scherpelz <jeff.scherpelz@socrata.com>
-iabbrev crrobert Reviewed-by: Robert Macomber <robert.macomber@socrata.com>
-iabbrev crpaul Reviewed-by: Paul Paradise <paul.paradise@socrata.com>
-iabbrev crclint Reviewed-by: Clint Tseng <clint.tseng@socrata.com>
-iabbrev crchi Reviewed-by: Chi Tang <chi.tang@socrata.com>
-iabbrev crme Reviewed-by: Aiden Scandella <aiden.scandella@socrata.com>
-iabbrev crchris Reviewed-by: Chris Metcalf <chris.metcalf@socrata.com>
-iabbrev crmichael Reviewed-by: Michael Chui <michael.chui@socrata.com>
-iabbrev crmarc Reviewed-by: Marc Millstone <marc.millstone@socrata.com>
-
-" Programming abbreviations
-iabbrev endd <%- end -%>
 
 set expandtab
 set softtabstop=4
