@@ -7,36 +7,15 @@
 [submodule ".vim/bundle/textobj-user"]
 	path = .vim/bundle/textobj-user
 	url = https://github.com/kana/vim-textobj-user
-[submodule ".vim/bundle/zencoding"]
-	path = .vim/bundle/zencoding
-	url = https://github.com/mattn/zencoding-vim.git
-[submodule ".vim/bundle/css-colors"]
-	path = .vim/bundle/css-colors
-	url = https://github.com/skammer/vim-css-color.git
 [submodule ".vim/bundle/vim-ruby"]
 	path = .vim/bundle/vim-ruby
 	url = https://github.com/vim-ruby/vim-ruby.git
-[submodule ".vim/bundle/snipmate"]
-	path = .vim/bundle/snipmate
-	url = git@github.com:sectioneight/snipmate.vim.git
-[submodule ".vim/bundle/tagbar"]
-	path = .vim/bundle/tagbar
-	url = https://github.com/majutsushi/tagbar.git
 [submodule ".vim/bundle/surround"]
 	path = .vim/bundle/surround
 	url = https://github.com/tpope/vim-surround.git
-[submodule ".vim/bundle/markdown"]
-	path = .vim/bundle/markdown
-	url = https://github.com/hallison/vim-markdown.git
-[submodule ".vim/bundle/vim-powerline"]
-	path = .vim/bundle/vim-powerline
-	url = https://github.com/Lokaltog/vim-powerline.git
 [submodule ".vim/bundle/vim-easymotion"]
 	path = .vim/bundle/vim-easymotion
 	url = https://github.com/Lokaltog/vim-easymotion.git
-[submodule ".vim/bundle/NrrwRgn"]
-	path = .vim/bundle/NrrwRgn
-	url = https://github.com/chrisbra/NrrwRgn.git
 [submodule ".oh-my-zsh"]
 	path = .oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
@@ -49,3 +28,12 @@
 [submodule ".vim/bundle/supertab"]
 	path = .vim/bundle/supertab
 	url = https://github.com/ervandew/supertab.git
+[submodule ".vim/bundle/vim-git"]
+	path = .vim/bundle/vim-git
+	url = git://github.com/tpope/vim-git.git
+[submodule ".vim/bundle/vim-rails"]
+	path = .vim/bundle/vim-rails
+	url = git://github.com/tpope/vim-rails.git
+[submodule ".vim/bundle/syntastic"]
+	path = .vim/bundle/syntastic
+	url = git://github.com/scrooloose/syntastic.git

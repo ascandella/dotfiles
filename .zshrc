@@ -1,130 +1,69 @@
+#
+# Basic configuration
+#
+
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 setopt appendhistory autocd beep extendedglob nomatch
 unsetopt notify
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-zstyle :compinstall filename '/home/echo/.zshrc'
-
+zstyle :compinstall filename '$HOME/.zshrc'
 autoload -Uz compinit
 compinit
-# End of lines added by compinstall
 
-export OPSCODE_USER="aidenscandella"
-
-alias dante='ssh scandac@dante.u.washington.edu'
-alias tf='ssh scandac@techfee.washington.edu'
-alias lions='ssh lions'
-alias attu='ssh aiden@attu.cs.washington.edu'
-alias vpn='ssh lvpn'
-alias ll='ls -l'
-alias ltr='ls -ltr'
-alias drop='cd ~/Dropbox/'
-alias t='tmux -u'
-alias tls='tmux -u ls'
-alias ta='tmux -u att'
-alias ftfy='fc'
-
-alias socia='cd ~/src/socia'
-alias vihosts='sudo mvim /etc/hosts'
-alias diffed='git diff --cached | pbcopy'
-# alias vim='vim -X'
-
-alias 'pa'='ps aux | grep '
-
-# alias scp='noglob scp'
-alias socra='cd ~/src/socrata'
-alias sfr='cd ~/src/socrata/frontend'
-alias scr='cd ~/src/socrata/core'
-alias chef='cd ~/src/socrata/chef'
-alias ws='cd ~/src'
-alias g='noglob git'
-alias c='gitx -c'
-alias gco='git checkout'
-alias testbt='sbt-test.rb'
-
-# -- Socrata aliases --
-export SOCRATA_CREDENTIALS='aiden:nediaa'
-export MAVEN_OPTS=-Xmx2048m
-alias psqlprod='psql -h metadbm.sea1.socrata.com -U echo -W blist_prod'
-alias shuffle='git stash && git pull --rebase && git stash pop'
-
-alias checkout-release='git fetch --tags && git checkout `git tag | grep release | tail -n 1`'
-alias checkout-staging='git fetch --tags && git checkout `git tag | grep staging | tail -n 1`'
-
-alias tailcore='cd ~/src/socrata/chef && knife ssh "role:coreserver AND app_environment:production" -- tail -f /srv/core/shared/log/core-server.log'
-#source ~/src/socrata/socrata-toolbox/etc/aliases
-# -- End Socrata aliases --
-
-#export PS1="[%n]%~%# "
-# DELUXE-USR-LOCAL-BIN-INSERT
-# (do not remove this comment)
-##
-echo $PATH | grep -q -s "/usr/local/bin"
-if [ $? -eq 1 ] ; then
-    PATH=$PATH:/usr/local/bin
-    export PATH
-fi
-
-
-export ANT_OPTS="-Xms900m -Xmx900m"
-
-export EDITOR=/usr/bin/vim
-#source .rake_completion.zsh
-export NODE_PATH=/usr/local/lib/node
-
-# Directory bookmarking
-alias m1='alias g1="cd `pwd`"'
-alias m2='alias g2="cd `pwd`"'
-alias m3='alias g3="cd `pwd`"'
-alias m4='alias g4="cd `pwd`"'
-alias m5='alias g5="cd `pwd`"'
-alias m6='alias g6="cd `pwd`"'
-alias m7='alias g7="cd `pwd`"'
-alias m8='alias g8="cd `pwd`"'
-alias m9='alias g9="cd `pwd`"'
-alias mdump='alias|grep -e "alias g[0-9]"|grep -v "alias m" > ~/.bookmarks'
-alias lma='alias | grep -e "alias g[0-9]"|grep -v "alias m"|sed "s/alias //"'
-touch ~/.bookmarks
-source ~/.bookmarks
+#
+# Theme configuration
+# Look in ~/.oh-my-zsh/themes/
+#
 
 HOST=`hostname -s`
-test -r ~/.zshrc.$HOST && . ~/.zshrc.$HOST
-test -r ~/.zshrc.local && . ~/.zshrc.local
-
-# Path to your oh-my-zsh configuration.
-export ZSH=$HOME/.oh-my-zsh
-
-# Look in ~/.oh-my-zsh/themes/
 case $HOST {
-    simba|banksy) export ZSH_THEME="nanotech" ; export VIM_DIFFER=/usr/local/bin/mvim ;;
-    crunchy|aiden-u10) export ZSH_THEME="Soliah" ; export VIM_DIFFER=gvim ;;
-    util[0-9]*) export ZSH_THEME="daveverwer" ; export VIM_DIFFER=`which vim` ;;
-    *) export ZSH_THEME="daveverwer" ; export VIM_DIFFER=`which vim` ;;
-    # daveverwer candy Soliah kennethreitz random
+    simba|banksy) export ZSH_THEME="nanotech" ;;
+    crunchy|aiden-u10) export ZSH_THEME="Soliah" ;;
+    anton|util[0-9]*) export ZSH_THEME="candy" ;;
+    *) export ZSH_THEME="daveverwer" ;;
+    # using: daveverwer candy Soliah kennethreitz random
 }
 
+#
+# Oh-my-zsh configuration
+#
+
+export ZSH=$HOME/.oh-my-zsh
 export DISABLE_AUTO_UPDATE="true"
 plugins=(git brew gem knife rails ruby)
 source $ZSH/oh-my-zsh.sh
 
-alias gca='git commit --amend'
-
-#
 # This line is to fix some RVM/ZSH interactions for determining the current path
 unsetopt auto_name_dirs
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
 
 export PATH=$HOME/src/scripts:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:$HOME/.rvm/bin
 
-echo $PATH | grep -q -s "/Users/echo/Library/Haskell/bin"
-if [ $? -eq 1 ] ; then
-    PATH=$PATH:/Users/echo/Library/Haskell/bin
-    export PATH
-fi
+# Sane, without rbenv/rvm
+# export PATH=$HOME/src/scripts:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
 
 case ${TERM} in
   screen-256color) TERM=xterm-color
   ;;
 esac
+
+test -r ~/.zshrc.$HOST && . ~/.zshrc.$HOST
+test -r ~/.zshrc.local && . ~/.zshrc.local
+
+export EDITOR=/usr/bin/vim
+export NODE_PATH=/usr/local/lib/node
+
+#
+# Load extra functionality
+#
+
+if [ -d ~/.dotfiles ] ; then
+    export DOTFILES=~/.dotfiles
+fi
+
+if [ $DOTFILES ] ; then
+    for f in $DOTFILES/shell/* ; do
+        . $f
+    done
+fi

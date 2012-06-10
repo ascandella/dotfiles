@@ -37,7 +37,10 @@ set sw=4
 set cindent
 set smartindent
 set autoindent
+
+" Note: Vim 7.3+ only
 set relativenumber
+
 set ruler
 " Hide tool bar for mvim / gvim
 set go=a
@@ -66,7 +69,7 @@ map <Leader>2 :set sts=2:set sw=2
 map <C-m> ciw
 map <S-Esc> :bd<CR>
 map <C-b> :TComment<CR>
-map <C-c> :silent !gitx<CR>
+" map <C-c> :silent !gitx<CR>
 map :ws :w !sudo tee %<CR>
 map <C-s> <C-w>l
 imap <C-s> <Esc>:w<CR>a
@@ -124,7 +127,7 @@ let g:miniBufExplModSelTarget = 1
 
 let g:CommandTMatchWindowAtTop = 1
 
-" Zen CodinG
+" Zen Coding
 let g:user_zen_expandabbr_key = '<c-e>'
 let g:use_zen_complete_tag = 1
 let g:user_zen_settings = {
@@ -187,17 +190,23 @@ imap <silent> <A-Right> <Esc>:wincmd l<CR>a
 
 " au FileType html,xml,erb so ~/.vim/bundle/html-autoclose/ftplugin/html_autoclosetag.vim
 fun! <SID>StripTrailingWhitespaces()
+    let _s=@/
     let l = line(".")
-    let c = col(".e")
+    let c = col(".")
     %s/\s\+$//e
+    let @/=_s
     call cursor(l, c)
 endfun
 
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
 let g:delimitMate_autoclose=0
+
+" Use JSL configuration from my home dir
+let g:syntastic_javascript_jsl_conf="-conf ~/.jsl.conf"
+
 " Ignore files
-set wildignore+=*.o,*.obj,.git,dev-server/**,*.class,public/packages/**,public/assets/**,vendor/rails/**,*.jar,*.zip,*.md5,target/**,mvn-local-repo/**,public/images/**,public/stylesheets/images/**,vendor/**
+set wildignore+=*.o,*.obj,.git,dev-server/**,*.class,public/packages/**,public/assets/**,vendor/rails/**,*.jar,*.zip,*.md5,target/**,mvn-local-repo/**,public/images/**,public/stylesheets/images/**,vendor/**,app/assets
 
 " save and load views (fold lists)
 au BufWinLeave * silent! mkview
