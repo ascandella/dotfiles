@@ -63,6 +63,9 @@ set background=dark
 colorscheme peaksea
 " colorscheme desert
 
+" Make :W save, from holding down the shift key
+map :W :w
+
 set scrolloff=3
 set listchars=tab:>-,trail:_,eol:$
 nmap <silent> <Leader>s :set nolist!<CR>

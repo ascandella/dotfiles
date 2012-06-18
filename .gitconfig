@@ -22,6 +22,7 @@
         edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; $VIM_DIFFER `f` +Gdiff"
         add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
         l = log --decorate --stat
+        patch = add -p
 
     graph = log --oneline --graph
 
