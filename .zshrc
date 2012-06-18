@@ -34,11 +34,18 @@ export DISABLE_AUTO_UPDATE="true"
 plugins=(git brew gem knife rails ruby)
 source $ZSH/oh-my-zsh.sh
 
-# This line is to fix some RVM/ZSH interactions for determining the current path
-unsetopt auto_name_dirs
-[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
 
-export PATH=$HOME/src/scripts:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:$HOME/.rvm/bin
+# Load rvm/rbenv depending on which is installed
+if [ -s $HOME/.rvm/scripts/rvm ] ; then
+    # This line is to fix some RVM/ZSH interactions for determining the current path
+    unsetopt auto_name_dirs
+    source $HOME/.rvm/scripts/rvm
+else
+    if [ -d $HOME/.rbenv/bin ] ; then
+        export PATH="$HOME/.rbenv/bin:$PATH"
+        eval "$(rbenv init -)"
+    fi
+fi
 
 # Sane, without rbenv/rvm
 # export PATH=$HOME/src/scripts:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin

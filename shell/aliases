@@ -21,3 +21,10 @@ alias g='noglob git'
 alias c='gitx -c'
 alias gco='git checkout'
 alias gca='git commit --amend'
+
+
+#
+# Causes aliases
+#
+
+alias anton='ssh aiden@anton -t /home/aiden/bin/remote-tmux'
