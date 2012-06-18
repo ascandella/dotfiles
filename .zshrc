@@ -31,7 +31,7 @@ case $HOST {
 
 export ZSH=$HOME/.oh-my-zsh
 export DISABLE_AUTO_UPDATE="true"
-plugins=(git brew gem knife rails ruby)
+plugins=(git brew gem knife rails ruby zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 
@@ -58,7 +58,7 @@ esac
 test -r ~/.zshrc.$HOST && . ~/.zshrc.$HOST
 test -r ~/.zshrc.local && . ~/.zshrc.local
 
-export EDITOR=/usr/bin/vim
+# export EDITOR=/usr/bin/vim
 export NODE_PATH=/usr/local/lib/node
 
 #

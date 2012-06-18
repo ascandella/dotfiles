@@ -1,9 +1,10 @@
 [core]
-	editor = /usr/bin/vim
+	editor = /usr/local/bin/vim
 	whitespace = trailing-space,space-before-tab
 [user]
 	name = Aiden Scandella
-	email = sectioneightinc@gmail.com
+        gerrit = aiden
+        email = aiden@causes.com
 [push]
 	default = tracking
 [diff]
@@ -35,3 +36,4 @@
 
 [color]
 	ui = true
+

@@ -3,7 +3,7 @@ set nobackup
 set noswapfile
 set pastetoggle=<F3>
 " Always show the status bar
-set laststatus=2
+" set laststatus=2
 
 " Dvorak mappings
 no h h
@@ -49,7 +49,7 @@ map <C-t> :CommandT<CR>
 map <C-n> :CommandTBuffer<CR>
 
 " I never use :ex, this is always by accident
-map Q :set sts=4:set sw=4
+map <Leader>4 :set sts=4:set sw=4
 map <Leader>2 :set sts=2:set sw=2
 
 map <C-m> ciw
@@ -82,20 +82,15 @@ match ExtraWhitespace /\s\+$\| \+\ze\t/
 set cursorline
 hi CursorLine guibg=grey30
 
-function! AckGrep(command)
-    cexpr system("ack " . a:command)
-    cw " show quickfix window already
-endfunction
 
-command! -nargs=+ -complete=file Ack call AckGrep(<q-args>)
+let mapleader = "\\"
+" nmap " " <Nop>
 
-" let mapleader = "\_"
-nmap " " <Nop>
-let mapleader = " "
+map <C-Tab> :bnext<cr>
 
 map <Leader>a :Ack<space>
 map <Leader>h :foldclose<CR>
-map <Leader>t :foldopen<CR>
+" map <Leader>t :foldopen<CR>
 " Close quicfix window
 map <F8> :ccl<CR>
 " map! <Leader>e <C-x><C-n>
@@ -111,7 +106,7 @@ map <F8> :ccl<CR>
 
 let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
+" let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
 
 let g:CommandTMatchWindowAtTop = 1
@@ -198,6 +193,6 @@ let g:syntastic_javascript_jsl_conf="-conf ~/.jsl.conf"
 set wildignore+=*.o,*.obj,.git,dev-server/**,*.class,public/packages/**,public/assets/**,vendor/rails/**,*.jar,*.zip,*.md5,target/**,mvn-local-repo/**,public/images/**,public/stylesheets/images/**,vendor/**,app/assets
 
 " save and load views (fold lists)
-au BufWinLeave * silent! mkview
-au BufWinEnter * silent! loadview
+" au BufWinLeave * silent! mkview
+" au BufWinEnter * silent! loadview
 
