@@ -1,0 +1,3 @@
+if [ -d ~/src/devscripts ] ; then
+    export PATH=$PATH:~/src/devscripts
+fi

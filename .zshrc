@@ -18,7 +18,7 @@ compinit
 
 HOST=`hostname -s`
 case $HOST {
-    simba|banksy) export ZSH_THEME="nanotech" ;;
+    simba|banksy|aiden-air) export ZSH_THEME="nanotech" ;;
     crunchy|aiden-u10) export ZSH_THEME="Soliah" ;;
     anton|util[0-9]*) export ZSH_THEME="candy" ;;
     *) export ZSH_THEME="daveverwer" ;;
@@ -41,8 +41,7 @@ if [ -s $HOME/.rvm/scripts/rvm ] ; then
     unsetopt auto_name_dirs
     source $HOME/.rvm/scripts/rvm
 else
-    if [ -d $HOME/.rbenv/bin ] ; then
-        export PATH="$HOME/.rbenv/bin:$PATH"
+    if which rbenv > /dev/null; then
         eval "$(rbenv init -)"
     fi
 fi
