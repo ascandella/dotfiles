@@ -14,25 +14,21 @@
 	autosetupmerge = true
 	autosetuprebase = always
 [alias]
-        ca = commit --amend
-        ir = !git rebase -i origin/master
-        up = !git fetch origin && git rebase origin/master
-        rmb = !sh -c 'git branch -D $1 && git push origin :$1' -
-        who = shortlog -n -s --no-merges
-        lol = log --oneline --decorate
-        edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; $VIM_DIFFER `f` +Gdiff"
         add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
+        ca = commit --amend
+        edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; $VIM_DIFFER `f` +Gdiff"
+        ir = !git rebase -i origin/master
         l = log --decorate --stat
+        lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+        lol = log --oneline --decorate
         patch = add -p
+        rmb = !sh -c 'git branch -D $1 && git push origin :$1' -
+        up = !git fetch origin && git rebase origin/master
+        who = shortlog -n -s --no-merges
 
-    graph = log --oneline --graph
-
-    amend = commit --amend
-    # Amend previous commit
-
-    sha1 = rev-parse HEAD
-    # Current SHA
-
+        graph = log --oneline --graph
+        amend = commit --amend
+        sha1 = rev-parse HEAD
 
 [color]
 	ui = true

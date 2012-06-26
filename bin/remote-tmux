@@ -1,0 +1,6 @@
+if tmux has-session -t remote ; then
+    echo "Attaching existing session"
+    tmux attach-session
+else
+    tmux new-session -s remote
+fi

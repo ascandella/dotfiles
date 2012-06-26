@@ -2,8 +2,7 @@ set nocompatible
 set nobackup
 set noswapfile
 set pastetoggle=<F3>
-" Always show the status bar
-" set laststatus=2
+set laststatus=1
 
 " Dvorak mappings
 no h h
@@ -105,9 +104,11 @@ map <F8> :ccl<CR>
 " endif
 
 let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
+let g:miniBufExplMapWindowNavArrows = 0
 " let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
+" Single click to select buffer
+let g:miniBufExplUseSingleClick = 1
 
 let g:CommandTMatchWindowAtTop = 1
 
