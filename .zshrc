@@ -19,9 +19,9 @@ compinit
 HOST=`hostname -s`
 case $HOST {
     simba|banksy|aiden-air) export ZSH_THEME="nanotech" ;;
-    crunchy|aiden-u10) export ZSH_THEME="Soliah" ;;
-    anton|util[0-9]*) export ZSH_THEME="candy" ;;
-    *) export ZSH_THEME="daveverwer" ;;
+    crunchy|aiden-u10)      export ZSH_THEME="Soliah" ;;
+    alai)                   export ZSH_THEME="candy" ;;
+    *)                      export ZSH_THEME="daveverwer" ;;
     # using: daveverwer candy Soliah kennethreitz random
 }
 
