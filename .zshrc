@@ -54,10 +54,11 @@ case ${TERM} in
   ;;
 esac
 
+export EDITOR=vim
+
 test -r ~/.zshrc.$HOST && . ~/.zshrc.$HOST
 test -r ~/.zshrc.local && . ~/.zshrc.local
 
-# export EDITOR=/usr/bin/vim
 export NODE_PATH=/usr/local/lib/node
 
 #
