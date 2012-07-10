@@ -2,7 +2,7 @@ set nocompatible
 set nobackup
 set noswapfile
 set pastetoggle=<F3>
-set laststatus=1
+set laststatus=2
 
 " Dvorak mappings
 no h h
@@ -93,15 +93,10 @@ map <Leader>h :foldclose<CR>
 " Close quicfix window
 map <F8> :ccl<CR>
 " map! <Leader>e <C-x><C-n>
-" map <Leader>w :Gwrite<CR>
 
 
 " Allow yanking/pasting directly to/from OS X clipboard
 " set clipboard=unnamed
-
-" if has('gui_running')
-"     set transparency=8
-" endif
 
 let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 0
@@ -120,9 +115,9 @@ let g:user_zen_settings = {
 \}
 
 " Turn on fancy symbols for powerline status bar
-if has('gui_running')
-  let g:Powerline_symbols = 'fancy'
-endif
+let g:Powerline_symbols = 'fancy'
+" 256 terminal colors
+set t_Co=256
 
 " Character color after 80 chars
 if exists('+colorcolumn')
@@ -171,7 +166,6 @@ imap <silent> <A-Right> <Esc>:wincmd l<CR>a
 " vnoremap <Leader>n [egv
 " vnoremap <Leader>t ]egv
 "
-"
 
 " au FileType html,xml,erb so ~/.vim/bundle/html-autoclose/ftplugin/html_autoclosetag.vim
 fun! <SID>StripTrailingWhitespaces()
@@ -196,4 +190,3 @@ set wildignore+=*.o,*.obj,.git,dev-server/**,*.class,public/packages/**,public/a
 " save and load views (fold lists)
 " au BufWinLeave * silent! mkview
 " au BufWinEnter * silent! loadview
-
