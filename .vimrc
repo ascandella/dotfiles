@@ -59,7 +59,8 @@ map :ws :w !sudo tee %<CR>
 map <C-s> <C-w>l
 imap <C-s> <Esc>:w<CR>a
 set background=dark
-colorscheme peaksea
+" colorscheme peaksea
+colorscheme herald_nobg
 " colorscheme desert
 
 " Make :W save, from holding down the shift key

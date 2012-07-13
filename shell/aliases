@@ -33,4 +33,7 @@ alias anton='ssh aiden@anton -t /home/aiden/bin/remote-tmux'
 # Chef aliases
 #
 
+alias cookup='knife cookbook upload'
+alias fresh='git fetch origin && git stash && git rebase origin/master && git stash pop'
 alias knife='nocorrect knife'
+alias rechef='sudo pkill -USR1 chef-client && tail -f /var/log/chef/client.log'

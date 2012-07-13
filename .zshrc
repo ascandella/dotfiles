@@ -59,6 +59,7 @@ export EDITOR=vim
 test -r ~/.zshrc.$HOST && . ~/.zshrc.$HOST
 test -r ~/.zshrc.local && . ~/.zshrc.local
 
+export EDITOR=vim
 export NODE_PATH=/usr/local/lib/node
 
 #
