@@ -107,6 +107,7 @@ let g:miniBufExplModSelTarget = 1
 let g:miniBufExplUseSingleClick = 1
 
 let g:CommandTMatchWindowAtTop = 1
+let g:CommandTMaxHeight = 15
 
 " Zen Coding
 let g:user_zen_expandabbr_key = '<c-e>'
