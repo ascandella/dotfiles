@@ -15,6 +15,7 @@
 [alias]
         add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
         ca = commit --amend
+        cached = diff --cached
         edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; $VIM_DIFFER `f` +Gdiff"
         ir = !git rebase -i origin/master
         l = log --decorate --stat

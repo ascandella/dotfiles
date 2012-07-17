@@ -46,6 +46,10 @@ map <F2> :GundoToggle<CR>
 map <F1> :CommandTFlush<CR>
 map <C-t> :CommandT<CR>
 map <C-n> :CommandTBuffer<CR>
+map <Leader>e :CommandT<CR>
+map <Leader>n :CommandTBuffer<CR>
+
+
 
 " I never use :ex, this is always by accident
 map <Leader>4 :set sts=4:set sw=4
@@ -60,7 +64,8 @@ map <C-s> <C-w>l
 imap <C-s> <Esc>:w<CR>a
 set background=dark
 " colorscheme peaksea
-colorscheme herald_nobg
+" colorscheme herald_nobg
+colorscheme twilight256
 " colorscheme desert
 
 " Make :W save, from holding down the shift key
@@ -83,7 +88,7 @@ set cursorline
 hi CursorLine guibg=grey30
 
 
-let mapleader = "\\"
+let mapleader = ","
 " nmap " " <Nop>
 
 map <C-Tab> :bnext<cr>
@@ -108,6 +113,7 @@ let g:miniBufExplUseSingleClick = 1
 
 let g:CommandTMatchWindowAtTop = 1
 let g:CommandTMaxHeight = 15
+let g:CommandTCancelMap='<C-x>'
 
 " Zen Coding
 let g:user_zen_expandabbr_key = '<c-e>'
@@ -192,3 +198,19 @@ set wildignore+=*.o,*.obj,.git,dev-server/**,*.class,public/packages/**,public/a
 " save and load views (fold lists)
 " au BufWinLeave * silent! mkview
 " au BufWinEnter * silent! loadview
+
+highlight ExtraWhitespace ctermbg=red guibg=red
+
+:hi ColorColumn ctermbg=234
+:hi CursorLine cterm=NONE ctermbg=234
+:hi Folded ctermbg=234
+:hi IncSearch cterm=none ctermbg=none ctermfg=yellow
+:hi LineNr cterm=none ctermfg=229
+:hi Search cterm=none ctermbg=none ctermfg=yellow
+:hi TabLine cterm=underline ctermbg=none
+:hi TabLineFill cterm=underline ctermbg=none
+:hi TabLineSel cterm=underline ctermfg=yellow
+:hi Todo ctermbg=none
+:hi htmlLink cterm=none
+:hi markdownH1 ctermfg=229
+:hi markdownItalic ctermbg=none
