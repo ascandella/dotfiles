@@ -7,3 +7,4 @@ hosts/*/.xmonad/xmonad.o
 .AppleDouble
 .vim/.netrwhist
 hosts/*/.weechat/logs/
+.vim/bundle/*/doc/tags

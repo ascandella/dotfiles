@@ -27,7 +27,7 @@ alias gca='git commit --amend'
 # Causes aliases
 #
 
-alias anton='ssh aiden@anton -t /home/aiden/bin/remote-tmux'
+alias alai='ssh alai -t /home/aiden/bin/remote-tmux'
 
 #
 # Chef aliases
