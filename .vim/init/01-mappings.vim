@@ -28,6 +28,7 @@ imap <silent> <A-Right> <Esc>:wincmd l<CR>a
 "
 " Plugin mappings
 "
+let mapleader = ","
 
 map <F2> :GundoToggle<CR>
 map <F1> :CommandTFlush<CR>
@@ -43,7 +44,6 @@ map <Leader>n :CommandTBuffer<CR>
 " Other Mappings
 "
 
-let mapleader = ","
 
 map <Leader>4 :set sts=4:set sw=4
 map <Leader>2 :set sts=2:set sw=2
