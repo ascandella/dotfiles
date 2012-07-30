@@ -24,7 +24,6 @@ imap <silent> <A-Left> <Esc>:wincmd h<CR>a
 imap <silent> <A-Right> <Esc>:wincmd l<CR>a
 
 
-
 "
 " Plugin mappings
 "
@@ -39,6 +38,10 @@ map <C-n> :CommandTBuffer<CR>
 
 map <Leader>e :CommandT<CR>
 map <Leader>n :CommandTBuffer<CR>
+
+map <Leader>g :Gblame<CR>
+map <Leader>t :Tabularize/
+map <Leader>= :Tabularize/=><CR>
 
 "
 " Other Mappings

@@ -2,6 +2,7 @@
 # Aliases
 #
 
+alias ':q'='echo "\033[31mThis is zsh, not vim\033[0m"'
 alias ll='ls -l'
 alias ltr='ls -ltr'
 alias t='tmux -u'

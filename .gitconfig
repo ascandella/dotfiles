@@ -26,6 +26,8 @@
         up = !git fetch origin && git rebase origin/master
         who = shortlog -n -s --no-merges
 
+        publishhead = !git push gerrit `git rev-parse HEAD`:refs/publish/master
+
         graph = log --oneline --graph
         amend = commit --amend
         sha1 = rev-parse HEAD
