@@ -1,5 +1,5 @@
-for p in devscripts devscripts/gerrit devscripts/git ; do
-    if [ -d ~/src/$p ] ; then
-        export PATH=$PATH:~/src/$p
+for p in devscripts devscripts/gerrit devscripts/git stark ; do
+    if [ -d ~/$p ] ; then
+        export PATH=$PATH:~/$p
     fi
 done

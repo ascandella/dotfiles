@@ -2,8 +2,8 @@
 --type-add=html=.html.erb,.html.haml
 --type-add=js=.js.erb
 --type-add=css=.sass,.scss,.less
---type-set=cucumber=.feature
 --type-set=coffeescript=.coffee
+--ignore-dir=.bundle
 --ignore-dir=vendor
 --ignore-dir=log
 --ignore-dir=tmp
@@ -12,3 +12,4 @@
 --sort-files
 --color
 --follow
+--context=1

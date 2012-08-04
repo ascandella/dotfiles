@@ -31,6 +31,12 @@ alias gca='git commit --amend'
 alias alai='ssh alai -t /home/aiden/bin/remote-tmux'
 
 #
+# Ruby aliases
+#
+
+alias rails='bundle exec rails'
+
+#
 # Chef aliases
 #
 
