@@ -29,6 +29,7 @@ alias gca='git commit --amend'
 #
 
 alias alai='ssh alai -t /home/aiden/bin/remote-tmux'
+alias deploy='stark_remote deploy production'
 
 #
 # Ruby aliases

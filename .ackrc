@@ -13,3 +13,4 @@
 --color
 --follow
 --context=1
+--pager=less -FRSX
