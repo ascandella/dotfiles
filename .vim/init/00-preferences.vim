@@ -16,8 +16,8 @@ set laststatus=2
 "
 
 set expandtab
-set softtabstop=4
-set sw=4
+set softtabstop=2
+set sw=2
 set cindent
 set smartindent
 set autoindent
@@ -45,7 +45,7 @@ set incsearch
 set nohlsearch
 
 " Ignore files
-set wildignore+=*.o,*.obj,.git,dev-server/**,*.class,public/packages/**,public/assets/**,vendor/rails/**,*.jar,*.zip,*.md5,target/**,mvn-local-repo/**,public/images/**,public/stylesheets/images/**,vendor/**,app/assets
+set wildignore+=*.o,*.obj,.git,dev-server/**,*.class,public/packages/**,public/assets/**,vendor/rails/**,*.jar,*.zip,*.md5,target/**,mvn-local-repo/**,public/images/**,public/stylesheets/images/**,vendor/**,log
 
 set scrolloff=3
 
