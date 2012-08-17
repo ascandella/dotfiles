@@ -53,6 +53,8 @@ map <Leader>= :Tabularize/=><CR>
 map <Leader>4 :set sts=4:set sw=4
 map <Leader>2 :set sts=2:set sw=2
 
+nmap <Leader>' cs"'
+
 map <C-m> ciw
 map <S-Esc> :bd<CR>
 map :ws :w !sudo tee %<CR>
@@ -60,7 +62,7 @@ map <C-s> <C-w>l
 imap <C-s> <Esc>:w<CR>a
 
 " Convert hashrockets to Ruby 1.9
-nmap <leader>rh :%s/\v:(\w+) \=\>/\1:/g<cr>
+nmap <leader>rh :%s/\v:(\w+)\s(\s*)\=\>/\1:\2/g<cr>
 
 " Close the current buffer, leave the window in place
 nmap <C-W>m <Plug>Kwbd
