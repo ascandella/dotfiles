@@ -9,7 +9,8 @@
 --ignore-dir=tmp
 --ignore-dir=doc
 --ignore-dir=coverage
---ignore-dir=public/javascripts
+--ignore-dir=app/assets/javascripts
+--ignore-dir=public/assets
 --ignore-dir=spec/javascripts/fixtures
 --sort-files
 --color

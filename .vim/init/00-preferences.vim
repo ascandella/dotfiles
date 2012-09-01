@@ -45,8 +45,18 @@ set incsearch
 set nohlsearch
 
 " Ignore files
-set wildignore+=*.o,*.obj,.git,dev-server/**,*.class,public/packages/**,public/assets/**,vendor/rails/**,*.jar,*.zip,*.md5,target/**,mvn-local-repo/**,public/images/**,public/stylesheets/images/**,vendor/**,log
+set wildignore+=*.o,*.obj,.git,app/assets/javascripts,public/packages,public/assets,vendor/rails,*.jar,*.zip,*.md5,public/images,public/stylesheets,vendor,log,tmp
 
 set scrolloff=3
 
 set listchars=tab:>-,trail:_,eol:$
+
+"
+" Mouse
+"
+
+" Strangely enough, mouse works fine in xterm2 without this line. In tmux,
+" however, this line is necessary.
+set ttymouse=xterm2
+" Enable mouse in all modes (resize splits, etc.)
+set mouse=a

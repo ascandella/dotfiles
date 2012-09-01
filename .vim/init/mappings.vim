@@ -39,7 +39,10 @@ map <C-n> :CommandTBuffer<CR>
 map <Leader>e :CommandT<CR>
 map <Leader>n :CommandTBuffer<CR>
 
+map <Leader>w :w<CR>
+
 map <Leader>b :bd<CR>
+map <Leader>c :ccl<CR>
 map <Leader>g :Gblame<CR>
 map <Leader>t :Tabularize/
 map <Leader>: :Tabularize/:\zs<CR>
@@ -48,7 +51,6 @@ map <Leader>= :Tabularize/=><CR>
 "
 " Other Mappings
 "
-
 
 map <Leader>4 :set sts=4:set sw=4
 map <Leader>2 :set sts=2:set sw=2
