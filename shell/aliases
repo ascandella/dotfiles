@@ -12,7 +12,7 @@ alias ftfy='fc'
 alias vihosts='sudo mvim /etc/hosts'
 alias diffed='git diff --cached | pbcopy'
 alias pa='ps aux | grep '
-alias shuffle='git stash && git pull --rebase && git stash pop'
+alias shuffle='git refresh'
 
 #
 # Git aliases

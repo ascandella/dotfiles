@@ -1,3 +1,7 @@
+#
+# Causes developer scripts
+#
+
 for p in devscripts devscripts/gerrit devscripts/git stark ; do
     if [ -d ~/$p ] ; then
         export PATH=$PATH:~/$p

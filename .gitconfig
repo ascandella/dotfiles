@@ -1,22 +1,31 @@
 [core]
-	whitespace = trailing-space,space-before-tab
+        whitespace = trailing-space,space-before-tab
+        pager = less -FRSX
+
 [user]
-	name = Aiden Scandella
+        name = Aiden Scandella
         gerrit = aiden
         email = aiden@causes.com
+
 [push]
-	default = tracking
+        default = upstream
+
 [diff]
-	renames = copies
-	mnemonicprefix = true
+        renames = copies
+        mnemonicprefix = true
+
 [branch]
-	autosetupmerge = true
-	autosetuprebase = always
+        autosetupmerge = true
+        autosetuprebase = always
+
+[branch "master"]
+        rebase = true
+
 [alias]
         add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
         ca = commit --amend
         cached = diff --cached
-        edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; $VIM_DIFFER `f` +Gdiff"
+        edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f` +Gdiff"
         ir = !git rebase -i origin/master
         l = log --decorate --stat
         lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
@@ -26,12 +35,26 @@
         up = !git fetch origin && git rebase origin/master
         who = shortlog -n -s --no-merges
 
-        publishhead = !git push gerrit `git rev-parse HEAD`:refs/publish/master
+        publish = push gerrit HEAD:refs/publish/master
 
         graph = log --oneline --graph
         amend = commit --amend
         sha1 = rev-parse HEAD
 
-[color]
-	ui = true
+        refresh = !ssh-add -l && STASH=$(git stash) && git fetch && git rebase origin/master && test \"$STASH\" != \"No local changes to save\" && git stash pop
 
+[color]
+        ui = true
+
+[log]
+        decorate = short
+
+[rerere]
+        enabled = true
+
+[rebase]
+        autosquash = true
+
+[pager]
+        status = true
+        show-branch = true

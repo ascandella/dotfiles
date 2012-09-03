@@ -44,9 +44,20 @@ map <Leader>w :w<CR>
 map <Leader>b :bd<CR>
 map <Leader>c :ccl<CR>
 map <Leader>g :Gblame<CR>
+
+" Blank newline above this one
+nmap <Leader>. O<esc>j
+
+"
+" Alignment
+"
+
 map <Leader>t :Tabularize/
-map <Leader>: :Tabularize/:\zs<CR>
-map <Leader>= :Tabularize/=><CR>
+
+map <Leader>: :Tabularize/:<CR>
+
+" Align on equal signs
+map <Leader>= :Tabularize/=<CR>
 
 "
 " Other Mappings
@@ -58,7 +69,6 @@ map <Leader>2 :set sts=2:set sw=2
 nmap <Leader>' cs"'
 
 map <C-m> ciw
-map <S-Esc> :bd<CR>
 map :ws :w !sudo tee %<CR>
 map <C-s> <C-w>l
 imap <C-s> <Esc>:w<CR>a
@@ -76,6 +86,10 @@ nmap <silent> <Leader>s :set nolist!<CR>
 
 map <Leader>a :Ack<space>
 map <Leader>h :foldclose<CR>
-map <F8> :ccl<CR>
 
 map <silent> <Leader>cn :set nocursorcolumn <cr>
+
+" Cycle relative -> normal -> no line numbers
+nmap <silent> <leader>rn :exec &nu==&rnu? "se nu!" : "se rnu!" <cr>
+" Toggle relative line number
+nmap <silent> <leader>nn :set norelativenumber! <cr>

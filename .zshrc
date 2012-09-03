@@ -2,10 +2,21 @@
 # Basic configuration
 #
 
-HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
-setopt appendhistory autocd beep extendedglob nomatch
+HISTFILE=~/.history
+HISTSIZE=100000
+SAVEHIST=$HISTSIZE
+
+setopt appendhistory
+setopt autocd
+setopt beep
+setopt correct
+setopt correctall
+setopt extendedglob
+setopt histignorealldups
+setopt nomatch
+setopt nonomatch
+setopt sharehistory
+
 unsetopt notify
 zstyle :compinstall filename '$HOME/.zshrc'
 autoload -Uz compinit
@@ -59,8 +70,10 @@ export EDITOR=vim
 test -r ~/.zshrc.$HOST && . ~/.zshrc.$HOST
 test -r ~/.zshrc.local && . ~/.zshrc.local
 
-export EDITOR=vim
-export NODE_PATH=/usr/local/lib/node
+NODE_PATH=/usr/local/lib/node
+if [ -d $NODE_PATH ] ; then
+  export NODE_PATH
+fi
 
 #
 # Load extra functionality
