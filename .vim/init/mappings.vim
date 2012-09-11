@@ -33,8 +33,8 @@ map <F2> :GundoToggle<CR>
 map <F1> :CommandTFlush<CR>
 
 map <C-b> :TComment<CR>
-map <C-t> :CommandT<CR>
-map <C-n> :CommandTBuffer<CR>
+" map <C-t> :CommandT<CR>
+" map <C-n> :CommandTBuffer<CR>
 
 map <Leader>e :CommandT<CR>
 map <Leader>n :CommandTBuffer<CR>
@@ -44,6 +44,9 @@ map <Leader>w :w<CR>
 map <Leader>b :bd<CR>
 map <Leader>c :ccl<CR>
 map <Leader>g :Gblame<CR>
+
+" Fixup CSS
+map <Leader>cs :g#\({\n\)\@<=#.,/}/sort<CR>
 
 " Blank newline above this one
 nmap <Leader>. O<esc>j
@@ -92,4 +95,4 @@ map <silent> <Leader>cn :set nocursorcolumn <cr>
 " Cycle relative -> normal -> no line numbers
 nmap <silent> <leader>rn :exec &nu==&rnu? "se nu!" : "se rnu!" <cr>
 " Toggle relative line number
-nmap <silent> <leader>nn :set norelativenumber! <cr>
+nmap <silent> <leader>rr :set norelativenumber! <cr>

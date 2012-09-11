@@ -45,7 +45,7 @@ set incsearch
 set nohlsearch
 
 " Ignore files
-set wildignore+=*.o,*.obj,.git,app/assets/javascripts,public/packages,public/assets,vendor/rails,*.jar,*.zip,*.md5,public/images,public/stylesheets,vendor,log,tmp
+set wildignore+=*.o,*.obj,.git,app/assets/images,app/assets/javascripts,public/packages,public/assets,vendor/rails,*.jar,*.zip,*.md5,public/images,public/stylesheets,vendor,log,tmp
 
 set scrolloff=3
 
