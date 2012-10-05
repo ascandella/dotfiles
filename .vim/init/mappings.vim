@@ -32,24 +32,29 @@ let mapleader = ","
 map <F2> :GundoToggle<CR>
 map <F1> :CommandTFlush<CR>
 
-map <C-b> :TComment<CR>
-" map <C-t> :CommandT<CR>
-" map <C-n> :CommandTBuffer<CR>
+map <Leader>- :TComment<CR>
+map <C-b>     :TComment<CR>
 
 map <Leader>e :CommandT<CR>
 map <Leader>n :CommandTBuffer<CR>
 
 map <Leader>w :w<CR>
 
-map <Leader>b :bd<CR>
-map <Leader>c :ccl<CR>
-map <Leader>g :Gblame<CR>
+map <Leader>b  :bd<CR>
+map <Leader>cl :ccl<CR>
+map <Leader>g  :Gblame<CR>
+map <Leader>q  :q<CR>
+
+" Paste toggle
+map <silent> <Leader>p : set paste!<CR>
 
 " Fixup CSS
 map <Leader>cs :g#\({\n\)\@<=#.,/}/sort<CR>
 
 " Blank newline above this one
-nmap <Leader>. O<esc>j
+nmap <Leader>. mmO<esc>`m
+" And below
+nmap <Leader>u mmo<esc>`m
 
 "
 " Alignment

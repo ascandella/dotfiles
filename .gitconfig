@@ -26,6 +26,7 @@
         ca = commit --amend
         cached = diff --cached
         edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f` +Gdiff"
+        g = push gerrit
         ir = !git rebase -i origin/master
         l = log --decorate --stat
         lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit

@@ -47,6 +47,8 @@ set nohlsearch
 " Ignore files
 set wildignore+=*.o,*.obj,.git,app/assets/images,app/assets/javascripts,public/packages,public/assets,vendor/rails,*.jar,*.zip,*.md5,public/images,public/stylesheets,vendor,log,tmp
 
+set tags=.git/tags,.tags
+
 set scrolloff=3
 
 set listchars=tab:>-,trail:_,eol:$

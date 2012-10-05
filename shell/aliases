@@ -34,6 +34,8 @@ alias deploy='stark_remote deploy production'
 #
 
 alias rails='bundle exec rails'
+alias rspec='bundle exec rspec'
+alias rs='bundle exec rspec'
 
 #
 # Chef aliases
