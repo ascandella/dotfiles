@@ -19,8 +19,10 @@ alias shuffle='git refresh'
 #
 
 alias g='noglob git'
+alias gr='git rebase'
 alias gco='git checkout'
 alias gca='git commit --amend'
+alias gst='git status'
 
 #
 # Causes aliases
@@ -28,6 +30,7 @@ alias gca='git commit --amend'
 
 alias alai='ssh alai -t /home/aiden/bin/remote-tmux'
 alias deploy='stark_remote deploy production'
+alias deployhead='deploy `git rev-parse HEAD | cut -c 1-15`'
 
 #
 # Ruby aliases
