@@ -24,26 +24,24 @@
 
 [alias]
         add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
+        amend = commit --amend
         ca = commit --amend
         cached = diff --cached
         edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f` +Gdiff"
         g = push gerrit
+        graph = log --oneline --graph
         ir = !git rebase -i origin/master
         l = log --decorate --stat
         lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
         lol = log --oneline --decorate
         patch = add -p
+        publish = push gerrit HEAD:refs/publish/master
+        refresh = !ssh-add -l && STASH=$(git stash) && git fetch && git rebase origin/master && test \"$STASH\" != \"No local changes to save\" && git stash pop
         rmb = !sh -c 'git branch -D $1 && git push origin :$1' -
+        sha1 = rev-parse HEAD
+        showstash = stash show -p stash@{0}
         up = !git fetch origin && git rebase origin/master
         who = shortlog -n -s --no-merges
-
-        publish = push gerrit HEAD:refs/publish/master
-
-        graph = log --oneline --graph
-        amend = commit --amend
-        sha1 = rev-parse HEAD
-
-        refresh = !ssh-add -l && STASH=$(git stash) && git fetch && git rebase origin/master && test \"$STASH\" != \"No local changes to save\" && git stash pop
 
 [color]
         ui = true
