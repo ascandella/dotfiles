@@ -13,3 +13,11 @@ ssh-reagent () {
     done
     echo "Cannot find ssh agent - maybe you should reconnect and forward it?"
 }
+
+psgrep() {
+    if [ ! -z $1 ] ; then
+        ps aux | grep $1 | grep -v grep
+    else
+        echo "!! Need name to grep for"
+    fi
+}
