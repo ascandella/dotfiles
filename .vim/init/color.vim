@@ -1,7 +1,7 @@
 " Colours, please
 set t_Co=256
 
-colorscheme ir_black
+colorscheme tomorrow_night_bright
 
 set colorcolumn=80
 hi ColorColumn ctermbg=234
