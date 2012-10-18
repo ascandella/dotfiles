@@ -1,6 +1,7 @@
 [core]
         whitespace = trailing-space,space-before-tab
         pager = less -FRSX
+	editor = vim
 
 [user]
         name = Aiden Scandella
