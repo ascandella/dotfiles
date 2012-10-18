@@ -1,13 +1,13 @@
 " Colours, please
 set t_Co=256
 
-colorscheme twilight256
+colorscheme ir_black
 
 set colorcolumn=80
 hi ColorColumn ctermbg=234
 
 set cursorline
-hi CursorLine   term=none cterm=NONE ctermbg=234
+hi CursorLine   ctermbg=234
 
 hi CursorColumn cterm=NONE ctermbg=234
 hi Folded ctermbg=234
