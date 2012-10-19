@@ -6,13 +6,9 @@ alias ':q'='echo "\033[31mThis is zsh, not vim\033[0m"'
 alias ll='ls -l'
 alias ltr='ls -ltr'
 alias t='tmux -u'
-alias tls='tmux -u ls'
-alias ta='tmux -u att'
-alias ftfy='fc'
-alias vihosts='sudo mvim /etc/hosts'
 alias diffed='git diff --cached | pbcopy'
-alias pa='ps aux | grep '
-alias shuffle='git refresh'
+alias r='git refresh'
+alias '\rm'='rm'
 
 #
 # Git aliases
