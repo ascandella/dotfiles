@@ -8,7 +8,7 @@ alias ltr='ls -ltr'
 alias t='tmux -u'
 alias diffed='git diff --cached | pbcopy'
 alias r='git refresh'
-alias '\rm'='rm'
+unalias rm
 
 #
 # Git aliases

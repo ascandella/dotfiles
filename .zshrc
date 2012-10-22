@@ -29,30 +29,6 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-#
-# Theme configuration
-# Look in ~/.oh-my-zsh/themes/
-#
-
-# HOST=`hostname -s`
-# case $HOST {
-#     simba|banksy|aiden-air) export ZSH_THEME="nanotech" ;;
-#     crunchy|aiden-u10)      export ZSH_THEME="Soliah" ;;
-#     alai)                   export ZSH_THEME="candy" ;;
-#     *)                      export ZSH_THEME="daveverwer" ;;
-#     # using: daveverwer candy Soliah kennethreitz random
-# }
-
-#
-# Oh-my-zsh configuration
-#
-
-# export ZSH=$HOME/.oh-my-zsh
-# export DISABLE_AUTO_UPDATE="true"
-# plugins=(git gem knife rails ruby zsh-syntax-highlighting)
-# source $ZSH/oh-my-zsh.sh
-
-
 # Load rbenv if available
 if which rbenv > /dev/null; then
     eval "$(rbenv init -)"
