@@ -307,8 +307,10 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
         call <SID>X("rubyCurlyBlock", s:orange, "", "")
         call <SID>X("rubyStringDelimiter", s:green, "", "")
         call <SID>X("rubyInterpolationDelimiter", s:orange, "", "")
-        call <SID>X("rubyConditional", s:purple, "", "")
+        call <SID>X("rubyConditional", s:red, "", "")
         call <SID>X("rubyRepeat", s:purple, "", "")
+        call <SID>X("rubyOperator", s:orange, "", "")
+        call <SID>X("rubyControl", s:orange, "", "")
 
         " Python Highlighting
         call <SID>X("pythonInclude", s:purple, "", "")
