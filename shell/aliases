@@ -8,6 +8,7 @@ alias ltr='ls -ltr'
 alias t='tmux -u'
 alias diffed='git diff --cached | pbcopy'
 alias r='git refresh'
+alias s='ssh-reagent'
 unalias rm
 
 #
@@ -27,6 +28,11 @@ alias gst='git status'
 alias alai='ssh alai -t /home/aiden/bin/remote-tmux'
 alias deploy='stark_remote deploy production'
 alias deployhead='deploy `git rev-parse HEAD | cut -c 1-15`'
+alias ff='flow finish'
+alias fcr='flow create'
+alias fs='flow start'
+alias go='git push gerrit'
+alias rezeus='pkill -f zeus ; rm .zeus.sock ; zeus start'
 
 #
 # Ruby aliases

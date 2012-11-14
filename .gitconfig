@@ -40,6 +40,7 @@
         rmb = !sh -c 'git branch -D $1 && git push origin :$1' -
         sha1 = rev-parse HEAD
         showstash = stash show -p stash@{0}
+        ten = log --oneline -n 10
         up = !git fetch origin && git rebase origin/master
         who = shortlog -n -s --no-merges
 
