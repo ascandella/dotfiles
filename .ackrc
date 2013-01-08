@@ -3,6 +3,7 @@
 --type-add=js=.js.erb
 --type-add=css=.sass,.scss,.less
 --type-set=coffeescript=.coffee
+--type-set=buildout=.cfg
 --ignore-dir=.bundle
 --ignore-dir=vendor
 --ignore-dir=log

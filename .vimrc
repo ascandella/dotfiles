@@ -1,7 +1,5 @@
 filetype off
 call pathogen#infect()
-" call pathogen#helptags()
-
 
 runtime! init/**.vim
 
