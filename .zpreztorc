@@ -111,8 +111,7 @@ zstyle ':prezto:module:syntax-highlighting' highlighters \
   'main' \
   'brackets' \
   'pattern' \
-  'cursor' \
-  'root'
+  'cursor'
 
 #
 # Terminal
