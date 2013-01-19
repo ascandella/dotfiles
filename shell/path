@@ -3,7 +3,9 @@
 #
 
 for p in devscripts devscripts/debug devscripts/gerrit devscripts/git stark ; do
-    if [ -d ~/$p ] ; then
-        export PATH=$PATH:~/$p
+  for source in $HOME $HOME/src ; do
+    if [ -d $source/$p ] ; then
+        export PATH=$PATH:$source/$p
     fi
+  done
 done
