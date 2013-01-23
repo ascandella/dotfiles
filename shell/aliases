@@ -9,7 +9,8 @@ alias t='tmux -u'
 alias diffed='git diff --cached | pbcopy'
 alias r='git refresh'
 alias s='ssh-reagent'
-unalias rm
+
+alias rm > /dev/null && unalias rm
 
 #
 # Git aliases
@@ -28,6 +29,7 @@ alias gst='git status'
 alias alai='ssh alai -t /home/aiden/bin/remote-tmux'
 alias deploy='stark_remote deploy production'
 alias deployhead='deploy `git rev-parse HEAD | cut -c 1-15`'
+alias ci='flow ci --short'
 alias ff='flow finish'
 alias fcr='flow create'
 alias fs='flow start'
