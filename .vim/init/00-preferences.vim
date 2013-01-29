@@ -44,6 +44,8 @@ set ignorecase
 set incsearch
 set nohlsearch
 
+set textwidth=80
+
 " Ignore files
 set wildignore+=*.o,*.obj,.git,app/assets/images,public/packages,public/assets,vendor/rails,*.jar,*.zip,*.md5,public/images,public/stylesheets,vendor,log,tmp
 

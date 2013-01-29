@@ -3,7 +3,7 @@ set t_Co=256
 
 colorscheme tomorrow_night_bright
 
-set colorcolumn=80
+set colorcolumn=+0
 hi ColorColumn ctermbg=234
 
 set cursorline
