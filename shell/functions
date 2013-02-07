@@ -21,3 +21,12 @@ psgrep() {
         echo "!! Need name to grep for"
     fi
 }
+
+vimwrap() {
+  if [ -z "$1" ]; then
+    vim -c 'CommandT'
+  else
+    vim $@
+  fi
+}
+alias vim=vimwrap

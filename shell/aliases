@@ -9,7 +9,6 @@ alias t='tmux -u'
 alias diffed='git diff --cached | pbcopy'
 alias r='git refresh'
 alias s='ssh-reagent'
-
 alias rm > /dev/null && unalias rm
 
 #
