@@ -78,8 +78,6 @@ nmap <Leader>' cs"'
 
 map <C-m> ciw
 map :ws :w !sudo tee %<CR>
-map <C-s> <C-w>l
-imap <C-s> <Esc>:w<CR>a
 
 " Convert hashrockets to Ruby 1.9
 nmap <leader>rh :%s/\v:(\w+)\s(\s*)\=\>/\1:\2/g<cr>
@@ -102,12 +100,16 @@ nmap <silent> <leader>rn :exec &nu==&rnu? "se nu!" : "se rnu!" <cr>
 " Toggle relative line number
 nmap <silent> <leader>rr :set norelativenumber! <cr>
 
+" Easier inline save
+imap ,w <Esc>:w<cr>a
+
+
 " Bracketed paste mode
 let &t_ti .= "\e[?2004h"
 let &t_te .= "\e[?2004l"
 let &pastetoggle = "\e[201~"
 
-function XTermPasteBegin(ret)
+function! XTermPasteBegin(ret)
   set paste
   return a:ret
 endfunction
