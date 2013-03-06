@@ -43,6 +43,7 @@
         ten = log --oneline -n 10
         up = !git fetch origin && git rebase origin/master
         who = shortlog -n -s --no-merges
+	files = show --pretty=format: --name-only
 
 [color]
         ui = true

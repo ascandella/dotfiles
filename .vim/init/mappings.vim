@@ -23,10 +23,10 @@ imap <silent> <A-Down> <Esc>:wincmd j<CR>a
 imap <silent> <A-Left> <Esc>:wincmd h<CR>a
 imap <silent> <A-Right> <Esc>:wincmd l<CR>a
 
-
 "
 " Plugin mappings
 "
+
 let mapleader = ","
 
 map <F2> :GundoToggle<CR>
@@ -103,10 +103,10 @@ function! XTermPasteBegin(ret)
   return a:ret
 endfunction
 
-noremap <special> <expr> <Esc>[200~ XTermPasteBegin("0i")
-inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
-cnoremap <special> <Esc>[200~ <nop>
-cnoremap <special> <Esc>[201~ <nop>
+" noremap <special> <expr> <Esc>[200~ XTermPasteBegin("0i")
+" inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
+" cnoremap <special> <Esc>[200~ <nop>
+" cnoremap <special> <Esc>[201~ <nop>
 
 " Make Y consistent with D and C (instead of yy)
 noremap Y y$
@@ -142,4 +142,8 @@ vmap <Leader>t: :Tabularize /:\zs<CR>
 nmap <Leader>ts :Tabularize /:/l1c0l0<CR>
 vmap <Leader>ts :Tabularize /:/l1c0l0<CR>
 
+" OS X-like space bar to scroll
+nnoremap <Space> <C-F>
+
 highlight clear SignColumn
+
