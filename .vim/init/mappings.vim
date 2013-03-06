@@ -144,6 +144,3 @@ vmap <Leader>ts :Tabularize /:/l1c0l0<CR>
 
 " OS X-like space bar to scroll
 nnoremap <Space> <C-F>
-
-highlight clear SignColumn
-

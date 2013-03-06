@@ -24,3 +24,6 @@ hi markdownItalic ctermbg=none
 
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$\| \+\ze\t/
+
+" For Git Gutters, set background of gutter to match window
+highlight clear SignColumn
