@@ -57,17 +57,6 @@ nmap <Leader>. mmO<esc>`m
 nmap <Leader>u mmo<esc>`m
 
 "
-" Alignment
-"
-
-map <Leader>t :Tabularize/
-
-map <Leader>: :Tabularize/:<CR>
-
-" Align on equal signs
-map <Leader>= :Tabularize/=<CR>
-
-"
 " Other Mappings
 "
 
@@ -118,3 +107,39 @@ noremap <special> <expr> <Esc>[200~ XTermPasteBegin("0i")
 inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
 cnoremap <special> <Esc>[200~ <nop>
 cnoremap <special> <Esc>[201~ <nop>
+
+" Make Y consistent with D and C (instead of yy)
+noremap Y y$
+
+" Visually select the text that was most recently edited/pasted.
+" Note: gv selects previously selected area.
+nmap gV `[v`]
+
+" Duplicate visual selection.
+vmap D yP'<
+
+" Backspace closes buffer
+nnoremap <BS> :bd<CR>
+
+"
+" Alignment
+"
+
+" map <Leader>t :Tabularize/
+
+" Align on equal signs
+map <Leader>= :Tabularize/=<CR>
+
+nmap <Leader>t= :Tabularize /=<CR>
+vmap <Leader>t= :Tabularize /=<CR>
+" key => value
+nmap <Leader>t> :Tabularize /=><CR>
+vmap <Leader>t> :Tabularize /=><CR>
+" key: value
+nmap <Leader>t: :Tabularize /:\zs<CR>
+vmap <Leader>t: :Tabularize /:\zs<CR>
+" Ruby symbols
+nmap <Leader>ts :Tabularize /:/l1c0l0<CR>
+vmap <Leader>ts :Tabularize /:/l1c0l0<CR>
+
+highlight clear SignColumn
