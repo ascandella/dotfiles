@@ -143,3 +143,5 @@ nmap <Leader>ts :Tabularize /:/l1c0l0<CR>
 vmap <Leader>ts :Tabularize /:/l1c0l0<CR>
 
 highlight clear SignColumn
+
+nmap <Leader>9 :RainbowParenthesesToggle <CR>

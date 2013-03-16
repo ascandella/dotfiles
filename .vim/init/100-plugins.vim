@@ -42,3 +42,11 @@ if has("autocmd")
     " Delete fugitive buffers on hide
     autocmd BufReadPost fugitive://* set bufhidden=delete
 endif
+
+"
+" Rainbow Paretheses -- auto-enable for Clojure files
+"
+au VimEnter *.clj RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
