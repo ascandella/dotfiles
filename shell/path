@@ -1,11 +1,34 @@
+addtopath() {
+  if [ -d $1 ] && [[ ":$PATH:" != *":$1:"* ]] ; then
+    export PATH=$PATH:$1
+  fi
+}
+
 #
 # Causes developer scripts
 #
 
 for p in devscripts devscripts/debug devscripts/gerrit devscripts/git stark ; do
-  for source in $HOME $HOME/src ; do
-    if [ -d $source/$p ] ; then
-        export PATH=$PATH:$source/$p
-    fi
+  for source in "$HOME" "$HOME/src" ; do
+    addtopath "$source/$p"
   done
 done
+
+
+#
+# Node.js
+#
+
+NODE_PATH=/usr/local/lib/node
+if [ -d $NODE_PATH ] ; then
+  export NODE_PATH
+fi
+
+#
+# Add ~/bin if it exists and isn't in the path already
+#
+
+addtopath "$HOME/bin"
+
+# Undefine the helper function
+unset addtopath

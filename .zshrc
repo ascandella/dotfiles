@@ -43,11 +43,6 @@ export EDITOR=`which vim`
 
 test -r ~/.zshrc.local && . ~/.zshrc.local
 
-NODE_PATH=/usr/local/lib/node
-if [ -d $NODE_PATH ] ; then
-  export NODE_PATH
-fi
-
 #
 # Load extra functionality
 #
