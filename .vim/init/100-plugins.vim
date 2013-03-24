@@ -26,7 +26,7 @@ let g:Powerline_symbols = 'fancy'
 " Delimitmate
 "
 
-let g:delimitMate_autoclose=0
+let g:delimitMate_autoclose = 0
 
 "
 " Syntastic
@@ -50,3 +50,8 @@ au VimEnter *.clj RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+
+"
+" YouCompleteMe -- autocompletion
+"
+let g:ycm_min_num_of_chars_for_completion = 3

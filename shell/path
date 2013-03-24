@@ -31,4 +31,4 @@ fi
 addtopath "$HOME/bin"
 
 # Undefine the helper function
-unset addtopath
+unset -f addtopath
