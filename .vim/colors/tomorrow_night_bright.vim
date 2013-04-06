@@ -12,7 +12,7 @@ let s:comment = "969896"
 let s:red = "d54e53"
 let s:orange = "e78c45"
 let s:yellow = "e7c547"
-let s:green = "9CE64D"
+let s:green = "9ce64d"
 let s:aqua = "70c0b1"
 let s:blue = "7aa6da"
 let s:purple = "c397d8"
@@ -279,7 +279,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
         call <SID>X("Type", s:blue, "", "none")
         call <SID>X("Define", s:purple, "", "none")
         call <SID>X("Include", s:blue, "", "")
-        "call <SID>X("Ignore", "666666", "", "")
+        call <SID>X("SignColumn", "", "232526", "")
 
         " Vim Highlighting
         call <SID>X("vimCommand", s:red, "", "none")
