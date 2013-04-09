@@ -23,7 +23,7 @@ psgrep() {
 }
 
 vimwrap() {
-  if [ -z "$1" ]; then
+  if [ -z "$1" ] && [ `pwd` != "$HOME" ] ; then
     vim -c 'CommandT'
   else
     vim $@
