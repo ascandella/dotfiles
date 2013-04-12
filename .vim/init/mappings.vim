@@ -10,6 +10,9 @@ no S :
 no l n
 no L N
 
+" Rolling escape, dvorak friendly
+inoremap jk <esc>
+
 "
 " Window movement (doesn't work in iTerm)
 "
