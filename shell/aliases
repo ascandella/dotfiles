@@ -33,6 +33,8 @@ alias ci='flow ci --short'
 alias ff='flow finish'
 alias fcr='flow create'
 alias fs='flow start'
+alias prodcon='ssh caujob02 /data/philotic/sbin/prodcon'
+alias prodr='ssh caujob02 /data/philotic/sbin/prodro'
 alias push='git push gerrit'
 alias rezeus='pkill -f zeus ; rm .zeus.sock ; zeus start'
 

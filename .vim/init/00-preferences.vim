@@ -65,3 +65,6 @@ set listchars=tab:>-,trail:_,eol:$
 set ttymouse=xterm2
 " Enable mouse in all modes (resize splits, etc.)
 set mouse=a
+
+set splitbelow
+set splitright
