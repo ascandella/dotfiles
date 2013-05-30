@@ -1,0 +1,7 @@
+# Go language specific settings
+
+if [ -d "$HOME/src/gocode" ]; then
+  export GOPATH=~/src/gocode
+
+  export PATH="$PATH:$HOME/src/gocode/bin"
+fi
