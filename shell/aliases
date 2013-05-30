@@ -3,13 +3,14 @@
 #
 
 alias ':q'='echo "\033[31mThis is zsh, not vim\033[0m"'
+alias clip='nc localhost 8377'
+alias diffed='git diff --cached | pbcopy'
 alias ll='ls -l'
 alias ltr='ls -ltr'
-alias t='tmux -u'
-alias diffed='git diff --cached | pbcopy'
 alias r='git refresh'
-alias s='ssh-reagent'
 alias rm > /dev/null && unalias rm
+alias s='ssh-reagent'
+alias t='tmux -u'
 
 #
 # Git aliases
@@ -27,11 +28,11 @@ alias gst='git status'
 #
 
 alias alai='ssh alai -t /home/aiden/bin/remote-tmux'
+alias ci='flow ci --short'
 alias deploy='stark_remote deploy production'
 alias deployhead='deploy `git rev-parse HEAD | cut -c 1-15`'
-alias ci='flow ci --short'
-alias ff='flow finish'
 alias fcr='flow create'
+alias ff='flow finish'
 alias fs='flow start'
 alias prodcon='ssh caujob02 /data/philotic/sbin/prodcon'
 alias prodr='ssh caujob02 /data/philotic/sbin/prodro'
@@ -44,13 +45,11 @@ alias rezeus='pkill -f zeus ; rm .zeus.sock ; zeus start'
 
 alias rails='bundle exec rails'
 alias rspec='bundle exec rspec'
-alias rs='bundle exec rspec'
 
 #
 # Chef aliases
 #
 
 alias cookup='knife cookbook upload'
-alias fresh='git fetch origin && git stash && git rebase origin/master && git stash pop'
 alias knife='nocorrect knife'
 alias rechef='sudo pkill -USR1 chef-client && tail -f /var/log/chef/client.log'
