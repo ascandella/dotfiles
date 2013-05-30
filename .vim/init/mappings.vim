@@ -48,6 +48,9 @@ map <Leader>cl :ccl<CR>
 map <Leader>g  :Gblame<CR>
 map <Leader>q  :q<CR>
 
+" Send selected text to clipper
+nnoremap <leader>y :call system('nc localhost 8377', @0)<CR>
+
 " Paste toggle
 map <silent> <Leader>p : set paste!<CR>
 
