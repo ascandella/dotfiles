@@ -1,2 +1,4 @@
-setlocal autoindent sw=2 et
-setlocal sts=2
+setlocal autoindent
+setlocal expandtab
+setlocal shiftwidth=2
+setlocal softtabstop=2
