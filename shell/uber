@@ -1,0 +1,1 @@
+[[ -d $HOME/src/uber ]] && export UBER_HOME=$HOME/src/uber
