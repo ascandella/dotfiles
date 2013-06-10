@@ -25,6 +25,8 @@ if [ -d $NODE_PATH ] ; then
   export NODE_PATH
 fi
 
+addtopath "/usr/local/share/npm/bin"
+
 #
 # Add ~/bin if it exists and isn't in the path already
 #
