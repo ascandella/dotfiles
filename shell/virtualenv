@@ -1,3 +1,10 @@
+# Keep stuff tidy
+export WORKON_HOME="$HOME/.virtualenvs"
+
+# Use homebrew installed python
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
+export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+
 if [[ -r /usr/local/bin/virtualenvwrapper_lazy.sh ]]; then
   source /usr/local/bin/virtualenvwrapper_lazy.sh
 elif [[ -r /usr/local/bin/virtualenvwrapper.sh ]]; then
