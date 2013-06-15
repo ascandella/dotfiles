@@ -22,7 +22,9 @@ set cindent
 set smartindent
 set autoindent
 
-" Vim 7.3+ only
+" Turn on line numbering first
+set number
+" Then relative numbering
 set relativenumber
 
 set ruler
@@ -48,7 +50,7 @@ set textwidth=80
 autocmd FileType gitcommit setlocal textwidth=72 fo+=t
 
 " Ignore files
-set wildignore+=*.o,*.obj,.git,app/assets/images,public/packages,public/assets,vendor/rails,*.jar,*.zip,*.md5,public/images,public/stylesheets,vendor,log,tmp
+set wildignore+=*.pyc,*.o,*.obj,.git,app/assets/images,public/packages,public/assets,vendor/rails,*.jar,*.zip,*.md5,public/images,public/stylesheets,vendor,log,tmp,node_modules
 
 set tags=.git/tags,.tags
 
