@@ -50,7 +50,10 @@ set textwidth=80
 autocmd FileType gitcommit setlocal textwidth=72 fo+=t
 
 " Ignore files
-set wildignore+=*.pyc,*.o,*.obj,.git,app/assets/images,public/packages,public/assets,vendor/rails,*.jar,*.zip,*.md5,public/images,public/stylesheets,vendor,log,tmp,node_modules
+set wildignore+=*.pyc,*.o,*.obj,.git,app/assets/images
+set wildignore+=public/packages,public/assets,vendor/rails
+set wildignore+=*.jar,*.zip,*.md5,*.map
+set wildignore+=public/images,public/stylesheets,vendor,log,tmp,node_modules
 
 set tags=.git/tags,.tags
 
