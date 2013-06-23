@@ -25,7 +25,6 @@
         amend = commit --amend
         ca = commit --amend
         cached = diff --cached
-        cleanup = !git status --porcelain | grep '^??' | cut -d' ' -f2 | xargs rm -rf
         edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f` +Gdiff"
         graph = log --oneline --graph
         ir = !git rebase -i origin/master
