@@ -7,7 +7,8 @@ set colorcolumn=+0
 set cursorline
 " hi CursorLine ctermbg=234
 
-colorscheme tomorrow_night_bright
+" colorscheme tomorrow_night_bright
+colorscheme molokai
 
 " hi CursorColumn cterm=NONE ctermbg=234
 " hi Folded ctermbg=234
