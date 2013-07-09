@@ -1,7 +1,12 @@
 for sdk in /usr/local/Cellar/android-sdk/* \
-          "/Applications/Android Studio.app/sdk" ;do
+          "/Applications/Android Studio.app/sdk" ; do
   export ANDROID_HOME="$sdk"
   break
 done
 
 [[ -d "$ANDROID_HOME/tools" ]] && export PATH="$PATH:$ANDROID_HOME/tools"
+
+for ndk in /usr/local/Cellar/android-ndk/* ; do
+  export ANDROID_NDK_HOME="$ndk"
+  break
+done
