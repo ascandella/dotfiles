@@ -99,21 +99,6 @@ nmap <silent> <leader>rr :set norelativenumber! <cr>
 imap ,w <Esc>:w<cr>a
 
 
-" Bracketed paste mode
-let &t_ti .= "\e[?2004h"
-let &t_te .= "\e[?2004l"
-let &pastetoggle = "\e[201~"
-
-function! XTermPasteBegin(ret)
-  set paste
-  return a:ret
-endfunction
-
-noremap <special> <expr> <Esc>[200~ XTermPasteBegin("0i")
-inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
-cnoremap <special> <Esc>[200~ <nop>
-cnoremap <special> <Esc>[201~ <nop>
-
 " Make Y consistent with D and C (instead of yy)
 noremap Y y$
 
@@ -151,3 +136,5 @@ vmap <Leader>ts :Tabularize /:/l1c0l0<CR>
 highlight clear SignColumn
 
 nmap <Leader>9 :RainbowParenthesesToggle <CR>
+
+iabbrev <silent> ipdb import ipdb ; ipdb.set_trace()

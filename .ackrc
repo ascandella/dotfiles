@@ -9,7 +9,6 @@
 --ignore-dir=doc
 --ignore-dir=log
 --ignore-dir=node_modules
---ignore-dir=public
 --ignore-dir=spec/javascripts/fixtures
 --ignore-dir=tmp
 --ignore-dir=vendor

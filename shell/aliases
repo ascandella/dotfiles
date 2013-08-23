@@ -21,6 +21,7 @@ alias gr='git rebase'
 alias gco='git checkout'
 alias gca='git commit --amend'
 alias gcaf='git commit --amend --no-verify'
+alias gcn='git commit --amend --no-verify --no-edit'
 alias gst='git status'
 
 #
