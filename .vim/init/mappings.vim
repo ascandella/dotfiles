@@ -43,6 +43,7 @@ map <Leader>n :CommandTBuffer<CR>
 
 map <Leader>w :w<CR>
 
+map <Leader>d  mdA,<esc>`d
 map <Leader>b  :bd<CR>
 map <Leader>cl :ccl<CR>
 map <Leader>g  :Gblame<CR>
