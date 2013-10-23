@@ -16,7 +16,7 @@ alias t='tmux -u'
 # Git aliases
 #
 
-alias g='noglob git'
+alias g='nocorrect noglob git'
 alias gr='git rebase'
 alias gco='git checkout'
 alias gca='git commit --amend'
