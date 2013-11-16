@@ -39,7 +39,7 @@ if which rbenv > /dev/null; then
 fi
 
 case ${TERM} in
-  screen-256color) TERM=xterm-color
+  screen-256color) TERM=xterm-256color
   ;;
 esac
 

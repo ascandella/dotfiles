@@ -248,7 +248,7 @@ if &t_Co > 255
        hi Error           ctermfg=125 ctermbg=233
        hi Exception       ctermfg=154               cterm=bold
        hi Float           ctermfg=141
-       hi Function        ctermfg=154
+       hi Function        ctermfg=120
        hi Identifier      ctermfg=208
 
        hi Keyword         ctermfg=197               cterm=bold
@@ -267,4 +267,7 @@ if &t_Co > 255
        hi NonText         ctermfg=239
        hi SpecialKey      ctermfg=239
    endif
+
+   " Custom Python highlighting
+   hi pythonString ctermfg=119
 end
