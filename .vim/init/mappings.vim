@@ -139,3 +139,6 @@ highlight clear SignColumn
 nmap <Leader>9 :RainbowParenthesesToggle <CR>
 
 iabbrev <silent> ipdb import ipdb ; ipdb.set_trace()
+
+nmap <Tab> >>
+nmap <S-Tab> <<

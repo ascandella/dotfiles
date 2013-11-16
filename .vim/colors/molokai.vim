@@ -270,4 +270,6 @@ if &t_Co > 255
 
    " Custom Python highlighting
    hi pythonString ctermfg=119
+   " Custom Go highlighting
+   hi goString ctermfg=119
 end
