@@ -1,2 +1,0 @@
-which go &> /dev/null && \
-  export GOROOT=$(dirname $(dirname $(greadlink -f $(which go))))

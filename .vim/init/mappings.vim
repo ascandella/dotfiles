@@ -49,6 +49,9 @@ map <Leader>cl :ccl<CR>
 map <Leader>g  :Gblame<CR>
 map <Leader>q  :q<CR>
 
+map <Leader>l :setlocal spell spelllang=en_us
+map <Leader>r :setlocal nospell
+
 " Send selected text to clipper
 nnoremap <leader>y :call system('nc localhost 8377', @0)<CR>
 
@@ -140,5 +143,5 @@ nmap <Leader>9 :RainbowParenthesesToggle <CR>
 
 iabbrev <silent> ipdb import ipdb ; ipdb.set_trace()
 
-nmap <Tab> >>
+" nmap <Tab> >>
 nmap <S-Tab> <<
