@@ -31,7 +31,7 @@ bind down:shift;alt  nudge +0   +10%
 # Throw Bindings
 bind e:shift;cmd         throw 0 resize
 bind u:shift;cmd         throw 1 resize
-bind 3:ctrl;alt         throw 2 resize
+bind i:shift;cmd         throw 2 resize
 bind right:ctrl;alt;cmd throw right resize
 bind left:ctrl;alt;cmd  throw left  resize
 bind up:ctrl;alt;cmd    throw up    resize

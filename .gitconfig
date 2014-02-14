@@ -48,7 +48,7 @@
         ui = true
 
 [log]
-        decorate = short
+	decorate = short
 
 [rerere]
         enabled = true
