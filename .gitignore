@@ -8,3 +8,4 @@ hosts/*/.xmonad/xmonad.o
 .vim/.netrwhist
 hosts/*/.weechat/logs/
 .vim/bundle/*/doc/tags
+.DS_Store
