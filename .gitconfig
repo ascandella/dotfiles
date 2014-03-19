@@ -1,7 +1,8 @@
 [core]
         whitespace = trailing-space,space-before-tab
         pager = less -FRSX
-	editor = vim
+        editor = vim
+        excludesfile = /Users/aiden/.gitignore_global
 
 [user]
         name = Aiden Scandella
@@ -41,14 +42,14 @@
         up = !git fetch origin && git rebase origin/master
         upstream = !git push -u origin $(git rev-parse --abbrev-ref HEAD)
         who = shortlog -n -s --no-merges
-	files = show --pretty=format: --name-only
-	thirty = log --oneline -n 30
+        files = show --pretty=format: --name-only
+        thirty = log --oneline -n 30
 
 [color]
         ui = true
 
 [log]
-	decorate = short
+        decorate = short
 
 [rerere]
         enabled = true

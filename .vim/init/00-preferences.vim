@@ -54,6 +54,7 @@ set wildignore+=*.pyc,*.o,*.obj,.git,app/assets/images
 set wildignore+=public/packages,public/assets,vendor/rails
 set wildignore+=*.jar,*.zip,*.md5,*.map
 set wildignore+=public/images,vendor,log,tmp,node_modules
+set wildignore+=bower_components,assets/build
 
 set tags=.git/tags,.tags
 
