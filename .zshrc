@@ -56,7 +56,9 @@ if [ -d ~/.dotfiles ] ; then
 fi
 
 if [ $DOTFILES ] ; then
-    for f in $DOTFILES/shell/* ; do
-        . $f
-    done
+  for f in $DOTFILES/shell/* ; do
+    . $f
+  done
 fi
+export CFLAGS=-Qunused-arguments
+export CPPFLAGS=-Qunused-arguments
