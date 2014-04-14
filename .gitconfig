@@ -44,6 +44,7 @@
         who = shortlog -n -s --no-merges
         files = show --pretty=format: --name-only
         thirty = log --oneline -n 30
+	p = add -p
 
 [color]
         ui = true

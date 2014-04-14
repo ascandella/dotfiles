@@ -97,3 +97,15 @@
 [submodule ".vim/bundle/vim-scala"]
 	path = .vim/bundle/vim-scala
 	url = https://github.com/derekwyatt/vim-scala.git
+[submodule ".vim/bundle/vim-rst-tables"]
+	path = .vim/bundle/vim-rst-tables
+	url = https://github.com/nvie/vim-rst-tables.git
+[submodule ".vim/.vim/bundle/riv.vim"]
+	path = .vim/.vim/bundle/riv.vim
+	url = https://github.com/Rykka/riv.vim.git
+[submodule ".vim/bundle/riv.vim"]
+	path = .vim/bundle/riv.vim
+	url = https://github.com/Rykka/riv.vim.git
+[submodule ".vim/bundle/vim-csscomb"]
+	path = .vim/bundle/vim-csscomb
+	url = https://github.com/csscomb/vim-csscomb.git

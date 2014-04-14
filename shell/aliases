@@ -18,40 +18,10 @@ alias t='tmux -u'
 
 alias git='nocorrect /usr/local/bin/git'
 alias g='nocorrect git'
+alias gp='git add -p'
 alias gr='git rebase'
 alias gco='git checkout'
 alias gca='git commit --amend'
 alias gcaf='git commit --amend --no-verify'
 alias gcn='git commit --amend --no-verify --no-edit'
 alias gst='git status'
-
-#
-# Causes aliases
-#
-
-alias alai='ssh alai -t /home/aiden/bin/remote-tmux'
-alias ci='flow ci --short'
-alias deploy='stark_remote deploy production'
-alias deployhead='deploy `git rev-parse HEAD | cut -c 1-15`'
-alias fcr='flow create'
-alias ff='flow finish'
-alias fs='flow start'
-alias prodcon='ssh caujob02 /data/philotic/sbin/prodcon'
-alias prodr='ssh caujob02 /data/philotic/sbin/prodro'
-alias push='git push gerrit'
-alias rezeus='pkill -f zeus ; rm .zeus.sock ; zeus start'
-
-#
-# Ruby aliases
-#
-
-alias rails='bundle exec rails'
-alias rspec='bundle exec rspec'
-
-#
-# Chef aliases
-#
-
-alias cookup='knife cookbook upload'
-alias knife='nocorrect knife'
-alias rechef='sudo pkill -USR1 chef-client && tail -f /var/log/chef/client.log'
