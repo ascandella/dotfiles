@@ -61,3 +61,5 @@
 [pager]
         status = true
         show-branch = true
+[help]
+	autocorrect = 5
