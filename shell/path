@@ -5,18 +5,6 @@ addtopath() {
 }
 
 #
-# Causes developer scripts
-#
-
-for p in devscripts devscripts/debug devscripts/gerrit devscripts/git \
-  devscripts/testing stark ; do
-  for source in "$HOME" "$HOME/src" ; do
-    addtopath "$source/$p"
-  done
-done
-
-
-#
 # Node.js
 #
 

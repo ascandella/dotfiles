@@ -142,6 +142,7 @@ highlight clear SignColumn
 nmap <Leader>9 :RainbowParenthesesToggle <CR>
 
 iabbrev <silent> ipdb import ipdb ; ipdb.set_trace()
+iabbrev <silent> _fu from __future__ import absolute_import
 
 " nmap <Tab> >>
 nmap <S-Tab> <<

@@ -16,7 +16,9 @@ alias t='tmux -u'
 # Git aliases
 #
 
-alias git='nocorrect /usr/local/bin/git'
+if [ -x /usr/local/bin/git ]; then
+  alias git='nocorrect /usr/local/bin/git'
+fi
 alias g='nocorrect git'
 alias gp='git add -p'
 alias gr='git rebase'
