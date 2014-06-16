@@ -60,6 +60,3 @@ if [ $DOTFILES ] ; then
     . $f
   done
 fi
-
-export CFLAGS="-Qunused-arguments -Wno-parentheses-equality"
-export CPPFLAGS="-Qunused-arguments -Wno-parentheses-equality"
