@@ -24,9 +24,9 @@ psgrep() {
 }
 
 ftest() {
-  local fabtest='-s uber.tests'
+  local fabtest='-s'
   if [ -n "$1" ] ; then
-    fabtest="$fabtest.$1"
+    fabtest="$fabtest uber.tests.$1"
   else
     echo 'I need something to test'
     return
@@ -35,7 +35,7 @@ ftest() {
   if [ -n "$2" ] ; then
     fabtest="$fabtest -k $2"
   fi
-  fab test $fabtest
+  fab test:"$fabtest"
 }
 
 vimwrap() {
