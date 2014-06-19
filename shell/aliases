@@ -27,3 +27,5 @@ alias gca='git commit --amend'
 alias gcaf='git commit --amend --no-verify'
 alias gcn='git commit --amend --no-verify --no-edit'
 alias gst='git status -sb'
+
+alias pep='autopep8 -i '

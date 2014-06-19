@@ -16,11 +16,26 @@ ssh-reagent () {
 }
 
 psgrep() {
-    if [ ! -z $1 ] ; then
-        ps aux | grep $1 | grep -v grep
-    else
-        echo "!! Need name to grep for"
-    fi
+  if [ -n "$1" ] ; then
+    ps aux | grep $1 | grep -v grep
+  else
+    echo "!! Need name to grep for"
+  fi
+}
+
+ftest() {
+  local fabtest='-s uber.tests'
+  if [ -n "$1" ] ; then
+    fabtest="$fabtest.$1"
+  else
+    echo 'I need something to test'
+    return
+  fi
+
+  if [ -n "$2" ] ; then
+    fabtest="$fabtest -k $2"
+  fi
+  fab test $fabtest
 }
 
 vimwrap() {
