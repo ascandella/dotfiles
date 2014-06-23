@@ -55,3 +55,9 @@ au Syntax * RainbowParenthesesLoadBraces
 " YouCompleteMe -- autocompletion
 "
 let g:ycm_min_num_of_chars_for_completion = 3
+
+"
+" Airline is the new powerline
+"
+let g:airline_powerline_fonts = 1
+let g:airline_theme="murmur"

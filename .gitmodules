@@ -46,9 +46,6 @@
 [submodule ".vim/bundle/ack"]
 	path = .vim/bundle/ack
 	url = git://github.com/mileszs/ack.vim.git
-[submodule ".vim/bundle/vim-powerline"]
-	path = .vim/bundle/vim-powerline
-	url = git://github.com/Lokaltog/vim-powerline.git
 [submodule ".vim/bundle/vim-endwise"]
 	path = .vim/bundle/vim-endwise
 	url = git://github.com/tpope/vim-endwise.git
@@ -109,3 +106,9 @@
 [submodule ".vim/bundle/vim-csscomb"]
 	path = .vim/bundle/vim-csscomb
 	url = https://github.com/csscomb/vim-csscomb.git
+[submodule ".vim/bundle/vim-airline"]
+	path = .vim/bundle/vim-airline
+	url = https://github.com/bling/vim-airline.git
+[submodule ".vim/bundle/vim-virtualenv"]
+	path = .vim/bundle/vim-virtualenv
+	url = https://github.com/jmcantrell/vim-virtualenv.git

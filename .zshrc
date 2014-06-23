@@ -39,8 +39,8 @@ if which rbenv > /dev/null; then
 fi
 
 case ${TERM} in
-  screen-256color) TERM=xterm-256color
-  ;;
+  screen-256color) TERM=xterm-256color ;;
+  xterm) TERM=xterm-256color ;;
 esac
 
 export EDITOR=`which vim`
