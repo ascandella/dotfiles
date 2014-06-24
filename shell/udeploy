@@ -1,0 +1,8 @@
+udeploy() {
+  if [ -z "$1" ]; then
+    echo "Need a service to deploy"
+    return
+  else
+    ssh mirror01-peak1 udeploy-client bake-n-upgrade --logs $1 ${2:-origin/master}
+  fi
+}
