@@ -55,7 +55,7 @@ set wildignore+=public/packages,public/assets,vendor/rails
 set wildignore+=*.jar,*.zip,*.md5,*.map,*.png,*.jpg,*.svg,*.min.js
 set wildignore+=*.eot,*.ttf,*.woff,*.pid
 set wildignore+=public/images,vendor,log,tmp,node_modules
-set wildignore+=bower_components,assets/build
+set wildignore+=bower_components,assets/build,env
 
 set tags=.git/tags,.tags
 
