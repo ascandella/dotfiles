@@ -146,3 +146,8 @@ iabbrev <silent> _fu from __future__ import absolute_import
 
 " nmap <Tab> >>
 nmap <S-Tab> <<
+
+"
+" Arcanist (phabricator) for Uber
+"
+nnoremap gr /Reviewers:<CR>A
