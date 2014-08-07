@@ -29,3 +29,8 @@ alias gcn='git commit --amend --no-verify --no-edit'
 alias gst='git status -sb'
 
 alias pep='autopep8 -i '
+
+#
+# Global aliases
+#
+alias -g g=' | grep '
