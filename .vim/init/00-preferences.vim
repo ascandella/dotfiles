@@ -76,3 +76,6 @@ set mouse=a
 
 set splitbelow
 set splitright
+
+" Smarter case-sensitivity for searches
+set smartcase
