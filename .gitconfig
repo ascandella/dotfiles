@@ -37,6 +37,7 @@
         refresh = !ssh-add -l && STASH=$(git stash) && git fetch && git rebase origin/master && test \"$STASH\" != \"No local changes to save\" && git stash pop
         rmb = !sh -c 'git branch -D $1 && git push origin :$1' -
         sha1 = rev-parse HEAD
+        sha = !git rev-parse HEAD | cut -c 1-8
         showstash = stash show -p stash@{0}
         ten = log --oneline -n 10
         up = !git fetch origin && git rebase origin/master
