@@ -1,1 +1,0 @@
-("~/.dotfiles/" "~/.emacs.d/" "~/.emacs.d/elisp/" "~/.emacs.d/elpa/flx-ido-20140821.2033/" "~/.emacs.d/elpa/flx-20140921.739/" "~/.emacs.d/elpa/cl-lib-0.5/" "~/.emacs.d/elpa/grizzl-20130810.202/")
