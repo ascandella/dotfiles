@@ -115,3 +115,6 @@
 [submodule ".vim/bundle/vim-golang"]
 	path = .vim/bundle/vim-golang
 	url = git@github.com:jnwhiteh/vim-golang.git
+[submodule ".emacs.d"]
+	path = .emacs.d
+	url = https://github.com/bbatsov/prelude.git
