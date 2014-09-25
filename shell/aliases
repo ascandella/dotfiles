@@ -11,6 +11,7 @@ alias r='git refresh'
 alias rm > /dev/null && unalias rm
 alias s='ssh-reagent'
 alias t='tmux -u'
+alias e='emacsclient -t'
 
 #
 # Git aliases
@@ -33,4 +34,4 @@ alias pep='autopep8 -i '
 #
 # Global aliases
 #
-alias -g g=' | grep '
+alias -g G=' | grep '

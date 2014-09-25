@@ -1,3 +1,4 @@
 if `which overcommit` &> /dev/null ; then
-  export GIT_TEMPLATE_DIR=`overcommit --template-dir`
+  # export GIT_TEMPLATE_DIR=`overcommit --template-dir`
+  # causing problems with `go get` :(
 fi

@@ -24,7 +24,7 @@ psgrep() {
 }
 
 ftest() {
-  local fabtest='-s'
+  local fabtest='-s --timeout 0'
   if [ -n "$1" ] ; then
     fabtest="$fabtest uber.tests.$1"
   else
