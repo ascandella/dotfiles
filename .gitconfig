@@ -1,7 +1,7 @@
 [core]
         whitespace = trailing-space,space-before-tab
         pager = less -FRSX
-        editor = emacsclient -t
+        editor = vim
         excludesfile = /Users/aiden/.gitignore_global
 
 [user]
@@ -61,6 +61,6 @@
 
 [pager]
         status = true
-        show-branch = true
+	show-branch = true
 [help]
 	autocorrect = 5

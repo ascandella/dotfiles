@@ -61,9 +61,6 @@
 [submodule ".zprezto"]
 	path = .zprezto
 	url = https://github.com/sorin-ionescu/prezto.git
-[submodule ".vim/bundle/YouCompleteMe"]
-	path = .vim/bundle/YouCompleteMe
-	url = git://github.com/Valloric/YouCompleteMe.git
 [submodule ".vim/bundle/vim-gitgutter"]
 	path = .vim/bundle/vim-gitgutter
 	url = git://github.com/airblade/vim-gitgutter.git
@@ -117,4 +114,4 @@
 	url = git@github.com:jnwhiteh/vim-golang.git
 [submodule ".emacs.d"]
 	path = .emacs.d
-	url = https://github.com/sectioneight/prelude.git
+	url = git@github.com:sectioneight/prelude.git
