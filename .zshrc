@@ -43,7 +43,7 @@ case ${TERM} in
   xterm) TERM=xterm-256color ;;
 esac
 
-export EDITOR=`which vim`
+export EDITOR="$(which emacsclient) -t"
 
 test -r ~/.zshrc.local && . ~/.zshrc.local
 

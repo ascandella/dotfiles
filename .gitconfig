@@ -1,7 +1,7 @@
 [core]
         whitespace = trailing-space,space-before-tab
         pager = less -FRSX
-        editor = vim
+        editor = emacsclient -t
         excludesfile = /Users/aiden/.gitignore_global
 
 [user]

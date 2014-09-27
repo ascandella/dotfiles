@@ -4,7 +4,6 @@
 
 alias ':q'='echo "\033[31mThis is zsh, not vim\033[0m"'
 alias clip='nc localhost 8377'
-alias diffed='git diff --cached | pbcopy'
 alias ll='ls -l'
 alias ltr='ls -ltr'
 alias r='git refresh'
@@ -12,6 +11,9 @@ alias rm > /dev/null && unalias rm
 alias s='ssh-reagent'
 alias t='tmux -u'
 alias e='emacsclient -t'
+# Old habits
+alias vim='emacsclient -t'
+alias vi="$(which vim)"
 
 #
 # Git aliases
