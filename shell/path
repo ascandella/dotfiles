@@ -1,6 +1,6 @@
 addtopath() {
   if [ -d $1 ] && [[ ":$PATH:" != *":$1:"* ]] ; then
-    export PATH=$PATH:$1
+    export PATH="$PATH:$1"
   fi
 }
 
