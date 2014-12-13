@@ -51,6 +51,7 @@ alias vim=vimwrap
 bumpe() {
   pushd ~/.emacs.d/
   git commit -m "$1"
+  git push origin master
   pushd ~/.dotfiles
   git add .emacs.d
   git commit -n -m "Bump emacs.d"
