@@ -49,6 +49,7 @@ alias vim=vimwrap
 
 
 bumpe() {
+  set -e
   pushd ~/.emacs.d/
   git commit -m "$1"
   git push origin master
@@ -58,4 +59,5 @@ bumpe() {
   git push origin master
   popd
   popd
+  set +e
 }
