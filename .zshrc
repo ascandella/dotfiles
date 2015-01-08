@@ -66,3 +66,6 @@ fi
 # bind UP and DOWN arrow keys
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
