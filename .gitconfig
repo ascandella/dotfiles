@@ -45,8 +45,8 @@
         who = shortlog -n -s --no-merges
         files = show --pretty=format: --name-only
         thirty = log --oneline -n 30
-	p = add -p
-	unstage = reset HEAD
+        p = add -p
+        unstage = reset HEAD
 
 [color]
         ui = true
