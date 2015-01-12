@@ -49,6 +49,7 @@ alias vim=vimwrap
 
 
 bumpe() {
+  [ -z "$1" ] && echo "Need a commit message" && return 1
   set -e
   pushd ~/.emacs.d/
   git commit -m "$1"
@@ -60,4 +61,13 @@ bumpe() {
   popd
   popd
   set +e
+}
+
+pushdot() {
+  [ -z "$1" ] && echo "Need a commit message" && return 1
+  pushd ~/.dotfiles
+  git add .
+  git commit -m "$1" -n
+  git push origin master
+  popd
 }
