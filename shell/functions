@@ -72,3 +72,9 @@ pushdot() {
   git push origin master
   popd
 }
+
+watch-test() {
+  local target="$@"
+  [ -z "$target" ] && target="."
+  fswatch -e "\.pyc" $target | xargs -n1 -I{} make
+}

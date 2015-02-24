@@ -37,3 +37,5 @@ alias pep='autopep8 -i '
 # Global aliases
 #
 alias -g G=' | grep '
+
+alias land='SKIP_CHECKS=all arc land'
