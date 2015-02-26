@@ -76,5 +76,5 @@ pushdot() {
 watch-test() {
   local target="$@"
   [ -z "$target" ] && target="."
-  fswatch -e "\.pyc" $target | xargs -n1 -I{} make
+  fswatch -o -e "\.pyc" $target | xargs -n1 -I{} make
 }
