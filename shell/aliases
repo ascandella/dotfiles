@@ -11,6 +11,8 @@ alias rm > /dev/null && unalias rm
 alias s='ssh-reagent'
 alias t='tmux -u'
 alias e='emacsclient -t'
+alias e.='e .'
+alias e,='e .'
 # Old habits
 alias vim='emacsclient -t'
 alias vi="$(which vim)"
