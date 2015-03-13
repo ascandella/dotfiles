@@ -1,12 +1,14 @@
 # Go language specific settings
 
-for dir in '.gocode' 'src/gocode' ; do
-  if [ -d "$HOME/$dir" ]; then
-    export GOPATH="$HOME/$dir"
+if [ -z "${GOPATH}" ] ; then
+  for dir in '.gocode' 'src/gocode' ; do
+    if [ -d "$HOME/$dir" ]; then
+      export GOPATH="$HOME/$dir"
 
-    export PATH="$PATH:$HOME/$dir/bin"
-  fi
-done
+      export PATH="$PATH:$HOME/$dir/bin"
+    fi
+  done
+fi
 
 # Enable e.g. `ls` colors
 export CLICOLOR=1
