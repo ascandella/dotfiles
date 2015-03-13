@@ -1,3 +1,3 @@
-if which overcommit &> /dev/null ; then
-  export GIT_TEMPLATE_DIR=`overcommit --template-dir`
-fi
+# if which overcommit &> /dev/null ; then
+#   export GIT_TEMPLATE_DIR=`overcommit --template-dir`
+# fi
