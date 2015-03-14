@@ -10,3 +10,4 @@ hosts/*/.weechat/logs/
 .vim/bundle/*/doc/tags
 .DS_Store
 .overcommit.yml
+.ruby-version
