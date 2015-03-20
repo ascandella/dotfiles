@@ -2,7 +2,7 @@
         whitespace = trailing-space,space-before-tab
         pager = less -FRSX
         editor = emacsclient -t --create-frame
-        excludesfile = /Users/aiden/.gitignore_global
+        excludesfile = $HOME/.gitignore_global
 
 [user]
         name = Aiden Scandella
