@@ -21,6 +21,8 @@ addtopath "/usr/local/share/npm/bin"
 
 addtopath "$HOME/bin"
 
+addtopath "$HOME/.cask/bin"
+
 addtopath "/usr/local/opt/go/libexec/bin"
 
 # Undefine the helper function
