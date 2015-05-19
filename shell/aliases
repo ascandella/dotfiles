@@ -41,3 +41,7 @@ alias pep='autopep8 -i '
 alias -g G=' | grep '
 
 alias land='SKIP_CHECKS=all arc land'
+
+if [ -x "$(which ccat)" ]; then
+  alias cat='ccat --bg=dark'
+fi
