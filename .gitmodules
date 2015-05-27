@@ -118,3 +118,6 @@
 [submodule "ext/z"]
 	path = ext/z
 	url = git@github.com:rupa/z.git
+[submodule ".zgen"]
+	path = .zgen
+	url = git@github.com:tarjoilija/zgen.git
