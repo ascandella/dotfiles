@@ -29,6 +29,13 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+#
+# Load zgen
+#
+if [[ -s "${ZDOTDIR:-$HOME}/.zgen/zgen.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zgen/zgen.zsh"
+fi
+
 # if [ -d "$HOME/.rbenv" ] ; then
 #   export PATH="$PATH:$HOME/.rbenv/bin"
 # fi
