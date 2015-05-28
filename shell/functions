@@ -77,8 +77,3 @@ watch-test() {
   [ -z "$1" ] && echo "Need a target" && return 1
   fswatch -o -e "\.pyc" $@ | xargs -n1 -I{} make
 }
-
-# Allow git commit -m and auto-quote arguments
-gcm () {
-  git commit -m "$*"
-}
