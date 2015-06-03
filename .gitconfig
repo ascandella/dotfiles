@@ -6,7 +6,7 @@
 
 [user]
         name = Aiden Scandella
-        email = aiden@uber.com
+        email = ai@uber.com
 
 [push]
         default = upstream
