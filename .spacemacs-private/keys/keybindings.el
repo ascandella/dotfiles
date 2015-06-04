@@ -63,7 +63,7 @@
 
 (evil-leader/set-key
   "cq" 'tell-emacsclients-for-buffer-to-die
-  "m" 'magit-status
+  ;; "m" 'magit-status
   "b" 'magit-blame-mode
   "h" 'magit-blame-locate-commit)
 
