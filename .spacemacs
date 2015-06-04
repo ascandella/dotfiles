@@ -23,6 +23,7 @@
      emacs-lisp
       (git :variables
            git-gutter-use-fringe nil)
+     ag
      go
      aiden-go
      git-mode
@@ -33,7 +34,7 @@
      pbcopy
      python
      ruby
-     ;; shell
+     shell
      ;; smex
      syntax-checking
      term-mouse
@@ -92,12 +93,12 @@ before layers configuration."
                                :width normal
                                :powerline-scale 1.1)
    ;; The leader key
-   dotspacemacs-leader-key "SPC"
+   dotspacemacs-leader-key ","
    ;; The leader key accessible in `emacs state' and `insert state'
    dotspacemacs-emacs-leader-key "M-m"
    ;; Major mode leader key is a shortcut key which is the equivalent of
    ;; pressing `<leader> m`. Set it to `nil` to disable it.
-   dotspacemacs-major-mode-leader-key nil
+   dotspacemacs-major-mode-leader-key "'"
    ;; Major mode leader key accessible in `emacs state' and `insert state'
    dotspacemacs-major-mode-emacs-leader-key "C-M-m"
    ;; The command key used for Evil commands (ex-commands) and

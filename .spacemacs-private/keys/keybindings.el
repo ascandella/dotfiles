@@ -16,13 +16,13 @@
 (define-key evil-normal-state-map (kbd "DEL") 'delete-window)
 
 ;; leader
-(global-evil-leader-mode)
+;; (global-evil-leader-mode)
 
-(evil-leader/set-leader ",")
+;; (evil-leader/set-leader ",")
 
 (evil-leader/set-key
   "w" 'evil-write
-  "e" 'projectile-find-file
+  "eu" 'projectile-find-file
   "n" 'helm-mini
   "g" 'helm-M-x
   "y" 'helm-show-kill-ring
@@ -55,7 +55,7 @@
   "." 'vi-line-above
   "u" 'vi-line-below
   "d" 'trailing-comma
-  "s" 'sort-lines)
+  "ss" 'sort-lines)
 
 (define-key evil-motion-state-map "gr" 'go-to-reviewers)
 
