@@ -1,7 +1,6 @@
 ;; -*- mode: emacs-lisp -*-
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
-(setq debug-on-error t)
 
 (defun dotspacemacs/layers ()
   "Configuration Layers declaration."
@@ -22,20 +21,21 @@
      ;; better-defaults
      emacs-lisp
       (git :variables
-           git-magit-status-fullscreen t
-           git-enable-github-support t
-           git-gutter-use-fringe t)
+           git-gutter-use-fringe nil)
      go
-     git
+     ;; aiden-go
+     git-mode
      keys
      markdown
      org
      osx
+     pbcopy
      python
      ruby
-     shll
-     smex
+     ;; shell
+     ;; smex
      syntax-checking
+     term-mouse
      thrift
      yaml
      )
@@ -69,7 +69,7 @@ before layers configuration."
    ;; directory. A string value must be a path to an image format supported
    ;; by your Emacs build.
    ;; If the value is nil then no banner is displayed.
-   dotspacemacs-startup-banner 'random
+   dotspacemacs-startup-banner 'official
    ;; List of items to show in the startup buffer. If nil it is disabled.
    ;; Possible values are: `recents' `bookmarks' `projects'."
    dotspacemacs-startup-lists '(recents projects bookmarks)
@@ -140,7 +140,7 @@ before layers configuration."
    ;; If non nil smooth scrolling (native-scrolling) is enabled. Smooth
    ;; scrolling overrides the default behavior of Emacs which recenters the
    ;; point when it reaches the top or bottom of the screen.
-   dotspacemacs-smooth-scrolling t
+   dotspacemacs-smooth-scrolling nil
    ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
    dotspacemacs-smartparens-strict-mode nil
    ;; Select a scope to highlight delimiters. Possible value is `all',
@@ -163,6 +163,7 @@ before layers configuration."
   "Configuration function.
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
+  (setq debug-on-error nil)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will

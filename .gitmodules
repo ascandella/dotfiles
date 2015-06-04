@@ -112,9 +112,6 @@
 [submodule ".vim/bundle/vim-golang"]
 	path = .vim/bundle/vim-golang
 	url = git@github.com:jnwhiteh/vim-golang.git
-[submodule ".emacs.d"]
-	path = .emacs.d
-	url = git@github.com:sectioneight/prelude.git
 [submodule "ext/z"]
 	path = ext/z
 	url = git@github.com:rupa/z.git
