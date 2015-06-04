@@ -4,11 +4,12 @@
 
 (defun dotspacemacs/layers ()
   "Configuration Layers declaration."
-  (setq vc-follow-symlinks nil)
+  ; automatically load from symlinks
+  (setq vc-follow-symlinks t)
   (setq-default
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (ie. `~/.mycontribs/')
-   dotspacemacs-configuration-layer-path '()
+   dotspacemacs-configuration-layer-path '("~/.dotfiles/.spacemacs-private/")
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
@@ -24,22 +25,23 @@
       (git :variables
            git-gutter-use-fringe nil)
      ag
-     go
      aiden-go
      git-mode
+     go
+     javascript
      keys
      markdown
      org
      osx
      pbcopy
      python
+     restclient
      ruby
-     shell
-     ;; smex
      syntax-checking
      term-mouse
      thrift
      yaml
+     ycmd
      )
    ;; List of additional packages that will be installed wihout being
    ;; wrapped in a layer. If you need some configuration for these
@@ -78,7 +80,8 @@ before layers configuration."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(monokai
+   dotspacemacs-themes '(lush
+                         monokai
                          zenbun
                          solarized-dark
                          solarized-light
@@ -166,6 +169,8 @@ before layers configuration."
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
   (setq debug-on-error nil)
+  (setq ycmd/all-the-modes t)
+  (add-hook 'after-init-hook #'global-flycheck-mode)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
