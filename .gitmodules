@@ -121,3 +121,6 @@
 [submodule ".zgen"]
 	path = .zgen
 	url = git@github.com:tarjoilija/zgen.git
+[submodule ".spacemacs.d"]
+	path = .spacemacs.d
+	url = https://github.com/syl20bnr/spacemacs
