@@ -4,6 +4,7 @@
 
 (defun dotspacemacs/layers ()
   "Configuration Layers declaration."
+  (setq vc-follow-symlinks nil)
   (setq-default
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (ie. `~/.mycontribs/')
@@ -23,7 +24,7 @@
       (git :variables
            git-gutter-use-fringe nil)
      go
-     ;; aiden-go
+     aiden-go
      git-mode
      keys
      markdown
@@ -163,7 +164,7 @@ before layers configuration."
   "Configuration function.
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
-  (setq debug-on-error nil)
+  (setq debug-on-error t)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will

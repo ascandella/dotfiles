@@ -15,7 +15,9 @@
 (setq aiden-go-packages
     '(
       ;; package aiden-gos go here
+      go
       go-eldoc
+      go-autocomplete
       ))
 
 ;; List of packages to exclude.
@@ -23,10 +25,12 @@
 
 ;; For each package, define a function aiden-go/init-<package-aiden-go>
 ;;
-;; (defun aiden-go/init-my-package ()
-;;   "Initialize my package"
-;;   )
-;;
-;; Often the body of an initialize function uses `use-package'
-;; For more info on `use-package', see readme:
-;; https://github.com/jwiegley/use-package
+(defun aiden-go/init-my-package ()
+   "Initialize my package"
+   (use-package go-mode
+     :defer t
+     :init
+     (progn
+       (setq gofmt-command "goimports")
+       (load-file "$GOPATH/src/golang.org/x/tools/cmd/oracle/oracle.el")))
+  )
