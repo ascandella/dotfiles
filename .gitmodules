@@ -115,6 +115,6 @@
 [submodule "ext/z"]
 	path = ext/z
 	url = git@github.com:rupa/z.git
-[submodule ".spacemacs.d"]
-	path = .spacemacs.d
+[submodule ".emacs.d"]
+	path = .emacs.d
 	url = https://github.com/syl20bnr/spacemacs
