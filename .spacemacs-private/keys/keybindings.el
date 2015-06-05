@@ -22,7 +22,7 @@
 
 (evil-leader/set-key
   "w" 'evil-write
-  "eu" 'projectile-find-file
+  "," 'projectile-find-file
   "n" 'helm-mini
   "g" 'helm-M-x
   "y" 'helm-show-kill-ring
