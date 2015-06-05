@@ -26,6 +26,7 @@
            git-gutter-use-fringe nil)
      ag
      aiden-go
+     flycheck-global
      git-mode
      go
      javascript
@@ -171,7 +172,6 @@ before layers configuration."
 layers configuration."
   (setq debug-on-error nil)
   (setq ycmd/all-the-modes t)
-  (add-hook 'after-init-hook #'global-flycheck-mode)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will

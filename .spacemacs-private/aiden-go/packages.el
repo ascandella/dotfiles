@@ -18,6 +18,7 @@
       go
       go-eldoc
       go-autocomplete
+      flycheck
       ))
 
 ;; List of packages to exclude.
@@ -25,7 +26,7 @@
 
 ;; For each package, define a function aiden-go/init-<package-aiden-go>
 ;;
-(defun aiden-go/init-my-package ()
+(defun aiden-go/init-go-mode()
    "Initialize my package"
    (use-package go-mode
      :defer t
