@@ -27,7 +27,7 @@
         ca = commit --amend
         cached = diff --cached
         edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f` +Gdiff"
-        delmerged = "!git branch --merged |grep -v "\\*" | xargs -n 1 git branch -d"
+        delmerged = "!git branch --merged | grep -v "\\*" | gerp -v "^master" | xargs -n 1 git branch -d"
         graph = log --oneline --graph
         ir = !git rebase -i origin/master
         l = log --decorate --stat
