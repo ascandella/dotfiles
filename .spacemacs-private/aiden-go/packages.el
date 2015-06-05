@@ -26,7 +26,7 @@
 
 ;; For each package, define a function aiden-go/init-<package-aiden-go>
 ;;
-(defun aiden-go/init-go-mode()
+(defun aiden-go/init-go-mode ()
    "Initialize my package"
    (use-package go-mode
      :defer t
