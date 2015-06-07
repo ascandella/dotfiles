@@ -36,6 +36,7 @@
      osx
      pbcopy
      php-stuff
+     puppet
      python
      restclient
      ruby
@@ -174,8 +175,7 @@ layers configuration."
    debug-on-error nil
    ycmd/all-the-modes t
    yas-snippet-dirs '("~/.dotfiles/.yasnippet-snippets/"))
-  (add-to-list 'auto-mode-alist '("\\.arclint\\'" . json-mode))
-  (add-to-list 'auto-mode-alist '("\\.arcconfig\\'" . json-mode))
+  (add-to-list 'auto-mode-alist '("\\.arc.*\\'" . json-mode))
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
