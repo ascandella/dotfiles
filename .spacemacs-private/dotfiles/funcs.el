@@ -5,6 +5,7 @@
   (interactive "sCommit message: ")
   (magit-stage-all)
   (magit-diff-staged)
-  (magit-commit ars))
+  (magit-commit args)
+  (magit-push))
 
 ;;; funcs.el ends here
