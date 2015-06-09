@@ -182,6 +182,7 @@ layers configuration."
     "~/.dotfiles/.custom-yas/"
     ))
   (add-to-list 'auto-mode-alist '("\\.arc.*\\'" . json-mode))
+  (add-to-list 'auto-mode-alist '("\\.*.zsh\\'" . shell-mode))
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
