@@ -183,6 +183,7 @@ layers configuration."
     ))
   (add-to-list 'auto-mode-alist '("\\.arc.*\\'" . json-mode))
   (add-to-list 'auto-mode-alist '("\\.*.zsh\\'" . shell-mode))
+  (add-hook 'before-save-hook 'delete-trailing-whitespace)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
