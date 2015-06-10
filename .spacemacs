@@ -97,8 +97,8 @@ before layers configuration."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("Source Code Pro"
-                               :size 13
+   dotspacemacs-default-font '("Menlo"
+                               :size 14
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -177,6 +177,7 @@ before layers configuration."
 layers configuration."
   (setq
    debug-on-error nil
+   powerline-default-separator 'arrow
    ycmd/all-the-modes t
    yas-snippet-dirs '(
     "~/.dotfiles/.yasnippet-snippets/"
