@@ -17,6 +17,7 @@
       ;; package keyss go here
       evil-leader
       evil-nerd-commenter
+      org
       ))
 
 ;; List of packages to exclude.

@@ -70,3 +70,6 @@
 (evil-leader/set-key
   "2" (lambda () (interactive) (shift-width 2))
   "4" (lambda () (interactive) (shift-width 4)))
+
+
+;;; keybindings.el ends here

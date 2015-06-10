@@ -26,6 +26,7 @@
            git-gutter-use-fringe nil)
      ag
      aiden-go
+     aiden-org-mode
      flycheck-global
      git-mode
      go

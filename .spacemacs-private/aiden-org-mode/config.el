@@ -1,2 +1,2 @@
-(setq org-agenda-files (list "~/Sync/Notes/multi-tenancy.org"
-                             "~/Sync/Notes/personal.org")) 
+(setq org-agenda-files (list "~/Documents/Sync/Notes/multi-tenancy.org"
+                             "~/Documents/Sync/Notes/personal.org"))
