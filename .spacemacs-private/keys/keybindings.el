@@ -29,12 +29,21 @@
   "a" 'projectile-ag
   "p" 'toggle-pbcopy
   "cd" 'cd
-  "r" 'select-paragraph)
+  "h" 'helm-swoop
+  "r" 'select-paragraph
+  "." 'vi-line-above
+  "'" 'vi-line-below
+  "d" 'trailing-comma
+  "cq" 'tell-emacsclients-for-buffer-to-die
+  ;; "m" 'magit-status
+  "b" 'magit-blame-mode
+  "ss" 'sort-lines
+  "-" 'evilnc-comment-or-uncomment-lines
+  "2" (lambda () (interactive) (shift-width 2))
+  "4" (lambda () (interactive) (shift-width 4)))
 
 ;; evil nerd commenter hotkeys
 ;; (evilnc-default-hotkeys)
-
-(evil-leader/set-key "-" 'evilnc-comment-or-uncomment-lines)
 
 ;; better m-x
 (global-set-key (kbd "M-x") 'helm-M-x)
@@ -51,25 +60,8 @@
 
 (setq-default auto-fill-function 'do-auto-fill)
 
-(evil-leader/set-key
-  "." 'vi-line-above
-  "u" 'vi-line-below
-  "d" 'trailing-comma
-  "ss" 'sort-lines)
-
 (define-key evil-motion-state-map "gr" 'go-to-reviewers)
 
 (global-set-key (kbd "C-c v") 'pbpaste)
-
-(evil-leader/set-key
-  "cq" 'tell-emacsclients-for-buffer-to-die
-  ;; "m" 'magit-status
-  "b" 'magit-blame-mode
-  "h" 'magit-blame-locate-commit)
-
-(evil-leader/set-key
-  "2" (lambda () (interactive) (shift-width 2))
-  "4" (lambda () (interactive) (shift-width 4)))
-
 
 ;;; keybindings.el ends here

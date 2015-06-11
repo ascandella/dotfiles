@@ -25,9 +25,17 @@
 
 ;; For each package, define a function keys/init-<package-keys>
 ;;
-;; (defun keys/init-my-package ()
-;;   "Initialize my package"
-;;   )
+(defun keys/init-org()
+  "Initialize my package"
+  (use-package org
+    :defer t
+    :init
+    (add-hook 'org-mode-hook
+              (lambda ()
+                (define-key org-mode-map (kbd "t") 'evil-next-line)
+                (define-key org-mode-map (kbd "C-t") 'org-todo)))
+    )
+  )
 ;;
 ;; Often the body of an initialize function uses `use-package'
 ;; For more info on `use-package', see readme:

@@ -23,9 +23,16 @@
 
 ;; For each package, define a function dotfiles/init-<package-dotfiles>
 ;;
-;; (defun dotfiles/init-my-package ()
-;;   "Initialize my package"
-;;   )
+(defun dotfiles/init-magit()
+  "Initialize my package"
+  (use-package magit
+    :defer t
+    :init
+    (add-hook 'magit-blame-mode-hook
+              (lambda ()
+                (evil-leader/set-key-for-mode 'magit-blame-mode "h" 'magit-blame-locate-commit)))
+    )
+  )
 ;;
 ;; Often the body of an initialize function uses `use-package'
 ;; For more info on `use-package', see readme:

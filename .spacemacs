@@ -29,6 +29,7 @@
      aiden-org-mode
      flycheck-global
      git-mode
+     dotfiles
      go
      javascript
      keys
