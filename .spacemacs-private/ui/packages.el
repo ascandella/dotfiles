@@ -15,6 +15,7 @@
 (setq ui-packages
     '(
       ;; package uis go here
+      exec-path-from-shell
       ))
 
 ;; List of packages to exclude.
@@ -22,9 +23,15 @@
 
 ;; For each package, define a function ui/init-<package-ui>
 ;;
-;; (defun ui/init-my-package ()
-;;   "Initialize my package"
-;;   )
+(defun ui/init-exec-path-from-shell ()
+  (use-package exec-path-from-shell
+    :defer t
+    :config
+    ;; ensure stuff gets shelled out properly
+    (when (memq window-system '(mac ns))
+        (exec-path-from-shell-initialize)
+        (exec-path-from-shell-copy-env "GOPATH")))
+  )
 ;;
 ;; Often the body of an initialize function uses `use-package'
 ;; For more info on `use-package', see readme:

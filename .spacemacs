@@ -24,7 +24,6 @@
      emacs-lisp
       (git :variables
            git-gutter-use-fringe nil)
-     ag
      aiden-go
      aiden-org-mode
      flycheck-global
@@ -46,7 +45,6 @@
      term-mouse
      thrift
      ui
-     yaml
      ycmd
      )
    ;; List of additional packages that will be installed wihout being

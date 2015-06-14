@@ -7,3 +7,5 @@
 (if window-system
   (progn
     (setq-default dotspacemacs-default-font '(:size 14))))
+
+;;; config.el ends here
