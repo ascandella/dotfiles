@@ -187,6 +187,7 @@ layers configuration."
     ))
   (add-to-list 'auto-mode-alist '("\\.arc.*\\'" . json-mode))
   (add-to-list 'auto-mode-alist '("\\.*.zsh\\'" . shell-mode))
+  (add-to-list 'auto-mode-alist '("\\new-commit\\'" . git-commit-mode))
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
 )
 

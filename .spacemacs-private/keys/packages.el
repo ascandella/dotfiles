@@ -32,7 +32,7 @@
     :init
     (add-hook 'org-mode-hook
               (lambda ()
-                (evil-leader/set-key-for-mode 'org-mode "t" 'evil-ext-line)))
+                (evil-leader/set-key-for-mode 'org-mode "t" 'evil-next-line)))
     )
   )
 ;;
