@@ -12,3 +12,6 @@ fi
 
 # Enable e.g. `ls` colors
 export CLICOLOR=1
+
+# Prefer IPv4
+export _JAVA_OPTIONS="${_JAVA_OPTIONS} -Djava.net.preferIPv4Stack=true"
