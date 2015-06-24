@@ -94,7 +94,14 @@ before layers configuration."
                          zenbun
                          obsidian
                          solarized-dark
-                         )
+                         mustang
+                         colorsarenice
+                         obsidian
+                         seti
+                         monokai
+                         lush
+                         zenburn)
+
    ;; If non nil the cursor color matches the state color.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
@@ -189,6 +196,7 @@ layers configuration."
   (add-to-list 'auto-mode-alist '("\\.*.zsh\\'" . shell-mode))
   (add-to-list 'auto-mode-alist '("\\new-commit\\'" . git-commit-mode))
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
+  (setq erc-server-history-list '("127.0.0.1"))
 )
 
 ;; Do not write anything past this comment. This is where Emacs will

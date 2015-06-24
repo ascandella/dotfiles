@@ -11,8 +11,8 @@
 (add-hook 'go-mode-hook 'my-go-mode-hook)
 
 (defun go-display-cover-out ()
-  "Display go coverage from coverage.out"
-  (go-coverage (expand-file-name "./profile.cov")))
+  "Display go coverage from cover.out"
+  (go-coverage (expand-file-name "./cover.out")))
 
 (defun golang-compile-and-coverage ()
   "Compile with coverage."
