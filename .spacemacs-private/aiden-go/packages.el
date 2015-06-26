@@ -15,23 +15,11 @@
 (setq aiden-go-packages
     '(
       ;; package aiden-gos go here
-      go
-      go-eldoc
-      go-autocomplete
       flycheck
+      go
+      go-autocomplete
+      go-eldoc
       ))
 
 ;; List of packages to exclude.
 (setq aiden-go-excluded-packages '())
-
-;; For each package, define a function aiden-go/init-<package-aiden-go>
-;;
-(defun aiden-go/init-go-mode ()
-   "Initialize my package"
-   (use-package go-mode
-     :defer t
-     :init
-     (progn
-       (setq gofmt-command "goimports")
-       (load-file "$GOPATH/src/golang.org/x/tools/cmd/oracle/oracle.el")))
-  )

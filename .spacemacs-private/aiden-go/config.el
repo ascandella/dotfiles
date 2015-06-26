@@ -1,3 +1,4 @@
+;;; Code:
 (setq gofmt-command "goimports")
 
 (defun my-go-mode-hook ()
@@ -31,3 +32,5 @@
 
 (evil-leader/set-key-for-mode 'go-mode
   "l" 'golang-test-and-coverage)
+
+;;; config.el ends here

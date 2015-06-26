@@ -54,6 +54,8 @@
    ;; configuration in `dotspacemacs/config'.
    dotspacemacs-additional-packages '(
      ag
+     go-errcheck
+     go-projectile
      virtualenvwrapper
     )
    ;; A list of packages and/or extensions that will not be install and loaded.
