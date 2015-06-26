@@ -28,7 +28,10 @@
   (use-package flycheck
     :defer t
     :init
-    (add-hook 'after-init-hook #'global-flycheck-mode)))
+    (add-hook 'after-init-hook #'global-flycheck-mode)
+    :config
+    (setq flycheck-flake8-maximum-line-length 80)
+    ))
 
 ;; Often the body of an initialize function uses `use-package'
 ;; For more info on `use-package', see readme:
