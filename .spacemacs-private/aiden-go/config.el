@@ -14,12 +14,20 @@
   "Display go coverage from cover.out"
   (go-coverage (expand-file-name "./cover.out")))
 
+(defun generic-go-test-and-coverage (cmd)
+  (message "Running tests...")
+  (shell-command cmd)
+  (go-display-cover-out))
+
 (defun golang-compile-and-coverage ()
   "Compile with coverage."
   (interactive)
-  (message "Running tests...")
-  (shell-command "make -k test")
-  (go-display-cover-out))
+  (generic-go-test-and-coverage "make -k test"))
+
+(defun golang-test-and-coverage ()
+  "Compile with coverage."
+  (interactive)
+  (generic-go-test-and-coverage "go test . -v -coverprofile cover.out"))
 
 (evil-leader/set-key-for-mode 'go-mode
-  "l" 'golang-compile-and-coverage)
+  "l" 'golang-test-and-coverage)
