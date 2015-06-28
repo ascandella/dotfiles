@@ -15,7 +15,9 @@
 (setq ui-packages
     '(
       ;; package uis go here
+      ansi-color
       exec-path-from-shell
+      powerline
       ))
 
 ;; List of packages to exclude.
@@ -32,6 +34,13 @@
         (exec-path-from-shell-initialize)
         (exec-path-from-shell-copy-env "GOPATH")))
   )
+
+(defun ui/init-powerline ()
+  (use-package powerline
+    :defer t
+    :config
+    (setq powerline-default-separator 'arrow)))
+
 ;;
 ;; Often the body of an initialize function uses `use-package'
 ;; For more info on `use-package', see readme:

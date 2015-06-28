@@ -188,7 +188,6 @@ before layers configuration."
 layers configuration."
   (setq
    debug-on-error nil
-   powerline-default-separator 'arrow
    ycmd/all-the-modes t
    yas-snippet-dirs '(
     "~/.dotfiles/.yasnippet-snippets/"
@@ -198,7 +197,6 @@ layers configuration."
   (add-to-list 'auto-mode-alist '("\\.*.zsh\\'" . shell-mode))
   (add-to-list 'auto-mode-alist '("\\new-commit\\'" . git-commit-mode))
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
-  (setq erc-server-history-list '("127.0.0.1"))
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
