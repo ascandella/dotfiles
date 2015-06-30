@@ -46,6 +46,7 @@
      themes-megapack
      thrift
      ui
+     yasnippet
      ycmd
      )
    ;; List of additional packages that will be installed wihout being
@@ -197,6 +198,7 @@ layers configuration."
   (add-to-list 'auto-mode-alist '("\\.*.zsh\\'" . shell-mode))
   (add-to-list 'auto-mode-alist '("\\new-commit\\'" . git-commit-mode))
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
+  (global-company-mode)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will

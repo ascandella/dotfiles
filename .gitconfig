@@ -55,7 +55,7 @@
         decorate = short
 
 [rerere]
-        enabled = true
+	enabled = true
 
 [rebase]
         autosquash = true

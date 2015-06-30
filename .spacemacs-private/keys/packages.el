@@ -17,6 +17,7 @@
       ;; package keyss go here
       evil-leader
       evil-nerd-commenter
+      multiple-cursors
       org
       ))
 
