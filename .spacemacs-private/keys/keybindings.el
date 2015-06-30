@@ -80,6 +80,7 @@
         evil-forward-word-begin
         evil-forward-word-end
         evil-insert
+        evil-insert-line
         evil-next-line
         evil-normal-state
         evil-previous-line
