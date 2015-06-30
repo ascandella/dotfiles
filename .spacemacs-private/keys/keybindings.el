@@ -69,6 +69,7 @@
         evil-append-line
         evil-backward-WORD-begin
         evil-backward-word-begin
+        evil-change
         evil-delete-char
         evil-delete-line
         evil-digit-argument-or-evil-beginning-of-line
