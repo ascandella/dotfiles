@@ -64,6 +64,8 @@
 
 (global-set-key (kbd "C-c v") 'pbpaste)
 
+(global-set-key (kbd "C-c b") 'browse-url)
+
 (setq mc/cmds-to-run-for-all
       '(
         evil-append-line
