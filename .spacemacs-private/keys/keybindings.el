@@ -69,6 +69,8 @@
 (setq mc/cmds-to-run-for-all
       '(
         evil-append-line
+        evil-backward-char
+        evil-forward-char
         evil-backward-WORD-begin
         evil-backward-word-begin
         evil-change
