@@ -26,6 +26,7 @@
            git-gutter-use-fringe nil)
      aiden-go
      aiden-org-mode
+     aiden-shell
      dotfiles
      flycheck-global
      git-mode
