@@ -30,7 +30,9 @@
     :init
     (add-hook 'after-init-hook #'global-flycheck-mode)
     :config
-    (setq flycheck-flake8-maximum-line-length 80)
+    (setq
+     flycheck-flake8-maximum-line-length 80
+     flycheck-check-syntax-automatically '(mode-enabled idle-change save))
     ))
 
 ;; Often the body of an initialize function uses `use-package'
