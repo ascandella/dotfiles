@@ -154,3 +154,7 @@ bar {
 
 exec --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon
 exec --no-startup-id nm-applet
+exec xmodmap ~/.Xmodmap &
+
+bindcode 257 /usr/bin/xbacklight -dec 5
+bindcode 258 /usr/bin/xbacklight -inc 5
