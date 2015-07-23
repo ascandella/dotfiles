@@ -30,6 +30,15 @@
   (interactive)
   (generic-go-test-and-coverage "go test . -v -coverprofile cover.out"))
 
+(defun disable-go-build ()
+  "Disable go-build checker for tramp sessions."
+  (interactive)
+  (setq-local flycheck-disabled-checkers '(go-build)))
+
+(defun reset-flycheck ()
+  (interactive)
+  (setq-local flycheck-disabled-checkers nil))
+
 (evil-leader/set-key-for-mode 'go-mode
   "l" 'golang-test-and-coverage)
 
