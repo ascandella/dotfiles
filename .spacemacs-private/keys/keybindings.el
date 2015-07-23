@@ -47,6 +47,9 @@
 
 ;; better m-x
 (global-set-key (kbd "M-x") 'helm-M-x)
+
+(global-set-key (kbd "s-n") 'make-frame-command)
+
 ;; (global-set-key (kbd "C-b") 'hippie-expand)
 ;; disable evil-states toggle
 (define-key evil-motion-state-map (kbd "C-z") nil)

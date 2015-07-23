@@ -60,7 +60,9 @@
      virtualenvwrapper
     )
    ;; A list of packages and/or extensions that will not be install and loaded.
-   dotspacemacs-excluded-packages '()
+   dotspacemacs-excluded-packages '(
+     company ;; disable company in favor of auto-complete
+   )
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
    ;; the list `dotspacemacs-configuration-layers'
@@ -198,7 +200,7 @@ layers configuration."
   (add-to-list 'auto-mode-alist '("\\.*.zsh\\'" . shell-mode))
   (add-to-list 'auto-mode-alist '("\\new-commit\\'" . git-commit-mode))
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
-  (global-company-mode)
+  (global-auto-complete-mode)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
