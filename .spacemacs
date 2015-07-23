@@ -46,6 +46,7 @@
      themes-megapack
      thrift
      ui
+     version-control
      yasnippet
      ycmd
      )
