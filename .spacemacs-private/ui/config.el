@@ -5,11 +5,10 @@
                     nil
                     :foreground "#282a2e")
 
-(if window-system
-  (progn
-    (setq-default dotspacemacs-default-font '(:size 14))))
+(when window-system
+  (setq-default dotspacemacs-default-font '(:size 14)))
 
-; enable colorization in compilation windo
+; enable colorization in compilation window
 (require 'ansi-color)
 
 (defun colorize-compilation-buffer ()

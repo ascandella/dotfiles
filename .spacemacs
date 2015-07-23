@@ -66,6 +66,27 @@
    ;; the list `dotspacemacs-configuration-layers'
    dotspacemacs-delete-orphan-packages t))
 
+(defun get-themes ()
+  (if (eq window-system nil)
+      '(
+        lush
+        monokai
+        )
+      '(
+        obsidian
+        apropospriate-dark
+        lush
+        monokai
+        zenbun
+        solarized-dark
+        mustang
+        colorsarenice
+        seti
+        monokai
+        lush
+        zenburn
+        )))
+
 (defun dotspacemacs/init ()
   "Initialization function.
 This function is called at the very startup of Spacemacs initialization
@@ -91,18 +112,7 @@ before layers configuration."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(obsidian
-                         apropospriate-dark
-                         lush
-                         monokai
-                         zenbun
-                         solarized-dark
-                         mustang
-                         colorsarenice
-                         seti
-                         monokai
-                         lush
-                         zenburn)
+   dotspacemacs-themes (get-themes)
 
    ;; If non nil the cursor color matches the state color.
    dotspacemacs-colorize-cursor-according-to-state t
