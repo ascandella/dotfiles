@@ -30,7 +30,7 @@
     :init
     (add-hook 'magit-blame-mode-hook
               (lambda ()
-                (evil-leader/set-key-for-mode 'magit-blame-mode "h" 'magit-blame-locate-commit)))
+                (evil-leader/set-key-for-mode 'magit-blame-mode "h" 'magit-show-commit)))
     )
   )
 ;;
