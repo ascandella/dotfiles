@@ -36,7 +36,7 @@
   "d" 'trailing-comma
   "cq" 'tell-emacsclients-for-buffer-to-die
   ;; "m" 'magit-status
-  "b" 'magit-blame-mode
+  "b" 'magit-blame
   "ss" 'sort-lines
   "-" 'evilnc-comment-or-uncomment-lines
   "2" (lambda () (interactive) (shift-width 2))

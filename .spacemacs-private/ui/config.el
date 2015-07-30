@@ -8,7 +8,7 @@
 (when window-system
   (setq-default dotspacemacs-default-font '(:size 14)))
 
-(global-linum-mode)
+;; (global-linum-mode)
 
 ; enable colorization in compilation window
 (require 'ansi-color)
