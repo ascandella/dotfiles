@@ -1,15 +1,10 @@
-.vim/view/
-.vim/ruby/
-.DS_Store
 hosts/*/.xmonad/xmonad-*
 hosts/*/.xmonad/xmonad.o
-.oh-my-zsh/cache
 .AppleDouble
-.vim/.netrwhist
 hosts/*/.weechat/logs/
-.vim/bundle/*/doc/tags
 .DS_Store
 .overcommit.yml
 .ruby-version
 .mc-lists.el
 .tern-port
+npm-debug.log
