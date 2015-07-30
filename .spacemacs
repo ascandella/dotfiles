@@ -15,6 +15,7 @@
    dotspacemacs-configuration-layers
    '(
      aiden-go
+     aiden-javascript
      aiden-org-mode
      aiden-shell
      auto-completion
