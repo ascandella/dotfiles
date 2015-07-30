@@ -12,3 +12,4 @@ hosts/*/.weechat/logs/
 .overcommit.yml
 .ruby-version
 .mc-lists.el
+.tern-port
