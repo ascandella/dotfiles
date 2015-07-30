@@ -204,6 +204,9 @@ layers configuration."
   (add-to-list 'auto-mode-alist '("\\new-commit\\'" . git-commit-mode))
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
   (global-company-mode)
+  ;; Make linums relative by default
+  (with-eval-after-load 'linum
+   (linum-relative-toggle))
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
