@@ -13,6 +13,8 @@
 ; enable colorization in compilation window
 (require 'ansi-color)
 
+(show-paren-mode 1)
+
 (defun colorize-compilation-buffer ()
   (toggle-read-only)
   (ansi-color-apply-on-region (point-min) (point-max))

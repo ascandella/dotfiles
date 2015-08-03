@@ -47,23 +47,6 @@ vimwrap() {
 }
 alias vim=vimwrap
 
-
-bumpe() {
-  [ -z "$1" ] && echo "Need a commit message" && return 1
-  set -e
-  pushd ~/.emacs.d/
-  git add .
-  git commit -m "$*"
-  git push origin master
-  pushd ~/.dotfiles
-  git add .emacs.d
-  git commit -n -m "Update emacs.d: $*"
-  git push origin master
-  popd
-  popd
-  set +e
-}
-
 pushdot() {
   [ -z "$1" ] && echo "Need a commit message" && return 1
   pushd ~/.dotfiles
