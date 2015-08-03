@@ -10,10 +10,10 @@
 
 ;; (global-linum-mode)
 
+(show-paren-mode 1)
+
 ; enable colorization in compilation window
 (require 'ansi-color)
-
-(show-paren-mode 1)
 
 (defun colorize-compilation-buffer ()
   (toggle-read-only)
