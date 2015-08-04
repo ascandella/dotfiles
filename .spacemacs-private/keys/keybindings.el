@@ -38,6 +38,7 @@
   ;; "m" 'magit-status
   "b" 'magit-blame
   "ss" 'sort-lines
+  "cc" 'compile
   "-" 'evilnc-comment-or-uncomment-lines
   "2" (lambda () (interactive) (shift-width 2))
   "4" (lambda () (interactive) (shift-width 4)))
