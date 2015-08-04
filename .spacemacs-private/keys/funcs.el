@@ -54,4 +54,7 @@
 
 (defun shift-width (width)
   (interactive "n")
-  (set-variable 'evil-shift-width width))
+  (set-variable 'evil-shift-width width)
+  (message "set shift width to %d" width))
+
+;;; funcs.el ends here
