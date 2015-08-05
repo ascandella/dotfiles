@@ -17,6 +17,7 @@
      aiden-go
      aiden-javascript
      aiden-org-mode
+     aiden-scss
      aiden-shell
      auto-completion
      dotfiles
@@ -53,6 +54,7 @@
      go-errcheck
      go-projectile
      ranger
+     scss-mode
      virtualenvwrapper
     )
    ;; A list of packages and/or extensions that will not be install and loaded.
