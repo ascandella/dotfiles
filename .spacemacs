@@ -54,6 +54,7 @@
      go-errcheck
      go-projectile
      ranger
+     reveal-in-osx-finder
      scss-mode
      virtualenvwrapper
     )
