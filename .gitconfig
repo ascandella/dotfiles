@@ -69,3 +69,7 @@
 
 [url "ssh://gitolite@code.uber.internal/"]
   insteadOf = git://code.uber.internal/
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true

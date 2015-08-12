@@ -53,6 +53,7 @@
      ag
      go-errcheck
      go-projectile
+     puppet-mode
      ranger
      reveal-in-osx-finder
      scss-mode
