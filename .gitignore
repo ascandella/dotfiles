@@ -8,3 +8,4 @@ hosts/*/.weechat/logs/
 .mc-lists.el
 .tern-port
 npm-debug.log
+.projectile
