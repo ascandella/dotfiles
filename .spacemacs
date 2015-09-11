@@ -74,8 +74,8 @@
         monokai
         )
       '(
-        obsidian
         apropospriate-dark
+        obsidian
         lush
         monokai
         zenbun

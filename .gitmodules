@@ -25,3 +25,6 @@
 [submodule ".yasnippet-snippets"]
 	path = .yasnippet-snippets
 	url = https://github.com/AndreaCrotti/yasnippet-snippets
+[submodule ".fzf"]
+	path = .fzf
+	url = https://github.com/junegunn/fzf.git
