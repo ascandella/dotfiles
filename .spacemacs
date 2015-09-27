@@ -38,6 +38,7 @@
      ruby
      syntax-checking
      term-mouse
+     terraform
      themes-megapack
      thrift
      ui
@@ -57,6 +58,7 @@
      ranger
      reveal-in-osx-finder
      scss-mode
+     terraform-mode
      virtualenvwrapper
     )
    ;; A list of packages and/or extensions that will not be install and loaded.
