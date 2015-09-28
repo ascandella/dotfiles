@@ -2,6 +2,7 @@
 
 (define-key global-map (kbd "RET") 'newline-and-indent)
 ;; (electric-indent-mode +1)
+(evil-ex-define-cmd "W[rite]" 'evil-write)
 
 (define-key evil-normal-state-map "s" 'evil-forward-char)
 (define-key evil-normal-state-map "k" 'kill-word)
