@@ -41,6 +41,7 @@
      terraform
      themes-megapack
      thrift
+     tmpl
      ui
      version-control
      yasnippet

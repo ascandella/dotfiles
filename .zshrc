@@ -54,8 +54,6 @@ export EDITOR="$(which emacsclient) -t"
 
 [ -d "/usr/local/sbin" ] && export PATH="/usr/local/sbin:$PATH"
 
-test -r ~/.zshrc.local && . ~/.zshrc.local
-
 #
 # Load extra functionality
 #
@@ -69,6 +67,8 @@ if [ $DOTFILES ] ; then
     . $f
   done
 fi
+
+test -r ~/.zshrc.local && . ~/.zshrc.local
 
 # bind UP and DOWN arrow keys
 bindkey '^[[A' history-substring-search-up
