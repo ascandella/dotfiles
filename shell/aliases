@@ -42,6 +42,10 @@ alias -g G=' | grep '
 
 alias land='SKIP_CHECKS=all arc land'
 
+if  which go > /dev/null ; then
+  alias go='nocorrect go'
+fi
+
 if [ -x "$(which ccat)" ]; then
   alias cat='ccat --bg=dark'
 fi
