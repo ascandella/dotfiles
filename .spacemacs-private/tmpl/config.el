@@ -258,8 +258,7 @@ and some types. It does not provide indentation."
         go-template-mode-mark-nesting-end 1)
   (add-hook 'before-change-functions #'go-template-mode-mark-clear-cache nil t)
 
-	;; Use tabs (Go style)
-  (setq indent-tabs-mode t))
+  (setq indent-tabs-mode f))
 
 (add-to-list 'auto-mode-alist '("\\.gotmpl$" . go-template-mode))
 (add-to-list 'auto-mode-alist '("\\.tmpl\\'" . go-template-mode))

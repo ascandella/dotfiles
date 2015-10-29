@@ -30,7 +30,7 @@
      keys
      markdown
      org
-     osx
+     ;; osx
      pbcopy
      php-stuff
      puppet
