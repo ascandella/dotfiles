@@ -28,3 +28,6 @@
 [submodule ".fzf"]
 	path = .fzf
 	url = https://github.com/junegunn/fzf.git
+[submodule ".spacemacs-private/uber"]
+	path = .spacemacs-private/uber
+	url = git://fort.kickass.systems/personal/rrix/pub/uber.el.git
