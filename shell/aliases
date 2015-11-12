@@ -35,6 +35,8 @@ alias gst='git status -sb'
 
 alias pep='autopep8 -i '
 
+alias ag='ag --path-to-agignore=~/.agignore'
+
 #
 # Global aliases
 #

@@ -35,11 +35,11 @@
         (exec-path-from-shell-copy-env "GOPATH")))
   )
 
-(defun ui/init-powerline ()
-  (use-package powerline
-    :defer t
-    :config
-    (setq powerline-default-separator 'arrow)))
+;; (defun ui/init-powerline ()
+;;   (use-package powerline
+;;     :defer t
+;;     :config
+;;     (setq powerline-default-separator 'arrow)))
 
 ;;
 ;; Often the body of an initialize function uses `use-package'

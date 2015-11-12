@@ -44,7 +44,6 @@
      tmpl
      ui
      version-control
-     yasnippet
      ycmd
      )
    ;; List of additional packages that will be installed wihout being
@@ -61,6 +60,7 @@
      scss-mode
      terraform-mode
      virtualenvwrapper
+     yaml-mode
     )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(
@@ -196,7 +196,7 @@ before layers configuration."
   ;; User initialization goes here
   )
 
-(defun dotspacemacs/config ()
+(defun dotspacemacs/user-config ()
   "Configuration function.
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
