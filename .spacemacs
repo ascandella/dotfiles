@@ -19,6 +19,7 @@
      aiden-org-mode
      aiden-scss
      aiden-shell
+     aiden-terraform
      auto-completion
      dotfiles
      emacs-lisp
@@ -38,7 +39,6 @@
      ruby
      syntax-checking
      term-mouse
-     terraform
      themes-megapack
      thrift
      tmpl
@@ -54,6 +54,7 @@
      ag
      go-errcheck
      go-projectile
+     hcl-mode
      puppet-mode
      ranger
      reveal-in-osx-finder
