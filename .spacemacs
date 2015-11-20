@@ -195,6 +195,9 @@ before layers configuration."
    dotspacemacs-default-package-repository nil
    )
   ;; User initialization goes here
+  (setq-default
+   require-final-newline t
+   )
   )
 
 (defun dotspacemacs/user-config ()
