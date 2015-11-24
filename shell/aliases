@@ -42,7 +42,7 @@ alias ag='ag --path-to-agignore=~/.agignore'
 #
 alias -g G=' | grep '
 
-alias land='SKIP_CHECKS=all arc land'
+alias land='OVERCOMMIT_DISABLE=1 arc land'
 
 if  which go > /dev/null ; then
   alias go='nocorrect go'
