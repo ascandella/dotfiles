@@ -28,3 +28,6 @@
 [submodule ".spacemacs-private/uber"]
 	path = .spacemacs-private/uber
 	url = git://fort.kickass.systems/personal/rrix/pub/uber.el.git
+[submodule ".emacs.d"]
+	path = .emacs.d
+	url = git@github.com:sectioneight/emacs.d.git
