@@ -19,9 +19,6 @@
 [submodule "ext/z"]
 	path = ext/z
 	url = git@github.com:rupa/z.git
-[submodule ".emacs.d"]
-	path = .emacs.d
-	url = https://github.com/syl20bnr/spacemacs
 [submodule ".yasnippet-snippets"]
 	path = .yasnippet-snippets
 	url = https://github.com/AndreaCrotti/yasnippet-snippets
