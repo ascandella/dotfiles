@@ -12,7 +12,7 @@
 
 # Set default values for screen padding
 kwmc config padding top 40
-kwmc config padding bottom 40
+kwmc config padding bottom 20
 kwmc config padding left 20
 kwmc config padding right 20
 
