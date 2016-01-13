@@ -1,2 +1,4 @@
 .projectile
 .overcommit.yml
+.vscode
+.dir-locals.el
