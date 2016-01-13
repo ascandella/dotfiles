@@ -117,8 +117,8 @@ kwmc bind cmd+alt-l window -f next
 
 # kwmc bind cmd+alt-p window -s prev
 # kwmc bind cmd+alt-n window -s next
-kwmc bind cmd+shift-j window -s next
-kwmc bind cmd+shift-k window -s prev
+kwmc bind cmd+shift-k window -s next
+kwmc bind cmd+shift-j window -s prev
 kwmc bind cmd+alt-m window -s mark
 
 kwmc bind cmd+alt-x space -g decrease horizontal
