@@ -33,6 +33,10 @@ alias gcaf='git commit --amend --no-verify'
 alias gcn='git commit --amend --no-verify --no-edit'
 alias gst='git status -sb'
 
+# mercurial stuff
+
+alias hst='hg status'
+
 alias pep='autopep8 -i '
 
 alias ag='ag --path-to-agignore=~/.agignore'

@@ -1,0 +1,20 @@
+[ui]
+username = Aiden Scandella <sc@ndella.com>
+
+[bookmarks]
+track.current = True
+
+[extensions]
+color =
+histedit =
+pager =
+progress =
+purge =
+rebase =
+record =
+strip =
+shelve =
+
+[alias]
+nudge = push --rev .
+nuke = !hg up -C . && hg clean
