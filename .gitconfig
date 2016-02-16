@@ -1,8 +1,8 @@
 [core]
         whitespace = trailing-space,space-before-tab
-        pager = less -FRSX
         editor = emacsclient -t --create-frame
         excludesfile = ~/.gitignore_global
+	pager = diff-so-fancy | less --tabs=1,5 -RFX
 
 [user]
         name = Aiden Scandella
@@ -64,6 +64,8 @@
 [pager]
         status = true
 	show-branch = true
+	diff = diff-so-fancy | less --tabs=1,5 -RFX
+	show = diff-so-fancy | less --tabs=1,5 -RFX
 
 [help]
 	autocorrect = 5
@@ -76,3 +78,10 @@
 	required = true
 [http]
 	cookiefile = /Users/aiden/.gitcookies
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = yellow bold

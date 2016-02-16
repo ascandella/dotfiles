@@ -1,6 +1,6 @@
 # This is a sample config for Kwm
 # The commands listed here can be of
-# two types. 
+# two types.
 #
 # Commands prefixed with 'kwmc' will call
 # local functions corresponding to the
@@ -34,19 +34,19 @@ kwmc config hotkeys enable
 # context-menus or the menubar is visible.
 # If the menubar is not set to auto-hide,
 # disable this setting.
-# kwmc config menu-fix enable
+kwmc config menu-fix disable
 
 # Set focus-follows-mouse-mode to autoraise
 # kwmc config focus autoraise
 
-# Enable mouse-follows-focus
-# kwmc config focus mouse-follows enable
+# Disable mouse-follows-focus
+kwmc config focus mouse-follows disable
 
 # Cycle focus through all screens
 kwmc config cycle-focus all
 
 # Window can be made floating through drag&drop
-kwmc config dragndrop enable
+kwmc config dragndrop disable
 
 # Allow Kwm to tile windows
 kwmc config tiling enable
@@ -64,6 +64,7 @@ kwmc config split-ratio 0.5
 kwmc config add-role AXDialog iTerm2
 # kwmc config add-role AXStandardWindow Emacs
 kwmc config add-role AXDialog Emacs
+kwmc config add-role AXWindowRole iBooks
 
 # The following command blacklists a specific application
 # from Kwms tiling (PS: The app name is case-sensitive)
