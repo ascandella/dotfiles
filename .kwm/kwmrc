@@ -37,10 +37,19 @@ kwmc config hotkeys enable
 kwmc config menu-fix disable
 
 # Set focus-follows-mouse-mode to autoraise
-# kwmc config focus autoraise
+kwmc config focus disabled
+
+kwmc config focus standby-on-float enable
+
+kwmc config dragndrop disable
+
+kwmc config float-non-resizable enable
+
+kwmc config spawn left
 
 # Disable mouse-follows-focus
 kwmc config focus mouse-follows disable
+
 
 # Cycle focus through all screens
 kwmc config cycle-focus all
