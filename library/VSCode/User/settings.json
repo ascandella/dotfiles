@@ -1,0 +1,30 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "go.buildOnSave": true,
+    "go.lintOnSave": true,
+    "go.vetOnSave": true,
+    "go.buildFlags": [],
+    "go.lintFlags": [],
+    "go.vetFlags": [],
+    "go.coverOnSave": false,
+    "go.useCodeSnippetsOnFunctionSuggest": false,
+    "go.formatOnSave": true,
+    "go.gopath": "/Users/aiden/src/go",
+    "go.formatTool": "goreturns",
+
+    "files.exclude": {
+        "**/.tmp": true,
+        "vendor": true,
+        "**/.git": true,
+        "**/.DS_Store": true,
+        "go-build/.go"
+    },
+    "files.trimTrailingWhitespace": true,
+    "files.autoSave": "onFocusChange",
+
+    "editor.cursorBlinking": "visible",
+    "editor.tabSize": 2,
+    "editor.lineNumbers": false,
+    "editor.rulers": [100],
+    "editor.formatOnType": true
+}
