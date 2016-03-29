@@ -17,7 +17,8 @@
         "vendor": true,
         "**/.git": true,
         "**/.DS_Store": true,
-        "go-build/.go"
+        "go-build/.go": true,
+        "**/*.test": true
     },
     "files.trimTrailingWhitespace": true,
     "files.autoSave": "onFocusChange",
