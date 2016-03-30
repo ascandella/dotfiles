@@ -7,7 +7,7 @@
     "go.lintFlags": [],
     "go.vetFlags": [],
     "go.coverOnSave": false,
-    "go.useCodeSnippetsOnFunctionSuggest": false,
+    "go.useCodeSnippetsOnFunctionSuggest": true,
     "go.formatOnSave": true,
     "go.gopath": "/Users/aiden/src/go",
     "go.formatTool": "goreturns",
@@ -18,7 +18,8 @@
         "**/.git": true,
         "**/.DS_Store": true,
         "go-build/.go": true,
-        "**/*.test": true
+        "**/*.test": true,
+        "**/coverage.html": true
     },
     "files.trimTrailingWhitespace": true,
     "files.autoSave": "onFocusChange",
@@ -26,6 +27,8 @@
     "editor.cursorBlinking": "visible",
     "editor.tabSize": 2,
     "editor.lineNumbers": false,
+    //"editor.wrappingColumn": 100,
     "editor.rulers": [100],
+    // Trying this out
     "editor.formatOnType": true
 }
