@@ -21,5 +21,13 @@
 			"  $2",
 			"}"
 		]
+	},
+	"context cancel": {
+		"prefix": "ctxc",
+		"body": [
+			"ctx, cancel := context.WithCancel(context.Background())",
+			"defer cancel()"
+		],
+		"description": "Creates a new context with cancellation"
 	}
 }
