@@ -1,0 +1,4 @@
+if [ -x $(which ussh >/dev/null) ] ; then
+  export GIT_SSH=ussh
+  alias ssh='ussh --'
+fi
