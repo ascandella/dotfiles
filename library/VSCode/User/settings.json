@@ -14,9 +14,11 @@
 
     "editor.cursorBlinking": "visible",
     "editor.tabSize": 2,
-    "editor.lineNumbers": false,
+    "editor.glyphMargin": true,
+    "editor.lineNumbers": true,
     "editor.rulers": [100],
     "editor.formatOnType": true,
+    "editor.scrollBeyondLastLine": false,
 
     "files.exclude": {
         "**/.tmp": true,
