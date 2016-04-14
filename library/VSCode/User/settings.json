@@ -15,7 +15,7 @@
     "editor.cursorBlinking": "visible",
     "editor.tabSize": 2,
     "editor.glyphMargin": true,
-    "editor.lineNumbers": true,
+    "editor.lineNumbers": false,
     "editor.rulers": [100],
     "editor.formatOnType": true,
     "editor.scrollBeyondLastLine": false,
@@ -28,7 +28,8 @@
         "go-build/.go": true,
         "**/*.test": true,
         "Godeps/_workspace": true,
-        "**/coverage.html": true
+        "**/coverage.html": true,
+        "**/_build": true
     },
     "files.trimTrailingWhitespace": true,
     "files.autoSave": "onFocusChange"
