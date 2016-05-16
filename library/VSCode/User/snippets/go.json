@@ -29,5 +29,13 @@
 			"defer cancel()"
 		],
 		"description": "Creates a new context with cancellation"
+	},
+	"err != nil": {
+		"prefix": "errn",
+		"body": [
+			"err != nil {",
+			"	$1",
+			"}"
+		]
 	}
 }

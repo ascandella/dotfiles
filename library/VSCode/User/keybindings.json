@@ -11,5 +11,9 @@
   {"key": "shift+alt+b", "command": "cursorWordStartLeftSelect",
    "when": "editorTextFocus"},
   {"key": "shift+alt+f", "command": "cursorWordEndRightSelect",
-   "when": "editorTextFocus"}
+   "when": "editorTextFocus"},
+
+  // Go things
+  {"key": "shift+cmd+a", "command": "go.test.cursor",
+   "when": "editorTextFocus && editorLangId == 'go'"}
 ]
