@@ -1,22 +1,13 @@
 // Place your settings in this file to overwrite the default settings
 {
-    "go.buildOnSave": true,
-    "go.lintOnSave": true,
-    "go.vetOnSave": true,
-    "go.buildFlags": [],
-    "go.lintFlags": [],
-    "go.vetFlags": [],
-    "go.coverOnSave": false,
-    "go.useCodeSnippetsOnFunctionSuggest": false,
-    "go.formatOnSave": true,
     "go.gopath": "/Users/aiden/src/go",
-    "go.formatTool": "goreturns",
 
     "editor.cursorBlinking": "visible",
     "editor.tabSize": 2,
     "editor.glyphMargin": true,
     "editor.lineNumbers": false,
     "editor.rulers": [100],
+    // "editor.fontSize": 18,
     "editor.formatOnType": true,
     "editor.scrollBeyondLastLine": false,
 
