@@ -1,2 +1,7 @@
 BREW_NVM=$(brew --prefix nvm 2>/dev/null)
 [[ -s "$BREW_NVM/nvm.sh" ]] && . "$BREW_NVM/nvm.sh"  # This loads NVM
+
+if [[ -d "/usr/local/opt/nvm" ]] ; then
+  export NVM_DIR="/usr/local/opt/nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+fi
