@@ -1,4 +1,8 @@
 if which ussh > /dev/null ; then
   export GIT_SSH_COMMAND="$(which ussh) --"
   alias ssh="$(which ussh) --"
+  unssh() {
+    unset GIT_SSH_COMMAND
+    unalias ssh
+  }
 fi
