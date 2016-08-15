@@ -2,16 +2,17 @@
 {
     "go.gopath": "/Users/aiden/src/go",
 
-    "editor.cursorBlinking": "visible",
+    "editor.cursorBlinking": "expand",
     "editor.tabSize": 2,
     "editor.glyphMargin": true,
     "editor.lineNumbers": false,
     "editor.rulers": [100],
-    // "editor.fontSize": 18,
+    //"editor.fontSize": 18,
     "editor.formatOnType": true,
     "editor.scrollBeyondLastLine": false,
 
     "files.exclude": {
+        "out/**.js": true,
         "**/.tmp": true,
         "vendor": true,
         "**/.git": true,
@@ -29,5 +30,28 @@
         "**/_build": true
     },
     "files.trimTrailingWhitespace": true,
-    "files.autoSave": "onFocusChange"
+    "files.autoSave": "onFocusChange",
+
+    "vim.useCtrlKeys": true
+
+/*
+    "vim.otherModesKeyBindings": [
+        {
+            "before": ["n"],
+            "after": ["k"]
+        },
+        {
+            "before": ["t"],
+            "after": ["j"]
+        },
+        {
+            "before": ["s"],
+            "after": ["l"]
+        },
+        {
+            "before": [",", "w"],
+            "after": [":", "w"]
+        }
+    ]
+    */
 }
