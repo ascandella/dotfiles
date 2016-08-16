@@ -14,7 +14,7 @@
     "files.exclude": {
         "out/**.js": true,
         "**/.tmp": true,
-        "vendor": true,
+        "**/vendor": true,
         "**/.git": true,
         "**/.DS_Store": true,
         "go-build/.go": true,
