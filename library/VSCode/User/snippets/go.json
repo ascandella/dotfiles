@@ -37,5 +37,15 @@
 			"	$1",
 			"}"
 		]
+	},
+	"mainp": {
+		"prefix": "mainp",
+		"body": [
+			"package main",
+			"",
+			"func main() {",
+			"  $1",
+			"}"
+		]
 	}
 }
