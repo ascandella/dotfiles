@@ -35,23 +35,14 @@ kwmc config menu-fix disable
 # Set focus-follows-mouse-mode to autoraise
 kwmc config focus disabled
 
-kwmc config focus standby-on-float enable
+kwmc config focus standby-on-float on
 
+kwmc config dragndrop off
+
+kwmc config float-e-drag&drop
 kwmc config dragndrop disable
 
-kwmc config float-non-resizable enable
-
-kwmc config spawn left
-
-# Disable mouse-follows-focus
-kwmc config focus mouse-follows disable
-
-
-# Cycle focus through all screens
-kwmc config cycle-focus all
-
-# Window can be made floating through drag&drop
-kwmc config dragndrop disable
+kwmc config cycle-focus on
 
 # Allow Kwm to tile windows
 kwmc config tiling bsp
@@ -134,3 +125,20 @@ kwmc bindsym cmd+alt-leftarrow space -p decrease left
 kwmc bindsym cmd+alt-rightarrow space -p decrease right
 kwmc bindsym cmd+alt-uparrow space -p decrease top
 kwmc bindsym cmd+alt-downarrow space -p decrease bottom
+
+
+// Launch iTerm2
+kwmc bindsym cmd-return exec open -na /Applications/iTerm2.app
+
+
+// Rotate Window-Tree By 90degrees (Clockwise)
+kwmc bindsym cmd+ctrl-r tree rotate 90
+
+// Set Space Tiling Mode To BSP
+kwmc bindsym cmd+ctrl-a space -t bsp
+
+// Set Space Tiling Mode To Monocle
+kwmc bindsym cmd+ctrl-s space -t monocle
+
+// Set Space Tiling Mode To Floating
+kwmc bindsym cmd+ctrl-d space -t float
