@@ -61,6 +61,8 @@ kwmc config add-role AXDialog iTerm2
 kwmc config add-role AXDialog Emacs
 kwmc config add-role AXWindowRole iBooks
 
+kwmc rule owner="iTerm2" properties={role="AXDialog"}
+
 kwmc rule owner="zoom.us" properties={float="true"}
 
 # The following command captures an application to the
@@ -145,3 +147,6 @@ kwmc config float-non-resizable on
 
 /* Center window when made floating */
 kwmc config center-on-float on
+
+// Disable mouse moving behavior
+kwmc config mouse-follows-focus off
