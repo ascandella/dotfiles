@@ -86,9 +86,9 @@ kwmc bindsym cmd+alt+ctrl-w window -t float
 kwmc bindsym ctrl+alt-p screen -m prev
 kwmc bindsym ctrl+alt-n screen -m next
 
-kwmc bindsym ctrl+alt-1 screen -m 0
-kwmc bindsym ctrl+alt-2 screen -m 1
-kwmc bindsym ctrl+alt-3 screen -m 2
+kwmc bindsym ctrl+alt-1 window -m display 0
+kwmc bindsym ctrl+alt-2 window -m display 1
+kwmc bindsym ctrl+alt-3 window -m display 2
 
 kwmc bindsym ctrl+alt-x space -g increase horizontal
 kwmc bindsym ctrl+alt-y space -g increase vertical
