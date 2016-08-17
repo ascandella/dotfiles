@@ -39,7 +39,6 @@ kwmc config focus standby-on-float on
 
 kwmc config dragndrop off
 
-kwmc config float-e-drag&drop
 kwmc config dragndrop disable
 
 kwmc config cycle-focus on
@@ -87,7 +86,7 @@ kwmc bindsym cmd+alt+ctrl-l window -c expand 0.1
 kwmc bindsym cmd+alt+ctrl-f window -t fullscreen
 kwmc bindsym cmd+alt+ctrl-p window -t parent
 kwmc bindsym cmd+alt+ctrl-w window -t float
-kwmc bindsym cmd+alt-return sys open -na /Applications/iTerm2.app
+# kwmc bindsym cmd+alt-return sys open -na /Applications/iTerm2.app
 
 kwmc bindsym ctrl+alt-p screen -m prev
 kwmc bindsym ctrl+alt-n screen -m next
@@ -128,7 +127,7 @@ kwmc bindsym cmd+alt-downarrow space -p decrease bottom
 
 
 // Launch iTerm2
-kwmc bindsym cmd-return exec open -na /Applications/iTerm2.app
+kwmc bindsym cmd+alt-return exec open -na /Applications/iTerm2.app
 
 
 // Rotate Window-Tree By 90degrees (Clockwise)
@@ -142,3 +141,12 @@ kwmc bindsym cmd+ctrl-s space -t monocle
 
 // Set Space Tiling Mode To Floating
 kwmc bindsym cmd+ctrl-d space -t float
+
+// Automatically resize the window to its container
+kwmc config lock-to-container on
+
+// Automatically float windows that fail to resize
+kwmc config float-non-resizable on
+
+/* Center window when made floating */
+kwmc config center-on-float on
