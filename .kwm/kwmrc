@@ -17,10 +17,10 @@ kwmc config gap vertical 20
 kwmc config gap horizontal 20
 
 # Let Kwm listen for hotkeys
-kwmc config hotkeys enable
+kwmc config hotkeys on
 
 # Set global prefix for all of Kwms hotkeys
-# This hotkey must be pressed for binds to activate!
+# This hotkey must be pressed for bindsyms to activate!
 # kwmc config prefix ctrl-k
 
 # Timeout duration for prefix-key in seconds
@@ -54,7 +54,7 @@ kwmc config cycle-focus all
 kwmc config dragndrop disable
 
 # Allow Kwm to tile windows
-kwmc config tiling enable
+kwmc config tiling bsp
 
 # Default tiling mode for new spaces
 kwmc config space bsp
@@ -84,53 +84,53 @@ kwmc config float Photoshop
 # kwmc config capture 1 iTunes
 
 #### Default Keybindings For Interacting With Kwm
-kwmc bind cmd+alt+ctrl-t config focus toggle
-kwmc bind cmd+alt+ctrl-r window -c refresh
-kwmc bind cmd+alt+ctrl-q quit
+kwmc bindsym cmd+alt+ctrl-t config focus toggle
+kwmc bindsym cmd+alt+ctrl-r window -c refresh
+kwmc bindsym cmd+alt+ctrl-q quit
 
-kwmc bind cmd+alt+ctrl-m window -t mark
-kwmc bind cmd+alt+ctrl-s window -c split
-kwmc bind cmd+alt+ctrl-h window -c reduce 0.1
-kwmc bind cmd+alt+ctrl-l window -c expand 0.1
+kwmc bindsym cmd+alt+ctrl-m window -t mark
+kwmc bindsym cmd+alt+ctrl-s window -c split
+kwmc bindsym cmd+alt+ctrl-h window -c reduce 0.1
+kwmc bindsym cmd+alt+ctrl-l window -c expand 0.1
 
-kwmc bind cmd+alt+ctrl-f window -t fullscreen
-kwmc bind cmd+alt+ctrl-p window -t parent
-kwmc bind cmd+alt+ctrl-w window -t float
-kwmc bind cmd+alt-return sys open -na /Applications/iTerm2.app
+kwmc bindsym cmd+alt+ctrl-f window -t fullscreen
+kwmc bindsym cmd+alt+ctrl-p window -t parent
+kwmc bindsym cmd+alt+ctrl-w window -t float
+kwmc bindsym cmd+alt-return sys open -na /Applications/iTerm2.app
 
-kwmc bind ctrl+alt-p screen -m prev
-kwmc bind ctrl+alt-n screen -m next
+kwmc bindsym ctrl+alt-p screen -m prev
+kwmc bindsym ctrl+alt-n screen -m next
 
-kwmc bind ctrl+alt-1 screen -m 0
-kwmc bind ctrl+alt-2 screen -m 1
-kwmc bind ctrl+alt-3 screen -m 2
+kwmc bindsym ctrl+alt-1 screen -m 0
+kwmc bindsym ctrl+alt-2 screen -m 1
+kwmc bindsym ctrl+alt-3 screen -m 2
 
-kwmc bind ctrl+alt-x space -g increase horizontal
-kwmc bind ctrl+alt-y space -g increase vertical
+kwmc bindsym ctrl+alt-x space -g increase horizontal
+kwmc bindsym ctrl+alt-y space -g increase vertical
 
-kwmc bind ctrl+alt-leftarrow space -p increase left
-kwmc bind ctrl+alt-rightarrow space -p increase right
-kwmc bind ctrl+alt-uparrow space -p increase top
-kwmc bind ctrl+alt-downarrow space -p increase bottom
+kwmc bindsym ctrl+alt-leftarrow space -p increase left
+kwmc bindsym ctrl+alt-rightarrow space -p increase right
+kwmc bindsym ctrl+alt-uparrow space -p increase top
+kwmc bindsym ctrl+alt-downarrow space -p increase bottom
 
-kwmc bind cmd+alt-s space -t bsp
-kwmc bind cmd+alt-f space -t monocle
-kwmc bind cmd+alt-d space -t float
-kwmc bind cmd+alt-r tree -r 90
+kwmc bindsym cmd+alt-s space -t bsp
+kwmc bindsym cmd+alt-f space -t monocle
+kwmc bindsym cmd+alt-d space -t float
+kwmc bindsym cmd+alt-r tree -r 90
 
-kwmc bind cmd+alt-h window -f prev
-kwmc bind cmd+alt-l window -f next
+kwmc bindsym cmd+alt-h window -f prev
+kwmc bindsym cmd+alt-l window -f next
 
-# kwmc bind cmd+alt-p window -s prev
-# kwmc bind cmd+alt-n window -s next
-kwmc bind cmd+shift-k window -s next
-kwmc bind cmd+shift-j window -s prev
-kwmc bind cmd+alt-m window -s mark
+# kwmc bindsym cmd+alt-p window -s prev
+# kwmc bindsym cmd+alt-n window -s next
+kwmc bindsym cmd+shift-k window -s next
+kwmc bindsym cmd+shift-j window -s prev
+kwmc bindsym cmd+alt-m window -s mark
 
-kwmc bind cmd+alt-x space -g decrease horizontal
-kwmc bind cmd+alt-y space -g decrease vertical
+kwmc bindsym cmd+alt-x space -g decrease horizontal
+kwmc bindsym cmd+alt-y space -g decrease vertical
 
-kwmc bind cmd+alt-leftarrow space -p decrease left
-kwmc bind cmd+alt-rightarrow space -p decrease right
-kwmc bind cmd+alt-uparrow space -p decrease top
-kwmc bind cmd+alt-downarrow space -p decrease bottom
+kwmc bindsym cmd+alt-leftarrow space -p decrease left
+kwmc bindsym cmd+alt-rightarrow space -p decrease right
+kwmc bindsym cmd+alt-uparrow space -p decrease top
+kwmc bindsym cmd+alt-downarrow space -p decrease bottom
