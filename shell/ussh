@@ -1,8 +1,14 @@
-if which ussh > /dev/null ; then
-  export GIT_SSH_COMMAND="$(which ussh) --"
-  alias ssh="$(which ussh) --"
-  unssh() {
-    unset GIT_SSH_COMMAND
-    unalias ssh
-  }
-fi
+ussh() {
+  unset -f ussh
+  if which ussh > /dev/null ; then
+    export GIT_SSH_COMMAND="$(which ussh) --"
+    alias ssh="$(which ussh) --"
+  fi
+}
+
+unssh() {
+  unset GIT_SSH_COMMAND
+  unalias ssh
+}
+
+[ -f "$HOME/.noussh" ] || ussh
