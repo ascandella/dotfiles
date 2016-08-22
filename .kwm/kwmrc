@@ -33,7 +33,7 @@ kwmc config hotkeys on
 kwmc config menu-fix disable
 
 # Set focus-follows-mouse-mode to autoraise
-kwmc config focus disabled
+kwmc config focus-follows-mouse off
 
 kwmc config focus standby-on-float on
 
