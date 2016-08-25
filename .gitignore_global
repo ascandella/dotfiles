@@ -2,3 +2,4 @@
 .overcommit.yml
 .vscode
 .dir-locals.el
+.lessman_cache
