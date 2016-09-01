@@ -1,0 +1,4 @@
+if which most > /dev/null ; then
+  alias more=most
+  alias less=most
+fi
