@@ -2,7 +2,7 @@ ussh() {
   unset -f ussh
   if which ussh > /dev/null ; then
     export GIT_SSH_COMMAND="$(which ussh) --"
-    alias ssh="$(which ussh) --"
+    alias ssh="$(which ussh)"
   fi
 }
 
