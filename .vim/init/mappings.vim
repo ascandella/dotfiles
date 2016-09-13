@@ -33,13 +33,14 @@ imap <silent> <A-Right> <Esc>:wincmd l<CR>a
 let mapleader = ","
 
 map <F2> :GundoToggle<CR>
-map <F1> :CommandTFlush<CR>
 
 map <Leader>- :TComment<CR>
 map <C-b>     :TComment<CR>
 
-map <Leader>e :CommandT<CR>
-map <Leader>n :CommandTBuffer<CR>
+" FZF mappings
+map <Leader>e :Files<CR>
+map <Leader>n :Buffers<CR>
+map <Leader>h :History<CR>
 
 map <Leader>w :w<CR>
 
@@ -90,7 +91,6 @@ map :W :w
 nmap <silent> <Leader>s :set nolist!<CR>
 
 map <Leader>a :Ack<space>
-map <Leader>h :foldclose<CR>
 
 map <silent> <Leader>cn :set nocursorcolumn <cr>
 
@@ -121,6 +121,7 @@ nnoremap <BS> :bd<CR>
 "
 
 " map <Leader>t :Tabularize/
+map <Leader>t :TagbarToggle<CR>
 
 " Align on equal signs
 map <Leader>= :Tabularize/=<CR>
