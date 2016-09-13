@@ -9,7 +9,7 @@ set cursorline
 
 " colorscheme tomorrow_night_bright
 " colorscheme molokai
-colorscheme lucario
+colorscheme jellybeans
 
 " hi CursorColumn cterm=NONE ctermbg=234
 " hi Folded ctermbg=234
