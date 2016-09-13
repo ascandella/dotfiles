@@ -13,6 +13,10 @@ alias t='tmux -u'
 alias e='emacsclient -t'
 alias e.='e .'
 alias e,='e .'
+
+if which nvim > /dev/null ; then
+  alias vim=nvim
+fi
 alias vi="$(which vim)"
 
 #

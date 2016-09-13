@@ -70,7 +70,9 @@ set listchars=tab:>-,trail:_,eol:$
 
 " Strangely enough, mouse works fine in xterm2 without this line. In tmux,
 " however, this line is necessary.
-set ttymouse=xterm2
+if !has('nvim')
+  set ttymouse=xterm2
+endif
 " Enable mouse in all modes (resize splits, etc.)
 set mouse=a
 
