@@ -46,7 +46,7 @@ map <Leader>w :w<CR>
 map <Leader>d  mdA,<esc>`d
 map <Leader>b  :bd<CR>
 map <Leader>cl :ccl<CR>
-map <Leader>g  :Gblame<CR>
+" map <Leader>g  :Gblame<CR>
 map <Leader>q  :q<CR>
 
 map <Leader>l :setlocal spell spelllang=en_us
