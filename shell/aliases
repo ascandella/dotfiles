@@ -1,4 +1,20 @@
 #
+# Helper functions
+#
+
+# Alias $1 to $2 if $2 is a thing
+_aliasto () {
+  if [ $# -ne 2 ] ; then
+    echo "Usage: $0 <from> <to>"
+    return
+  fi
+
+  if [ -x "$1" ] || which "$1" > /dev/null ; then
+    alias "$2"="$1"
+  fi
+}
+
+#
 # Aliases
 #
 
@@ -14,9 +30,8 @@ alias e='emacsclient -t'
 alias e.='e .'
 alias e,='e .'
 
-if which nvim > /dev/null ; then
-  alias vim=nvim
-fi
+_aliasto nvim vim
+_aliasto rg ag
 alias vi="$(which vim)"
 
 #
@@ -41,8 +56,6 @@ alias hst='hg status'
 
 alias pep='autopep8 -i '
 
-alias ag='ag --path-to-agignore=~/.agignore'
-
 #
 # Global aliases
 #
@@ -57,3 +70,5 @@ fi
 if [ -x "$(which ccat)" ]; then
   alias cat='ccat --bg=dark'
 fi
+
+unset -f _aliasto
