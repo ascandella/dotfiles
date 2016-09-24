@@ -25,6 +25,7 @@
         "udeploy": true,
         "debian": true,
         "**/*.test": true,
+        "**/*.pyc": true,
         "Godeps/_workspace": true,
         "**/coverage.html": true,
         "**/_build": true
