@@ -32,6 +32,7 @@
     },
     "files.trimTrailingWhitespace": true,
     "files.autoSave": "onFocusChange",
+    "files.insertFinalNewline": true,
 
     "vim.useCtrlKeys": true
 
