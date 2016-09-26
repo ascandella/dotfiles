@@ -152,3 +152,5 @@ nmap <S-Tab> <<
 " Arcanist (phabricator) for Uber
 "
 nnoremap gr /Reviewers:<CR>A
+
+nnoremap s <C-W>
