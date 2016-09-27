@@ -154,3 +154,8 @@ nmap <S-Tab> <<
 nnoremap gr /Reviewers:<CR>A
 
 nnoremap s <C-W>
+
+"
+" PGP
+"
+nnoremap <silent> <leader>de :w!<cr> :! gpg --decrypt %; wait<cr>
