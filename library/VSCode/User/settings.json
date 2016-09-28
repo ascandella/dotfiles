@@ -1,6 +1,5 @@
-// Place your settings in this file to overwrite the default settings
 {
-    "go.gopath": "/Users/aiden/src/go",
+    "go.gopath": "/Users/ai/src/go",
 
     "editor.cursorBlinking": "expand",
     "editor.tabSize": 2,
@@ -34,9 +33,8 @@
     "files.autoSave": "onFocusChange",
     "files.insertFinalNewline": true,
 
-    "vim.useCtrlKeys": true
+    "vim.useCtrlKeys": true,
 
-/*
     "vim.otherModesKeyBindings": [
         {
             "before": ["n"],
@@ -55,5 +53,4 @@
             "after": [":", "w"]
         }
     ]
-    */
 }
