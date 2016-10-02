@@ -38,6 +38,7 @@ map <Leader>- :TComment<CR>
 map <C-b>     :TComment<CR>
 
 " FZF mappings
+map <Leader>, :Files<CR>
 map <Leader>e :Files<CR>
 map <Leader>n :Buffers<CR>
 map <Leader>h :History<CR>
