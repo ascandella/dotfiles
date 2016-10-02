@@ -1,8 +1,8 @@
 [core]
         whitespace = trailing-space,space-before-tab
-        editor = nvim
+        editor = vim
         excludesfile = ~/.gitignore_global
-	pager = diff-so-fancy | less --tabs=1,5 -RFX
+        pager = diff-so-fancy | less --tabs=1,5 -RFX
 
 [user]
         name = Aiden Scandella
