@@ -1,0 +1,2 @@
+# This is for fzf from vim so that it will ignore stuff from .gitignore etc
+export FZF_DEFAULT_COMMAND='ag -g ""'
