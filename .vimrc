@@ -7,6 +7,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'majutsushi/tagbar'
 Plug 'nanotech/jellybeans.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'joshglendenning/vim-caddyfile'
 
 call plug#end()
 
