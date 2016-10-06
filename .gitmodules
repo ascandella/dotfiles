@@ -43,3 +43,6 @@
 [submodule ".vim/bundle/neomake"]
 	path = .vim/bundle/neomake
 	url = https://github.com/neomake/neomake.git
+[submodule ".tmux/plugins/tpm"]
+	path = .tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
