@@ -1,12 +1,4 @@
 "
-" Command-T
-"
-
-let g:CommandTMatchWindowAtTop = 1
-let g:CommandTMaxHeight = 15
-let g:CommandTCancelMap='<C-x>'
-
-"
 " Zencoding (mostly unused)
 "
 
