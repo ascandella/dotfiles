@@ -1,2 +1,6 @@
-Godeps/_workspace
+# Top-level only
+/Godeps/_workspace
+# Vendor, same deal
+/vender
+# Node?? I have no ihea what they're trying to accomplish
 node_modules
