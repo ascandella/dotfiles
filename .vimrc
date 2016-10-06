@@ -8,6 +8,7 @@ Plug 'majutsushi/tagbar'
 Plug 'nanotech/jellybeans.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'joshglendenning/vim-caddyfile'
+Plug 'scrooloose/nerdcommenter'
 
 call plug#end()
 
