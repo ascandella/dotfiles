@@ -1,4 +1,4 @@
 if [ -f "$DOTFILES/ext/z/z.sh" ] ; then
   . "$DOTFILES/ext/z/z.sh"
-  alias j=z
+  alias j='nocorrect z'
 fi
