@@ -1,1 +1,13 @@
-/Users/aiden/.boxer/env/bin/boxer
+#!/bin/bash
+
+set -x
+
+TARGET="$HOME/.boxer/env/bin/boxer"
+
+if [ -x "${TARGET}" ] ; then
+  exec "${TARGET}" "$@"
+
+else
+  echo "Boxer is not installed. Expected binary in ${TARGET}"
+  exit 1
+fi
