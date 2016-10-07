@@ -1,4 +1,5 @@
 let g:go_fmt_command = "goimports"
+let g:go_template_file = "../../../../src/vim/snippets/snippet.go"
 
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',

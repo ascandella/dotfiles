@@ -11,6 +11,7 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'tpope/vim-fugitive'
 Plug 'joshglendenning/vim-caddyfile'
 Plug 'scrooloose/nerdcommenter'
+Plug 'SirVer/ultisnips'
 
 call plug#end()
 

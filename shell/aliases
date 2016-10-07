@@ -32,6 +32,7 @@ alias e,='e .'
 
 _aliasto nvim vim
 _aliasto rg ag
+alias e=nvim
 alias vi="$(which vim)"
 
 #
