@@ -11,4 +11,11 @@ unssh() {
   unalias ssh
 }
 
-[ -f "$HOME/.noussh" ] || ussh
+if [ -f "$HOME/.noussh" ]; then
+  exit 0
+fi
+
+# Only enable this by default on weekdays
+if [[ $(date +%u) -lt 5 ]]; then
+  ussh
+fi
