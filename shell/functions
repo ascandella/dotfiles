@@ -38,15 +38,6 @@ ftest() {
   fab test:"$fabtest"
 }
 
-vimwrap() {
-  if [ -z "$1" ] && [ `pwd` != "$HOME" ] ; then
-    vim -c 'CommandT'
-  else
-    vim $@
-  fi
-}
-alias vim=vimwrap
-
 pushdot() {
   [ -z "$1" ] && echo "Need a commit message" && return 1
   pushd ~/.dotfiles
