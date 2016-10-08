@@ -11,4 +11,21 @@ fun! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfun
 
-autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+augroup Whitespace
+augroup END
+
+" enable toggling
+function! ToggleWhitespaceAutoGroup()
+    if !exists('#Whitespace#BufWritePre')
+        augroup Whitespace
+            autocmd!
+            autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+        augroup END
+    else
+        augroup Whitespace
+            autocmd!
+        augroup END
+    endif
+endfunction
+
+nnoremap <silent> <leader>ts :call ToggleWhitespaceAutoGroup()<CR>
