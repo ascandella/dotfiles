@@ -81,3 +81,6 @@ set splitright
 
 " Smarter case-sensitivity for searches
 set smartcase
+
+" set this before all files load so they can reference it
+let mapleader = ","
