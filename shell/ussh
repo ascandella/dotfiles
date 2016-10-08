@@ -12,10 +12,10 @@ unssh() {
 }
 
 if [ -f "$HOME/.noussh" ]; then
-  exit 0
-fi
-
-# Only enable this by default on weekdays
-if [[ $(date +%u) -lt 5 ]]; then
-  ussh
+  # all is good
+else
+  # Only enable this by default on weekdays
+  if [[ $(date +%u) -lt 5 ]]; then
+    ussh
+  fi
 fi
