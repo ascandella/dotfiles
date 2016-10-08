@@ -35,7 +35,7 @@
         lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
         lol = log --oneline --decorate
         patch = add -p
-        refresh = !ssh-add -l && STASH=$(git stash) && git fetch && git rebase origin/master && test \"$STASH\" != \"No local changes to save\" && git stash pop
+        refresh = !ssh-add -l && STASH=$(git stash) && git fetch && OVERCOMMIT_DISABLE=1 git rebase origin/master && test \"$STASH\" != \"No local changes to save\" && git stash pop
         rmb = !sh -c 'git branch -D $1 && git push origin :$1' -
         sha1 = rev-parse HEAD
         sha = !git rev-parse HEAD | cut -c 1-8
