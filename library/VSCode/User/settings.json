@@ -2,7 +2,7 @@
     "editor.cursorBlinking": "expand",
     "editor.tabSize": 2,
     "editor.glyphMargin": true,
-    "editor.lineNumbers": false,
+    "editor.lineNumbers": "off",
     "editor.rulers": [100],
     //"editor.fontSize": 18,
     "editor.formatOnType": true,
@@ -30,6 +30,11 @@
     "files.trimTrailingWhitespace": true,
     "files.autoSave": "onFocusChange",
     "files.insertFinalNewline": true,
+
+    "go.autocompleteUnimportedPackages": true,
+    "go.lintFlags": [
+        "--enable=errcheck"
+    ],
 
     "vim.useCtrlKeys": true,
 

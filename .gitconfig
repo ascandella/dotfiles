@@ -1,6 +1,6 @@
 [core]
         whitespace = trailing-space,space-before-tab
-        editor = vim
+        editor = nvim
         excludesfile = ~/.gitignore_global
         pager = diff-so-fancy | less --tabs=1,5 -RFX
 
@@ -29,6 +29,7 @@
         cached = diff --cached
         edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f` +Gdiff"
         delmerged = "!git branch --merged | grep -v "\\*" | grep -v "^master" | xargs -n 1 git branch -d"
+        delsquash = "!git fetch -p && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -n 1 git branch -D"
         graph = log --oneline --graph
         ir = !git rebase -i origin/master
         l = log --decorate --stat
@@ -72,6 +73,8 @@
 
 [url "ssh://gitolite@code.uber.internal/"]
   insteadOf = git://code.uber.internal/
+[url "ssh://git@github.com/uber-go/"]
+  insteadOf = https://github.com/uber-go/
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
