@@ -79,8 +79,6 @@ zstyle ':prezto:module:git:status:ignore' submodules 'all'
 _theme='kylewest'
 if [ "$(uname -s)" = "Linux" ]; then
   _theme='cloud'
-else
-  echo "nope"
 fi
 
 zstyle ':prezto:module:prompt' theme "${_theme}"

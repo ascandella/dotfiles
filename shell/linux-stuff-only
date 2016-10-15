@@ -1,5 +1,3 @@
-if [ "$(uname -s)" != "Linux" ] ; then
-  exit 0
+if [ "$(uname -s)" == "Linux" ] ; then
+  alias uponly='sudo apt-get install --only-upgrade'
 fi
-
-alias uponly='sudo apt-get install --only-upgrade'
