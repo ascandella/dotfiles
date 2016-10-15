@@ -62,6 +62,7 @@ kwmc config add-role AXDialog Emacs
 kwmc config add-role AXWindowRole iBooks
 
 kwmc rule owner="iTerm2" properties={role="AXDialog"}
+kwmc rule owner="qemu-system-i386" properties={float="true"}
 
 kwmc rule owner="zoom.us" properties={float="true"}
 
