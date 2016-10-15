@@ -34,8 +34,8 @@ let mapleader = ","
 
 map <F2> :GundoToggle<CR>
 
-map <Leader>- :TComment<CR>
-map <C-b>     :TComment<CR>
+map <leader>- :call NERDComment(0,"toggle")<C-m><Paste>
+map <C-b> :call NERDComment(0,"toggle")<C-m><Paste>
 
 " FZF mappings
 map <Leader>, :Files<CR>
