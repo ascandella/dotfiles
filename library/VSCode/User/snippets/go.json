@@ -15,7 +15,7 @@
 */
 
   "testing": {
-		"prefix": "test",
+		"prefix": "testt",
 		"body": [
 			"func Test$1(t *testing.T) {",
 			"  $2",
