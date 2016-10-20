@@ -29,7 +29,8 @@
         "**/*.pyc": true,
         "Godeps/_workspace": true,
         "**/coverage.html": true,
-        "**/_build": true
+        "**/_build": true,
+        "**/*.coverprofile": true
     },
     "files.trimTrailingWhitespace": true,
     "files.autoSave": "onFocusChange",
