@@ -1,5 +1,5 @@
 {
-    "editor.cursorBlinking": "expand",
+    "editor.cursorBlinking": "phase",
     // overridden by `editor.detectIndentation
     "editor.insertSpaces": true,
     "editor.tabSize": 2,

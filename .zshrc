@@ -50,7 +50,7 @@ case ${TERM} in
   xterm) TERM=xterm-256color ;;
 esac
 
-export EDITOR="$(which emacsclient) -t"
+export EDITOR="vim"
 
 [ -d "/usr/local/sbin" ] && export PATH="/usr/local/sbin:$PATH"
 
