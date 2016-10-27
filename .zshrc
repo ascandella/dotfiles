@@ -50,7 +50,11 @@ case ${TERM} in
   xterm) TERM=xterm-256color ;;
 esac
 
-export EDITOR="vim"
+if which nvim >/dev/null ; then
+  export EDITOR="nvim"
+else
+  export EDITOR="vim"
+fi
 
 [ -d "/usr/local/sbin" ] && export PATH="/usr/local/sbin:$PATH"
 
