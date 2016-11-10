@@ -23,6 +23,8 @@ Plug 'justinmk/vim-dirvish'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go', { 'do': 'make' }
 
+Plug 'cespare/vim-toml'
+
 
 call plug#end()
 

@@ -16,4 +16,6 @@
   // Go things
   {"key": "shift+cmd+a", "command": "go.test.cursor",
    "when": "editorTextFocus && editorLangId == 'go'"}
+  {"key": "shift+cmd+r", "command": "go.test.file",
+   "when": "editorTextFocus && editorLangId == 'go'"}
 ]
