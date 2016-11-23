@@ -23,7 +23,7 @@ for file in .* ; do
   # TODO handle conflicts
   source="${THISDIR}/${file}" 
   dest="$HOME/${file}"
-  echo "Source ${source} Desto: ${dest}"
+  echo "Source ${source} Dest: ${dest}"
   if [[ -f "${dest}"  || -h "${dest}" ]]; then
     echo "File exists"
     if [[ $(readlink "${dest}") == "${source}" ]] ; then
@@ -47,6 +47,13 @@ done
 
 mkdir -p "${HOME}/bin"
 mkdir -p "${HOME}/src"
+
+mkdir -p "${HOME}/.config"
+ln -s "${HOME}/.vim ${HOME}/.config/nvim"
+
+if which i3 > /dev/null ; then
+  ln -s "${HOME}/linux/.i3" "${HOME}/.config/"
+fi
 
 for file in "${THISDIR}/bin/*" ; do
   ln -s $file "${HOME}/bin/"
