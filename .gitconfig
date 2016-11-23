@@ -89,3 +89,7 @@
 	newHighlight = green bold 22
 [color "diff"]
 	meta = yellow bold
+[commit]
+	gpgsign = true
+[gpg]
+	program = /usr/bin/gpg2
