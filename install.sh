@@ -8,7 +8,7 @@ pushd "$(dirname $0)" > /dev/null
 THISDIR=$(pwd -P)
 echo "THis dir ${THISDIR}"
 
-for file in .* ; do 
+for file in .* ; do
   if [[ "${file}"  = ".git"  || \
         "${file}" == "." || \
         "${file}" == ".." || \
@@ -21,7 +21,7 @@ for file in .* ; do
   echo "File: ${file}"
 
   # TODO handle conflicts
-  source="${THISDIR}/${file}" 
+  source="${THISDIR}/${file}"
   dest="$HOME/${file}"
   echo "Source ${source} Dest: ${dest}"
   if [[ -f "${dest}"  || -h "${dest}" ]]; then
@@ -47,6 +47,7 @@ done
 
 mkdir -p "${HOME}/bin"
 mkdir -p "${HOME}/src"
+mkdir -p "${HOME}/src/go"
 
 mkdir -p "${HOME}/.config"
 ln -s "${HOME}/.vim ${HOME}/.config/nvim"
