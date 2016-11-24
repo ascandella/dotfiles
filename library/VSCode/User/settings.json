@@ -36,6 +36,9 @@
     "files.autoSave": "onFocusChange",
     "files.insertFinalNewline": true,
 
+    // from https://github.com/Microsoft/vscode-go/issues/392#issuecomment-261602008
+    "go.formatOnSave": false,
+    "editor.formatOnSave": true,
     "go.autocompleteUnimportedPackages": true,
     "go.lintFlags": [
         "--enable=errcheck"
@@ -43,22 +46,17 @@
 
     "vim.useCtrlKeys": true,
 
-    "vim.otherModesKeyBindings": [
-        {
-            "before": ["n"],
-            "after": ["k"]
-        },
-        {
-            "before": ["t"],
-            "after": ["j"]
-        },
-        {
-            "before": ["s"],
-            "after": ["l"]
-        },
-        {
-            "before": [",", "w"],
-            "after": [":", "w"]
-        }
-    ]
+    "vim.otherModesKeyBindings": [{
+        "before": ["n"],
+        "after": ["k"]
+    }, {
+        "before": ["t"],
+        "after": ["j"]
+    }, {
+        "before": ["s"],
+        "after": ["l"]
+    }, {
+        "before": [",", "w"],
+        "after": [":", "w"]
+    }]
 }
