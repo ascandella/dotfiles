@@ -93,3 +93,5 @@
 	gpgsign = true
 [gpg]
 	program = gpg2
+[url "ssh://gitolite@code.uber.internal:2222/"]
+	insteadOf = https://code.uber.internal/
