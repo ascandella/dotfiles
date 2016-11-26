@@ -53,7 +53,7 @@ mkdir -p "${HOME}/.config"
 ln -s "${HOME}/.vim ${HOME}/.config/nvim"
 
 if which i3 > /dev/null ; then
-  ln -s "${HOME}/linux/.i3" "${HOME}/.config/"
+  ln -s "${HOME}/linux/.i3" "${HOME}/.config/i3"
 fi
 
 for file in "${THISDIR}/bin/*" ; do
