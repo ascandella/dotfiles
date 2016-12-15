@@ -77,7 +77,7 @@ zstyle ':prezto:module:git:status:ignore' submodules 'all'
 # Auto set to 'off' on dumb terminals.
 
 _theme='kylewest'
-if [ "$(uname -s)" = "Linux" ]; then
+if [[ "$(uname -s)" = "Linux" && ! "$(hostname)" =~ "SURFACE" ]]; then
   _theme='cloud'
 fi
 
