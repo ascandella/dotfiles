@@ -57,6 +57,7 @@ kwmc config split-ratio 0.618
 
 kwmc rule owner="iTerm2" properties={role="AXDialog"}
 
+kwmc rule owner="Atlas Recal" properties={float="true"}
 kwmc rule owner="qemu-system-i386" properties={float="true"}
 kwmc rule owner="Origami Studio" properties={float="true"}
 kwmc rule owner="zoom.us" properties={float="true"}
