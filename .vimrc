@@ -24,6 +24,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go', { 'do': 'make' }
 
 Plug 'cespare/vim-toml'
+Plug 'rust-lang/rust.vim'
 
 
 call plug#end()
