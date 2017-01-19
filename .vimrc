@@ -26,6 +26,7 @@ Plug 'zchee/deoplete-go', { 'do': 'make' }
 Plug 'cespare/vim-toml'
 Plug 'rust-lang/rust.vim'
 
+Plug 'scrooloose/nerdtree'
 
 call plug#end()
 
