@@ -64,7 +64,7 @@ alias -g G=' | grep '
 
 alias land='OVERCOMMIT_DISABLE=1 arc land'
 
-if  which go > /dev/null ; then
+if which go > /dev/null ; then
   alias go='nocorrect go'
 fi
 

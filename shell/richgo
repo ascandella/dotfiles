@@ -1,0 +1,4 @@
+if which richgo > /dev/null ; then
+  # Colors, colors everywhere
+  alias go='nocorrect richgo'
+fi
