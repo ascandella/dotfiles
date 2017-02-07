@@ -36,9 +36,7 @@
     "files.autoSave": "onFocusChange",
     "files.insertFinalNewline": true,
 
-    // from https://github.com/Microsoft/vscode-go/issues/392#issuecomment-261602008
-    "go.formatOnSave": false,
-    "editor.formatOnSave": true,
+    "go.formatOnSave": true,
     "go.autocompleteUnimportedPackages": true,
     "go.lintFlags": [
         "--enable=errcheck"
@@ -59,4 +57,6 @@
         "before": [",", "w"],
         "after": [":", "w"]
     }]
+,
+"window.zoomLevel": 1
 }
