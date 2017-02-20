@@ -24,3 +24,5 @@ _arc ()
   COMPREPLY=( $(compgen -W "${OPTS}" -- ${CUR}) )
 }
 complete -F _arc -o filenames arc
+
+alias autoarc='arc diff --use-commit-message HEAD'
