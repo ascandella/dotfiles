@@ -3,3 +3,4 @@
 .vscode
 .dir-locals.el
 .lessman_cache
+.idea

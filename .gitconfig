@@ -77,9 +77,10 @@
 [url "ssh://git@github.com/uber-go/"]
   insteadOf = https://github.com/uber-go/
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
 	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
 [http]
 	cookiefile = /Users/aiden/.gitcookies
 [color "diff-highlight"]
