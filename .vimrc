@@ -24,7 +24,10 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go', { 'do': 'make' }
 
 Plug 'cespare/vim-toml'
+
+" Rust stuff
 Plug 'rust-lang/rust.vim'
+Plug 'racer-rust/vim-racer'
 
 Plug 'scrooloose/nerdtree'
 
