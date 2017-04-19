@@ -58,5 +58,7 @@
         "after": [":", "w"]
     }]
 ,
-"window.zoomLevel": 1
+"window.zoomLevel": 1,
+"workbench.colorTheme": "Dracula Syntax Theme",
+"workbench.iconTheme": "vs-minimal"
 }

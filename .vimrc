@@ -20,8 +20,8 @@ Plug 'SirVer/ultisnips'
 " dired-style file browsing
 Plug 'justinmk/vim-dirvish'
 " Code completion
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-go', { 'do': 'make' }
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'zchee/deoplete-go', { 'do': 'make' }
 
 Plug 'cespare/vim-toml'
 
@@ -30,6 +30,8 @@ Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
 
 Plug 'scrooloose/nerdtree'
+
+Plug  'cespare/vim-toml'
 
 call plug#end()
 
