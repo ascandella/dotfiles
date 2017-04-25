@@ -33,6 +33,7 @@ Plug 'racer-rust/vim-racer'
 Plug 'scrooloose/nerdtree'
 
 Plug  'cespare/vim-toml'
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
