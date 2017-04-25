@@ -20,8 +20,9 @@ Plug 'SirVer/ultisnips'
 " dired-style file browsing
 Plug 'justinmk/vim-dirvish'
 " Code completion
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'zchee/deoplete-go', { 'do': 'make' }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-go', { 'do': 'make' }
+Plug 'zchee/deoplete-jedi'
 
 Plug 'cespare/vim-toml'
 
