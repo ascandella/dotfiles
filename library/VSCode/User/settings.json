@@ -60,5 +60,11 @@
 ,
 "window.zoomLevel": 1,
 "workbench.colorTheme": "Dracula Syntax Theme",
-"workbench.iconTheme": "vs-minimal"
+"workbench.iconTheme": "vs-minimal",
+"[cpp]": {
+  "editor.quickSuggestions": false
+},
+"[c]": {
+  "editor.quickSuggestions": false
+}
 }

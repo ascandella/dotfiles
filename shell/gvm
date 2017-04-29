@@ -1,3 +1,3 @@
 # Go version manager
-[[ -s "/Users/ai/.gvm/scripts/gvm" ]] && source "/Users/ai/.gvm/scripts/gvm"
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 

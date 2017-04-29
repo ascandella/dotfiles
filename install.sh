@@ -61,4 +61,17 @@ for file in "${THISDIR}/bin/*" ; do
 done
 
 # TODO OS-XX specific hooks
+if command -v defaults > /dev/null ; then
+  # do stuff from here: https://github.com/herrbischoff/awesome-osx-command-line
+  # remove some siulator crap
+  xcrun simctl delete unavailable
+
+  # add a stack of recent apps!!
+  defaults write com.apple.dock persistent-others -array-add '{ "tile-data" = { "list-type" = 1; }; "tile-type" = "recents-tile"; }' && \
+    killall Dock
+
+  # enable quit finder
+  defaults write com.apple.finder QuitMenuItem -bool true && \
+    killall Finder
+fi
 popd > /dev/null
