@@ -1,4 +1,12 @@
+richgo-test-build() {
+  if [[ "$1" == "build" || "$1" == "test" ]] ; then
+    richgo "$@"
+  else
+    go "$@"
+  fi
+}
+
 if which richgo > /dev/null ; then
   # Colors, colors everywhere
-  alias go='nocorrect richgo'
+  alias go='nocorrect richgo-test-build'
 fi
