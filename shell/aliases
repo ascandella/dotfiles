@@ -66,6 +66,7 @@ alias land='OVERCOMMIT_DISABLE=1 arc land'
 
 if which go > /dev/null ; then
   alias go='nocorrect go'
+  alias gotest='go test $(go list ./... | grep -v "/vendor/")'
 fi
 
 if [ -x "$(which ccat)" ]; then
