@@ -3,6 +3,7 @@
     // overridden by `editor.detectIndentation
     "editor.insertSpaces": true,
     "editor.tabSize": 2,
+    "editor.fontSize": 11,
     "editor.roundedSelection": true,
     "editor.glyphMargin": true,
     "editor.lineNumbers": "off",

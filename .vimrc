@@ -10,13 +10,11 @@ Plug 'majutsushi/tagbar'
 " Theme
 Plug 'nanotech/jellybeans.vim'
 "# "Format code with one button press" - https://github.com/Chiel92/vim-autoformat
-Plug 'Chiel92/vim-autoformat'
 " Say no more
 Plug 'tpope/vim-fugitive'
 " Caddyfile (webserver) syntax
 Plug 'joshglendenning/vim-caddyfile'
 Plug 'scrooloose/nerdcommenter'
-Plug 'SirVer/ultisnips'
 " dired-style file browsing
 Plug 'justinmk/vim-dirvish'
 " Code completion
@@ -30,7 +28,7 @@ Plug 'cespare/vim-toml'
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
 
-Plug 'scrooloose/nerdtree'
+" Plug 'scrooloose/nerdtree'
 
 Plug  'cespare/vim-toml'
 Plug 'airblade/vim-gitgutter'
