@@ -59,7 +59,7 @@
         "after": [":", "w"]
     }]
 ,
-"window.zoomLevel": 1,
+"window.zoomLevel": 0,
 "workbench.colorTheme": "Dracula Syntax Theme",
 "workbench.iconTheme": "vs-minimal",
 "[cpp]": {
