@@ -66,8 +66,8 @@ if [ -d ~/.dotfiles ] ; then
     export DOTFILES=~/.dotfiles
 fi
 
-if [ $DOTFILES ] ; then
-  for f in $DOTFILES/shell/* ; do
+if [ "${DOTFILES}" ] ; then
+  for f in "${DOTFILES}/shell/"* ; do
     . $f
   done
 fi

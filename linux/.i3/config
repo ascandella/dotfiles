@@ -167,3 +167,6 @@ bar {
 exec --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon
 exec --no-startup-id nm-applet
 exec xmodmap ~/.Xmodmap &
+
+# Set up some sweet, sweet backgrounds
+exec --no-startup-id nitrogen --restore

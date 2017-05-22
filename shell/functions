@@ -57,3 +57,6 @@ type gcm >/dev/null && unalias gcm
 gcm () {
   nocorrect git commit -m "$*"
 }
+
+# Change to root with SSH agent etc
+alias sus='sudo -HE -s'
