@@ -6,7 +6,10 @@ set -o pipefail
 # http://stackoverflow.com/questions/4774054/reliable-way-for-a-bash-script-to-get-the-full-path-to-itself
 pushd "$(dirname $0)" > /dev/null
 THISDIR="$(pwd -P)"
-echo "This dir ${THISDIR}"
+
+RESET="\e[49m"
+BLUE_BG="\e[44m"
+GREEN_BG="\e[100m"
 
 for file in .* ; do
   if [[ "${file}"  = ".git"  || \
@@ -18,16 +21,12 @@ for file in .* ; do
     continue
   fi
 
-  echo "File: ${file}"
-
   # TODO handle conflicts
   source="${THISDIR}/${file}"
   dest="$HOME/${file}"
-  echo "Source ${source} Dest: ${dest}"
   if [[ -f "${dest}"  || -h "${dest}" ]]; then
-    echo "File exists"
     if [[ $(readlink "${dest}") == "${source}" ]] ; then
-      echo "${dest} is already a sylink to ${source}"
+      echo -e "Skipping\t${BLUE_BG}${source}${RESET}\t->\t${GREEN_BG}${dest}${RESET}"
       continue
     fi
     echo "File didn't exist"
@@ -41,6 +40,7 @@ for file in .* ; do
       ln -sf "${source}" "${dest}"
     fi
   else
+    echo -e "Linking\t${GREEN_BG}${source}${RESET}\t->\t${BLUE_BG}${dest}${RESET}"
     ln -s "${source}" "${dest}"
   fi
 done
