@@ -24,14 +24,19 @@ for file in .* ; do
   # TODO handle conflicts
   source="${THISDIR}/${file}"
   dest="$HOME/${file}"
-  if [[ -e "${dest}"  || -h "${dest}" ]]; then
+  if [[ -f "${dest}"  || -h "${dest}" || -d "${dest}" ]]; then
     if [[ $(readlink "${dest}") == "${source}" ]] ; then
       echo -e "Skipping\t${BLUE_BG}${source}${RESET}\t->\t${GREEN_BG}${dest}${RESET}"
       continue
     fi
-    diff "${dest}" "${source}" || true
+
+    if diff "${dest}" "${source}" ; then
+      # extremely same
+      continue
+    fi
+
     echo "${dest} already exists and is not a symlink. Overwrite it? y/N"
-    read answer
+    read -r answer
     answer="${answer:-N}"
     if [[ "${answer}" == "y" ]]  ; then
       backup="${dest}.bak"
@@ -48,15 +53,22 @@ done
 mkdir -p "${HOME}/bin"
 mkdir -p "${HOME}/src/go"
 
+maybelink () {
+  readonly local _from="${1}"
+  readonly local _to="${2}"
+  [ -e "${_to}" ] && return
+  ln -s "${_from}" "${_to}"
+}
+
 mkdir -p "${HOME}/.config"
 ln -sf "${HOME}/.vim" "${HOME}/.config/nvim"
 
-if command -v i3 > /dev/null ; then
-  ln -sf "${THISDIR}/linux/.i3" "${HOME}/.config/i3"
+if [[ $(command -v i3 > /dev/null) && ! -d "${HOME}/.config/i3" ]] ; then
+  maybelink "${THISDIR}/linux/.i3" "${HOME}/.config/i3"
 fi
 
-for file in "${THISDIR}/bin/*" ; do
-  ln -sf $file "${HOME}/bin/"
+for file in ${THISDIR}/bin/* ; do
+  maybelink "${file}" "${HOME}/bin/${file}"
 done
 
 # TODO OS-XX specific hooks

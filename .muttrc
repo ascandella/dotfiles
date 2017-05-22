@@ -1,0 +1,2 @@
+set crypt_use_gpgme=no
+set pgp_use_gpg_agent = yes
