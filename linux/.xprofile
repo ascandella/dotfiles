@@ -1,0 +1,2 @@
+# Only used in VirtualBox VMs
+xrandr --output VGA-1 --mode 1280x800
