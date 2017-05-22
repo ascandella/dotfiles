@@ -1,3 +1,11 @@
 if [ "$(uname -s)" == "Linux" ] ; then
   alias uponly='sudo apt-get install --only-upgrade'
+
+  jt () {
+    if [ -z "${1}" ] ; then
+      echo -e "\e[91mNeed service name\e[39m"
+    else
+      nocorrect sudo journalctl -xeu "${1}" -f -n 100
+    fi
+  }
 fi

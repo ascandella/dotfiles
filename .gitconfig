@@ -7,6 +7,7 @@
 [user]
         name = Aiden Scandella
         email = git@sca.ndella.com
+        signingkey = C19FAEAAFD6CC39783DAEB6617C559C421D83A19
 
 [push]
         default = upstream
