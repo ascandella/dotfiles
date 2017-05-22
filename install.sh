@@ -5,8 +5,8 @@ set -o pipefail
 
 # http://stackoverflow.com/questions/4774054/reliable-way-for-a-bash-script-to-get-the-full-path-to-itself
 pushd "$(dirname $0)" > /dev/null
-THISDIR=$(pwd -P)
-echo "THis dir ${THISDIR}"
+THISDIR="$(pwd -P)"
+echo "This dir ${THISDIR}"
 
 for file in .* ; do
   if [[ "${file}"  = ".git"  || \
@@ -50,14 +50,14 @@ mkdir -p "${HOME}/src"
 mkdir -p "${HOME}/src/go"
 
 mkdir -p "${HOME}/.config"
-ln -s "${HOME}/.vim ${HOME}/.config/nvim"
+ln -sf "${HOME}/.vim ${HOME}/.config/nvim"
 
-if which i3 > /dev/null ; then
-  ln -s "${HOME}/linux/.i3" "${HOME}/.config/i3"
+if command -v i3 > /dev/null ; then
+  ln -sf "${THISDIR}/linux/.i3" "${HOME}/.config/i3"
 fi
 
 for file in "${THISDIR}/bin/*" ; do
-  ln -s $file "${HOME}/bin/"
+  ln -sf $file "${HOME}/bin/"
 done
 
 # TODO OS-XX specific hooks
