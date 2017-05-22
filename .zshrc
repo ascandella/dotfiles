@@ -80,3 +80,5 @@ bindkey '^[[B' history-substring-search-down
 
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+
+[[ -z "${GPG_TTY}" ]] && export GPG_TTY="$(tty)"
