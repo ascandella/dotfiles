@@ -46,11 +46,10 @@ for file in .* ; do
 done
 
 mkdir -p "${HOME}/bin"
-mkdir -p "${HOME}/src"
 mkdir -p "${HOME}/src/go"
 
 mkdir -p "${HOME}/.config"
-ln -sf "${HOME}/.vim ${HOME}/.config/nvim"
+ln -sf "${HOME}/.vim" "${HOME}/.config/nvim"
 
 if command -v i3 > /dev/null ; then
   ln -sf "${THISDIR}/linux/.i3" "${HOME}/.config/i3"
