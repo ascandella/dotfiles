@@ -2,12 +2,14 @@
 
 if [ -z "${GOPATH}" ] ; then
   for dir in '.gocode' 'src/gocode' 'src/go' ; do
-    if [ -d "$HOME/$dir" ]; then
-      export GOPATH="$HOME/$dir"
-
-      export PATH="$PATH:$HOME/$dir/bin"
+    if [ -d "${HOME}/${dir}" ]; then
+      export GOPATH="$HOME/${dir}"
     fi
   done
+fi
+
+if [[ ! "${PATH}" =~ "${GOPATH}/bin" ]] ; then
+  export PATH="${PATH}:${GOPATH}/bin"
 fi
 
 # Enable e.g. `ls` colors
