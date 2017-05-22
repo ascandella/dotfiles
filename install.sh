@@ -24,18 +24,18 @@ for file in .* ; do
   # TODO handle conflicts
   source="${THISDIR}/${file}"
   dest="$HOME/${file}"
-  if [[ -f "${dest}"  || -h "${dest}" ]]; then
+  if [[ -e "${dest}"  || -h "${dest}" ]]; then
     if [[ $(readlink "${dest}") == "${source}" ]] ; then
       echo -e "Skipping\t${BLUE_BG}${source}${RESET}\t->\t${GREEN_BG}${dest}${RESET}"
       continue
     fi
-    echo "File didn't exist"
+    diff "${dest}" "${source}" || true
     echo "${dest} already exists and is not a symlink. Overwrite it? y/N"
     read answer
     answer="${answer:-N}"
-    if [[ answer == "y" ]]  ; then
+    if [[ "${answer}" == "y" ]]  ; then
       backup="${dest}.bak"
-      echo "Overwriting previous file. Saved to  ${backup}"
+      echo "Overwriting previous file. Saved to ${backup}"
       mv "${dest}" "${backup}"
       ln -sf "${source}" "${dest}"
     fi

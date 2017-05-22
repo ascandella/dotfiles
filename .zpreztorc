@@ -81,7 +81,7 @@ _host="$(hostname)"
 if [[ "$(whoami)" == "root" ]] ; then
   _theme='adam1'
 elif [[  "${_host}" == "kodi" ]] ; then
-  _theme='steeef'
+  _theme='agnoster'
 elif [[ "$(uname -s)" = "Linux" && ! "${_host}" =~ "SURFACE" ]]; then
   _theme='cloud'
 fi
