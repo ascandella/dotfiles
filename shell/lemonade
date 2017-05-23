@@ -1,0 +1,9 @@
+if [[ -e "${HOME}/.config/.lemonademaster" ]] ; then
+  if command -v lemonade >/dev/null ; then
+    if ! pgrep -f "lemonade server" >/dev/null ; then
+      _logfile="${HOME}/.lemonadelog"
+      [[ -f "${_logfile}" ]] && rm -f "${_logfile}"
+      _out="$(nohup lemonade server >"${_logfile}" 2>&1 &)"
+    fi
+  fi
+fi
