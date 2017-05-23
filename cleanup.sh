@@ -4,10 +4,12 @@ pushd "$(dirname "${0}")" > /dev/null
 THISDIR="$(pwd -P)"
 
 for file in "${HOME}"/.* ; do
-  if [[ -h "${file}" && ! "$(readlink "${file}")" =~ ${THISDIR}.* ]] ; then
+  [[ -h "${file}" ]] || continue
+  realfile="$(readlink "${file}")"
+  if [[ ! "${realfile}" =~ ${THISDIR}.* ]] ; then
     if [[ -e "${THISDIR}/$(basename "${file}")" ]] ; then
       [[ -n "${V}" ]] && echo "Link exists:${file}"
-    else
+    elif [[ ! -e "${realfile}" ]] ; then
       echo "Unlinking ${file}"
       unlink "${file}"
     fi
