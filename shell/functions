@@ -60,3 +60,7 @@ gcm () {
 
 # Change to root with SSH agent etc
 alias sus='sudo -HE -s'
+
+rmbrokensym () {
+  find . -maxdepth 1 -type l ! -exec test -e {} \; -delete
+}
