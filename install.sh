@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 set -eu
 set -o pipefail
@@ -7,9 +7,9 @@ set -o pipefail
 pushd "$(dirname "${0}")" > /dev/null
 THISDIR="$(pwd -P)"
 
-RESET="\e[49m"
-BLUE_BG="\e[44m"
-GREEN_BG="\e[100m"
+RESET="\033[49m"
+BLUE_BG="\033[44m"
+GREEN_BG="\033[100m"
 
 _skip() {
   echo -e "Skipping ${GREEN_BG}${1}${RESET}"
@@ -26,7 +26,7 @@ for file in .* ; do
   fi
 
   source="${THISDIR}/${file}"
-  dest="$HOME/${file}"
+  dest="${HOME}/${file}"
 
   if [[ -h "${dest}" ]] ; then
     realdest="$(readlink "${dest}")"
