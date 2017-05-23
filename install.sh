@@ -36,17 +36,14 @@ for file in .* ; do
         unlink "${dest}"
       fi
     fi
+
+    if [[ "${realdest}" == "${source}" || "${HOME}/${realdest}" == "${source}" ]] ; then
+      _skip "${source}"
+      continue
+    fi
   fi
 
   if [[ -f "${dest}"  || -h "${dest}" || -d "${dest}" ]]; then
-    if [[ -h "${dest}" ]] ; then
-      realdest="$(readlink "${dest}")"
-      if [[ "${realdest}" == "${source}" || "${HOME}/${realdest}" == "${source}" ]] ; then
-        _skip "${source}"
-        continue
-      fi
-    fi
-
     if diff "${dest}" "${source}" ; then
       _skip "${dest}"
       # extremely same
