@@ -38,7 +38,7 @@ for file in .* ; do
     fi
 
     if [[ "${realdest}" == "${source}" || "${HOME}/${realdest}" == "${source}" ]] ; then
-      _skip "${source}"
+      _skip "${dest}"
       continue
     fi
   fi
