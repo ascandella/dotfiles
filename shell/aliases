@@ -29,7 +29,11 @@ alias t='tmux -u'
 alias e='emacsclient -t'
 alias e.='e .'
 alias e,='e .'
-alias ls='ls --color=always'
+
+# TODO put this in the linux dir
+if [[ "$(uname)" == "Linux" ]] ; then
+  alias ls='ls --color=always'
+fi
 alias grep='grep --color=always'
 
 _aliasto nvim vim

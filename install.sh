@@ -90,10 +90,19 @@ _scanAndLink () {
   done
 }
 
+mkdir -p "${HOME}/src"
+
 # TODO break out macOS and Linux into their own dirs
 _scanAndLink "${THISDIR}"
 case "$(uname)" in
   Darwin)
+    OSX_FONTS="${HOME}/src/fonts"
+    if [[ ! -d "${OSX_FONTS}" ]] ; then
+      git clone "https://github.com/powerline/fonts.git" "${OSX_FONTS}"
+      pushd "${OSX_FONTS}"
+      ./install.sh
+      popd
+    fi
     _scanAndLink "${THISDIR}/to-install/osx"
     ;;
   Linux)
