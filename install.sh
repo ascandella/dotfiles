@@ -44,10 +44,13 @@ for file in .* ; do
   fi
 
   if [[ -f "${dest}"  || -h "${dest}" || -d "${dest}" ]]; then
-    if diff "${dest}" "${source}" ; then
-      _skip "${dest}"
-      # extremely same
-      continue
+    # Only try to diff files
+    if [[ ! -d "${dest}" ]] ; then
+      if diff "${dest}" "${source}" ; then
+        _skip "${dest}"
+        # extremely same
+        continue
+      fi
     fi
 
     echo "${dest} already exists and is not a symlink. Overwrite it? y/N"
