@@ -1,1 +1,2 @@
-gem: --no-ri --no-rdoc
+gem: --no-document
+gem2.3: --no-document
