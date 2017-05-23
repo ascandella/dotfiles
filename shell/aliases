@@ -29,6 +29,8 @@ alias t='tmux -u'
 alias e='emacsclient -t'
 alias e.='e .'
 alias e,='e .'
+alias ls='ls --color=always'
+alias grep='grep --color=always'
 
 _aliasto nvim vim
 _aliasto rg ag
