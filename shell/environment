@@ -15,7 +15,7 @@ fi
 # Enable e.g. `ls` colors
 export CLICOLOR=1
 
-if [[ command -v lemonade >/dev/null ]] ; then
+if command -v lemonade >/dev/null ; then
   alias clip='lemonade copy'
 fi
 
