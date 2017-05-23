@@ -89,6 +89,13 @@ for file in "${THISDIR}"/bin/* ; do
   maybelink "${file}" "${HOME}/bin"
 done
 
+FZF_INSTALL="${HOME}/.fzf/install"
+hash -r
+if [[ ! $(command -v fzf >/dev/null) && -x "${FZF_INSTALL}" ]] ; then
+  ${FZF_INSTALL} --no-update-rc --completion --key-bindings
+fi
+
+
 # TODO OS-XX specific hooks
 if command -v defaults > /dev/null ; then
   # do stuff from here: https://github.com/herrbischoff/awesome-osx-command-line
