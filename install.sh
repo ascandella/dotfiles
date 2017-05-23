@@ -31,7 +31,7 @@ for file in .* ; do
   if [[ -h "${dest}" ]] ; then
     realdest="$(readlink "${dest}")"
     if [[ ! "${realdest}" =~ ${THISDIR}.* ]] ; then
-      if [[ -e "${source}" ]] ; then
+      if [[ ! -e "${source}" ]] ; then
         echo -e "Removing bad link: ${BLUE_BG}${dest}${RESET}"
         unlink "${dest}"
       fi
