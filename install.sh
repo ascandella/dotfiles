@@ -7,66 +7,84 @@ set -o pipefail
 pushd "$(dirname "${0}")" > /dev/null
 THISDIR="$(pwd -P)"
 
-RESET="\033[49m"
+RESET="\033[0m"
 BLUE_BG="\033[44m"
 GRAY_BG="\033[100m"
+RED_FG="\033[91m"
+BOLD="\033[1m"
 
-_skip() {
-  echo -e "Skipping ${GRAY_BG}${1}${RESET}"
+_die() {
+  echo -e "${RED_FG}${BOLD}${1}"
+  exit "${2:-1}"
 }
 
-for file in .* ; do
-  if [[ "${file}" == ".git"  || \
-        "${file}" == "." || \
-        "${file}" == ".." || \
-        "${file}" == ".gitignore" || \
-        "${file}" == ".gitmodules" \
-     ]]; then
-    continue
-  fi
+_skip() {
+  [[ -n "${1}" ]] || _die "Skip called without argument"
+  echo -e -n "Skipping ${GRAY_BG}$(basename "${1}")${RESET}"
+  shift
+  set +u
+  ([[ -n "${*}" ]] && echo " (${*})") || echo
+  set -u
+}
 
-  source="${THISDIR}/${file}"
-  dest="${HOME}/${file}"
+UNINTERESTING=". .. .git .gitignore .gitmodules .vim.configure"
 
-  if [[ -h "${dest}" ]] ; then
-    realdest="$(readlink "${dest}")"
-    if [[ ! "${realdest}" =~ ${THISDIR}.* ]] ; then
-      if [[ ! -e "${source}" ]] ; then
-        echo -e "Removing bad link: ${BLUE_BG}${dest}${RESET}"
-        unlink "${dest}"
+_scanAndLink () {
+  for file in "${1}"/.* ; do
+    realfile="$(basename "${file}")"
+    for boring in ${UNINTERESTING} ; do
+      if [[ "${realfile}" == "${boring}" ]] ; then
+        _skip "${boring}" "support file"
+        continue 2
       fi
-    fi
+    done
 
-    if [[ "${realdest}" == "${source}" || "${HOME}/${realdest}" == "${source}" ]] ; then
-      _skip "${dest}"
-      continue
-    fi
-  fi
+    source="${file}"
+    dest="${HOME}/$(basename "${file}")"
 
-  if [[ -f "${dest}"  || -h "${dest}" || -d "${dest}" ]]; then
-    # Only try to diff files
-    if [[ ! -d "${dest}" ]] ; then
-      if diff "${dest}" "${source}" ; then
+    if [[ -h "${dest}" ]] ; then
+      realdest="$(readlink "${dest}")"
+      if [[ ! "${realdest}" =~ ${THISDIR}.* ]] ; then
+        if [[ ! -e "${source}" ]] ; then
+          echo -e "Removing bad link: ${BOLD}${BLUE_BG}${dest}${RESET}"
+          unlink "${dest}"
+        fi
+      fi
+
+      if [[ "${realdest}" == "${source}" || "${HOME}/${realdest}" == "${source}" ]] ; then
         _skip "${dest}"
-        # extremely same
         continue
       fi
     fi
 
-    echo "${dest} already exists and is not a symlink. Overwrite it? y/N"
-    read -r answer
-    answer="${answer:-N}"
-    if [[ "${answer}" == "y" ]]  ; then
-      backup="${dest}.bak"
-      echo "Overwriting previous file. Saved to ${backup}"
-      mv "${dest}" "${backup}"
-      ln -sf "${source}" "${dest}"
+    if [[ -f "${dest}"  || -h "${dest}" || -d "${dest}" ]]; then
+      # Only try to diff files
+      if [[ ! -d "${dest}" ]] ; then
+        if diff "${dest}" "${source}" ; then
+          _skip "${dest}"
+          # extremely same
+          continue
+        fi
+      fi
+
+      echo -e -n "${BOLD}${RED_FG}${dest}${RESET} already exists and is not a symlink. Overwrite it? y/N: "
+      read -r answer
+      answer="${answer:-N}"
+      if [[ "${answer}" == "y" ]]  ; then
+        backup="${dest}.bak"
+        echo "Overwriting previous file. Saved to ${backup}"
+        mv "${dest}" "${backup}"
+        ln -sf "${source}" "${dest}"
+      fi
+    else
+      echo -e "Linking  ${GRAY_BG}${source}${RESET} -> ${BLUE_BG}${dest}${RESET}"
+      ln -s "${source}" "${dest}"
     fi
-  else
-    echo -e "Linking  ${GRAY_BG}${source}${RESET} -> ${BLUE_BG}${dest}${RESET}"
-    ln -s "${source}" "${dest}"
-  fi
-done
+  done
+}
+
+# TODO break out macOS and Linux into their own dirs
+_scanAndLink "${THISDIR}"
 
 mkdir -p "${HOME}/bin"
 mkdir -p "${HOME}/src/go"
@@ -93,7 +111,7 @@ FZF_INSTALL="${HOME}/.fzf/install"
 FZF_BIN="${HOME}/.fzf/bin/fzf"
 if [[ ! -x "${FZF_BIN}" && -x "${FZF_INSTALL}" ]] ; then
   echo -e "Auto-installing${RESET} ${BLUE_BG}fzf${RESET}"
-  ${FZF_INSTALL} --no-update-rc --completion --key-bindings
+  "${FZF_INSTALL}" --no-update-rc --completion --key-bindings
 fi
 
 # TODO OS-XX specific hooks
@@ -103,11 +121,13 @@ if command -v defaults > /dev/null ; then
   xcrun simctl delete unavailable
 
   # add a stack of recent apps!!
-  defaults write com.apple.dock persistent-others -array-add '{ "tile-data" = { "list-type" = 1; }; "tile-type" = "recents-tile"; }' && \
+  if ! grep -q "recents-tile" <(defaults read com.apple.dock persistent-others) ; then
+    defaults write com.apple.dock persistent-others -array-add '{ "tile-data" = { "list-type" = 1; }; "tile-type" = "recents-tile"; }'
     killall Dock
+  fi
 
   # enable quit finder
-  defaults write com.apple.finder QuitMenuItem -bool true && \
-    killall Finder
+  defaults write com.apple.finder QuitMenuItem -bool true
+  killall Finder
 fi
 popd > /dev/null
