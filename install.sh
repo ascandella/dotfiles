@@ -30,6 +30,7 @@ _skip() {
 UNINTERESTING=". .. .git .gitignore .gitmodules .vim.configure"
 
 _scanAndLink () {
+  echo -e "Scanning ${BLUE_BG}${1}${RESET}"
   for file in "${1}"/.* ; do
     realfile="$(basename "${file}")"
     for boring in ${UNINTERESTING} ; do
@@ -58,8 +59,14 @@ _scanAndLink () {
     fi
 
     if [[ -f "${dest}"  || -h "${dest}" || -d "${dest}" ]]; then
+      local skipMe=
+      if [[ ! -e "${dest}" ]] ; then
+        echo -e "${BOLD}${RED_FG}${dest}${RESET} appears to be a broken symmlink. ${BOLD}Removing...${RESET}"
+        skipMe="yass"
+        unlink "${dest}"
+      fi
       # Only try to diff files
-      if [[ ! -d "${dest}" ]] ; then
+      if [[ -z "${skipMe}" && ! -d "${dest}" ]] ; then
         if diff "${dest}" "${source}" ; then
           _skip "${dest}"
           # extremely same
@@ -85,6 +92,14 @@ _scanAndLink () {
 
 # TODO break out macOS and Linux into their own dirs
 _scanAndLink "${THISDIR}"
+case "$(uname)" in
+  Darwin)
+    _scanAndLink "${THISDIR}/to-install/osx"
+    ;;
+  Linux)
+    _scanAndLink "${THISDIR}/to-install/linux"
+    ;;
+esac
 
 mkdir -p "${HOME}/bin"
 mkdir -p "${HOME}/src/go"
