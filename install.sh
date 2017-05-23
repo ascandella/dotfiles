@@ -63,7 +63,7 @@ for file in .* ; do
       ln -sf "${source}" "${dest}"
     fi
   else
-    echo -e "Linking ${GREEN_BG}${source}${RESET}\t->\t${BLUE_BG}${dest}${RESET}"
+    echo -e "Linking  ${GREEN_BG}${source}${RESET} -> ${BLUE_BG}${dest}${RESET}"
     ln -s "${source}" "${dest}"
   fi
 done
