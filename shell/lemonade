@@ -3,7 +3,7 @@ if [[ -e "${HOME}/.config/.lemonademaster" ]] ; then
     if ! pgrep -f "lemonade server" >/dev/null ; then
       _logfile="${HOME}/.lemonadelog"
       [[ -f "${_logfile}" ]] && rm -f "${_logfile}"
-      _out="$(nohup lemonade server >"${_logfile}" 2>&1 &)"
+      _out="$(nohup lemonade server -allow "127.0.0.1,::1" >"${_logfile}" 2>&1 &)"
     fi
   fi
 fi
