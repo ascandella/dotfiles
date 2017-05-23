@@ -79,7 +79,7 @@ _scanAndLink () {
       answer="${answer:-N}"
       if [[ "${answer}" == "y" ]]  ; then
         backup="${dest}.bak"
-        echo "Overwriting previous file. Saved to ${backup}"
+        echo -e "${RED_FG}Overwriting previous file. Saved to ${backup}${RESET}"
         mv "${dest}" "${backup}"
         ln -sf "${source}" "${dest}"
       fi
