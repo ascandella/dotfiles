@@ -9,10 +9,10 @@ THISDIR="$(pwd -P)"
 
 RESET="\033[49m"
 BLUE_BG="\033[44m"
-GREEN_BG="\033[100m"
+GRAY_BG="\033[100m"
 
 _skip() {
-  echo -e "Skipping ${GREEN_BG}${1}${RESET}"
+  echo -e "Skipping ${GRAY_BG}${1}${RESET}"
 }
 
 for file in .* ; do
@@ -63,7 +63,7 @@ for file in .* ; do
       ln -sf "${source}" "${dest}"
     fi
   else
-    echo -e "Linking  ${GREEN_BG}${source}${RESET} -> ${BLUE_BG}${dest}${RESET}"
+    echo -e "Linking  ${GRAY_BG}${source}${RESET} -> ${BLUE_BG}${dest}${RESET}"
     ln -s "${source}" "${dest}"
   fi
 done
@@ -90,11 +90,11 @@ for file in "${THISDIR}"/bin/* ; do
 done
 
 FZF_INSTALL="${HOME}/.fzf/install"
-hash -r
-if [[ ! $(command -v fzf >/dev/null) && -x "${FZF_INSTALL}" ]] ; then
+FZF_BIN="${HOME}/.fzf/bin/fzf"
+if [[ ! -x "${FZF_BIN}" && -x "${FZF_INSTALL}" ]] ; then
+  echo -e "Auto-installing${RESET} ${BLUE_BG}fzf${RESET}"
   ${FZF_INSTALL} --no-update-rc --completion --key-bindings
 fi
-
 
 # TODO OS-XX specific hooks
 if command -v defaults > /dev/null ; then
