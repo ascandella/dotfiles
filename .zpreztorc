@@ -79,7 +79,7 @@ zstyle ':prezto:module:git:status:ignore' submodules 'all'
 _theme='kylewest'
 _host="$(hostname)"
 if [[  "${_host}" == "kodi" ]] ; then
-  _theme='agnoster'
+  _theme='powerline'
 elif [[ "$(whoami)" == "root" ]] ; then
   _theme='adam1'
 elif [[ "$(uname -s)" = "Linux" && ! "${_host}" =~ "SURFACE" ]]; then
