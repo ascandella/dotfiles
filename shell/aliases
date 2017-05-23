@@ -33,6 +33,7 @@ alias e,='e .'
 # TODO put this in the linux dir
 if [[ "$(uname)" == "Linux" ]] ; then
   alias ls='ls --color=always'
+  alias ts='sudo tail -f /var/log/syslog'
 fi
 alias grep='grep --color=always'
 
