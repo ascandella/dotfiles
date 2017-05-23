@@ -4,15 +4,19 @@ set -eu
 set -o pipefail
 
 # http://stackoverflow.com/questions/4774054/reliable-way-for-a-bash-script-to-get-the-full-path-to-itself
-pushd "$(dirname $0)" > /dev/null
+pushd "$(dirname "${0}")" > /dev/null
 THISDIR="$(pwd -P)"
 
 RESET="\e[49m"
 BLUE_BG="\e[44m"
 GREEN_BG="\e[100m"
 
+_skip() {
+  echo -e "Skipping ${GREEN_BG}${1}${RESET}"
+}
+
 for file in .* ; do
-  if [[ "${file}"  = ".git"  || \
+  if [[ "${file}" == ".git"  || \
         "${file}" == "." || \
         "${file}" == ".." || \
         "${file}" == ".gitignore" || \
@@ -21,16 +25,30 @@ for file in .* ; do
     continue
   fi
 
-  # TODO handle conflicts
   source="${THISDIR}/${file}"
   dest="$HOME/${file}"
+
+  if [[ -h "${dest}" ]] ; then
+    realdest="$(readlink "${dest}")"
+    if [[ ! "${realdest}" =~ ${THISDIR}.* ]] ; then
+      if [[ -e "${source}" ]] ; then
+        echo -e "Removing bad link: ${BLUE_BG}${dest}${RESET}"
+        unlink "${dest}"
+      fi
+    fi
+  fi
+
   if [[ -f "${dest}"  || -h "${dest}" || -d "${dest}" ]]; then
-    if [[ $(readlink "${dest}") == "${source}" ]] ; then
-      echo -e "Skipping\t${BLUE_BG}${source}${RESET}\t->\t${GREEN_BG}${dest}${RESET}"
-      continue
+    if [[ -h "${dest}" ]] ; then
+      realdest="$(readlink "${dest}")"
+      if [[ "${realdest}" == "${source}" || "${HOME}/${realdest}" == "${source}" ]] ; then
+        _skip "${source}"
+        continue
+      fi
     fi
 
     if diff "${dest}" "${source}" ; then
+      _skip "${dest}"
       # extremely same
       continue
     fi
@@ -45,7 +63,7 @@ for file in .* ; do
       ln -sf "${source}" "${dest}"
     fi
   else
-    echo -e "Linking\t${GREEN_BG}${source}${RESET}\t->\t${BLUE_BG}${dest}${RESET}"
+    echo -e "Linking ${GREEN_BG}${source}${RESET}\t->\t${BLUE_BG}${dest}${RESET}"
     ln -s "${source}" "${dest}"
   fi
 done
@@ -54,21 +72,21 @@ mkdir -p "${HOME}/bin"
 mkdir -p "${HOME}/src/go"
 
 maybelink () {
-  readonly local _from="${1}"
-  readonly local _to="${2}"
+  local _from="${1}"
+  local _to="${2}"
   [ -e "${_to}" ] && return
   ln -s "${_from}" "${_to}"
 }
 
 mkdir -p "${HOME}/.config"
-ln -sf "${HOME}/.vim" "${HOME}/.config/nvim"
+maybelink "${HOME}/.vim" "${HOME}/.config/nvim"
 
 if [[ $(command -v i3 > /dev/null) && ! -d "${HOME}/.config/i3" ]] ; then
   maybelink "${THISDIR}/linux/.i3" "${HOME}/.config/i3"
 fi
 
-for file in ${THISDIR}/bin/* ; do
-  maybelink "${file}" "${HOME}/bin/${file}"
+for file in "${THISDIR}"/bin/* ; do
+  maybelink "${file}" "${HOME}/bin"
 done
 
 # TODO OS-XX specific hooks
