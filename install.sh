@@ -27,11 +27,21 @@ _skip() {
   set -u
 }
 
+_printAndLink () {
+  local source="$1"
+  local dest="$2"
+  echo -e "Linking  ${GRAY_BG}${source}${RESET} -> ${BLUE_BG}${dest}${RESET}"
+  ln -s "${source}" "${dest}"
+}
+
+
 UNINTERESTING=". .. .git .gitignore .gitmodules .vim.configure"
 
 _scanAndLink () {
   echo -e "Scanning ${BLUE_BG}${1}${RESET}"
+  local file
   for file in "${1}"/.* ; do
+    local realfile boring
     realfile="$(basename "${file}")"
     for boring in ${UNINTERESTING} ; do
       if [[ "${realfile}" == "${boring}" ]] ; then
@@ -40,7 +50,7 @@ _scanAndLink () {
       fi
     done
 
-    source="${file}"
+    local source="${file}"
     dest="${HOME}/$(basename "${file}")"
 
     if [[ -h "${dest}" ]] ; then
@@ -86,8 +96,7 @@ _scanAndLink () {
         ln -sf "${source}" "${dest}"
       fi
     else
-      echo -e "Linking  ${GRAY_BG}${source}${RESET} -> ${BLUE_BG}${dest}${RESET}"
-      ln -s "${source}" "${dest}"
+      _printAndLink "${source}" "${dest}"
     fi
   done
 }
@@ -118,8 +127,7 @@ mkdir -p "${HOME}/src/go"
 maybelink () {
   local _from="${1}"
   local _to="${2}"
-  [ -e "${_to}" ] && return
-  ln -s "${_from}" "${_to}"
+  [ -e "${_to}" ] || _printAndLink "${_from}" "${_to}"
 }
 
 mkdir -p "${HOME}/.config"
@@ -130,7 +138,7 @@ if [[ $(command -v i3 > /dev/null) && ! -d "${HOME}/.config/i3" ]] ; then
 fi
 
 for file in "${THISDIR}"/bin/* ; do
-  maybelink "${file}" "${HOME}/bin"
+  maybelink "${file}" "${HOME}/bin/$(basename "${file}")"
 done
 
 FZF_INSTALL="${HOME}/.fzf/install"
