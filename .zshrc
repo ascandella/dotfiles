@@ -16,6 +16,7 @@ setopt histignorealldups
 setopt nomatch
 setopt nonomatch
 setopt sharehistory
+setopt interactivecomments
 
 unsetopt notify
 zstyle :compinstall filename '$HOME/.zshrc'
@@ -27,13 +28,6 @@ compinit
 #
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
-
-#
-# Load zgen
-#
-if [[ -s "${ZDOTDIR:-$HOME}/.zgen/zgen.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zgen/zgen.zsh"
 fi
 
 # if [ -d "$HOME/.rbenv" ] ; then
@@ -62,11 +56,9 @@ fi
 # Load extra functionality
 #
 
-if [ -d ~/.dotfiles ] ; then
-    export DOTFILES=~/.dotfiles
-fi
+DOTFILES="${DOTFILES:-${HOME}/.dotfiles}"
 
-if [ "${DOTFILES}" ] ; then
+if [[ -d "${DOTFILES}" ]] ; then
   for f in "${DOTFILES}/shell/"* ; do
     . $f
   done
