@@ -29,3 +29,4 @@ function! ToggleWhitespaceAutoGroup()
 endfunction
 
 nnoremap <silent> <leader>ts :call ToggleWhitespaceAutoGroup()<CR>
+call ToggleWhitespaceAutoGroup()
