@@ -90,7 +90,7 @@ map :W :w
 
 nmap <silent> <Leader>s :set nolist!<CR>
 
-map <Leader>a :Ag<space>
+nmap <Leader>a :Ag<space>
 
 map <silent> <Leader>cn :set nocursorcolumn <cr>
 
@@ -130,5 +130,3 @@ nmap <S-Tab> <<
 " Arcanist (phabricator) for Uber
 "
 nnoremap gr /Reviewers:<CR>A
-
-nnoremap s <C-W>
