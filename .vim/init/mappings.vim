@@ -90,7 +90,7 @@ map :W :w
 
 nmap <silent> <Leader>s :set nolist!<CR>
 
-map <Leader>a :Ack<space>
+map <Leader>a :Ag<space>
 
 map <silent> <Leader>cn :set nocursorcolumn <cr>
 
