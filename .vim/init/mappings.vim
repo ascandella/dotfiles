@@ -120,8 +120,3 @@ nnoremap <BS> :bd<CR>
 
 " nmap <Tab> >>
 nmap <S-Tab> <<
-
-"
-" Arcanist (phabricator) for Uber
-"
-autocmd FileType gitcommit nnoremap gr /Reviewers:<CR>A
