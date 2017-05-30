@@ -58,6 +58,14 @@ fi
 
 DOTFILES="${DOTFILES:-${HOME}/.dotfiles}"
 
+SUPPORT="${DOTFILES}/.support"
+if [[ -d ${SUPPORT} ]] ; then
+  for supp in "${SUPPORT}"/* ; do
+    # shellcheck disable=SC1090
+    source "${supp}"
+  done
+fi
+
 if [[ -d "${DOTFILES}" ]] ; then
   for f in "${DOTFILES}/shell/"* ; do
     . $f
