@@ -7,11 +7,11 @@ set -o pipefail
 pushd "$(dirname "${0}")" > /dev/null
 THISDIR="$(pwd -P)"
 
-RESET="\033[0m"
-BLUE_BG="\033[44m"
-GRAY_BG="\033[100m"
-RED_FG="\033[91m"
-BOLD="\033[1m"
+SUPPORT="${THISDIR}/.support"
+for supp in "${SUPPORT}"/* ; do
+  # shellcheck disable=SC1090
+  source "${supp}"
+done
 
 _die() {
   echo -e "${RED_FG}${BOLD}${1}"
@@ -35,7 +35,8 @@ _printAndLink () {
 }
 
 
-UNINTERESTING=". .. .git .gitignore .gitmodules .vim.configure"
+UNINTERESTING=". .. .git .gitignore .gitmodules .vim.configure .support
+.DS_Store"
 
 _scanAndLink () {
   echo -e "Scanning ${BLUE_BG}${1}${RESET}"
