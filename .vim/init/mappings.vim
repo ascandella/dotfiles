@@ -54,13 +54,14 @@ map <Leader>l :setlocal spell spelllang=en_us
 map <Leader>r :setlocal nospell
 
 " Send selected text to clipper
+" Todo make sure this is compatible with new clip system
 nnoremap <leader>y :call system('nc localhost 8377', @0)<CR>
 
 " Paste toggle
 map <silent> <Leader>p : set paste!<CR>
 
 " Fixup CSS
-map <Leader>cs :g#\({\n\)\@<=#.,/}/sort<CR>
+autocmd FileType css map <Leader>cs :g#\({\n\)\@<=#.,/}/sort<CR>
 
 " Blank newline above this one
 nmap <Leader>. mmO<esc>`m
@@ -80,28 +81,29 @@ map <C-m> ciw
 map :ws :w !sudo tee %<CR>
 
 " Convert hashrockets to Ruby 1.9
-nmap <leader>rh :%s/\v:(\w+)\s(\s*)\=\>/\1:\2/g<cr>
+autocmd FileType ruby nmap <leader>rh :%s/\v:(\w+)\s(\s*)\=\>/\1:\2/g<cr>
 
 " Close the current buffer, leave the window in place
 nmap <C-W>m <Plug>Kwbd
-
-" Spurious shift-key failure
-map :W :w
 
 nmap <silent> <Leader>s :set nolist!<CR>
 
 nmap <Leader>a :Ag<space>
 
-map <silent> <Leader>cn :set nocursorcolumn <cr>
+" Unmap NerdCommenter
+unmap <Leader>cn
+map <silent> <Leader>cn :set cursorcolumn!<cr>
 
 " Cycle relative -> normal -> no line numbers
-nmap <silent> <leader>rn :exec &nu==&rnu? "se nu!" : "se rnu!" <cr>
+nmap <silent> <leader>rn :exec &nu==&rnu? "se nu!" : "se rnu!"<cr>
 " Toggle relative line number
-nmap <silent> <leader>rr :set norelativenumber! <cr>
+nmap <silent> <leader>rr :set norelativenumber!<cr>
 
 " Easier inline save
 imap ,w <Esc>:w<cr>a
 
+" Spurious shift-key failure
+map :W :w
 
 " Make Y consistent with D and C (instead of yy)
 noremap Y y$
@@ -116,15 +118,10 @@ vmap D yP'<
 " Backspace closes buffer
 nnoremap <BS> :bd<CR>
 
-highlight clear SignColumn
-
-iabbrev <silent> ipdb import ipdb ; ipdb.set_trace()
-iabbrev <silent> _fu from __future__ import absolute_import
-
 " nmap <Tab> >>
 nmap <S-Tab> <<
 
 "
 " Arcanist (phabricator) for Uber
 "
-nnoremap gr /Reviewers:<CR>A
+autocmd FileType gitcommit nnoremap gr /Reviewers:<CR>A

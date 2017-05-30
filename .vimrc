@@ -30,8 +30,10 @@ Plug 'racer-rust/vim-racer'
 
 " Plug 'scrooloose/nerdtree'
 
-Plug  'cespare/vim-toml'
+Plug 'cespare/vim-toml'
 Plug 'airblade/vim-gitgutter'
+
+Plug 'sjl/gundo.vim'
 
 call plug#end()
 

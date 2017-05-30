@@ -1,4 +1,8 @@
 "
+"
 " Hide fill characters
 "
-:set fillchars=vert:\ 
+:set fillchars=vert:\
+
+" Hide SignColumn
+" highlight clear SignColumn
