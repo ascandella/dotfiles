@@ -2,7 +2,7 @@
 " Strip trailing whitespace on save
 "
 
-fun! <SID>StripTrailingWhitespaces()
+fun! s:StripTrailingWhitespaces()
     let _s=@/
     let l = line(".")
     let c = col(".")
