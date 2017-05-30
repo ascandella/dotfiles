@@ -23,7 +23,7 @@ psgrep() {
   if [ -n "$1" ] ; then
     ps aux | grep $1 | grep -v grep
   else
-    _internal_error "!! Need name to grep for"
+    _internal_error "Need name to grep for"
   fi
 }
 
