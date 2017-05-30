@@ -12,9 +12,11 @@ Plug 'nanotech/jellybeans.vim'
 "# "Format code with one button press" - https://github.com/Chiel92/vim-autoformat
 " Say no more
 Plug 'tpope/vim-fugitive'
+
 " Caddyfile (webserver) syntax
 Plug 'joshglendenning/vim-caddyfile'
 Plug 'scrooloose/nerdcommenter'
+
 " dired-style file browsing
 Plug 'justinmk/vim-dirvish'
 " Code completion
