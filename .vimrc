@@ -13,27 +13,38 @@ Plug 'nanotech/jellybeans.vim'
 " Say no more
 Plug 'tpope/vim-fugitive'
 
-" Caddyfile (webserver) syntax
-Plug 'joshglendenning/vim-caddyfile'
 Plug 'scrooloose/nerdcommenter'
 
 " dired-style file browsing
 Plug 'justinmk/vim-dirvish'
+
 " Code completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-go', { 'do': 'make' }
-Plug 'zchee/deoplete-jedi'
 
+
+" Plug 'scrooloose/nerdtree'
+Plug 'airblade/vim-gitgutter'
+
+"
+" Language-specific stuff
+"
+
+" Go code completion
+Plug 'zchee/deoplete-go', { 'do': 'make' }
+" Python code completion
+Plug 'zchee/deoplete-jedi'
 Plug 'cespare/vim-toml'
+
+" Caddyfile (webserver) syntax
+Plug 'joshglendenning/vim-caddyfile'
 
 " Rust stuff
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
 
-" Plug 'scrooloose/nerdtree'
-
-Plug 'cespare/vim-toml'
-Plug 'airblade/vim-gitgutter'
+"
+" END Language-specific stuff
+"
 
 Plug 'sjl/gundo.vim'
 
