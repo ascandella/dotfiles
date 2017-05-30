@@ -50,8 +50,8 @@ map <Leader>cl :ccl<CR>
 " map <Leader>g  :Gblame<CR>
 map <Leader>q  :q<CR>
 
-map <Leader>l :setlocal spell spelllang=en_us
-map <Leader>r :setlocal nospell
+map <Leader>l :setlocal spell spelllang=en_us<cr>
+noremap <Leader>r :setlocal spell!<cr>
 
 " Send selected text to clipper
 " Todo make sure this is compatible with new clip system
@@ -90,9 +90,8 @@ nmap <silent> <Leader>s :set nolist!<CR>
 
 nmap <Leader>a :Ag<space>
 
-" Unmap NerdCommenter
-unmap <Leader>cn
-map <silent> <Leader>cn :set cursorcolumn!<cr>
+" Don't care about cursorcolumn for now
+" nnoremap <silent> <Leader>cn :set cursorcolumn!<cr>
 
 " Cycle relative -> normal -> no line numbers
 nmap <silent> <leader>rn :exec &nu==&rnu? "se nu!" : "se rnu!"<cr>
