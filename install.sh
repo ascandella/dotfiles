@@ -165,4 +165,10 @@ if command -v defaults > /dev/null ; then
   defaults write com.apple.finder QuitMenuItem -bool true
   killall Finder
 fi
+
+echo
+echo "Checking for submodule updates"
+git submodule update --init --recursive
+echo -e "${BLUE_BG}Done${RESET}"
+
 popd > /dev/null

@@ -1,0 +1,31 @@
+OPTOUT="${HOME}/.config/.noautoupdate"
+[[ -f ${OPTOUT} ]] && return
+
+UPDATE_INTERVAL="+1w"
+SHOULD_UPDATE=0
+TSFILE="${HOME}/.config/.lastupdatecheck"
+if [[ ! -f ${TSFILE} ]] ; then
+  touch "${TSFILE}"
+  SHOULD_UPDATE=1
+elif [[ -n "$(find "${TSFILE}" -mtime ${UPDATE_INTERVAL} -print)" ]] ; then
+  SHOULD_UPDATE=1
+fi
+
+update() {
+  set -e
+  echo -e "${GRAY_BG}Checking for dotfiles update.${RESET}"
+  echo -e "To disable, touch ${BOLD}'${TSFILE}'${RESET}"
+  pushd "${DOTFILES}"
+  command -v diff-so-fancy >/dev/null || source "${DOTFILES}/shell/path"
+  if ! git refresh ; then
+    echo -e "${BOLD}${RED_FG}Unable to check for updates. Check your SSH agent?"
+    return
+  fi
+  ${DOTFILES}/install.sh
+
+  touch "${TSFILE}"
+  popd
+  set +e
+}
+
+(( ${SHOULD_UPDATE} == 0 )) || update
