@@ -31,6 +31,9 @@ Plug 'airblade/vim-gitgutter'
 
 " Go code completion
 Plug 'zchee/deoplete-go', { 'do': 'make' }
+" Go refactoring
+Plug 'godoctor/godoctor.vim'
+
 " Python code completion
 Plug 'zchee/deoplete-jedi'
 Plug 'cespare/vim-toml'
