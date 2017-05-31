@@ -11,7 +11,7 @@ elif [[ -n "$(find "${TSFILE}" -mtime ${UPDATE_INTERVAL} -print)" ]] ; then
   SHOULD_UPDATE=1
 fi
 
-update() {
+_update() {
   set -e
   echo -e "${GRAY_BG}Checking for dotfiles update.${RESET}"
   echo -e "To disable, touch ${BOLD}'${OPTOUT}'${RESET}"
@@ -45,4 +45,5 @@ update() {
   set +e
 }
 
-(( ${SHOULD_UPDATE} == 0 )) || update
+(( ${SHOULD_UPDATE} == 0 )) || _update
+unset -f _update
