@@ -1,7 +1,7 @@
 OPTOUT="${HOME}/.config/.noautoupdate"
 [[ -f ${OPTOUT} ]] && return
 
-UPDATE_INTERVAL="+1w"
+UPDATE_INTERVAL="+7"
 SHOULD_UPDATE=0
 TSFILE="${HOME}/.config/.lastupdatecheck"
 if [[ ! -f ${TSFILE} ]] ; then
