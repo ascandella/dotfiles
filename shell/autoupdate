@@ -25,7 +25,7 @@ update() {
     echo -e "${GRAY_BG}Already up-to-date, skipping install${RESET}"
     set +e
     return 0
-  elif ! git refresh ; then
+  elif [[ ! "$(git refresh)" =~ '.*Could not.*' ]] ; then
     echo -e "${BOLD}${RED_FG}Unable to check for updates. Check your SSH agent?"
     set +e
     return 0
