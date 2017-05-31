@@ -163,7 +163,7 @@ if command -v defaults > /dev/null ; then
 
   # enable quit finder
   defaults write com.apple.finder QuitMenuItem -bool true
-  killall Finder
+  killall Finder || _internal_error "Unable to killall Finder"
 fi
 
 echo
