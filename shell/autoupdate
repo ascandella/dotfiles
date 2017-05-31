@@ -20,11 +20,15 @@ update() {
   if ! git fetch ; then
     _internal_error "Unable to 'git fetch'. Check your SSH agent?"
     set +e
-    return
+    return 0
+  elif [[ -z "$(git log HEAD..origin/master)" ]] ; then
+    echo -e "${GRAY_BG}Already up-to-date, skipping install${RESET}"
+    set +e
+    return 0
   elif ! git refresh ; then
     echo -e "${BOLD}${RED_FG}Unable to check for updates. Check your SSH agent?"
     set +e
-    return
+    return 0
   fi
   ${DOTFILES}/install.sh
 
