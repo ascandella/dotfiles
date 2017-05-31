@@ -36,6 +36,8 @@ Plug 'godoctor/godoctor.vim'
 
 " Python code completion
 Plug 'zchee/deoplete-jedi'
+
+" TOML syntax
 Plug 'cespare/vim-toml'
 
 " Caddyfile (webserver) syntax
