@@ -169,12 +169,11 @@ fi
 
 CHANGED_FILES=""
 if [[ -n "${PREVIOUS_DOTFILES:-}" ]] ; then
-  CHANGED_FILES="$(git log --pretty='format:' \\
-    --name-only "${PREVIOUS_DOTFILES}"..HEAD | sort | uniq)"
+  CHANGED_FILES="$(git log --pretty='format:' --name-only "${PREVIOUS_DOTFILES}"..HEAD | sort | uniq)"
 fi
 
 
-files_changed() {
+files_changed () {
   if [[ -z "${1}" ]] ; then
     _internal_error "Bad usage of files_changed: need argument"
     return 1
@@ -193,7 +192,7 @@ files_changed() {
 
 if [[ $(files_changed ".gitmodules") == "1" ]] ; then
   echo
-  echo "Checking for submodule updates"
+  echo "Detected update to git submodules, updating"
   git submodule update --init --recursive
   echo -e "${BLUE_BG}Done${RESET}"
 fi
@@ -202,7 +201,7 @@ fi
 if [[ $(files_changed ".vimrc") == "1" ]] ; then
   # TODO pass vars from autoupdate to only run if .vimrc has changed
   if command -v vim >/dev/null ; then
-    echo "Updating vim plugins"
+    echo "Detected change to .vimrc, updating vim plugins"
     vim +PlugInstall +PlugClean +qall
     echo -e "${BLUE_BG}Done${RESET}"
   fi
