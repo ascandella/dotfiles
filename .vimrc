@@ -25,6 +25,9 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'scrooloose/nerdtree'
 Plug 'airblade/vim-gitgutter'
 
+" Undo tree
+Plug 'sjl/gundo.vim'
+
 "
 " Language-specific stuff
 "
@@ -50,8 +53,6 @@ Plug 'racer-rust/vim-racer'
 "
 " END Language-specific stuff
 "
-
-Plug 'sjl/gundo.vim'
 
 call plug#end()
 
