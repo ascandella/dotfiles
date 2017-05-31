@@ -17,7 +17,11 @@ update() {
   echo -e "To disable, touch ${BOLD}'${OPTOUT}'${RESET}"
   pushd "${DOTFILES}"
   command -v diff-so-fancy >/dev/null || source "${DOTFILES}/shell/path"
-  if ! git refresh ; then
+  if ! git fetch ; then
+    _internal_error "Unable to 'git fetch'. Check your SSH agent?"
+    set +e
+    return
+  elif ! git refresh ; then
     echo -e "${BOLD}${RED_FG}Unable to check for updates. Check your SSH agent?"
     set +e
     return
