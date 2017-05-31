@@ -174,7 +174,7 @@ echo -e "${BLUE_BG}Done${RESET}"
 # TODO pass vars from autoupdate to only run if .vimrc has changed
 if command -v vim >/dev/null ; then
   echo "Updating vim plugins"
-  vim -c ":PlugInstall | :PlugClean | :qall"
+  vim +PlugInstall +PlugClean +qall
   echo -e "${BLUE_BG}Done${RESET}"
 fi
 
