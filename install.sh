@@ -41,7 +41,7 @@ UNINTERESTING=". .. .git .gitignore .gitmodules .vim.configure .support
 _scanAndLink () {
   echo -e "Scanning ${BLUE_BG}${1}${RESET}"
   local file
-  for file in "${1}"/.* ; do
+  for file in "${1}"/${2:-.*} ; do
     local realfile boring
     realfile="$(basename "${file}")"
     for boring in ${UNINTERESTING} ; do
@@ -52,7 +52,7 @@ _scanAndLink () {
     done
 
     local source="${file}"
-    dest="${HOME}/$(basename "${file}")"
+    dest="${HOME}/${3:-}$(basename "${file}")"
 
     if [[ -h "${dest}" ]] ; then
       realdest="$(readlink "${dest}")"
@@ -106,6 +106,7 @@ mkdir -p "${HOME}/src"
 
 # TODO break out macOS and Linux into their own dirs
 _scanAndLink "${THISDIR}"
+_scanAndLink "${THISDIR}/dotconfig" "*" ".config/"
 case "$(uname)" in
   Darwin)
     OSX_FONTS="${HOME}/src/fonts"
