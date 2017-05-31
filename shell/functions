@@ -2,10 +2,6 @@
 # Functions
 #
 
-_internal_error() {
-  echo -e "${RED_FG}${BOLD}${@}${RESET}"
-}
-
 ssh-reagent () {
   ssh-add -l &> /dev/null && return 0
   for agent in /tmp/ssh-*/agent.*; do
