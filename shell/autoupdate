@@ -14,7 +14,7 @@ fi
 update() {
   set -e
   echo -e "${GRAY_BG}Checking for dotfiles update.${RESET}"
-  echo -e "To disable, touch ${BOLD}'${TSFILE}'${RESET}"
+  echo -e "To disable, touch ${BOLD}'${OPTOUT}'${RESET}"
   pushd "${DOTFILES}"
   command -v diff-so-fancy >/dev/null || source "${DOTFILES}/shell/path"
   if ! git refresh ; then
