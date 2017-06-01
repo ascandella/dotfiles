@@ -44,5 +44,5 @@ _update() {
   set +e
 }
 
-(( ${SHOULD_UPDATE} == 0 )) || _update
+[[ -n "${FORCE_DOTFILES_UPDATE}" ]] || (( ${SHOULD_UPDATE} == 0 )) || _update
 unset -f _update
