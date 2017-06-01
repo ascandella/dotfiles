@@ -2,3 +2,5 @@ if which gpg2 > /dev/null ; then
   # This messes up on Ubuntu when the agent mismatches
   alias gpg=gpg2
 fi
+
+alias gpgd='gpg --decrypt'
