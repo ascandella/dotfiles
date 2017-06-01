@@ -28,7 +28,7 @@ font pango:DejaVu Sans Mono 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Shift+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+apostrophe kill
@@ -164,9 +164,11 @@ bar {
         status_command i3status
 }
 
-exec --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon
+# exec --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon
 exec --no-startup-id nm-applet
-exec xmodmap ~/.Xmodmap &
+
+exec --no-startup-id xmodmap ~/.Xmodmap &
+exec --no-startup-id xrandr --output VGA-1 --mode 1280x800 &
 
 # Set up some sweet, sweet backgrounds
 exec --no-startup-id nitrogen --restore
