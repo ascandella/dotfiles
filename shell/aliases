@@ -22,7 +22,6 @@ alias ':q'='echo "\033[31mThis is zsh, not vim\033[0m"'
 alias clip='nc localhost 8377'
 alias ll='ls -l'
 alias ltr='ls -ltr'
-alias r='git refresh'
 alias rm > /dev/null && unalias rm
 alias s='ssh-reagent'
 alias t='tmux -u'
@@ -46,9 +45,10 @@ alias vi="$(which vim)"
 # Git aliases
 #
 
-if [ -x /usr/local/bin/git ]; then
-  alias git='nocorrect /usr/local/bin/git'
+if command -v git >/dev/null ; then
+  alias git='nocorrect git'
 fi
+
 alias g='nocorrect git'
 alias gp='git add -p'
 alias gr='git rebase'
