@@ -63,8 +63,6 @@ kwmc rule owner="Origami Studio" properties={float="true"}
 kwmc rule owner="PS4 Remote Play" properties={float="true"}
 kwmc rule owner="zoom.us" properties={float="true"}
 
-
-
 // Automatically resize the window to its container
 kwmc config lock-to-container on
 
