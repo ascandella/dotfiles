@@ -76,7 +76,7 @@ if which go > /dev/null ; then
   alias gotest='go test $(go list ./... | grep -v "/vendor/")'
 fi
 
-if [ -x "$(which ccat)" ]; then
+if command -v ccat >/dev/null ; then
   alias cat='ccat --bg=dark'
 fi
 
