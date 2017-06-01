@@ -29,8 +29,7 @@ _update() {
     popd
     return 0
   else
-    local refresh_output="$(git refresh)"
-    if [[ "${refresh_output}" =~ '.*Could not.*agent.*' ]] ; then
+    if ! git refresh ; then
       echo -e "${BOLD}${RED_FG}Unable to check for updates. Check your SSH agent?"
       set +e
       popd
