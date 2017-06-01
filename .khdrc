@@ -166,7 +166,7 @@ ctrl - s                 :    khd -e "mode activate prefix"
 cmd + alt + ctrl - q     :    kwmc quit
 
 # Launch iTerm2
-cmd - return     ![VirtualBox]    :    open -a /Applications/iTerm2.app
+# cmd - return     ![VirtualBox VM,Chrome]    :    open -a /Applications/iTerm2.app
 
 # Set Space Tiling Mode To BSP
 cmd + ctrl - a           :    kwmc space -t bsp
@@ -198,6 +198,7 @@ prefix + shift - l       :    kwmc window -c reduce 0.05 east
 prefix - f               :    kwmc window -z fullscreen
 prefix - d               :    kwmc window -z parent
 prefix - w               :    kwmc window -t focused
+cmd + alt - f            :    kwmc window -z fullscreen
 
 # Mark Window
 cmd + alt + ctrl - m     :    kwmc window -mk focused
