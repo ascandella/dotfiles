@@ -17,7 +17,7 @@ kwmc config gap vertical 20
 kwmc config gap horizontal 20
 
 # Let Kwm listen for hotkeys
-kwmc config hotkeys on
+# kwmc config hotkeys on
 
 # Set global prefix for all of Kwms hotkeys
 # This hotkey must be pressed for bindsyms to activate!
@@ -62,6 +62,25 @@ kwmc rule owner="qemu-system-i386" properties={float="true"}
 kwmc rule owner="Origami Studio" properties={float="true"}
 kwmc rule owner="PS4 Remote Play" properties={float="true"}
 kwmc rule owner="zoom.us" properties={float="true"}
+
+
+
+// Automatically resize the window to its container
+kwmc config lock-to-container on
+
+// Automatically float windows that fail to resize
+kwmc config float-non-resizable on
+
+/* Center window when made floating */
+kwmc config center-on-float on
+
+// Disable mouse moving behavior
+kwmc config mouse-follows-focus off
+
+# XXX All keybindings have been moved to `khd`
+# (https://github.com/koekeishiya/khd) as of 4.0, the rest
+# is lest as legacy stuff
+
 
 # The following command captures an application to the
 # given screen, if the screen exists. By doing this
@@ -136,15 +155,3 @@ kwmc bindsym cmd+ctrl-s space -t monocle
 
 // Set Space Tiling Mode To Floating
 kwmc bindsym cmd+ctrl-d space -t float
-
-// Automatically resize the window to its container
-kwmc config lock-to-container on
-
-// Automatically float windows that fail to resize
-kwmc config float-non-resizable on
-
-/* Center window when made floating */
-kwmc config center-on-float on
-
-// Disable mouse moving behavior
-kwmc config mouse-follows-focus off
