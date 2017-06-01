@@ -107,6 +107,7 @@ mkdir -p "${HOME}/src"
 # TODO break out macOS and Linux into their own dirs
 _scanAndLink "${THISDIR}"
 _scanAndLink "${THISDIR}/dotconfig" "*" ".config/"
+
 case "$(uname)" in
   Darwin)
     OSX_FONTS="${HOME}/src/fonts"
@@ -117,9 +118,12 @@ case "$(uname)" in
       popd
     fi
     _scanAndLink "${THISDIR}/to-install/osx"
+    # TODO not working yet
+    # _scanAndLink "${THISDIR}/to-install/osx/bin" "*" "bin/"
     ;;
   Linux)
     _scanAndLink "${THISDIR}/to-install/linux"
+    _scanAndLink "${THISDIR}/to-install/linux/bin" "*" "bin/"
     ;;
 esac
 
