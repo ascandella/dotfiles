@@ -112,8 +112,8 @@
 #shift + lctrl - 4 ![HyperTerm,Terminal,iTerm2]      :   khd -p "shift + cmd - right"
 
 # remap left-control b / e   -> start / end of word
-lctrl - b         ![HyperTerm,Terminal,iTerm2]      :   khd -p "alt - left"
-lctrl - e         ![HyperTerm,Terminal,iTerm2]      :   khd -p "alt - right"
+#lctrl - b         ![HyperTerm,Terminal,iTerm2]      :   khd -p "alt - left"
+#lctrl - e         ![HyperTerm,Terminal,iTerm2]      :   khd -p "alt - right"
 
 shift + lctrl - b ![HyperTerm,Terminal,iTerm2]      :   khd -p "shift + alt - left"
 shift + lctrl - e ![HyperTerm,Terminal,iTerm2]      :   khd -p "shift + alt - right"
