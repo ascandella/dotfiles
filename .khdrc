@@ -121,20 +121,9 @@ shift + lctrl - e ![HyperTerm,Terminal,iTerm2]      :   khd -p "shift + alt - ri
 # remap left-control x       -> forward delete
 lctrl - x         ![HyperTerm,Terminal,iTerm2]      :   khd -p "- delete"
 
-
-
-# enable kwm compatibility mode
-khd kwm on
-
-
-
-
 # suppress unregistered keybinds outside default mode
 # enabled by default! must be explicitly set to 'off'
 # khd void_unlisted_bind off
-
-
-
 
 # set border color for different modes
 khd mode default color 0xddd5c4a1
@@ -199,6 +188,12 @@ prefix - f               :    kwmc window -z fullscreen
 prefix - d               :    kwmc window -z parent
 prefix - w               :    kwmc window -t focused
 cmd + alt - f            :    kwmc window -z fullscreen
+
+# swap swap swap
+cmd + shift - j   : kwmc window -s west
+cmd + shift - k   : kwmc window -s east
+cmd + shift - h   : kwmc window -s north
+cmd + shift - l   : kwmc window -s south
 
 # Mark Window
 cmd + alt + ctrl - m     :    kwmc window -mk focused
