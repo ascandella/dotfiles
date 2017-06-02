@@ -118,6 +118,7 @@ case "$(uname)" in
       popd
     fi
     _scanAndLink "${THISDIR}/to-install/osx"
+    _scanAndLink "${THISDIR}/to-install/osx/bin" "*" "bin/"
     # TODO not working yet
     # _scanAndLink "${THISDIR}/to-install/osx/bin" "*" "bin/"
     ;;
