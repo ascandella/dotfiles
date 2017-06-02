@@ -169,7 +169,8 @@ exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
 exec --no-startup-id nm-applet
 
 exec --no-startup-id xmodmap ~/.Xmodmap &
-exec --no-startup-id xrandr --output VGA-1 --mode 1440x900
+# exec --no-startup-id xrandr --output VGA-1 --mode 1440x900
+exec --no-startup-id xrandr --output VGA-1 --mode 1280x800
 
 # Set up some sweet, sweet backgrounds
 exec --no-startup-id nitrogen --restore
