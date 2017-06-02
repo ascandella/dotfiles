@@ -57,7 +57,7 @@ _maybeCleanupSymlink () {
   dest="${dest/\/\///}"
   if [[ "${realdest}" =~ ${THISDIR}.* ]] ; then
     if [[ ! -e "${realdest}" ]] ; then
-      echo -e "Removing bad link: ${BOLD}${RED_FG}${dest}${RESET} (pointing to ${BOLD}${realdest}${RESET})"
+      echo -e "${BOLD}Removing bad link: ${RED_FG}${dest}${RESET} (pointing to ${BOLD}${realdest}${RESET})"
       unlink "${dest}"
     fi
   fi
