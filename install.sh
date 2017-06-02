@@ -6,6 +6,7 @@ set -o pipefail
 # http://stackoverflow.com/questions/4774054/reliable-way-for-a-bash-script-to-get-the-full-path-to-itself
 pushd "$(dirname "${0}")" > /dev/null
 THISDIR="$(pwd -P)"
+BASETHISDIR="$(basename "${THISDIR}")"
 
 SUPPORT="${THISDIR}/.support"
 for supp in "${SUPPORT}"/* ; do
@@ -42,9 +43,13 @@ _maybeCleanupSymlink () {
   local dest="${1}"
   local realdest
   realdest="$(readlink "${dest}")"
+  # Check for relative symlinks
+  if [[ "${realdest}" =~ ^"${BASETHISDIR}"/.* ]] ; then
+    realdest="${HOME}/${realdest}"
+  fi
   if [[ "${realdest}" =~ ${THISDIR}.* ]] ; then
     if [[ ! -e "${realdest}" ]] ; then
-      echo -e "Removing bad link: ${BOLD}${BLUE_BG}${dest}${RESET}"
+      echo -e "Removing bad link: ${BOLD}${RED_FG}${dest}${RESET}"
       unlink "${dest}"
     fi
   fi
