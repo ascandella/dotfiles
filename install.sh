@@ -124,6 +124,7 @@ case "$(uname)" in
     ;;
   Linux)
     _scanAndLink "${THISDIR}/to-install/linux"
+    _scanAndLink "${THISDIR}/to-install/linux/dotconfig" "*" ".config/"
     _scanAndLink "${THISDIR}/to-install/linux/dotconfig" ".*" ".config/"
     _scanAndLink "${THISDIR}/to-install/linux/bin" "*" "bin/"
     ;;
