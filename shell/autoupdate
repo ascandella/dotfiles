@@ -2,7 +2,7 @@ OPTOUT="${HOME}/.config/.noautoupdate"
 [[ -f ${OPTOUT} ]] && return
 
 UPDATE_INTERVAL="+7"
-SHOULD_UPDATE=0
+SHOULD_UPDATE="${FORCE_DOTFILES_UPDATE:-0}"
 TSFILE="${HOME}/.config/.lastupdatecheck"
 if [[ ! -f ${TSFILE} ]] ; then
   touch "${TSFILE}"
@@ -44,5 +44,5 @@ _update() {
   set +e
 }
 
-[[ -n "${FORCE_DOTFILES_UPDATE}" ]] || (( ${SHOULD_UPDATE} == 0 )) || _update
+(( ${SHOULD_UPDATE} == 0 )) || _update
 unset -f _update
