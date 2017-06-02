@@ -7,12 +7,18 @@ set -o pipefail
 pushd "$(dirname "${0}")" > /dev/null
 THISDIR="$(pwd -P)"
 BASETHISDIR="$(basename "${THISDIR}")"
+DOTFILES_DEBUG="${DOTFILES_DEBUG:-}"
 
 SUPPORT="${THISDIR}/.support"
 for supp in "${SUPPORT}"/* ; do
   # shellcheck disable=SC1090
   source "${supp}"
 done
+
+_debug() {
+  [[ -z "${DOTFILES_DEBUG}" ]] && return
+  "$@"
+}
 
 _die() {
   echo -e "${RED_FG}${BOLD}${1}"
@@ -43,6 +49,8 @@ _maybeCleanupSymlink () {
   local dest="${1}"
   local realdest
   realdest="$(readlink "${dest}")"
+  # OS X is weird
+  realdest="${realdest%?/}"
   # Check for relative symlinks
   if [[ "${realdest}" =~ ^"${BASETHISDIR}"/.* ]] ; then
     realdest="${HOME}/${realdest}"
@@ -76,7 +84,7 @@ _scanAndLink () {
     realfile="$(basename "${file}")"
     for boring in ${UNINTERESTING} ; do
       if [[ "${realfile}" == "${boring}" ]] ; then
-        _skip "${boring}" "support file"
+        _debug _skip "${boring}" "support file"
         continue 2
       fi
     done
@@ -127,6 +135,7 @@ _scanAndLink () {
       _printAndLink "${source}" "${dest}"
     fi
   done
+  echo
 }
 
 mkdir -p "${HOME}/src"
@@ -160,17 +169,17 @@ esac
 mkdir -p "${HOME}/bin"
 mkdir -p "${HOME}/src/go"
 
-maybelink () {
+_maybeLink () {
   local _from="${1}"
   local _to="${2}"
   [ -e "${_to}" ] || _printAndLink "${_from}" "${_to}"
 }
 
 mkdir -p "${HOME}/.config"
-maybelink "${HOME}/.vim" "${HOME}/.config/nvim"
+_maybeLink "${HOME}/.vim" "${HOME}/.config/nvim"
 
 for file in "${THISDIR}"/bin/* ; do
-  maybelink "${file}" "${HOME}/bin/$(basename "${file}")"
+  _maybeLink "${file}" "${HOME}/bin/$(basename "${file}")"
 done
 
 FZF_INSTALL="${HOME}/.fzf/install"
@@ -221,7 +230,6 @@ files_changed () {
 }
 
 if [[ $(files_changed ".gitmodules") == "1" ]] ; then
-  echo
   echo "Detected update to git submodules, updating"
   git submodule update --init --recursive
   echo -e "${BLUE_BG}Done${RESET}"
