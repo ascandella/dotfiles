@@ -56,8 +56,7 @@ kwmc config split-ratio 0.618
 # does not get tiled by Kwm by default.
 
 kwmc rule owner="iTerm2" properties={role="AXDialog"}
-
-kwmc rule owner="Atlas Recal" properties={float="true"}
+kwmc rule owner="Atlas Recall" properties={float="true"}
 kwmc rule owner="qemu-system-i386" properties={float="true"}
 kwmc rule owner="Origami Studio" properties={float="true"}
 kwmc rule owner="PS4 Remote Play" properties={float="true"}
