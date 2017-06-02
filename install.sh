@@ -75,7 +75,7 @@ _scanAndLink () {
         echo -e "${BOLD}${RED_FG}${dest}${RESET} appears to be a broken symmlink. ${BOLD}Removing...${RESET}"
         skipMe="yass"
         unlink "${dest}"
-        ln -s "${source}" "${dest}"
+        _printAndLink "${source}" "${dest}"
         continue
       fi
       # Only try to diff files
