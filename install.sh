@@ -124,6 +124,7 @@ case "$(uname)" in
     ;;
   Linux)
     _scanAndLink "${THISDIR}/to-install/linux"
+    _scanAndLink "${THISDIR}/to-install/linux/dotconfig" ".*" ".config/"
     _scanAndLink "${THISDIR}/to-install/linux/bin" "*" "bin/"
     ;;
 esac
@@ -139,10 +140,6 @@ maybelink () {
 
 mkdir -p "${HOME}/.config"
 maybelink "${HOME}/.vim" "${HOME}/.config/nvim"
-
-if [[ $(command -v i3 > /dev/null) && ! -d "${HOME}/.config/i3" ]] ; then
-  maybelink "${THISDIR}/linux/.i3" "${HOME}/.config/i3"
-fi
 
 for file in "${THISDIR}"/bin/* ; do
   maybelink "${file}" "${HOME}/bin/$(basename "${file}")"
