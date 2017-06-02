@@ -34,6 +34,22 @@ _printAndLink () {
   ln -s "${source}" "${dest}"
 }
 
+_maybeCleanupSymlink () {
+  if [[ -z "${1}" ]] ; then
+    _internal_error "Can't clean up symlink withoout argument"_
+    return 0
+  fi
+  local dest="${1}"
+  local realdest
+  realdest="$(readlink "${dest}")"
+  if [[ "${realdest}" =~ ${THISDIR}.* ]] ; then
+    if [[ ! -e "${realdest}" ]] ; then
+      echo -e "Removing bad link: ${BOLD}${BLUE_BG}${dest}${RESET}"
+      unlink "${dest}"
+    fi
+  fi
+}
+
 
 UNINTERESTING=". .. .git .gitignore .gitmodules .vim.configure .support
 .DS_Store"
@@ -41,6 +57,15 @@ UNINTERESTING=". .. .git .gitignore .gitmodules .vim.configure .support
 _scanAndLink () {
   echo -e "Scanning ${BLUE_BG}${1}${RESET}"
   local file
+
+  local destbase="${HOME}/${3:-}"
+  readonly destbase
+  # Cleanup old symlinks
+  local existingLink
+  while IFS= read -r -d '' existingLink ; do
+    _maybeCleanupSymlink "${existingLink}"
+  done < <(find "${destbase}" -maxdepth 1 -type l -print0)
+
   for file in "${1}"/${2:-.*} ; do
     local realfile boring
     realfile="$(basename "${file}")"
@@ -52,17 +77,14 @@ _scanAndLink () {
     done
 
     local source="${file}"
-    dest="${HOME}/${3:-}$(basename "${file}")"
+    local dest
+    dest="${destbase}$(basename "${file}")"
 
     if [[ -h "${dest}" ]] ; then
-      realdest="$(readlink "${dest}")"
-      if [[ ! "${realdest}" =~ ${THISDIR}.* ]] ; then
-        if [[ ! -e "${source}" ]] ; then
-          echo -e "Removing bad link: ${BOLD}${BLUE_BG}${dest}${RESET}"
-          unlink "${dest}"
-        fi
-      fi
+      _maybeCleanupSymlink "${dest}"
 
+      local realdest
+      realdest="$(readlink "${dest}")"
       if [[ "${realdest}" == "${source}" || "${HOME}/${realdest}" == "${source}" ]] ; then
         _skip "${dest}"
         continue
