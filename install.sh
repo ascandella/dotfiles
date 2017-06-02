@@ -49,12 +49,12 @@ _maybeCleanupSymlink () {
   local dest="${1}"
   local realdest
   realdest="$(readlink "${dest}")"
-  # OS X is weird
-  realdest="${realdest%?/}"
   # Check for relative symlinks
   if [[ "${realdest}" =~ ^"${BASETHISDIR}"/.* ]] ; then
     realdest="${HOME}/${realdest}"
   fi
+  # Remove double-slashes for readability
+  dest="${dest/\/\///}"
   if [[ "${realdest}" =~ ${THISDIR}.* ]] ; then
     if [[ ! -e "${realdest}" ]] ; then
       echo -e "Removing bad link: ${BOLD}${RED_FG}${dest}${RESET}"
@@ -138,6 +138,26 @@ _scanAndLink () {
   echo
 }
 
+_setupOsXDefaults() {
+  # TODO OS-XX specific hooks
+  if command -v defaults > /dev/null ; then
+    # do stuff from here: https://github.com/herrbischoff/awesome-osx-command-line
+    # remove some siulator crap
+    xcrun simctl delete unavailable
+
+    # add a stack of recent apps!!
+    if ! grep -q "recents-tile" <(defaults read com.apple.dock persistent-others) ; then
+      defaults write com.apple.dock persistent-others -array-add '{ "tile-data" = { "list-type" = 1; }; "tile-type" = "recents-tile"; }'
+      killall Dock
+    fi
+
+    # enable quit finder
+    defaults write com.apple.finder QuitMenuItem -bool true
+    killall Finder || _internal_error "Unable to killall Finder"
+  fi
+}
+
+
 mkdir -p "${HOME}/src"
 
 # TODO break out macOS and Linux into their own dirs
@@ -155,6 +175,7 @@ case "$(uname)" in
     fi
     _scanAndLink "${THISDIR}/to-install/osx"
     _scanAndLink "${THISDIR}/to-install/osx/bin" "*" "bin/"
+    _setupOsXDefaults
     # TODO not working yet
     # _scanAndLink "${THISDIR}/to-install/osx/bin" "*" "bin/"
     ;;
@@ -187,23 +208,6 @@ FZF_BIN="${HOME}/.fzf/bin/fzf"
 if [[ ! -x "${FZF_BIN}" && -x "${FZF_INSTALL}" ]] ; then
   echo -e "Auto-installing${RESET} ${BLUE_BG}fzf${RESET}"
   "${FZF_INSTALL}" --no-update-rc --completion --key-bindings
-fi
-
-# TODO OS-XX specific hooks
-if command -v defaults > /dev/null ; then
-  # do stuff from here: https://github.com/herrbischoff/awesome-osx-command-line
-  # remove some siulator crap
-  xcrun simctl delete unavailable
-
-  # add a stack of recent apps!!
-  if ! grep -q "recents-tile" <(defaults read com.apple.dock persistent-others) ; then
-    defaults write com.apple.dock persistent-others -array-add '{ "tile-data" = { "list-type" = 1; }; "tile-type" = "recents-tile"; }'
-    killall Dock
-  fi
-
-  # enable quit finder
-  defaults write com.apple.finder QuitMenuItem -bool true
-  killall Finder || _internal_error "Unable to killall Finder"
 fi
 
 CHANGED_FILES=""
@@ -244,5 +248,8 @@ if [[ $(files_changed ".vimrc") == "1" ]] ; then
     echo -e "${BLUE_BG}Done${RESET}"
   fi
 fi
+
+echo
+echo -e "${BOLD}Installation complete${RESET}"
 
 popd > /dev/null
