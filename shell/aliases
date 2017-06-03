@@ -84,4 +84,6 @@ fi
 # shellcheck disable=SC2139
 alias updatedotfiles="FORCE_DOTFILES_UPDATE=1 source ${DOTFILES}/shell/autoupdate"
 
+alias dockeruntagged='docker images | grep "<none>" | awk "{print \$3}"'
+
 unset -f _aliasto
