@@ -40,8 +40,8 @@ _update() {
   unset PREVIOUS_DOTFILES
 
   touch "${TSFILE}"
-  popd
   set +e
+  popd >/dev/null
 }
 
 (( ${SHOULD_UPDATE} == 0 )) || _update

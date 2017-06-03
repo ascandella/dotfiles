@@ -9,8 +9,9 @@ _aliasto () {
     return
   fi
 
-  if [ -x "$1" ] || which "$1" > /dev/null ; then
-    alias "$2"="$1"
+  if command -v "${1}" >/dev/null ; then
+    # shellcheck disable=SC2139
+    alias "${2}"="${1}"
   fi
 }
 
@@ -39,7 +40,7 @@ alias grep='grep --color=always'
 _aliasto nvim vim
 _aliasto rg ag
 alias e=nvim
-alias vi="$(which vim)"
+alias vi='$(which vim)'
 
 #
 # Git aliases
@@ -79,5 +80,8 @@ fi
 if command -v ccat >/dev/null ; then
   alias cat='ccat --bg=dark'
 fi
+
+# shellcheck disable=SC2139
+alias updatedotfiles="FORCE_DOTFILES_UPDATE=1 source ${DOTFILES}/shell/autoupdate"
 
 unset -f _aliasto
