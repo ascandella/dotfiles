@@ -68,7 +68,9 @@ UNINTERESTING=". .. .git .gitignore .gitmodules .vim.configure .support
 .DS_Store"
 
 _scanAndLink () {
-  echo -e "Scanning ${BLUE_BG}${1}${RESET}"
+  local inputDir="${THISDIR}"
+  [[ -n "${1:-}" ]] && inputDir="${inputDir}/${1}"
+  echo -e "Scanning ${BLUE_BG}${inputDir}${RESET}"
   local file
 
   local destbase="${HOME}/${3:-}"
@@ -79,7 +81,7 @@ _scanAndLink () {
     _maybeCleanupSymlink "${existingLink}"
   done < <(find "${destbase}" -maxdepth 1 -type l -print0)
 
-  for file in "${1}"/${2:-.*} ; do
+  for file in "${inputDir}"/${2:-.*} ; do
     local realfile boring
     realfile="$(basename "${file}")"
     for boring in ${UNINTERESTING} ; do
@@ -161,8 +163,8 @@ _setupOsXDefaults() {
 mkdir -p "${HOME}/src"
 
 # TODO break out macOS and Linux into their own dirs
-_scanAndLink "${THISDIR}"
-_scanAndLink "${THISDIR}/dotconfig" "*" ".config/"
+_scanAndLink
+_scanAndLink "dotconfig" "*" ".config/"
 
 case "$(uname)" in
   Darwin)
@@ -173,18 +175,18 @@ case "$(uname)" in
       ./install.sh
       popd
     fi
-    _scanAndLink "${THISDIR}/to-install/osx"
-    _scanAndLink "${THISDIR}/to-install/osx/bin" "*" "bin/"
-    _scanAndLink "${THISDIR}/to-install/osx/appsupport/ubersicht/widgets" "*" "Library/Application Support/Übersicht/widgets/"
+    _scanAndLink "to-install/osx"
+    _scanAndLink "to-install/osx/bin" "*" "bin/"
+    _scanAndLink "to-install/osx/appsupport/ubersicht/widgets" "*" "Library/Application Support/Übersicht/widgets/"
     _setupOsXDefaults
     # TODO not working yet
-    # _scanAndLink "${THISDIR}/to-install/osx/bin" "*" "bin/"
+    # _scanAndLink "to-install/osx/bin" "*" "bin/"
     ;;
   Linux)
-    _scanAndLink "${THISDIR}/to-install/linux"
-    _scanAndLink "${THISDIR}/to-install/linux/dotconfig" "*" ".config/"
-    _scanAndLink "${THISDIR}/to-install/linux/dotconfig" ".*" ".config/"
-    _scanAndLink "${THISDIR}/to-install/linux/bin" "*" "bin/"
+    _scanAndLink "to-install/linux"
+    _scanAndLink "to-install/linux/dotconfig" "*" ".config/"
+    _scanAndLink "to-install/linux/dotconfig" ".*" ".config/"
+    _scanAndLink "to-install/linux/bin" "*" "bin/"
     ;;
 esac
 
