@@ -155,8 +155,8 @@ ctrl - s                 :    khd -e "mode activate prefix"
 cmd + alt + ctrl - q     :    kwmc quit
 
 # Launch iTerm2
-cmd - return     ![VirtualBox VM,Google Chrome]    :    ~/bin/new-iterm2-window
-cmd + shift - return     [Google Chrome]    :    ~/bin/new-iterm2-window
+cmd - return     ![VirtualBox VM,Google Chrome,iTerm2]    :    ~/bin/new-iterm2-window
+cmd + shift - return     [Google Chrome,iTerm2]    :    ~/bin/new-iterm2-window
 
 # Set Space Tiling Mode To BSP
 cmd + ctrl - a           :    kwmc space -t bsp
