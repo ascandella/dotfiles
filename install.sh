@@ -175,6 +175,7 @@ case "$(uname)" in
     fi
     _scanAndLink "${THISDIR}/to-install/osx"
     _scanAndLink "${THISDIR}/to-install/osx/bin" "*" "bin/"
+    _scanAndLink "${THISDIR}/to-install/osx/appsupport/ubersicht/widgets" "*" "Library/Application Support/Übersicht/widgets/"
     _setupOsXDefaults
     # TODO not working yet
     # _scanAndLink "${THISDIR}/to-install/osx/bin" "*" "bin/"

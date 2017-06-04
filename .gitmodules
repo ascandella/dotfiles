@@ -49,3 +49,6 @@
 [submodule "ext/themes/zsh-dircolors-solarized"]
 	path = ext/themes/zsh-dircolors-solarized
 	url = https://github.com/joel-porquet/zsh-dircolors-solarized
+[submodule "to-install/osx/appsupport/ubersicht/widgets/nerdbar.widget"]
+	path = to-install/osx/appsupport/ubersicht/widgets/nerdbar.widget
+	url = git@github.com:sectioneight/nerdbar.widget.git
