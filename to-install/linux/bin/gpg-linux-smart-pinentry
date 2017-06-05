@@ -1,4 +1,5 @@
 #!/bin/sh
+# needs pinentry-curses (ai)
 # Configuration -- adjust these to your liking
 PINENTRY_TERMINAL=/usr/bin/pinentry-curses
 PINENTRY_X11=/usr/bin/pinentry-x11

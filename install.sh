@@ -17,6 +17,9 @@ done
 
 _debug() {
   [[ -z "${DOTFILES_DEBUG}" ]] && return
+  if (( "$#" == 1 )) ; then
+    set -- echo -e "$@"
+  fi
   "$@"
 }
 
@@ -63,14 +66,49 @@ _maybeCleanupSymlink () {
   fi
 }
 
+_maybeLink () {
+  local _from="${1}"
+  local _to="${2}"
+  if [[ -d ${_from} ]] ; then
+    _debug echo "Not searching for command directive for directory"
+    _printAndLink "${_from}" "${_to}"
+  elif ! [[ -e "${_to}" ]] ; then
+    local _header
+    _header="$(head -n 2 "${_from}")"
+    local _headerFiltered
+    _headerFiltered="$(grep -e "needs .\+ (ai)" <(echo "${_header}") || true)"
+    _debug "Filtered header ${_headerFiltered}"
+    if [[ -n "${_headerFiltered}" ]] ; then
+      _debug "Found command directive in ${_from}"
+      local _cmd
+      # shellcheck disable=SC2001
+      _cmd="$(echo "${_headerFiltered}" | sed 's/.*needs \(.*\) .*/\1/')"
+      _debug "${_from} needs command ${_cmd:-}"
+      if [[ -n "${_cmd}" ]] && command -v "${_cmd}" >/dev/null ; then
+        _debug "Command ${GRAY_BG}${_cmd:-}${RESET} found, linking ${_to}"
+        _printAndLink "${_from}" "${_to}"
+      else
+        echo -e "Command ${BOLD}${RED_FG}${_cmd}${RESET} not found, skipping ${GRAY_BG}${_to}${RESET}"
+      fi
+    else
+      _printAndLink "${_from}" "${_to}"
+    fi
+  else
+    _debug "${GRAY_BG}${_to}${RESET} already exists"
+  fi
+}
 
-UNINTERESTING=". .. .git .gitignore .gitmodules .vim.configure .support
-.DS_Store"
+
+UNINTERESTING=". .. .git .gitignore .gitmodules .vim.configure .support .DS_Store"
 
 _scanAndLink () {
   local inputDir="${THISDIR}"
   [[ -n "${1:-}" ]] && inputDir="${inputDir}/${1}"
   echo -e "Scanning ${BLUE_BG}${inputDir}${RESET}"
+  if [[ ! -d ${inputDir} ]] ; then
+    _internal_error "No such directory: ${inputDir}"
+    return
+  fi
   local file
 
   local destbase="${HOME}/${3:-}"
@@ -96,6 +134,7 @@ _scanAndLink () {
     dest="${destbase}$(basename "${file}")"
 
     if [[ -h "${dest}" ]] ; then
+      _debug "Possibly cleaning up symlink ${dest}"
       _maybeCleanupSymlink "${dest}"
 
       local realdest
@@ -112,7 +151,7 @@ _scanAndLink () {
         echo -e "${BOLD}${RED_FG}${dest}${RESET} appears to be a broken symmlink. ${BOLD}Removing...${RESET}"
         skipMe="yass"
         unlink "${dest}"
-        _printAndLink "${source}" "${dest}"
+        _maybLink "${source}" "${dest}"
         continue
       fi
       # Only try to diff files
@@ -134,7 +173,8 @@ _scanAndLink () {
         ln -sf "${source}" "${dest}"
       fi
     else
-      _printAndLink "${source}" "${dest}"
+      _debug "Normal link: ${source} -> ${dest}"
+      _maybeLink "${source}" "${dest}"
     fi
   done
   echo
@@ -162,7 +202,6 @@ _setupOsXDefaults() {
 
 mkdir -p "${HOME}/src"
 
-# TODO break out macOS and Linux into their own dirs
 _scanAndLink
 _scanAndLink "dotconfig" "*" ".config/"
 
@@ -176,11 +215,10 @@ case "$(uname)" in
       popd
     fi
     _scanAndLink "to-install/osx"
+    # No macOS binaries yet
     _scanAndLink "to-install/osx/bin" "*" "bin/"
     _scanAndLink "to-install/osx/appsupport/ubersicht/widgets" "*" "Library/Application Support/Übersicht/widgets/"
     _setupOsXDefaults
-    # TODO not working yet
-    # _scanAndLink "to-install/osx/bin" "*" "bin/"
     ;;
   Linux)
     _scanAndLink "to-install/linux"
@@ -193,14 +231,7 @@ esac
 mkdir -p "${HOME}/bin"
 mkdir -p "${HOME}/src/go"
 
-_maybeLink () {
-  local _from="${1}"
-  local _to="${2}"
-  [ -e "${_to}" ] || _printAndLink "${_from}" "${_to}"
-}
-
 mkdir -p "${HOME}/.config"
-_maybeLink "${HOME}/.vim" "${HOME}/.config/nvim"
 
 for file in "${THISDIR}"/bin/* ; do
   _maybeLink "${file}" "${HOME}/bin/$(basename "${file}")"
