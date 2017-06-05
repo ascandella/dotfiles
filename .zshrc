@@ -61,9 +61,7 @@ DOTFILES="${DOTFILES:-${HOME}/.dotfiles}"
 ANTIGEN_SOURCE="${DOTFILES}/ext/antigen/antigen.zsh"
 if [[ -s "${ANTIGEN_SOURCE}" ]] ; then
   . "${ANTIGEN_SOURCE}"
-  # This gets cached, doesn't run every time
-  antigen-bundle Tarrasch/zsh-autoenv
-
+  antigen bundle Tarrasch/zsh-autoenv
   # TODO consider smart antigen init
   antigen apply
 fi

@@ -1,7 +1,9 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 pushd "$(dirname "${0}")" > /dev/null
 THISDIR="$(pwd -P)"
+
+export DOTFILES="${DOTFILES:-${HOME}/.dotfiles}"
 
 _bootstrap () {
   local file
