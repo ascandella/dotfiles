@@ -23,7 +23,7 @@ if [[ $autoenv_event == 'enter' ]]; then
 
     if [[ -z "$VIRTUAL_ENV" ]]; then
       if (( $#venv )); then
-        echo "Activating virtualenv: ${(D)venv}" >&2
+        echo "Activating virtualenv: ${venv[1]:t}" >&2
         source $venv[1]/bin/activate
         _ZSH_ACTIVATED_VIRTUALENV="$venv[1]"
       fi
