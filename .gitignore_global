@@ -6,4 +6,5 @@
 .DS_Store
 /.idea
 /.realize/
-/.autoenv.zsh
+.autoenv.zsh
+.venv/
