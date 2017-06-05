@@ -20,7 +20,10 @@ _aliasto () {
 #
 
 alias ':q'='echo "\033[31mThis is zsh, not vim\033[0m"'
-alias clip='nc localhost 8377'
+# May already be defined in 2-environment for lemonade. This is a fallback.
+if ! command -v clip >/dev/null; then
+  alias clip='nc localhost 8377'
+fi
 alias ll='ls -l'
 alias ltr='ls -ltr'
 alias rm > /dev/null && unalias rm
