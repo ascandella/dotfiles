@@ -40,10 +40,10 @@ if [[ "$(uname)" == "Linux" ]] ; then
 fi
 alias grep='grep --color=always'
 
+_aliasto vim vi
 _aliasto nvim vim
 _aliasto rg ag
 alias e=nvim
-alias vi='$(which vim)'
 
 #
 # Git aliases
