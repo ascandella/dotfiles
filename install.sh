@@ -15,35 +15,6 @@ for supp in "${SUPPORT}"/* ; do
   source "${supp}"
 done
 
-_debug() {
-  [[ -z "${DOTFILES_DEBUG}" ]] && return
-  if (( "$#" == 1 )) ; then
-    set -- echo -e "$@"
-  fi
-  "$@"
-}
-
-_die() {
-  echo -e "${RED_FG}${BOLD}${1}"
-  exit "${2:-1}"
-}
-
-_skip() {
-  [[ -n "${1}" ]] || _die "Skip called without argument"
-  echo -e -n "Skipping ${GRAY_BG}$(basename "${1}")${RESET}"
-  shift
-  set +u
-  ([[ -n "${*}" ]] && echo " (${*})") || echo
-  set -u
-}
-
-_printAndLink () {
-  local source="$1"
-  local dest="$2"
-  echo -e "Linking  ${GRAY_BG}${source}${RESET} -> ${BLUE_BG}${dest}${RESET}"
-  ln -s "${source}" "${dest}"
-}
-
 _maybeCleanupSymlink () {
   if [[ -z "${1}" ]] ; then
     _internal_error "Can't clean up symlink withoout argument"_
@@ -198,26 +169,6 @@ _scanAndLink () {
   echo
 }
 
-_setupOsXDefaults() {
-  # TODO OS-XX specific hooks
-  if command -v defaults > /dev/null ; then
-    # do stuff from here: https://github.com/herrbischoff/awesome-osx-command-line
-    # remove some siulator crap
-    xcrun simctl delete unavailable
-
-    # add a stack of recent apps!!
-    if ! grep -q "recents-tile" <(defaults read com.apple.dock persistent-others) ; then
-      defaults write com.apple.dock persistent-others -array-add '{ "tile-data" = { "list-type" = 1; }; "tile-type" = "recents-tile"; }'
-      killall Dock
-    fi
-
-    # enable quit finder
-    defaults write com.apple.finder QuitMenuItem -bool true
-    killall Finder || _internal_error "Unable to killall Finder"
-  fi
-}
-
-
 mkdir -p "${HOME}/src"
 
 _scanAndLink
@@ -292,7 +243,7 @@ fi
 if files_changed "bootstrap" ; then
   echo "Detected bootstrap changes"
   if _askForConfirmation "Re-run bootstrap?" "Y" ; then
-    ${THISDIR}/bootstrap.sh
+    "${THISDIR}"/bootstrap.sh
   fi
 fi
 
