@@ -2,7 +2,7 @@ BASETHISDIR="$(basename "${THISDIR}")"
 
 _maybeCleanupSymlink () {
   if [[ -z "${1}" ]] ; then
-    _internal_error "Can't clean up symlink withoout argument"_
+    _internal_error "Can't clean up symlink without argument"_
     return 0
   fi
   local dest="${1}"
