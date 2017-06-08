@@ -10,4 +10,13 @@ _test_shellcheck () {
   assert $state equals 0
 }
 
+_recursive_shellcheck () {
+  for f in "${1}"/* ; do
+    if [[ $(head -n 1 "${f}") =~ zsh ]] ; then
+      continue
+    fi
+    _test_shellcheck "${f}" bash
+  done
+}
+
 # vim: ft=sh
