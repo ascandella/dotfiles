@@ -54,6 +54,12 @@ Plug 'racer-rust/vim-racer'
 " END Language-specific stuff
 "
 
+"
+" Snippets
+"
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
 call plug#end()
 
 call pathogen#infect()
