@@ -93,3 +93,10 @@ export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 [[ -z "${GPG_TTY}" ]] && export GPG_TTY="$(tty)"
+
+# Initialise zulu plugin manager
+ZULU_CORE="${ZULU_DIR:-"${ZDOTDIR:-$HOME}/.zulu"}/core/zulu"
+if [[ -e "${ZULU_CORE}" ]] ; then
+  source "${ZULU_CORE}"
+  zulu init
+fi
