@@ -32,4 +32,7 @@
 
   run _maybeCleanupSymlink ${dir}/bar
   assert "${output}" matches "bad link"
+
+  run stat bar
+  assert ${state} not_equal_to 0
 }
