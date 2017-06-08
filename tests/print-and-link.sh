@@ -12,6 +12,8 @@
 
 @test 'Linking works correctly' {
   touch foo
-  _printAndLink foo bar
+  run _printAndLink foo bar
+
   assert ${dir}/bar is_link
+  assert "${output}" matches 'foo.*bar'
 }
