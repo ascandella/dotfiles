@@ -289,6 +289,12 @@ if files_changed ".gitmodules" ; then
   echo -e "${BLUE_BG}Done${RESET}"
 fi
 
+if files_changed "bootstrap" ; then
+  echo "Detected bootstrap changes"
+  if _askForConfirmation "Re-run bootstrap?" "Y" ; then
+    ${THISDIR}/bootstrap.sh
+  fi
+fi
 
 if files_changed ".vimrc" ; then
   # TODO pass vars from autoupdate to only run if .vimrc has changed
@@ -296,13 +302,6 @@ if files_changed ".vimrc" ; then
     echo "Detected change to .vimrc, updating vim plugins"
     vim +PlugInstall +PlugClean +qall
     echo -e "${BLUE_BG}Done${RESET}"
-  fi
-fi
-
-if files_changed "bootstrap" ; then
-  echo "Detected bootstrap changes"
-  if _askForConfirmation "Re-run bootstrap?" "Y" ; then
-    ${THISDIR}/bootstrap.sh
   fi
 fi
 
