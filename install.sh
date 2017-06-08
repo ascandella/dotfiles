@@ -275,29 +275,34 @@ files_changed () {
   fi
 
   if [[ -z "${PREVIOUS_DOTFILES:-}" ]] ; then
-    echo "1"
-    return
+    return 0
   fi
   if [[ "${CHANGED_FILES}" =~ $1 ]] ; then
-    echo "1"
-    return
+    return 0
   fi
-  echo "0"
+  return 1
 }
 
-if [[ $(files_changed ".gitmodules") == "1" ]] ; then
+if files_changed ".gitmodules" ; then
   echo "Detected update to git submodules, updating"
   git submodule update --init --recursive
   echo -e "${BLUE_BG}Done${RESET}"
 fi
 
 
-if [[ $(files_changed ".vimrc") == "1" ]] ; then
+if files_changed ".vimrc" ; then
   # TODO pass vars from autoupdate to only run if .vimrc has changed
   if command -v vim >/dev/null ; then
     echo "Detected change to .vimrc, updating vim plugins"
     vim +PlugInstall +PlugClean +qall
     echo -e "${BLUE_BG}Done${RESET}"
+  fi
+fi
+
+if files_changed "bootstrap" ; then
+  echo "Detected bootstrap changes"
+  if _askForConfirmation "Re-run bootstrap?" "Y" ; then
+    ${THISDIR}/bootstrap.sh
   fi
 fi
 
