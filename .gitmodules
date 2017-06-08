@@ -55,6 +55,3 @@
 [submodule "ext/antigen"]
 	path = ext/antigen
 	url = https://github.com/zsh-users/antigen.git
-[submodule "ext/testing/zunit"]
-	path = ext/testing/zunit
-	url = https://github.com/molovo/zunit.git
