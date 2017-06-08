@@ -21,15 +21,16 @@ PreCommit:
 #    on_warn: fail # Treat all warnings as failures
   CustomScript:
     enabled: true
-    required_executable:
-    description: 'zunit'
-    commad: zunit
-
-  ShellCheck:
-    enabled: true
+    required_executable: zunit
+    description: 'zunit integration tests'
+    commad:
+      - zunit
 
   TrailingWhitespace:
     enabled: true
+    exclude:
+      - 'bin/huepi'
+      - 'dotconfig/htop/htoprc'
 #    exclude:
 #      - '**/db/structure.sql' # Ignore trailing whitespace in generated files
 #

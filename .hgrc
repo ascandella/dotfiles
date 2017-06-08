@@ -7,7 +7,7 @@ track.current = True
 [extensions]
 color =
 histedit =
-graphlog = 
+graphlog =
 pager =
 progress =
 purge =
