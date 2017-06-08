@@ -98,6 +98,24 @@ _maybeLink () {
   fi
 }
 
+_askForConfirmation () {
+  local msg="${1}"
+  local default="${2:-N}"
+  local yn="y/N"
+  if [[ "${default}" == "Y" ]] ; then
+    yn="Y/n"
+  fi
+
+  echo -e -n "${msg} ${yn} "
+  local answer
+  read -r answer
+  if [[ $(echo "${answer:-${default}}" | tr y Y) == "Y" ]] ; then
+    return 0
+  else
+    return 1
+  fi
+}
+
 
 UNINTERESTING=". .. .git .gitignore .gitmodules .vim.configure .support .DS_Store"
 
@@ -163,13 +181,13 @@ _scanAndLink () {
         fi
       fi
 
-      echo -e -n "${BOLD}${RED_FG}${dest}${RESET} already exists and is not a symlink. Overwrite it? y/N: "
-      read -r answer
-      answer="${answer:-N}"
-      if [[ "${answer}" == "y" ]]  ; then
-        backup="${dest}.bak"
-        echo -e "${RED_FG}Overwriting previous file. Saved to ${backup}${RESET}"
-        mv "${dest}" "${backup}"
+      local _confirm="${BOLD}${RED_FG}${dest}${RESET} already exists and is not a symlink. ${BOLD}Overwrite it?${RESET}:"
+      if _askForConfirmation "${_confirm}" ; then
+        if _askForConfirmation "Create backup?" "Y" ; then
+          backup="${dest}.bak"
+          echo -e "${RED_FG}Overwriting previous file. Saved to ${backup}${RESET}"
+          mv "${dest}" "${backup}"
+        fi
         ln -sf "${source}" "${dest}"
       fi
     else
