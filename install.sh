@@ -6,7 +6,6 @@ set -o pipefail
 # http://stackoverflow.com/questions/4774054/reliable-way-for-a-bash-script-to-get-the-full-path-to-itself
 pushd "$(dirname "${0}")" > /dev/null
 THISDIR="$(pwd -P)"
-BASETHISDIR="$(basename "${THISDIR}")"
 DOTFILES_DEBUG="${DOTFILES_DEBUG:-}"
 
 SUPPORT="${THISDIR}/.support"
@@ -14,28 +13,6 @@ for supp in "${SUPPORT}"/* ; do
   # shellcheck disable=SC1090
   source "${supp}"
 done
-
-_maybeCleanupSymlink () {
-  if [[ -z "${1}" ]] ; then
-    _internal_error "Can't clean up symlink withoout argument"_
-    return 0
-  fi
-  local dest="${1}"
-  local realdest
-  realdest="$(readlink "${dest}")"
-  # Check for relative symlinks
-  if [[ "${realdest}" =~ ^"${BASETHISDIR}"/.* ]] ; then
-    realdest="${HOME}/${realdest}"
-  fi
-  # Remove double-slashes for readability
-  dest="${dest/\/\///}"
-  if [[ "${realdest}" =~ ${THISDIR}.* ]] ; then
-    if [[ ! -e "${realdest}" ]] ; then
-      echo -e "${BOLD}Removing bad link: ${RED_FG}${dest}${RESET} (pointing to ${BOLD}${realdest}${RESET})"
-      unlink "${dest}"
-    fi
-  fi
-}
 
 _maybeLink () {
   local _from="${1}"
