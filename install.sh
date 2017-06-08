@@ -147,6 +147,7 @@ _scanAndLink () {
 }
 
 mkdir -p "${HOME}/src"
+mkdir -p "${HOME}/bin"
 
 _scanAndLink
 _scanAndLink "dotconfig" "*" ".config/"
