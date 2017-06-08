@@ -1,0 +1,13 @@
+_test_shellcheck () {
+  setopt sh_word_split
+  local args=""
+  if [[ -n "${2:-}" ]] ; then
+    args="-s ${2}"
+  fi
+  run shellcheck ${args} ./"${1}"
+  unsetopt sh_word_split
+  assert $output is_empty
+  assert $state equals 0
+}
+
+# vim: ft=sh
