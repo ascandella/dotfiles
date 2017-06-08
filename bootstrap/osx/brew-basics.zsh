@@ -1,1 +1,1 @@
-brew install git htop tmux ccat ctags
+brew upgrade git htop tmux ccat ctags
