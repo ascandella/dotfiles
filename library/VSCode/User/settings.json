@@ -43,6 +43,9 @@
         "--enable=errcheck"
     ],
 
+    "python.linting.enabled": false,
+    "python.linting.flake8Enabled": true,
+
     "vim.useCtrlKeys": true,
 
     "vim.otherModesKeyBindings": [{
