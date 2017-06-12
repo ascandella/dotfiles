@@ -65,7 +65,7 @@ _askForConfirmation () {
 }
 
 
-UNINTERESTING=". .. .git .gitignore .gitmodules .vim.configure .support .DS_Store"
+UNINTERESTING=". .. .git .gitignore .gitmodules .vim.configure .support .DS_Store .test-helpers"
 
 _scanAndLink () {
   local inputDir="${THISDIR}"
