@@ -1,0 +1,5 @@
+snippet iferr "If err not nil" b
+if err := ${1}; err != nil {
+	${2:log.Fatal(err)}
+}
+endsnippet
