@@ -19,7 +19,9 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'justinmk/vim-dirvish'
 
 " Code completion
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+if has('python3')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+endif
 
 
 " Plug 'scrooloose/nerdtree'
