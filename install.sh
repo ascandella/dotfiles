@@ -113,7 +113,9 @@ _scanAndLink () {
 
       local realdest
       realdest="$(${_readlink} "${dest}")"
-      if [[ "${realdest}" == "${source}" || "${HOME}/${realdest}" == "${source}" ]] ; then
+      local realsource
+      realsource="$(${_readlink} "${source}")"
+      if [[ "${realdest}" == "${realsource}" || "${HOME}/${realdest}" == "${realsource}" ]] ; then
         _skip "${dest}"
         continue
       fi
