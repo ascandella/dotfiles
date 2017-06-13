@@ -40,7 +40,7 @@ if hostname != minimal
   Plug 'justinmk/vim-dirvish'
 
   " Code completion
-  if has('python3')
+  if has("python3")
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
     " Go code completion
