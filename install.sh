@@ -67,6 +67,12 @@ _askForConfirmation () {
 
 UNINTERESTING=". .. .git .gitignore .gitmodules .vim.configure .support .DS_Store .test-helpers"
 
+_readlink="readlink"
+_has_readlink_f="$(readlink --help | grep -- -f)"
+if [[ -n "${_has_readlink_f}" ]] ; then
+  _readlink="readlink -f"
+fi
+
 _scanAndLink () {
   local inputDir="${THISDIR}"
   [[ -n "${1:-}" ]] && inputDir="${inputDir}/${1}"
@@ -104,7 +110,7 @@ _scanAndLink () {
       _maybeCleanupSymlink "${dest}"
 
       local realdest
-      realdest="$(readlink "${dest}")"
+      realdest="$(${_readlink} "${dest}")"
       if [[ "${realdest}" == "${source}" || "${HOME}/${realdest}" == "${source}" ]] ; then
         _skip "${dest}"
         continue
