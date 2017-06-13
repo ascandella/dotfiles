@@ -67,9 +67,10 @@ _askForConfirmation () {
 
 UNINTERESTING=". .. .git .gitignore .gitmodules .vim.configure .support .DS_Store .test-helpers"
 
+# Darwin :'(
 _readlink="readlink"
 set +e
-_has_readlink_f="$(readlink --help | grep -- -f)"
+_has_readlink_f="$(readlink --help 2>/dev/null | grep -- -f)"
 set -e
 if [[ -n "${_has_readlink_f}" ]] ; then
   _readlink="readlink -f"
@@ -113,8 +114,10 @@ _scanAndLink () {
 
       local realdest
       realdest="$(${_readlink} "${dest}")"
-      local realsource
-      realsource="$(${_readlink} "${source}")"
+      local realsource="${source}"
+      if [[ -h "${source}" && -n "${_has_readlink_f}" ]] ; then
+        realsource="$(${_readlink} "${source}")"
+      fi
       if [[ "${realdest}" == "${realsource}" || "${HOME}/${realdest}" == "${realsource}" ]] ; then
         _skip "${dest}"
         continue
