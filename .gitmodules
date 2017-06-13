@@ -19,9 +19,6 @@
 [submodule "ext/z"]
 	path = ext/z
 	url = git@github.com:rupa/z.git
-[submodule ".yasnippet-snippets"]
-	path = .yasnippet-snippets
-	url = https://github.com/AndreaCrotti/yasnippet-snippets
 [submodule ".fzf"]
 	path = .fzf
 	url = https://github.com/junegunn/fzf.git
