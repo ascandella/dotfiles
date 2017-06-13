@@ -68,7 +68,9 @@ _askForConfirmation () {
 UNINTERESTING=". .. .git .gitignore .gitmodules .vim.configure .support .DS_Store .test-helpers"
 
 _readlink="readlink"
+set +e
 _has_readlink_f="$(readlink --help | grep -- -f)"
+set -e
 if [[ -n "${_has_readlink_f}" ]] ; then
   _readlink="readlink -f"
 fi
