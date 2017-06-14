@@ -88,6 +88,5 @@ fi
 alias updatedotfiles="FORCE_DOTFILES_UPDATE=1 source ${DOTFILES}/shell/autoupdate"
 
 alias dockeruntagged='docker images | grep "<none>" | awk "{print \$3}"'
-alias autovenv='virtualenv -p $(which python3) .venv && ln -s ${DOTFILES}/helper-scripts/venv-autoenv.zsh ${AUTOENV_FILE_ENTER:-autoenv.zsh}'
 
 unset -f _aliasto
