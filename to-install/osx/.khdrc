@@ -207,7 +207,7 @@ cmd + alt + ctrl - k     :    kwmc window -mk north wrap
 cmd + alt - h            :    kwmc window -f west
 cmd + alt - l            :    kwmc window -f east
 cmd + alt - j            :    kwmc window -f south
-cmd + alt - k            :    kwmc window -f north
+# cmd + alt - k            :    kwmc window -f north
 
 cmd + alt - n            :    kwmc window -fm prev
 cmd + alt - m            :    kwmc window -fm next
