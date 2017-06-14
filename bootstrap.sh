@@ -7,7 +7,7 @@ export DOTFILES="${DOTFILES:-${HOME}/.dotfiles}"
 
 _bootstrap () {
   local file
-  for file in "${THISDIR}/bootstrap/${1}/"* ; do
+  for file in "${THISDIR}/bootstrap/${1}/"*.zsh ; do
     # shellcheck disable=SC1090
     source "${file}"
   done
