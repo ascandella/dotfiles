@@ -142,12 +142,15 @@ _scanAndLink () {
         fi
       fi
 
+      echo -e "${GRAY_BG}$(file ${dest})${RESET}"
       local _confirm="${BOLD}${RED_FG}${dest}${RESET} already exists and is not a symlink. ${BOLD}Overwrite it?${RESET}:"
       if _askForConfirmation "${_confirm}" ; then
         if _askForConfirmation "Create backup?" "Y" ; then
           backup="${dest}.bak"
           echo -e "${RED_FG}Overwriting previous file. Saved to ${backup}${RESET}"
           mv "${dest}" "${backup}"
+        else
+          rm "${dest}"
         fi
         ln -sf "${source}" "${dest}"
       fi
