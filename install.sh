@@ -142,7 +142,7 @@ _scanAndLink () {
         fi
       fi
 
-      echo -e "${GRAY_BG}$(file ${dest})${RESET}"
+      echo -e "${GRAY_BG}$(file "${dest}")${RESET}"
       local _confirm="${BOLD}${RED_FG}${dest}${RESET} already exists and is not a symlink. ${BOLD}Overwrite it?${RESET}:"
       if _askForConfirmation "${_confirm}" ; then
         if _askForConfirmation "Create backup?" "Y" ; then
@@ -244,8 +244,13 @@ fi
 if files_changed ".vimrc" ; then
   # TODO pass vars from autoupdate to only run if .vimrc has changed
   if command -v vim >/dev/null ; then
+    _vim=vim
+    if command -v nvim > /dev/null ; then
+      _vim=nvim
+    fi
     echo "Detected change to .vimrc, updating vim plugins"
-    vim +PlugInstall +PlugClean +qall
+    ${_vim} +PlugInstall +PlugClean +qall
+    unset _vim
     echo -e "${BLUE_BG}Done${RESET}"
   fi
 fi
