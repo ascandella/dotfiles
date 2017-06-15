@@ -26,6 +26,14 @@ PreCommit:
     commad:
       - zunit
 
+  ShellCheck:
+    enabled: true
+    exclude:
+      - '.support/*'
+      - 'tests/*'
+      - 'helper-scripts/*'
+      - 'bootstrap.sh' # no zsh support :(
+
   TrailingWhitespace:
     enabled: true
     exclude:
