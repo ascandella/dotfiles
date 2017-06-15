@@ -3,7 +3,6 @@ hosts/*/.xmonad/xmonad.o
 .AppleDouble
 hosts/*/.weechat/logs/
 .DS_Store
-.overcommit.yml
 .ruby-version
 .mc-lists.el
 .tern-port

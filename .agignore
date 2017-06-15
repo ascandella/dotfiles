@@ -9,3 +9,7 @@ _build
 anaconda
 ext
 git-extensions
+/.emacs.d
+/.fzf
+.git
+/.zprezto
