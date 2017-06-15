@@ -5,7 +5,7 @@ _install_ngrok () {
     pushd "${_tmp_work}"
 
     local _zipfile
-    readonly local _uname
+    local _uname
     _uname="$(uname | tr '[:upper:]' '[:lower:]')"
     _zipfile="ngrok-stable-${_uname}-amd64.zip"
 
