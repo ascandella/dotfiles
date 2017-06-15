@@ -1,4 +1,4 @@
-let g:fzf_nvim_statusline = 0 " disable statusline overwriting
+let g:fzf_nvim_statusline = 1 " enable statusline overwriting
 
 nnoremap <silent> <leader>, :Files<CR>
 nnoremap <silent> <leader>a :Buffers<CR>
