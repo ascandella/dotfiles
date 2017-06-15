@@ -4,7 +4,11 @@ _install_ngrok () {
     _tmp_work="$(mktemp -d)"
     pushd "${_tmp_work}"
 
-    _zipfile="ngrok-stable-darwin-amd64.zip"
+    local _zipfile
+    readonly local _uname
+    _uname="$(uname | tr '[:upper:]' '[:lower:]')"
+    _zipfile="ngrok-stable-${_uname}-amd64.zip"
+
     wget https://bin.equinox.io/c/4VmDzA7iaHb/"${_zipfile}"
     unzip "${_zipfile}"
     unset _zipfile

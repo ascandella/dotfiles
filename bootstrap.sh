@@ -22,4 +22,6 @@ case "$(uname)" in
     ;;
 esac
 
+_bootstrap shared
+
 unset -f _bootstrap
