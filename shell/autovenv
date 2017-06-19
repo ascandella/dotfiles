@@ -1,5 +1,15 @@
 autovenv () {
-  local pyver="${1:-$(which python3)}"
-  virtualenv -p "${pyver}" .venv && ln -s ${DOTFILES}/helper-scripts/venv-autoenv.zsh ${AUTOENV_FILE_ENTER:-autoenv.zsh}
+  set -e
+  local pyver="${1:-$(which python)}"
+  local systemsitepackages
+  # Unless explicitly asked not to, use system site packages. To opt out, pass a
+  # second argument
+  if [[ -z "${2}" || -n "${NO_SYSTEM_SITE_PACKAGES}" ]] ; then
+    syssitepackages="--system-site-packages"
+  fi
+  virtualenv -p "${pyver}" .venv
+
+  ln -s ${DOTFILES}/helper-scripts/venv-autoenv.zsh \
+      ${AUTOENV_FILE_ENTER:-autoenv.zsh}
 }
 

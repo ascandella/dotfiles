@@ -48,6 +48,7 @@ if hostname != minimal
 
     " Python code completion
     Plug 'zchee/deoplete-jedi'
+    Plug 'davidhalter/jedi-vim'
   endif
 
 
