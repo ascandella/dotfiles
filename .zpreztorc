@@ -84,7 +84,7 @@ fi
 if [[ "$(whoami)" == "root" ]] ; then
   _theme='adam1'
 elif [[ "$(uname -s)" = "Linux" && ! "${_host}" =~ "SURFACE" ]]; then
-  _theme='cloud'
+  _theme='agnoster'
 fi
 
 zstyle ':prezto:module:prompt' theme "${_theme}"

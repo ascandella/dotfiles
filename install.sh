@@ -150,7 +150,11 @@ _scanAndLink () {
           echo -e "${RED_FG}Overwriting previous file. Saved to ${backup}${RESET}"
           mv "${dest}" "${backup}"
         else
-          rm "${dest}"
+          if [[ -d "${dest}" ]] ; then
+            rm -r "${dest}"
+          else
+            rm "${dest}"
+          fi
         fi
         ln -sf "${source}" "${dest}"
       fi
