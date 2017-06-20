@@ -4,4 +4,8 @@ elif command -v dnf >/dev/null ; then
   export _PKG_INSTALL=(dnf install -y)
 fi
 
-sudo "$_PKG_INSTALL[@]" htop git tmux
+if [[ -n "${_PKG_INSTALL[@]}" ]] ; then
+  sudo "$_PKG_INSTALL[@]" htop git tmux
+else
+  echo "Unsupported linux package manager, currently we support apt and dnf"
+fi
