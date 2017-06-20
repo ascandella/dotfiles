@@ -1,15 +1,13 @@
 {
     "editor.cursorBlinking": "phase",
-    // overridden by `editor.detectIndentation
-    "editor.insertSpaces": true,
     "editor.tabSize": 2,
-    "editor.fontSize": 11,
+    //"editor.fontSize": 18,
+    "editor.fontSize": 13,
     "editor.roundedSelection": true,
     "editor.glyphMargin": true,
     "editor.lineNumbers": "off",
     "editor.rulers": [100],
     "editor.renderIndentGuides": true,
-    //"editor.fontSize": 18,
     "editor.formatOnType": true,
     "editor.scrollBeyondLastLine": false,
 
@@ -43,10 +41,8 @@
         "--enable=errcheck"
     ],
 
-    "python.linting.enabled": false,
-    "python.linting.flake8Enabled": true,
-
     "vim.useCtrlKeys": true,
+    "vim.enableNeovim": true,
 
     "vim.otherModesKeyBindings": [{
         "before": ["n"],
@@ -62,13 +58,13 @@
         "after": [":", "w"]
     }]
 ,
-"window.zoomLevel": 0,
-"workbench.colorTheme": "Dracula Syntax Theme",
-"workbench.iconTheme": "vs-minimal",
-"[cpp]": {
-  "editor.quickSuggestions": false
-},
-"[c]": {
-  "editor.quickSuggestions": false
-}
+    "window.zoomLevel": 0,
+    "workbench.iconTheme": "vs-minimal",
+    "[cpp]": {
+    "editor.quickSuggestions": false
+    },
+    "[c]": {
+    "editor.quickSuggestions": false
+    },
+    "vim.disableAnnoyingNeovimMessage": true
 }
