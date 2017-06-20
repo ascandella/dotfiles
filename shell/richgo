@@ -6,7 +6,7 @@ richgo-test-build() {
   fi
 }
 
-if which richgo > /dev/null ; then
+if command -v richgo > /dev/null 2>&1 ; then
   # Colors, colors everywhere
   alias go='nocorrect richgo-test-build'
 fi
