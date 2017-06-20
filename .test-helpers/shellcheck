@@ -1,4 +1,7 @@
 _test_shellcheck () {
+  if ! command -v shellcheck >/dev/null 2>&1 ; then
+    skip 'shellcheck not installed'
+  fi
   setopt sh_word_split
   local args=""
   if [[ -n "${2:-}" ]] ; then
