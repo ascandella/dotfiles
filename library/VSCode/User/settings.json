@@ -41,6 +41,10 @@
         "--enable=errcheck"
     ],
 
+    "[python]": {
+      "editor.tabSize": 4
+    },
+
     "vim.useCtrlKeys": true,
     "vim.enableNeovim": true,
 
