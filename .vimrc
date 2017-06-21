@@ -62,9 +62,12 @@ if hostname != minimal
   Plug 'honza/vim-snippets'
 endif
 
+" These go to all my machines
+
 " Like powerline, but lighter
 Plug 'itchyny/lightline.vim'
 Plug 'majutsushi/tagbar'
+
 " Theme
 Plug 'nanotech/jellybeans.vim'
 "# "Format code with one button press" - https://github.com/Chiel92/vim-autoformat

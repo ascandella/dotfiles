@@ -13,3 +13,4 @@ git-extensions
 /.fzf
 .git
 /.zprezto
+env
