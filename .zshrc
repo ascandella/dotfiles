@@ -12,7 +12,6 @@ setopt beep
 setopt correct
 setopt correctall
 setopt extendedglob
-setopt histignorealldups
 setopt nomatch
 setopt nonomatch
 setopt sharehistory
