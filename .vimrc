@@ -77,6 +77,10 @@ Plug 'scrooloose/nerdcommenter'
 
 Plug 'airblade/vim-gitgutter'
 
+if has('unix')
+  Plug 'Matt-Deacalion/vim-systemd-syntax'
+endif
+
 call plug#end()
 
 call pathogen#infect()
