@@ -14,3 +14,5 @@ git-extensions
 .git
 /.zprezto
 env
+*.pyc
+__pycache__
