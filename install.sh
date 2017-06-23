@@ -262,5 +262,3 @@ fi
 
 echo
 echo -e "${BOLD}Installation complete${RESET}"
-
-popd > /dev/null
