@@ -1,6 +1,9 @@
 #
 # Helper functions
 #
+_command_exists() {
+  command -v "${1}" >/dev/null
+}
 
 # Alias $1 to $2 if $2 is a thing
 _aliasto () {
@@ -9,7 +12,7 @@ _aliasto () {
     return
   fi
 
-  if command -v "${1}" >/dev/null ; then
+  if _command_exists "${1}" ; then
     # shellcheck disable=SC2139
     alias "${2}"="${1}"
   fi
@@ -21,7 +24,7 @@ _aliasto () {
 
 alias ':q'='echo "\033[31mThis is zsh, not vim\033[0m"'
 # May already be defined in 2-environment for lemonade. This is a fallback.
-if ! command -v clip >/dev/null; then
+if ! _command_exists clip >/dev/null; then
   alias clip='nc localhost 8377'
 fi
 alias ll='ls -l'
@@ -37,6 +40,12 @@ alias e,='e .'
 if [[ "$(uname)" == "Linux" ]] ; then
   alias ls='ls --color=always'
   alias ts='sudo tail -f /var/log/syslog'
+
+  # Ease the transition to Fedora
+  if _command_exists 'dnf' && ! _command_exists 'apt' ; then
+    alias apt-cache='dnf'
+    alias apt='dnf'
+  fi
 fi
 alias grep='grep --color=always'
 
@@ -49,7 +58,7 @@ alias e=nvim
 # Git aliases
 #
 
-if command -v git >/dev/null ; then
+if _command_exists git ; then
   alias git='nocorrect git'
 fi
 
