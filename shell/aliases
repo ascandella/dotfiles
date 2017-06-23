@@ -38,7 +38,7 @@ alias e,='e .'
 
 # TODO put this in the linux dir
 if [[ "$(uname)" == "Linux" ]] ; then
-  alias ls='ls --color=always'
+  alias ls='ls --color=auto -N'
   alias ts='sudo tail -f /var/log/syslog'
 
   # Ease the transition to Fedora
@@ -47,7 +47,8 @@ if [[ "$(uname)" == "Linux" ]] ; then
     alias apt='dnf'
   fi
 fi
-alias grep='grep --color=always'
+
+alias grep='grep --color=auto'
 
 _aliasto vim vi
 _aliasto nvim vim
