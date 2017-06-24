@@ -3,11 +3,12 @@ _do_shellcheck() {
     _ORIG_SHELLCHECK="$(which shellcheck)"
 
     shellcheck () {
+      local _common_args="-x"
       for input in "$@" ; do
         if [[ ! "$(head -n 1 "${input}")" =~ '^#!' ]] ; then
-          "${_ORIG_SHELLCHECK}" -s bash "${input}"
+          "${_ORIG_SHELLCHECK}" ${_common_args} -s bash "${input}"
         else
-          "${_ORIG_SHELLCHECK}" "${input}"
+          "${_ORIG_SHELLCHECK}" ${_common_args} "${input}"
         fi
       done
     }
