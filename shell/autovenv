@@ -1,17 +1,20 @@
-autovenv () {
+autovenv () {(
   set -e
   local pyver="${1:-$(which python)}"
+  if [[ ! -x "${pyver}" ]] ; then
+    return 1
+    echo "Invalid python specified, not executable: ${pyver}"
+  fi
   local location="${2:-.venv}"
   local systemsitepackages
   # Unless explicitly asked not to, use system site packages. To opt out, pass a
   # second argument
   if [[ -z "${3}" || -n "${NO_SYSTEM_SITE_PACKAGES}" ]] ; then
-    syssitepackages="--system-site-packages"
+    systemsitepackages="--system-site-packages"
   fi
-  virtualenv "${systemsitepackages} -p ${pyver} ${location}"
+  virtualenv "${systemsitepackages}" -p "${pyver}" "${location}"
 
-  # TODO(ai) make this respect location
-  ln -s ${DOTFILES}/helper-scripts/venv-autoenv.zsh \
-      ${AUTOENV_FILE_ENTER:-autoenv.zsh}
-}
-
+  # TODO(ai) make this respect the venv location
+  ln -s "${DOTFILES}"/helper-scripts/venv-autoenv.zsh \
+      "${AUTOENV_FILE_ENTER:-autoenv.zsh}"
+)}

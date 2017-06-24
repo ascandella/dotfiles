@@ -1,5 +1,7 @@
 " enable deoplete completion
-let g:deoplete#enable_at_startup = 1
+if has('python3')
+  let g:deoplete#enable_at_startup = 1
+endif
 
 " go stuffs
 let g:deoplete#sources#go#pointer = 1
