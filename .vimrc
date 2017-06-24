@@ -60,6 +60,9 @@ if hostname != minimal
   "
   Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
+
+  " File browsing
+  Plug 'tpope/vim-vinegar'
 endif
 
 " These go to all my machines
