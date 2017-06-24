@@ -1,0 +1,17 @@
+_do_shellcheck() {
+  if which shellcheck > /dev/null ; then
+    _ORIG_SHELLCHECK="$(which shellcheck)"
+
+    shellcheck () {
+      for input in "$@" ; do
+        if [[ ! "$(head -n 1 "${input}")" =~ '^#!' ]] ; then
+          "${_ORIG_SHELLCHECK}" -s bash "${input}"
+        else
+          "${_ORIG_SHELLCHECK}" "${input}"
+        fi
+      done
+    }
+  fi
+}
+
+_do_shellcheck
