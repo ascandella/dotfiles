@@ -16,7 +16,19 @@ fi
 export CLICOLOR=1
 
 if command -v lemonade >/dev/null ; then
-  alias clip='lemonade copy'
+  # If lemonade isn't hooked up, use native
+  if [[ -z "$(pgrep -f 'lemonade server')" || "$(nc -z localhost 2489)" == "0" ]] ; then
+    case $(uname) in
+      Darwin)
+        alias clip='pbcopy'
+        ;;
+      Linux)
+        alias clip='xsel'
+        ;;
+    esac
+  else
+    alias clip='lemonade copy'
+  fi
 fi
 
 # Prefer IPv4
