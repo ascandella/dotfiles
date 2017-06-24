@@ -35,10 +35,6 @@ if hostname != minimal
   " Say no more
   Plug 'tpope/vim-fugitive'
 
-
-  " dired-style file browsing
-  Plug 'justinmk/vim-dirvish'
-
   " Code completion
   if has("python3")
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
