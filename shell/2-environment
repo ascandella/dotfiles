@@ -1,7 +1,7 @@
 # Go language specific settings
 
 if [ -z "${GOPATH}" ] ; then
-  for dir in '.gocode' 'src/gocode' 'src/go' ; do
+  for dir in 'go' '.gocode' 'src/gocode' 'src/go' ; do
     if [ -d "${HOME}/${dir}" ]; then
       export GOPATH="$HOME/${dir}"
     fi

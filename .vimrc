@@ -8,7 +8,8 @@ let hostname = substitute(system('hostname'), '\n', '', '')
 " most hosts get all the plugins
 if hostname != minimal
   " FZF replaces command-t
-  Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+  Plug 'junegunn/fzf.vim'
+  set rtp+=~/.fzf
 
   "
   " Language-specific stuff
