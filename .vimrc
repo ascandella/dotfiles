@@ -28,6 +28,9 @@ if hostname != minimal
   Plug 'rust-lang/rust.vim'
   Plug 'racer-rust/vim-racer'
 
+  " rubby :(
+  Plug 'vim-ruby/vim-ruby'
+
   "
   " END Language-specific stuff
   "
