@@ -1,0 +1,14 @@
+ssh-reagent () {
+  ssh-add -l &> /dev/null && return 0
+  for agent in /tmp/ssh-*/agent.* ; do
+    SSH_AUTH_SOCK="$agent"
+    if ssh-add -l 2>&1 > /dev/null; then
+      echo Found working SSH Agent:
+      ssh-add -l
+      export SSH_AUTH_SOCK
+      return
+    fi
+  done
+  _internal_error "Cannot find ssh agent - maybe you should reconnect and forward it?"
+}
+
