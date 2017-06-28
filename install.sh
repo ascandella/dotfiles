@@ -65,7 +65,7 @@ _askForConfirmation () {
 }
 
 
-UNINTERESTING=". .. .git .gitignore .gitmodules .vim.configure .support .DS_Store .test-helpers"
+UNINTERESTING=". .. .git .gitignore .gitmodules .vim.configure .support .DS_Store .test-helpers .travis.yml"
 
 # Darwin :'(
 _readlink="readlink"
