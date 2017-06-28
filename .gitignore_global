@@ -8,3 +8,4 @@
 /.realize/
 .autoenv.zsh
 .venv/
+/*.gem
