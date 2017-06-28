@@ -20,7 +20,7 @@ export CLICOLOR=1
 
 if command -v lemonade >/dev/null ; then
   # If lemonade isn't hooked up, use native
-  if ! nc -z 127.0.0.1 2489 >/dev/null ; then
+  if ! nc -z 127.0.0.1 2489 >/dev/null 2>&1 ; then
     case $(uname) in
       Darwin)
         alias clip='pbcopy'
