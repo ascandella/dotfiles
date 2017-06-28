@@ -1,0 +1,7 @@
+addons:
+  apt:
+    packages:
+      - zsh
+before_script:
+  - export PATH="$PWD/bin:$PATH"
+script: zunit
