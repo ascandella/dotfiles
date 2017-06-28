@@ -1,4 +1,5 @@
-# Go language specific settings
+# Many of the next dotfiles check for binaries in $GOPATH/bin, so set that up
+# first.
 
 if [ -z "${GOPATH}" ] ; then
   for dir in 'go' '.gocode' 'src/gocode' 'src/go' ; do
@@ -8,6 +9,8 @@ if [ -z "${GOPATH}" ] ; then
   done
 fi
 
+
+# If it's not already in there, get it in there
 if [[ ! "${PATH}" =~ "${GOPATH}/bin" ]] ; then
   export PATH="${PATH}:${GOPATH}/bin"
 fi
@@ -17,7 +20,7 @@ export CLICOLOR=1
 
 if command -v lemonade >/dev/null ; then
   # If lemonade isn't hooked up, use native
-  if [[ -z "$(pgrep -f 'lemonade server')" || "$(nc -z localhost 2489 >/dev/null 2>&1)" == "0" ]] ; then
+  if ! nc -z 127.0.0.1 2489 >/dev/null ; then
     case $(uname) in
       Darwin)
         alias clip='pbcopy'
