@@ -4,8 +4,13 @@ _do_shellcheck() {
 
     shellcheck () {
       local _common_args="-x"
+      local _explicit_shell=""
+      if [[ "$@" =~ ' -s' ]] ; then
+        _explicit_shell='yass'
+      fi
+
       for input in "$@" ; do
-        if [[ ! "$(head -n 1 "${input}")" =~ '^#!' ]] ; then
+        if [[ -z "${_explicit_shell}" && ! "$(head -n 1 "${input}")" =~ '^#!' ]] ; then
           "${_ORIG_SHELLCHECK}" ${_common_args} -s bash "${input}"
         else
           "${_ORIG_SHELLCHECK}" ${_common_args} "${input}"
