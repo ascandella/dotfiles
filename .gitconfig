@@ -20,37 +20,37 @@
 	autosetuprebase = always
 
 [branch "master"]
-	grebase = true
+	rebase = true
 
 [alias]
-	gadd-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
-	gamend = commit --amend
-	gbranchname = "!git rev-parse --abbrev-ref HEAD | nc localhost 8377"
-	gca = commit --amend
-	gcached = diff --cached
-	gedit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f` +Gdiff"
-	gdelmerged = "!git branch --merged | grep -v "\\*" | grep -v "^master" | xargs -n 1 git branch -d"
-	gdelsquash = "!git fetch -p && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -n 1 git branch -D"
-	gresquash = "!git checkout master && git fetch && OVERCOMMIT_DISABLE=1 git rebase origin/master && git delsquash"
-	ggraph = log --oneline --graph
-	gir = !git rebase -i origin/master
-	gl = log --decorate --stat
-	glg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-	glol = log --oneline --decorate
-	gpatch = add -p
-	grefresh = !ssh-add -l && STASH=$(git stash) && git fetch && OVERCOMMIT_DISABLE=1 git rebase origin/master && test \"$STASH\" != \"No local changes to save\" && git stash pop || true
-	grmb = !sh -c 'git branch -D $1 && git push origin :$1' -
-	gsha1 = rev-parse HEAD
-	gsha = !git rev-parse HEAD | cut -c 1-8
-	gshowstash = stash show -p stash@{0}
-	gten = log --oneline -n 10
-	gup = !git fetch origin && git rebase origin/master
-	gupstream = !git push -u origin $(git rev-parse --abbrev-ref HEAD)
-	gwho = shortlog -n -s --no-merges
-	gfiles = show --pretty=format: --name-only
-	gthirty = log --oneline -n 30
-	gp = add -p
-	gunstage = reset HEAD
+	add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
+	amend = commit --amend
+	branchname = "!git rev-parse --abbrev-ref HEAD | nc localhost 8377"
+	ca = commit --amend
+	cached = diff --cached
+	edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f` +Gdiff"
+	delmerged = "!git branch --merged | grep -v "\\*" | grep -v "^master" | xargs -n 1 git branch -d"
+	delsquash = "!git fetch -p && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -n 1 git branch -D"
+	resquash = "!git checkout master && git fetch && OVERCOMMIT_DISABLE=1 git rebase origin/master && git delsquash"
+	graph = log --oneline --graph
+	ir = !git rebase -i origin/master
+	l = log --decorate --stat
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	lol = log --oneline --decorate
+	patch = add -p
+	refresh = !ssh-add -l && STASH=$(git stash) && git fetch && OVERCOMMIT_DISABLE=1 git rebase origin/master && test \"$STASH\" != \"No local changes to save\" && git stash pop || true
+	rmb = !sh -c 'git branch -D $1 && git push origin :$1' -
+	sha1 = rev-parse HEAD
+	sha = !git rev-parse HEAD | cut -c 1-8
+	showstash = stash show -p stash@{0}
+	ten = log --oneline -n 10
+	up = !git fetch origin && git rebase origin/master
+	upstream = !git push -u origin $(git rev-parse --abbrev-ref HEAD)
+	who = shortlog -n -s --no-merges
+	files = show --pretty=format: --name-only
+	thirty = log --oneline -n 30
+	p = add -p
+	unstage = reset HEAD
 
 [color]
 	gui = true
