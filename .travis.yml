@@ -1,0 +1,15 @@
+addons:
+  apt:
+    packages:
+      - zsh
+before_script:
+  - export PATH="$PWD/bin:$PATH"
+git:
+  # Travis needs to clone submodules but doesn't have my keeeeeeees
+  submodules: false
+
+before_install:
+  - replace "git@github.com:" "https://github.com/" -- .gitmodules
+  # Don't need this yet, none of my tests rely on my submodules
+  # - git submodule update --init --recursive
+script: zunit
