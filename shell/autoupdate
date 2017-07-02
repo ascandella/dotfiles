@@ -26,8 +26,6 @@ _update() {
   elif [[ -z "$(git log HEAD..origin/master)" ]] ; then
     echo -e "${GRAY_BG}Already up-to-date, skipping install${RESET}"
     set +e
-    popd
-    return 0
   else
     if ! git refresh ; then
       echo -e "${BOLD}${RED_FG}Unable to check for updates. Check your SSH agent?"
