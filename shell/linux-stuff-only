@@ -11,3 +11,16 @@ jt () {
     nocorrect sudo journalctl -xeu "${1}" -f -n 100
   fi
 }
+
+esv () {
+  [[ -z "$1" ]] && echo "need service name" && return
+
+  _status="$(systemctl status "$1")"
+  if [[ $? -ne 0 ]] ; then
+    echo "${_status}"
+    return
+  fi
+
+  fname="$(echo "${_status}" | grep loaded | cut -d'(' -f2 | cut -d';' -f1)"
+  sudo nvim "${fname}"
+}
