@@ -4,6 +4,6 @@ _shell_setup="${HOME}/.fzf.${_shell}"
 [ -e "${_shell_setup}" ] && source "${_shell_setup}"
 
 if command -v rg > /dev/null ; then
-  export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden --follow --glob "!.git/*"'
+  export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!vendor/*"'
   export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
 fi
