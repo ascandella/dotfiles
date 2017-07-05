@@ -1,18 +1,18 @@
 # Top-level only
 /Godeps/_workspace
 # Vendor, same deal
-/vendor
+/vendor/
 # Node?? I have no ihea what they're trying to accomplish
-node_modules
+node_modules/
 _build
 # Sucks when editing the .vim directory
 anaconda
 ext
 git-extensions
 /.emacs.d
-/.fzf
+/.fzf/
 .git
-/.zprezto
+/.zprezto/
 env
 *.pyc
 __pycache__
