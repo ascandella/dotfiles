@@ -51,6 +51,9 @@ if hostname != minimal
     Plug 'davidhalter/jedi-vim'
   endif
 
+  " autopep8
+  Plug 'tell-k/vim-autopep8'
+
 
   " Undo tree
   Plug 'sjl/gundo.vim'
