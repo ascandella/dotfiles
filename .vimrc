@@ -15,6 +15,9 @@ if hostname != minimal
   " Language-specific stuff
   "
 
+  " Go stuff
+  Plug 'fatih/vim-go'
+
   " Go refactoring
   Plug 'godoctor/godoctor.vim'
 
