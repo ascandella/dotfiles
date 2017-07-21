@@ -24,6 +24,9 @@ if hostname != minimal
   " TOML syntax
   Plug 'cespare/vim-toml'
 
+  " Surround. Nuff Sed.
+  Plug 'tpope/vim-surround'
+
   " Caddyfile (webserver) syntax
   Plug 'joshglendenning/vim-caddyfile'
 

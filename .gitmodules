@@ -31,9 +31,6 @@
 [submodule "chat/weechat-plugins"]
 	path = chat/weechat-plugins
 	url = https://github.com/recht/weechat-plugins.git
-[submodule ".vim/bundle/vim-surround"]
-	path = .vim/bundle/vim-surround
-	url = git://github.com/tpope/vim-surround.git
 [submodule ".vim/bundle/neomake"]
 	path = .vim/bundle/neomake
 	url = https://github.com/neomake/neomake.git
