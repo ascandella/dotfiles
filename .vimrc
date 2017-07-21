@@ -11,6 +11,9 @@ if hostname != minimal
   Plug 'junegunn/fzf.vim'
   set rtp+=~/.fzf
 
+  " Async make/lint stuff
+  Plug 'neomake/neomake'
+
   "
   " Language-specific stuff
   "
