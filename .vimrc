@@ -74,6 +74,11 @@ if hostname != minimal
   Plug 'tpope/vim-vinegar'
 endif
 
+" Mac-only stuff
+if has("mac")
+  Plug 'sectioneight/vim-kwm'
+endif
+
 " These go to all my machines
 
 " Like powerline, but lighter
