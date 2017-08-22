@@ -22,7 +22,7 @@ _aliasto () {
 # Aliases
 #
 
-alias ag='ag --path-to-agignore ~/.agignore'
+alias ag='ag --path-to-ignore ~/.agignore'
 alias ':q'='echo "\033[31mThis is zsh, not vim\033[0m"'
 # May already be defined in 2-environment for lemonade. This is a fallback.
 if ! _command_exists clip >/dev/null; then
