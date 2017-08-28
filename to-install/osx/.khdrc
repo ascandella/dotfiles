@@ -126,27 +126,27 @@ lctrl - x         ![HyperTerm,Terminal,iTerm2]      :   khd -p "- delete"
 # khd void_unlisted_bind off
 
 # set border color for different modes
-khd mode default color 0xddd5c4a1
-khd mode switcher color 0xddbdd322
-khd mode ytd color 0xddd75f5f
-khd mode swap color 0xdd458588
-khd mode tree color 0xddfabd2f
-khd mode space color 0xddb16286
-khd mode info color 0xddcd950c
+khd mode default on_enter kwmc config border focused color 0xddd5c4a1
+khd mode switcher on_enter kwmc config border focused color 0xddbdd322
+khd mode ytd on_enter kwmc config border focused color 0xddd75f5f
+khd mode swap on_enter kwmc config border focused color 0xdd458588
+khd mode tree on_enter kwmc config border focused color 0xddfabd2f
+khd mode space on_enter kwmc config border focused color 0xddb16286
+khd mode info on_enter kwmc config border focused color 0xddcd950c
 
 
 
 # Enable kwm compatibility mode
-khd kwm on
+# khd kwm on
 
 # set color of default mode
-khd mode default color 0xFFD5C4A1
+# khd mode default color 0xFFD5C4A1
 
 # Enable the prefix mode
-khd mode prefix prefix on
-khd mode prefix timeout 0.75
-khd mode prefix restore default
-khd mode prefix color 0xFF458588
+#khd mode prefix prefix on
+#khd mode prefix timeout 0.75
+#khd mode prefix restore default
+#khd mode prefix color 0xFF458588
 
 # Activate prefix mode
 ctrl - s                 :    khd -e "mode activate prefix"

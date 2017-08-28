@@ -2,8 +2,8 @@ _setupOsXDefaults() {
   # TODO OS-XX specific hooks
   if command -v defaults > /dev/null ; then
     # do stuff from here: https://github.com/herrbischoff/awesome-osx-command-line
-    # remove some siulator crap
-    xcrun simctl delete unavailable
+    # remove some simulator crap
+    # xcrun simctl delete unavailable
 
     # add a stack of recent apps!!
     if ! grep -q "recents-tile" <(defaults read com.apple.dock persistent-others) ; then
