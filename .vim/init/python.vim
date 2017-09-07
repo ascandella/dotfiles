@@ -10,7 +10,7 @@ let g:jedi#usages_command = "<leader>u"
 let g:jedi#force_py_version = "auto"
 
 let g:autopep8_disable_show_diff=1
-autocmd BufWritePre *.py call Autopep8()
+" autocmd BufWritePre *.py call Autopep8()
 
 " Per https://github.com/zchee/deoplete-jedi/wiki/Setting-up-Python-for-Neovim,
 " hardcode Python paths so that virtualenvs don't need the neovim package or

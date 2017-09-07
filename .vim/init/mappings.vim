@@ -43,12 +43,15 @@ map <Leader>e :Files<CR>
 map <Leader>n :Buffers<CR>
 map <Leader>h :History<CR>
 
+" Git mappings
+map <Leader>g :Gblame<CR>
+
+" Various other leader mappings
 map <Leader>w :w<CR>
 
 map <Leader>b  :bd<CR>
 map <Leader>cl :ccl<CR>
-" map <Leader>g  :Gblame<CR>
-map <Leader>q  :q<CR>
+"map <Leader>q  :q<CR>
 
 map <Leader>l :setlocal spell spelllang=en_us<cr>
 noremap <silent> <Leader>r :setlocal spell!<cr>
@@ -121,3 +124,10 @@ nnoremap <BS> :bd<CR>
 
 " nmap <Tab> >>
 nmap <S-Tab> <<
+
+" To dump all mappings to a file (from:
+" https://stackoverflow.com/questions/7642746/is-there-any-way-to-view-the-currently-mapped-keys-in-vim)
+"
+" :redir! > vim_keys.txt
+" :silent verbose map
+" :redir END
