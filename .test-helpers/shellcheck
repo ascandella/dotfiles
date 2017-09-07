@@ -3,11 +3,12 @@ _test_shellcheck () {
     skip 'shellcheck not installed'
   fi
   setopt sh_word_split
-  local args=""
+  args=""
   if [[ -n "${2:-}" ]] ; then
     args="-s ${2}"
   fi
   run shellcheck ${args} ./"${1}"
+  unset args
   unsetopt sh_word_split
   assert $output is_empty
   assert $state equals 0
