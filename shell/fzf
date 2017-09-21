@@ -4,8 +4,10 @@ _shell_setup="${HOME}/.fzf.${_shell}"
 [ -e "${_shell_setup}" ] && source "${_shell_setup}"
 
 if command -v rg > /dev/null ; then
-  FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!vendor/*"'
-  FZF_DEFAULT_COMMAND+=' --glob "!*.pyc"'
+  FZF_DEFAULT_COMMAND='rg --files --hidden --follow'
+  for ignore in "*.pyc" "idl/*" "go-build/*" "vendor/*" ; do
+    FZF_DEFAULT_COMMAND+=" --glob \"!${ignore}\""
+  done
 
   export FZF_DEFAULT_COMMAND
   export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
