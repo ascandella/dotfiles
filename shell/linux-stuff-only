@@ -15,7 +15,7 @@ jt () {
 esv () {
   [[ -z "$1" ]] && echo "need service name" && return
 
-  _status="$(systemctl status "$1" 2>&1)"
+  _status="$(systemctl status "${1}*" 2>&1)"
   if [[ $? -ne 0 ]] ; then
     if echo "${_status}" | grep -q "could not be found" ; then
       echo "${_status}"
