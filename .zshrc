@@ -25,10 +25,10 @@ compinit
 #
 # Load Prezto
 #
-power9k="${DOTFILES}/.support/powerlevel9k.sh"
-if [[ -r "${power9k}" ]] ; then
-  source "${power9k}"
-fi
+#power9k="${DOTFILES}/.support/powerlevel9k.sh"
+#if [[ -r "${power9k}" ]] ; then
+  #source "${power9k}"
+#fi
 
 
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then

@@ -79,8 +79,7 @@ zstyle ':prezto:module:git:status:ignore' submodules 'all'
 _theme='kylewest'
 _host="$(hostname)"
 if [[  "${_host}" =~ "aiden" ]] ; then
-  _theme='powerline'
-  zstyle ':prezto:module:prompt' theme 'powerlevel9k'
+  _theme='powerlevel9k'
 fi
 if [[ "$(whoami)" == "root" ]] ; then
   _theme='adam1'
