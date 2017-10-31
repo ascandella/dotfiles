@@ -127,6 +127,7 @@ lctrl - x         ![HyperTerm,Terminal,iTerm2]      :   khd -p "- delete"
 
 # set border color for different modes
 khd mode default on_enter kwmc config border focused color 0xddd5c4a1
+khd mode prefix on_enter kwmc config border focused color 0xaa0000a1
 khd mode switcher on_enter kwmc config border focused color 0xddbdd322
 khd mode ytd on_enter kwmc config border focused color 0xddd75f5f
 khd mode swap on_enter kwmc config border focused color 0xdd458588
@@ -150,6 +151,7 @@ khd mode info on_enter kwmc config border focused color 0xddcd950c
 
 # Activate prefix mode
 ctrl - s                 :    khd -e "mode activate prefix"
+prefix + ctrl - s        :    khd -e "mode activate default"
 
 # Quit Kwm
 cmd + alt + ctrl - q     :    kwmc quit
