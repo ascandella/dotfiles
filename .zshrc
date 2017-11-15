@@ -22,6 +22,8 @@ zstyle :compinstall filename '$HOME/.zshrc'
 autoload -Uz compinit
 compinit
 
+POWERLEVEL9K_MODE='nerdfont-complete'
+
 #
 # Load Prezto
 #
