@@ -185,6 +185,7 @@ case "$(uname)" in
     # No macOS binaries yet
     _scanAndLink "to-install/osx/bin" "*" "bin/"
     _scanAndLink "to-install/osx/appsupport/ubersicht/widgets" "*" "Library/Application Support/Übersicht/widgets/"
+    _scanAndLink "library/VSCode/User" "*" "Library/Application Support/Code/User/"
     _setupOsXDefaults
     ;;
   Linux)

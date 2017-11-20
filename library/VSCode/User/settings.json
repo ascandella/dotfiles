@@ -1,11 +1,10 @@
 {
     "editor.cursorBlinking": "phase",
     "editor.tabSize": 2,
-    //"editor.fontSize": 18,
-    "editor.fontSize": 13,
     "editor.roundedSelection": true,
     "editor.glyphMargin": true,
     "editor.lineNumbers": "off",
+    "editor.codeLens": false,
     "editor.rulers": [100],
     "editor.renderIndentGuides": true,
     "editor.formatOnType": true,
@@ -62,14 +61,14 @@
         "before": [",", "w"],
         "after": [":", "w"]
     }]
-,
+    ,
+
     "window.zoomLevel": 0,
     "workbench.iconTheme": "vs-minimal",
     "[cpp]": {
-    "editor.quickSuggestions": false
+      "editor.quickSuggestions": false
     },
     "[c]": {
-    "editor.quickSuggestions": false
-    },
-    "vim.disableAnnoyingNeovimMessage": true
+      "editor.quickSuggestions": false
+    }
 }
