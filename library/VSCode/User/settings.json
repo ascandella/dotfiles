@@ -4,7 +4,6 @@
     "editor.roundedSelection": true,
     "editor.glyphMargin": true,
     "editor.lineNumbers": "off",
-    "editor.codeLens": false,
     "editor.rulers": [100],
     "editor.renderIndentGuides": true,
     "editor.formatOnType": true,
