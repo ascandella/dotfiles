@@ -9,6 +9,7 @@
     "editor.formatOnType": true,
     "editor.formatOnSave": true,
     "editor.scrollBeyondLastLine": false,
+    "editor.minimap.enabled": false,
 
     "files.exclude": {
         "out/**.js": true,
