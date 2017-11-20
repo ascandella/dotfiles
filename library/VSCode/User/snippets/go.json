@@ -1,24 +1,24 @@
 {
-/*
-	 // Place your snippets for Go here. Each snippet is defined under a snippet name and has a prefix, body and
-	 // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
-	 // $1, $2 for tab stops, ${id} and ${id:label} and ${1:label} for variables. Variables with the same id are connected.
-	 // Example:
-	 "Print to console": {
-		"prefix": "log",
-		"body": [
-			"console.log('$1');",
-			"$2"
-		],
-		"description": "Log output to console"
-	}
-*/
+	/*
+		 // Place your snippets for Go here. Each snippet is defined under a snippet name and has a prefix, body and
+		 // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+		 // $1, $2 for tab stops, ${id} and ${id:label} and ${1:label} for variables. Variables with the same id are connected.
+		 // Example:
+		 "Print to console": {
+			"prefix": "log",
+			"body": [
+				"console.log('$1');",
+				"$2"
+			],
+			"description": "Log output to console"
+		}
+	*/
 
-  "testing": {
+	"testing": {
 		"prefix": "testt",
 		"body": [
-			"func Test$1(t *testing.T) {",
-			"  $2",
+			"func Test${1:Name}(t *testing.T) {",
+			"\t${2:// TODO: test body}",
 			"}"
 		]
 	},
@@ -34,7 +34,7 @@
 		"prefix": "errn",
 		"body": [
 			"err != nil {",
-			"	$1",
+			"\t${1:// TODO: Handle error}",
 			"}"
 		]
 	},
@@ -44,7 +44,7 @@
 			"package main",
 			"",
 			"func main() {",
-			"  $1",
+			"\t${1:// TODO: logic}",
 			"}"
 		]
 	},

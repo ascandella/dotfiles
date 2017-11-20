@@ -8,6 +8,7 @@
     "editor.rulers": [100],
     "editor.renderIndentGuides": true,
     "editor.formatOnType": true,
+    "editor.formatOnSave": true,
     "editor.scrollBeyondLastLine": false,
 
     "files.exclude": {
@@ -37,12 +38,14 @@
 
     "go.formatOnSave": true,
     "go.autocompleteUnimportedPackages": true,
+    "go.lintTool": "gometalinter",
     "go.lintFlags": [
+        "--fast",
         "--enable=errcheck"
     ],
 
     "[python]": {
-      "editor.tabSize": 4
+        "editor.tabSize": 4
     },
 
     "vim.useCtrlKeys": true,
@@ -60,15 +63,14 @@
     }, {
         "before": [",", "w"],
         "after": [":", "w"]
-    }]
-    ,
+    }],
 
     "window.zoomLevel": 0,
     "workbench.iconTheme": "vs-minimal",
     "[cpp]": {
-      "editor.quickSuggestions": false
+        "editor.quickSuggestions": false
     },
     "[c]": {
-      "editor.quickSuggestions": false
+        "editor.quickSuggestions": false
     }
 }
