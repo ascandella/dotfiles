@@ -13,8 +13,9 @@ _install_ngrok () {
     unzip "${_zipfile}"
     unset _zipfile
 
-    _ngrok_dest="${HOME}/bin"
+    _ngrok_dest="${HOME}/bin/"
     echo "Installing ngrok to ${_ngrok_dest}"
+    mkdir -p "${_ngrok_dest}"
     mv ./ngrok "${_ngrok_dest}"
 
     popd
