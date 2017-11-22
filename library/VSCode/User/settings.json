@@ -12,8 +12,8 @@
     "editor.minimap.enabled": false,
 
     "files.exclude": {
-        "out/**.js": true,
-        "**/.tmp": true,
+        //"**/.tmp": true,
+        ".venv": true,
         "**/vendor": true,
         "**/.git": true,
         "**/.DS_Store": true,
@@ -44,9 +44,16 @@
         "--enable=errcheck"
     ],
 
+    "python.linting.enabled": true,
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Path": "/usr/local/bin/flake8",
+    "python.linting.pylintEnabled": false,
+    "python.linting.lintOnSave": true,
     "[python]": {
         "editor.tabSize": 4
     },
+
+    //"python.formatting.provider": "yapf",
 
     "vim.useCtrlKeys": true,
     "vim.enableNeovim": true,
@@ -72,5 +79,6 @@
     },
     "[c]": {
         "editor.quickSuggestions": false
-    }
+    },
+    "workbench.colorTheme": "One Dark Pro"
 }
