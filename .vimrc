@@ -58,6 +58,9 @@ if hostname != minimal
     " Python code completion
     Plug 'zchee/deoplete-jedi'
     Plug 'davidhalter/jedi-vim'
+
+    " C++ code completion
+    Plug 'zchee/deoplete-clang'
   endif
 
   " autopep8
