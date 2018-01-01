@@ -9,3 +9,4 @@
 .autoenv.zsh
 .venv/
 /*.gem
+.ipynb_checkpoints
