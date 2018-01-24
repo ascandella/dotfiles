@@ -1,0 +1,28 @@
+[global_config]
+  handle_size = 1
+  scroll_tabbar = True
+  tab_position = hidden
+  title_font = Source Code Pro for Powerline Semi-Bold 9
+  title_use_system_font = False
+[keybindings]
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    background_color = "#002b36"
+    background_darkness = 0.67
+    background_type = transparent
+    cursor_color = "#aaaaaa"
+    cursor_shape = underline
+    font = DejaVu Sans Mono for Powerline 10
+    foreground_color = "#839496"
+    icon_bell = False
+    show_titlebar = False
+    use_system_font = False
