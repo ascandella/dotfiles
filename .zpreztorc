@@ -83,7 +83,7 @@ if [[  "${_host}" =~ "aiden" ]] ; then
 fi
 if [[ "$(whoami)" == "root" ]] ; then
   _theme='adam1'
-elif [[ "$(uname -s)" = "Linux" && ! "${_host}" =~ "SURFACE" ]]; then
+elif [[ "$(uname -s)" == "Linux" && ! "${_host}" =~ "SURFACE" ]]; then
   _theme='agnoster'
 fi
 
