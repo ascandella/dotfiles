@@ -12,7 +12,7 @@
 [profiles]
   [[default]]
     background_color = "#002b36"
-    background_darkness = 0.09
+    background_darkness = 0.63
     background_type = transparent
     cursor_color = "#aaaaaa"
     font = DejaVu Sans Mono 11
