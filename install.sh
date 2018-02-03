@@ -193,7 +193,6 @@ case "$(uname)" in
     _scanAndLink "to-install/linux/dotconfig" "*" ".config/"
     _scanAndLink "to-install/linux/dotconfig" ".*" ".config/"
     _scanAndLink "to-install/linux/bin" "*" "bin/"
-    _scanAndLink "to-install/linux/terminator" "*" ".config"
     ;;
 esac
 
