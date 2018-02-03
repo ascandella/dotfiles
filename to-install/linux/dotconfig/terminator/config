@@ -1,0 +1,20 @@
+[global_config]
+[keybindings]
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    background_darkness = 0.09
+    background_type = transparent
+    cursor_color = "#aaaaaa"
+    font = Liberation Mono 11
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_system_font = False
