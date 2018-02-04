@@ -150,11 +150,11 @@ type = custom/menu
 
 format-spacing = 1
 
-label-open = 
+label-open = P
 label-open-foreground = ${colors.secondary}
-label-close =  cancel
+label-close = "x"
 label-close-foreground = ${colors.secondary}
-label-separator = |
+label-separator = "|"
 label-separator-foreground = ${colors.foreground-alt}
 
 menu-0-0 = reboot
