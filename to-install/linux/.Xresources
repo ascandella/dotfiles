@@ -55,7 +55,7 @@
 *color7:                S_base2
 *color15:               S_base3
 
-URxvt.font: xft:DejaVu Sans Mono:size=10
+URxvt.font: xft:DejaVuSansMono Nerd Font:size=10
 URxvt.cursorBlink  :0
 
 URxvt.lineSpace           : 0
