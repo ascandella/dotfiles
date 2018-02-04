@@ -181,5 +181,5 @@ exec --no-startup-id nitrogen --restore
 # gaps
 for_window [class="^.*"] border pixel 0
 gaps inner 20
-gaps outer 20
+gaps outer 0
 smart_gaps on
