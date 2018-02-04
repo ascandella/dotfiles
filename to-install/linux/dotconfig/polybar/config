@@ -14,7 +14,7 @@ bar-top-gap = 0
 bar-offset-x = 0
 
 [bar/ai]
-font-0 = ""
+font-0 = "DejaVu Sans:size=13;1"
 font-1 = "Material Icons;1"
 background = ${colors.background}
 foreground = ${colors.foreground}
