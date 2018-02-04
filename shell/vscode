@@ -1,3 +1,6 @@
-code () {
-  VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args "$@"
-}
+# Don't redefine on linux
+if ! command -v code > /dev/null ; then
+  code () {
+    VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args "$@"
+  }
+fi
