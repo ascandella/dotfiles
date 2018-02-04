@@ -14,6 +14,8 @@ bar-top-gap = 0
 bar-offset-x = 0
 
 [bar/ai]
+font-0 = ""
+font-1 = "Material Icons;1"
 background = ${colors.background}
 foreground = ${colors.foreground}
 
@@ -46,7 +48,7 @@ label-mode-padding = 0
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
-label-focused = F %index%
+label-focused = %{T1} %{T-}%index%
 label-focused-background = ${colors.background-alt}
 label-focused-underline = ${colors.primary}
 label-focused-padding = 2
@@ -81,7 +83,7 @@ label-unmounted-foreground = ${colors.foreground-alt}
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #f90000
 label = %percentage%%
@@ -100,7 +102,7 @@ interface = enp30s0
 interval = 3.0
 
 format-connected-underline = #55aa55
-format-connected-prefix = " "
+format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = %local_ip%
 
@@ -120,7 +122,7 @@ date-alt = " %Y-%m-%d"
 time = %H:%M
 time-alt = %H:%M:%S
 
-format-prefix = 
+format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #0a6cf5
 
@@ -150,31 +152,31 @@ type = custom/menu
 
 format-spacing = 1
 
-label-open = P
+label-open = 
 label-open-foreground = ${colors.secondary}
-label-close = "x"
+label-close = ""
 label-close-foreground = ${colors.secondary}
 label-separator = "|"
 label-separator-foreground = ${colors.foreground-alt}
 
-menu-0-0 = reboot
+menu-0-0 = reboot
 menu-0-0-exec = menu-open-1
-menu-0-1 = power off
+menu-0-1 =  power off
 menu-0-1-exec = menu-open-2
-menu-0-2 = suspend
+menu-0-2 =  suspend
 menu-0-2-exec = menu-open-3
 
-menu-1-0 = reboot
+menu-1-0 =  reboot
 menu-1-0-exec = sudo systemctl reboot
 menu-1-1 = cancel
 menu-1-1-exec = menu-open-0
 
-menu-2-0 = power off
+menu-2-0 =  power off
 menu-2-0-exec = sudo systemctl poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
 
 menu-3-0 = cancel
 menu-3-0-exec = menu-open-0
-menu-3-1 = suspend
+menu-3-1 =  suspend
 menu-3-1-exec = i3lock -c 111111 && sudo systemctl suspend
