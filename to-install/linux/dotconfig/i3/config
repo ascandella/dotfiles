@@ -30,7 +30,7 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec terminator
+bindsym $mod+Return exec urxvt256c-ml
 
 # kill focused window
 bindsym $mod+Shift+quotedbl kill
