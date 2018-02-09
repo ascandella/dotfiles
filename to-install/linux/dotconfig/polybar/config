@@ -179,4 +179,4 @@ menu-2-1-exec = menu-open-0
 menu-3-0 = cancel
 menu-3-0-exec = menu-open-0
 menu-3-1 =  suspend
-menu-3-1-exec = i3lock -c 111111 && sudo systemctl suspend
+menu-3-1-exec = ~/.config/i3/lock && sudo systemctl suspend
