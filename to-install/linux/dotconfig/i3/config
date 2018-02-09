@@ -178,6 +178,11 @@ exec --no-startup-id xmodmap ~/.Xmodmap &
 # Set up some sweet, sweet backgrounds
 exec --no-startup-id nitrogen --restore
 
+# Not sure why this is necessary
+exec --no-startup-id xrdb -load $HOME/.Xresources &
+exec xautolock &
+bindsym $mod+l exec ~/.config/i3/lock
+
 # gaps
 for_window [class="^.*"] border pixel 0
 gaps inner 20

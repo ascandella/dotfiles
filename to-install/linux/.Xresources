@@ -73,3 +73,9 @@ URxvt.matcher.button  : 1
 
 URxvt.transparent:   true
 URxvt.shading:       8
+
+Xautolock.corners     : 00+0
+Xautolock.locker      : ~/.config/i3/lock
+Xautolock.time        : 15
+Xautolock.cornerdelay : 1
+Xautolock.detectsleeptrue: 1
