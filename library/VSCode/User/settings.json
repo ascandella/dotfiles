@@ -43,6 +43,9 @@
         "--fast",
         "--enable=errcheck"
     ],
+    "go.vetFlags": [
+        "-printfuncs=wrapf,statusf,warnf,infof,debugf,noerrorf,equalf,newexiterrorf,containsf,truef,falsef,equalf,emptyf,failf"
+    ],
 
     "python.linting.enabled": true,
     "python.linting.flake8Enabled": true,
