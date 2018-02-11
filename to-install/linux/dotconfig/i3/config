@@ -177,6 +177,7 @@ exec --no-startup-id xmodmap ~/.Xmodmap &
 
 # Set up some sweet, sweet backgrounds
 exec --no-startup-id nitrogen --restore
+exec --no-startup-id dropbox start
 
 # Not sure why this is necessary
 exec --no-startup-id xrdb -load $HOME/.Xresources &
