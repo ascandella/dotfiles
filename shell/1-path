@@ -19,11 +19,13 @@ addtopath "/usr/local/share/npm/bin"
 # Add ~/bin if it exists and isn't in the path already
 #
 
-addtopath "$HOME/bin"
+addtopath "${HOME}/bin"
 
-addtopath "$HOME/.cask/bin"
+addtopath "${HOME}/.cask/bin"
 
 addtopath "/usr/local/opt/go/libexec/bin"
+
+addtopath "${HOME}/.local/bin"
 
 # Undefine the helper function
 unset -f addtopath
