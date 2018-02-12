@@ -73,7 +73,9 @@ if hostname != minimal
   "
   " Snippets
   "
-  Plug 'SirVer/ultisnips'
+  if has("python") || has("python3")
+    Plug 'SirVer/ultisnips'
+  endif
   Plug 'honza/vim-snippets'
 
   " File browsing
