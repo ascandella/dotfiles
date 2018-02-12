@@ -78,12 +78,12 @@ zstyle ':prezto:module:git:status:ignore' submodules 'all'
 
 _theme='kylewest'
 _host="$(hostname)"
-if [[  "${_host}" =~ "aiden" || "${_host}" == "origin" ]] ; then
+if [[ "${_host}" =~ "aiden" || "${_host}" == "origin" ]] ; then
   _theme='powerlevel9k'
 else
   if [[ "$(whoami)" == "root" ]] ; then
     _theme='adam1'
-  elif [[ "$(uname -s)" == "Linux" && ! "${_host}" =~ "SURFACE" ]]; then
+  elif [[ "$(uname -s)" == "Linux" && ! "${_host}" =~ "ai10" ]]; then
     _theme='agnoster'
   fi
 fi
