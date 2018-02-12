@@ -41,6 +41,7 @@ bindsym $mod+Shift+quotedbl kill
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 bindsym $mod+e exec --no-startup-id rofi -show combi
+bindsym $mod+Shift+c exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 
 # change focus
 bindsym $mod+h focus left
@@ -177,6 +178,9 @@ exec --no-startup-id xmodmap ~/.Xmodmap &
 
 # Set up some sweet, sweet backgrounds
 exec --no-startup-id nitrogen --restore
+
+# Clipboard history
+exec --no-startup-id greenclip daemon &
 exec --no-startup-id dropbox start
 
 # Not sure why this is necessary
