@@ -1,182 +1,229 @@
 [colors]
-background = ${xrdb:color0:#222}
-;background = #222
-background-alt = #444
-;foreground = ${xrdb:color7:#222}
-foreground = #dfdfdf
-foreground-alt = #555
-primary = #ffb52a
-secondary = #e60053
-alert = #bd2c40
+  background = ${xrdb:color8:#222}
+  ;background = #222
+  background-alt = #444
+  ;foreground = ${xrdb:color7:#222}
+  foreground = #dfdfdf
+  foreground-alt = #555
+  primary = #ffb52a
+  secondary = #e60053
+  alert = #bd2c40
 
 [sizes]
-bar-top-gap = 0
-bar-offset-x = 0
+  bar-top-gap = 0
+  bar-offset-x = 0
+
+[bar/base]
+  font-0 = "DejaVuSansMono Nerd Font:size=12;1"
+  font-1 = "Material Icons;1"
+  background = ${colors.background}
+  foreground = ${colors.foreground}
+
+  width = 100%
+  height = 35
+  cursor-scroll = ns-resize
+  override-redirect = false
+
+  bottom = false
+  ;fixed-center = true
+  module-margin = 2
+  ;padding = 10
+
+  modules-left = i3
+  modules-center = xwindow
+  modules-right = cpu eth vpn memory date powermenu
+
+  tray-position = right
+  tray-padding = 2
+
+  spacing = 2
+  module-margin-left = 1
+  module-margin-right = 1
+  padding-left = 0
+  padding-right = 1
+  clickareas = 35
+  border-size = 0
+  border-bottom-size = 0
+  border-top-size = ${sizes.bar-top-gap}
+  border-left-size = ${sizes.bar-offset-x}
+  line-size = 4
+  linecolor = ${colors.background}
 
 [bar/ai]
-font-0 = "DejaVu Sans:size=13;1"
-font-1 = "Material Icons;1"
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-width = 100%
-height = 27
-radius = 0.0
-border-top-size = ${sizes.bar-top-gap}
-border-left-size = ${sizes.bar-offset-x}
-
-bottom = false
-fixed-center = true
-module-margin = 2
-;padding = 10
-
-modules-left = i3
-modules-center = xwindow
-modules-right = cpu eth memory date powermenu
-
-tray-position = right
-tray-padding = 2
+  inherit = bar/base
 
 
 [module/i3]
-type = internal/i3
-format = <label-state> <label-mode>
-index-sort = true
-wrapping-scroll = false
+  type = internal/i3
+  format = <label-state> <label-mode>
+  index-sort = true
+  wrapping-scroll = false
 
-label-mode-padding = 0
-label-mode-foreground = #000
-label-mode-background = ${colors.primary}
+  label-mode-padding = 1
+  label-mode-foreground = #000
+  label-mode-background = ${colors.primary}
 
-label-focused = %{T1} %{T-}%index%
-label-focused-background = ${colors.background-alt}
-label-focused-underline = ${colors.primary}
-label-focused-padding = 2
+  label-focused = %icon%
+  label-focused-background = ${colors.background-alt}
+  label-focused-underline = ${colors.primary}
+  label-focused-padding = 2
 
-label-unfocused = %index%
-label-unfocused-padding = 2
-label-unfocused-background = ${colors.background}
+  label-unfocused = %icon%
+  label-unfocused-padding = 2
+  label-unfocused-background = ${colors.background}
 
-label-visible = V %index%
-label-visible-background = ${self.label-focused-background}
-label-visible-underline = ${self.label-focused-background}
-label-visible-padding = ${self.label-focused-padding}
+  label-visible = V %index%
+  label-visible-background = ${self.label-focused-background}
+  label-visible-underline = ${self.label-focused-background}
+  label-visible-padding = ${self.label-focused-padding}
 
-label-urgent = %index%!
-label-urgent-background = ${colors.background-alt}
-label-urgent-padding = 2
+  label-urgent = %index%!
+  label-urgent-background = ${colors.background-alt}
+  label-urgent-padding = 2
+
+  ws-icon-0 = 1;
+	ws-icon-1 = 2;
+	ws-icon-2 = 3;
+	ws-icon-3 = 4;
+	ws-icon-4 = 5;
+	ws-icon-5 = 6;6
+	ws-icon-6 = 7;7
+	ws-icon-7 = 8;8
+	ws-icon-8 = 9;9
+	ws-icon-9 = 10;0
+	ws-icon-10 = 11;
+	ws-icon-11 = 12;
+	ws-icon-12 = 13;
+	ws-icon-13 = 14;O
+	ws-icon-14 = 15;P
+	ws-icon-15 = 16;J
+	ws-icon-16 = 17;K
+	ws-icon-17 = 18;
+	ws-icon-18 = 19;
+	ws-icon-default = ♟
 
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:30:...%
 
 [module/filesystem]
-type = internal/fs
-interval = 25
+  type = internal/fs
+  interval = 25
 
-mount-0 = /
+  mount-0 = /
 
-label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
-label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.foreground-alt}
+  label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
+  label-unmounted = %mountpoint% not mounted
+  label-unmounted-foreground = ${colors.foreground-alt}
 
 [module/cpu]
-type = internal/cpu
-interval = 2
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #f90000
-label = %percentage%%
+  type = internal/cpu
+  interval = 2
+  format-prefix = " "
+  format-prefix-foreground = ${colors.foreground-alt}
+  format-underline = #f90000
+  label = %percentage%%
 
 [module/memory]
-type = internal/memory
-interval = 2
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #4bffdc
-label = %percentage_used%%
+  type = internal/memory
+  interval = 2
+  format-prefix = " "
+  format-prefix-foreground = ${colors.foreground-alt}
+  format-underline = #4bffdc
+  label = %percentage_used%%
 
 [module/eth]
-type = internal/network
-interface = enp30s0
-interval = 3.0
+  type = internal/network
+  interface = enp30s0
+  interval = 3.0
 
-format-connected-underline = #55aa55
-format-connected-prefix = " "
-format-connected-prefix-foreground = ${colors.foreground-alt}
-label-connected = %local_ip%
+  format-connected-underline = #55aa55
+  format-connected-prefix = " "
+  format-connected-prefix-foreground = ${colors.foreground-alt}
+  label-connected = %local_ip%
 
-format-disconnected =
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
+  format-disconnected =
+  ;format-disconnected = <label-disconnected>
+  ;format-disconnected-underline = ${self.format-connected-underline}
+  ;label-disconnected = %ifname% disconnected
+  ;label-disconnected-foreground = ${colors.foreground-alt}
+
+[module/vpn]
+  type = custom/script
+  format = <label>
+  label = " vpn"
+  exec-if = "pgrep vim"
+  interval = 5
+  format-underline = #268bd2
+  format-prefix = " "
+  format-prefix-foreground = #5b
 
 [module/date]
-type = internal/date
-interval = 5
+  type = internal/date
+  interval = 5
 
-date =
-date-alt = " %Y-%m-%d"
+	date = %%{F#999}%a %e %b%%{F-}
 
-time = %H:%M
-time-alt = %H:%M:%S
+  time = %H:%M
+  time-alt = %H:%M:%S
 
-format-prefix = 
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #0a6cf5
+  format-prefix = " "
+  format-prefix-foreground = ${colors.foreground-alt}
+  format-underline = #0a6cf5
 
-label = %date% %time%
+  label = %date% %time%
 
 [module/temperature]
-type = internal/temperature
-thermal-zone = 0
-warn-temperature = 60
+  type = internal/temperature
+  thermal-zone = 0
+  warn-temperature = 60
 
-format = <ramp> <label>
-format-underline = #f50a4d
-format-warn = <ramp> <label-warn>
-format-warn-underline = ${self.format-underline}
+  format = <ramp> <label>
+  format-underline = #f50a4d
+  format-warn = <ramp> <label-warn>
+  format-warn-underline = ${self.format-underline}
 
-label = %temperature%
-label-warn = %temperature%
-label-warn-foreground = ${colors.secondary}
+  label = %temperature%
+  label-warn = %temperature%
+  label-warn-foreground = ${colors.secondary}
 
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-foreground = ${colors.foreground-alt}
+  ramp-0 = 
+  ramp-1 = 
+  ramp-2 = 
+  ramp-foreground = ${colors.foreground-alt}
 
 [module/powermenu]
-type = custom/menu
+  type = custom/menu
 
-format-spacing = 1
+  format-spacing = 1
 
-label-open = 
-label-open-foreground = ${colors.secondary}
-label-close = ""
-label-close-foreground = ${colors.secondary}
-label-separator = "|"
-label-separator-foreground = ${colors.foreground-alt}
+  label-open = 
+  label-open-foreground = ${colors.secondary}
+  label-close = ""
+  label-close-foreground = ${colors.secondary}
+  label-separator = "|"
+  label-separator-foreground = ${colors.foreground-alt}
 
-menu-0-0 = reboot
-menu-0-0-exec = menu-open-1
-menu-0-1 =  power off
-menu-0-1-exec = menu-open-2
-menu-0-2 =  suspend
-menu-0-2-exec = menu-open-3
+  menu-0-0 = reboot
+  menu-0-0-exec = menu-open-1
+  menu-0-1 =  power off
+  menu-0-1-exec = menu-open-2
+  menu-0-2 =  suspend
+  menu-0-2-exec = menu-open-3
 
-menu-1-0 =  reboot
-menu-1-0-exec = sudo systemctl reboot
-menu-1-1 = cancel
-menu-1-1-exec = menu-open-0
+  menu-1-0 =  reboot
+  menu-1-0-exec = sudo systemctl reboot
+  menu-1-1 = cancel
+  menu-1-1-exec = menu-open-0
 
-menu-2-0 =  power off
-menu-2-0-exec = sudo systemctl poweroff
-menu-2-1 = cancel
-menu-2-1-exec = menu-open-0
+  menu-2-0 =  power off
+  menu-2-0-exec = sudo systemctl poweroff
+  menu-2-1 = cancel
+  menu-2-1-exec = menu-open-0
 
-menu-3-0 = cancel
-menu-3-0-exec = menu-open-0
-menu-3-1 =  suspend
-menu-3-1-exec = ~/.config/i3/lock && sudo systemctl suspend
+  menu-3-0 = cancel
+  menu-3-0-exec = menu-open-0
+  menu-3-1 =  suspend
+  menu-3-1-exec = ~/.config/i3/lock && sudo systemctl suspend
+
+; vim:ft=dosini
