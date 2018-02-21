@@ -8,7 +8,7 @@ sxhkd &
           #-killtime 10 -killer   "betterlockscreen -s" \
           #-corners -000 &
 
-compton --config ~/.compton.conf &
+compton --config ~/.config/compton/compton.conf &
 
 #xrandr --dpi 96&
 
