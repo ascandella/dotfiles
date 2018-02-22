@@ -22,12 +22,16 @@ declare -a startonce=(
   "xautolock"
 )
 
+declare -a nousr1=(
+  xautolock greenclip dropbox nm-applet
+)
+
 for cmd in "${startonce[@]}" ; do
   split=($cmd)
   basecmd="$(basename ${split[0]})"
   if pgrep -x "${basecmd}" ; then
     # xautolock doesn't handle usr1 properly
-    if [[ "${basecmd}" != "xautolock" ]] ; then
+    if [[ ! "${nousr1[@]}" =~ "${basecmd}" ]] ; then
       pkill -USR1 -x "${basecmd}"
     fi
   else
