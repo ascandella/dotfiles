@@ -20,7 +20,7 @@ super + l
 super + Escape
 	pkill -USR1 -x sxhkd
 
-super + shift + .
+super + shift + period
   pkill -USR1 -x polybar
 
 #
