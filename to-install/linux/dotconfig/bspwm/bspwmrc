@@ -1,11 +1,6 @@
 #! /bin/sh
 
-#xautolock -detectsleep \
-			#-notify 120 -notifier "xset dpms force off" \
-          #-time     5 -locker   "betterlockscreen -l" \
-          #-killtime 10 -killer   "betterlockscreen -s" \
-          #-corners -000 &
-
+sxhkd -m -1 &
 compton --config ~/.config/compton/compton.conf &
 
 #xrandr --dpi 96&
@@ -19,7 +14,6 @@ nm-applet &
 xmodmap ~/.Xmodmap &
 # exec --no-startup-id xrandr --output VGA-1 --mode 1440x900
 #exec --no-startup-id xrandr --output VGA-1 --mode 1280x800
-sxhkd &
 
 # Set up some sweet, sweet backgrounds
 nitrogen --restore &
@@ -35,9 +29,6 @@ xautolock &
 # dunst &
 
 xsetroot -cursor_name left_ptr &
-
-# ~/.config/bspwm/java_nonreparenting_wm_hack.sh &
-
 
 #/usr/local/bin/lock -f Roboto &
 
