@@ -1,0 +1,133 @@
+*{
+    foreground: #a0a0a0;
+    background: #232323;
+    background-color: @background;
+    border-color: @background;
+
+    border: 0;
+    spacing: 3;
+
+    normal-foreground: @foreground;
+    normal-background: @background-color;
+    selected-normal-foreground: #232323;
+    selected-normal-background: #3ba275;
+    alternate-normal-foreground: @foreground;
+    alternate-normal-background: #303030;
+
+    urgent-foreground: #d370a3;
+    urgent-background: @background-color;
+    selected-urgent-foreground: @urgent-foreground;
+    selected-urgent-background: @selected-normal-background;
+    alternate-urgent-foreground: @urgent-foreground;
+    alternate-urgent-background: @alternate-normal-background;
+
+    active-foreground: #6095c5;
+    active-background: @background-color;
+    selected-active-foreground: #98cbfe;
+    selected-active-background: @selected-normal-background;
+    alternate-active-foreground: @active-foreground;
+    alternate-active-background: @alternate-normal-background;
+
+    separator-color: @foreground;
+}
+
+#window{
+    font: "Operator Mono Book 10";
+    background-color: #11111199;
+    fullscreen: true;
+    padding: 360 480;
+}
+
+#mainbox{
+    border-color: #161616;
+    padding: 3px;
+    border: 5px;
+}
+
+#message{
+    padding: 2px;
+}
+
+#textbox{
+    text-color: @foreground;
+}
+
+#listview{
+    fixed-height: 16;
+    scrollbar: true;
+    padding: 2px;
+}
+
+#scrollbar{
+    handle-color: @selected-normal-background;
+    handle-height: 15px;
+    handle-width: 5px;
+    width: 3px;
+}
+
+#element.normal.normal{
+    background-color: @normal-background;
+    text-color: @normal-foreground;
+}
+
+#element.selected.normal{
+    background-color: @selected-normal-background;
+    text-color: @selected-normal-foreground;
+}
+
+#element.alternate.normal{
+    background-color: @alternate-normal-background;
+    text-color: @alternate-normal-foreground;
+}
+
+#element.normal.urgent{
+    background-color: @urgent-background;
+    text-color: @urgent-foreground;
+}
+
+#element.selected.urgent{
+    background-color: @selected-urgent-background;
+    text-color: @selected-urgent-foreground;
+}
+
+#element.alternate.urgent{
+    background-color: @alternate-urgent-background;
+    text-color: @alternate-urgent-foreground;
+}
+
+#element.normal.active{
+    background-color: @active-background;
+    text-color: @active-foreground;
+}
+
+#element.selected.active{
+    background-color: @selected-active-background;
+    text-color: @selected-active-foreground;
+}
+
+#element.alternate.active{
+    background-color: @alternate-active-background;
+    text-color: @alternate-active-foreground;
+}
+
+#button.selected{
+    background-color: @selected-normal-background;
+    text-color: @selected-normal-foreground;
+}
+
+#inputbar{
+    text-color: @normal-foreground;
+}
+
+#case-indicator{
+    text-color: @normal-foreground;
+}
+
+#entry{
+    text-color: @normal-foreground;
+}
+
+#prompt, button{
+    text-color: @normal-foreground;
+}
+/* vim:ft=css */
