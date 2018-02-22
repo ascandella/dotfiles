@@ -1,30 +1,46 @@
-#! /bin/sh
+#!/bin/bash
 
-sxhkd -m -1 &
-compton --config ~/.config/compton/compton.conf &
+declare -a startonce=(
+  "sxhkd -m -1"
+
+  "compton --config $HOME/.config/compton/compton.conf"
+  "$HOME/.config/polybar/launch.sh"
+
+  "nm-applet"
+  "nitrogen --restore"
+
+  "xmodmap $HOME/.Xmodmap"
+
+  "/usr/lib/gnome-settings-daemon/gsd-xsettings"
+
+  # Clipboard history
+  "greenclip daemon"
+  "dropbox start"
+
+  # Not sure why this is necessary
+  "xrdb -load $HOME/.Xresources"
+  "xautolock"
+)
+
+for cmd in "${startonce[@]}" ; do
+  split=($cmd)
+  basecmd="$(basename ${split[0]})"
+  if pgrep -x "${basecmd}" ; then
+    # xautolock doesn't handle usr1 properly
+    if [[ "${basecmd}" != "xautolock" ]] ; then
+      pkill -USR1 -x "${basecmd}"
+    fi
+  else
+    ${cmd} &
+  fi
+done
 
 #xrandr --dpi 96&
 
-$HOME/.config/polybar/launch.sh &
 
-/usr/lib/gnome-settings-daemon/gsd-xsettings &
-
-nm-applet &
-
-xmodmap ~/.Xmodmap &
 # exec --no-startup-id xrandr --output VGA-1 --mode 1440x900
 #exec --no-startup-id xrandr --output VGA-1 --mode 1280x800
 
-# Set up some sweet, sweet backgrounds
-nitrogen --restore &
-
-# Clipboard history
-greenclip daemon &
-dropbox start
-
-# Not sure why this is necessary
-xrdb -load $HOME/.Xresources &
-xautolock &
 
 # dunst &
 

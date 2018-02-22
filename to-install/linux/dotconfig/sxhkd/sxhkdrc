@@ -21,7 +21,7 @@ super + Escape
 	pkill -USR1 -x sxhkd
 
 super + shift + period
-  pkill -USR1 -x polybar
+  ~/.config/bspwm/bspwmrc
 
 #
 # bspwm hotkeys

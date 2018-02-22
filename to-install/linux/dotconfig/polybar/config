@@ -9,13 +9,10 @@
   secondary = #e60053
   alert = #bd2c40
 
-[sizes]
-  bar-top-gap = 20
-  bar-offset-x = 20
-
 [bar/base]
-  font-0 = "DejaVuSansMono Nerd Font:size=11;1"
+  font-0 = "DejaVu Sans:size=11;1"
   font-1 = "Material Icons;1"
+  font-2 = "DejaVuSansMono Nerd Font:1"
   background = ${colors.background}
   foreground = ${colors.foreground}
 
@@ -42,10 +39,8 @@
   padding-left = 0
   padding-right = 1
   clickareas = 35
-  border-size = 20
-  border-bottom-size = 0
-  border-top-size = ${sizes.bar-top-gap}
-  border-left-size = ${sizes.bar-offset-x}
+  border-size = 0
+  ;border-bottom-size = 0
   border-color = #00000000
   line-size = 4
   linecolor = ${colors.background}
