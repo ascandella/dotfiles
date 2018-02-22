@@ -1,7 +1,5 @@
 #! /bin/sh
 
-sxhkd &
-
 #xautolock -detectsleep \
 			#-notify 120 -notifier "xset dpms force off" \
           #-time     5 -locker   "betterlockscreen -l" \
@@ -21,6 +19,7 @@ nm-applet &
 xmodmap ~/.Xmodmap &
 # exec --no-startup-id xrandr --output VGA-1 --mode 1440x900
 #exec --no-startup-id xrandr --output VGA-1 --mode 1280x800
+sxhkd &
 
 # Set up some sweet, sweet backgrounds
 nitrogen --restore &

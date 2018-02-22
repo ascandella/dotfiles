@@ -29,7 +29,7 @@
   module-margin = 2
   ;padding = 10
 
-  modules-left = i3
+  modules-left = i3 bspwm
   modules-center = xwindow
   modules-right = cpu eth vpn memory date powermenu
 
@@ -53,9 +53,52 @@
 [bar/ai]
   inherit = bar/base
 
+[wsicons]
+  ws-icon-0 = 1;
+	ws-icon-1 = 2;
+	ws-icon-2 = 3;
+	ws-icon-3 = 4;
+	ws-icon-4 = 5;
+	ws-icon-5 = 6;6
+	ws-icon-6 = 7;7
+	ws-icon-7 = 8;8
+	ws-icon-8 = 9;9
+	ws-icon-9 = 10;0
+	ws-icon-10 = 11;
+	ws-icon-11 = 12;
+	ws-icon-12 = 13;
+	ws-icon-13 = 14;O
+	ws-icon-14 = 15;P
+	ws-icon-15 = 16;J
+	ws-icon-16 = 17;K
+	ws-icon-17 = 18;
+	ws-icon-18 = 19;
+	ws-icon-default = ♟
+
+[module/bspwm]
+  type = internal/bspwm
+  inherit = wsicons
+
+  label-focused = %icon%
+  label-focused-background = ${colors.background-alt}
+  label-focused-underline= ${colors.primary}
+  label-focused-padding = 2
+
+  label-occupied = %icon%
+  label-occupied-padding = 2
+
+  label-urgent = %icon%!
+  label-urgent-background = ${colors.alert}
+  label-urgent-padding = 2
+
+  label-empty = %icon%
+  label-empty-foreground = ${colors.foreground-alt}
+  label-empty-padding = 2
 
 [module/i3]
   type = internal/i3
+  inherit = wsicons
+
   format = <label-state> <label-mode>
   index-sort = true
   wrapping-scroll = false
@@ -81,27 +124,6 @@
   label-urgent = %index%!
   label-urgent-background = ${colors.background-alt}
   label-urgent-padding = 2
-
-  ws-icon-0 = 1;
-	ws-icon-1 = 2;
-	ws-icon-2 = 3;
-	ws-icon-3 = 4;
-	ws-icon-4 = 5;
-	ws-icon-5 = 6;6
-	ws-icon-6 = 7;7
-	ws-icon-7 = 8;8
-	ws-icon-8 = 9;9
-	ws-icon-9 = 10;0
-	ws-icon-10 = 11;
-	ws-icon-11 = 12;
-	ws-icon-12 = 13;
-	ws-icon-13 = 14;O
-	ws-icon-14 = 15;P
-	ws-icon-15 = 16;J
-	ws-icon-16 = 17;K
-	ws-icon-17 = 18;
-	ws-icon-18 = 19;
-	ws-icon-default = ♟
 
 [module/xwindow]
 type = internal/xwindow
