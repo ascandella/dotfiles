@@ -10,7 +10,7 @@
   alert = #bd2c40
 
 [bar/base]
-  font-0 = "DejaVu Sans:size=11;1"
+  font-0 = "DejaVu Sans:size=10;1"
   font-1 = "Material Icons;1"
   font-2 = "DejaVuSansMono Nerd Font:1"
   background = ${colors.background}
@@ -26,8 +26,8 @@
   module-margin = 2
   ;padding = 10
 
-  modules-left = i3 bspwm
-  modules-center = xwindow
+  modules-left = xwindow
+  modules-center = i3 bspwm
   modules-right = cpu eth vpn memory date powermenu
 
   tray-position = right
@@ -36,7 +36,7 @@
   spacing = 2
   module-margin-left = 1
   module-margin-right = 1
-  padding-left = 0
+  padding-left = 2
   padding-right = 1
   clickareas = 35
   border-size = 0
@@ -50,34 +50,36 @@
 
 [wsicons]
   ws-icon-0 = 1;
-	ws-icon-1 = 2;
-	ws-icon-2 = 3;
-	ws-icon-3 = 4;
-	ws-icon-4 = 5;
-	ws-icon-5 = 6;6
-	ws-icon-6 = 7;7
-	ws-icon-7 = 8;8
-	ws-icon-8 = 9;9
-	ws-icon-9 = 10;0
-	ws-icon-10 = 11;
-	ws-icon-11 = 12;
-	ws-icon-12 = 13;
-	ws-icon-13 = 14;O
-	ws-icon-14 = 15;P
-	ws-icon-15 = 16;J
-	ws-icon-16 = 17;K
-	ws-icon-17 = 18;
-	ws-icon-18 = 19;
-	ws-icon-default = ♟
+  ws-icon-1 = 2;
+  ws-icon-2 = 3;
+  ws-icon-3 = 4;
+  ws-icon-4 = 5;
+  ws-icon-5 = 6;
+  ws-icon-6 = 7;
+  ws-icon-7 = 8;8
+  ws-icon-8 = 9;9
+  ws-icon-9 = 10;10
+  ws-icon-10 = 11;11
+  ws-icon-11 = 12;12
+  ws-icon-12 = 13;
+  ws-icon-13 = 14;O
+  ws-icon-14 = 15;P
+  ws-icon-15 = 16;J
+  ws-icon-16 = 17;K
+  ws-icon-17 = 18;
+  ws-icon-18 = 19;
+  ws-icon-default = ♟
+
+  label-mode-padding = 1
+
+  label-focused = %icon%
+  label-focused-background = ${colors.background-alt}
+  label-focused-underline = ${colors.primary}
+  label-focused-padding = 2
 
 [module/bspwm]
   type = internal/bspwm
   inherit = wsicons
-
-  label-focused = %icon%
-  label-focused-background = ${colors.background-alt}
-  label-focused-underline= ${colors.primary}
-  label-focused-padding = 2
 
   label-occupied = %icon%
   label-occupied-padding = 2
@@ -98,14 +100,8 @@
   index-sort = true
   wrapping-scroll = false
 
-  label-mode-padding = 1
   label-mode-foreground = #000
   label-mode-background = ${colors.primary}
-
-  label-focused = %icon%
-  label-focused-background = ${colors.background-alt}
-  label-focused-underline = ${colors.primary}
-  label-focused-padding = 2
 
   label-unfocused = %icon%
   label-unfocused-padding = 2
@@ -170,7 +166,7 @@ label = %title:0:30:...%
   type = custom/script
   format = <label>
   label = " vpn"
-  exec-if = "pgrep vim"
+  exec-if = "pgrep openvpn"
   interval = 5
   format-underline = #268bd2
   format-prefix = " "
