@@ -55,6 +55,46 @@
 *color7:                S_base2
 *color15:               S_base3
 
+
+! use theme from: https://github.com/inoriy/dotfiles
+
+*.foreground:   #a0a0a0
+*.background:   #232323
+*.cursorColor:  #a0a0a0
+
+! black
+*.color0:       #303030
+*.color8:       #686868
+
+! red
+*.color1:       #c46e7d
+*.color9:       #ffa8b7
+
+! green
+*.color2:       #6d9e3f
+*.color10:      #a3d572
+
+! yellow
+*.color3:       #b58858
+*.color11:      #efbd8b
+
+! blue
+*.color4:       #6095c5
+*.color12:      #98cbfe
+
+! magenta
+*.color5:       #ac7bde
+*.color13:      #e5b0ff
+
+! cyan
+*.color6:       #3ba275
+*.color14:      #75daa9
+
+! white
+*.color7:       #cfcfcf
+*.color15:      #ffffff
+
+
 URxvt.font: xft:DejaVuSansMono Nerd Font:size=10
 URxvt.cursorBlink  :0
 
