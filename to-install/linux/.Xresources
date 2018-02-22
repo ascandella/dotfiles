@@ -111,8 +111,8 @@ URxvt.intensityStyles     : false
 URxvt.url-launcher    : chromium-browser
 URxvt.matcher.button  : 1
 
-URxvt.transparent:   true
-URxvt.shading:       8
+URxvt.transparent:   false
+URxvt.shading:       10
 
 Xautolock.corners     : 00+0
 Xautolock.locker      : ~/.config/i3/lock
