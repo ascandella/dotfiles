@@ -43,6 +43,12 @@ map <Leader>e :Files<CR>
 map <Leader>n :Buffers<CR>
 map <Leader>h :History<CR>
 
+" Remap gitgutter leader-h
+nmap <Leader>mp <Plug>GitGutterPreviewHunk
+nmap <Leader>mr <Plug>GitGutterPreviewHunk
+nmap <Leader>ms <Plug>GitGutterStageHunk
+nmap <Leader>mu <Plug>GitGutterUndoHunk
+
 " Git mappings
 map <Leader>g :Gblame<CR>
 
