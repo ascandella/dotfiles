@@ -106,3 +106,5 @@
 [http "https://gopkg.uberinternal.com"]
 	followRedirects = true
 # vim: noexpandtab
+[interactive]
+	singleKey = true
