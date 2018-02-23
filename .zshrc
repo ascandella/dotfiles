@@ -10,7 +10,7 @@ setopt appendhistory
 setopt autocd
 setopt beep
 setopt correct
-setopt correctall
+#setopt correctall
 setopt extendedglob
 setopt nomatch
 setopt nonomatch

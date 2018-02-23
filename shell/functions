@@ -27,7 +27,7 @@ watch-test() {
 type gcm >/dev/null && unalias gcm
 # Allow git commit -m and auto-quote arguments
 gcm () {
-  nocorrect git commit -m "$*"
+  git commit -m "$*"
 }
 
 # Change to root with SSH agent etc
