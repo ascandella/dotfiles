@@ -13,6 +13,7 @@ git-extensions
 /.fzf/
 .git
 /.zprezto/
+/idl
 env
 *.pyc
 __pycache__
