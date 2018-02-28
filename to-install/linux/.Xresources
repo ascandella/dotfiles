@@ -108,6 +108,8 @@ URxvt.thickness           : 5
 URxvt.titleBar            : false
 URxvt.intensityStyles     : false
 
+URxvt*perl-ext-common : default,matcher
+
 URxvt.url-launcher    : chromium-browser
 URxvt.matcher.button  : 1
 
