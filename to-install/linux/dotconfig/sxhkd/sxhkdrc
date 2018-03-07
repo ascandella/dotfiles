@@ -6,8 +6,14 @@
 super + Return
   urxvt256c-ml
 
+alt + Return
+  urxvt256c-ml
+
 # program launcher
 super + e
+  rofi -show combi
+
+alt + e
   rofi -show combi
 
 super + shift + c

@@ -1,6 +1,10 @@
 let g:go_fmt_command = "goimports"
 let g:go_template_file = "../../../../src/vim/snippets/snippet.go"
 
+autocmd FileType go setlocal nowrap
+autocmd FileType go setlocal textwidth=100
+autocmd FileType go setlocal colorcolumn=100
+
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
     \ 'kinds'     : [

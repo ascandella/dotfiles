@@ -83,5 +83,6 @@
     "[c]": {
         "editor.quickSuggestions": false
     },
-    "workbench.colorTheme": "One Dark Pro"
+    "workbench.colorTheme": "One Dark Pro",
+    "window.menuBarVisibility": "toggle"
 }
