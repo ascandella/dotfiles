@@ -2,8 +2,8 @@ autovenv () {(
   set -e
   local pyver="${1:-$(which python)}"
   if [[ ! -x "${pyver}" ]] ; then
-    return 1
     echo "Invalid python specified, not executable: ${pyver}"
+    return 1
   fi
   local location="${2:-.venv}"
   local systemsitepackages
