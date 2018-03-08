@@ -89,6 +89,8 @@ test -r ~/.zshrc.local && . ~/.zshrc.local
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
+export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
+
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
