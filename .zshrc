@@ -89,6 +89,8 @@ test -r ~/.zshrc.local && . ~/.zshrc.local
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
+# https://github.com/zsh-users/zsh-syntax-highlighting/issues/171
+# Cursor disappearing on move in linux
 export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 
 export LC_CTYPE=en_US.UTF-8
