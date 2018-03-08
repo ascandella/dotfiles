@@ -13,6 +13,16 @@ done
 TMPBG="/tmp/screen.png"
 scrot "${TMPBG}" && convert "${TMPBG}" -scale 5% -scale 2000% -draw "fill black fill-opacity 0.4 $rectangles" $TMPBG
 
-i3lock -i "${TMPBG}" --no-unlock-indicator --ignore-empty-password
+i3lock -i "${TMPBG}" --no-unlock-indicator --ignore-empty-password -n &
+
+if [[ "${1}" == "suspend" ]] ; then
+  sudo systemctl suspend
+fi
+
+wait
+
+if [[ -x /usr/local/bin/launch-ckb ]] ; then
+  /usr/local/bin/launch-ckb
+fi
 
 rm "${TMPBG}"
