@@ -50,7 +50,7 @@ super + y
 	bspc query -N -n focused.automatic && bspc node -n last.!automatic || bspc node last.leaf -n focused
 
 # swap the current node and the biggest node
-super + g
+super + i
 	bspc node -s biggest.local
 
 #
