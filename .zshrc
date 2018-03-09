@@ -98,11 +98,3 @@ export LC_ALL=en_US.UTF-8
 
 [[ -z "${GPG_TTY}" ]] && export GPG_TTY="$(tty)"
 [[ -n "${TMUX}" ]] && gpg-connect-agent updatestartuptty /bye >/dev/null 2>&1
-
-
-# Initialise zulu plugin manager
-ZULU_CORE="${ZULU_DIR:-"${ZDOTDIR:-$HOME}/.zulu"}/core/zulu"
-if [[ -e "${ZULU_CORE}" ]] ; then
-  source "${ZULU_CORE}"
-  zulu init
-fi
