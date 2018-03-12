@@ -21,8 +21,8 @@ fi
 
 wait
 
-if [[ -x /usr/local/bin/launch-ckb ]] ; then
-  /usr/local/bin/launch-ckb
-fi
+#if [[ -x /usr/local/bin/launch-ckb ]] ; then
+  #sudo /usr/local/bin/launch-ckb
+#fi
 
 rm "${TMPBG}"
