@@ -94,4 +94,7 @@ bspc config pointer_modifier mod4
 bspc config pointer_action1 move
 bspc config pointer_action2 resize_side
 
+bspc config remove_disabled_monitors false
+bspc config remove_unplugged_monitors false
+
 bspc monitor -d 1 2 3 4 5 6

@@ -16,6 +16,7 @@ scrot "${TMPBG}" && convert "${TMPBG}" -scale 5% -scale 2000% -draw "fill black 
 i3lock -i "${TMPBG}" --no-unlock-indicator --ignore-empty-password -n &
 
 if [[ "${1}" == "suspend" ]] ; then
+  sleep 5
   sudo systemctl suspend
 fi
 
