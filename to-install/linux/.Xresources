@@ -108,10 +108,14 @@ URxvt.thickness           : 5
 URxvt.titleBar            : false
 URxvt.intensityStyles     : false
 
-URxvt*perl-ext-common : default,matcher
+URxvt*perl-ext-common : default,matcher,selection-to-clipboard
 
 URxvt.url-launcher    : chromium-browser
 URxvt.matcher.button  : 1
+
+! copy-pasting
+URxvt.keysym.Control-Shift-V:     perl:pasta:paste
+URxvt.clipboard.autocopy: true
 
 URxvt.transparent:   false
 URxvt.shading:       10
