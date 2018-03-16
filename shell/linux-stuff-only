@@ -28,3 +28,13 @@ esv () {
   fname="$(echo "${_status}" | grep loaded | cut -d'(' -f2 | cut -d';' -f1)"
   sudo nvim "${fname}"
 }
+
+_realopen="$(which open)"
+_open() {
+  if [[ -f "${1}" ]]; then
+    chromium-browser "$@" >/dev/null 2>&1
+  else
+    "${_realopen}" "$@"
+  fi
+}
+alias open=_open
