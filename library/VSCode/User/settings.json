@@ -4,13 +4,14 @@
     "editor.roundedSelection": true,
     "editor.glyphMargin": true,
     "editor.lineNumbers": "off",
-    "editor.rulers": [100],
+    "editor.rulers": [
+        100
+    ],
     "editor.renderIndentGuides": true,
     "editor.formatOnType": true,
     "editor.formatOnSave": true,
     "editor.scrollBeyondLastLine": false,
     "editor.minimap.enabled": false,
-
     "files.exclude": {
         //"**/.tmp": true,
         ".venv": true,
@@ -35,7 +36,6 @@
     "files.trimTrailingWhitespace": true,
     "files.autoSave": "onFocusChange",
     "files.insertFinalNewline": true,
-
     "go.formatOnSave": true,
     "go.autocompleteUnimportedPackages": true,
     "go.lintTool": "gometalinter",
@@ -46,7 +46,6 @@
     "go.vetFlags": [
         "-printfuncs=wrapf,statusf,warnf,infof,debugf,noerrorf,equalf,newexiterrorf,containsf,truef,falsef,equalf,emptyf,failf"
     ],
-
     "python.linting.enabled": true,
     "python.linting.flake8Enabled": true,
     "python.linting.flake8Path": "/usr/local/bin/flake8",
@@ -84,5 +83,7 @@
         "editor.quickSuggestions": false
     },
     "workbench.colorTheme": "One Dark Pro",
-    "window.menuBarVisibility": "toggle"
+    "window.menuBarVisibility": "toggle",
+    // https://github.com/Microsoft/vscode/issues/23991
+    "keyboard.dispatch": "keyCode"
 }
