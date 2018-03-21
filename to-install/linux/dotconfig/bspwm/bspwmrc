@@ -9,6 +9,7 @@ declare -a startonce=(
   "$HOME/.config/polybar/launch.sh"
 
   "nm-applet"
+  "pasystray"
   "nitrogen --restore"
 
   "xmodmap $HOME/.Xmodmap"
