@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# shellcheck disable=SC2164
 pushd "$(dirname "${0}")" > /dev/null
 THISDIR="$(pwd -P)"
 

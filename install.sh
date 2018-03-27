@@ -24,7 +24,7 @@ _maybeLink () {
     local _header
     _header="$(head -n 2 "${_from}")"
     local _headerFiltered
-    _headerFiltered="$(grep -e "needs .\+ (ai)" <(echo "${_header}") || true)"
+    _headerFiltered="$(grep -e "needs .\\+ (ai)" <(echo "${_header}") || true)"
     _debug "Filtered header ${_headerFiltered}"
     if [[ -n "${_headerFiltered}" ]] ; then
       _debug "Found command directive in ${_from}"

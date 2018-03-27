@@ -35,7 +35,7 @@
 	graph = log --oneline --graph
 	ir = !git rebase -i origin/master
 	l = log --decorate --stat
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	lg = log --pretty=lg
 	lol = log --oneline --decorate
 	patch = add -p
 	refresh = !ssh-add -l && STASH=$(git stash) && git fetch && OVERCOMMIT_DISABLE=1 git rebase origin/master && test \"$STASH\" != \"No local changes to save\" && git stash pop || true
@@ -51,6 +51,7 @@
 	thirty = log --oneline -n 30
 	p = add -p
 	unstage = reset HEAD
+	glg = log --graph --pretty=lg
 
 [color]
 	gui = true
@@ -108,3 +109,6 @@
 # vim: noexpandtab
 [interactive]
 	singleKey = true
+[pretty]
+	reflg = %C(red)%h%C(reset) %C(green)%ci%C(reset) %s %C(bold blue)-- %an%C(reset) %C(yellow)(%gd)%C(reset)
+	lg = %C(red)%h%C(reset) %C(green)%ci%C(reset) %s %C(bold blue)-- %an%C(reset)%C(yellow)%d%C(reset)
