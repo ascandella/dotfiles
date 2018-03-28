@@ -108,6 +108,9 @@ URxvt.thickness           : 5
 URxvt.titleBar            : false
 URxvt.intensityStyles     : false
 
+! Disable this mode for control-shift keybindings
+URxvt.iso14755: false
+
 URxvt*perl-ext-common : default,matcher,selection-to-clipboard
 
 URxvt.url-launcher    : chromium-browser
@@ -118,7 +121,7 @@ URxvt.keysym.Control-Shift-V:     perl:pasta:paste
 URxvt.clipboard.autocopy: true
 
 URxvt.transparent:   false
-URxvt.shading:       10
+URxvt.shading:       5
 
 Xautolock.corners     : 00+0
 Xautolock.locker      : ~/.config/i3/lock
