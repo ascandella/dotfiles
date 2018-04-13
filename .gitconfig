@@ -74,10 +74,6 @@
 [help]
 	autocorrect = 5
 
-[url "ssh://gitolite@code.uber.internal/"]
-	insteadOf = git://code.uber.internal/
-[url "ssh://git@github.com/uber-go/"]
-	insteadOf = https://github.com/uber-go/
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
@@ -96,16 +92,6 @@
 	meta = yellow bold
 [commit]
 	gpgsign = true
-[url "ssh://gitolite@code.uber.internal:2222/"]
-	insteadOf = https://code.uber.internal/
-[url "ssh://code.uber.internal/"]
-	insteadOf = https://code.uber.internal/
-[url "ssh://config.uber.internal/"]
-	insteadOf = https://config.uber.internal/
-[http "https://gopkg.in"]
-	followRedirects = true
-[http "https://gopkg.uberinternal.com"]
-	followRedirects = true
 # vim: noexpandtab
 [interactive]
 	singleKey = true

@@ -1,3 +1,0 @@
-[[ -d $HOME/src ]] && export UBER_HOME=$HOME/src
-
-alias ai='ssh ai.dev.uber.com'
