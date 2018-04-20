@@ -83,6 +83,8 @@ if [[ "$(whoami)" == "root" ]] ; then
   _theme='adam1'
 elif [[ "${_host}" =~ "aiden" || "${_host}" == "origin" ]] ; then
   _theme='powerlevel9k'
+elif [[ "${_host}" =~ 'vm$' ]] ; then
+  _theme='skwp'
 else
   if [[ "$(uname -s)" == "Linux" && ! "${_host}" =~ "ai10" ]]; then
     _theme='agnoster'
