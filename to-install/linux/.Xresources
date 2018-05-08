@@ -113,7 +113,7 @@ URxvt.iso14755: false
 
 URxvt*perl-ext-common : default,matcher,selection-to-clipboard
 
-URxvt.url-launcher    : chromium-browser
+URxvt.url-launcher    : firefox
 URxvt.matcher.button  : 1
 
 ! copy-pasting
