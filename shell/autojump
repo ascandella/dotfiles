@@ -1,7 +1,10 @@
-if which brew > /dev/null 2>&1 && [ -f "$(brew --prefix)"/etc/autojump.zsh ]; then
-  . "$(brew --prefix)"/etc/autojump.zsh
-fi
+# Only run if command is not already defined (e.g. "z" is missing)
+if ! command -v j > /dev/null ; then
+  if which brew > /dev/null 2>&1 && [ -f "$(brew --prefix)"/etc/autojump.zsh ]; then
+    . "$(brew --prefix)"/etc/autojump.zsh
+  fi
 
-if [ -f /usr/share/autojump/autojump.zsh ] ; then
-  . /usr/share/autojump/autojump.zsh
+  if [ -f /usr/share/autojump/autojump.zsh ] ; then
+    . /usr/share/autojump/autojump.zsh
+  fi
 fi
