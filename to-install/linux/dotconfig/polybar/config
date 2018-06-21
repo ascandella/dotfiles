@@ -10,14 +10,14 @@
   alert = #bd2c40
 
 [bar/base]
-  font-0 = "DejaVu Sans:size=10;1"
-  font-1 = "Material Icons;1"
-  font-2 = "DejaVuSansMono Nerd Font:1"
+  font-0 = "DejaVu Sans:size=20;1"
+  font-1 = "Material Icons:size=20;1"
+  font-2 = "DejaVuSansMono Nerd Font:size=20;1"
   background = ${colors.background}
   foreground = ${colors.foreground}
 
   ;width = 100%
-  height = 35
+  height = 56
   cursor-scroll = ns-resize
   override-redirect = false
 

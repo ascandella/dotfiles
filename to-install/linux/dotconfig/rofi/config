@@ -1,4 +1,4 @@
 rofi.combi-modi:  drun,window,ssh,run
 rofi.theme: shadow-ai
-rofi.font: MonacoB 12
+rofi.font: MonacoB 20
 rofi.modi: combi

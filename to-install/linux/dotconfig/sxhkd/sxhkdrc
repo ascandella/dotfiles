@@ -4,10 +4,10 @@
 
 # terminal emulator
 super + Return
-  urxvt256c-ml
+  urxvt
 
 alt + Return
-  urxvt256c-ml
+  urxvt
 
 # program launcher
 super + e
