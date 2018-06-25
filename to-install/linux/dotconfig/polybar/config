@@ -12,7 +12,7 @@
   warning = #bd2c40
 
 [bar/base]
-  font-0 = "DejaVuSansMono Nerd Font:size=10;1"
+  font-0 = "DejaVuSansMono Nerd Font:size=8;1"
   font-1 = "Material Icons;1"
   font-2 = "DejaVuSansMono Nerd Font;1"
   background = ${colors.transparent}
@@ -286,7 +286,7 @@ label = %title:0:30:...%
   label-charging-background = ${colors.background}
   label-full-background = ${colors.background}
 
-  label-discharging-padding = 2
+  label-discharging-padding-right = 2
   label-charging-padding-right = 2
   label-full-padding = 2
 
@@ -304,6 +304,7 @@ label = %title:0:30:...%
   ramp-capacity-3 = 
   ramp-capacity-4 = 
   ramp-capacity-foreground = ${colors.foreground-alt}
+  ramp-capacity-padding = 2
 
   animation-charging-0 = 
   animation-charging-1 = 
@@ -314,6 +315,5 @@ label = %title:0:30:...%
   animation-charging-background = ${colors.background}
   animation-charging-padding = 2
   animation-charging-framerate = 750
-  ;label-discharging = Discharging %percentage%%
 
 ; vim:ft=dosini
