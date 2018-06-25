@@ -20,7 +20,7 @@
   dpi = 192
 
   height = 65
-  cursor-scroll = ns-resize
+  cursor-scroll = pointer
   override-redirect = false
 
   bottom = true
