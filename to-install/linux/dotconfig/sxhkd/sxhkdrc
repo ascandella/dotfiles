@@ -20,7 +20,7 @@ super + shift + c
   rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 
 super + l
-  ~/.config/i3/lock
+  betterlockscreen --lock
 
 # make sxhkd reload its configuration files:
 super + Escape

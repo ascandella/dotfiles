@@ -8,6 +8,7 @@
   primary = #ffb52a
   secondary = #e60053
   alert = #bd2c40
+  warning = #bd2c40
 
 [bar/base]
   font-0 = "DejaVu Sans:size=20;1"
@@ -28,7 +29,7 @@
 
   modules-left = xwindow
   modules-center = i3 bspwm
-  modules-right = cpu eth vpn memory date powermenu
+  modules-right = cpu eth vpn memory battery date powermenu
 
   tray-position = right
   tray-padding = 2
@@ -264,5 +265,34 @@ label = %title:0:30:...%
   menu-3-0-exec = menu-open-0
   menu-3-1 =  suspend
   menu-3-1-exec = ~/.config/i3/lock suspend
+
+[module/battery]
+  type = internal/battery
+  full-at=98
+
+  battery = BAT0
+  adapter = AC
+
+  format-charging = <animation-charging> <label-charging>
+  format-discharging = <ramp-capacity> <label-discharging>
+  label-full = 
+
+  ramp-capacity-0 = 
+  ramp-capacity-0-foreground = ${colors.alert}
+  ramp-capacity-1 = 
+  ramp-capacity-1-foreground = ${colors.warning}
+  ramp-capacity-2 = 
+  ramp-capacity-3 = 
+  ramp-capacity-4 = 
+  ramp-capacity-foreground = ${colors.foreground-alt}
+
+  animation-charging-0 = 
+  animation-charging-1 = 
+  animation-charging-2 = 
+  animation-charging-3 = 
+  animation-charging-4 = 
+  animation-charging-foreground = ${colors.foreground-alt}
+  animation-charging-framerate = 750
+  ;label-discharging = Discharging %percentage%%
 
 ; vim:ft=dosini
