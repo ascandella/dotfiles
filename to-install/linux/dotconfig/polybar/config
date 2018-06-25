@@ -1,9 +1,10 @@
 [colors]
   background = ${xrdb:background:#222}
-  ;background = #222
+  transparent = #000f0f0f
+
   background-alt = #444
-  ;foreground = ${xrdb:color7:#222}
-  foreground = #dfdfdf
+  foreground = ${xrdb:color7:#dfdfdf}
+  ;foreground = #dfdfdf
   foreground-alt = #555
   primary = #ffb52a
   secondary = #e60053
@@ -11,40 +12,42 @@
   warning = #bd2c40
 
 [bar/base]
-  font-0 = "DejaVu Sans:size=20;1"
-  font-1 = "Material Icons:size=20;1"
-  font-2 = "DejaVuSansMono Nerd Font:size=20;1"
-  background = ${colors.background}
+  font-0 = "DejaVuSansMono Nerd Font:size=10;1"
+  font-1 = "Material Icons;1"
+  font-2 = "DejaVuSansMono Nerd Font;1"
+  background = ${colors.transparent}
   foreground = ${colors.foreground}
+  dpi = 192
 
-  ;width = 100%
-  height = 56
+  height = 65
   cursor-scroll = ns-resize
   override-redirect = false
 
-  bottom = false
+  bottom = true
   fixed-center = true
-  module-margin = 2
+  module-margin = 0
   ;padding = 10
 
-  modules-left = xwindow
-  modules-center = i3 bspwm
-  modules-right = cpu eth vpn memory battery date powermenu
+  ;modules-left = xwindow
+  modules-left= i3 bspwm
+  modules-right = battery date
 
-  tray-position = right
-  tray-padding = 2
+  ;tray-position = right
+  ;tray-padding = 2
 
-  spacing = 2
-  module-margin-left = 1
-  module-margin-right = 1
+  spacing = 0
+  module-margin-left = 0
+  module-margin-right = 0
   padding-left = 2
-  padding-right = 1
+  padding-right = 2
   clickareas = 35
   border-size = 0
-  ;border-bottom-size = 0
   border-color = #00000000
   line-size = 4
   linecolor = ${colors.background}
+
+  border-bottom-size = 16
+  border-bottom-color = ${colors.transparent}
 
 [bar/ai]
   inherit = bar/base
@@ -79,11 +82,13 @@
   label-focused-padding = 2
 
 [module/bspwm]
+  label-background = ${colors.background}
   type = internal/bspwm
   inherit = wsicons
 
   label-occupied = %icon%
   label-occupied-padding = 2
+  label-occupied-background = ${colors.background}
 
   label-urgent = %icon%!
   label-urgent-background = ${colors.alert}
@@ -91,6 +96,7 @@
 
   label-empty = %icon%
   label-empty-foreground = ${colors.foreground-alt}
+  label-empty-background = ${colors.background}
   label-empty-padding = 2
 
 [module/i3]
@@ -136,8 +142,8 @@ label = %title:0:30:...%
   interval = 2
   format-prefix = " "
   format-prefix-foreground = ${colors.foreground-alt}
-  format-underline = #f90000
-  format = <label> <ramp-coreload>
+# format-underline = #f90000
+  format = <ramp-coreload>
 
   ramp-coreload-0 = ▁
   ramp-coreload-0-font = 2
@@ -169,7 +175,7 @@ label = %title:0:30:...%
   interval = 2
   format-prefix = " "
   format-prefix-foreground = ${colors.foreground-alt}
-  format-underline = #4bffdc
+#format-underline = #4bffdc
   label = %percentage_used%%
 
 [module/eth]
@@ -204,14 +210,16 @@ label = %title:0:30:...%
 
 	date = %%{F#999}%a %e %b%%{F-}
 
-  time = %H:%M
+	time = %H:%M
   time-alt = %H:%M:%S
 
-  format-prefix = " "
-  format-prefix-foreground = ${colors.foreground-alt}
-  format-underline = #0a6cf5
+  ;format-prefix = " "
+  ;format-prefix-foreground = ${colors.foreground-alt}
 
-  label = %date% %time%
+  label = %time%
+  label-background = ${xrdb:color4}
+  label-foreground = ${colors.foreground}
+  label-padding = 2
 
 [module/temperature]
   type = internal/temperature
@@ -236,6 +244,7 @@ label = %title:0:30:...%
   type = custom/menu
 
   format-spacing = 1
+  label-padding = 1
 
   label-open = 
   label-open-foreground = ${colors.secondary}
@@ -273,8 +282,18 @@ label = %title:0:30:...%
   battery = BAT0
   adapter = AC
 
-  format-charging = <animation-charging> <label-charging>
-  format-discharging = <ramp-capacity> <label-discharging>
+  label-discharging-background = ${colors.background}
+  label-charging-background = ${colors.background}
+  label-full-background = ${colors.background}
+
+  label-discharging-padding = 2
+  label-charging-padding-right = 2
+  label-full-padding = 2
+
+  format-charging = <animation-charging><label-charging>
+  format-discharging = <ramp-capacity><label-discharging>
+  ramp-capacity-background = ${colors.background}
+  label-charging ="%percentage%%"
   label-full = 
 
   ramp-capacity-0 = 
@@ -292,6 +311,8 @@ label = %title:0:30:...%
   animation-charging-3 = 
   animation-charging-4 = 
   animation-charging-foreground = ${colors.foreground-alt}
+  animation-charging-background = ${colors.background}
+  animation-charging-padding = 2
   animation-charging-framerate = 750
   ;label-discharging = Discharging %percentage%%
 
