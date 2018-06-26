@@ -10,6 +10,8 @@ declare -a startonce=(
 
   "nm-applet"
   "pasystray"
+  "autokey-gtk"
+
   "nitrogen --restore"
 
   "xmodmap $HOME/.Xmodmap"
@@ -58,7 +60,7 @@ bspc config bottom_padding     80
 bspc config left_padding       0
 bspc config right_padding      0
 bspc config border_width       0
-bspc config window_gap         15
+bspc config window_gap         20
 
 # Borders and gaps
 bspc config borderless_monocle true
