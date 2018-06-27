@@ -1,0 +1,12 @@
+#!/bin/bash
+HDMI_STATUS="$(cat /sys/class/drm/card0/card0-HDMI-A-1/status)"
+
+if [[ "${HDMI_STATUS}" == "disconnected" ]] ; then
+	mons -o
+else
+	mons -e left
+	nitrogen --restore
+fi
+
+# Detect new size for bar
+pkill -USR1 -x polybar
