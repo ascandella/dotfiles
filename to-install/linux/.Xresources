@@ -129,7 +129,7 @@ Xautolock.time        : 15
 Xautolock.cornerdelay : 1
 Xautolock.detectsleeptrue: 1
 
-Xft.dpi: 180
+Xft.dpi: 140
 Xft.hinting: 1
 Xft.antialias: 1
 Xft.autohint: 0
