@@ -15,7 +15,6 @@ declare -a startonce=(
   "nitrogen --restore"
 
   "xmodmap $HOME/.Xmodmap"
-  "setxkbmap -option altwin:swap_alt_win"
 
   "/usr/lib/gnome-settings-daemon/gsd-xsettings"
 
