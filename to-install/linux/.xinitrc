@@ -1,4 +1,4 @@
-xrandr --dpi 192
+#xrandr --dpi 192
 # xrandr --output eDP-1 --scale 1.5x1.5
 
 # xinput --set-prop 13 "libinput Natural Scrolling Enabled" 1
