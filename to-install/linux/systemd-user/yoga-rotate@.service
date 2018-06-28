@@ -1,0 +1,12 @@
+[Unit]
+AssertPathExists=/home/%i/bin
+
+[Service]
+Environment=DISPLAY=:0
+ExecStart=/home/%i/bin/thinkpad_x1_yoga_rotation.py
+Restart=always
+PrivateTmp=true
+NoNewPrivileges=true
+
+[Install]
+WantedBy=default.target
