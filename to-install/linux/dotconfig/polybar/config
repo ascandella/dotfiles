@@ -19,7 +19,7 @@
   foreground = ${colors.foreground}
   dpi = 192
 
-  height = 65
+  height = 48
   cursor-scroll = pointer
   override-redirect = false
 
@@ -80,7 +80,7 @@
   label-focused-background = ${xrdb:color3}
   label-focused-foreground= ${colors.foreground}
   ;label-focused-underline = ${colors.primary}
-  label-focused-padding = 2
+  label-focused-padding = 1
 
 [module/bspwm]
   label-background = ${colors.background}
@@ -88,17 +88,17 @@
   inherit = wsicons
 
   label-occupied = %icon%
-  label-occupied-padding = 2
+  label-occupied-padding = 1
   label-occupied-background = ${colors.background}
 
   label-urgent = %icon%
   label-urgent-background = ${colors.alert}
-  label-urgent-padding = 2
+  label-urgent-padding = 1
 
   label-empty = %icon%
   label-empty-foreground = ${colors.foreground-alt}
   label-empty-background = ${colors.background}
-  label-empty-padding = 2
+  label-empty-padding = 1
 
 [module/i3]
   type = internal/i3

@@ -102,9 +102,16 @@ super + {o,i}
 	bspc node {older,newer} -f; \
 	bspc wm -h on
 
-# focus or send to the given desktop
-super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+# send to the given desktop
+super + shift + {1-9,0}
+	bspc node -d '^{1-9,10}'
+
+# mimic auto_alternate
+super + {_,alt + }{1-9,0}
+	kind={desktop,monitor}; \
+	item="^{1-9,10}"; \
+	bspc query --"$kind"s --"$kind" "$\{item\}.focused" > /dev/null && item=last; \
+	bspc "$kind" -f "$item"
 
 #
 # preselect
