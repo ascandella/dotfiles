@@ -10,14 +10,12 @@ Options:
 """
 
 import dbus
-import sys
 import time
 import subprocess
 import socket
 import logging
 import docopt
 import multiprocessing
-import io
 import os
 import signal
 import atexit

@@ -24,7 +24,7 @@ declare -a startonce=(
 
   # Not sure why this is necessary
   "xrdb -load $HOME/.Xresources"
-  "xautolock"
+  "xautolock -detectsleep -locker 'betterlockscreen -l'"
 )
 
 declare -a nousr1=(
