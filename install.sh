@@ -193,6 +193,7 @@ case "$(uname)" in
     _scanAndLink "to-install/linux/dotconfig" "*" ".config/"
     _scanAndLink "to-install/linux/dotconfig" ".*" ".config/"
     _scanAndLink "to-install/linux/bin" "*" "bin/"
+    _scanAndLink "to-install/linux/systemd-user" "*" ".config/systemd/user/"
     _scanAndLink "library/VSCode/User" "*" ".config/Code/User/"
     ;;
 esac
@@ -214,10 +215,14 @@ if [[ ! -x "${FZF_BIN}" && -x "${FZF_INSTALL}" ]] ; then
 fi
 
 CHANGED_FILES=""
-if [[ -n "${PREVIOUS_DOTFILES:-}" ]] ; then
-  CHANGED_FILES="$(git log --pretty='format:' --name-only "${PREVIOUS_DOTFILES}"..HEAD | sort | uniq)"
+PREVIOUS_SHA="${HOME}/.config/.installsha"
+if [[ -z "${_PREVIOUS_DOTFILES:-}" && -e "${PREVIOUS_SHA}" ]] ; then
+  _PREVIOUS_DOTFILES="$(cat "${PREVIOUS_SHA}")"
 fi
 
+if [[ -n "${_PREVIOUS_DOTFILES:-}" ]] ; then
+  CHANGED_FILES="$(git log --pretty='format:' --name-only "${_PREVIOUS_DOTFILES}"..HEAD | sort | uniq)"
+fi
 
 files_changed () {
   if [[ -z "${1}" ]] ; then
@@ -225,7 +230,7 @@ files_changed () {
     return 1
   fi
 
-  if [[ -z "${PREVIOUS_DOTFILES:-}" ]] ; then
+  if [[ -z "${_PREVIOUS_DOTFILES:-}" ]] ; then
     return 0
   fi
   if [[ "${CHANGED_FILES}" =~ $1 ]] ; then
@@ -263,4 +268,6 @@ fi
 
 echo
 echo -e "${BOLD}Installation complete${RESET}"
+rm -f "${PREVIOUS_SHA}"
+git rev-parse HEAD  > "${PREVIOUS_SHA}"
 popd > /dev/null

@@ -17,7 +17,7 @@ _update() {
   echo -e "To disable, touch ${BOLD}'${OPTOUT}'${RESET}"
   pushd "${DOTFILES}"
   command -v diff-so-fancy >/dev/null || source "${DOTFILES}/shell/path"
-  export PREVIOUS_DOTFILES="$(git rev-parse HEAD)"
+  export _PREVIOUS_DOTFILES="$(git rev-parse HEAD)"
   if ! git fetch ; then
     _internal_error "Unable to 'git fetch'. Check your SSH agent?"
     set +e
@@ -35,7 +35,7 @@ _update() {
     fi
   fi
   ${DOTFILES}/install.sh
-  unset PREVIOUS_DOTFILES
+  unset _PREVIOUS_DOTFILES
 
   touch "${TSFILE}"
   set +e
