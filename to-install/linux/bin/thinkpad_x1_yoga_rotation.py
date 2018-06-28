@@ -58,6 +58,8 @@ def sensor_proxy_signal_handler(source, changedProperties, invalidatedProperties
             for device in wacom:
                 cmd_and_log(["xsetwacom", "--set", device, "rotate",
                              wacom_orientation_map[orientation]])
+            subprocess.call(
+                ["pkill", "-USR1", "-x", "polybar"])
 
 # toggle trackpoint and touchpad when changing from laptop to tablet mode anc vice versa
 
