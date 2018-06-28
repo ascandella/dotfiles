@@ -75,7 +75,6 @@ bspc config focus_follows_pointer true
 
 # Misc
 bspc config split_ratio 0.62
-#bspc config auto_cancel true
 
 # Split to right
 bspc config initial_polarity second_child
