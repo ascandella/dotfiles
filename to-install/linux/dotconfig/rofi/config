@@ -1,4 +1,6 @@
-rofi.combi-modi:  drun,window,ssh,run
+rofi.combi-modi:  window,drun,ssh,run
 rofi.theme: shadow-ai
-rofi.font: MonacoB 12
+rofi.font: DejaVuSans Mono 12
 rofi.modi: combi
+rofi.line-margin: 2
+rofi.hide-scrollbar: true
