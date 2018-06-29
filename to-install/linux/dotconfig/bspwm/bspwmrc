@@ -28,7 +28,7 @@ declare -a startonce=(
 )
 
 declare -a nousr1=(
-  xautolock greenclip dropbox nm-applet nitrogen
+  xautolock greenclip dropbox nm-applet nitrogen compton
 )
 
 for cmd in "${startonce[@]}" ; do

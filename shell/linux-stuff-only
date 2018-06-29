@@ -3,6 +3,7 @@ if [ "$(uname -s)" != "Linux" ] ; then
 fi
 
 alias uponly='sudo apt-get install --only-upgrade'
+alias sysu='systemctl --user'
 
 jt () {
   if [ -z "${1}" ] ; then
