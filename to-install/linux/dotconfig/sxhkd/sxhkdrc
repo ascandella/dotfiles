@@ -19,7 +19,7 @@ alt + e
 super + shift + c
   rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 
-super + shift + f
+super + shift + apostrophe
   firefox
 
 super + l
