@@ -32,7 +32,7 @@ imap <silent> <A-Right> <Esc>:wincmd l<CR>a
 "
 let mapleader = ","
 
-map <F2> :GundoToggle<CR>
+map <F2> :Goyo<CR>
 
 map <leader>- :call NERDComment(0,"toggle")<C-m><Paste>
 map <C-b> :call NERDComment(0,"toggle")<C-m><Paste>

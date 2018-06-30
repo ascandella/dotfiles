@@ -23,9 +23,9 @@ set smartindent
 set autoindent
 
 " Turn on line numbering first
-set number
+" set number
 " Then relative numbering
-set relativenumber
+" set relativenumber
 
 set ruler
 " Hide tool bar for mvim / gvim

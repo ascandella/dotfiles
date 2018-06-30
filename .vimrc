@@ -66,6 +66,9 @@ if hostname != minimal
   " autopep8
   Plug 'tell-k/vim-autopep8'
 
+  " Focused editing
+  Plug 'junegunn/goyo.vim'
+
 
   " Undo tree
   Plug 'sjl/gundo.vim'
