@@ -8,6 +8,8 @@ let g:deoplete#sources#go#pointer = 1
 let g:deoplete#sources#go#use_cache = 1
 let g:deoplete#sources#go#json_directory = '~/.cache/deoplete/go/$GOOS_$GOARCH'
 
+set completeopt=menu,longest
+
 " inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 inoremap <silent><expr> <TAB>
     \ pumvisible() ? "\<C-n>" :
