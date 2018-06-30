@@ -51,6 +51,7 @@
 
 [bar/ai]
   inherit = bar/base
+  wm-restack = bspwm
 
 [wsicons]
   ws-icon-0 = 1;
