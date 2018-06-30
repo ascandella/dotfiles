@@ -111,7 +111,7 @@ URxvt.intensityStyles     : false
 ! Disable this mode for control-shift keybindings
 URxvt.iso14755: false
 
-URxvt*perl-ext-common : default,matcher,selection-to-clipboard
+URxvt*perl-ext-common : default,matcher,selection-to-clipboard,font-size
 
 URxvt.url-launcher    : firefox
 URxvt.matcher.button  : 1
