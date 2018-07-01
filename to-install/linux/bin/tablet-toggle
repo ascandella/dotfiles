@@ -1,0 +1,15 @@
+#!/bin/bash
+
+ABSOLUTE_UNIT="yoga-rotate@aiden"
+
+set -ex
+
+ACTION="start"
+MESSAGE="Enabled tablet mode"
+if systemctl --user is-active --quiet "${ABSOLUTE_UNIT}" ; then
+  ACTION="stop"
+  MESSAGE="Disabled tablet mode"
+fi
+
+systemctl --user "${ACTION}" "${ABSOLUTE_UNIT}"
+notify-send "${MESSAGE}"
