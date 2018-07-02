@@ -118,6 +118,13 @@ def cleanup(touch_and_track, wacom):
         cmd_and_log(["xsetwacom", "--set", device, "rotate", "none"])
 
 
+def first_matching(lines, needle):
+    for line in lines:
+        if needle in line:
+            return line
+    return None
+
+
 def main(options):
 
     # logging
@@ -141,11 +148,13 @@ def main(options):
     lines = subprocess.check_output(
         ['xinput', '--list', '--name-only']).decode().split('\n')
 
-    stylus = next(x for x in lines if "stylus" in x)
-    log.info("found stylus %s", stylus)
+    stylus = first_matching(lines, "stylus")
+    if stylus:
+        log.info("found stylus %s", stylus)
 
-    finger_touch = next(x for x in lines if "Finger touch" in x)
-    log.info("found finger touch %s", finger_touch)
+    finger_touch = first_matching(lines, "Finger touch")
+    if finger_touch:
+        log.info("found finger touch %s", finger_touch)
 
     # it's crucial to have trackpoints first in this list. Otherwise enabling/disabling doesn't work as expected and touchpad just stays enabled always
     touch_and_track = [x for x in lines if "TrackPoint" in x] + \
@@ -157,9 +166,10 @@ def main(options):
         target=monitor_acpi_events, args=(touch_and_track,))
     acpi_process.start()
 
-    proximity_process = multiprocessing.Process(
-        target=monitor_stylus_proximity, args=(stylus, finger_touch))
-    proximity_process.start()
+    if stylus and finger_touch:
+        proximity_process = multiprocessing.Process(
+            target=monitor_stylus_proximity, args=(stylus, finger_touch))
+        proximity_process.start()
 
     atexit.register(cleanup, touch_and_track, wacom)
 
