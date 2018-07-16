@@ -32,7 +32,7 @@
   modules-left= i3 bspwm
   modules-right = battery date
 
-  ;tray-position = right
+  tray-position = right
   ;tray-padding = 2
 
   spacing = 0
