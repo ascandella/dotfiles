@@ -7,3 +7,4 @@ rofi.line-margin: 2
 rofi.hide-scrollbar: true
 rofi.fixed-num-lines: false
 rofi.yoffset: -300
+rofi.show-icons: true

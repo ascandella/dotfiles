@@ -9,7 +9,7 @@ declare -a startonce=(
   "$HOME/.config/polybar/launch.sh"
 
   "nm-applet"
-  "pasystray"
+  # "pasystray"
   "autokey-gtk"
 
   "nitrogen --restore"
@@ -46,7 +46,7 @@ done
 
 dunst &
 
-# xsetroot -cursor_name left_ptr &
+xsetroot -cursor_name left_ptr &
 
 #padding
 bspc config top_padding        0
