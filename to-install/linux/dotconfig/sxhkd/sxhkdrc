@@ -114,10 +114,12 @@ super + {o,i}
 
 # send to the given desktop
 super + shift + {1-9,0}
-	bspc node -d '^{1-9,10}' -f
+	bspc node -d \
+	{1st,2nd,3rd,main,files,apps,terms,conf,webapps,media} -f
 
 super + {_,alt + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+	bspc {desktop -f,node -d} \
+	{1st,2nd,3rd,main,files,apps,terms,conf,webapps,media}
 
 #
 # preselect
@@ -154,3 +156,5 @@ super + alt + shift + {h,t,n,s}
 # move a floating window
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# vim: set noexpandtab

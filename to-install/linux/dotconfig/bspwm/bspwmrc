@@ -9,7 +9,7 @@ declare -a startonce=(
   "$HOME/.config/polybar/launch.sh"
 
   "nm-applet"
-  # "pasystray"
+  "onboard"
   "autokey-gtk"
 
   "nitrogen --restore"
@@ -28,7 +28,7 @@ declare -a startonce=(
 )
 
 declare -a nousr1=(
-  xautolock greenclip dropbox nm-applet nitrogen compton autokey-gtk
+  xautolock greenclip dropbox nm-applet nitrogen compton autokey-gtk onboard
 )
 
 for cmd in "${startonce[@]}" ; do
@@ -88,7 +88,21 @@ bspc config pointer_action2 resize_side
 bspc config remove_disabled_monitors true
 bspc config remove_unplugged_monitors true
 
-bspc monitor -d 1 2 3 4 5 6
+# Multi-monitor setup
+HDMI_STATUS="$(cat /sys/class/drm/card0/card0-HDMI-A-1/status)"
+DP_STATUS="$(cat /sys/class/drm/card0/card0-DP-2/status)"
+
+if [[ "${HDMI_STATUS}" == "disconnected" && "${DP_STATUS}" == "disconnected" ]] ; then
+  bspc monitor eDP-1 -d 1st 2nd 3rd main files apps
+else
+  bspc config -m eDP-1 bottom_padding 0
+  bspc monitor eDP-1 -d main files apps
+  if [[ "${DP_STATUS}" == "connected" ]]; then
+    bspc monitor DP-2 -d 1st 2nd 3rd
+  else
+    bspc monitor HDMI-1 -d 1st 2nd 3rd
+  fi
+fi
 
 # Application-specific configuration
 
