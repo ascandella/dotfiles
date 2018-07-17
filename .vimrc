@@ -48,6 +48,9 @@ if hostname != minimal
   " Say no more
   Plug 'tpope/vim-fugitive'
 
+  " Org mode
+  Plug 'jceb/vim-orgmode'
+
   " Code completion
   if has("python3")
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
