@@ -52,6 +52,7 @@
 [bar/ai]
   inherit = bar/base
   wm-restack = bspwm
+  monitor = ${env:MONITOR:}
 
 [wsicons]
   ws-icon-0 = 1st;
