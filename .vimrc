@@ -50,6 +50,8 @@ if hostname != minimal
 
   " Org mode
   Plug 'jceb/vim-orgmode'
+  " Dependency of org mode
+  Plug 'tpope/vim-speeddating'
 
   " Code completion
   if has("python3")
@@ -71,7 +73,6 @@ if hostname != minimal
 
   " Focused editing
   Plug 'junegunn/goyo.vim'
-
 
   " Undo tree
   Plug 'sjl/gundo.vim'
