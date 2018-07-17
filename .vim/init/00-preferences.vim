@@ -84,3 +84,4 @@ set smartcase
 
 " set this before all files load so they can reference it
 let mapleader = ","
+let maplocalleader = "'"
