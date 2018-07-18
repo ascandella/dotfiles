@@ -1,15 +1,15 @@
 " Colours, please
 set t_Co=256
 
-set colorcolumn=+0
-" hi ColorColumn ctermbg=234
-
 set cursorline
 " hi CursorLine ctermbg=234
 
 " colorscheme tomorrow_night_bright
 " colorscheme molokai
 colorscheme lucario
+
+set colorcolumn=+0
+highlight ColorColumn ctermbg=235 guibg=#2c2d27
 
 " hi CursorColumn cterm=NONE ctermbg=234
 " hi Folded ctermbg=234
