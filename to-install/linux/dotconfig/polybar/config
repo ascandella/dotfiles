@@ -52,7 +52,7 @@
 [bar/ai]
   inherit = bar/base
   wm-restack = bspwm
-  monitor = ${env:MONITOR:eDP-1}
+  monitor-fallback = ${env:MONITOR:eDP-1}
 
 [wsicons]
   ws-icon-0 = 1st;
