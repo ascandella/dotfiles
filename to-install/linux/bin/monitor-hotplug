@@ -1,4 +1,4 @@
 #!/bin/bash
 
 autorandr
-$HOME/.config/bspwm/bspwmrc
+/home/aiden/.config/bspwm/bspwmrc
