@@ -95,7 +95,7 @@
 *.color15:      #ffffff
 
 
-URxvt.font: xft:DejaVuSansMono Nerd Font:size=10
+URxvt.font: xft:DejaVuSansMono Nerd Font:size=9
 URxvt.cursorBlink  :0
 
 URxvt.lineSpace           : 0
@@ -129,7 +129,7 @@ Xautolock.time        : 15
 Xautolock.cornerdelay : 1
 Xautolock.detectsleeptrue: 1
 
-Xft.dpi: 140
+Xft.dpi: 120
 Xft.hinting: 1
 Xft.antialias: 1
 Xft.autohint: 0
