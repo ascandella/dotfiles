@@ -57,11 +57,11 @@
 
 
 # Increase volume
-"pactl set-sink-volume @DEFAULT_SINK@ +1000"
+"pactl set-sink-volume @DEFAULT_SINK@ +2000"
    XF86AudioRaiseVolume
 
 # Decrease volume
-"pactl set-sink-volume @DEFAULT_SINK@ -1000"
+"pactl set-sink-volume @DEFAULT_SINK@ -2000"
    XF86AudioLowerVolume
 
 # Mute volume
@@ -76,7 +76,7 @@
 
 # Spotify / Media Keys
 
-#Play/Pause
+# Play/Pause
 "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
  XF86AudioPlay
 
