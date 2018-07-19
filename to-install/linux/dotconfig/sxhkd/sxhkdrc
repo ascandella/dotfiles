@@ -115,11 +115,11 @@ super + {o,i}
 # send to the given desktop
 super + shift + {1-9,0}
 	bspc node -d \
-	{1st,2nd,3rd,main,files,apps,terms,conf,webapps,media} -f
+	{1st,2nd,3rd,main,files,apps,unused,terms,conf,webapps} -f
 
 super + {_,alt + }{1-9,0}
 	bspc {desktop -f,node -d} \
-	{1st,2nd,3rd,main,files,apps,terms,conf,webapps,media}
+	{1st,2nd,3rd,main,files,apps,unused,terms,conf,webapps}
 
 #
 # preselect

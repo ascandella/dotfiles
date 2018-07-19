@@ -93,13 +93,13 @@ HDMI_STATUS="$(cat /sys/class/drm/card0/card0-HDMI-A-1/status)"
 DP_STATUS="$(cat /sys/class/drm/card0/card0-DP-2/status)"
 
 if [[ "${HDMI_STATUS}" == "disconnected" && "${DP_STATUS}" == "disconnected" ]] ; then
-  bspc monitor eDP-1 -d 1st 2nd 3rd main files apps
+  bspc monitor eDP-1 -d 1st 2nd 3rd main files apps terms conf
 else
   bspc monitor eDP-1 -d main files apps
   if [[ "${DP_STATUS}" == "connected" ]]; then
-    bspc monitor DP-2 -d 1st 2nd 3rd
+    bspc monitor DP-2 -d 1st 2nd 3rd terms conf
   else
-    bspc monitor HDMI-1 -d 1st 2nd 3rd
+    bspc monitor HDMI-1 -d 1st 2nd 3rd terms conf
   fi
 fi
 
