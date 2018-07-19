@@ -3,6 +3,7 @@
     "editor.tabSize": 2,
     "editor.roundedSelection": true,
     "editor.glyphMargin": true,
+    "editor.fontSize": 10,
     "editor.lineNumbers": "off",
     "editor.rulers": [
         100
@@ -48,33 +49,51 @@
     ],
     "python.linting.enabled": true,
     "python.linting.flake8Enabled": true,
-    "python.linting.flake8Path": "/usr/local/bin/flake8",
     "python.linting.pylintEnabled": false,
     "python.linting.lintOnSave": true,
     "[python]": {
         "editor.tabSize": 4
     },
-
     //"python.formatting.provider": "yapf",
-
     "vim.useCtrlKeys": true,
     "vim.enableNeovim": true,
-
-    "vim.otherModesKeyBindings": [{
-        "before": ["n"],
-        "after": ["k"]
-    }, {
-        "before": ["t"],
-        "after": ["j"]
-    }, {
-        "before": ["s"],
-        "after": ["l"]
-    }, {
-        "before": [",", "w"],
-        "after": [":", "w"]
-    }],
-
-    "window.zoomLevel": 0,
+    "vim.otherModesKeyBindings": [
+        {
+            "before": [
+                "n"
+            ],
+            "after": [
+                "k"
+            ]
+        },
+        {
+            "before": [
+                "t"
+            ],
+            "after": [
+                "j"
+            ]
+        },
+        {
+            "before": [
+                "s"
+            ],
+            "after": [
+                "l"
+            ]
+        },
+        {
+            "before": [
+                ",",
+                "w"
+            ],
+            "after": [
+                ":",
+                "w"
+            ]
+        }
+    ],
+    "window.zoomLevel": 1,
     "workbench.iconTheme": "vs-minimal",
     "[cpp]": {
         "editor.quickSuggestions": false
@@ -82,8 +101,8 @@
     "[c]": {
         "editor.quickSuggestions": false
     },
-    "workbench.colorTheme": "One Dark Pro",
     "window.menuBarVisibility": "toggle",
     // https://github.com/Microsoft/vscode/issues/23991
-    "keyboard.dispatch": "keyCode"
+    "keyboard.dispatch": "keyCode",
+    "workbench.colorTheme": "One Dark Pro"
 }
