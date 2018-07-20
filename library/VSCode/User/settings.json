@@ -57,7 +57,7 @@
     //"python.formatting.provider": "yapf",
     "vim.useCtrlKeys": true,
     "vim.enableNeovim": true,
-    "vim.otherModesKeyBindings": [
+    "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": [
                 "n"
