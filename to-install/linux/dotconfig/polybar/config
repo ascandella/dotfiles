@@ -33,20 +33,21 @@
   modules-right = battery date
 
   tray-position = right
-  ;tray-padding = 2
+  tray-background = ${colors.background}
+  tray-padding-right = 2
 
   spacing = 0
   module-margin-left = 0
   module-margin-right = 0
-  padding-left = 2
-  padding-right = 2
+  padding-left = 0
+  padding-right = 0
   clickareas = 35
   border-size = 0
   border-color = #00000000
   line-size = 4
   linecolor = ${colors.background}
 
-  border-bottom-size = 16
+  border-bottom-size = 0
   border-bottom-color = ${colors.transparent}
 
 [bar/ai]
