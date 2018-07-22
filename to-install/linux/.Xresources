@@ -95,7 +95,7 @@
 *.color15:      #ffffff
 
 
-URxvt.font: xft:DejaVuSansMono Nerd Font:size=9
+URxvt.font: xft:Ubuntu Mono Nerd Font:size=12
 URxvt.cursorBlink  :0
 
 URxvt.lineSpace           : 0

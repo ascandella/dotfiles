@@ -104,5 +104,6 @@
     "window.menuBarVisibility": "toggle",
     // https://github.com/Microsoft/vscode/issues/23991
     "keyboard.dispatch": "keyCode",
-    "workbench.colorTheme": "One Dark Pro"
+    "workbench.colorTheme": "One Dark Pro",
+    "editor.fontFamily": "'Ubuntu Mono', 'monospace', monospace, 'Droid Sans Fallback'"
 }
