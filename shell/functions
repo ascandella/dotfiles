@@ -30,6 +30,11 @@ gcm () {
   git commit -m "$*"
 }
 
+# no-verify version of gcm
+gcmn () {
+  git commit -n -m "$*"
+}
+
 # Change to root with SSH agent etc
 alias sus='sudo -HE -s'
 
