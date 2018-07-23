@@ -1,4 +1,4 @@
 #!/bin/bash
 
-autorandr
+autorandr --change
 /home/aiden/.config/bspwm/bspwmrc
