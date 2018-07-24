@@ -1,4 +1,11 @@
 #!/bin/bash
 
+set -ex
+
+if ! pgrep -x bspwm ; then
+  exit 0
+fi
+
+
 autorandr --change
 /home/aiden/.config/bspwm/bspwmrc

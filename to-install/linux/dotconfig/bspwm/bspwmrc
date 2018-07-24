@@ -28,18 +28,19 @@ declare -a startonce=(
 )
 
 declare -a nousr1=(
-  xautolock greenclip dropbox nm-applet nitrogen compton autokey-gtk onboard
+  sxhkd xautolock greenclip dropbox nm-applet nitrogen compton autokey-gtk onboard
 )
 
 for cmd in "${startonce[@]}" ; do
   split=($cmd)
   basecmd="$(basename ${split[0]})"
-  if pgrep -x "${basecmd}" ; then
+  if ! pgrep -x "${basecmd}" >/dev/null ; then
     # xautolock doesn't handle usr1 properly
-    if [[ ! "${nousr1[@]}" =~ "${basecmd}" ]] ; then
-      pkill -USR1 -x "${basecmd}"
-    fi
-  else
+    # if [[ ! "${nousr1[@]}" =~ "${basecmd}" ]] ; then
+    #  pkill -USR1 -x "${basecmd}"
+    # fi
+ # else
+   # echo "Command: '${cmd}'"
     ${cmd} &
   fi
 done
@@ -89,21 +90,18 @@ bspc config remove_disabled_monitors true
 bspc config remove_unplugged_monitors true
 
 # Multi-monitor setup
-HDMI_STATUS="$(cat /sys/class/drm/card0/card0-HDMI-A-1/status)"
-DP_STATUS="$(cat /sys/class/drm/card0/card0-DP-3/status)"
+MONITORS=($(bspc query -M --names))
 
-if [[ "${HDMI_STATUS}" != "connected" && "${DP_STATUS}" != "connected" ]] ; then
-  bspc monitor eDP-1 -d 1st 2nd 3rd terms conf
+if [[ ${#MONITORS} == "1" ]] ; then
+  # Single monitor setup
+  bspc monitor -d 1st 2nd 3rd terms conf
 else
-  bspc monitor eDP-1 -d main files apps
-  if [[ "${DP_STATUS}" == "connected" ]]; then
-    bspc monitor DP-1-1 -d 1st 2nd 3rd terms conf
-  else
-    bspc monitor HDMI-1 -d 1st 2nd 3rd terms conf
-  fi
+  bspc monitor ${MONITORS[0]} -d main files apps
+  bspc monitor ${MONITORS[1]} -d 1st 2nd 3rd terms conf
 fi
 
 # Application-specific configuration
 
 # Float the pulse audio volume control dialog
 bspc rule -a Pavucontrol state=floating
+bspc rule -a Gimp state=floating
