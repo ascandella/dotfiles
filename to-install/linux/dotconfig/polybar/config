@@ -77,31 +77,31 @@
   ws-icon-18 = 19;
   ws-icon-default = ♟
 
-  label-mode-padding = 1
+  label-mode-padding = 2
 
   label-focused = %icon%
-  label-focused-background = ${xrdb:color3}
-  label-focused-foreground= ${colors.foreground}
+  label-focused-underline = ${xrdb:color3}
+  ;label-focused-foreground= ${colors.background}
   ;label-focused-underline = ${colors.primary}
-  label-focused-padding = 1
+  label-focused-padding = 2
 
 [module/bspwm]
-  label-background = ${colors.background}
+  ;label-background = ${colors.background}
   type = internal/bspwm
   inherit = wsicons
 
   label-occupied = %icon%
-  label-occupied-padding = 1
-  label-occupied-background = ${colors.background}
+  label-occupied-padding = 2
+  ;label-occupied-background = ${colors.background}
 
   label-urgent = %icon%
   label-urgent-background = ${colors.alert}
-  label-urgent-padding = 1
+  label-urgent-padding = 2
 
   label-empty = %icon%
   label-empty-foreground = ${colors.foreground-alt}
-  label-empty-background = ${colors.background}
-  label-empty-padding = 1
+  ;label-empty-background = ${colors.background}
+  label-empty-padding = 2
 
 [module/i3]
   type = internal/i3
@@ -222,7 +222,7 @@ label = %title:0:30:...%
 
   label = %time%
   label-background = ${xrdb:color4}
-  label-foreground = ${colors.foreground}
+  label-foreground = ${colors.background}
   label-padding = 2
 
 [module/temperature]
@@ -286,9 +286,9 @@ label = %title:0:30:...%
   battery = BAT0
   adapter = AC
 
-  label-discharging-background = ${colors.background}
-  label-charging-background = ${colors.background}
-  label-full-background = ${colors.background}
+  ;label-discharging-background = ${colors.background}
+  ;label-charging-background = ${colors.background}
+  ;label-full-background = ${colors.background}
 
   label-discharging-padding-right = 2
   label-charging-padding-right = 2
@@ -296,7 +296,7 @@ label = %title:0:30:...%
 
   format-charging = <animation-charging><label-charging>
   format-discharging = <ramp-capacity><label-discharging>
-  ramp-capacity-background = ${colors.background}
+  ;ramp-capacity-background = ${colors.background}
   label-charging ="%percentage%%"
   label-full = 
 
@@ -316,7 +316,7 @@ label = %title:0:30:...%
   animation-charging-3 = 
   animation-charging-4 = 
   animation-charging-foreground = ${colors.foreground-alt}
-  animation-charging-background = ${colors.background}
+  ;animation-charging-background = ${colors.background}
   animation-charging-padding = 2
   animation-charging-framerate = 750
 
