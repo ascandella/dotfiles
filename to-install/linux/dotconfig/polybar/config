@@ -12,14 +12,14 @@
   warning = #bd2c40
 
 [bar/base]
-  font-0 = "DejaVuSansMono Nerd Font:size=8;1"
+  font-0 = "Ubuntu Mono Nerd Font:size=10;1"
   font-1 = "Material Icons;1"
-  font-2 = "DejaVuSansMono Nerd Font;1"
+  ;font-2 = "DejaVuSansMono Nerd Font;1"
   background = ${colors.transparent}
   foreground = ${colors.foreground}
-  dpi = 192
+  dpi = 140
 
-  height = 48
+  height = 42
   cursor-scroll = pointer
   override-redirect = false
 
@@ -30,7 +30,7 @@
 
   ;modules-left = xwindow
   modules-left= i3 bspwm
-  modules-right = battery date
+  modules-right = tabletmenu volume battery date
 
   tray-position = right
   tray-background = ${colors.background}
@@ -320,4 +320,49 @@ label = %title:0:30:...%
   animation-charging-padding = 2
   animation-charging-framerate = 750
 
-; vim:ft=dosini
+[module/volume]
+  type = internal/alsa
+
+  master-soundcard = default
+  speaker-soundcard = default
+  headphone-soundcard = default
+
+  master-mixer = Master
+  mapped = true
+
+  format-volume = <label-volume>
+  label-volume = ""
+  label-volume-foreground = ${root.foreground}
+
+  format-muted-foreground = ${colors.foreground-alt}
+  label-muted = ""
+  label-volume-background = ${xrdb:color6}
+  label-muted-background = ${xrdb:background}
+
+  label-volume-padding = 2
+  label-muted-padding = 2
+
+
+[module/tabletmenu]
+  type = custom/menu
+  format-background = ${colors.background}
+	label-background = ${colors.background}
+  label-open = ""
+
+  label-close = ""
+  label-close-foreground = ${xrdb:color4}
+
+  format-spacing = 1
+  format-padding = 2
+  label-separator = " "
+
+  menu-0-0 = ""
+  menu-0-0-exec = onboard
+
+  menu-0-1 = ""
+  menu-0-1-exec = tablet-toggle
+
+  menu-0-2 = ""
+  menu-0-2-exec = firefox
+
+; vim:ft=dosini:expandtab
