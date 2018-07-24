@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -e
+
+$HOME/bin/usb-keyboard-in
+$HOME/.config/polybar/launch.sh
+$HOME/.config/bspwm/configure-monitors

@@ -89,17 +89,7 @@ bspc config pointer_action2 resize_side
 bspc config remove_disabled_monitors true
 bspc config remove_unplugged_monitors true
 
-# Multi-monitor setup
-MONITORS=($(bspc query -M --names))
-
-if [[ ${#MONITORS} == "1" ]] ; then
-  # Single monitor setup
-  bspc monitor -d 1st 2nd 3rd terms conf
-else
-  bspc monitor ${MONITORS[0]} -d main files apps
-  bspc monitor ${MONITORS[1]} -d 1st 2nd 3rd terms conf
-fi
-
+$(dirname $0)/configure-monitors
 # Application-specific configuration
 
 # Float the pulse audio volume control dialog

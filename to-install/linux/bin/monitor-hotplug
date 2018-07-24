@@ -8,4 +8,5 @@ fi
 
 
 autorandr --change
-/home/aiden/.config/bspwm/bspwmrc
+/home/aiden/.config/polybar/launch.sh
+/home/aiden/.config/bspwm/configure-monitors

@@ -32,7 +32,7 @@ super + Escape
 
 # Reload the whole desktop
 super + shift + period
-  ~/.config/bspwm/bspwmrc
+  ~/bin/hotplug-display
 
 # Rotate windows 90 degrees
 super + shift + r
