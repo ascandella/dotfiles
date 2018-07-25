@@ -1,12 +1,16 @@
 #!/usr/bin/env sh
 
+if pgrep -x polybar ; then
+  pkill -x polybar -USR1 &
+  exit 0
+fi
+
 # Terminate already running bar instances
 killall -q polybar
 
 # Wait until the processes have been shut down
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
-# Launch bar1 and bar2
 MONITOR=""
 # If we're on my Thinkpad, pin Polybar to the builtin display, as opposed to the
 # (possibly-connected) "primary monitor"
