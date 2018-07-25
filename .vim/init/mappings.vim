@@ -131,6 +131,8 @@ nnoremap <BS> :bd<CR>
 " nmap <Tab> >>
 nmap <S-Tab> <<
 
+nnoremap <F1> :GundoToggle<cr>
+
 " To dump all mappings to a file (from:
 " https://stackoverflow.com/questions/7642746/is-there-any-way-to-view-the-currently-mapped-keys-in-vim)
 "
