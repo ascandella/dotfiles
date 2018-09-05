@@ -19,7 +19,7 @@ declare -a startonce=(
 
   # Clipboard history
   "greenclip daemon"
-  "dropbox start"
+  "nextcloud"
 
   # Not sure why this is necessary
   "xrdb -load $HOME/.Xresources"
