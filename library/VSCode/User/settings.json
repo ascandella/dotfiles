@@ -105,5 +105,6 @@
     // https://github.com/Microsoft/vscode/issues/23991
     "keyboard.dispatch": "keyCode",
     "workbench.colorTheme": "One Dark Pro",
-    "editor.fontFamily": "'Ubuntu Mono', 'monospace', monospace, 'Droid Sans Fallback'"
+    "editor.fontFamily": "'Ubuntu Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "workbench.activityBar.visible": false
 }
