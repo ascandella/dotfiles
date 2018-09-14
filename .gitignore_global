@@ -10,3 +10,4 @@
 .venv/
 /*.gem
 .ipynb_checkpoints
+__pycache__/
