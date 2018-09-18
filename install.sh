@@ -167,10 +167,11 @@ _scanAndLink () {
 }
 
 mkdir -p "${HOME}/src"
-mkdir -p "${HOME}/bin"
+mkdir -p "${HOME}/.local/bin"
 
 _scanAndLink
 _scanAndLink "dotconfig" "*" ".config/"
+_scanAndLink "bin" "*" ".local/bin/"
 
 case "$(uname)" in
   Darwin)
@@ -183,7 +184,7 @@ case "$(uname)" in
     fi
     _scanAndLink "to-install/osx"
     # No macOS binaries yet
-    _scanAndLink "to-install/osx/bin" "*" "bin/"
+    _scanAndLink "to-install/osx/bin" "*" ".local/bin/"
     _scanAndLink "to-install/osx/appsupport/ubersicht/widgets" "*" "Library/Application Support/Übersicht/widgets/"
     _scanAndLink "library/VSCode/User" "*" "Library/Application Support/Code/User/"
     _setupOsXDefaults
@@ -192,21 +193,16 @@ case "$(uname)" in
     _scanAndLink "to-install/linux"
     _scanAndLink "to-install/linux/dotconfig" "*" ".config/"
     _scanAndLink "to-install/linux/dotconfig" ".*" ".config/"
-    _scanAndLink "to-install/linux/bin" "*" "bin/"
+    _scanAndLink "to-install/linux/bin" "*" ".local/bin/"
     _scanAndLink "to-install/linux/systemd-user" "*" ".config/systemd/user/"
     _scanAndLink "to-install/linux/autokey" "*" ".config/autokey/data/"
     _scanAndLink "library/VSCode/User" "*" ".config/Code/User/"
     ;;
 esac
 
-mkdir -p "${HOME}/bin"
 mkdir -p "${HOME}/src/go"
-
 mkdir -p "${HOME}/.config"
 
-for file in "${THISDIR}"/bin/* ; do
-  _maybeLink "${file}" "${HOME}/bin/$(basename "${file}")"
-done
 
 FZF_INSTALL="${HOME}/.fzf/install"
 FZF_BIN="${HOME}/.fzf/bin/fzf"
