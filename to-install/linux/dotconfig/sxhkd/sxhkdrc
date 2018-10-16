@@ -20,7 +20,7 @@ super + shift + c
 super + shift + apostrophe
   firefox
 
-super + l
+super + shift + l
   betterlockscreen --lock
 
 # make sxhkd reload its configuration files:
