@@ -3,7 +3,7 @@
     "editor.tabSize": 2,
     "editor.roundedSelection": true,
     "editor.glyphMargin": true,
-    "editor.fontSize": 10,
+    "editor.fontSize": 12,
     "editor.lineNumbers": "off",
     "editor.rulers": [
         100
@@ -93,7 +93,7 @@
             ]
         }
     ],
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 0,
     "workbench.iconTheme": "vs-minimal",
     "[cpp]": {
         "editor.quickSuggestions": false
