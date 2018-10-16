@@ -136,35 +136,32 @@ custom_cursor_colors: false
 
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
-# Colors (Hybrid)
+# Colors (Pencil Dark)
 colors:
-  # Default colors
+ # Default Colors
   primary:
-    background: '0x27292c'
-    foreground: '0xd0d2d1'
-
-  # Normal colors
+   background: '0x212121'
+   foreground: '0xf1f1f1'
+ # Normal colors
   normal:
-    black:   '0x35383b'
-    red:     '0xb05655'
-    green:   '0x769972'
-    yellow:  '0xe1a574'
-    blue:    '0x7693ac'
-    magenta: '0x977ba0'
-    cyan:    '0x749e99'
-    white:   '0x848b92'
-
-  # Bright colors
+   black:   '0x212121'
+   red:     '0xc30771'
+   green:   '0x10a778'
+   yellow:  '0xa89c14'
+   blue:    '0x008ec4'
+   magenta: '0x523c79'
+   cyan:    '0x20a5ba'
+   white:   '0xe0e0e0'
+ # Bright colors
   bright:
-    black:   '0x484c52'
-    red:     '0xd27c7b'
-    green:   '0xdffebe'
-    yellow:  '0xf0d189'
-    blue:    '0x96b1c9'
-    magenta: '0xbfa5c7'
-    cyan:    '0x9fc9c3'
-    white:   '0xfcf7e2'
-
+   black:   '0x212121'
+   red:     '0xfb007a'
+   green:   '0x5fd7af'
+   yellow:  '0xf3e430'
+   blue:    '0x20bbfc'
+   magenta: '0x6855de'
+   cyan:    '0x4fb8cc'
+   white:   '0xf1f1f1'
   # Indexed Colors
   #
   # The indexed colors include all colors from 16 to 256.
