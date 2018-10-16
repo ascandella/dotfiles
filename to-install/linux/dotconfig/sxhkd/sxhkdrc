@@ -4,10 +4,7 @@
 
 # terminal emulator
 super + Return
-  urxvt
-
-alt + Return
-  urxvt
+  alacritty
 
 # program launcher
 super + e
@@ -32,7 +29,7 @@ super + Escape
 
 # Reload the whole desktop
 super + shift + period
-  ~/bin/hotplug-display
+  ~/.local/bin/hotplug-display
 
 # Rotate windows 90 degrees
 super + shift + r
