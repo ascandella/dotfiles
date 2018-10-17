@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sudo grub-reboot 2
+sudo systemctl restart

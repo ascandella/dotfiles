@@ -8,5 +8,7 @@ fi
 
 
 autorandr --change
+sleep 2
+nitrogen --restore
 /home/aiden/.config/polybar/launch.sh
 /home/aiden/.config/bspwm/configure-monitors

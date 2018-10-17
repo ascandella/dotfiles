@@ -193,6 +193,7 @@ case "$(uname)" in
     _scanAndLink "to-install/linux"
     _scanAndLink "to-install/linux/dotconfig" "*" ".config/"
     _scanAndLink "to-install/linux/dotconfig" ".*" ".config/"
+    _scanAndLink "to-install/linux/applications" "*" ".local/share/applications/"
     _scanAndLink "to-install/linux/bin" "*" ".local/bin/"
     _scanAndLink "to-install/linux/systemd-user" "*" ".config/systemd/user/"
     _scanAndLink "to-install/linux/autokey" "*" ".config/autokey/data/"
