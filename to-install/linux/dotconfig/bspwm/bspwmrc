@@ -7,6 +7,7 @@ declare -a startonce=(
 
   "compton --config $HOME/.config/compton/compton.conf"
   "$HOME/.config/polybar/launch.sh"
+  "dunst"
 
   "nm-applet"
   "autokey-gtk"
