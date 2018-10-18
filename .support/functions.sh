@@ -13,6 +13,7 @@ _die() {
 
 _skip() {
   [[ -n "${1}" ]] || _die "Skip called without argument"
+  [[ -z "${_DOTFILES_VERBOSE}" ]] && return
   echo -e -n "Skipping ${GRAY_BG}$(basename "${1}")${RESET}"
   shift
   set +u

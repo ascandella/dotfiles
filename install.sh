@@ -8,6 +8,14 @@ pushd "$(dirname "${0}")" > /dev/null
 THISDIR="$(pwd -P)"
 DOTFILES_DEBUG="${DOTFILES_DEBUG:-}"
 
+_DOTFILES_VERBOSE="${VERBOSE:-}"
+if [[ "$#" > 0 ]] ; then
+  if [[ "${1}" == "-v" || "${1}" == "--verbose" ]] ; then
+    _DOTFILES_VERBOSE="1"
+  fi
+fi
+export _DOTFILES_VERBOSE
+
 SUPPORT="${THISDIR}/.support"
 for supp in "${SUPPORT}"/* ; do
   # shellcheck disable=SC1090
@@ -79,7 +87,9 @@ fi
 _scanAndLink () {
   local inputDir="${THISDIR}"
   [[ -n "${1:-}" ]] && inputDir="${inputDir}/${1}"
-  echo -e "Scanning ${BLUE_BG}${inputDir}${RESET}"
+  if [[ -n "${_DOTFILES_VERBOSE}" ]] ; then
+    echo -e "Scanning ${BLUE_BG}${inputDir}${RESET}"
+  fi
   if [[ ! -d ${inputDir} ]] ; then
     _internal_error "No such directory: ${inputDir}"
     return
@@ -163,7 +173,10 @@ _scanAndLink () {
       _maybeLink "${source}" "${dest}"
     fi
   done
-  echo
+
+  if [[ -n "${_DOTFILES_VERBOSE}" ]] ; then
+    echo
+  fi
 }
 
 mkdir -p "${HOME}/src"
