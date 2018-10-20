@@ -293,8 +293,8 @@ label = %title:0:30:...%
   format-charging = <animation-charging><label-charging>
   format-discharging = <ramp-capacity><label-discharging>
   ;ramp-capacity-background = ${colors.background}
-  label-discharging = %{A1:notify-send $(battery-time):}%percentage%% %{A}
-  label-charging = %{A1:notify-send $(battery-time):}%percentage%% %{A}
+  label-discharging = %{A1:notify-send "$(battery-time)" "":}%percentage%% %{A}
+  label-charging = %{A1:notify-send "$(battery-time full)" "":}%percentage%% %{A}
   label-full = 
 
   ramp-capacity-0 = 
