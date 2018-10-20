@@ -89,4 +89,4 @@ bspc rule -a Pavucontrol state=floating
 bspc rule -a Gimp state=floating
 
 # Make sure desktop 3 floats
-float-bspwm-3
+float-bspwm-workspace
