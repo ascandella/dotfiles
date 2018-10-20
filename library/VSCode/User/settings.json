@@ -55,6 +55,7 @@
     "[python]": {
         "editor.tabSize": 4
     },
+    "window.titleBarStyle": "custom",
     //"python.formatting.provider": "yapf",
     "vim.useCtrlKeys": true,
     "vim.enableNeovim": true,
