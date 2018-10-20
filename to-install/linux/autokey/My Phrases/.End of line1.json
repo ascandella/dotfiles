@@ -1,9 +1,7 @@
 {
     "type": "phrase",
     "description": "End of line",
-    "modes": [
-        3
-    ],
+    "modes": [],
     "usageCount": 0,
     "prompt": false,
     "omitTrigger": false,
