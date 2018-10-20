@@ -25,6 +25,7 @@ declare -a startonce=(
   # Not sure why this is necessary
   "xrdb -load $HOME/.Xresources"
   "xautolock -detectsleep -locker 'betterlockscreen -l'"
+  "$HOME/.local/bin/float-bspwm-3"
 )
 
 declare -a nousr1=(
@@ -34,15 +35,7 @@ declare -a nousr1=(
 for cmd in "${startonce[@]}" ; do
   split=($cmd)
   basecmd="$(basename ${split[0]})"
-  if ! pgrep -x "${basecmd}" >/dev/null ; then
-    # xautolock doesn't handle usr1 properly
-    # if [[ ! "${nousr1[@]}" =~ "${basecmd}" ]] ; then
-    #  pkill -USR1 -x "${basecmd}"
-    # fi
- # else
-   # echo "Command: '${cmd}'"
-    ${cmd} &
-  fi
+  ${cmd} &
 done
 
 dunst &
