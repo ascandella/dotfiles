@@ -25,7 +25,6 @@ declare -a startonce=(
   # Not sure why this is necessary
   "xrdb -load $HOME/.Xresources"
   "xautolock -detectsleep -locker 'betterlockscreen -l'"
-  "$HOME/.local/bin/float-bspwm-3"
 )
 
 declare -a nousr1=(
@@ -88,3 +87,6 @@ $(dirname $0)/configure-monitors
 # Float the pulse audio volume control dialog
 bspc rule -a Pavucontrol state=floating
 bspc rule -a Gimp state=floating
+
+# Make sure desktop 3 floats
+float-bspwm-3
