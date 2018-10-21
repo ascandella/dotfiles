@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Set up natural scrolling on touchpad
+xinput --set-prop 14 "libinput Natural Scrolling Enabled" 1
+
