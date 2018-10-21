@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Set numlock on
+numlockx &
+

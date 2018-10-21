@@ -84,6 +84,18 @@ if [[ -n "${_has_readlink_f}" ]] ; then
   _readlink="readlink -f"
 fi
 
+_alreadyinstalled=()
+_markInstalled () {
+  _alreadyinstalled=("${_alreadyinstalled[@]}" "${1}")
+  echo "Already installed "${_alreadyinstalled[@]}""
+}
+_installedByUs () {
+  if [[ "${_alreadyinstalled[@]}" =~ "${1}" ]] ; then
+    echo "${1} already installed, skipping"
+  fi
+  return 0
+}
+
 _scanAndLink () {
   local inputDir="${THISDIR}"
   [[ -n "${1:-}" ]] && inputDir="${inputDir}/${1}"
@@ -117,6 +129,10 @@ _scanAndLink () {
     local source="${file}"
     local dest
     dest="${destbase}$(basename "${file}")"
+
+    if _installedByUs "${dest}" ; then
+      _debug "Skipping already installed ${dest}"
+    fi
 
     if [[ -h "${dest}" ]] ; then
       _debug "Possibly cleaning up symlink ${dest}"
@@ -159,6 +175,7 @@ _scanAndLink () {
           backup="${dest}.bak"
           echo -e "${RED_FG}Overwriting previous file. Saved to ${backup}${RESET}"
           mv "${dest}" "${backup}"
+          _markInstalled "${dest}"
         else
           if [[ -d "${dest}" ]] ; then
             rm -r "${dest}"
@@ -167,6 +184,7 @@ _scanAndLink () {
           fi
         fi
         ln -sf "${source}" "${dest}"
+        _markInstalled "${dest}"
       fi
     else
       _debug "Normal link: ${source} -> ${dest}"
@@ -185,6 +203,18 @@ mkdir -p "${HOME}/.local/bin"
 _scanAndLink
 _scanAndLink "dotconfig" "*" ".config/"
 _scanAndLink "bin" "*" ".local/bin/"
+
+
+_hostname="$(hostname)"
+_hostdir="to-install/_byhost/${_hostname}"
+if [[ -n "${_DOTFILES_VERBOSE}" ]] ; then
+  echo -e "Installing ${RED_FG}host '${_hostname}${RESET} specific files"
+  echo
+  if [[ -d "${_hostdir}" ]] ; then
+    _scanAndLink "${_hostdir}" ".*"
+  fi
+  echo
+fi
 
 case "$(uname)" in
   Darwin)
