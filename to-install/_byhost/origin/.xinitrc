@@ -8,6 +8,7 @@ fi
 
 # Multimedia keys
 xbindkeys
+# God's keyboard layout
 setxkbmap dvorak
 setxkbmap -option altwin:swap_alt_win
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
