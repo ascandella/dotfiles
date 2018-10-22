@@ -25,9 +25,10 @@ done
 _maybeLink () {
   local _from="${1}"
   local _to="${2}"
+  local _user="${3}"
   if [[ -d ${_from} ]] ; then
     _debug echo "Not searching for command directive for directory"
-    _printAndLink "${_from}" "${_to}"
+    _printAndLink "${_from}" "${_to}" "${_user}"
   elif ! [[ -e "${_to}" ]] ; then
     local _header
     _header="$(head -n 2 "${_from}")"
@@ -42,12 +43,12 @@ _maybeLink () {
       _debug "${_from} needs command ${_cmd:-}"
       if [[ -n "${_cmd}" ]] && command -v "${_cmd}" >/dev/null ; then
         _debug "Command ${GRAY_BG}${_cmd:-}${RESET} found, linking ${_to}"
-        _printAndLink "${_from}" "${_to}"
+        _printAndLink "${_from}" "${_to}" "${_user}"
       else
         echo -e "Command ${BOLD}${RED_FG}${_cmd}${RESET} not found, skipping ${GRAY_BG}${_to}${RESET}"
       fi
     else
-      _printAndLink "${_from}" "${_to}"
+      _printAndLink "${_from}" "${_to}" "${_user}"
     fi
   else
     _debug "${GRAY_BG}${_to}${RESET} already exists"
@@ -108,7 +109,16 @@ _scanAndLink () {
   fi
   local file
 
-  local destbase="${HOME}/${3:-}"
+  local user="${4:-}"
+  if [[ -n "${user}" && -d "${3}" ]] ; then
+    local destbase="${3}"
+    echo
+    echo -e "${BOLD}${RED_FG}${destbase}${RESET} is outside of home path${RESET}"
+    echo "This may require sudo"
+    echo
+  else
+    local destbase="${HOME}/${3:-}"
+  fi
   readonly destbase
   # Cleanup old symlinks
   local existingLink
@@ -156,7 +166,7 @@ _scanAndLink () {
         echo -e "${BOLD}${RED_FG}${dest}${RESET} appears to be a broken symmlink. ${BOLD}Removing...${RESET}"
         skipMe="yass"
         unlink "${dest}"
-        _maybLink "${source}" "${dest}"
+        _maybLink "${source}" "${dest}" "${user}"
         continue
       fi
       # Only try to diff files
@@ -188,7 +198,7 @@ _scanAndLink () {
       fi
     else
       _debug "Normal link: ${source} -> ${dest}"
-      _maybeLink "${source}" "${dest}"
+      _maybeLink "${source}" "${dest}" "${user}"
     fi
   done
 
@@ -241,6 +251,7 @@ case "$(uname)" in
     _scanAndLink "to-install/linux/systemd-user" "*" ".config/systemd/user/"
     _scanAndLink "to-install/linux/autokey" "*" ".config/autokey/data/"
     _scanAndLink "library/VSCode/User" "*" ".config/Code/User/"
+    _scanAndLink "to-install/linux/udev" "*" "/etc/udev/rules.d/" "root"
     ;;
 esac
 
