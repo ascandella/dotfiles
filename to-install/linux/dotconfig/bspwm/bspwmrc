@@ -2,10 +2,6 @@
 
 #[ -x ~/.xinitrc ] && ~/.xinitrc
 
-# Host-specific xresources
-if [[ -f "${HOME}/.Xresources.local" ]] ; then
-  xrdb -merge "${HOME}/.Xresources.local"
-fi
 
 declare -a startonce=(
   "sxhkd -m -1"
@@ -42,7 +38,12 @@ for cmd in "${startonce[@]}" ; do
   ${cmd} &
 done
 
+# Host-specific xresources
+if [[ -f "${HOME}/.Xresources.local" ]] ; then
+  xrdb -merge "${HOME}/.Xresources.local"
+fi
 
+# Notification manager
 dunst &
 
 xsetroot -cursor_name left_ptr &
