@@ -39,3 +39,15 @@ _open() {
   fi
 }
 alias open=_open
+
+if command -v xclip >/dev/null ; then
+  _realxclip="$(which xclip)"
+  _xclip() {
+    if [[ "$#" -gt 0 ]] ; then
+      "${_realxclip}" "$@"
+    else
+      "${_realxclip}" -selection clipboard
+    fi
+  }
+  alias xclip=_xclip
+fi
