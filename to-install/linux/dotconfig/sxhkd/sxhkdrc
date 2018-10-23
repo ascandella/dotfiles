@@ -10,16 +10,19 @@ super + Return
 super + e
   rofi -show combi
 
-alt + e
-  rofi -show combi
-
 # Clipboard
 super + shift + c
   rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 
+# Quick launch browser
 super + shift + apostrophe
   firefox
 
+# Launch that file launcher
+super + shift + n
+  nautilus
+
+# Lack and suspend
 super + shift + l
   betterlockscreen --suspend
 
