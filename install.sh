@@ -258,7 +258,6 @@ esac
 mkdir -p "${HOME}/src/go"
 mkdir -p "${HOME}/.config"
 
-
 FZF_INSTALL="${HOME}/.fzf/install"
 FZF_BIN="${HOME}/.fzf/bin/fzf"
 if [[ ! -x "${FZF_BIN}" && -x "${FZF_INSTALL}" ]] ; then

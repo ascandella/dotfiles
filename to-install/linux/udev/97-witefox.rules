@@ -1,4 +1,5 @@
-ACTION="add", SUBSYSTEMS=="usb", ATTR{idVendor}=="1c11", ATTR{idProduct}=="b04d", GOTO="usb_xmodmap_auto"
-
-LABEL="usb_xmodmap_auto"
-RUN+="/usr/bin/su aiden -c '/home/aiden/.local/bin/bind-dvorak'"
+ACTION="add" \
+, SUBSYSTEMS=="usb" \
+, ATTR{idVendor}=="1c11" \
+, ATTR{idProduct}=="b04d" \
+, RUN+="/usr/bin/su aiden -c '/home/aiden/.local/bin/bind-dvorak'"
