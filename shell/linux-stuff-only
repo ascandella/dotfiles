@@ -30,13 +30,8 @@ esv () {
   sudo nvim "${fname}"
 }
 
-_realopen="$(which open)"
 _open() {
-  if [[ -f "${1}" ]]; then
-    chromium-browser "$@" >/dev/null 2>&1
-  else
-    "${_realopen}" "$@"
-  fi
+  (nautilus "$@" &) > /dev/null 2>&1
 }
 alias open=_open
 
