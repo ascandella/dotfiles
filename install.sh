@@ -251,7 +251,8 @@ case "$(uname)" in
     _scanAndLink "to-install/linux/systemd-user" "*" ".config/systemd/user/"
     _scanAndLink "to-install/linux/autokey" "*" ".config/autokey/data/"
     _scanAndLink "library/VSCode/User" "*" ".config/Code/User/"
-    _scanAndLink "to-install/linux/udev" "*" "/etc/udev/rules.d/" "root"
+    # Temporarily disabled for debugging
+    #_scanAndLink "to-install/linux/udev" "*" "/etc/udev/rules.d/" "root"
     ;;
 esac
 
