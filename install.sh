@@ -253,6 +253,7 @@ case "$(uname)" in
     _scanAndLink "library/VSCode/User" "*" ".config/Code/User/"
     # Temporarily disabled for debugging
     #_scanAndLink "to-install/linux/udev" "*" "/etc/udev/rules.d/" "root"
+    _scanAndLink "to-install/linux/x11" "*" "/etc/X11/xorg.conf.d/" "root"
     ;;
 esac
 
