@@ -111,5 +111,6 @@
     "workbench.colorTheme": "Material Theme Darker High Contrast",
     "window.zoomLevel": 1,
     "telemetry.enableTelemetry": false,
-    "window.titleBarStyle": "custom"
+    "window.titleBarStyle": "custom",
+    "editor.wordWrapColumn": 100
 }
