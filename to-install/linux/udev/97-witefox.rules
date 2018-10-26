@@ -1,2 +1,1 @@
-ACTION=="add", SUBSYSTEMS=="usb", ATTRS{idVendor}=="1c11", ATTRS{idProduct}=="b04d",
-, RUN+="/usr/bin/su aiden -c '/home/aiden/.local/bin/bind-dvorak'"
+ACTION=="add", SUBSYSTEMS=="usb", ATTRS{idVendor}=="1c11", ATTRS{idProduct}=="b04d", RUN+="/usr/bin/su aiden -c '/home/aiden/.local/bin/bind-dvorak'"
