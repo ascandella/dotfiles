@@ -102,15 +102,15 @@
     "[c]": {
         "editor.quickSuggestions": false
     },
-    "window.menuBarVisibility": "toggle",
     // https://github.com/Microsoft/vscode/issues/23991
     "keyboard.dispatch": "keyCode",
     "editor.fontFamily": "'Ubuntu Mono', 'monospace', monospace, 'Droid Sans Fallback'",
     "workbench.activityBar.visible": false,
     "materialTheme.autoApplyIcons": true,
-    "workbench.colorTheme": "Material Theme Darker High Contrast",
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 0,
     "telemetry.enableTelemetry": false,
     "window.titleBarStyle": "custom",
-    "editor.wordWrapColumn": 100
+    "editor.wordWrapColumn": 100,
+    "breadcrumbs.enabled": true,
+    "workbench.colorTheme": "Material Theme Darker"
 }

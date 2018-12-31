@@ -1,12 +1,17 @@
 " Colours, please
 set t_Co=256
 
+if (has("termguicolors"))
+  set termguicolors
+endif
+
 set cursorline
 " hi CursorLine ctermbg=234
 
 " colorscheme tomorrow_night_bright
 " colorscheme molokai
-colorscheme lucario
+set background=dark
+colorscheme hybrid_reverse
 
 set colorcolumn=+0
 highlight ColorColumn ctermbg=235 guibg=#2c2d27

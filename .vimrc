@@ -101,7 +101,8 @@ Plug 'itchyny/lightline.vim'
 Plug 'majutsushi/tagbar'
 
 " Theme
-Plug 'nanotech/jellybeans.vim'
+" Plug 'nanotech/jellybeans.vim'
+Plug 'kristijanhusak/vim-hybrid-material'
 "# "Format code with one button press" - https://github.com/Chiel92/vim-autoformat
 
 Plug 'scrooloose/nerdcommenter'
