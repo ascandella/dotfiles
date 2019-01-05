@@ -36,6 +36,11 @@ if has("autocmd")
 endif
 
 "
+" Autopairs
+"
+let g:AutoPairsFlyMode = 1
+
+"
 " YouCompleteMe -- autocompletion
 "
 let g:ycm_min_num_of_chars_for_completion = 3

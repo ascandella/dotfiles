@@ -71,6 +71,9 @@ if hostname != minimal
   " autopep8
   Plug 'tell-k/vim-autopep8'
 
+  " Auto pairs
+  Plug 'jiangmiao/auto-pairs'
+
   " Focused editing
   Plug 'junegunn/goyo.vim'
 
@@ -101,12 +104,11 @@ Plug 'itchyny/lightline.vim'
 Plug 'majutsushi/tagbar'
 
 " Theme
-" Plug 'nanotech/jellybeans.vim'
-Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'kaicataldo/material.vim'
+
 "# "Format code with one button press" - https://github.com/Chiel92/vim-autoformat
 
 Plug 'scrooloose/nerdcommenter'
-
 
 Plug 'airblade/vim-gitgutter'
 

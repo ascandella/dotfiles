@@ -8,10 +8,9 @@ endif
 set cursorline
 " hi CursorLine ctermbg=234
 
-" colorscheme tomorrow_night_bright
-" colorscheme molokai
 set background=dark
-colorscheme hybrid_reverse
+let g:material_theme_style = 'dark'
+colorscheme material
 
 set colorcolumn=+0
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
