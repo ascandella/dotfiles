@@ -95,7 +95,7 @@ bspc rule -a Gimp state=floating
 bspc config border_radius 10
 
 # Make sure desktop 3 floats
-float-bspwm-workspace
+float-bspwm-workspace &
 
 # Host-specific xresources
 if [[ -f "${HOME}/.Xresources.local" ]] ; then
