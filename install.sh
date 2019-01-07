@@ -110,12 +110,10 @@ _scanAndLink () {
   local file
 
   local user="${4:-}"
+  local needsSudo=""
   if [[ -n "${user}" && -d "${3}" ]] ; then
     local destbase="${3}"
-    echo
-    echo -e "${BOLD}${RED_FG}${destbase}${RESET} is outside of home path${RESET}"
-    echo "This may require sudo"
-    echo
+    needsSudo="yes"
   else
     local destbase="${HOME}/${3:-}"
   fi
@@ -176,6 +174,13 @@ _scanAndLink () {
           # extremely same
           continue
         fi
+      fi
+
+      if [[ -n "${needsSudo}" ]] ; then
+        echo
+        echo -e "${BOLD}${RED_FG}${destbase}${RESET} is outside of home path${RESET}"
+        echo "This may require sudo"
+        echo
       fi
 
       echo -e "${GRAY_BG}$(file "${dest}")${RESET}"
