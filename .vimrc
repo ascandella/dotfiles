@@ -118,8 +118,6 @@ endif
 
 call plug#end()
 
-call pathogen#infect()
-
 runtime! init/**.vim
 
 silent! source ~/.vimrc.local
