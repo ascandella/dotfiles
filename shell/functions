@@ -41,3 +41,8 @@ alias sus='sudo -HE -s'
 rmbrokensym () {
   find . -maxdepth 1 -type l ! -exec test -e {} \; -delete
 }
+
+# Ag in vim
+va () {
+  vim +"Ag $@"
+}
