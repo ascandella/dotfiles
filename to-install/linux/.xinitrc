@@ -19,6 +19,9 @@ if [[ -d "${HOME}/.xinitrc.local" ]] ; then
   source "${HOME}/.xinitrc.local"
 fi
 
+# Auto-set blue light filter at night
+blugon &
+
 exec bspwm
 
 # vim: ft=sh
