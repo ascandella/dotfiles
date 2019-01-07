@@ -1,7 +1,4 @@
-" call Neomake on save for every file
-call neomake#configure#automake({
-  \ 'TextChanged': {},
-  \ 'InsertLeave': {},
-  \ 'BufWritePost': {'delay': 0},
-  \ 'BufWinEnter': {},
-  \ }, 500)
+let g:ale_fixers = {
+      \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+      \ 'python': ['black', 'isort'],
+      \ }
