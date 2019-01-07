@@ -37,6 +37,9 @@ if hostname != minimal
   Plug 'rust-lang/rust.vim'
   Plug 'racer-rust/vim-racer'
 
+  " Updated Python syntax
+  Plug 'vim-python/python-syntax'
+
   " rubby :(
   Plug 'vim-ruby/vim-ruby'
 
