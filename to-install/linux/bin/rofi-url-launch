@@ -1,12 +1,15 @@
 #!/bin/bash
 
 REDDIT="https://www.reddit.com"
-SITES="Politics\nHacker News\nReddit"
+SITES="GMail\nPolitics\nHacker News\nReddit"
 
 site="$(echo -e "${SITES}" | rofi -dmenu -i -p "web:")"
 
 if [[ -n "${site}" ]] ; then
   case "${site}" in
+    GMail)
+      firefox "https://mail.google.com/mail/u/0/"
+      ;;
     Politics)
       firefox "${REDDIT}/r/politics"
       ;;
