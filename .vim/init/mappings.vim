@@ -39,19 +39,9 @@ map <C-b> :call NERDComment(0,"toggle")<C-m><Paste>
 
 " FZF mappings
 map <Leader>, :Files<CR>
-map <Leader>eg :GFiles?<CR>
 map <Leader>f :Lines<CR>
 map <Leader>n :Buffers<CR>
 map <Leader>h :History<CR>
-
-" Remap gitgutter leader-h
-nmap <Leader>mp <Plug>GitGutterPreviewHunk
-nmap <Leader>mr <Plug>GitGutterPreviewHunk
-nmap <Leader>ms <Plug>GitGutterStageHunk
-nmap <Leader>mu <Plug>GitGutterUndoHunk
-
-" Git mappings
-map <Leader>g :Gblame<CR>
 
 " Various other leader mappings
 map <Leader>w :w<CR>

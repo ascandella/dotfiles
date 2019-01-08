@@ -1,4 +1,3 @@
-let g:neomake_sh_shellcheck_maker = {
-  \ 'exe': 'shellcheck',
-  \ 'args': ['-s',  'bash'],
-  \ }
+" Disable jumping in shell, which is annoying for
+" `case` statements
+au Filetype sh let b:AutoPairs = {"{": "}", "[": "]"}
