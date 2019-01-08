@@ -9,7 +9,7 @@ THISDIR="$(pwd -P)"
 DOTFILES_DEBUG="${DOTFILES_DEBUG:-}"
 
 _DOTFILES_VERBOSE="${VERBOSE:-}"
-if [[ "$#" > 0 ]] ; then
+if [[ "$#" -gt 0 ]] ; then
   if [[ "${1}" == "-v" || "${1}" == "--verbose" ]] ; then
     _DOTFILES_VERBOSE="1"
   fi
@@ -88,10 +88,10 @@ fi
 _alreadyinstalled=()
 _markInstalled () {
   _alreadyinstalled=("${_alreadyinstalled[@]}" "${1}")
-  echo "Already installed "${_alreadyinstalled[@]}""
+  echo "Already installed \"${_alreadyinstalled[*]}\""
 }
 _installedByUs () {
-  if [[ "${_alreadyinstalled[@]}" =~ "${1}" ]] ; then
+  if [[ "${_alreadyinstalled[*]}" =~ ${1} ]] ; then
     echo "${1} already installed, skipping"
   fi
   return 0
@@ -219,7 +219,6 @@ _scanAndLink
 _scanAndLink "dotconfig" "*" ".config/"
 _scanAndLink "bin" "*" ".local/bin/"
 
-
 _hostname="$(hostname)"
 _hostdir="to-install/_byhost/${_hostname}"
 if [[ -n "${_DOTFILES_VERBOSE}" ]] ; then
@@ -247,6 +246,7 @@ case "$(uname)" in
     _scanAndLink "library/VSCode/User" "*" "Library/Application Support/Code/User/"
     _setupOsXDefaults
     ;;
+
   Linux)
     _scanAndLink "to-install/linux"
     _scanAndLink "to-install/linux/dotconfig" "*" ".config/"
@@ -255,10 +255,9 @@ case "$(uname)" in
     _scanAndLink "to-install/linux/bin" "*" ".local/bin/"
     _scanAndLink "to-install/linux/systemd-user" "*" ".config/systemd/user/"
     _scanAndLink "to-install/linux/autokey" "*" ".config/autokey/data/"
-    _scanAndLink "library/VSCode/User" "*" ".config/Code/User/"
-    # Temporarily disabled for debugging
     _scanAndLink "to-install/linux/udev" "*" "/etc/udev/rules.d/" "root"
     _scanAndLink "to-install/linux/x11" "*" "/etc/X11/xorg.conf.d/" "root"
+    _scanAndLink "library/VSCode/User" "*" ".config/Code/User/"
     ;;
 esac
 
