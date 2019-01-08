@@ -5,7 +5,7 @@ if type code-oss >/dev/null ; then
   fi
 else
   # Don't redefine on linux
-  if ! type code >/dev/null ; then
+  if ! command -v code >/dev/null ; then
     function code {
       VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args "$@"
     }
