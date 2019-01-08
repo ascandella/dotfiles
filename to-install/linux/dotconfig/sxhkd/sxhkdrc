@@ -10,6 +10,10 @@ super + Return
 super + e
   rofi -show combi
 
+# frequently browsed website
+super + shift + e
+  rofi-url-launch
+
 # Clipboard
 super + shift + c
   rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
