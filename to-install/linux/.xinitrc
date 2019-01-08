@@ -20,7 +20,7 @@ if [[ -d "${HOME}/.xinitrc.local" ]] ; then
 fi
 
 # Auto-set blue light filter at night
-blugon --interval 10 &
+blugon --interval 10 --backend scg &
 
 exec bspwm
 
