@@ -1,17 +1,19 @@
 #!/bin/bash
 
-REDDIT="https://www.reddit.com/r"
-SITES="Politics\nHacker News\n"
+REDDIT="https://www.reddit.com"
+SITES="Politics\nHacker News\nReddit"
 
 site="$(echo -e "${SITES}" | rofi -dmenu -i -p "web:")"
 
 if [[ -n "${site}" ]] ; then
   case "${site}" in
     Politics)
-      firefox "${REDDIT}/politics"
+      firefox "${REDDIT}/r/politics"
       ;;
     "Hacker News")
       firefox "https://hckrnews.com"
       ;;
+    Reddit)
+      firefox "${REDDIT}"
     esac
 fi
