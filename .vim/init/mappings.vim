@@ -58,9 +58,7 @@ map <Leader>w :w<CR>
 
 map <Leader>b  :bd<CR>
 map <Leader>cl :ccl<CR>
-"map <Leader>q  :q<CR>
 
-map <Leader>l :setlocal spell spelllang=en_us<cr>
 noremap <silent> <Leader>r :setlocal spell!<cr>
 
 " Send selected text to clipper
