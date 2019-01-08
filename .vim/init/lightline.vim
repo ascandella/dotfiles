@@ -6,7 +6,9 @@ let g:lightline = {
   \ 'component_function': {
   \   'mode': 'LightlineMode',
   \ },
-	\ }
+  \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
+  \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
+  \ }
 
 
 function! LightlineMode()
