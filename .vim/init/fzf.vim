@@ -22,13 +22,8 @@ let g:fzf_action = {
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
 
-" Default fzf layout
-" " - down / up / left / right
-let g:fzf_layout = { 'down': '~50%' }
-"
-" " In Neovim, you can set up fzf window using a Vim command
-let g:fzf_layout = { 'window': 'enew' }
-" let g:fzf_layout = { 'window': '-tabnew' }
+" In Neovim, you can set up fzf window using a Vim command
+let g:fzf_layout = { 'window': '15split enew' }
 
 command! -bang Colors
   \ call fzf#vim#colors({'left': '15%', 'options': '--reverse --margin 30%,0'}, <bang>0)
@@ -48,4 +43,3 @@ inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
 
 " [Buffers] Jump to the existing window if possible
 let g:fzf_buffers_jump = 1
-

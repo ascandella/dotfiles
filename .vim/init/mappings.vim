@@ -49,7 +49,7 @@ map <Leader>w :w<CR>
 map <Leader>b  :bd<CR>
 map <Leader>cl :ccl<CR>
 
-noremap <silent> <Leader>r :setlocal spell!<cr>
+noremap <silent> <Leader>rs :setlocal spell!<cr>
 
 " Send selected text to clipper
 " Todo make sure this is compatible with new clip system
