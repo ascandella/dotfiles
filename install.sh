@@ -147,7 +147,13 @@ _scanAndLink () {
       _maybeCleanupSymlink "${dest}"
 
       local realdest
+      set +e
       realdest="$(${_readlink} "${dest}")"
+      set -e
+      if [[ -z "${realdest}" ]] ; then
+        _skip "${dest}"
+        continue
+      fi
       local realsource="${source}"
       if [[ -h "${source}" && -n "${_has_readlink_f}" ]] ; then
         realsource="$(${_readlink} "${source}")"

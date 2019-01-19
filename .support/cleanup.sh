@@ -7,7 +7,13 @@ _maybeCleanupSymlink () {
   fi
   local dest="${1}"
   local realdest
+  set +e
   realdest="$(readlink "${dest}")"
+  set -e
+  if [[ -z "${realdest}" ]] ; then
+    echo "Bad symlink: ${1}"
+    return
+  fi
   # Check for relative symlinks
   if [[ "${realdest}" =~ ^"${BASETHISDIR}"/.* ]] ; then
     realdest="${HOME}/${realdest}"
