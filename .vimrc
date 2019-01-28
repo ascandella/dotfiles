@@ -93,6 +93,9 @@ if hostname != minimal
 
   " File browsing
   Plug 'tpope/vim-vinegar'
+
+  " Automatically set current directory (project) when loading file
+  Plug 'paroxayte/autocd.vim'
 endif
 
 " Mac-only stuff
