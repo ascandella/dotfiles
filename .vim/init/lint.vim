@@ -8,4 +8,7 @@ let g:ale_fixers = {
       \ 'python': ['black', 'isort'],
       \ }
 
+" We're not using nightly, so disable the no-codegen thing for now
+let g:ale_rust_rustc_options = ''
+
 map <Leader>l :ALEFix<CR>
