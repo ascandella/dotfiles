@@ -1,11 +1,8 @@
 let g:autocd#autocmd_enable = 1
 
-let g:autocd#markers_filetype = {
-      \ 'python': ['requirements.txt', 'setup.py'],
-      \ 'rust': ['Cargo.toml'],
-      \ }
-
-let g:autocd#markers_path = {
-      \ 'aiden/src': ['.git'],
-      \ 'aiden/.dotfiles': ['.git'],
+let g:autocd#markers= {
+      \ '*.py': ['requirements.txt', 'setup.py'],
+      \ '*.rs': ['Cargo.toml'],
+      \ '*/aiden/src/*': ['.git'],
+      \ '*/aiden/.dotfiles/*': ['.git'],
       \ }
