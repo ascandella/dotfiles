@@ -1,5 +1,5 @@
 let g:ale_linters = {
-      \ 'rust': ['cargo', 'rustc']
+      \ 'rust': ['cargo']
       \ }
 
 let g:ale_fixers = {
