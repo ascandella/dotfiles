@@ -33,7 +33,7 @@
   modules-right = tabletmenu volume battery date
 
   tray-position = right
-  tray-background = ${colors.background}
+  ;tray-background = ${colors.background}
   tray-padding-right = 2
 
   spacing = 0
@@ -221,9 +221,9 @@ label = %title:0:30:...%
   ;format-prefix-foreground = ${colors.foreground-alt}
 
   label = %time%
-  label-background = ${xrdb:color4}
   label-foreground = ${colors.foreground}
-  label-padding = 2
+  label-underline = ${xrdb:color4}
+  label-padding = 1
 
 [module/temperature]
   type = internal/temperature
@@ -293,9 +293,14 @@ label = %title:0:30:...%
   format-charging = <animation-charging><label-charging>
   format-discharging = <ramp-capacity><label-discharging>
   ;ramp-capacity-background = ${colors.background}
-  label-discharging = %{A1:notify-send "$(battery-time)" "":}%percentage%% %{A}
-  label-charging = %{A1:notify-send "$(battery-time full)" "":}%percentage%% %{A}
+  label-discharging = %{A1:notify-send "$(battery-time)" "":}%percentage%%%{A}
+  label-charging = %{A1:notify-send "$(battery-time full)" "":}%percentage%%%{A}
   label-full = 
+
+  label-charging-underline = ${xrdb:color8}
+  label-discharging-underline = ${xrdb:color3}
+  label-charging-padding = 1
+  label-discharging-padding = 1
 
   ramp-capacity-0 = 
   ramp-capacity-0-foreground = ${colors.alert}
@@ -333,17 +338,17 @@ label = %title:0:30:...%
 
   format-muted-foreground = ${colors.foreground-alt}
   label-muted = ""
-  label-volume-background = ${xrdb:color6}
-  label-muted-background = ${xrdb:background}
+  label-volume-underline = ${xrdb:color6}
+  ;label-muted-background = ${xrdb:background}
 
-  label-volume-padding = 2
-  label-muted-padding = 2
+  label-volume-padding = 1
+  label-muted-padding = 1
 
 
 [module/tabletmenu]
   type = custom/menu
-  format-background = ${colors.background}
-	label-background = ${colors.background}
+  ;format-background = ${colors.background}
+	;label-background = ${colors.background}
   label-open = ""
 
   label-close = ""
