@@ -35,10 +35,6 @@ if hostname != minimal
 
   " Rust stuff
   Plug 'rust-lang/rust.vim'
-  Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
 
   " Updated Python syntax
   Plug 'vim-python/python-syntax'
