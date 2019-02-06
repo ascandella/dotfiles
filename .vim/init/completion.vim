@@ -1,21 +1,17 @@
 " enable deoplete completion
 if has('python3')
-  let g:deoplete#enable_at_startup = 1
+  autocmd BufEnter * call ncm2#enable_for_buffer()
 endif
 
-" go stuffs
-let g:deoplete#sources#go#pointer = 1
-let g:deoplete#sources#go#use_cache = 1
-let g:deoplete#sources#go#json_directory = '~/.cache/deoplete/go/$GOOS_$GOARCH'
+set completeopt=noinsert,menuone,noselect
 
-set completeopt=menu,longest
+" Use <TAB> to select the popup menu:
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-" inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-inoremap <silent><expr> <TAB>
-    \ pumvisible() ? "\<C-n>" :
-    \ <SID>check_back_space() ? "\<TAB>" :
-    \ deoplete#mappings#manual_complete()
-function! s:check_back_space() abort "{{{
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~ '\s'
-	endfunction"}}}
+let g:AutoPairsMapCR=0
+
+inoremap <silent> <Plug>(MyCR) <CR><C-R>=AutoPairsReturn()<CR>
+
+" example
+imap <expr> <CR> (pumvisible() ? "\<C-Y>\<Plug>(MyCR)" : "\<Plug>(MyCR)")

@@ -14,6 +14,11 @@ if hostname != minimal
   " Asynchronous linting
   Plug 'w0rp/ale'
 
+  Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+
   "
   " Language-specific stuff
   "
@@ -57,17 +62,22 @@ if hostname != minimal
 
   " Code completion
   if has("python3")
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'ncm2/ncm2'
+    Plug 'roxma/nvim-yarp'
 
-    " Go code completion
-    Plug 'zchee/deoplete-go', { 'do': 'make' }
-
-    " Python code completion
-    Plug 'zchee/deoplete-jedi'
+    " Python completion
     Plug 'davidhalter/jedi-vim'
+    Plug 'ncm2/ncm2-jedi'
 
-    " C++ code completion
-    Plug 'zchee/deoplete-clang'
+    Plug 'ncm2/ncm2-ultisnips'
+
+    " Path completion
+    Plug 'ncm2/ncm2-path'
+    " Buf word completion
+    Plug 'ncm2/ncm2-bufword'
+
+    " Go completion
+    Plug 'ncm2/ncm2-go'
   endif
 
   " autopep8

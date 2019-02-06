@@ -7,8 +7,6 @@ let g:LanguageClient_serverCommands = {
 
 augroup rust-mapping
   autocmd!
-  au FileType rust nmap gd <Plug>(rust-def)
-  au FileType rust nmap gs <Plug>(rust-def-split)
-  au FileType rust nmap gx <Plug>(rust-def-vertical)
-  au FileType rust nmap <leader>gd <Plug>(rust-doc)
+  au FileType rust nmap gd :call LanguageClient#textDocument_definition()<CR>
+  au FileType rust nmap K :call LanguageClient#textDocument_hover()<CR>
 augroup END
