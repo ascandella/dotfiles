@@ -14,3 +14,5 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 let g:AutoPairsMapCR=0
 inoremap <silent> <Plug>(MyCR) <CR><C-R>=AutoPairsReturn()<CR>
 imap <expr> <CR> (pumvisible() ? "\<C-Y>\<Plug>(MyCR)" : "\<Plug>(MyCR)")
+
+nnoremap <leader>tp :call AutoPairsToggle()<CR>
