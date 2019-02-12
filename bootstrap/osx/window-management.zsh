@@ -1,4 +1,4 @@
-brew install koekeishiya/formulae/kwm
-brew install koekeishiya/formulae/khd
-brew services start khd
-brew services start kwm
+brew install chunkwm
+brew install skhd
+brew services start chunkwm
+brew services start skhd
