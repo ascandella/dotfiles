@@ -47,7 +47,9 @@ if hostname != minimal
   " rubby :(
   Plug 'vim-ruby/vim-ruby'
 
-  "
+  " Terraform / HCL
+  Plug 'hashivim/vim-terraform'
+
   " END Language-specific stuff
   "
   "
