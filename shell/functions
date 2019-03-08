@@ -24,6 +24,7 @@ watch-test() {
   fswatch -o -e "\.pyc" $@ | xargs -n1 -I{} make
 }
 
+alias gcm >/dev/null && unalias gcm
 # Allow git commit -m and auto-quote arguments
 gcm () {
   git commit -m "$*"
