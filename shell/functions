@@ -24,7 +24,7 @@ watch-test() {
   fswatch -o -e "\.pyc" $@ | xargs -n1 -I{} make
 }
 
-type gcm >/dev/null && unalias gcm
+type gcm >/dev/null && unfunction gcm
 # Allow git commit -m and auto-quote arguments
 gcm () {
   git commit -m "$*"
@@ -44,5 +44,5 @@ rmbrokensym () {
 
 # Ag in vim
 va () {
-  vim +"Ag $@"
+  vim +"Ag $*"
 }
