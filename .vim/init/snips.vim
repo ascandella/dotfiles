@@ -1,5 +1,5 @@
 " https://github.com/SirVer/ultisnips
-let g:UltiSnipsExpandTrigger="<c-space>"
+let g:UltiSnipsExpandTrigger="<c-k>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
