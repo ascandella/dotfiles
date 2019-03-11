@@ -21,7 +21,10 @@ zstyle :compinstall filename '$HOME/.zshrc'
 autoload -Uz compinit
 compinit
 
+# Need patched nerd fonts for this
 POWERLEVEL9K_MODE='nerdfont-complete'
+
+DOTFILES="${DOTFILES:-${HOME}/.dotfiles}"
 
 #
 # Load Prezto
@@ -55,8 +58,6 @@ fi
 #
 # Load extra functionality
 #
-
-DOTFILES="${DOTFILES:-${HOME}/.dotfiles}"
 
 ANTIGEN_SOURCE="${DOTFILES}/ext/antigen/antigen.zsh"
 if [[ -s "${ANTIGEN_SOURCE}" ]] ; then

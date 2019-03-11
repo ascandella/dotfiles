@@ -81,7 +81,7 @@ _host="$(hostname)"
 
 if [[ "$(whoami)" == "root" ]] ; then
   _theme='adam1'
-elif [[ "${_host}" =~ "aiden" ]] ; then
+elif [[ "${_host}" =~ "[Aa]iden" ]] ; then
   _theme='powerlevel9k'
 elif [[ "${_host}" =~ 'vm$' ]] ; then
   _theme='skwp'
