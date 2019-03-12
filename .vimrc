@@ -94,6 +94,8 @@ if hostname != minimal
   " Undo tree
   Plug 'sjl/gundo.vim'
 
+  Plug 'troydm/zoomwintab.vim'
+
   "
   " Snippets
   "
