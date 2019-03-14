@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 if pgrep -x polybar ; then
   pkill -x polybar -USR1 &
@@ -14,7 +14,7 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 MONITOR=""
 # If we're on my Thinkpad, pin Polybar to the builtin display, as opposed to the
 # (possibly-connected) "primary monitor"
-if [[ "$(cat /sys/class/drm/card0/card0-eDP-1/status)" == "connected" ]] ; then
+if [ "$(cat /sys/class/drm/card0/card0-eDP-1/status)" = "connected" ] ; then
   MONITOR="eDP-1"
 fi
 MONITOR="${MONITOR}" polybar ai &
