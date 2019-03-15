@@ -56,6 +56,8 @@ if hostname != minimal
 
   " Say no more
   Plug 'tpope/vim-fugitive'
+  " Open fugitive in GitHub
+  Plug 'tpope/vim-rhubarb'
 
   " Org mode
   Plug 'jceb/vim-orgmode'
