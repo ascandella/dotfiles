@@ -29,6 +29,9 @@ alias gcm >/dev/null && unalias gcm
 gcm () {
   git commit -m "$*"
 }
+gcmn () {
+  git commit -m "$*" -n
+}
 
 # no-verify version of gcm
 gcmn () {
