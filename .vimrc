@@ -120,6 +120,9 @@ endif
 
 " These go to all my machines
 
+" Toggle quickfix and location list with leader
+Plug 'Valloric/ListToggle'
+
 " Like powerline, but lighter
 Plug 'itchyny/lightline.vim'
 " Show ALE linting issues in lightline
