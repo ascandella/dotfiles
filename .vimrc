@@ -98,6 +98,9 @@ if hostname != minimal
 
   Plug 'troydm/zoomwintab.vim'
 
+  " View registers before pasting
+  Plug 'junegunn/vim-peekaboo'
+
   "
   " Snippets
   "
