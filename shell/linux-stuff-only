@@ -5,6 +5,7 @@ fi
 alias uponly='sudo apt-get install --only-upgrade'
 alias sysu='systemctl --user'
 
+unalias jt >/dev/null 2>&1
 jt () {
   if [ -z "${1}" ] ; then
     echo -e "\e[91mNeed service name\e[39m"
