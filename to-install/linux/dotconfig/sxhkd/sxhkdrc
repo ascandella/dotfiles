@@ -63,6 +63,10 @@ super + m
 super + u
 	bspc node -s biggest.local
 
+# screenshots
+super + ctrl + shift + {3, 4}
+  flameshot {full -c,gui}
+
 #
 # state/flags
 #
