@@ -37,9 +37,9 @@
 [submodule "ext/themes/zsh-dircolors-solarized"]
 	path = ext/themes/zsh-dircolors-solarized
 	url = https://github.com/joel-porquet/zsh-dircolors-solarized
-[submodule "to-install/osx/appsupport/ubersicht/widgets/nerdbar.widget"]
-	path = to-install/osx/appsupport/ubersicht/widgets/nerdbar.widget
-	url = git@github.com:sectioneight/nerdbar.widget.git
 [submodule "ext/antigen"]
 	path = ext/antigen
 	url = https://github.com/zsh-users/antigen.git
+[submodule "to-install/osx/appsupport/ubersicht/widgets/Pecan"]
+	path = to-install/osx/appsupport/ubersicht/widgets/Pecan
+	url = https://github.com/zzzeyez/Pecan.git
