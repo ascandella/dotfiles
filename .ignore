@@ -16,4 +16,5 @@ git-extensions
 /idl
 env
 *.pyc
+*.po
 __pycache__

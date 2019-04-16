@@ -22,7 +22,6 @@ _aliasto () {
 # Aliases
 #
 
-alias ag='ag --path-to-ignore ~/.agignore'
 alias ':q'='echo "\033[31mThis is zsh, not vim\033[0m"'
 # May already be defined in 2-environment for lemonade. This is a fallback.
 if ! _command_exists clip >/dev/null; then
@@ -53,7 +52,7 @@ alias grep='grep --color=auto'
 
 _aliasto vim vi
 _aliasto nvim vim
-#_aliasto rg ag
+_aliasto rg ag
 alias e=nvim
 
 #
