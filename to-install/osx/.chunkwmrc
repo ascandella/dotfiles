@@ -98,7 +98,7 @@ chunkc set preselect_border_outline      0
 
 chunkc set window_float_topmost          1
 chunkc set window_fade_inactive          1
-chunkc set window_fade_alpha             0.95
+chunkc set window_fade_alpha             0.82
 chunkc set window_fade_duration          0.25
 chunkc set window_use_cgs_move           0
 
