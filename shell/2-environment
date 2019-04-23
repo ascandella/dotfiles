@@ -18,18 +18,18 @@ fi
 # Enable e.g. `ls` colors
 export CLICOLOR=1
 
+case $(uname) in
+  Darwin)
+    alias clip='pbcopy'
+    ;;
+  Linux)
+    alias clip='xsel'
+    ;;
+esac
+
 if command -v lemonade >/dev/null ; then
-  # If lemonade isn't hooked up, use native
-  if ! nc -z 127.0.0.1 2489 >/dev/null 2>&1 ; then
-    case $(uname) in
-      Darwin)
-        alias clip='pbcopy'
-        ;;
-      Linux)
-        alias clip='xsel'
-        ;;
-    esac
-  else
+  # Check if lemonade is reachable
+  if nc -z 127.0.0.1 2489 >/dev/null 2>&1 ; then
     alias clip='lemonade copy'
   fi
 fi
