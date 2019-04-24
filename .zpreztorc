@@ -34,6 +34,7 @@ zstyle ':prezto:load' pmodule \
   'git' \
   'prompt' \
   'syntax-highlighting' \
+  'autosuggestions' \
   'node' \
   'history-substring-search'
 
