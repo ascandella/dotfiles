@@ -84,11 +84,11 @@ if hostname != minimal
     Plug 'ncm2/ncm2-go'
   endif
 
-  " autopep8
-  Plug 'tell-k/vim-autopep8'
-
   " Auto pairs
   Plug 'jiangmiao/auto-pairs'
+
+  " Better Python indenting
+  Plug 'Vimjas/vim-python-pep8-indent'
 
   " Focused editing
   Plug 'junegunn/goyo.vim'
