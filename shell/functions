@@ -38,6 +38,23 @@ gcmn () {
   git commit -n -m "$*"
 }
 
+_branch_candidates() {
+  git branch | grep -v '^*' | sed 's/^  //' | grep '^DEV-'
+}
+# Change branch, autocomplete with DEV- prefix
+gcb() {
+  local args="$@"
+  if [[ -z "${args}" ]] ; then
+    args="$(_branch_candidates | head -n1)"
+  fi
+  git checkout "${args}"
+}
+_gcb() {
+  _arguments "1: :($(_branch_candidates))"
+
+}
+compdef _gcb gcb
+
 # Change to root with SSH agent etc
 alias sus='sudo -HE -s'
 
