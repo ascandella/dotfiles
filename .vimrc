@@ -114,6 +114,9 @@ if hostname != minimal
 
   " Automatically set current directory (project) when loading file
   Plug 'paroxayte/autocd.vim'
+
+  " Better startup screen
+  Plug 'mhinz/vim-startify'
 endif
 
 " Mac-only stuff
