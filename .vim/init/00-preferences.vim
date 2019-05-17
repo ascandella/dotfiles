@@ -47,7 +47,12 @@ set incsearch
 set nohlsearch
 
 set textwidth=80
-autocmd FileType gitcommit setlocal textwidth=72 fo+=t
+augroup gitcommit-mapping
+  autocmd!
+  autocmd FileType gitcommit setlocal textwidth=72 fo+=t
+  " Enter append on the first line
+  autocmd FileType gitcommit 1 | startinsert!
+augroup END
 
 " Ignore files
 set wildignore+=*.pyc,*.o,*.obj,.git,app/assets/images
