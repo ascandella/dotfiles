@@ -14,3 +14,6 @@ map <Leader>gn <Plug>GitGutterNextHunk
 nmap <Leader>gp <Plug>GitGutterPreviewHunk
 nmap <Leader>gs <Plug>GitGutterStageHunk
 nmap <Leader>gu <Plug>GitGutterUndoHunk
+
+" Update GitGutter on save
+autocmd BufWritePost * GitGutter
