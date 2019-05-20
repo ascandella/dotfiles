@@ -59,6 +59,9 @@ if hostname != minimal
   " Open fugitive in GitHub
   Plug 'tpope/vim-rhubarb'
 
+  " Show Git preview for blame on current line
+  Plug 'rhysd/git-messenger.vim'
+
   " Org mode
   Plug 'jceb/vim-orgmode'
   " Dependency of org mode
