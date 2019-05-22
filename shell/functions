@@ -51,7 +51,6 @@ gcb() {
 }
 _gcb() {
   _arguments "1: :($(_branch_candidates))"
-
 }
 compdef _gcb gcb
 
