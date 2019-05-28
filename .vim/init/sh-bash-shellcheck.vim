@@ -1,3 +1,3 @@
 " Disable jumping in shell, which is annoying for
 " `case` statements
-au Filetype sh let b:AutoPairs = {"{": "}", "[": "]"}
+let g:pear_tree_ft_disabled = ['sh']

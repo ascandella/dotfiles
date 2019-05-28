@@ -12,7 +12,8 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Fix auto-pairs CR
 let g:AutoPairsMapCR=0
-inoremap <silent> <Plug>(MyCR) <CR><C-R>=AutoPairsReturn()<CR>
-imap <expr> <CR> (pumvisible() ? "\<C-Y>\<Plug>(MyCR)" : "\<Plug>(MyCR)")
+"inoremap <silent> <Plug>(MyCR) <CR><C-R>=<Plug>(PearTreeExpand)<CR>
+imap <expr> <CR> (pumvisible() ? "\<C-Y>\<Plug>(PearTreeExpand)" : "\<Plug>(PearTreeExpand)")
 
-nnoremap <leader>tp :call AutoPairsToggle()<CR>
+let g:pear_tree_smart_openers = 1
+let g:pear_tree_smart_closers = 1

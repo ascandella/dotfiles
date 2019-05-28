@@ -88,7 +88,7 @@ if hostname != minimal
   endif
 
   " Auto pairs
-  Plug 'jiangmiao/auto-pairs'
+  Plug 'tmsvg/pear-tree'
 
   " Better Python indenting
   Plug 'Vimjas/vim-python-pep8-indent'
