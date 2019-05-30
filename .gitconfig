@@ -25,7 +25,7 @@
 [alias]
 	add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
 	amend = commit --amend
-	branchname = "!git rev-parse --abbrev-ref HEAD | nc localhost 8377"
+	branchname = "!git rev-parse --abbrev-ref HEAD | pbcopy"
 	ca = commit --amend
 	cached = diff --cached
 	edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f` +Gdiff"
