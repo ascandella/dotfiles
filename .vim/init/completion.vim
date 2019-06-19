@@ -10,10 +10,8 @@ set shortmess+=c
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-" Fix auto-pairs CR
-let g:AutoPairsMapCR=0
 "inoremap <silent> <Plug>(MyCR) <CR><C-R>=<Plug>(PearTreeExpand)<CR>
-imap <expr> <CR> (pumvisible() ? "\<C-Y>\<Plug>(PearTreeExpand)" : "\<Plug>(PearTreeExpand)")
+"imap <expr> <CR> (pumvisible() ? "\<C-Y>\<Plug>(PearTreeExpand)" : "\<Plug>(PearTreeExpand)")
 
 let g:pear_tree_smart_openers = 1
 let g:pear_tree_smart_closers = 1
