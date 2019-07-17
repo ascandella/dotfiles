@@ -6,7 +6,7 @@
 	url = https://github.com/ervandew/supertab.git
 [submodule ".zprezto"]
 	path = .zprezto
-	url = git@github.com:sectioneight/prezto.git
+	url = git@github.com:ascandella/prezto.git
 [submodule ".vim/bundle/raindow-paretheses"]
 	path = .vim/bundle/raindow-paretheses
 	url = git://github.com/kien/rainbow_parentheses.vim.git
@@ -24,7 +24,7 @@
 	url = https://github.com/junegunn/fzf.git
 [submodule ".emacs.d"]
 	path = .emacs.d
-	url = git@github.com:sectioneight/emacs.d.git
+	url = git@github.com:ascandella/emacs.d.git
 [submodule "git-extensions/diff-so-fancy"]
 	path = git-extensions/diff-so-fancy
 	url = https://github.com/so-fancy/diff-so-fancy/
