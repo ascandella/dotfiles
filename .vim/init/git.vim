@@ -17,3 +17,8 @@ nmap <Leader>gu <Plug>GitGutterUndoHunk
 
 " Update GitGutter on save
 autocmd BufWritePost * GitGutter
+
+" Navigate into messenger popup on leader-gm
+let g:git_messenger_always_into_popup = 1
+" Display diff in messenger popup
+let g:git_messenger_include_diff = "current"
