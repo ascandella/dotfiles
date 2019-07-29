@@ -22,3 +22,5 @@ autocmd BufWritePost * GitGutter
 let g:git_messenger_always_into_popup = 1
 " Display diff in messenger popup
 let g:git_messenger_include_diff = "current"
+
+nmap <Leader>gr <Plug>(git-messenger)
