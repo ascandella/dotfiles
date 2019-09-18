@@ -1,9 +1,4 @@
-" enable deoplete completion
-"if has('python3')
-  " autocmd BufEnter * call ncm2#enable_for_buffer()
-"endif
-
-set completeopt=noinsert,menuone,noselect
+set completeopt=menu,preview
 set shortmess+=c
 
 " Use <TAB> to select the popup menu:
