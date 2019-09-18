@@ -65,6 +65,7 @@ if hostname != minimal
   " Code completion
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
 
   if has("python3")
     " Python completion
