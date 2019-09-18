@@ -14,11 +14,6 @@ if hostname != minimal
   " Asynchronous linting
   Plug 'w0rp/ale'
 
-  Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
-
   "
   " Language-specific stuff
   "
@@ -68,23 +63,12 @@ if hostname != minimal
   Plug 'tpope/vim-speeddating'
 
   " Code completion
-  if has("python3")
-    Plug 'ncm2/ncm2'
-    Plug 'roxma/nvim-yarp'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
 
+  if has("python3")
     " Python completion
     Plug 'davidhalter/jedi-vim'
-    Plug 'ncm2/ncm2-jedi'
-
-    Plug 'ncm2/ncm2-ultisnips'
-
-    " Path completion
-    Plug 'ncm2/ncm2-path'
-    " Buf word completion
-    Plug 'ncm2/ncm2-bufword'
-
-    " Go completion
-    Plug 'ncm2/ncm2-go'
   endif
 
   " Auto pairs
