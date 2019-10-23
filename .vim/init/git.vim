@@ -8,13 +8,13 @@ map <Leader>gc :Gcommit -v -q<CR>I
 map <Leader>gf :GFiles?<CR>
 
 " Git-gutter mappings
-map <Leader>gn <Plug>GitGutterNextHunk
+map <Leader>gn <Plug>(GitGutterNextHunk)
 
 " Remap gitgutter leader-h
 let g:gitgutter_map_keys = 0
-nmap <Leader>gp <Plug>GitGutterPreviewHunk
-nmap <Leader>gs <Plug>GitGutterStageHunk
-nmap <Leader>gu <Plug>GitGutterUndoHunk
+nmap <Leader>gp <Plug>(GitGutterPreviewHunk)
+nmap <Leader>gs <Plug>(GitGutterStageHunk)
+nmap <Leader>gu <Plug>(GitGutterUndoHunk)
 
 " Update GitGutter on save
 autocmd BufWritePost * GitGutter

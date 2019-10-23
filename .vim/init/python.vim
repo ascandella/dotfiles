@@ -26,4 +26,5 @@ let g:autopep8_disable_show_diff=1
 augroup python-mapping
   autocmd!
   au FileType python nmap <leader>gd :Ag def <c-r><c-w><cr>
+  au FileType python nmap <leader>cf <Plug>(coc-format)
 augroup END
