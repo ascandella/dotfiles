@@ -15,7 +15,7 @@ run_for_version () {
 
 verify_tmux_version() {
   local tmux_version
-  tmux_version="$(tmux -V | cut -d' ' -f2)"
+  tmux_version="$(tmux -V | cut -d' ' -f2 | tr -cd '[:digit:]\.')"
 
   if [[ "${tmux_version}" == "master" ]] ; then
     source_conf "tmux_2.1_plus"
