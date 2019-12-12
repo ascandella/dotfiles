@@ -90,7 +90,9 @@ if which go > /dev/null ; then
   alias gotest='go test $(go list ./... | grep -v "/vendor/")'
 fi
 
-if command -v ccat >/dev/null ; then
+if command -v bat >/dev/null ; then
+  alias cat='bat'
+elif command -v ccat >/dev/null ; then
   alias cat='ccat --bg=dark'
 fi
 
