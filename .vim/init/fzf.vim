@@ -63,12 +63,13 @@ if has('nvim')
   endfunction
 
   let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+
+  " Only change layout to revers when using nvim with popup
+  " Use preview for files
+  command! -bang -nargs=? -complete=dir Files
+      \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse']}), <bang>0)
+
+  " Reverse history
+  command! -bang -nargs=? -complete=dir History
+      \ call fzf#vim#history({'options': ['--layout=reverse', '--inline-info']}, <bang>0)
 endif
-
-" Use preview for files
-command! -bang -nargs=? -complete=dir Files
-    \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse']}), <bang>0)
-
-" Reverse history
-command! -bang -nargs=? -complete=dir History
-    \ call fzf#vim#history({'options': ['--layout=reverse', '--inline-info']}, <bang>0)
