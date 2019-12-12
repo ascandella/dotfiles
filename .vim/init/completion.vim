@@ -24,7 +24,7 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+"inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
@@ -40,3 +40,6 @@ let g:jedi#auto_initialization = 0
 
 let g:pear_tree_smart_openers = 1
 let g:pear_tree_smart_closers = 1
+" Leave the closing string in
+let g:pear_tree_repeatable_expand = 0
+"imap <CR> <Plug>(PearTreeExpand)
