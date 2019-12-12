@@ -43,3 +43,32 @@ inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
 
 " [Buffers] Jump to the existing window if possible
 let g:fzf_buffers_jump = 1
+
+" Using floating windows of Neovim to start fzf
+
+if has('nvim')
+  let $FZF_DEFAULT_OPTS .= ' --border --margin=0,2'
+  function! FloatingFZF()
+    let width = float2nr(&columns * 0.7)
+    let height = float2nr(&lines * 0.5)
+    let opts = { 'relative': 'editor',
+               \ 'row': (&lines - height) / 2,
+               \ 'col': (&columns - width) / 2,
+               \ 'width': width,
+               \ 'height': height }
+
+
+    let win = nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
+    call setwinvar(win, '&winhighlight', 'NormalFloat:Normal')
+  endfunction
+
+  let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+endif
+
+" Use preview for files
+command! -bang -nargs=? -complete=dir Files
+    \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse']}), <bang>0)
+
+" Reverse history
+command! -bang -nargs=? -complete=dir History
+    \ call fzf#vim#history({'options': ['--layout=reverse', '--inline-info']}, <bang>0)
