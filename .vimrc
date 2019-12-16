@@ -95,6 +95,11 @@ if hostname != minimal
   if has("python") || has("python3")
     Plug 'SirVer/ultisnips'
   endif
+
+  if has("python3")
+    " Best Python syntax support
+    Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+  endif
   Plug 'honza/vim-snippets'
 
   " File browsing
