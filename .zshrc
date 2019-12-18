@@ -84,8 +84,6 @@ if [[ -d "${DOTFILES}" ]] ; then
   done
 fi
 
-test -r ~/.zshrc.local && . ~/.zshrc.local
-
 # bind UP and DOWN arrow keys
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
