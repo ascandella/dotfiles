@@ -91,9 +91,11 @@ _markInstalled () {
   echo "Already installed \"${_alreadyinstalled[*]}\""
 }
 _installedByUs () {
+  set +u
   if [[ "${_alreadyinstalled[*]}" =~ ${1} ]] ; then
     echo "${1} already installed, skipping"
   fi
+  set -u
   return 0
 }
 
