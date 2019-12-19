@@ -6,8 +6,6 @@ let python_highlight_all = 1
 
 autocmd FileType python iabbrev <silent> _fu from __future__ import absolute_import
 
-let g:jedi#usages_command = "<leader>u"
-let g:jedi#rename_command = "<leader>rp"
 let g:jedi#force_py_version = "auto"
 
 let g:autopep8_disable_show_diff=1
@@ -27,4 +25,8 @@ augroup python-mapping
   autocmd!
   au FileType python nmap <leader>gd :Ag def <c-r><c-w><cr>
   au FileType python nmap <leader>cf <Plug>(coc-format)
+  au FileType python nmap <silent> <leader>rp :Semshi rename<cr>
+  au FileType python nmap <silent> <leader>n :Semshi goto function next<cr>
+  au FileType python nmap <silent> <leader>cp :Semshi goto class prev<cr>
+  au FileType python nmap <silent> <leader>cn :Semshi goto class next<cr>
 augroup END
