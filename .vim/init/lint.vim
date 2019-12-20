@@ -1,5 +1,7 @@
+" Disable mypy because it's slow
 let g:ale_linters = {
-      \ 'rust': ['rls', 'cargo']
+      \ 'rust': ['rls', 'cargo'],
+      \ 'python': ['flake8', 'pylint'],
       \ }
 
 let g:ale_fixers = {
