@@ -19,7 +19,9 @@ if hostname != minimal
   "
 
   " Go stuff
-  Plug 'fatih/vim-go'
+  if has('nvim-0.3.2')
+    Plug 'fatih/vim-go'
+  endif
 
   " Go refactoring
   Plug 'godoctor/godoctor.vim'
@@ -37,7 +39,7 @@ if hostname != minimal
   Plug 'rust-lang/rust.vim'
 
   " Updated Python syntax
-  " Plug 'vim-python/python-syntax'
+  Plug 'vim-python/python-syntax'
 
   " rubby :(
   Plug 'vim-ruby/vim-ruby'
@@ -89,17 +91,16 @@ if hostname != minimal
   " View registers before pasting
   Plug 'junegunn/vim-peekaboo'
 
-  "
-  " Snippets
-  "
-  if has("python") || has("python3")
-    Plug 'SirVer/ultisnips'
-  endif
 
   if has("python3")
     " Best Python syntax support
     Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+    "
+    " Snippets
+    "
+    Plug 'SirVer/ultisnips'
   endif
+
   Plug 'honza/vim-snippets'
 
   " File browsing

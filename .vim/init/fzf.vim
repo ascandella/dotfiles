@@ -46,7 +46,8 @@ let g:fzf_buffers_jump = 1
 
 " Using floating windows of Neovim to start fzf
 
-if has('nvim')
+" Floating windows require neovim 0.4+
+if has('nvim-0.4')
   let $FZF_DEFAULT_OPTS .= ' --border --margin=0,2'
   function! FloatingFZF()
     let width = float2nr(&columns * 0.7)
