@@ -50,7 +50,7 @@ map <Leader>b  :bd<CR>
 map <Leader>cl :ccl<CR>
 
 " Yank the current buffer path into the unnamed buffer
-map yp :let @" = expand("%")
+map <silent> yp :let @" = expand("%")<cr>
 
 noremap <silent> <Leader>rs :setlocal spell!<cr>
 
