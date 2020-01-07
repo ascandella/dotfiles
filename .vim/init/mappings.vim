@@ -54,12 +54,6 @@ map <silent> <leader>yp :let @" = expand("%")<cr>
 
 noremap <silent> <Leader>rs :setlocal spell!<cr>
 
-" Send selected text to clipper
-" Todo make sure this is compatible with new clip system
-if !executable('lemonade')
-  nnoremap <leader>y :call system('nc localhost 8377', @0)<CR>
-end
-
 " Paste toggle
 map <silent> <Leader>p : set paste!<CR>
 
