@@ -252,6 +252,7 @@ case "$(uname)" in
     _scanAndLink "to-install/osx/bin" "*" ".local/bin/"
     _scanAndLink "to-install/osx/appsupport/ubersicht/widgets" "*" "Library/Application Support/Übersicht/widgets/"
     _scanAndLink "library/VSCode/User" "*" "Library/Application Support/Code/User/"
+    _scanAndLink "library/Preferences/org.dystroy.broot" "*" "Library/Preferences/org.dystroy.broot/"
     _setupOsXDefaults
     ;;
 
@@ -265,6 +266,7 @@ case "$(uname)" in
     _scanAndLink "to-install/linux/autokey" "*" ".config/autokey/data/"
     _scanAndLink "to-install/linux/x11" "*" "/etc/X11/xorg.conf.d/" "root"
     _scanAndLink "library/VSCode/User" "*" ".config/Code/User/"
+    _scanAndLink "library/Preferences/org.dystroy.broot" "*.toml" ".config/org.dystroy.broot/"
     ;;
 esac
 
