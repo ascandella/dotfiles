@@ -4,11 +4,3 @@ if which gpg2 > /dev/null ; then
 fi
 
 alias gpgd='gpg --decrypt'
-
-if [[ -n "${XDG_RUNTIME_DIR}" ]] ; then
-  _gpg_agent_ssh_sock="${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh"
-  if [[ -S "${_gpg_agent_ssh_sock}" ]] ; then
-    export SSH_AUTH_SOCK="${_gpg_agent_ssh_sock}"
-    #export GPG_TTY="$(tty)"
-  fi
-fi
