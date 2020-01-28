@@ -130,7 +130,7 @@ Plug 'maximbaz/lightline-ale'
 Plug 'majutsushi/tagbar'
 
 " Theme
-Plug 'kaicataldo/material.vim'
+Plug 'mhartington/oceanic-next'
 
 "# "Format code with one button press" - https://github.com/Chiel92/vim-autoformat
 

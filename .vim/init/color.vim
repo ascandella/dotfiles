@@ -9,8 +9,7 @@ set cursorline
 " hi CursorLine ctermbg=234
 
 set background=dark
-let g:material_theme_style = 'dark'
-colorscheme material
+colorscheme OceanicNext
 
 set colorcolumn=+0
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
