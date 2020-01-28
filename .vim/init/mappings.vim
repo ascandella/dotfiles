@@ -83,7 +83,8 @@ autocmd FileType ruby nmap <leader>rh :%s/\v:(\w+)\s(\s*)\=\>/\1:\2/g<cr>
 " Close the current buffer, leave the window in place
 nmap <C-W>m <Plug>Kwbd
 
-nmap <silent> <Leader>s :set nolist!<CR>
+nmap <silent> <Leader>ss ms vip :sort<CR>`s
+nmap <silent> <Leader>sn :set nolist!<CR>
 
 nmap <Leader>a :Ag<space>
 
