@@ -34,3 +34,11 @@ if has("autocmd")
     " Delete fugitive buffers on hide
     autocmd BufReadPost fugitive://* set bufhidden=delete
 endif
+
+augroup gitcommit-mapping
+  autocmd!
+  autocmd FileType gitcommit setlocal textwidth=72 fo+=t
+  " Enter append on the first line
+  autocmd FileType gitcommit 1 | startinsert!
+augroup END
+

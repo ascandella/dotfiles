@@ -22,11 +22,6 @@ set cindent
 set smartindent
 set autoindent
 
-" Turn on line numbering first
-" set number
-" Then relative numbering
-" set relativenumber
-
 set ruler
 " Hide tool bar for mvim / gvim
 set go=a
@@ -47,12 +42,6 @@ set incsearch
 set nohlsearch
 
 set textwidth=80
-augroup gitcommit-mapping
-  autocmd!
-  autocmd FileType gitcommit setlocal textwidth=72 fo+=t
-  " Enter append on the first line
-  autocmd FileType gitcommit 1 | startinsert!
-augroup END
 
 " Ignore files
 set wildignore+=*.pyc,*.o,*.obj,.git,app/assets/images
