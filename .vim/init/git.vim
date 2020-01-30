@@ -25,3 +25,12 @@ let g:git_messenger_always_into_popup = 1
 let g:git_messenger_include_diff = "current"
 
 nmap <Leader>gr <Plug>(git-messenger)
+
+"
+" Fugitive
+"
+
+if has("autocmd")
+    " Delete fugitive buffers on hide
+    autocmd BufReadPost fugitive://* set bufhidden=delete
+endif
