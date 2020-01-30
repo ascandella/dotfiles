@@ -2,7 +2,7 @@
 " Lightline is the latest powerline
 "
 let g:lightline = {
-  \ 'colorscheme': 'material_vim',
+  \ 'colorscheme': 'one',
   \ 'component_function': {
   \   'mode': 'LightlineMode',
   \ },
