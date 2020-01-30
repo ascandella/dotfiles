@@ -29,4 +29,5 @@ augroup python-mapping
   au FileType python nmap <silent> <leader>n :Semshi goto function next<cr>
   au FileType python nmap <silent> <leader>cp :Semshi goto class prev<cr>
   au FileType python nmap <silent> <leader>cn :Semshi goto class next<cr>
+  au FileType python nmap <silent> <leader>lm :let b:ale_linters = {'python': ['mypy']}<cr>
 augroup END
