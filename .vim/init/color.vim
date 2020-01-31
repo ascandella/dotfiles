@@ -12,7 +12,6 @@ set background=dark
 colorscheme OceanicNext
 
 set colorcolumn=+0
-highlight ColorColumn ctermbg=235 guibg=#2c2d27
 
 " hi CursorColumn cterm=NONE ctermbg=234
 " hi Folded ctermbg=234
