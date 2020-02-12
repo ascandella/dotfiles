@@ -1,115 +1,113 @@
 {
-    "editor.cursorBlinking": "phase",
-    "editor.tabSize": 2,
-    "editor.roundedSelection": true,
-    "editor.glyphMargin": true,
-    "editor.fontSize": 12,
-    "editor.lineNumbers": "off",
-    "editor.rulers": [
-        100
-    ],
-    "editor.renderIndentGuides": true,
-    "editor.formatOnType": true,
-    "editor.formatOnSave": true,
-    "editor.scrollBeyondLastLine": false,
-    "editor.minimap.enabled": false,
-    "editor.wordWrap": "wordWrapColumn",
-    "files.exclude": {
-        //"**/.tmp": true,
-        ".venv": true,
-        "**/vendor": true,
-        "**/.git": true,
-        "**/.DS_Store": true,
-        "go-build/.go": true,
-        ".gen": true,
-        ".vscode": true,
-        "env": true,
-        "env_docs": true,
-        "udeploy": true,
-        "debian": true,
-        "**/*.test": true,
-        "**/*.pyc": true,
-        "Godeps/_workspace": true,
-        "**/coverage.html": true,
-        "**/_build": true,
-        "**/*.coverprofile": true,
-        "**/__pycache__": true
+  "editor.cursorBlinking": "phase",
+  "editor.tabSize": 2,
+  "editor.roundedSelection": true,
+  "editor.glyphMargin": true,
+  "editor.lineNumbers": "off",
+  "editor.rulers": [
+    100
+  ],
+  "editor.renderIndentGuides": true,
+  "editor.formatOnType": true,
+  "editor.formatOnSave": true,
+  "editor.scrollBeyondLastLine": false,
+  "editor.minimap.enabled": false,
+  "editor.wordWrap": "wordWrapColumn",
+  "files.exclude": {
+    ".venv": true,
+    "**/vendor": true,
+    "**/.git": true,
+    "**/.DS_Store": true,
+    ".vscode": true,
+    "env": true,
+    "env_docs": true,
+    "**/*.test": true,
+    "**/*.pyc": true,
+    "Godeps/_workspace": true,
+    "**/coverage.html": true,
+    "**/_build": true,
+    "**/*.coverprofile": true,
+    "**/__pycache__": true
+  },
+  "files.trimTrailingWhitespace": true,
+  "files.autoSave": "onFocusChange",
+  "files.insertFinalNewline": true,
+  "go.autocompleteUnimportedPackages": true,
+  "go.vetFlags": [
+    "-printfuncs=wrapf,statusf,warnf,infof,debugf,noerrorf,equalf,newexiterrorf,containsf,truef,falsef,equalf,emptyf,failf"
+  ],
+  "python.jediEnabled": true,
+  "python.formatting.provider": "black",
+  "python.linting.enabled": true,
+  "python.linting.flake8Enabled": true,
+  "python.linting.pylintEnabled": false,
+  "[python]": {
+    "editor.tabSize": 4,
+    "editor.formatOnSave": false,
+  },
+  "vim.useCtrlKeys": true,
+  "vim.enableNeovim": true,
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "n"
+      ],
+      "after": [
+        "k"
+      ]
     },
-    "files.trimTrailingWhitespace": true,
-    "files.autoSave": "onFocusChange",
-    "files.insertFinalNewline": true,
-    "go.autocompleteUnimportedPackages": true,
-    "go.lintTool": "gometalinter",
-    "go.lintFlags": [
-        "--fast",
-        "--enable=errcheck"
-    ],
-    "go.vetFlags": [
-        "-printfuncs=wrapf,statusf,warnf,infof,debugf,noerrorf,equalf,newexiterrorf,containsf,truef,falsef,equalf,emptyf,failf"
-    ],
-    "python.linting.enabled": true,
-    "python.linting.flake8Enabled": true,
-    "python.linting.pylintEnabled": false,
-    "python.linting.lintOnSave": true,
-    "[python]": {
-        "editor.tabSize": 4
+    {
+      "before": [
+        "t"
+      ],
+      "after": [
+        "j"
+      ]
     },
-    "window.titleBarStyle": "custom",
-    //"python.formatting.provider": "yapf",
-    "vim.useCtrlKeys": true,
-    "vim.enableNeovim": true,
-    "vim.normalModeKeyBindingsNonRecursive": [
-        {
-            "before": [
-                "n"
-            ],
-            "after": [
-                "k"
-            ]
-        },
-        {
-            "before": [
-                "t"
-            ],
-            "after": [
-                "j"
-            ]
-        },
-        {
-            "before": [
-                "s"
-            ],
-            "after": [
-                "l"
-            ]
-        },
-        {
-            "before": [
-                ",",
-                "w"
-            ],
-            "after": [
-                ":",
-                "w"
-            ]
-        }
-    ],
-    "workbench.iconTheme": "eq-material-theme-icons-darker",
-    "[cpp]": {
-        "editor.quickSuggestions": false
+    {
+      "before": [
+        "s"
+      ],
+      "after": [
+        "l"
+      ]
     },
-    "[c]": {
-        "editor.quickSuggestions": false
-    },
-    // https://github.com/Microsoft/vscode/issues/23991
-    "keyboard.dispatch": "keyCode",
-    "editor.fontFamily": "'Ubuntu Mono', 'monospace', monospace, 'Droid Sans Fallback'",
-    "workbench.activityBar.visible": false,
-    "materialTheme.autoApplyIcons": true,
-    "window.zoomLevel": 0,
-    "telemetry.enableTelemetry": false,
-    "window.titleBarStyle": "custom",
-    "editor.wordWrapColumn": 100,
-    "breadcrumbs.enabled": true,
-    "workbench.colorTheme": "Material Theme Darker"
+    {
+      "before": [
+        ",",
+        "w"
+      ],
+      "after": [
+        ":",
+        "w"
+      ]
+    }
+  ],
+  "[cpp]": {
+    "editor.quickSuggestions": false
+  },
+  "[c]": {
+    "editor.quickSuggestions": false
+  },
+  "javascript.validate.enable": false, // prevent TypeScript errors on Flow types
+  "typescript.validate.enable": false, // uses prettier-eslint instead of base prettier
+  "[html]": {
+    "editor.formatOnSave": false // Disable prettier format on save for Django templates
+  },
+  // https://github.com/Microsoft/vscode/issues/23991
+  //"keyboard.dispatch": "keyCode",
+  "editor.fontFamily": "'Ubuntu Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+  "workbench.activityBar.visible": false,
+  "window.zoomLevel": 0,
+  "telemetry.enableTelemetry": false,
+  "window.titleBarStyle": "custom",
+  "editor.wordWrapColumn": 100,
+  "breadcrumbs.enabled": true,
+  "workbench.colorTheme": "Material Theme Darker",
+  "editor.largeFileOptimizations": false,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "go.useLanguageServer": true,
+  "go.formatTool": "goreturns"
 }
