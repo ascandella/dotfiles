@@ -40,3 +40,6 @@
 [submodule "to-install/osx/appsupport/ubersicht/widgets/Pecan"]
 	path = to-install/osx/appsupport/ubersicht/widgets/Pecan
 	url = https://github.com/zzzeyez/Pecan.git
+[submodule "doom"]
+	path = .emacs.d
+	url = https://github.com/hlissner/doom-emacs
