@@ -65,6 +65,9 @@
 
 (setq doom-leader-key ",")
 
+(setq
+ rg-command-line-flags '("--hidden"))
+
 (map!
 ;; Swap semicolon and colon
  :n ";" 'evil-ex
