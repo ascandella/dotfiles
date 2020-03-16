@@ -22,10 +22,6 @@ super + shift + c
 super + shift + apostrophe
   firefox
 
-# Launch that file launcher
-super + shift + n
-  nautilus
-
 # Lock and suspend
 super + shift + l
   betterlockscreen --suspend
