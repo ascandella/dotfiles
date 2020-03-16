@@ -34,7 +34,6 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type 'relative)
 
-;; (setq doom-leader-key ",")
 ;; from https://dotdoom.netlify.com/config.html
 (after! helm
   ;; I want backspace to go up a level, like ivy
@@ -78,3 +77,5 @@
 ;; How to remap: f1-k to show keybinding
 
 ;; TODO: HiDPI xemacs settings for carbon
+
+(use-package! rg)
