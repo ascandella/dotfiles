@@ -52,3 +52,6 @@
 
 (package! rg
   :recipe (:host github :repo "dajva/rg.el"))
+
+(package! helm-posframe
+  :recipe (:host github :repo "tumashu/helm-posframe"))

@@ -74,6 +74,12 @@
 (after! evil-snipe
   (evil-snipe-mode -1))
 
+;; Center helm window in floating buffer
+(use-package helm-posframe
+  :config (helm-posframe-enable))
+(setq helm-posframe-poshandler
+  #'posframe-poshandler-window-center)
+
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one
