@@ -55,6 +55,7 @@
  :n "t" 'evil-next-line
  :n "s" 'evil-forward-char
  :n "h" 'evil-backward-char
+ :n "b d" 'kill-current-buffer
 
  ;; Not quite working yet
  ;; "l" 'evil-ex-search-next
