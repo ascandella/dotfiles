@@ -64,6 +64,17 @@
 ;; You can also try 'gd' (or 'C-c g d') to jump to their definition and see how
 ;; they are implemented.
 
+(setq doom-leader-key ",")
+
 (map!
- :n ":" #'evil-snipe-repeat
- :n ";" #'evil-ex)
+ :map evil-motion-state-map
+;; Swap semicolon and colon
+ :n ":" 'evil-snipe-repeat
+ :n ";" 'evil-ex
+
+
+ :leader "h" 'helm-recentf
+ )
+
+(when (display-graphic-p)
+  ())
