@@ -75,10 +75,10 @@
 
  :leader "h" 'helm-recentf
  :leader "w" 'save-buffer
+ :leader "a" 'helm-rg
+ :leader "g c" 'magit-status
  )
 
 ;; How to remap: f1-k to show keybinding
 
 ;; TODO: HiDPI xemacs settings for carbon
-
-(use-package! rg)
