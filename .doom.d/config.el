@@ -41,28 +41,6 @@
     (map! :map helm-find-files-map
          "<DEL>" #'helm-find-files-up-one-level)))
 
-
-;;(map! :leader
-
-  ;;)
-
-;; Here are some additional functions/macros that could help you configure Doom:
-;;
-;; - `load!' for loading external *.el files relative to this one
-;; - `use-package' for configuring packages
-;; - `after!' for running code after a package has loaded
-;; - `add-load-path!' for adding directories to the `load-path', relative to
-;;   this file. Emacs searches the `load-path' when you load packages with
-;;   `require' or `use-package'.
-;; - `map!' for binding new keys
-;;
-;; To get information about any of these functions/macros, move the cursor over
-;; the highlighted symbol at press 'K' (non-evil users must press 'C-c g k').
-;; This will open documentation for it, including demos of how they are used.
-;;
-;; You can also try 'gd' (or 'C-c g d') to jump to their definition and see how
-;; they are implemented.
-
 (setq doom-leader-key ",")
 
 (setq
@@ -80,16 +58,35 @@
 
  ;; Not quite working yet
  ;; "l" 'evil-ex-search-next
-
  ;; Things I'm used to
  :leader "h" 'helm-recentf
  :leader "w" 'save-buffer
  :leader "a" 'helm-rg
  :leader "g c" 'magit-status
+ :leader "k" 'helm-show-kill-ring
  )
 
 ;; How to remap: f1-k to show keybinding
 
 ;; TODO: HiDPI xemacs settings for carbon
+
+;; Disable snipe mode: https://github.com/hlissner/doom-emacs/issues/1642#issuecomment-518711170
 (after! evil-snipe
   (evil-snipe-mode -1))
+
+;; Here are some additional functions/macros that could help you configure Doom:
+;;
+;; - `load!' for loading external *.el files relative to this one
+;; - `use-package' for configuring packages
+;; - `after!' for running code after a package has loaded
+;; - `add-load-path!' for adding directories to the `load-path', relative to
+;;   this file. Emacs searches the `load-path' when you load packages with
+;;   `require' or `use-package'.
+;; - `map!' for binding new keys
+;;
+;; To get information about any of these functions/macros, move the cursor over
+;; the highlighted symbol at press 'K' (non-evil users must press 'C-c g k').
+;; This will open documentation for it, including demos of how they are used.
+;;
+;; You can also try 'gd' (or 'C-c g d') to jump to their definition and see how
+;; they are implemented.
