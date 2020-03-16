@@ -69,10 +69,19 @@
  rg-command-line-flags '("--hidden"))
 
 (map!
-;; Swap semicolon and colon
+ ;; Swap semicolon and colon
  :n ";" 'evil-ex
 
+ ;; Dvorak
+ :n "n" 'evil-previous-line
+ :n "t" 'evil-next-line
+ :n "s" 'evil-forward-char
+ :n "h" 'evil-backward-char
 
+ ;; Not quite working yet
+ ;; "l" 'evil-ex-search-next
+
+ ;; Things I'm used to
  :leader "h" 'helm-recentf
  :leader "w" 'save-buffer
  :leader "a" 'helm-rg
@@ -82,3 +91,5 @@
 ;; How to remap: f1-k to show keybinding
 
 ;; TODO: HiDPI xemacs settings for carbon
+(after! evil-snipe
+  (evil-snipe-mode -1))
