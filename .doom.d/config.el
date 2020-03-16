@@ -67,7 +67,6 @@
 (setq doom-leader-key ",")
 
 (map!
- :map evil-motion-state-map
 ;; Swap semicolon and colon
  :n ":" 'evil-snipe-repeat
  :n ";" 'evil-ex
@@ -76,5 +75,4 @@
  :leader "h" 'helm-recentf
  )
 
-(when (display-graphic-p)
-  ())
+;; TODO: HiDPI xemacs settings for carbon
