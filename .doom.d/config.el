@@ -19,7 +19,9 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "monospace" :size 14))
+(if (and (display-graphic-p) (equal (system-name) "aix1"))
+  (setq doom-font (font-spec :family "monospace" :size 20))
+  (setq doom-font (font-spec :family "monospace" :size 14)))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
@@ -68,8 +70,6 @@
  )
 
 ;; How to remap: f1-k to show keybinding
-
-;; TODO: HiDPI xemacs settings for carbon
 
 ;; Disable snipe mode: https://github.com/hlissner/doom-emacs/issues/1642#issuecomment-518711170
 (after! evil-snipe
