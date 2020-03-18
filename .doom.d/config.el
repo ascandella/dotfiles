@@ -77,7 +77,9 @@
 
 ;; Center helm window in floating buffer
 (use-package helm-posframe
-  :config (helm-posframe-enable))
+  :config
+  (when (display-graphic-p)
+    (helm-posframe-enable)))
 (setq helm-posframe-poshandler
   #'posframe-poshandler-window-center)
 
