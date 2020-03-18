@@ -57,8 +57,8 @@
  :n "h" 'evil-backward-char
  :n "b d" 'kill-current-buffer
 
- ;; Not quite working yet
- ;; "l" 'evil-ex-search-next
+ :n "l" 'evil-ex-search-next
+ :n "L" 'evil-ex-search-previous
  ;; Things I'm used to
  :leader "h" 'helm-recentf
  :leader "w" 'save-buffer
