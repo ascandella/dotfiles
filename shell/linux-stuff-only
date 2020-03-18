@@ -47,3 +47,5 @@ if command -v xclip >/dev/null ; then
   }
   alias xclip=_xclip
 fi
+
+alias ls='ls --color=auto -N'

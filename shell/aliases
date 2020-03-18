@@ -33,27 +33,12 @@ alias rm > /dev/null && unalias rm
 alias s='ssh-reagent'
 alias t='tmux -u'
 alias e='emacsclient -t'
-alias e.='e .'
-alias e,='e .'
-
-# TODO put this in the linux dir
-if [[ "$(uname)" == "Linux" ]] ; then
-  alias ls='ls --color=auto -N'
-  alias ts='sudo tail -f /var/log/syslog'
-
-  # Ease the transition to Fedora
-  if _command_exists 'dnf' && ! _command_exists 'apt' ; then
-    alias apt-cache='dnf'
-    alias apt='dnf'
-  fi
-fi
 
 alias grep='grep --color=auto'
 
 _aliasto vim vi
 _aliasto nvim vim
 _aliasto rg ag
-alias e=nvim
 
 #
 # Git aliases
@@ -76,14 +61,10 @@ alias gst='git status -sb'
 
 alias hst='hg status'
 
-alias pep='autopep8 -i '
-
 #
 # Global aliases
 #
 alias -g G=' | grep '
-
-alias land='OVERCOMMIT_DISABLE=1 arc land'
 
 if which go > /dev/null ; then
   alias go='nocorrect go'
