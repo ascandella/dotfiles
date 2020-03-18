@@ -6,7 +6,7 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
-(setq user-full-name "John Doe"
+(setq user-full-name "Aiden Scandella"
       user-mail-address "john@doe.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
@@ -43,7 +43,10 @@
     (map! :map helm-find-files-map
          "<DEL>" #'helm-find-files-up-one-level)))
 
-(setq doom-leader-key ",")
+(setq
+ doom-leader-key ","
+ ;; Disable line numbers by default
+ display-line-numbers-type nil)
 
 (setq
  rg-command-line-flags '("--hidden"))
@@ -67,6 +70,12 @@
  :leader "a" 'helm-rg
  :leader "g c" 'magit-status
  :leader "k" 'helm-show-kill-ring
+
+ :leader "," '+helm/projectile-find-file
+ :leader "." '+helm/workspace-mini
+
+ ;; Vim muscle memory
+ :leader "r n" 'doom/toggle-line-numbers
  )
 
 ;; How to remap: f1-k to show keybinding
