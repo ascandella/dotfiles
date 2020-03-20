@@ -12,3 +12,4 @@
 .ipynb_checkpoints
 __pycache__/
 .ignore
+.dmypy.json
