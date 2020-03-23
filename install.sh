@@ -87,7 +87,7 @@ fi
 
 _alreadyinstalled=()
 _markInstalled () {
-  _alreadyinstalled=("${_alreadyinstalled[@]}" "${1}")
+  _alreadyinstalled+=("${1}")
   echo "Already installed \"${_alreadyinstalled[*]}\""
 }
 _installedByUs () {
