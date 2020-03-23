@@ -74,6 +74,9 @@
  :leader "," '+helm/projectile-find-file
  :leader "." '+helm/workspace-mini
 
+ ;; NERD commenter
+ :leader "-" 'comment-line
+
  ;; Vim muscle memory
  :leader "r n" 'doom/toggle-line-numbers
  )
