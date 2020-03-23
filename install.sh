@@ -333,7 +333,7 @@ if files_changed ".vimrc" ; then
 fi
 
 if files_changed ".doom.d/init.el" ; then
-  ${HOME}/.emacs.d/bin/doom refresh
+  "${HOME}/.emacs.d/bin/doom" refresh
 fi
 
 echo
