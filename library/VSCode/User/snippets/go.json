@@ -13,7 +13,6 @@
 			"description": "Log output to console"
 		}
 	*/
-
 	"testing": {
 		"prefix": "testt",
 		"body": [

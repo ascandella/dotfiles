@@ -60,7 +60,6 @@
  :n "t" 'evil-next-line
  :n "s" 'evil-forward-char
  :n "h" 'evil-backward-char
- :n "b d" 'kill-current-buffer
 
  :n "l" 'evil-ex-search-next
  :n "L" 'evil-ex-search-previous
@@ -70,6 +69,7 @@
  :leader "a" 'helm-rg
  :leader "g c" 'magit-status
  :leader "k" 'helm-show-kill-ring
+ :leader "b d" 'kill-current-buffer
 
  :leader "," '+helm/projectile-find-file
  :leader "." '+helm/workspace-mini
@@ -78,8 +78,7 @@
  :leader "-" 'comment-line
 
  ;; Vim muscle memory
- :leader "r n" 'doom/toggle-line-numbers
- )
+ :leader "r n" 'doom/toggle-line-numbers)
 
 ;; How to remap: f1-k to show keybinding
 
