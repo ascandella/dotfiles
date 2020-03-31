@@ -94,6 +94,9 @@
 (setq helm-posframe-poshandler
   #'posframe-poshandler-window-center)
 
+(setq yas-snippet-dirs
+      '("~/.doom.d/snippets"))
+
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one
