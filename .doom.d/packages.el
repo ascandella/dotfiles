@@ -60,3 +60,6 @@
 
 (package! tide
   :recipe (:host github :repo "ananthakumaran/tide"))
+
+(package! prettier-js)
+(package! flycheck-clj-kondo)

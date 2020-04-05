@@ -139,6 +139,11 @@
 (add-hook 'typescript-mode-hook
           (setq tab-width 2))
 
+(use-package prettier-js
+ :config
+ (add-hook 'web-mode-hook
+  'prettier-js-mode))
+
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one
