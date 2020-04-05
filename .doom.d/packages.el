@@ -55,3 +55,8 @@
 
 (package! helm-posframe
   :recipe (:host github :repo "tumashu/helm-posframe"))
+
+(package! web-mode)
+
+(package! tide
+  :recipe (:host github :repo "ananthakumaran/tide"))
