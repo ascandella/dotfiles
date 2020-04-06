@@ -148,6 +148,11 @@
  (add-hook 'web-mode-hook
   'prettier-js-mode))
 
+;; Clojure stuff
+(setq
+ clojure-indent-style 'always-align ;; the default
+ clojure-align-forms-automatically t)
+
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one
