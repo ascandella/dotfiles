@@ -125,6 +125,10 @@
   ;; enable typescript-tslint checker
   (flycheck-add-mode 'typescript-tslint 'web-mode)
 
+  (map!
+   (:map tide-mode-map
+     :n "C-c C-j" #'tide-jump-to-definition))
+
   ;; JSX config
   (add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
   (add-hook 'web-mode-hook
