@@ -66,7 +66,7 @@
  ;; Things I'm used to
  :leader "h" 'helm-recentf
  :leader "w" 'save-buffer
- :leader "a" 'helm-rg
+ :leader "a" '+helm/project-search
  :leader "g c" 'magit-status
  :leader "k" 'helm-show-kill-ring
  :leader "b d" 'kill-current-buffer
@@ -79,6 +79,8 @@
 
  ;; Vim muscle memory
  :leader "r n" 'doom/toggle-line-numbers)
+
+(global-set-key (kbd "C-h r c") (λ! (load-file "~/.doom.d/config.el")))
 
 ;; How to remap: f1-k to show keybinding
 
