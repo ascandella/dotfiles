@@ -63,6 +63,10 @@
 
  :n "l" 'evil-ex-search-next
  :n "L" 'evil-ex-search-previous
+ :leader "g n" 'git-gutter:next-hunk
+ :leader "g p" 'git-gutter:previous-hunk
+ :leader "g b" 'magit-blame-echo
+
  ;; Things I'm used to
  :leader "h" 'helm-recentf
  :leader "w" 'save-buffer
@@ -81,6 +85,9 @@
  :leader "r n" 'doom/toggle-line-numbers)
 
 (global-set-key (kbd "C-h r c") (λ! (load-file "~/.doom.d/config.el")))
+
+(setq git-gutter:ask-p nil)
+(setq magit-blame-echo-style 'margin)
 
 ;; How to remap: f1-k to show keybinding
 
