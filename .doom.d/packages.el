@@ -56,10 +56,19 @@
 (package! helm-posframe
   :recipe (:host github :repo "tumashu/helm-posframe"))
 
+;; Typescript / Javascript
 (package! web-mode)
 
 (package! tide
   :recipe (:host github :repo "ananthakumaran/tide"))
 
 (package! prettier-js)
+;; end TS/JS
+
+;; Clojure
 (package! flycheck-clj-kondo)
+(package! flycheck-clojure)
+
+;;
+;;Python
+(package! anaconda-mode)

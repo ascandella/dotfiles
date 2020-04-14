@@ -51,6 +51,10 @@
 (setq
  rg-command-line-flags '("--hidden"))
 
+(defun helm-projectile-rg-word ()
+    (interactive)
+  (helm-rg (thing-at-point 'word) nil (list (projectile-project-root))))
+
 (map!
  ;; Swap semicolon and colon
  :n ";" 'evil-ex
@@ -70,7 +74,7 @@
  ;; Things I'm used to
  :leader "h" 'helm-recentf
  :leader "w" 'save-buffer
- :leader "a" '+helm/project-search
+ :leader "a" 'helm-projectile-rg-word
  :leader "g c" 'magit-status
  :leader "k" 'helm-show-kill-ring
  :leader "b d" 'kill-current-buffer
@@ -88,6 +92,7 @@
 
 (setq git-gutter:ask-p nil)
 (setq magit-blame-echo-style 'margin)
+(setq projectile-switch-project-action 'helm-projectile)
 
 ;; How to remap: f1-k to show keybinding
 
@@ -161,6 +166,24 @@
 (setq
  clojure-indent-style 'always-align ;; the default
  clojure-align-forms-automatically t)
+
+(use-package cider
+  :config
+  (flycheck-clojure-setup))
+
+(evil-set-initial-state 'cider-repl-mode 'emacs)
+
+;; Python stuff
+(use-package anaconda-mode
+  :config
+  (add-hook 'python-mode-hook 'anaconda-mode)
+  (map!
+   (:map anaconda-mode-map
+     :n "C-c C-j" 'anaconda-mode-find-definitions)))
+
+(setq confirm-kill-processes nil)
+
+(load! "completion.el")
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
