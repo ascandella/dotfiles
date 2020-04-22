@@ -183,7 +183,17 @@
 
 (setq confirm-kill-processes nil)
 
-(load! "completion.el")
+(use-package helm
+  :config
+  (setq helm-completion-style 'emacs)
+  (setq helm-recentf-fuzzy-match t)
+  (setq completion-styles '(helm-flex)))
+
+(use-package helm-projectile
+  :init
+  (setq helm-projectile-fuzzy-match t))
+
+(load! "completion")
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
