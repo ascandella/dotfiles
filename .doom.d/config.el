@@ -65,6 +65,11 @@
  :n "s" 'evil-forward-char
  :n "h" 'evil-backward-char
 
+ :n "C-w <right>" 'evil-window-right
+ :n "C-w <left>" 'evil-window-left
+ :n "C-w <up>" 'evil-window-up
+ :n "C-w <down>" 'evil-window-down
+
  :n "l" 'evil-ex-search-next
  :n "L" 'evil-ex-search-previous
  :leader "g n" 'git-gutter:next-hunk
@@ -92,7 +97,7 @@
 
 (setq git-gutter:ask-p nil)
 (setq magit-blame-echo-style 'margin)
-(setq projectile-switch-project-action 'helm-projectile)
+(setq projectile-switch-project-action '+helm/projectile-find-file)
 
 ;; How to remap: f1-k to show keybinding
 
