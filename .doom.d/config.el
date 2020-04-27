@@ -199,6 +199,7 @@
   (setq helm-projectile-fuzzy-match t))
 
 (load! "completion")
+(load! "org")
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
