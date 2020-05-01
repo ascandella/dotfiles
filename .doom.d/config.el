@@ -210,6 +210,11 @@
   :init
   (setq helm-projectile-fuzzy-match t))
 
+;; Enable format-on-save for terraform
+(add-hook
+ 'terraform-mode-hook
+ #'terraform-format-on-save-mode)
+
 (load! "completion")
 (load! "org-config")
 
