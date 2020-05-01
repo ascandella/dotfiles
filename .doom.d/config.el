@@ -170,13 +170,25 @@
 ;; Clojure stuff
 (setq
  clojure-indent-style 'always-align ;; the default
- clojure-align-forms-automatically t)
+ clojure-align-forms-automatically t
+ ;; Metabase style
+ cljr-favor-prefix-notation t)
 
 (use-package cider
   :config
-  (flycheck-clojure-setup))
+  (flycheck-clojure-setup)
+  (map!
+   (:map cider-mode-map
+     :n "C-c C-w" '+clojure/cider-switch-to-repl-buffer-and-switch-ns)))
 
 (evil-set-initial-state 'cider-repl-mode 'emacs)
+
+;; https://github.com/metabase/metabase/wiki/Metabase-Clojure-Style-Guide#keep-lines-to-120-chars
+(add-hook
+ 'clojure-mode-hook
+ (lambda ()
+   (setq-local fill-column 118)
+   (setq-local clojure-docstring-fill-column 118)))
 
 ;; Python stuff
 (use-package anaconda-mode

@@ -68,6 +68,7 @@
 ;; Clojure
 (package! flycheck-clj-kondo)
 (package! flycheck-clojure)
+(package! clj-refactor)
 
 ;;
 ;;Python
