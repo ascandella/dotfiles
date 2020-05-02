@@ -23,7 +23,6 @@
 
 ;; https://github.com/DogLooksGood/parinfer-mode
 (use-package parinfer
-  :ensure t
   :bind
   (("C-," . parinfer-toggle-mode))
   :init
