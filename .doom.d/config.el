@@ -46,7 +46,9 @@
 (setq
  doom-leader-key ","
  ;; Disable line numbers by default
- display-line-numbers-type nil)
+ display-line-numbers-type nil
+
+ aw-keys '(?a ?o ?e ?u ?i ?d ?h ?t ?n))
 
 (setq
  rg-command-line-flags '("--hidden"))
