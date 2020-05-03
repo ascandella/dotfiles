@@ -1,4 +1,3 @@
 (setq
- ;; show results immediately
- company-idle-delay 0
+ company-idle-delay 0.3
  company-dabbrev-downcase 0)
