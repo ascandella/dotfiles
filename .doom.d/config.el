@@ -200,6 +200,10 @@
  'terraform-mode-hook
  #'terraform-format-on-save-mode)
 
+(use-package dockerfile-mode
+  :config
+  (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode)))
+
 (load! "completion")
 (load! "org-config")
 (load! "clojure")

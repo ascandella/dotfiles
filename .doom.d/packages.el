@@ -74,3 +74,5 @@
 ;;
 ;;Python
 (package! anaconda-mode)
+
+(package! dockerfile-mode)
