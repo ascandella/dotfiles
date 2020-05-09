@@ -90,7 +90,6 @@
 
  :leader "," '+helm/projectile-find-file
  :leader "." '+helm/workspace-mini
- :leader "p" 'helm-projectile-recentf
 
  ;; NERD commenter
  :leader "-" 'comment-line
