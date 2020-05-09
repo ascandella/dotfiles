@@ -71,7 +71,8 @@
  :n "C-w <left>" 'evil-window-left
  :n "C-w <up>" 'evil-window-up
  :n "C-w <down>" 'evil-window-down
- :n "-" 'dired
+ :n "-" 'helm-find-files
+ :n "C-w o" 'doom/window-maximize-buffer
 
  :n "l" 'evil-ex-search-next
  :n "L" 'evil-ex-search-previous
@@ -89,6 +90,7 @@
 
  :leader "," '+helm/projectile-find-file
  :leader "." '+helm/workspace-mini
+ :leader "p" 'helm-projectile-recentf
 
  ;; NERD commenter
  :leader "-" 'comment-line
@@ -191,6 +193,12 @@
   (setq helm-completion-style 'emacs)
   (setq helm-recentf-fuzzy-match t)
   (setq completion-styles '(helm-flex)))
+
+;; Fix helm recentf not being fuzzy
+;; https://emacs.stackexchange.com/questions/13702/why-is-helm-recentf-not-fuzzy
+(setq helm-source-recentf
+  (helm-make-source "Recentf" 'helm-recentf-source
+    :fuzzy-match t))
 
 (use-package helm-projectile
   :init
