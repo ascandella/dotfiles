@@ -114,7 +114,7 @@
     (helm-posframe-enable)))
 
 (setq helm-posframe-poshandler
-  #'posframe-poshandler-window-center)
+      #'posframe-poshandler-window-center)
 
 (setq yas-snippet-dirs
       '("~/.doom.d/snippets"))

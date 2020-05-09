@@ -21,21 +21,59 @@
    (setq-local fill-column 118)
    (setq-local clojure-docstring-fill-column 118)))
 
-;; https://github.com/DogLooksGood/parinfer-mode
-(use-package parinfer
-  :bind
-  (("C-," . parinfer-toggle-mode))
-  :init
-  (progn
-    (setq parinfer-extensions
-          '(defaults       ; should be included.
-            pretty-parens  ; different paren styles for different modes.
-            evil           ; If you use Evil.
-            paredit        ; Introduce some paredit commands.
-            smart-tab      ; C-b & C-f jump positions and smart shift with tab & S-tab.
-            smart-yank))   ; Yank behavior depend on mode.
-    ;(add-hook 'clojure-mode-hook #'parinfer-mode)
-    (add-hook 'emacs-lisp-mode-hook #'parinfer-mode)
-    (add-hook 'common-lisp-mode-hook #'parinfer-mode)
-    (add-hook 'scheme-mode-hook #'parinfer-mode)
-    (add-hook 'lisp-mode-hook #'parinfer-mode)))
+;; https://github.com/hlissner/doom-emacs/issues/1335#issuecomment-619022468
+(after! cider
+  (add-hook 'company-completion-started-hook 'custom/set-company-maps)
+  (add-hook 'company-completion-finished-hook 'custom/unset-company-maps)
+  (add-hook 'company-completion-cancelled-hook 'custom/unset-company-maps))
+
+(defun custom/unset-company-maps (&rest unused)
+  "Set default mappings (outside of company).
+    Arguments (UNUSED) are ignored."
+  (general-def
+    :states 'insert
+    :keymaps 'override
+    "<down>" nil
+    "<up>"   nil
+    "RET"    nil
+    [return] nil
+    "C-n"    nil
+    "C-p"    nil
+    "C-j"    nil
+    "C-k"    nil
+    "C-h"    nil
+    "C-u"    nil
+    "C-d"    nil
+    "C-s"    nil
+    "C-S-s"   (cond ((featurep! :completion helm) nil)
+                    ((featurep! :completion ivy)  nil))
+    "C-SPC"   nil
+    "TAB"     nil
+    [tab]     nil
+    [backtab] nil))
+
+(defun custom/set-company-maps (&rest unused)
+  "Set maps for when you're inside company completion.
+    Arguments (UNUSED) are ignored."
+  (general-def
+    :states 'insert
+    :keymaps 'override
+    "<down>" #'company-select-next
+    "<up>" #'company-select-previous
+    "RET" #'company-complete
+    [return] #'company-complete
+    "C-w"     nil  ; don't interfere with `evil-delete-backward-word'
+    "C-n"     #'company-select-next
+    "C-p"     #'company-select-previous
+    "C-j"     #'company-select-next
+    "C-k"     #'company-select-previous
+    "C-h"     #'company-show-doc-buffer
+    "C-u"     #'company-previous-page
+    "C-d"     #'company-next-page
+    "C-s"     #'company-filter-candidates
+    "C-S-s"   (cond ((featurep! :completion helm) #'helm-company)
+                    ((featurep! :completion ivy)  #'counsel-company))
+    "C-SPC"   #'company-complete-common
+    "TAB"     #'company-complete-common-or-cycle
+    [tab]     #'company-complete-common-or-cycle
+    [backtab] #'company-select-previous    ))
