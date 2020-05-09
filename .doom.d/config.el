@@ -194,12 +194,6 @@
   (setq helm-recentf-fuzzy-match t)
   (setq completion-styles '(helm-flex)))
 
-;; Fix helm recentf not being fuzzy
-;; https://emacs.stackexchange.com/questions/13702/why-is-helm-recentf-not-fuzzy
-(setq helm-source-recentf
-  (helm-make-source "Recentf" 'helm-recentf-source
-    :fuzzy-match t))
-
 (use-package helm-projectile
   :init
   (setq helm-projectile-fuzzy-match t))

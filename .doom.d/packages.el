@@ -56,6 +56,9 @@
 (package! helm-posframe
   :recipe (:host github :repo "tumashu/helm-posframe"))
 
+(package! helm
+  :recipe (:repo "ascandella/helm" :branch "master"))
+
 ;; Typescript / Javascript
 (package! web-mode)
 
