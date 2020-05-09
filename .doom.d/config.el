@@ -71,6 +71,7 @@
  :n "C-w <left>" 'evil-window-left
  :n "C-w <up>" 'evil-window-up
  :n "C-w <down>" 'evil-window-down
+ :n "-" 'dired
 
  :n "l" 'evil-ex-search-next
  :n "L" 'evil-ex-search-previous
