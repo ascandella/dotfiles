@@ -91,6 +91,8 @@
  :leader "," '+helm/projectile-find-file
  :leader "." '+helm/workspace-mini
 
+ :leader "TAB ," '+workspace/other
+
  ;; NERD commenter
  :leader "-" 'comment-line
 

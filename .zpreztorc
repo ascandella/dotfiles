@@ -1,3 +1,4 @@
+# -*- mode: sh -*-
 #
 # Sets Prezto options.
 #
@@ -82,7 +83,9 @@ _host="$(hostname)"
 
 if [[ "$(whoami)" == "root" ]] ; then
   _theme='adam1'
-elif [[ "${_host}" =~ "[Aa]iden" ]] ; then
+elif [[ -n "${INSIDE_EMACS}" ]] ; then
+  _theme='kylewest'
+elif [[ "${_host}" =~ "[Aa]iden" || "${_host}" == "aix1" ]] ; then
   _theme='powerlevel9k'
 elif [[ "${_host}" =~ 'vm$' ]] ; then
   _theme='skwp'
