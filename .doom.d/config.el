@@ -54,7 +54,7 @@
  rg-command-line-flags '("--hidden"))
 
 (defun helm-projectile-rg-word ()
-    (interactive)
+  (interactive)
   (helm-rg (thing-at-point 'word) nil (list (projectile-project-root))))
 
 (map!
