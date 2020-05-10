@@ -20,7 +20,7 @@
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
 (if (and (display-graphic-p) (equal (system-name) "aix1"))
-  (setq doom-font (font-spec :family "monospace" :size 20))
+  (setq doom-font (font-spec :family "Ubuntu Mono Nerd Font" :size 24))
   (setq doom-font (font-spec :family "monospace" :size 14)))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
