@@ -26,23 +26,16 @@ declare -a startonce=(
   # Not sure why this is necessary
   "xrdb -load $HOME/.Xresources"
   "xautolock -detectsleep -locker 'betterlockscreen -l'"
-)
 
-declare -a nousr1=(
-  sxhkd xautolock greenclip dropbox nm-applet nitrogen compton autokey-gtk onboard
+  # Notification manager
+  "dunst"
+
+  "xsetroot -cursor_name left_ptr"
 )
 
 for cmd in "${startonce[@]}" ; do
-  split=($cmd)
-  basecmd="$(basename ${split[0]})"
   ${cmd} &
 done
-
-
-# Notification manager
-dunst &
-
-xsetroot -cursor_name left_ptr &
 
 #padding
 bspc config top_padding        0
