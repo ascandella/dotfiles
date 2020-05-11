@@ -8,4 +8,5 @@
   (map!
    (:map org-mode-map
      :n "C-t" 'org-timestamp-down-day
-     :n "C-n" 'org-timestamp-up-day)))
+     :n "C-n" 'org-timestamp-up-day
+     "C-S-RET" 'org-insert-todo-subheading)))
