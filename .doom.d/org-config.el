@@ -10,3 +10,11 @@
      :n "C-t" 'org-timestamp-down-day
      :n "C-n" 'org-timestamp-up-day
      "C-S-RET" 'org-insert-todo-subheading)))
+
+;; https://orgmode.org/worg/org-tutorials/org-custom-agenda-commands.html
+(setq org-agenda-custom-commands
+      '(("d" "Done today"
+         ((agenda "" ((org-agenda-span 1)))
+          ;; limits the agenda display to a single day
+          (tags "CLOSED>=\"<-1d>\"")
+          ((org-agenda-compact-blocks t))))))
