@@ -14,6 +14,14 @@
 
 (evil-set-initial-state 'cider-repl-mode 'emacs)
 
+(use-package aggressive-indent-mode
+  :hook
+  (clojure-mode . aggressive-indent-mode))
+
+(use-package clojure-mode)
+(add-hook 'clojure-mode-hook #'paredit-mode)
+(add-hook 'clojure-mode-hook #'subword-mode)
+
 ;; https://github.com/metabase/metabase/wiki/Metabase-Clojure-Style-Guide#keep-lines-to-120-chars
 (add-hook
  'clojure-mode-hook

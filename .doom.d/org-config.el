@@ -16,5 +16,5 @@
       '(("d" "Done today"
          ((agenda "" ((org-agenda-span 1)))
           ;; limits the agenda display to a single day
-          (tags "CLOSED>=\"<-1d>\"")
+          (tags "CLOSED>\"<-1d>\"")
           ((org-agenda-compact-blocks t))))))

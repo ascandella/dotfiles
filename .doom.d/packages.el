@@ -72,6 +72,9 @@
 (package! flycheck-clj-kondo)
 (package! flycheck-clojure)
 (package! clj-refactor)
+(package! clojure-mode)
+
+(package! aggressive-indent)
 
 ;;
 ;;Python
