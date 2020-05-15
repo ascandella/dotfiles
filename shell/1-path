@@ -27,5 +27,7 @@ addtopath "/usr/local/opt/go/libexec/bin"
 
 addtopath "${HOME}/.local/bin"
 
+addtopath "${HOME}/.emacs.d/bin"
+
 # Undefine the helper function
 unset -f addtopath
