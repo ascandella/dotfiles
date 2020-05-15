@@ -111,15 +111,6 @@
 (after! evil-snipe
   (evil-snipe-mode -1))
 
-;; Center helm window in floating buffer
-(use-package helm-posframe
-  :config
-  (when (display-graphic-p)
-    (helm-posframe-enable)))
-
-(setq helm-posframe-poshandler
-      #'posframe-poshandler-window-center)
-
 (setq yas-snippet-dirs
       '("~/.doom.d/snippets"))
 
