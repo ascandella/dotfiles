@@ -31,6 +31,9 @@ declare -a startonce=(
   "dunst"
 
   "xsetroot -cursor_name left_ptr"
+
+  # Disable synaptics touchpad when typing
+  "syndaemon -i 0.2 -K -R -d"
 )
 
 for cmd in "${startonce[@]}" ; do
