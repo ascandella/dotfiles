@@ -6,7 +6,7 @@
 declare -a startonce=(
   "sxhkd -m -1"
 
-  "compton --config $HOME/.config/compton/compton.conf"
+  "picom --config $HOME/.config/picom/picom.conf"
   "$HOME/.config/polybar/launch.sh"
   "dunst"
 
