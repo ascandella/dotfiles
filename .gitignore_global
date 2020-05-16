@@ -14,3 +14,4 @@ __pycache__/
 .ignore
 .dmypy.json
 .mypy_cache
+.envrc
