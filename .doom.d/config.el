@@ -195,6 +195,13 @@
  'terraform-mode-hook
  #'terraform-format-on-save-mode)
 
+(add-to-list 'auto-mode-alist '("\\.hcl\\'" . terraform-mode))
+
+;; shell
+(setq
+  sh-basic-offset 2
+  sh-indentation 2)
+
 (load! "completion")
 (load! "org-config")
 (load! "clojure")
