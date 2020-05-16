@@ -202,6 +202,8 @@
   sh-basic-offset 2
   sh-indentation 2)
 
+(add-to-list 'auto-mode-alist'("\\.dotfiles/shell/" . sh-mode))
+
 (load! "completion")
 (load! "org-config")
 (load! "clojure")
