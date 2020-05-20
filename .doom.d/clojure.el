@@ -1,6 +1,6 @@
 ;; Clojure stuff
 (setq
- clojure-indent-style 'align-arguments
+ clojure-indent-style 'always-align
  clojure-align-forms-automatically t
  ;; Metabase style
  cljr-favor-prefix-notation t)
