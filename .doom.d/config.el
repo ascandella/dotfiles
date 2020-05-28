@@ -204,6 +204,13 @@
 
 (add-to-list 'auto-mode-alist'("\\.dotfiles/shell/" . sh-mode))
 
+(defun my-go-mode-hook()
+  (setq gofmt-command "goimports")
+  (add-hook 'before-save-hook 'gofmt-before-save))
+
+(add-hook 'go-mode-hook 'my-go-mode-hook)
+(add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
+
 (load! "completion")
 (load! "org-config")
 (load! "clojure")
