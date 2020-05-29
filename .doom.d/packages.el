@@ -81,3 +81,8 @@
 (package! anaconda-mode)
 
 (package! dockerfile-mode)
+
+;; Language Server Protocol
+(package! lsp-mode)
+;; this is kinda annoying
+;; (package! lsp-ui)

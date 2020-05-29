@@ -204,12 +204,20 @@
 
 (add-to-list 'auto-mode-alist'("\\.dotfiles/shell/" . sh-mode))
 
-(defun my-go-mode-hook()
-  (setq gofmt-command "goimports")
-  (add-hook 'before-save-hook 'gofmt-before-save))
+(defun lsp-go-install-save-hooks ()
+  (add-hook 'before-save-hook #'lsp-format-buffer t t)
+  (add-hook 'before-save-hook #'lsp-organize-imports t t))
+(add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
+
+(use-package lsp-mode
+  :config
+  (map!
+   (:map lsp-mode-map
+     :n "C-c C-j" 'lsp-find-definition)))
 
 (add-hook 'go-mode-hook 'my-go-mode-hook)
 (add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
+(add-hook 'go-mode-hook 'lsp-deferred)
 
 (load! "completion")
 (load! "org-config")
