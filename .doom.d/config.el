@@ -211,6 +211,8 @@
 
 (use-package lsp-mode
   :config
+  (add-hook 'before-save-hook #'lsp-format-buffer)
+  (add-hook 'before-save-hook #'lsp-organize-imports)
   (map!
    (:map lsp-mode-map
      :n "C-c C-j" 'lsp-find-definition)))
