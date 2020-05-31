@@ -43,3 +43,6 @@
 [submodule "doom"]
 	path = .emacs.d
 	url = https://github.com/hlissner/doom-emacs
+[submodule "ext/git-fuzzy"]
+	path = ext/git-fuzzy
+	url = https://github.com/bigH/git-fuzzy.git

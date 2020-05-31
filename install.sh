@@ -226,6 +226,7 @@ mkdir -p "${HOME}/.local/bin"
 _scanAndLink
 _scanAndLink "dotconfig" "*" ".config/"
 _scanAndLink "bin" "*" ".local/bin/"
+_scanAndLink "ext/git-fuzzy/bin" "*" ".local/bin/"
 
 _hostname="$(hostname)"
 _hostdir="to-install/_byhost/${_hostname}"
