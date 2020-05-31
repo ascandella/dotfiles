@@ -4,14 +4,20 @@
   "editor.roundedSelection": true,
   "editor.glyphMargin": true,
   "editor.lineNumbers": "off",
-  "editor.rulers": [
-    100
-  ],
+  "editor.rulers": [100],
   "editor.renderIndentGuides": true,
   "editor.formatOnType": true,
   "editor.formatOnSave": true,
   "editor.scrollBeyondLastLine": false,
   "editor.wordWrap": "wordWrapColumn",
+  "editor.codeActionsOnSave": {
+    // For ESLint
+    "source.fixAll.eslint": true,
+    // For TSLint
+    "source.fixAll.tslint": true,
+    // For Stylelint
+    "source.fixAll.stylelint": true
+  },
   "files.exclude": {
     ".venv": true,
     "**/vendor": true,
@@ -42,44 +48,26 @@
   "python.linting.pylintEnabled": false,
   "[python]": {
     "editor.tabSize": 4,
-    "editor.formatOnSave": false,
+    "editor.formatOnSave": false
   },
   "vim.useCtrlKeys": true,
   "vim.enableNeovim": true,
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": [
-        "n"
-      ],
-      "after": [
-        "k"
-      ]
+      "before": ["n"],
+      "after": ["k"]
     },
     {
-      "before": [
-        "t"
-      ],
-      "after": [
-        "j"
-      ]
+      "before": ["t"],
+      "after": ["j"]
     },
     {
-      "before": [
-        "s"
-      ],
-      "after": [
-        "l"
-      ]
+      "before": ["s"],
+      "after": ["l"]
     },
     {
-      "before": [
-        ",",
-        "w"
-      ],
-      "after": [
-        ":",
-        "w"
-      ]
+      "before": [",", "w"],
+      "after": [":", "w"]
     }
   ],
   "[cpp]": {
