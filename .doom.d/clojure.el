@@ -10,6 +10,7 @@
   (flycheck-clojure-setup)
   (map!
    (:map cider-mode-map
+     :n "C-c C-j" 'evil-goto-definition
      :n "C-c C-w" '+clojure/cider-switch-to-repl-buffer-and-switch-ns)))
 
 (evil-set-initial-state 'cider-repl-mode 'emacs)
