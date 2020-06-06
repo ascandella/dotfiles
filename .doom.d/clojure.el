@@ -11,13 +11,14 @@
   (map!
    (:map cider-mode-map
      :n "C-c C-j" 'evil-goto-definition
+     :n "SPC m r s" 'cljr-clean-ns
      :n "C-c C-w" '+clojure/cider-switch-to-repl-buffer-and-switch-ns)))
 
 (evil-set-initial-state 'cider-repl-mode 'emacs)
 
-(use-package aggressive-indent-mode
-  :hook
-  (clojure-mode . aggressive-indent-mode))
+;; (use-package aggressive-indent-mode
+;;   :hook
+;;   (clojure-mode . aggressive-indent-mode))
 
 (use-package clojure-mode)
 (add-hook 'clojure-mode-hook #'paredit-mode)
@@ -86,3 +87,6 @@
     "TAB"     #'company-complete-common-or-cycle
     [tab]     #'company-complete-common-or-cycle
     [backtab] #'company-select-previous    ))
+
+;; Auto-scroll repl output
+(add-hook 'cider-repl-mode-hook '(lambda () (setq scroll-conservatively 101)))
