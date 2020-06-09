@@ -55,7 +55,7 @@
 
 (defun helm-projectile-rg-word ()
   (interactive)
-  (helm-rg (thing-at-point 'word) nil (list (projectile-project-root))))
+  (helm-rg (thing-at-point 'symbol) nil (list (projectile-project-root))))
 
 (map!
  ;; Swap semicolon and colon
