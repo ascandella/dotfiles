@@ -4,7 +4,9 @@
   "editor.roundedSelection": true,
   "editor.glyphMargin": true,
   "editor.lineNumbers": "off",
-  "editor.rulers": [100],
+  "editor.rulers": [
+    100
+  ],
   "editor.renderIndentGuides": true,
   "editor.formatOnType": true,
   "editor.formatOnSave": true,
@@ -54,20 +56,38 @@
   "vim.enableNeovim": true,
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": ["n"],
-      "after": ["k"]
+      "before": [
+        "n"
+      ],
+      "after": [
+        "k"
+      ]
     },
     {
-      "before": ["t"],
-      "after": ["j"]
+      "before": [
+        "t"
+      ],
+      "after": [
+        "j"
+      ]
     },
     {
-      "before": ["s"],
-      "after": ["l"]
+      "before": [
+        "s"
+      ],
+      "after": [
+        "l"
+      ]
     },
     {
-      "before": [",", "w"],
-      "after": [":", "w"]
+      "before": [
+        ",",
+        "w"
+      ],
+      "after": [
+        ":",
+        "w"
+      ]
     }
   ],
   "[cpp]": {

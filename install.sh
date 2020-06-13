@@ -230,12 +230,13 @@ _scanAndLink "ext/git-fuzzy/bin" "*" ".local/bin/"
 
 _hostname="$(hostname)"
 _hostdir="to-install/_byhost/${_hostname}"
-if [[ -n "${_DOTFILES_VERBOSE}" ]] ; then
-  echo -e "Installing ${RED_FG}host '${_hostname}'${RESET} specific files"
-  echo
-  if [[ -d "${_hostdir}" ]] ; then
-    _scanAndLink "${_hostdir}" ".*"
+if [[ -d "${_hostdir}" ]] ; then
+  if [[ -n "${_DOTFILES_VERBOSE}" ]] ; then
+    echo -e "Installing ${RED_FG}host '${_hostname}'${RESET} specific files"
+    echo
   fi
+  _scanAndLink "${_hostdir}" ".*"
+  _scanAndLink "${_hostdir}/dotconfig" "*" ".config/"
   echo
 fi
 
