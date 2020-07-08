@@ -1,9 +1,7 @@
 ;; Clojure stuff
 (setq
  clojure-indent-style 'always-align
- clojure-align-forms-automatically t
- ;; Metabase style
- cljr-favor-prefix-notation t)
+ clojure-align-forms-automatically t)
 
 (use-package cider
   :config
@@ -15,6 +13,9 @@
      :n "C-c C-w" '+clojure/cider-switch-to-repl-buffer-and-switch-ns)))
 
 (evil-set-initial-state 'cider-repl-mode 'emacs)
+
+(define-clojure-indent
+  (try+ 0))
 
 ;; (use-package aggressive-indent-mode
 ;;   :hook
