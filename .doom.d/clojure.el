@@ -1,7 +1,11 @@
 ;; Clojure stuff
 (setq
  clojure-indent-style 'always-align
- clojure-align-forms-automatically t)
+ clojure-align-forms-automatically t
+ ;; persist REPL history
+ cider-repl-wrap-history t
+ cider-repl-history-size 100
+ cider-repl-history-file "~/.emacs.d/.local/cache/cider-repl-history")
 
 (use-package cider
   :config
