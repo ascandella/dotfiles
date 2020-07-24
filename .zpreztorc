@@ -90,7 +90,7 @@ elif [[ "${_host}" =~ "[Aa]iden" || "${_host}" == "aix1" ]] ; then
 elif [[ "${_host}" =~ 'vm$' ]] ; then
   _theme='skwp'
 else
-  if [[ "$(uname -s)" == "Linux" && ! "${_host}" =~ "ai10" ]]; then
+  if [[ "$(uname -s)" == "Linux" ]]; then
     _theme='agnoster'
   fi
 fi
