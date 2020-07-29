@@ -231,6 +231,9 @@
 (setq-default left-margin-width 1
               right-margin-width 1)
 
+(eval-after-load 'evil-ex
+  '(evil-ex-define-cmd "W" 'save-buffer))
+
 (load! "completion")
 (load! "org-config")
 (load! "clojure")
