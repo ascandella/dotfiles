@@ -234,6 +234,9 @@
 (eval-after-load 'evil-ex
   '(evil-ex-define-cmd "W" 'save-buffer))
 
+(map!
+ :n ";" 'evil-ex)
+
 (load! "completion")
 (load! "org-config")
 (load! "clojure")
