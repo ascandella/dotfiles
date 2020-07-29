@@ -25,7 +25,7 @@
         (font-spec :family "Ubuntu Mono Nerd Font" :size 22))
 
        ((equal (system-name) "ai10")
-        (font-spec :family "UbuntuMono Nerd Font" :size 16))
+        (font-spec :family "Consolas" :size 16))
 
        (t
         (font-spec :family "monospace" :size 14))))
@@ -227,6 +227,9 @@
 (add-hook 'go-mode-hook 'my-go-mode-hook)
 (add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
 (add-hook 'go-mode-hook 'lsp-deferred)
+
+(setq-default left-margin-width 1
+              right-margin-width 1)
 
 (load! "completion")
 (load! "org-config")
