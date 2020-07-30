@@ -1,21 +1,6 @@
-[submodule ".vim/bundle/minibufexpl"]
-	path = .vim/bundle/minibufexpl
-	url = https://github.com/fholgado/minibufexpl.vim.git
-[submodule ".vim/bundle/supertab"]
-	path = .vim/bundle/supertab
-	url = https://github.com/ervandew/supertab.git
 [submodule ".zprezto"]
 	path = .zprezto
 	url = git@github.com:ascandella/prezto.git
-[submodule ".vim/bundle/raindow-paretheses"]
-	path = .vim/bundle/raindow-paretheses
-	url = git://github.com/kien/rainbow_parentheses.vim.git
-[submodule ".vim/bundle/vim-rst-tables"]
-	path = .vim/bundle/vim-rst-tables
-	url = https://github.com/nvie/vim-rst-tables.git
-[submodule ".vim/.vim/bundle/riv.vim"]
-	path = .vim/.vim/bundle/riv.vim
-	url = https://github.com/Rykka/riv.vim.git
 [submodule "ext/z"]
 	path = ext/z
 	url = git@github.com:rupa/z.git
