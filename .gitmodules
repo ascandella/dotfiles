@@ -16,9 +16,6 @@
 [submodule ".tmux/plugins/tpm"]
 	path = .tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
-[submodule "ext/themes/zsh-dircolors-solarized"]
-	path = ext/themes/zsh-dircolors-solarized
-	url = https://github.com/joel-porquet/zsh-dircolors-solarized
 [submodule "ext/antigen"]
 	path = ext/antigen
 	url = https://github.com/zsh-users/antigen.git
