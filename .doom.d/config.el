@@ -25,7 +25,7 @@
         (font-spec :family "Ubuntu Mono Nerd Font" :size 22))
 
        ((equal (system-name) "ai10")
-        (font-spec :family "Consolas" :size 16))
+        (font-spec :family "UbuntuMono Nerd Font" :size 16))
 
        (t
         (font-spec :family "monospace" :size 14))))
