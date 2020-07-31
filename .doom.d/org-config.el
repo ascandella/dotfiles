@@ -1,7 +1,14 @@
+(setq org-directory
+      (cond ((equal (system-name) "ai10")
+             "/mnt/c/Users/Aiden/Nextcloud/Documents/org")
+
+            (t
+             "~/Nextcloud/Documents/org")))
+
 (use-package org
   :config
   (setq
-   org-agenda-files '("~/Nextcloud/Documents/org/")
+   org-agenda-files (cons org-directory '())
    org-log-done 'time
    org-time-stamp-custom-formats '("<%a %b %e>" . "<%a %b %e %Y %H:%M>"))
   (setq-default org-display-custom-times t)
