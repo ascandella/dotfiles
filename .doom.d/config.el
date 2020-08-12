@@ -187,7 +187,9 @@
   :config
   (setq helm-completion-style 'emacs)
   (setq helm-recentf-fuzzy-match t)
-  (setq completion-styles '(helm-flex)))
+  (if (= emacs-major-version 26)
+      (setq completion-styles '(helm-flex))
+      (setq completion-styles '(flex))))
 
 (use-package helm-projectile
   :init
