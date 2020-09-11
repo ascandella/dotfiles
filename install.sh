@@ -113,6 +113,10 @@ _scanAndLink () {
 
   local user="${4:-}"
   local needsSudo=""
+  if [[ -n "${3:-}" && "${3}" = /*  && ! -d "${3}" ]] ; then
+    echo -e "${RED_FG}Destination ${3} does not exist, skipping${RESET}"
+    return
+  fi
   if [[ -n "${user}" && -d "${3}" ]] ; then
     local destbase="${3}"
     needsSudo="yes"
