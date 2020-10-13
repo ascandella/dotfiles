@@ -237,6 +237,8 @@
 (map!
  :n ";" 'evil-ex)
 
+(xterm-mouse-mode 1)
+
 (load! "completion")
 (load! "org-config")
 (load! "clojure")
