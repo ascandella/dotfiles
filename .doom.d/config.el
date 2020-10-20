@@ -130,12 +130,13 @@
   ;; company is an optional dependency. You have to
   ;; install it separately via package-install
   ;; `M-x package-install [ret] company`
-  (company-mode +1))
+  (company-mode +1c)
 
 (use-package web-mode
   :config
   (setq web-mode-enable-auto-quoting nil
-        web-mode-enable-auto-indentation nil))
+        web-mode-markup-indent-offset 2
+        web-mode-enable-auto-indentation t))
 
 (use-package tide
   :init
@@ -203,6 +204,7 @@
  #'terraform-format-on-save-mode)
 
 (add-to-list 'auto-mode-alist '("\\.hcl\\'" . terraform-mode))
+(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 
 ;; shell
 (setq
