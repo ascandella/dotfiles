@@ -130,7 +130,7 @@
   ;; company is an optional dependency. You have to
   ;; install it separately via package-install
   ;; `M-x package-install [ret] company`
-  (company-mode +1c)
+  (company-mode +1))
 
 (use-package web-mode
   :config
