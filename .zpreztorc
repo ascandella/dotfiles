@@ -84,10 +84,12 @@ if [[ "$(whoami)" == "root" ]] ; then
   _theme='adam1'
 elif [[ -n "${INSIDE_EMACS}" ]] ; then
   _theme='kylewest'
-elif [[ "${_host}" =~ "[Aa]iden" || "${_host}" == "aix1" ]] ; then
-  _theme='powerlevel9k'
+elif [[ "${_host}" =~ "[Aa]iden" ]] ; then
+  _theme='agnoster'
 elif [[ "${_host}" =~ 'vm$' ]] ; then
   _theme='skwp'
+elif [[ "${_host}" =~ 'aimbp' ]] ; then
+  _theme='agnoster'
 else
   if [[ "$(uname -s)" == "Linux" ]]; then
     _theme='agnoster'
