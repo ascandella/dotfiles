@@ -1,21 +1,32 @@
 // Place your key bindings in this file to overwrite the defaults
 [
-  {"key": "ctrl+o", "command": "workbench.action.navigateBack"},
-  {"key": "ctrl+i", "command": "workbench.action.navigateForward"},
-
+  {
+    "key": "ctrl+o",
+    "command": "workbench.action.navigateBack"
+  },
+  {
+    "key": "ctrl+i",
+    "command": "workbench.action.navigateForward"
+  },
   // Emacs things
-  {"key": "alt+b", "command": "cursorWordStartLeft",
-   "when": "editorTextFocus"},
-  {"key": "alt+f", "command": "cursorWordEndRight",
-   "when": "editorTextFocus"},
-  {"key": "shift+alt+b", "command": "cursorWordStartLeftSelect",
-   "when": "editorTextFocus"},
-  {"key": "shift+alt+f", "command": "cursorWordEndRightSelect",
-   "when": "editorTextFocus"},
-
-  // Go things
-  {"key": "shift+cmd+a", "command": "go.test.cursor",
-   "when": "editorTextFocus && editorLangId == 'go'"}
-  {"key": "shift+cmd+r", "command": "go.test.file",
-   "when": "editorTextFocus && editorLangId == 'go'"}
+  {
+    "key": "alt+b",
+    "command": "cursorWordStartLeft",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+f",
+    "command": "cursorWordEndRight",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "shift+alt+b",
+    "command": "cursorWordStartLeftSelect",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "shift+alt+f",
+    "command": "cursorWordEndRightSelect",
+    "when": "editorTextFocus"
+  },
 ]
