@@ -96,7 +96,40 @@
         "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
     },
     "vim.normalModeKeyBindingsNonRecursive": [
-        {"before": [",", "a"], "commands": ["fzf-quick-open.runFzfSearch"]}
+        {
+            "before": [
+                ",",
+                "a"
+            ],
+            "commands": [
+                "fzf-quick-open.runFzfSearch"
+            ]
+        },
+        {
+            "before": [
+                "t"
+            ],
+            "after": [
+                "j"
+            ]
+        },
+        {
+            "before": [
+                "s"
+            ],
+            "after": [
+                "l"
+            ]
+        },
+        {
+            "before": [
+                "n"
+            ],
+            "after": [
+                "k"
+            ]
+        }
     ],
     "editor.multiCursorModifier": "alt",
+    "explorer.confirmDragAndDrop": false,
 }
