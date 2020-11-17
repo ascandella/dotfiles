@@ -3,9 +3,9 @@
 "
 
 no h h
-no t j
-no n k
-no s l
+nnoremap t j
+nnoremap n k
+nnoremap s l
 no S :
 no l n
 no L N
