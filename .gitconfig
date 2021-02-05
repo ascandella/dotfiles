@@ -52,7 +52,7 @@
 	p = add -p
 	unstage = reset HEAD
 	glg = log --graph --pretty=lg
-	sw = !git checkout $(git branch -a --format '%(refname:short)' | sed 's~origin/~~' | sort | uniq | fzf)
+	sw = !git checkout $(_gb)
 
 [color]
 	gui = true
