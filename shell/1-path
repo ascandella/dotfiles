@@ -29,5 +29,7 @@ addtopath "${HOME}/.local/bin"
 
 addtopath "${HOME}/.emacs.d/bin"
 
+addtopath "${HOME}/.yarn/bin"
+
 # Undefine the helper function
 unset -f addtopath
