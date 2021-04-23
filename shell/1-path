@@ -30,6 +30,7 @@ addtopath "${HOME}/.local/bin"
 addtopath "${HOME}/.emacs.d/bin"
 
 addtopath "${HOME}/.yarn/bin"
+addtopath "${HOME}/.config/yarn/global/node_modules/.bin"
 
 # Undefine the helper function
 unset -f addtopath
