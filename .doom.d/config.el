@@ -248,6 +248,7 @@
 (load! "completion")
 (load! "org-config")
 (load! "clojure")
+(load! "elixir")
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;

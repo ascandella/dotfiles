@@ -85,4 +85,10 @@
 ;; Language Server Protocol
 (package! lsp-mode)
 ;; this is kinda annoying
-;; (package! lsp-ui)
+(package! lsp-ui)
+
+;; Elixir stuff
+(package! dap-mode)
+(package! exunit)
+(package! flycheck-credo)
+(package! elixir-mode)
