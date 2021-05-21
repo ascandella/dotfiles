@@ -6,4 +6,15 @@ M.project_files = function()
   if not ok then require'telescope.builtin'.find_files(opts) end
 end
 
+local actions = require('telescope.actions')
+require('telescope').setup{
+  defaults = {
+    mappings = {
+      i = {
+        ["<esc>"] = actions.close
+      },
+    },
+  }
+}
+
 return M
