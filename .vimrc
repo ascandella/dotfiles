@@ -113,11 +113,6 @@ if hostname != minimal
   Plug 'mhinz/vim-startify'
 endif
 
-" Mac-only stuff
-if has("mac")
-  Plug 'sectioneight/vim-kwm'
-endif
-
 " These go to all my machines
 
 " Toggle quickfix and location list with leader
@@ -142,8 +137,17 @@ if has('unix')
   Plug 'Matt-Deacalion/vim-systemd-syntax'
 endif
 
+" Telescope and other nvim-0.5 (nightly) only stuff
+if has('nvim-0.5')
+  runtime! init/nvim-nightly.vim
+endif
+
 call plug#end()
 
 runtime! init/**.vim
+
+if has('nvim-0.5')
+  lua require('nvim-nightly-init')
+endif
 
 silent! source ~/.vimrc.local
