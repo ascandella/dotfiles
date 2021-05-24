@@ -1,6 +1,6 @@
+set shortmess+=c
 if exists(':CocAction')
   set completeopt=menu,preview
-  set shortmess+=c
 
   " Use <TAB> to select the popup menu:
   " Use tab for trigger completion with characters ahead and navigate.
