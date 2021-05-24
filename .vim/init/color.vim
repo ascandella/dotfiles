@@ -1,15 +1,20 @@
 " Colours, please
-set t_Co=256
+" set t_Co=256
 
 if (has("termguicolors"))
   set termguicolors
+endif
+
+" For Neovim 0.1.3 and 0.1.4 - https://github.com/neovim/neovim/pull/2198
+if (has('nvim'))
+  let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 endif
 
 set cursorline
 " hi CursorLine ctermbg=234
 
 set background=dark
-colorscheme OceanicNext
+colorscheme material
 
 set colorcolumn=+0
 
