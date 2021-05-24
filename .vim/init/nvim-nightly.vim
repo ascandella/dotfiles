@@ -8,4 +8,6 @@ if has('nvim-0.5')
   Plug 'TimUntersberger/neogit'
 
   Plug 'neovim/nvim-lspconfig'
+  " New code completion
+  Plug 'hrsh7th/nvim-compe'
 endif

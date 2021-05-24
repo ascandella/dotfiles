@@ -5,6 +5,8 @@ call plug#begin()
 let minimal = "amnesia"
 let hostname = substitute(system('hostname'), '\n', '', '')
 
+let b:enable_nightly = has('nvim-0.5')
+
 " most hosts get all the plugins
 if hostname != minimal
   " FZF replaces command-t
@@ -47,6 +49,9 @@ if hostname != minimal
   " Terraform / HCL
   Plug 'hashivim/vim-terraform'
 
+  " Elixir
+  Plug 'elixir-editors/vim-elixir'
+
   " END Language-specific stuff
   "
   "
@@ -64,15 +69,18 @@ if hostname != minimal
   " Dependency of org mode
   Plug 'tpope/vim-speeddating'
 
-  " Code completion
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
-  Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
+  if !b:enable_nightly
+    " Code completion
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
 
-  if has("python3")
-    " Python completion
-    Plug 'davidhalter/jedi-vim'
-  endif
+    if has("python3")
+      " Python completion
+      Plug 'davidhalter/jedi-vim'
+    endif
+  end
 
   " Auto pairs
   Plug 'tmsvg/pear-tree'
@@ -138,7 +146,7 @@ if has('unix')
 endif
 
 " Telescope and other nvim-0.5 (nightly) only stuff
-if has('nvim-0.5')
+if b:enable_nightly
   runtime! init/nvim-nightly.vim
 endif
 
@@ -146,7 +154,7 @@ call plug#end()
 
 runtime! init/**.vim
 
-if has('nvim-0.5')
+if b:enable_nightly
   lua require('nvim-nightly-init')
 endif
 
