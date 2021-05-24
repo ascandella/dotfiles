@@ -1,6 +1,5 @@
 .projectile
 .overcommit.yml
-.vscode
 .dir-locals.el
 .lessman_cache
 .DS_Store
