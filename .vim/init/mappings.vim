@@ -74,7 +74,7 @@ map <Leader>2 :set sts=2:set sw=2
 
 nmap <Leader>' cs"'
 
-map <C-m> ciw
+" map <C-m> ciw
 map :ws :w !sudo tee %<CR>
 
 " Convert hashrockets to Ruby 1.9
