@@ -5,6 +5,7 @@ vim.api.nvim_command('set undodir=~/.vim/undo-nvim/')
 
 require('ai/completion')
 require('ai/git')
+require('ai/lua-ls')
 
 -- Telescope setup
 require('telescope-config')
