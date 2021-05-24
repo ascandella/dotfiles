@@ -2,7 +2,6 @@
 -- as well
 vim.api.nvim_command('set undodir=~/.vim/undo-nvim/')
 
-
 require('ai/completion')
 require('ai/git')
 require('ai/lua-ls')
@@ -17,5 +16,4 @@ require('elixir-config')
 require('ai/typescript')
 
 -- Keymappings
-
 require('keymappings')
