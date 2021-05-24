@@ -39,6 +39,7 @@ augroup gitcommit-mapping
   autocmd!
   autocmd FileType gitcommit setlocal textwidth=72 fo+=t
   " Enter append on the first line
-  autocmd FileType gitcommit 1 | startinsert!
+  " Disable for neogit in neovim 0.5+
+  " autocmd FileType gitcommit 1 | startinsert!
 augroup END
 
