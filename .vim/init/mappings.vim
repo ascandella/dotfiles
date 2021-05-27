@@ -100,7 +100,7 @@ nmap <silent> <leader>rr :set norelativenumber!<cr>
 imap ,w <Esc>:w<cr>a
 
 " Spurious shift-key failure
-map :W :w
+command W w
 
 " Make Y consistent with D and C (instead of yy)
 noremap Y y$
