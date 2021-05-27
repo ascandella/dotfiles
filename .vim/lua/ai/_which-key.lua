@@ -3,6 +3,7 @@
 local wk = require("which-key")
 
 local registrations = {
+  b = "Close buffer",
   h = "Telescope Frecency",
   f = {
     name = "+Telescope",
@@ -23,8 +24,25 @@ local registrations = {
   a = "Swap With Next Parameter",
   A = "Swap With Prev Parameter",
   w = "Write",
+  S = "Search and replace",
+  s = {
+    s = "Sort paragraph",
+    w = "Search and replace word under cursor",
+  },
+  t = {
+    name = "+Toggle",
+    n = "Quickfix",
+    l = "Location List",
+  },
+  u = "Newline below",
+  y = {
+    name = "+Yank",
+    p = "Current buffer"
+  },
 }
 registrations[","] = "Search Project"
+registrations["."] = "Newline above"
+registrations["-"] = "Toggle line comment"
 wk.register(registrations, { prefix = "<leader>" })
 
 wk.register({

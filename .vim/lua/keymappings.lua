@@ -15,3 +15,8 @@ utils.map('n', '<Leader>sw',
   "viw:lua require('spectre').open_visual()<CR>",
   {noremap = true, silent = true}
 )
+
+utils.map('n', '<Leader>sp',
+  "viw:lua require('spectre').open_file_search()<CR>",
+  {noremap = true, silent = true}
+)

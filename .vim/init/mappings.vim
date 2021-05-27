@@ -72,13 +72,8 @@ nmap <Leader>u mmo<esc>`m
 map <Leader>4 :set sts=4:set sw=4
 map <Leader>2 :set sts=2:set sw=2
 
-nmap <Leader>' cs"'
-
 " map <C-m> ciw
 map :ws :w !sudo tee %<CR>
-
-" Convert hashrockets to Ruby 1.9
-autocmd FileType ruby nmap <leader>rh :%s/\v:(\w+)\s(\s*)\=\>/\1:\2/g<cr>
 
 " Close the current buffer, leave the window in place
 nmap <C-W>m <Plug>Kwbd
