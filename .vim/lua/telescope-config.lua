@@ -9,15 +9,11 @@ end
 
 M.livegrep_project = function()
   require('telescope.builtin').live_grep({
-    hidden = true,
-    ignore = false,
   })
 end
 
 M.grep_string_hidden = function()
   require('telescope.builtin').grep_string({
-    hidden = true,
-    ignore = false,
   })
 end
 
