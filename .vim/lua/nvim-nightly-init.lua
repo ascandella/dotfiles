@@ -17,3 +17,7 @@ require('ai/typescript')
 
 -- Keymappings
 require('keymappings')
+
+-- Syntax highlighting
+require('ai/treesitter-config')
+require('ai/ui')

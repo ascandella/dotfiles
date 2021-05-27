@@ -28,29 +28,11 @@ if hostname != minimal
   " Go refactoring
   Plug 'godoctor/godoctor.vim'
 
-  " TOML syntax
-  Plug 'cespare/vim-toml'
-
   " Surround. Nuff Sed.
   Plug 'tpope/vim-surround'
 
   " Caddyfile (webserver) syntax
   Plug 'joshglendenning/vim-caddyfile'
-
-  " Rust stuff
-  Plug 'rust-lang/rust.vim'
-
-  " Updated Python syntax
-  Plug 'vim-python/python-syntax'
-
-  " rubby :(
-  Plug 'vim-ruby/vim-ruby'
-
-  " Terraform / HCL
-  Plug 'hashivim/vim-terraform'
-
-  " Elixir
-  Plug 'elixir-editors/vim-elixir'
 
   " END Language-specific stuff
   "
@@ -80,6 +62,25 @@ if hostname != minimal
       " Python completion
       Plug 'davidhalter/jedi-vim'
     endif
+
+    " TOML syntax
+    Plug 'cespare/vim-toml'
+
+    " Language-specific stuff; superceded by tree-sitter in nightly
+    " Rust stuff
+    Plug 'rust-lang/rust.vim'
+
+    " Updated Python syntax
+    Plug 'vim-python/python-syntax'
+
+    " rubby :(
+    Plug 'vim-ruby/vim-ruby'
+
+    " Terraform / HCL
+    Plug 'hashivim/vim-terraform'
+
+    " Elixir
+    Plug 'elixir-editors/vim-elixir'
   end
 
   " Auto pairs
