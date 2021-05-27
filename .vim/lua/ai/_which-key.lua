@@ -7,8 +7,9 @@ local registrations = {
   h = "Telescope Frecency",
   f = {
     name = "+Telescope",
-    b    = "Buffer Fuzzy" ,
-    l    = "File Browser" ,
+    b    = "Buffer Fuzzy",
+    l    = "File Browser",
+    s    = "Search word under cursor",
   },
   g = {
     name  = "+LSP",

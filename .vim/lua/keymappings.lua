@@ -11,6 +11,16 @@ utils.map('n', '<Leader>gf',
   {noremap = true, silent = true}
 )
 
+utils.map('n', '<Leader>a',
+  "<Cmd>lua require('telescope-config').livegrep_project()<CR>",
+  {noremap = true, silent = true}
+)
+
+utils.map('n', '<Leader>fs',
+  "<Cmd>lua require('telescope-config').grep_string_hidden()<CR>",
+  {noremap = true, silent = true}
+)
+
 utils.map('n', '<Leader>S',
   "<Cmd>lua require('spectre').open()<CR>",
   {noremap = true, silent = true}
