@@ -2,7 +2,7 @@
 -- https://github.com/elianiva/dotfiles/blob/master/nvim/lua/plugins/_which-key.lua
 local wk = require("which-key")
 
-wk.register({
+local registrations = {
   f = {
     name = "+Telescope",
     f    = "Frecency" ,
@@ -23,7 +23,9 @@ wk.register({
   a = "Swap With Next Parameter",
   A = "Swap With Prev Parameter",
   w = "Write",
-}, { prefix = "<leader>" })
+}
+registrations[","] = "Search Project"
+wk.register(registrations, { prefix = "<leader>" })
 
 wk.register({
   gc = "Comments",
