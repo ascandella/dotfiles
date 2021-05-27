@@ -23,4 +23,7 @@ if has('nvim-0.5')
 
   " Find and replace
   Plug 'windwp/nvim-spectre'
+
+  " Icons for telescope and others
+  Plug 'kyazdani42/nvim-web-devicons'
 endif
