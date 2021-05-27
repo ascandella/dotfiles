@@ -2,127 +2,110 @@ filetype off
 
 call plug#begin()
 
-let minimal = "amnesia"
-let hostname = substitute(system('hostname'), '\n', '', '')
-
 let b:enable_nightly = has('nvim-0.5')
 
-" most hosts get all the plugins
-if hostname != minimal
-  " FZF replaces command-t
-  Plug 'junegunn/fzf.vim'
-  set rtp+=~/.fzf
+" FZF replaces command-t
+Plug 'junegunn/fzf.vim'
+set rtp+=~/.fzf
 
-  " Asynchronous linting
-  Plug 'w0rp/ale'
-
-  "
-  " Language-specific stuff
-  "
-
-  " Go stuff
-  if has('nvim-0.3.2')
-    Plug 'fatih/vim-go'
-  endif
-
-  " Go refactoring
-  Plug 'godoctor/godoctor.vim'
-
-  " Surround. Nuff Sed.
-  Plug 'tpope/vim-surround'
-
-  " Caddyfile (webserver) syntax
-  Plug 'joshglendenning/vim-caddyfile'
-
-  " END Language-specific stuff
-  "
-  "
-
-  " Say no more
-  Plug 'tpope/vim-fugitive'
-  " Open fugitive in GitHub
-  Plug 'tpope/vim-rhubarb'
-
-  " Show Git preview for blame on current line
-  Plug 'rhysd/git-messenger.vim'
-
-  " Org mode
-  Plug 'jceb/vim-orgmode'
-  " Dependency of org mode
-  Plug 'tpope/vim-speeddating'
-
-  if !b:enable_nightly
-    " Code completion
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
-
-    if has("python3")
-      " Python completion
-      Plug 'davidhalter/jedi-vim'
-    endif
-
-    " TOML syntax
-    Plug 'cespare/vim-toml'
-
-    " Language-specific stuff; superceded by tree-sitter in nightly
-    " Rust stuff
-    Plug 'rust-lang/rust.vim'
-
-    " Updated Python syntax
-    Plug 'vim-python/python-syntax'
-
-    " rubby :(
-    Plug 'vim-ruby/vim-ruby'
-
-    " Terraform / HCL
-    Plug 'hashivim/vim-terraform'
-
-    " Elixir
-    Plug 'elixir-editors/vim-elixir'
-  end
-
-  " Auto pairs
-  Plug 'tmsvg/pear-tree'
-
-  " Better Python indenting
-  Plug 'Vimjas/vim-python-pep8-indent'
-
-  " Focused editing
-  Plug 'junegunn/goyo.vim'
-
-  " Undo tree
-  Plug 'sjl/gundo.vim'
-
-  Plug 'troydm/zoomwintab.vim'
-
-  " View registers before pasting
-  Plug 'junegunn/vim-peekaboo'
-
-
-  if has("python3")
-    " Best Python syntax support
-    Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-    "
-    " Snippets
-    "
-    Plug 'SirVer/ultisnips'
-  endif
-
-  Plug 'honza/vim-snippets'
-
-  " File browsing
-  Plug 'tpope/vim-vinegar'
-
-  " Automatically set current directory (project) when loading file
-  Plug 'paroxayte/autocd.vim'
-
-  " Better startup screen
-  Plug 'mhinz/vim-startify'
+" Go stuff
+if has('nvim-0.3.2')
+  Plug 'fatih/vim-go'
 endif
 
-" These go to all my machines
+" Go refactoring
+Plug 'godoctor/godoctor.vim'
+
+" Surround. Nuff Sed.
+Plug 'tpope/vim-surround'
+
+" Caddyfile (webserver) syntax
+Plug 'joshglendenning/vim-caddyfile'
+
+" Say no more
+Plug 'tpope/vim-fugitive'
+" Open fugitive in GitHub
+Plug 'tpope/vim-rhubarb'
+
+" Show Git preview for blame on current line
+Plug 'rhysd/git-messenger.vim'
+
+" Org mode
+Plug 'jceb/vim-orgmode'
+" Dependency of org mode
+Plug 'tpope/vim-speeddating'
+
+if !b:enable_nightly
+  " Asynchronous linting
+  Plug 'w0rp/ale'
+  " Code completion
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
+
+  if has("python3")
+    " Python completion
+    Plug 'davidhalter/jedi-vim'
+    " Best Python syntax support
+    Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+  endif
+
+  " TOML syntax
+  Plug 'cespare/vim-toml'
+
+  " Language-specific stuff; superceded by tree-sitter in nightly
+  " Rust stuff
+  Plug 'rust-lang/rust.vim'
+
+  " Updated Python syntax
+  Plug 'vim-python/python-syntax'
+
+  " rubby :(
+  Plug 'vim-ruby/vim-ruby'
+
+  " Terraform / HCL
+  Plug 'hashivim/vim-terraform'
+
+  " Elixir
+  Plug 'elixir-editors/vim-elixir'
+end
+
+" Auto pairs
+Plug 'tmsvg/pear-tree'
+
+" Better Python indenting
+Plug 'Vimjas/vim-python-pep8-indent'
+
+" Focused editing
+Plug 'junegunn/goyo.vim'
+
+" Undo tree
+Plug 'sjl/gundo.vim'
+
+Plug 'troydm/zoomwintab.vim'
+
+" View registers before pasting
+Plug 'junegunn/vim-peekaboo'
+
+
+if has("python3")
+  "
+  " Snippets
+  "
+  Plug 'SirVer/ultisnips'
+endif
+
+Plug 'honza/vim-snippets'
+
+" File browsing
+Plug 'tpope/vim-vinegar'
+
+" Automatically set current directory (project) when loading file
+Plug 'paroxayte/autocd.vim'
+
+" Better startup screen
+Plug 'mhinz/vim-startify'
 
 " Toggle quickfix and location list with leader
 Plug 'Valloric/ListToggle'
@@ -134,7 +117,6 @@ Plug 'maximbaz/lightline-ale'
 Plug 'majutsushi/tagbar'
 
 " Theme
-" Plug 'mhartington/oceanic-next'
 Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 
 "# "Format code with one button press" - https://github.com/Chiel92/vim-autoformat
