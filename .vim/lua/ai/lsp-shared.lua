@@ -36,6 +36,7 @@ M.on_attach = function(client, bufnr)
      augroup END
      ]], true)
   end
+  require('lsp_signature').on_attach()
 end
 
 return M

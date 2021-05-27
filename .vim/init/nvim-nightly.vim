@@ -13,4 +13,7 @@ if has('nvim-0.5')
 
   " Emacs-like keyboard shortcut completion helper
   Plug 'folke/which-key.nvim', { 'branch': 'main' }
+
+  " Show type signature when calling functions
+  Plug 'ray-x/lsp_signature.nvim'
 endif
