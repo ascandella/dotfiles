@@ -5,9 +5,12 @@ if has('nvim-0.5')
 
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
-  Plug 'TimUntersberger/neogit'
+  Plug 'TimUntersberger/neogit', { 'dir': '~/src/neogit' }
 
   Plug 'neovim/nvim-lspconfig'
   " New code completion
   Plug 'hrsh7th/nvim-compe'
+
+  " Emacs-like keyboard shortcut completion helper
+  Plug 'folke/which-key.nvim', { 'branch': 'main' }
 endif

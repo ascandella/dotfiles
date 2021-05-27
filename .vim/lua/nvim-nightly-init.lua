@@ -21,3 +21,4 @@ require('keymappings')
 -- Syntax highlighting
 require('ai/treesitter-config')
 require('ai/ui')
+require('ai/_which-key')
