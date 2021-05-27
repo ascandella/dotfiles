@@ -20,4 +20,7 @@ if has('nvim-0.5')
 
   " Show type signature when calling functions
   Plug 'ray-x/lsp_signature.nvim'
+
+  " Find and replace
+  Plug 'windwp/nvim-spectre'
 endif
