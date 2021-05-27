@@ -3,9 +3,9 @@
 local wk = require("which-key")
 
 local registrations = {
+  h = "Telescope Frecency",
   f = {
     name = "+Telescope",
-    f    = "Frecency" ,
     b    = "Buffer Fuzzy" ,
     l    = "File Browser" ,
   },
