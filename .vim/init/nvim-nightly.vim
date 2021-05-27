@@ -5,7 +5,7 @@ if has('nvim-0.5')
 
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
-  Plug 'TimUntersberger/neogit', { 'dir': '~/src/neogit' }
+  Plug 'TimUntersberger/neogit'
 
   Plug 'neovim/nvim-lspconfig'
   " New code completion

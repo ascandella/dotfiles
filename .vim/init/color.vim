@@ -14,7 +14,7 @@ set cursorline
 " hi CursorLine ctermbg=234
 
 set background=dark
-colorscheme material
+colorscheme onedark
 
 set colorcolumn=+0
 
