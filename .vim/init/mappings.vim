@@ -96,9 +96,6 @@ nmap <silent> <leader>rn :exec &nu==&rnu? "se nu!" : "se rnu!"<cr>
 " Toggle relative line number
 nmap <silent> <leader>rr :set norelativenumber!<cr>
 
-" Easier inline save
-imap ,w <Esc>:w<cr>a
-
 " Spurious shift-key failure
 command W w
 
