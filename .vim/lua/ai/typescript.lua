@@ -1,6 +1,8 @@
 local nvim_lsp = require("lspconfig")
 
 local filetypes = {
+    javascript = "eslint",
+    javascriptreact = "eslint",
     typescript = "eslint",
     typescriptreact = "eslint",
 }
@@ -30,9 +32,22 @@ local formatters = {
 }
 
 local formatFiletypes = {
+    javascript = "prettier",
+    javascriptreact = "prettier",
     typescript = "prettier",
-    typescriptreact = "prettier"
+    typescriptreact = "prettier",
 }
+
+
+_G.lsp_organize_imports = function()
+    local params = {
+        command = "_typescript.organizeImports",
+        arguments = {vim.api.nvim_buf_get_name(0)},
+        title = ""
+    }
+    vim.lsp.buf.execute_command(params)
+end
+
 local lsp_shared = require('ai/lsp-shared')
 
 nvim_lsp.diagnosticls.setup {
@@ -44,4 +59,11 @@ nvim_lsp.diagnosticls.setup {
         formatters = formatters,
         formatFiletypes = formatFiletypes
     }
+}
+
+nvim_lsp.tsserver.setup {
+  on_attach = function(client)
+    client.resolved_capabilities.document_formatting = false
+    lsp_shared.on_attach(client)
+  end
 }

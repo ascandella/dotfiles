@@ -13,9 +13,10 @@ M.on_attach = function(client, bufnr)
   vim.cmd("command! LspImplementation lua vim.lsp.buf.implementation()")
   vim.cmd("command! LspDiagPrev lua vim.lsp.diagnostic.goto_prev()")
   vim.cmd("command! LspDiagNext lua vim.lsp.diagnostic.goto_next()")
-  vim.cmd(
-      "command! LspDiagLine lua vim.lsp.diagnostic.show_line_diagnostics()")
-  vim.cmd("command! LspSignatureHelp lua vim.lsp.buf.signature_help()")buf_map(bufnr, "n", "gd", ":LspDef<CR>", {silent = true})
+  vim.cmd("command! LspDiagLine lua vim.lsp.diagnostic.show_line_diagnostics()")
+  vim.cmd("command! LspSignatureHelp lua vim.lsp.buf.signature_help()")
+
+  buf_map(bufnr, "n", "gd", ":LspDef<CR>", {silent = true})
   buf_map(bufnr, "n", "gr", ":LspRename<CR>", {silent = true})
   buf_map(bufnr, "n", "gR", ":LspRefs<CR>", {silent = true})
   buf_map(bufnr, "n", "gy", ":LspTypeDef<CR>", {silent = true})
@@ -25,14 +26,15 @@ M.on_attach = function(client, bufnr)
   buf_map(bufnr, "n", "]a", ":LspDiagNext<CR>", {silent = true})
   buf_map(bufnr, "n", "ga", ":LspCodeAction<CR>", {silent = true})
   buf_map(bufnr, "n", "<Leader>a", ":LspDiagLine<CR>", {silent = true})
-  buf_map(bufnr, "i", "<C-x><C-x>", "<cmd> LspSignatureHelp<CR>",
-            {silent = true})if client.resolved_capabilities.document_formatting then
-  vim.api.nvim_exec([[
-   augroup LspAutocommands
-       autocmd! * <buffer>
-       autocmd BufWritePost <buffer> LspFormatting
-   augroup END
-   ]], true)
+  buf_map(bufnr, "i", "<C-x><C-x>", "<cmd> LspSignatureHelp<CR>", {silent = true})
+
+  if client.resolved_capabilities.document_formatting then
+    vim.api.nvim_exec([[
+     augroup LspAutocommands
+         autocmd! * <buffer>
+         autocmd BufWritePost <buffer> LspFormatting
+     augroup END
+     ]], true)
   end
 end
 
