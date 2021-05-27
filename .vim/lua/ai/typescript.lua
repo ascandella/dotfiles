@@ -33,9 +33,10 @@ local formatFiletypes = {
     typescript = "prettier",
     typescriptreact = "prettier"
 }
+local lsp_shared = require('ai/lsp-shared')
 
 nvim_lsp.diagnosticls.setup {
-    on_attach = on_attach,
+    on_attach = lsp_shared.on_attach,
     filetypes = vim.tbl_keys(filetypes),
     init_options = {
         filetypes = filetypes,
