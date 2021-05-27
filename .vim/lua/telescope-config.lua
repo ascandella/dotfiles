@@ -7,7 +7,8 @@ M.project_files = function()
 end
 
 local actions = require('telescope.actions')
-require('telescope').setup{
+local telescope = require('telescope')
+telescope.setup{
   defaults = {
     mappings = {
       i = {
@@ -16,5 +17,6 @@ require('telescope').setup{
     },
   }
 }
+telescope.load_extension('frecency')
 
 return M
