@@ -6,6 +6,11 @@ utils.map('n', '<Leader>h',
   {noremap = true, silent = true}
 )
 
+utils.map('n', '<Leader>gf',
+  "<Cmd>lua require('telescope.builtin').git_status()<CR>",
+  {noremap = true, silent = true}
+)
+
 utils.map('n', '<Leader>S',
   "<Cmd>lua require('spectre').open()<CR>",
   {noremap = true, silent = true}
