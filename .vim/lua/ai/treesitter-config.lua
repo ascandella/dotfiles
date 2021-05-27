@@ -5,7 +5,6 @@ ts.setup {
     'clojure',
     'css',
     'dockerfile',
-    'elixir',
     'erlang',
     'go',
     'graphql',

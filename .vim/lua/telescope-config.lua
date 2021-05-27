@@ -13,7 +13,8 @@ telescope.setup{
   defaults = {
     mappings = {
       i = {
-        ["<esc>"] = actions.close
+        ["<esc>"] = actions.close,
+        ["<C-u>"] = false,
       },
     },
   }

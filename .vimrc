@@ -67,8 +67,8 @@ if !b:enable_nightly
   " Terraform / HCL
   Plug 'hashivim/vim-terraform'
 
-  " Elixir
-  Plug 'elixir-editors/vim-elixir'
+  " Show ALE linting issues in lightline
+  Plug 'maximbaz/lightline-ale'
 end
 
 " Auto pairs
@@ -76,6 +76,9 @@ Plug 'tmsvg/pear-tree'
 
 " Better Python indenting
 Plug 'Vimjas/vim-python-pep8-indent'
+
+" Elixir
+Plug 'elixir-editors/vim-elixir'
 
 " Focused editing
 Plug 'junegunn/goyo.vim'
@@ -112,8 +115,6 @@ Plug 'Valloric/ListToggle'
 
 " Like powerline, but lighter
 Plug 'itchyny/lightline.vim'
-" Show ALE linting issues in lightline
-Plug 'maximbaz/lightline-ale'
 Plug 'majutsushi/tagbar'
 
 " Theme
