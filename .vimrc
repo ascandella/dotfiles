@@ -118,8 +118,6 @@ Plug 'mhinz/vim-startify'
 " Toggle quickfix and location list with leader
 Plug 'Valloric/ListToggle'
 
-Plug 'majutsushi/tagbar'
-
 " Theme
 Plug 'joshdick/onedark.vim'
 
