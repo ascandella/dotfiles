@@ -26,3 +26,5 @@ require('ai/ui')
 require('ai/_which-key')
 
 require('ai/_lsp_signature')
+
+require('ai/_galaxyline')

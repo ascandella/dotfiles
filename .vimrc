@@ -8,11 +8,6 @@ let b:enable_nightly = has('nvim-0.5')
 Plug 'junegunn/fzf.vim'
 set rtp+=~/.fzf
 
-" Go stuff
-if has('nvim-0.3.2')
-  Plug 'fatih/vim-go'
-endif
-
 " Go refactoring
 Plug 'godoctor/godoctor.vim'
 
@@ -36,6 +31,7 @@ Plug 'jceb/vim-orgmode'
 Plug 'tpope/vim-speeddating'
 
 if !b:enable_nightly
+  " Use built-in LSP instead of ALE/coc in nightly vim
   " Asynchronous linting
   Plug 'w0rp/ale'
   " Code completion
@@ -58,6 +54,11 @@ if !b:enable_nightly
   " Rust stuff
   Plug 'rust-lang/rust.vim'
 
+  " Go stuff
+  if has('nvim-0.3.2')
+    Plug 'fatih/vim-go'
+  endif
+
   " Updated Python syntax
   Plug 'vim-python/python-syntax'
 
@@ -66,6 +67,10 @@ if !b:enable_nightly
 
   " Terraform / HCL
   Plug 'hashivim/vim-terraform'
+
+  " Use galaxyline in neovim 0.5+
+  " Like powerline, but lighter
+  Plug 'itchyny/lightline.vim'
 
   " Show ALE linting issues in lightline
   Plug 'maximbaz/lightline-ale'
@@ -113,8 +118,6 @@ Plug 'mhinz/vim-startify'
 " Toggle quickfix and location list with leader
 Plug 'Valloric/ListToggle'
 
-" Like powerline, but lighter
-Plug 'itchyny/lightline.vim'
 Plug 'majutsushi/tagbar'
 
 " Theme

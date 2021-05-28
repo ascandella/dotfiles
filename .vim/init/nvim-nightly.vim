@@ -34,4 +34,9 @@ if has('nvim-0.5')
 
   " Highlight other usages of a symbol under cursor, using LSP
   Plug 'RRethy/vim-illuminate'
+
+  " New status line
+  Plug 'glepnir/galaxyline.nvim'
+  " Dependency for my galaxyline theme
+  Plug 'nvim-lua/lsp-status.nvim'
 endif
