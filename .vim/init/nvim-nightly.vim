@@ -31,4 +31,7 @@ if has('nvim-0.5')
   " https://github.com/neovim/neovim/pull/13823
   " is merge
   Plug 'tjdevries/astronauta.nvim'
+
+  " Highlight other usages of a symbol under cursor, using LSP
+  Plug 'RRethy/vim-illuminate'
 endif

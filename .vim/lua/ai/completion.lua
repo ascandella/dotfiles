@@ -1,5 +1,6 @@
 -- https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
 --
+local remap = vim.api.nvim_set_keymap
 require'compe'.setup {
   enabled = true;
   autocomplete = true;
@@ -13,15 +14,19 @@ require'compe'.setup {
   max_kind_width = 100;
   max_menu_width = 100;
   documentation = true;
+  allow_prefix_unmatch = false,
 
   source = {
-    path = true;
-    buffer = true;
-    calc = true;
-    nvim_lsp = true;
-    nvim_lua = true;
-    vsnip = false;
-    ultisnips = true;
+    path = true,
+    buffer = true,
+    calc = true,
+    nvim_lsp = {
+      enable = true,
+      priority = 10001, -- take precedence over file completion
+    },
+    nvim_lua = true,
+    vsnip = false,
+    ultisnips = true,
   };
 }
 
@@ -61,7 +66,14 @@ _G.s_tab_complete = function()
   end
 end
 
-vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+
+remap(
+  "i",
+  "<CR>",
+  "v:lua.Util.trigger_completion()",
+  { expr = true, silent = true }
+)
+remap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
+remap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
+remap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+remap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})

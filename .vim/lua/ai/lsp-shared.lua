@@ -28,6 +28,15 @@ M.on_attach = function(client, bufnr)
   buf_map(bufnr, "n", "<Leader>d", ":LspDiagLine<CR>", {silent = true})
   buf_map(bufnr, "i", "<C-x><C-x>", "<cmd> LspSignatureHelp<CR>", {silent = true})
 
+  -- Illuminate visual display. Visual or Cursorline are good fits
+  vim.api.nvim_command [[ hi def link LspReferenceText CursorLine ]]
+  vim.api.nvim_command [[ hi def link LspReferenceWrite CursorLine ]]
+  vim.api.nvim_command [[ hi def link LspReferenceRead Visual ]]
+
+  -- Illuminate mappings
+  buf_map(bufnr,'n', '<a-n>', '<cmd>lua require"illuminate".next_reference{wrap=true}<cr>', {noremap=true})
+  buf_map(bufnr, 'n', '<a-p>', '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>', {noremap=true})
+
   if client.resolved_capabilities.document_formatting then
     vim.api.nvim_exec([[
      augroup LspAutocommands
@@ -36,7 +45,9 @@ M.on_attach = function(client, bufnr)
      augroup END
      ]], true)
   end
+
   require('lsp_signature').on_attach()
+  require('illuminate').on_attach(client)
 end
 
 return M
