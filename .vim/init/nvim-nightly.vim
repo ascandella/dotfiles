@@ -26,4 +26,9 @@ if has('nvim-0.5')
 
   " Icons for telescope and others
   Plug 'kyazdani42/nvim-web-devicons'
+
+  " Use lua for keymapping. Will be builtin to neovim once
+  " https://github.com/neovim/neovim/pull/13823
+  " is merge
+  Plug 'tjdevries/astronauta.nvim'
 endif
