@@ -47,4 +47,7 @@ if has('nvim-0.5')
 
   " Typescript improvements
   Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
+
+  " Snippets
+  Plug 'hrsh7th/vim-vsnip'
 endif

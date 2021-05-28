@@ -25,8 +25,8 @@ require'compe'.setup {
       priority = 10001, -- take precedence over file completion
     },
     nvim_lua = true,
-    vsnip = false,
-    ultisnips = true,
+    vsnip = true,
+    ultisnips = false,
   };
 }
 

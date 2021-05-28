@@ -96,16 +96,6 @@ Plug 'troydm/zoomwintab.vim'
 " View registers before pasting
 Plug 'junegunn/vim-peekaboo'
 
-
-if has("python3")
-  "
-  " Snippets
-  "
-  Plug 'SirVer/ultisnips'
-endif
-
-Plug 'honza/vim-snippets'
-
 " File browsing
 Plug 'tpope/vim-vinegar'
 
