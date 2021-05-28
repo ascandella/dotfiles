@@ -47,7 +47,7 @@ map <Leader>h :History<CR>
 map <Leader>w :w<CR>
 
 map <Leader>b  :bd<CR>
-map <Leader>cl :ccl<CR>
+map <silent> <Leader>cl :ccl<CR>
 
 " Yank the current buffer path into the unnamed buffer
 map <silent> <leader>yp :let @" = expand("%")<cr>
@@ -55,7 +55,7 @@ map <silent> <leader>yp :let @" = expand("%")<cr>
 noremap <silent> <Leader>rs :setlocal spell!<cr>
 
 " Paste toggle
-map <silent> <Leader>p : set paste!<CR>
+map <silent> <Leader>p :set paste!<CR>
 
 " Fixup CSS
 autocmd FileType css map <Leader>cs :g#\({\n\)\@<=#.,/}/sort<CR>
@@ -69,8 +69,8 @@ nmap <Leader>u mmo<esc>`m
 " Other Mappings
 "
 
-map <Leader>4 :set sts=4:set sw=4
-map <Leader>2 :set sts=2:set sw=2
+map <Leader>4 :set sts=4<cr>:set sw=4<cr>
+map <Leader>2 :set sts=2<cr>:set sw=2<cr>
 
 " map <C-m> ciw
 map :ws :w !sudo tee %<CR>
@@ -106,9 +106,6 @@ vmap D yP'<
 
 " Backspace closes buffer
 nnoremap <BS> :bd<CR>
-
-" nmap <Tab> >>
-nmap <S-Tab> <<
 
 nnoremap <F1> :GundoToggle<cr>
 
