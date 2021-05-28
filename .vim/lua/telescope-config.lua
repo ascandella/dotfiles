@@ -19,10 +19,31 @@ end
 
 local actions = require('telescope.actions')
 local telescope = require('telescope')
+local previewers = require("telescope.previewers")
 telescope.setup{
   defaults = {
+    file_previewer     = previewers.vim_buffer_cat.new,
+    grep_previewer     = previewers.vim_buffer_vimgrep.new,
+    qflist_previewer   = previewers.vim_buffer_qflist.new,
+    scroll_strategy    = "cycle",
+    selection_strategy = "reset",
+    layout_strategy    = "flex",
+    borderchars        = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+    layout_defaults = {
+      horizontal = {
+        width_padding  = 0.1,
+        height_padding = 0.1,
+        preview_width  = 0.6,
+      },
+      vertical = {
+        width_padding  = 0.05,
+        height_padding = 1,
+        preview_height = 0.5,
+      },
+    },
     mappings = {
       i = {
+        ["<C-v"]  = actions.select_vertical,
         ["<esc>"] = actions.close,
         ["<C-u>"] = false,
       },
