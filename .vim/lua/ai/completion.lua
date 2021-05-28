@@ -70,7 +70,7 @@ end
 remap(
   "i",
   "<CR>",
-  "v:lua.Util.trigger_completion()",
+  "compe#confirm('<CR>')",
   { expr = true, silent = true }
 )
 remap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})

@@ -74,10 +74,10 @@ if !b:enable_nightly
 
   " Show ALE linting issues in lightline
   Plug 'maximbaz/lightline-ale'
-end
 
-" Auto pairs
-Plug 'tmsvg/pear-tree'
+  " Auto pairs
+  Plug 'tmsvg/pear-tree'
+end
 
 " Better Python indenting
 Plug 'Vimjas/vim-python-pep8-indent'

@@ -44,4 +44,7 @@ if has('nvim-0.5')
   Plug 'RishabhRD/nvim-lsputils'
   " Dependency of lsputils
   Plug 'RishabhRD/popfix'
+
+  " Typescript improvements
+  Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
 endif
