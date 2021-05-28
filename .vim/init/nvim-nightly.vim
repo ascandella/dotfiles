@@ -39,4 +39,9 @@ if has('nvim-0.5')
   Plug 'glepnir/galaxyline.nvim'
   " Dependency for my galaxyline theme
   Plug 'nvim-lua/lsp-status.nvim'
+
+  " Better LSP code actions
+  Plug 'RishabhRD/nvim-lsputils'
+  " Dependency of lsputils
+  Plug 'RishabhRD/popfix'
 endif

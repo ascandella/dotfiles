@@ -23,8 +23,11 @@ require('ai/treesitter-config')
 
 require('ai/ui')
 
+-- Plugin-specific configuration
 require('ai/_which-key')
 
 require('ai/_lsp_signature')
 
 require('ai/_galaxyline')
+
+require('ai/_lsputil')
