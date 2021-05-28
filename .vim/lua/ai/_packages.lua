@@ -33,8 +33,8 @@ packer.startup(function(use)
 
   -- Magit for neovim
   use {
-    -- 'TimUntersberger/neogit'
-    '~/src/neogit',
+    'TimUntersberger/neogit',
+    --'~/src/neogit',
     requires = {
       {'nvim-lua/plenary.nvim'},
     },
