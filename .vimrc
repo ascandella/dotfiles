@@ -77,6 +77,9 @@ if !b:enable_nightly
 
   " Auto pairs
   Plug 'tmsvg/pear-tree'
+
+  " File browsing
+  Plug 'tpope/vim-vinegar'
 end
 
 " Better Python indenting
@@ -95,9 +98,6 @@ Plug 'troydm/zoomwintab.vim'
 
 " View registers before pasting
 Plug 'junegunn/vim-peekaboo'
-
-" File browsing
-Plug 'tpope/vim-vinegar'
 
 " Automatically set current directory (project) when loading file
 Plug 'paroxayte/autocd.vim'
