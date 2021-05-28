@@ -6,15 +6,11 @@ require('ai/_packages')
 
 require('ai/lua-ls')
 
-
 -- ELixir setup
 require('elixir-config')
 
 -- Typescript
 require('ai/typescript')
-
--- Keymappings
-require('keymappings')
 
 require('ai/ui')
 

@@ -121,11 +121,6 @@ if has('unix')
   Plug 'Matt-Deacalion/vim-systemd-syntax'
 endif
 
-" Telescope and other nvim-0.5 (nightly) only stuff
-if b:enable_nightly
-  runtime! init/nvim-nightly.vim
-endif
-
 call plug#end()
 
 runtime! init/**.vim
