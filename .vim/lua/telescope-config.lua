@@ -62,7 +62,7 @@ local no_preview = function(opts)
         results = { "─", "│", "─", "│", "├", "┤", "┘", "└" },
         preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
       },
-      width = 0.8,
+      width = 0.6,
       previewer = false,
     }, opts)
   )
