@@ -1,0 +1,12 @@
+{
+  "LocalModule": {
+    "prefix": ["locm"],
+    "body": [
+      "local M = {}",
+      "",
+      "$1",
+      "",
+      "return M"
+    ]
+  }
+}

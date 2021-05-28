@@ -50,4 +50,6 @@ if has('nvim-0.5')
 
   " Snippets
   Plug 'hrsh7th/vim-vsnip'
+  " Bunch o snippets
+  Plug 'rafamadriz/friendly-snippets'
 endif

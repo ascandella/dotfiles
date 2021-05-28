@@ -31,3 +31,5 @@ require('ai/_lsp_signature')
 require('ai/_galaxyline')
 
 require('ai/_lsputil')
+
+require('ai/_vsnip')
