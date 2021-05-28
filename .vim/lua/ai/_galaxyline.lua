@@ -11,39 +11,7 @@ gl.short_line_list = { 'packer', 'NvimTree', 'Outline', 'LspTrouble' }
 
 -- Various colors from:
 -- https://github.com/voitd/dotfiles/blob/master/.config/nvim/lua/plugins/statusline.lua
---local colors = {
-  --bg = '#282c34',
-  --fg = '#abb2bf',
-  --section_bg = '#38393f',
-  --blue = '#61afef',
-  --green = '#98c379',
-  --purple = '#c678dd',
-  --orange = '#e5c07b',
-  --red = '#e06c75',
-  --yellow = '#e5c07b',
-  --darkgrey = '#2c323d',
-  --middlegrey = '#8791A5',
---}
-
---local one_dark_colors = {
-  --bg = "#2e3440",
-  --fg = "#81a1c1",
-  --line_bg = "#2e3440",
-  --fg_green = "#6d96a5",
-  --yellow = "#fabd2f",
-  --cyan = "#008080",
-  --darkblue = "#081633",
-  --green = "#608B4E",
-  --orange = "#FF8800",
-  --purple = "#5d4d7a",
-  --magenta = "#d16d9e",
-  --grey = "#c0c0c0",
-  --blue = "#569CD6",
-  --red = "#D16969"
---}
-
-local nord_colors = {
-  --bg = "NONE",
+local colors = {
   bg = "#2E3440",
   fg = "#81A1C1",
   line_bg = "NONE",
@@ -58,10 +26,12 @@ local nord_colors = {
   magenta = "#BF616A",
   gray = "#616E88",
   blue = "#5E81AC",
-  red = "#BF616A"
-}
+  red = "#BF616A",
 
-local colors = nord_colors
+  section_bg = '#38393f',
+  darkgrey = '#2c323d',
+  middlegrey = '#8791A5',
+}
 
 -- Local helper functions
 local buffer_not_empty = function()
