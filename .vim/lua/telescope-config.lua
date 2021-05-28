@@ -43,8 +43,9 @@ telescope.setup{
     },
     mappings = {
       i = {
-        ["<C-v"]  = actions.select_vertical,
+        ["<C-s-v>"]  = actions.select_vertical,
         ["<esc>"] = actions.close,
+        ["<C-t>"] = false,
         ["<C-u>"] = false,
       },
     },
