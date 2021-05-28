@@ -3,7 +3,7 @@ local nnoremap = k.nnoremap
 
 nnoremap { '<Leader>,', require('telescope-config').project_files , { silent = true } }
 
-nnoremap { '<Leader>h', require('telescope').extensions.frecency.frecency, { silent = true } }
+nnoremap { '<Leader>h', require('telescope-config').frecency, { silent = true } }
 
 nnoremap { '<Leader>n', require('telescope.builtin').buffers, { silent = true} }
 nnoremap { '<Leader>gf', require('telescope.builtin').git_status, { silent = true} }

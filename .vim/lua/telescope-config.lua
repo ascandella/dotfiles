@@ -52,4 +52,25 @@ telescope.setup{
 }
 telescope.load_extension('frecency')
 
+local no_preview = function(opts)
+  opts = opts or {}
+  return require("telescope.themes").get_dropdown(
+    vim.tbl_extend("force", {
+      borderchars = {
+        { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+        prompt  = { "─", "│", " ", "│", "┌", "┐", "│", "│" },
+        results = { "─", "│", "─", "│", "├", "┤", "┘", "└" },
+        preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+      },
+      width = 0.8,
+      previewer = false,
+    }, opts)
+  )
+end
+
+
+M.frecency = function()
+  require("telescope").extensions.frecency.frecency(no_preview())
+end
+
 return M
