@@ -2,7 +2,7 @@ module Overcommit::Hook::PreCommit
   class LuaCheck < Base
 
     MESSAGE_REGEX = /
-      ^    (?<file>.+)
+      ^\s+(?<file>.+)
       :(?<line>\d+)
       :(?<col>\d+)
       :\s+(?<msg>.+)$
@@ -17,16 +17,15 @@ module Overcommit::Hook::PreCommit
     def parse_messages(output)
       repo_root = Overcommit::Utils.repo_root
 
-      output.scan(MESSAGE_REGEX).map do |file, line, col, type, msg|
+      output.scan(MESSAGE_REGEX).map do |file, line, col, msg|
         line = line.to_i
-        type = type.to_sym
         # Obtain the path relative to the root of the repository
         # for nicer output:
         relpath = file.dup
         relpath.slice!("#{repo_root}/")
 
-        text = "#{relpath}:#{line}:#{col}:#{type} #{msg}"
-        Overcommit::Hook::Message.new(type, file, line, text)
+        text = "#{relpath}:#{line}:#{col}: #{msg}"
+        Overcommit::Hook::Message.new(:warning, file, line, text)
       end
     end
   end

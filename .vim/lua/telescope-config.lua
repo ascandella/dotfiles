@@ -64,6 +64,7 @@ telescope.setup{
 telescope.load_extension('frecency')
 telescope.load_extension('fzf')
 
+-- Unused
 local no_preview = function(opts)
   opts = opts or {}
   return require("telescope.themes").get_dropdown(
