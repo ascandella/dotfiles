@@ -35,8 +35,20 @@ M.on_attach = function(client, bufnr)
   vim.api.nvim_command [[ hi def link LspReferenceRead Visual ]]
 
   -- Illuminate mappings
-  buf_map(bufnr,'n', '<a-n>', '<cmd>lua require"illuminate".next_reference{wrap=true}<cr>', {noremap=true})
-  buf_map(bufnr, 'n', '<a-p>', '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>', {noremap=true})
+  buf_map(
+    bufnr,
+    'n',
+    '<a-n>',
+    '<cmd>lua require"illuminate".next_reference{wrap=true}<cr>',
+    {noremap=true}
+  )
+  buf_map(
+    bufnr,
+    'n',
+    '<a-p>',
+    '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>',
+    {noremap=true}
+  )
 
   if client.resolved_capabilities.document_formatting then
     vim.api.nvim_exec([[

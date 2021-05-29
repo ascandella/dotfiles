@@ -26,6 +26,14 @@ PreCommit:
     commad:
       - zunit
 
+  LuaCheck:
+    enabled: true
+    required_executable: luacheck
+    description: 'luacheck vim configuration'
+    include:
+      - '.vim/lua/**/*.lua'
+    commad: luacheck
+
   ShellCheck:
     enabled: true
     exclude:
