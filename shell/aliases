@@ -44,6 +44,7 @@ if [ -x "$HOME/src/neovim/nvim.appimage" ] ; then
   unalias vim
   alias vim="$HOME/src/neovim/nvim.appimage"
   alias nvim="$HOME/src/neovim/nvim.appimage"
+  export EDITOR="$HOME/src/neovim/nvim.appimage"
 fi
 
 #

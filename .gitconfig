@@ -1,6 +1,5 @@
 [core]
 	whitespace = trailing-space,space-before-tab
-	editor = nvim
 	excludesfile = ~/.gitignore_global
 	pager = diff-so-fancy | less --tabs=1,5 -RFX
 
