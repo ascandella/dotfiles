@@ -153,4 +153,11 @@ packer.startup(function(use)
     setup = [[require('ai/_matchup')]],
     event = 'BufEnter',
   }
+
+  -- Undo tree
+  use {
+    'mbbill/undotree',
+    cmd = 'UndotreeToggle',
+    config = [[require('ai/_undotree')]]
+  }
 end)

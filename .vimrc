@@ -80,6 +80,9 @@ if !b:enable_nightly
 
   " File browsing
   Plug 'tpope/vim-vinegar'
+
+  " Undo tree
+  Plug 'sjl/gundo.vim'
 end
 
 " Better Python indenting
@@ -90,9 +93,6 @@ Plug 'elixir-editors/vim-elixir'
 
 " Focused editing
 Plug 'junegunn/goyo.vim'
-
-" Undo tree
-Plug 'sjl/gundo.vim'
 
 Plug 'troydm/zoomwintab.vim'
 
