@@ -117,6 +117,9 @@ packer.startup(function(use)
     requires = {
       'RishabhRD/popfix'
     },
+    config = function()
+      require('ai/_lsputil')
+    end
   }
 
   -- Use lua for keymapping. Will be builtin to neovim once

@@ -13,5 +13,3 @@ require('elixir-config')
 require('ai/typescript')
 
 require('ai/ui')
-
-require('ai/_lsputil')
