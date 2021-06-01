@@ -41,7 +41,7 @@ _aliasto nvim vim
 _aliasto rg ag
 # Use Neovim nightly if installed
 if [ -x "$HOME/src/neovim/nvim.appimage" ] ; then
-  unalias vim
+  unalias vim 2&> /dev/null
   alias vim="$HOME/src/neovim/nvim.appimage"
   alias nvim="$HOME/src/neovim/nvim.appimage"
   export EDITOR="$HOME/src/neovim/nvim.appimage"
