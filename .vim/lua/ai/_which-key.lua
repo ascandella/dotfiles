@@ -34,6 +34,7 @@ local registrations = {
     name = "+Toggle",
     n = "Quickfix",
     l = "Location List",
+    s = "Toggle trailing whitespace cleanup hook",
   },
   u = "Newline below",
   y = {
