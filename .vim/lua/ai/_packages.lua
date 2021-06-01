@@ -77,7 +77,8 @@ packer.startup(function(use)
     'hrsh7th/nvim-compe',
     config = function()
       require('ai/completion')
-    end
+    end,
+    event = 'InsertEnter *',
   }
 
   -- Highlight other usages of a symbol under cursor, using LSP
@@ -92,7 +93,8 @@ packer.startup(function(use)
     },
     config = function()
       require('ai/_vsnip')
-    end
+    end,
+    event = 'InsertEnter *',
   }
 
   -- Show type signature when calling functions
