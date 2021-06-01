@@ -36,7 +36,7 @@ local registrations = {
     l = "Location List",
     s = "Toggle trailing whitespace cleanup hook",
   },
-  u = "Newline below",
+  u = "Toggle undo tree",
   y = {
     name = "+Yank",
     p = "Current buffer"
