@@ -1,8 +1,7 @@
 " Git (Fugitive) bindings
 
 " Git blame
-map <Leader>gb :Gblame<CR>
-map <Leader>gc :Gcommit -v -q<CR>I
+map <Leader>gb :Git blame<CR>
 
 " Modified files in the current git repo (FZF plugin)
 map <Leader>gf :GFiles?<CR>
