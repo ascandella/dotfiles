@@ -146,4 +146,11 @@ packer.startup(function(use)
 
   -- Typescript improvements
   use 'jose-elias-alvarez/nvim-lsp-ts-utils'
+
+  -- Wrapping/delimiters
+  use {
+    'andymass/vim-matchup',
+    setup = [[require('ai/_matchup')]],
+    event = 'BufEnter',
+  }
 end)
