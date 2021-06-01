@@ -132,7 +132,14 @@ packer.startup(function(use)
     end
   }
 
-  use 'neovim/nvim-lspconfig'
+  use {
+    'neovim/nvim-lspconfig',
+    config = function()
+      require('ai/lua-ls')
+      require('ai/typescript')
+      require('ai/elixir-config')
+    end
+  }
 
   -- Find and replace
   use 'windwp/nvim-spectre'

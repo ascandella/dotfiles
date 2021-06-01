@@ -4,12 +4,4 @@ vim.api.nvim_command('set undodir=~/.vim/undo-nvim/')
 
 require('ai/_packages')
 
-require('ai/lua-ls')
-
--- ELixir setup
-require('elixir-config')
-
--- Typescript
-require('ai/typescript')
-
 require('ai/ui')
