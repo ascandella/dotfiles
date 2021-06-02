@@ -83,6 +83,9 @@ if !b:enable_nightly
 
   " Undo tree
   Plug 'sjl/gundo.vim'
+
+  " View registers before pasting
+  Plug 'junegunn/vim-peekaboo'
 end
 
 " Better Python indenting
@@ -95,9 +98,6 @@ Plug 'elixir-editors/vim-elixir'
 Plug 'junegunn/goyo.vim'
 
 Plug 'troydm/zoomwintab.vim'
-
-" View registers before pasting
-Plug 'junegunn/vim-peekaboo'
 
 " Automatically set current directory (project) when loading file
 Plug 'paroxayte/autocd.vim'

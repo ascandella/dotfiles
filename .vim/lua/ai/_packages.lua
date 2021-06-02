@@ -162,4 +162,7 @@ packer.startup(function(use)
     cmd = 'UndotreeToggle',
     config = [[require('ai/_undotree')]]
   }
+
+  -- View registers
+  use "tversteeg/registers.nvim"
 end)
