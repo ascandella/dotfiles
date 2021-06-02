@@ -41,7 +41,8 @@ packer.startup(function(use)
     },
     config = function()
       require('ai/_neogit')
-    end
+    end,
+    cmd = 'Neogit',
   }
 
   -- Frequency/recency
@@ -164,5 +165,5 @@ packer.startup(function(use)
   }
 
   -- View registers
-  use "tversteeg/registers.nvim"
+  use 'tversteeg/registers.nvim'
 end)

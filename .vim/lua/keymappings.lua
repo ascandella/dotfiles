@@ -19,6 +19,6 @@ nnoremap { '<Leader>sw', require('spectre').open_visual, { silent = true} }
 
 nnoremap { '<Leader>sp', require('spectre').open_file_search, { silent = true} }
 
-nnoremap { '<Leader>gg', require('neogit').open, { silent=true } }
+nnoremap { '<Leader>gg', '<cmd>Neogit<cr>', { silent=true } }
 
 nnoremap { '<Leader>u', '<cmd>UndotreeToggle<cr>', { silent = true }}
