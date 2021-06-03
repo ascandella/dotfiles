@@ -26,5 +26,6 @@ nnoremap { '<Leader>gg', '<cmd>Neogit<cr>', { silent=true } }
 nnoremap { '<Leader>u', '<cmd>UndotreeToggle<cr>', { silent = true }}
 
 nnoremap { '<Leader>ft', '<cmd>FloatermToggle<cr>', { silent = true }}
+nnoremap { '<C-\\>', '<cmd>FloatermToggle<cr>', { silent = true }}
 tnoremap { '<Leader>ft', '<cmd>FloatermToggle<cr>', { silent = true }}
 tnoremap { '<C-\\>', '<cmd>FloatermHide<cr>', { silent = true }}
