@@ -1,5 +1,7 @@
 local k = require("astronauta.keymap")
 local nnoremap = k.nnoremap
+local tnoremap = k.tnoremap
+
 
 nnoremap { '-', require('telescope.builtin').file_browser, { silent = true } }
 nnoremap { '<Leader>,', require('telescope-config').project_files , { silent = true } }
@@ -22,3 +24,7 @@ nnoremap { '<Leader>sp', require('spectre').open_file_search, { silent = true} }
 nnoremap { '<Leader>gg', '<cmd>Neogit<cr>', { silent=true } }
 
 nnoremap { '<Leader>u', '<cmd>UndotreeToggle<cr>', { silent = true }}
+
+nnoremap { '<Leader>ft', '<cmd>FloatermToggle<cr>', { silent = true }}
+tnoremap { '<Leader>ft', '<cmd>FloatermToggle<cr>', { silent = true }}
+tnoremap { '<C-\\>', '<cmd>FloatermHide<cr>', { silent = true }}
