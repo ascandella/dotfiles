@@ -64,7 +64,7 @@ M.on_attach = function(client, bufnr)
 
 
   if client.server_capabilities.colorProvider then
-    require("ai/lsp-documentcolors").buf_attach(bufnr, { single_column = false })
+    require("ai/lsp-documentcolors").buf_attach(bufnr, { single_column = true })
   end
 end
 
