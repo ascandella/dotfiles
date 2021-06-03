@@ -2,7 +2,6 @@ local k = require("astronauta.keymap")
 local nnoremap = k.nnoremap
 local tnoremap = k.tnoremap
 
-
 nnoremap { '-', require('telescope.builtin').file_browser, { silent = true } }
 nnoremap { '<Leader>,', require('telescope-config').project_files , { silent = true } }
 

@@ -75,9 +75,6 @@ if !b:enable_nightly
   " Show ALE linting issues in lightline
   Plug 'maximbaz/lightline-ale'
 
-  " Auto pairs
-  Plug 'tmsvg/pear-tree'
-
   " File browsing
   Plug 'tpope/vim-vinegar'
 
@@ -87,6 +84,9 @@ if !b:enable_nightly
   " View registers before pasting
   Plug 'junegunn/vim-peekaboo'
 end
+
+" Auto pairs
+Plug 'tmsvg/pear-tree'
 
 " Better Python indenting
 Plug 'Vimjas/vim-python-pep8-indent'
