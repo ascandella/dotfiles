@@ -47,4 +47,3 @@ M.run_test_at_cursor = function()
 end
 
 return M
-
