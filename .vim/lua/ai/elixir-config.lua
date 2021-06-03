@@ -2,6 +2,7 @@ local nvim_lsp = require('lspconfig')
 
 nvim_lsp.elixirls.setup{
   on_attach = require('ai/lsp-shared').on_attach,
+  capabilities = require('ai/lsp-shared').capabilities(),
   cmd = {vim.fn.expand("$HOME/src/elixir-ls/language_server.sh")}
 }
 

@@ -62,6 +62,7 @@ nvim_lsp.diagnosticls.setup {
 }
 
 nvim_lsp.tsserver.setup {
+  capabilities = require('ai/lsp-shared').capabilities(),
   on_attach = function(client)
     local ts_utils = require("nvim-lsp-ts-utils")
     -- defaults

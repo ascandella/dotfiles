@@ -66,7 +66,6 @@ _G.s_tab_complete = function()
   end
 end
 
-
 remap(
   "i",
   "<CR>",
