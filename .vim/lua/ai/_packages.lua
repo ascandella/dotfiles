@@ -137,7 +137,11 @@ packer.startup(function(use)
 
   use {
     'neovim/nvim-lspconfig',
+    requires = {
+      'kabouzeid/nvim-lspinstall'
+    },
     config = function()
+      require('ai/_lspinstall')
       require('ai/lua-ls')
       require('ai/typescript')
       require('ai/elixir-config')
