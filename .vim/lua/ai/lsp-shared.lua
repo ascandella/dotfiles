@@ -61,6 +61,11 @@ M.on_attach = function(client, bufnr)
 
   require('lsp_signature').on_attach()
   require('illuminate').on_attach(client)
+
+
+  if client.server_capabilities.colorProvider then
+    require("ai/lsp-documentcolors").buf_attach(bufnr, { single_column = false })
+  end
 end
 
 
