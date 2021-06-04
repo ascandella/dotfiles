@@ -18,5 +18,9 @@ ts.setup {
     'typescript',
     'yaml',
   },
-  highlight = {enable = true}
+  highlight = {enable = true},
+  autotag = {
+    enable = true,
+    filetypes = { "html", "typescriptreact", "javascriptreact" }
+  }
 }
