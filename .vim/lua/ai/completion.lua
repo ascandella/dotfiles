@@ -66,12 +66,28 @@ _G.s_tab_complete = function()
   end
 end
 
+local npairs = require('nvim-autopairs')
+
+_G.completion_confirm_pairs = function()
+  if vim.fn.pumvisible() ~= 0  then
+    if vim.fn.complete_info()["selected"] ~= -1 then
+      return vim.fn["compe#confirm"](npairs.esc("<cr>"))
+    else
+      return npairs.esc("<cr>")
+    end
+  else
+    return npairs.autopairs_cr()
+  end
+end
+
+
 remap(
   "i",
   "<CR>",
-  "compe#confirm('<CR>')",
+  "v:lua.completion_confirm_pairs()",
   { expr = true, silent = true }
 )
+
 remap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
 remap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
 remap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})

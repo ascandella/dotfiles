@@ -83,10 +83,10 @@ if !b:enable_nightly
 
   " View registers before pasting
   Plug 'junegunn/vim-peekaboo'
-end
 
-" Auto pairs
-Plug 'tmsvg/pear-tree'
+  " Auto pairs
+  Plug 'tmsvg/pear-tree'
+end
 
 " Better Python indenting
 Plug 'Vimjas/vim-python-pep8-indent'
