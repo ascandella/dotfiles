@@ -7,7 +7,7 @@ nnoremap { '<Leader>,', require('telescope-config').project_files , { silent = t
 
 nnoremap { '<Leader>h', require('telescope-config').frecency, { silent = true } }
 
-nnoremap { '<Leader>n', require('telescope.builtin').buffers, { silent = true} }
+nnoremap { '<Leader>n', require('telescope-config').buffers, { silent = true} }
 nnoremap { '<Leader>gf', require('telescope.builtin').git_status, { silent = true} }
 
 nnoremap { '<Leader>a', require('telescope-config').livegrep_project, { silent = true} }
@@ -26,5 +26,9 @@ nnoremap { '<Leader>u', '<cmd>UndotreeToggle<cr>', { silent = true }}
 
 nnoremap { '<Leader>ft', '<cmd>FloatermToggle<cr>', { silent = true }}
 nnoremap { '<C-\\>', '<cmd>FloatermToggle<cr>', { silent = true }}
+
+-- Terminal mode mappings
 tnoremap { '<Leader>ft', '<cmd>FloatermToggle<cr>', { silent = true }}
 tnoremap { '<C-\\>', '<cmd>FloatermHide<cr>', { silent = true }}
+-- Go back to normal mode
+tnoremap { '<Esc>', '<C-\\><C-n>', { silent = true }}

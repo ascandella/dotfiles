@@ -164,6 +164,12 @@ packer.startup(function(use)
     event = 'BufEnter',
   }
 
+  -- Automatically insert endwise pairs
+  use {
+    'tpope/vim-endwise',
+    setup = [[require('ai/_endwise')]],
+  }
+
   -- Undo tree
   use {
     'mbbill/undotree',

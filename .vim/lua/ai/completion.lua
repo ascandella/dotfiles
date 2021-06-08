@@ -73,10 +73,10 @@ _G.completion_confirm_pairs = function()
     if vim.fn.complete_info()["selected"] ~= -1 then
       return vim.fn["compe#confirm"](npairs.esc("<cr>"))
     else
-      return npairs.esc("<cr>")
+      return t "<CR><Plug>DiscretionaryEnd"
     end
   else
-    return npairs.autopairs_cr()
+    return t "<CR><Plug>DiscretionaryEnd"
   end
 end
 

@@ -96,4 +96,8 @@ M.frecency = function()
   require("telescope").extensions.frecency.frecency(lower_ivy())
 end
 
+M.buffers = function()
+  require("telescope.builtin").buffers(lower_ivy())
+end
+
 return M
