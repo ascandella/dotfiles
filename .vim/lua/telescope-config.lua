@@ -1,3 +1,22 @@
+local previewers = require('telescope.previewers')
+local putils = require('telescope.previewers.utils')
+local pfiletype = require('plenary.filetype')
+
+local actions = require('telescope.actions')
+local telescope = require('telescope')
+
+-- https://github.com/nvim-telescope/telescope.nvim/issues/857#issuecomment-846368690
+local new_maker = function(filepath, bufnr, opts)
+  opts = opts or {}
+  if opts.use_ft_detect == nil then
+    local ft = pfiletype.detect(filepath)
+    -- Here for example you can say: if ft == "xyz" then this_regex_highlighing else nothing end
+    opts.use_ft_detect = false
+    putils.regex_highlighter(bufnr, ft)
+  end
+  previewers.buffer_previewer_maker(filepath, bufnr, opts)
+end
+
 local M = {}
 
 M.project_files = function()
@@ -17,11 +36,9 @@ M.grep_string_hidden = function()
   })
 end
 
-local actions = require('telescope.actions')
-local telescope = require('telescope')
-local previewers = require("telescope.previewers")
 telescope.setup{
   defaults = {
+    buffer_previewer_maker = new_maker,
     file_previewer     = previewers.vim_buffer_cat.new,
     grep_previewer     = previewers.vim_buffer_vimgrep.new,
     qflist_previewer   = previewers.vim_buffer_qflist.new,

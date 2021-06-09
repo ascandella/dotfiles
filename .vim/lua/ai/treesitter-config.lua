@@ -6,6 +6,7 @@ ts.setup {
     'css',
     'dockerfile',
     'erlang',
+    'elixir',
     'go',
     'graphql',
     'javascript',
@@ -20,11 +21,6 @@ ts.setup {
   },
   highlight = {
     enable = true,
-    -- These are too slow currently
-    disable = {
-      'typescript',
-      'tsx',
-    },
   },
   indent = {
     enable = true,
