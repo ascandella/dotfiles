@@ -20,6 +20,11 @@ ts.setup {
   },
   highlight = {
     enable = true,
+    -- These are too slow currently
+    disable = {
+      'typescript',
+      'tsx',
+    },
   },
   indent = {
     enable = true,
