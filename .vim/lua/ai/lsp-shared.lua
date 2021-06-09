@@ -18,16 +18,16 @@ M.on_attach = function(client, bufnr)
 
   buf_map(bufnr, "n", "<C-c><C-j>", ":LspDef<CR>", {silent = true})
   buf_map(bufnr, "n", "gd", ":LspDef<CR>", {silent = true})
-  buf_map(bufnr, "n", "gr", ":LspRename<CR>", {silent = true})
+  buf_map(bufnr, "n", "gr", ":Lspsaga rename<CR>", {silent = true})
   buf_map(bufnr, "n", "gR", ":Telescope lsp_references<CR>", {silent = true})
   buf_map(bufnr, "n", "gy", ":LspTypeDef<CR>", {silent = true})
-  buf_map(bufnr, "n", "K", ":LspHover<CR>", {silent = true})
+  buf_map(bufnr, "n", "K", ":Lspsaga hover_doc<CR>", {silent = true})
   buf_map(bufnr, "n", "gs", ":LspOrganize<CR>", {silent = true})
-  buf_map(bufnr, "n", "[a", ":LspDiagPrev<CR>", {silent = true})
-  buf_map(bufnr, "n", "]a", ":LspDiagNext<CR>", {silent = true})
-  buf_map(bufnr, "n", "ga", ":LspCodeAction<CR>", {silent = true})
-  buf_map(bufnr, "n", "<Leader>d", ":LspDiagLine<CR>", {silent = true})
-  buf_map(bufnr, "i", "<C-x><C-x>", "<cmd> LspSignatureHelp<CR>", {silent = true})
+  buf_map(bufnr, "n", "[a", ":Lspsaga diagnostic_jump_prev<CR>", {silent = true})
+  buf_map(bufnr, "n", "]a", ":Lspsaga diagnostic_jump_next<CR>", {silent = true})
+  buf_map(bufnr, "n", "ga", ":Lspsaga code_action<CR>", {silent = true})
+  buf_map(bufnr, "n", "<Leader>d", ":Lspsaga show_line_diagnostics<CR>", {silent = true})
+  buf_map(bufnr, "i", "<C-x><C-x>", ":Lspsaga signature_help<CR>", {silent = true})
 
   -- Illuminate visual display. Visual or Cursorline are good fits
   vim.api.nvim_command [[ hi def link LspReferenceText CursorLine ]]

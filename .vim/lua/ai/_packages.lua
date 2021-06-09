@@ -123,17 +123,6 @@ packer.startup(function(use)
     end
   }
 
-  -- Better LSP code actions
-  use {
-    'RishabhRD/nvim-lsputils',
-    requires = {
-      'RishabhRD/popfix'
-    },
-    config = function()
-      require('ai/_lsputil')
-    end
-  }
-
   -- Use lua for keymapping. Will be builtin to neovim once
   -- https://github.com/neovim/neovim/pull/13823
   -- is merge
@@ -147,7 +136,14 @@ packer.startup(function(use)
   use {
     'neovim/nvim-lspconfig',
     requires = {
-      'kabouzeid/nvim-lspinstall'
+      'kabouzeid/nvim-lspinstall',
+      {
+        'glepnir/lspsaga.nvim',
+        requires = {'neovim/nvim-lspconfig'},
+        config = function()
+          require('ai/_lspsaga')
+        end,
+      },
     },
     config = function()
       require('ai/_lspinstall')
