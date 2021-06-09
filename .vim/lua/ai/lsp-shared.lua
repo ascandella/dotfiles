@@ -27,7 +27,7 @@ M.on_attach = function(client, bufnr)
   buf_map(bufnr, "n", "]a", ":Lspsaga diagnostic_jump_next<CR>", {silent = true})
   buf_map(bufnr, "n", "ga", ":Lspsaga code_action<CR>", {silent = true})
   buf_map(bufnr, "n", "<Leader>d", ":Lspsaga show_line_diagnostics<CR>", {silent = true})
-  buf_map(bufnr, "i", "<C-x><C-x>", ":Lspsaga signature_help<CR>", {silent = true})
+  buf_map(bufnr, "i", "<C-x><C-x>", "<cmd> Lspsaga signature_help<CR>", {silent = true})
 
   -- Illuminate visual display. Visual or Cursorline are good fits
   vim.api.nvim_command [[ hi def link LspReferenceText CursorLine ]]
