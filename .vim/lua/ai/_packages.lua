@@ -156,9 +156,6 @@ packer.startup(function(use)
   -- Find and replace
   use 'windwp/nvim-spectre'
 
-  -- Typescript improvements
-  use 'jose-elias-alvarez/nvim-lsp-ts-utils'
-
   -- Wrapping/delimiters
   use {
     'andymass/vim-matchup',

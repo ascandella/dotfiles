@@ -51,51 +51,20 @@ end
 local lsp_shared = require('ai/lsp-shared')
 
 nvim_lsp.diagnosticls.setup {
-    on_attach = lsp_shared.on_attach,
-    filetypes = vim.tbl_keys(filetypes),
-    init_options = {
-        filetypes = filetypes,
-        linters = linters,
-        formatters = formatters,
-        formatFiletypes = formatFiletypes
-    }
+  on_attach = lsp_shared.on_attach,
+  filetypes = vim.tbl_keys(filetypes),
+  init_options = {
+    filetypes = filetypes,
+    linters = linters,
+    formatters = formatters,
+    formatFiletypes = formatFiletypes
+  }
 }
 
 nvim_lsp.tsserver.setup {
   capabilities = require('ai/lsp-shared').capabilities(),
   on_attach = function(client)
-    local ts_utils = require("nvim-lsp-ts-utils")
-    -- defaults
-    ts_utils.setup {
-      debug = false,
-      disable_commands = false,
-      enable_import_on_completion = false,
-      import_on_completion_timeout = 10,
-
-      -- eslint
-      eslint_enable_code_actions = true,
-      eslint_bin = "eslint",
-      eslint_args = {"-f", "json", "--stdin", "--stdin-filename", "$FILENAME"},
-      eslint_enable_disable_comments = true,
-
-      -- experimental settings!
-      -- eslint diagnostics
-      eslint_enable_diagnostics = false,
-      eslint_diagnostics_debounce = 250,
-
-      -- formatting
-      enable_formatting = false,
-      formatter = "prettier",
-      formatter_args = {"--stdin-filepath", "$FILENAME"},
-      format_on_save = false,
-      no_save_after_format = false,
-
-      -- parentheses completion
-      complete_parens = false,
-      signature_help_in_parens = false,
-    }
-
-    client.resolved_capabilities.document_formatting = false
+    client.resolved_capabilities.document_formatting = true
     lsp_shared.on_attach(client)
   end
 }
