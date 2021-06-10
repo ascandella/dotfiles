@@ -45,4 +45,9 @@ M.run_test_at_cursor = function()
   send_command_and_show('mix test ' .. buffer_filename .. ':' .. buffer_lineno)
 end
 
+M.run_test_at_file = function()
+  local buffer_filename = vim.api.nvim_buf_get_name(0)
+  send_command_and_show('mix test ' .. buffer_filename)
+end
+
 return M

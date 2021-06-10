@@ -15,5 +15,6 @@ vim.api.nvim_exec([[
     autocmd!
     autocmd FileType elixir nnoremap <silent><buffer> <leader>ee :lua require('ai/elixir-commands').run_tests() <cr>
     autocmd FileType elixir nnoremap <silent><buffer> <leader>eu :lua require('ai/elixir-commands').run_test_at_cursor() <cr>
+    autocmd FileType elixir nnoremap <silent><buffer> <leader>eh :lua require('ai/elixir-commands').run_test_at_file() <cr>
   augroup END
 ]], false)

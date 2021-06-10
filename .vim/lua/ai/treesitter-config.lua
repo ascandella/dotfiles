@@ -21,6 +21,12 @@ ts.setup {
   },
   highlight = {
     enable = true,
+    disable = {
+      -- These are all too slow to be usable
+      "elixir",
+      "typescript",
+      "tsx",
+    },
   },
   indent = {
     enable = true,
