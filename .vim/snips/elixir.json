@@ -1,0 +1,11 @@
+{
+  "ConnTest": {
+    "prefix": ["testc"],
+    "body": [
+      "test \"$1\", %{conn: conn} do",
+      "  $2",
+      "end"
+    ],
+    "description": "Conn test"
+  }
+}
