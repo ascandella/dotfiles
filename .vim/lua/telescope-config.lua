@@ -117,4 +117,8 @@ M.buffers = function()
   require("telescope.builtin").buffers(lower_ivy())
 end
 
+M.git_branches = function()
+  require("telescope.builtin").git_branches(lower_ivy())
+end
+
 return M

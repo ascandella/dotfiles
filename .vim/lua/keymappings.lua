@@ -13,6 +13,7 @@ nnoremap { '<Leader>gf', require('telescope.builtin').git_status, { silent = tru
 nnoremap { '<Leader>a', require('telescope-config').livegrep_project, { silent = true} }
 
 nnoremap { '<Leader>fs', require('telescope-config').grep_string_hidden, { silent = true} }
+nnoremap { '<Leader>fb', require('telescope-config').git_branches, { silent = true} }
 
 nnoremap { '<Leader>S', require('spectre').open, { silent = true} }
 

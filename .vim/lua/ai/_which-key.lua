@@ -7,6 +7,7 @@ local registrations = {
   h = "Telescope Frecency",
   f = {
     name = "+Telescope",
+    b    = "Git branches",
     f    = "Files",
     h    = "Help",
     g    = "Live grep",
