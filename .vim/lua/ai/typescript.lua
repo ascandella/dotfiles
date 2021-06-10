@@ -51,7 +51,10 @@ end
 local lsp_shared = require('ai/lsp-shared')
 
 nvim_lsp.diagnosticls.setup {
-  on_attach = lsp_shared.on_attach,
+  on_attach = function(client, bufnr)
+    vim.api.nvim_buf_set_option(bufnr, 'signcolumn', 'yes')
+    lsp_shared.on_attach(client, bufnr)
+  end,
   filetypes = vim.tbl_keys(filetypes),
   init_options = {
     filetypes = filetypes,
