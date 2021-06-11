@@ -99,6 +99,7 @@ languages:
 
   typescript:
     - <<: *eslint_d
+    - <<: *prettier
 
   typescriptreact:
     - <<: *eslint_d
