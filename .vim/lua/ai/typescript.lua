@@ -52,7 +52,9 @@ local lsp_shared = require('ai/lsp-shared')
 
 nvim_lsp.diagnosticls.setup {
   on_attach = function(client, bufnr)
-    vim.api.nvim_buf_set_option(bufnr, 'signcolumn', 'yes')
+    -- Always display the sign column due to a bad interaction between gitgutter
+    -- and LSP diagnostics
+    vim.api.nvim_exec([[set signcolumn=yes]], true)
     lsp_shared.on_attach(client, bufnr)
   end,
   filetypes = vim.tbl_keys(filetypes),
