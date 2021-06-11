@@ -7,7 +7,7 @@ local function make_config()
   -- LuaFormatter off
   return {
     capabilities = capabilities,
-    on_attach = require('ai/lsp-shared').on_attach
+    on_attach = require('ai/lsp-shared').on_attach,
   }
   -- LuaFormatter on
 end
