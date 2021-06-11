@@ -26,7 +26,7 @@ local function efm_config(config)
   end
   config.filetypes = {
     "elixir", "json", "javascript", "javascriptreact", "lua", "typescript",
-    "typescriptreact", "sh",
+    "typescriptreact", "sh", "yaml",
   }
   return config
 end

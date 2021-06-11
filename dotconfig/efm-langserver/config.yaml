@@ -1,3 +1,4 @@
+---
 version: 2
 
 root-markers:
@@ -14,7 +15,21 @@ tools:
       - "%f(%l,%c): %rror %m"
 
   lua-lua-format: &lua-lua-format
-    format-command: 'lua-format --tab-width=2 --indent-width=2 --no-chop-down-table --extra-sep-at-table-end --no-keep-simple-control-block-one-line --no-keep-simple-function-one-line -i'
+    format-command: >-
+      lua-format
+      --no-use-tab
+      --column-limit=80
+      --column-table-limit=100
+      --indent-width=2
+      --break-after-functioncall-lp
+      --break-before-functioncall-rp
+      --spaces-inside-table-braces
+      --chop-down-parameter
+      --chop-down-table
+      --extra-sep-at-table-end
+      --no-keep-simple-control-block-one-line
+      --no-keep-simple-function-one-line
+      -i
     format-stdin: true
 
   mix_credo: &mix_credo
@@ -52,6 +67,10 @@ tools:
     format-command: "rustywind --stdin"
     format-stdin: true
 
+  yaml-yamllint: &yaml-yamllint
+    lint-command: 'yamllint -f parsable -'
+    lint-stdin: true
+
 languages:
   lua:
     - <<: *lua-lua-format
@@ -82,3 +101,6 @@ languages:
     - <<: *eslint_d
     - <<: *prettier
     - <<: *rustywind
+
+  yaml:
+    - <<: *yaml-yamllint
