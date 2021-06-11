@@ -144,6 +144,13 @@ packer.startup(function(use)
           require('ai/_lspsaga')
         end,
       },
+      -- Extensible linters/formatters
+      {
+        'mattn/efm-langserver',
+        requires = {
+          'neovim/nvim-lspconfig'
+        },
+      },
     },
     config = function()
       require('ai/_lspinstall')
