@@ -1,10 +1,11 @@
 local nvim_lsp = require('lspconfig')
 
-nvim_lsp.elixirls.setup{
+-- LuaFormatter off
+nvim_lsp.elixirls.setup({
   on_attach = require('ai/lsp-shared').on_attach,
   capabilities = require('ai/lsp-shared').capabilities(),
-  cmd = {vim.fn.expand("$HOME/src/elixir-ls/language_server.sh")}
-}
+  cmd = { vim.fn.expand("$HOME/src/elixir-ls/language_server.sh") },
+})
 
 vim.api.nvim_command([[
   autocmd BufEnter *.ex :setlocal filetype=elixir
@@ -18,3 +19,4 @@ vim.api.nvim_exec([[
     autocmd FileType elixir nnoremap <silent><buffer> <leader>eh :lua require('ai/elixir-commands').run_test_at_file() <cr>
   augroup END
 ]], false)
+-- LuaFormatter on

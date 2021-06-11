@@ -4,14 +4,18 @@ local fn = vim.fn
 -- ensure that packer is installed
 local install_path = fn.stdpath('data') .. '/site/pack/packer/opt/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-  execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
+  execute(
+      '!git clone https://github.com/wbthomason/packer.nvim ' .. install_path
+  )
   execute 'packadd packer.nvim'
 end
 vim.cmd [[packadd packer.nvim]]
 
 local packer = require('packer')
 local util = require('packer.util')
-packer.init({ package_root = util.join_paths(vim.fn.stdpath('data'), 'site', 'pack') })
+packer.init(
+    { package_root = util.join_paths(vim.fn.stdpath('data'), 'site', 'pack') }
+)
 
 --- startup and add configure plugins
 packer.startup(
@@ -51,7 +55,10 @@ packer.startup(
       }
 
       -- Frequency/recency
-      use { 'nvim-telescope/telescope-frecency.nvim', requires = { { 'tami5/sql.nvim' } } }
+      use {
+        'nvim-telescope/telescope-frecency.nvim',
+        requires = { { 'tami5/sql.nvim' } },
+      }
 
       use {
         'nvim-treesitter/nvim-treesitter',
@@ -150,13 +157,21 @@ packer.startup(
       use 'windwp/nvim-spectre'
 
       -- Wrapping/delimiters
-      use { 'andymass/vim-matchup', setup = [[require('ai/_matchup')]], event = 'BufEnter' }
+      use {
+        'andymass/vim-matchup',
+        setup = [[require('ai/_matchup')]],
+        event = 'BufEnter',
+      }
 
       -- Automatically insert endwise pairs
       use { 'tpope/vim-endwise', setup = [[require('ai/_endwise')]] }
 
       -- Undo tree
-      use { 'mbbill/undotree', cmd = 'UndotreeToggle', config = [[require('ai/_undotree')]] }
+      use {
+        'mbbill/undotree',
+        cmd = 'UndotreeToggle',
+        config = [[require('ai/_undotree')]],
+      }
 
       -- View registers
       use 'tversteeg/registers.nvim'
