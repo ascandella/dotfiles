@@ -9,7 +9,12 @@ local eslint = {
 
 local prettier = {
   formatCommand = "prettier --stdin-filepath ${INPUT}",
-  formatStdin = true
+  formatStdin = true,
+}
+
+local rustywind = {
+  formatCommand = "rustywind --stdin",
+  formatStdin = true,
 }
 
 local shellcheck = {
@@ -19,6 +24,11 @@ local shellcheck = {
     '%f:%l:%c: %tarning: %m',
     '%f:%l:%c: %tote: %m',
   },
+}
+
+local luaFormat = {
+  formatCommand = "lua-format -i",
+  formatStdin = true,
 }
 
 local shfmt = {
@@ -42,9 +52,10 @@ local function efm_config(config)
     languages = {
       json = {prettier},
       javascript = {eslint, prettier},
-      javascriptreact = {eslint, prettier},
+      javascriptreact = {eslint, prettier, rustywind},
+      lua = {luaFormat},
       typescript = {eslint, prettier},
-      typescriptreact = {eslint, prettier},
+      typescriptreact = {eslint, prettier, rustywind},
       sh = {shellcheck, shfmt},
     },
   }
@@ -57,6 +68,7 @@ local function efm_config(config)
     "json",
     "javascript",
     "javascriptreact",
+    "lua",
     "typescript",
     "typescriptreact",
     "sh",
