@@ -21,6 +21,11 @@ local shellcheck = {
   },
 }
 
+local shfmt = {
+  formatCommand = "shfmt -ci -s -bn",
+  formatStdin = true,
+}
+
 local function make_config()
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -40,7 +45,7 @@ local function efm_config(config)
       javascriptreact = {eslint, prettier},
       typescript = {eslint, prettier},
       typescriptreact = {eslint, prettier},
-      sh = {shellcheck},
+      sh = {shellcheck, shfmt},
     },
   }
   local old_on_attach = config.on_attach
