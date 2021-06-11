@@ -18,14 +18,15 @@ tools:
     format-command: >-
       lua-format
       --no-use-tab
-      --column-limit=80
-      --column-table-limit=100
+      --column-limit=100
+      --column-table-limit=80
       --indent-width=2
       --break-after-functioncall-lp
       --break-before-functioncall-rp
       --spaces-inside-table-braces
       --chop-down-parameter
       --chop-down-table
+      --chop-down-kv-table
       --extra-sep-at-table-end
       --no-keep-simple-control-block-one-line
       --no-keep-simple-function-one-line
@@ -33,7 +34,9 @@ tools:
     format-stdin: true
 
   mix_credo: &mix_credo
-    lint-command: "MIX_ENV=test mix credo suggest --format=flycheck --read-from-stdin ${INPUT}"
+    lint-command: >-
+      MIX_ENV=test mix credo suggest --format=flycheck
+      --read-from-stdin ${INPUT}
     lint-stdin: true
     lint-formats:
       - '%f:%l:%c: %t: %m'
