@@ -12,6 +12,15 @@ local prettier = {
   formatStdin = true
 }
 
+local shellcheck = {
+  lintCommand = "shellcheck -f gcc -x",
+  lintFortmats = {
+    '%f:%l:%c: %trror: %m',
+    '%f:%l:%c: %tarning: %m',
+    '%f:%l:%c: %tote: %m',
+  },
+}
+
 local function make_config()
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -20,6 +29,34 @@ local function make_config()
     capabilities = capabilities,
     on_attach = require('ai/lsp-shared').on_attach,
   }
+end
+
+local function efm_config(config)
+  config.settings = {
+    rootMarkers = { "package.json", "mix.exs", ".git" },
+    languages = {
+      json = {prettier},
+      javascript = {eslint, prettier},
+      javascriptreact = {eslint, prettier},
+      typescript = {eslint, prettier},
+      typescriptreact = {eslint, prettier},
+      sh = {shellcheck},
+    },
+  }
+  local old_on_attach = config.on_attach
+  config.on_attach = function(client, bufnr)
+    client.resolved_capabilities.document_formatting = true
+    old_on_attach(client, bufnr)
+  end
+  config.filetypes = {
+    "json",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "sh",
+  }
+  return config
 end
 
 local servers = require'lspinstall'.installed_servers()
@@ -41,28 +78,7 @@ for _, server in pairs(servers) do
     end
   end
   if server == "efm" then
-    config.settings = {
-      rootMarkers = { "package.json", "mix.exs", ".git" },
-      languages = {
-        json = {prettier},
-        javascript = {eslint, prettier},
-        javascriptreact = {eslint, prettier},
-        typescript = {eslint, prettier},
-        typescriptreact = {eslint, prettier},
-      },
-    }
-    local old_on_attach = config.on_attach
-    config.on_attach = function(client, bufnr)
-      client.resolved_capabilities.document_formatting = true
-      old_on_attach(client, bufnr)
-    end
-    config.filetypes = {
-      "json",
-      "javascript",
-      "javascriptreact",
-      "typescript",
-      "typescriptreact",
-    }
+    config = efm_config(config)
   end
 
   require('lspconfig')[server].setup(config)
