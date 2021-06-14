@@ -1,9 +1,27 @@
 -- https://jose-elias-alvarez.medium.com/configuring-neovims-lsp-client-for-typescript-development-5789d58ea9c
 local M = {}
+
+M.maybe_lsp_format = function()
+  if not vim.b.lsp_disable_formatting then
+    vim.lsp.buf.formatting()
+  end
+end
+
+M.toggle_lsp_formatting = function()
+  vim.b.lsp_disable_formatting = not vim.b.lsp_disable_formatting
+  if vim.b.lsp_disable_formatting then
+    print("LSP Formatting disabled" )
+  else
+    print("LSP Formatting enabled")
+  end
+end
+
+-- LuaFormatter off
 M.on_attach = function(client, bufnr)
   local buf_map = vim.api.nvim_buf_set_keymap
   vim.cmd("command! LspDef lua vim.lsp.buf.definition()")
-  vim.cmd("command! LspFormatting lua vim.lsp.buf.formatting()")
+  vim.cmd("command! LspFormatting lua require('ai/lsp-shared').maybe_lsp_format()")
+  vim.cmd("command! LspToggleFormatting lua require('ai/lsp-shared').toggle_lsp_formatting()")
   vim.cmd("command! LspCodeAction lua vim.lsp.buf.code_action()")
   vim.cmd("command! LspHover lua vim.lsp.buf.hover()")
   vim.cmd("command! LspRename lua vim.lsp.buf.rename()")
@@ -42,6 +60,10 @@ M.on_attach = function(client, bufnr)
       bufnr, "i", "<C-x><C-x>", "<cmd> Lspsaga signature_help<CR>",
       { silent = true }
   )
+  buf_map(
+      bufnr, "n", "<Leader>tf", ":LspToggleFormatting<CR>",
+      { silent = true }
+  )
 
   -- Illuminate visual display. Visual or Cursorline are good fits
   vim.api.nvim_command [[ hi def link LspReferenceText CursorLine ]]
@@ -61,14 +83,12 @@ M.on_attach = function(client, bufnr)
   )
 
   if client.resolved_capabilities.document_formatting then
-    vim.api.nvim_exec(
-        [[
+    vim.api.nvim_exec([[
      augroup LspAutocommands
-         autocmd! * <buffer>
-         autocmd BufWritePost <buffer> LspFormatting
+       autocmd! * <buffer>
+       autocmd BufWritePost <buffer> LspFormatting
      augroup END
-     ]], true
-    )
+     ]], true)
   end
 
   require('lsp_signature').on_attach()
@@ -78,6 +98,7 @@ M.on_attach = function(client, bufnr)
     require("ai/lsp-documentcolors").buf_attach(bufnr, { single_column = true })
   end
 end
+-- LuaFormatter on
 
 M.capabilities = function()
   local capabilities = vim.lsp.protocol.make_client_capabilities()

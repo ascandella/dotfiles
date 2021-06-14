@@ -31,8 +31,8 @@ local function init_packer(use)
 
   -- Magit for neovim
   use {
-     'TimUntersberger/neogit',
-    --'~/src/neogit',
+    'TimUntersberger/neogit',
+    -- '~/src/neogit',
     requires = {
       'nvim-lua/plenary.nvim',
       {
@@ -49,7 +49,10 @@ local function init_packer(use)
   }
 
   -- Frequency/recency
-  use { 'nvim-telescope/telescope-frecency.nvim', requires = { { 'tami5/sql.nvim' } } }
+  use {
+    'nvim-telescope/telescope-frecency.nvim',
+    requires = { { 'tami5/sql.nvim' } },
+  }
 
   use {
     'nvim-treesitter/nvim-treesitter',
@@ -148,13 +151,21 @@ local function init_packer(use)
   use 'windwp/nvim-spectre'
 
   -- Wrapping/delimiters
-  use { 'andymass/vim-matchup', setup = [[require('ai/_matchup')]], event = 'BufEnter' }
+  use {
+    'andymass/vim-matchup',
+    setup = [[require('ai/_matchup')]],
+    event = 'BufEnter',
+  }
 
   -- Automatically insert endwise pairs
   use { 'tpope/vim-endwise', setup = [[require('ai/_endwise')]] }
 
   -- Undo tree
-  use { 'mbbill/undotree', cmd = 'UndotreeToggle', config = [[require('ai/_undotree')]] }
+  use {
+    'mbbill/undotree',
+    cmd = 'UndotreeToggle',
+    config = [[require('ai/_undotree')]],
+  }
 
   -- View registers
   use 'tversteeg/registers.nvim'
