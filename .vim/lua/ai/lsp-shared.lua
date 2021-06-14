@@ -10,7 +10,7 @@ end
 M.toggle_lsp_formatting = function()
   vim.b.lsp_disable_formatting = not vim.b.lsp_disable_formatting
   if vim.b.lsp_disable_formatting then
-    print("LSP Formatting disabled" )
+    print("LSP Formatting disabled")
   else
     print("LSP Formatting enabled")
   end
