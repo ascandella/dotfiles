@@ -1,4 +1,8 @@
+" Don't save buffer-specific keybindings
 set viewoptions-=options
+
+" Show open folds in sign column
+set foldcolumn=auto
 
 augroup SaveFolds
   autocmd!
