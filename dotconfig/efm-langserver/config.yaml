@@ -65,9 +65,6 @@ languages:
     - <<: *sh-shellcheck
     - <<: *sh-shfmt
 
-  elixir:
-    - <<: *mix_credo
-
   json:
     - <<: *prettier
 
