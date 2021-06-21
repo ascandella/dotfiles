@@ -35,6 +35,7 @@ local function efm_config(config)
     "typescript",
     "typescriptreact",
     "sh",
+    "svelte",
     "yaml",
   }
   return config

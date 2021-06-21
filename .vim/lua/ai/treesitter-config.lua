@@ -14,6 +14,7 @@ ts.setup {
     'lua',
     'ruby',
     'rust',
+    'svelte',
     'toml',
     'tsx',
     'typescript',
