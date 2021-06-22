@@ -73,7 +73,7 @@ map <Leader>4 :set sts=4<cr>:set sw=4<cr>
 map <Leader>2 :set sts=2<cr>:set sw=2<cr>
 
 " map <C-m> ciw
-map :ws :w !sudo tee %<CR>
+cnoremap sudowrite !sudo tee %<CR>
 
 " Close the current buffer, leave the window in place
 nmap <C-W>m <Plug>Kwbd
