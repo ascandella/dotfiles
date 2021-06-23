@@ -46,7 +46,7 @@ tools:
       - '%f:%l:%c: %tote: %m'
 
   sh-shfmt: &sh-shfmt
-    format-command: 'shfmt -ci -s -bn'
+    format-command: 'shfmt -i 2 -ci -s -bn'
     format-stdin: true
 
   rustywind: &rustywind
