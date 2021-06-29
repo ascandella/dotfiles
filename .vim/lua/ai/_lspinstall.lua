@@ -27,6 +27,7 @@ local function efm_config(config)
     old_on_attach(client, bufnr)
   end
   config.filetypes = {
+    "graphql",
     "json",
     "javascript",
     "javascriptreact",

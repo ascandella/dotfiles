@@ -58,6 +58,9 @@ tools:
     lint-stdin: true
 
 languages:
+  graphql:
+    - <<: *prettier
+
   lua:
     - <<: *lua-lua-format
 
