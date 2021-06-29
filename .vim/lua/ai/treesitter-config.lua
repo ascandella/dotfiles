@@ -6,7 +6,6 @@ ts.setup {
     'css',
     'dockerfile',
     'erlang',
-    'elixir',
     'go',
     'graphql',
     'javascript',
@@ -29,11 +28,9 @@ ts.setup {
       "tsx",
     },
   },
-  indent = {
-    enable = true,
-  },
+  indent = { enable = true },
   autotag = {
     enable = true,
-    filetypes = { "html", "typescriptreact", "javascriptreact" }
-  }
+    filetypes = { "html", "typescriptreact", "javascriptreact" },
+  },
 }
