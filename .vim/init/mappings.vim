@@ -26,6 +26,10 @@ imap <silent> <A-Down> <Esc>:wincmd j<CR>a
 imap <silent> <A-Left> <Esc>:wincmd h<CR>a
 imap <silent> <A-Right> <Esc>:wincmd l<CR>a
 
+nnoremap <silent> <C-Right> :wincmd l<CR>
+nnoremap <silent> <C-Left> :wincmd h<CR>
+nnoremap <silent> <C-Up> :wincmd k<CR>
+nnoremap <silent> <C-Down> :wincmd j<CR>
 
 "
 " Plugin mappings
