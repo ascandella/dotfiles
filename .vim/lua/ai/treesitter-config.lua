@@ -28,7 +28,13 @@ ts.setup {
       "tsx",
     },
   },
-  indent = { enable = true },
+  indent = {
+    enable = true,
+    disable = {
+      -- This one doesn't work right
+      "typescript",
+    },
+  },
   autotag = {
     enable = true,
     filetypes = { "html", "typescriptreact", "javascriptreact" },
