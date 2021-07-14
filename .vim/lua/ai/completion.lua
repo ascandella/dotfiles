@@ -2,24 +2,25 @@
 --
 local remap = vim.api.nvim_set_keymap
 require'compe'.setup {
-  enabled = true;
-  autocomplete = true;
-  debug = false;
-  min_length = 1;
-  preselect = 'enable';
-  throttle_time = 80;
-  source_timeout = 200;
-  incomplete_delay = 400;
-  max_abbr_width = 100;
-  max_kind_width = 100;
-  max_menu_width = 100;
-  documentation = true;
+  enabled = true,
+  autocomplete = true,
+  debug = false,
+  min_length = 1,
+  preselect = 'enable',
+  throttle_time = 80,
+  source_timeout = 200,
+  incomplete_delay = 400,
+  max_abbr_width = 100,
+  max_kind_width = 100,
+  max_menu_width = 100,
+  documentation = true,
   allow_prefix_unmatch = false,
 
   source = {
     path = true,
     buffer = true,
     calc = true,
+    emoji = true,
     nvim_lsp = {
       enable = true,
       priority = 10001, -- take precedence over file completion
@@ -27,23 +28,22 @@ require'compe'.setup {
     nvim_lua = true,
     vsnip = true,
     ultisnips = false,
-  };
+  },
 }
 
 vim.o.completeopt = "menuone,noselect"
-
 
 local t = function(str)
   return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
 
 local check_back_space = function()
-    local col = vim.fn.col('.') - 1
-    if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
-        return true
-    else
-        return false
-    end
+  local col = vim.fn.col('.') - 1
+  if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+    return true
+  else
+    return false
+  end
 end
 
 -- Use (s-)tab to:
@@ -69,7 +69,7 @@ end
 local npairs = require('nvim-autopairs')
 
 _G.completion_confirm_pairs = function()
-  if vim.fn.pumvisible() ~= 0  then
+  if vim.fn.pumvisible() ~= 0 then
     if vim.fn.complete_info()["selected"] ~= -1 then
       return vim.fn["compe#confirm"](npairs.esc("<cr>"))
     else
@@ -80,15 +80,12 @@ _G.completion_confirm_pairs = function()
   end
 end
 
-
 remap(
-  "i",
-  "<CR>",
-  "v:lua.completion_confirm_pairs()",
-  { expr = true, silent = true }
+    "i", "<CR>", "v:lua.completion_confirm_pairs()",
+    { expr = true, silent = true }
 )
 
-remap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
-remap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
-remap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
-remap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+remap("i", "<Tab>", "v:lua.tab_complete()", { expr = true })
+remap("s", "<Tab>", "v:lua.tab_complete()", { expr = true })
+remap("i", "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })
+remap("s", "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })
