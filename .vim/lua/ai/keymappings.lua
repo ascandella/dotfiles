@@ -3,17 +3,25 @@ local nnoremap = k.nnoremap
 local tnoremap = k.tnoremap
 local telescope_commands = require('ai/telescope-config')
 
-nnoremap { '-', require('telescope.builtin').file_browser, { silent = true } }
+nnoremap { '-', '<cmd>Explore<cr>', { silent = true } }
 nnoremap { '<Leader>,', telescope_commands.project_files, { silent = true } }
 
 nnoremap { '<Leader>h', telescope_commands.frecency, { silent = true } }
 
 nnoremap { '<Leader>n', telescope_commands.buffers, { silent = true } }
-nnoremap { '<Leader>gf', require('telescope.builtin').git_status, { silent = true } }
+nnoremap {
+  '<Leader>gf',
+  require('telescope.builtin').git_status,
+  { silent = true },
+}
 
 nnoremap { '<Leader>a', telescope_commands.livegrep_project, { silent = true } }
 
-nnoremap { '<Leader>fs', telescope_commands.grep_string_hidden, { silent = true } }
+nnoremap {
+  '<Leader>fs',
+  telescope_commands.grep_string_hidden,
+  { silent = true },
+}
 nnoremap { '<Leader>fb', telescope_commands.git_branches, { silent = true } }
 
 nnoremap { '<Leader>S', require('spectre').open, { silent = true } }
