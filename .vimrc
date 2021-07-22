@@ -115,7 +115,7 @@ Plug 'joshdick/onedark.vim'
 
 Plug 'scrooloose/nerdcommenter'
 
-Plug 'airblade/vim-gitgutter'
+Plug 'mhinz/vim-signify'
 
 if has('unix')
   Plug 'Matt-Deacalion/vim-systemd-syntax'

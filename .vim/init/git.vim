@@ -7,16 +7,21 @@ map <Leader>gb :Git blame<CR>
 map <Leader>gf :GFiles?<CR>
 
 " Git-gutter mappings
-map <Leader>gn <Plug>(GitGutterNextHunk)
+map <Leader>gn <Plug>(signify-next-hunk)
+
+
+autocmd User SignifyHunk call s:show_current_hunk()
+
+function! s:show_current_hunk() abort
+  let h = sy#util#get_hunk_stats()
+  if !empty(h)
+    echo printf('[Hunk %d/%d]', h.current_hunk, h.total_hunks)
+  endif
+endfunction
 
 " Remap gitgutter leader-h
-let g:gitgutter_map_keys = 0
-nmap <Leader>gp <Plug>(GitGutterPreviewHunk)
-nmap <Leader>gs <Plug>(GitGutterStageHunk)
-nmap <Leader>gu <Plug>(GitGutterUndoHunk)
-
-" Update GitGutter on save
-autocmd BufWritePost * GitGutter
+nmap <Leader>gp :SignifyHunkDiff<cr>
+nmap <Leader>gu :SignifyHunkUndo<cr>
 
 " Navigate into messenger popup on leader-gm
 let g:git_messenger_always_into_popup = 1
