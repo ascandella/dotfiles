@@ -14,6 +14,14 @@ tools:
       - "%f(%l,%c): %tarning %m"
       - "%f(%l,%c): %rror %m"
 
+  lua-selene: &lua-selene
+    lint-command: 'selene --display-style quiet ${INPUT}'
+    lint-stdin: false
+    lint-ignore-exit-code: true
+    lint-formats:
+      - "%f:%l:%c: %tarning%m"
+      - "%f:%l:%c: %trror%m"
+
   lua-lua-format: &lua-lua-format
     format-command: >-
       lua-format
@@ -63,6 +71,7 @@ languages:
 
   lua:
     - <<: *lua-lua-format
+    - <<: *lua-selene
 
   sh:
     - <<: *sh-shellcheck
