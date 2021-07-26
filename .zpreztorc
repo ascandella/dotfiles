@@ -82,6 +82,8 @@ _host="$(hostname)"
 
 if [[ "$(whoami)" == "root" ]] ; then
   _theme='adam1'
+elif [[ -n "wally" ]] ; then
+  _theme='sorin'
 elif [[ -n "${INSIDE_EMACS}" ]] ; then
   _theme='kylewest'
 elif [[ "${_host}" =~ "[Aa]iden" ]] ; then
