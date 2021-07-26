@@ -35,10 +35,12 @@ if !b:enable_nightly
   " Asynchronous linting
   Plug 'w0rp/ale'
   " Code completion
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
-  Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
-  Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
+  if executable("node")
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
+  endif
 
   if has("python3")
     " Python completion
