@@ -2,7 +2,9 @@
 set viewoptions-=options
 
 " Show open folds in sign column
-set foldcolumn=auto
+if has('nvim-0.5')
+  set foldcolumn=auto
+endif
 
 augroup SaveFolds
   autocmd!
