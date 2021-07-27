@@ -24,17 +24,9 @@ ts.setup {
     disable = {
       -- These are all too slow to be usable
       "elixir",
-      "typescript",
-      "tsx",
     },
   },
-  indent = {
-    enable = true,
-    disable = {
-      -- This one doesn't work right
-      "typescript",
-    },
-  },
+  indent = { enable = true },
   autotag = {
     enable = true,
     filetypes = { "html", "typescriptreact", "javascriptreact" },
