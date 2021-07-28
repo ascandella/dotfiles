@@ -35,10 +35,10 @@ nnoremap { '<Leader>gg', '<cmd>Neogit<cr>', { silent = true } }
 nnoremap { '<Leader>u', '<cmd>UndotreeToggle<cr>', { silent = true } }
 
 nnoremap { '<Leader>ft', '<cmd>FloatermToggle<cr>', { silent = true } }
-nnoremap { '<C-\\>', '<cmd>FloatermToggle<cr>', { silent = true } }
+nnoremap { '<A-j>', '<cmd>FloatermToggle<cr>', { silent = true } }
 
 -- Terminal mode mappings
 tnoremap { '<Leader>ft', '<cmd>FloatermToggle<cr>', { silent = true } }
-tnoremap { '<C-\\>', '<cmd>FloatermHide<cr>', { silent = true } }
+tnoremap { '<A-j>', '<cmd>FloatermToggle<cr>', { silent = true } }
 -- Go back to normal mode
 tnoremap { '<Esc>', '<C-\\><C-n>', { silent = true } }
