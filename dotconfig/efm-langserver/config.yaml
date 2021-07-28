@@ -14,6 +14,10 @@ tools:
       - "%f(%l,%c): %tarning %m"
       - "%f(%l,%c): %rror %m"
 
+  htmlbeautifier: &htmlbeautifier
+    format-command: "htmlbeautifier --tab-stops 2"
+    format-stdin: true
+
   lua-selene: &lua-selene
     lint-command: 'selene --display-style quiet ${INPUT}'
     lint-stdin: false
@@ -66,6 +70,9 @@ tools:
     lint-stdin: true
 
 languages:
+  eelixir:
+    - <<: *htmlbeautifier
+
   graphql:
     - <<: *prettier
 
