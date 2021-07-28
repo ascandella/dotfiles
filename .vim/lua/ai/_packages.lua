@@ -178,6 +178,11 @@ local function init_packer(use)
   })
 
   use({ 'windwp/nvim-autopairs', config = [[require('ai/_autopairs')]] })
+
+  use({
+    'ThePrimeagen/harpoon',
+    config = [[require('ai/_harpoon')]],
+  })
 end
 
 --- startup and add configure plugins
