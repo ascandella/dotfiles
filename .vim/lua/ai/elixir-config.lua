@@ -2,16 +2,9 @@ local nvim_lsp = require('lspconfig')
 
 -- LuaFormatter off
 nvim_lsp.elixirls.setup({
-  on_attach = function(client, bufnr)
-    -- Disable formatting for eelixir, let efm do that
-    local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
-    if filetype == "eelixir" then
-      client.resolved_capabilities.document_formatting = false
-    else
-      client.resolved_capabilities.document_formatting = true
-    end
-    require('ai/lsp-shared').on_attach(client, bufnr)
-  end,
+  -- Override to disable eelixir
+  filetypes = { 'elixir '},
+  on_attach = require('ai/lsp-shared').on_attach,
   capabilities = require('ai/lsp-shared').capabilities(),
   cmd = { vim.fn.expand("$HOME/src/elixir-ls/language_server.sh") },
 })
