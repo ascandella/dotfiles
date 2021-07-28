@@ -1,5 +1,8 @@
 ---
 version: 2
+# Enable to debug issues
+# log-file: /tmp/efm.log
+# log-level: 1
 
 root-markers:
   - package.json
@@ -21,7 +24,7 @@ tools:
   lua-selene: &lua-selene
     lint-command: >-
       selene --display-style quiet
-      --config "${HOME}/.config/selene/selene.toml"
+      --config "~/.config/selene/selene.toml"
       ${INPUT}
     lint-stdin: false
     lint-ignore-exit-code: true
@@ -29,23 +32,12 @@ tools:
       - "%f:%l:%c: %tarning%m"
       - "%f:%l:%c: %trror%m"
 
-  lua-lua-format: &lua-lua-format
+  lua-stylua: &lua-stylua
     format-command: >-
-      lua-format
-      --no-use-tab
-      --column-limit=100
-      --column-table-limit=80
-      --indent-width=2
-      --break-after-functioncall-lp
-      --break-before-functioncall-rp
-      --spaces-inside-table-braces
-      --chop-down-parameter
-      --chop-down-table
-      --chop-down-kv-table
-      --extra-sep-at-table-end
-      --no-keep-simple-control-block-one-line
-      --no-keep-simple-function-one-line
-      -i
+      stylua
+      --stdin-filepath "${INPUT}"
+      --search-parent-directories
+      -
     format-stdin: true
 
   prettier: &prettier
@@ -80,7 +72,7 @@ languages:
     - <<: *prettier
 
   lua:
-    - <<: *lua-lua-format
+    - <<: *lua-stylua
     # Disabled because it doesn't seem to recognize `vim` global.
     #- <<: *lua-selene
 
