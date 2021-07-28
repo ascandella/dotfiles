@@ -19,7 +19,10 @@ tools:
     format-stdin: true
 
   lua-selene: &lua-selene
-    lint-command: 'selene --display-style quiet ${INPUT}'
+    lint-command: >-
+      selene --display-style quiet
+      --config "${HOME}/.config/selene/selene.toml"
+      ${INPUT}
     lint-stdin: false
     lint-ignore-exit-code: true
     lint-formats:
