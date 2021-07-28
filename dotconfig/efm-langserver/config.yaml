@@ -81,7 +81,8 @@ languages:
 
   lua:
     - <<: *lua-lua-format
-    - <<: *lua-selene
+    # Disabled because it doesn't seem to recognize `vim` global.
+    #- <<: *lua-selene
 
   sh:
     - <<: *sh-shellcheck
