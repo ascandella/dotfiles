@@ -34,9 +34,6 @@ nnoremap({ '<Leader>gg', '<cmd>Neogit<cr>', { silent = true } })
 
 nnoremap({ '<Leader>u', '<cmd>UndotreeToggle<cr>', { silent = true } })
 
-nnoremap({ '<A-h>', require('harpoon.ui').toggle_quick_menu, { silent = true } })
-nnoremap({ '<Leader>m', require('harpoon.mark').add_file, { silent = true } })
-
 nnoremap({ '<Leader>ft', '<cmd>FloatermToggle<cr>', { silent = true } })
 nnoremap({ '<A-j>', '<cmd>FloatermToggle<cr>', { silent = true } })
 
@@ -45,3 +42,18 @@ tnoremap({ '<Leader>ft', '<cmd>FloatermToggle<cr>', { silent = true } })
 tnoremap({ '<A-j>', '<cmd>FloatermToggle<cr>', { silent = true } })
 -- Go back to normal mode
 tnoremap({ '<Esc>', '<C-\\><C-n>', { silent = true } })
+
+-- Harpoon mappings
+nnoremap({ '<A-h>', require('harpoon.ui').toggle_quick_menu, { silent = true } })
+nnoremap({ '<Leader>m', require('harpoon.mark').add_file, { silent = true } })
+
+local harpoon_jumpers = { '<C-h>', '<C-t>', '<C-n>', '<C-s>' }
+for index, mapping in ipairs(harpoon_jumpers) do
+  nnoremap({
+    mapping,
+    function()
+      require('harpoon.ui').nav_file(index)
+    end,
+    { silent = true },
+  })
+end
