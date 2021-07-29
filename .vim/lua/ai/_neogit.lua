@@ -20,13 +20,13 @@ M.open_pr = function()
 
     local open_pr_url = string.format('https://github.com/%s/pull/new/%s', repo_name, branch)
     a.await(a.scheduler())
-    vim.cmd('let @+="' .. open_pr_url .. '"')
 
-    if vim.fn.has('mac') then
+    if vim.fn.has('mac') == 1 then
       vim.cmd('!open ' .. open_pr_url)
     else
       -- Fall back to copying to clipboard (e.g. for WSL)
       vim.cmd('let @+="' .. open_pr_url .. '"')
+      print("PR link for '" .. branch .. "' copied to clipboard")
     end
   end)
 end

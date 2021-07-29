@@ -45,7 +45,6 @@ local function init_packer(use)
     config = function()
       require('ai/_neogit')
     end,
-    cmd = 'Neogit',
   })
 
   -- Frequency/recency
