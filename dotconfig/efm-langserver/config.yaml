@@ -9,6 +9,9 @@ root-markers:
   - .git
 
 tools:
+  caddy-fmt: &caddy-fmt
+    format-command: "caddy fmt"
+
   eslint_d: &eslint_d
     lint-command: 'eslint_d -f visualstudio --stdin --stdin-filename ${INPUT}'
     lint-ignore-exit-code: true
@@ -65,6 +68,11 @@ tools:
     lint-stdin: true
 
 languages:
+  caddyfile:
+    # Disabled because it doesn't play well with jinja2 variable templating in
+    # ansible
+    # - <<: *caddy-fmt
+
   eelixir:
     - <<: *htmlbeautifier
 
