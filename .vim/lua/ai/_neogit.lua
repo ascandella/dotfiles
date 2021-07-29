@@ -15,7 +15,7 @@ local M = {}
 M.open_pr = function()
   a.scope(function()
     local remote_url = a.await(neogit.cli.config.get('remote.origin.url').call())[1]
-    local repo_name = remote_url:sub(16, -5)
+    local repo_name = remote_url:sub(16)
     local branch = status.repo.head.branch
 
     local open_pr_url = string.format('https://github.com/%s/pull/new/%s', repo_name, branch)
