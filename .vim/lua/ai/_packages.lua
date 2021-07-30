@@ -176,7 +176,10 @@ local function init_packer(use)
     config = [[require('ai/_floaterm')]],
   })
 
-  use({ 'windwp/nvim-autopairs', config = [[require('ai/_autopairs')]] })
+  use({
+    'windwp/nvim-autopairs',
+    config = [[require('ai/_autopairs')]],
+  })
 
   use({
     'ThePrimeagen/harpoon',
