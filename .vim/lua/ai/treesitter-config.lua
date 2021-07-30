@@ -8,6 +8,7 @@ ts.setup {
     'erlang',
     'go',
     'graphql',
+    'hcl',
     'javascript',
     'json',
     'lua',
