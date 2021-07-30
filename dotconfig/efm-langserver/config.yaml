@@ -75,6 +75,7 @@ languages:
 
   eelixir:
     - <<: *htmlbeautifier
+    - <<: *rustywind
 
   graphql:
     - <<: *prettier
