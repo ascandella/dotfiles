@@ -2,13 +2,11 @@
 " Dvorak motion mappings
 "
 
-no h h
 nnoremap t j
 nnoremap n k
 nnoremap s l
-no S :
-no l n
-no L N
+nnoremap l nzzzv
+nnoremap L Nzzzv
 
 " Rolling escape, dvorak friendly
 inoremap jk <esc>
