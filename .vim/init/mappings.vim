@@ -5,6 +5,7 @@
 nnoremap t j
 nnoremap n k
 nnoremap s l
+" Center and open folds
 nnoremap l nzzzv
 nnoremap L Nzzzv
 
