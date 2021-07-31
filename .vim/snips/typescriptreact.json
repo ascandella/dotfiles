@@ -1,0 +1,7 @@
+{
+  "ClassName": {
+    "prefix": ["cn="],
+    "body": ["className=\"$1\""],
+    "description": "Class name"
+  }
+}
