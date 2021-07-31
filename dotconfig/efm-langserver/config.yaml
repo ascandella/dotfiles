@@ -18,7 +18,7 @@ tools:
     lint-stdin: true
     lint-formats:
       - "%f(%l,%c): %tarning %m"
-      - "%f(%l,%c): %rror %m"
+      - "%f(%l,%c): %trror %m"
 
   htmlbeautifier: &htmlbeautifier
     format-command: "htmlbeautifier --tab-stops 2"
@@ -66,6 +66,9 @@ tools:
   yaml-yamllint: &yaml-yamllint
     lint-command: 'yamllint -f parsable -'
     lint-stdin: true
+    lint-formats:
+      - '%f:%l:%c: [%trror] %m'
+      - '%f:%l:%c: [%tarning] %m'
 
 languages:
   caddyfile:
