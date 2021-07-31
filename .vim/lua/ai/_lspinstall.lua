@@ -13,19 +13,6 @@ local function make_config()
 end
 
 local function efm_config(config)
-  local old_on_attach = config.on_attach
-  config.on_attach = function(client, bufnr)
-    -- Don't compete with elixirls for formatting, we only use credo for linting
-    -- on elixir
-    local filetype = vim.api.nvim_buf_get_option(bufnr, 'filetype')
-    if filetype == 'elixir' then
-      client.resolved_capabilities.document_formatting = false
-    else
-      client.resolved_capabilities.document_formatting = true
-    end
-
-    old_on_attach(client, bufnr)
-  end
   config.filetypes = {
     'caddyfile',
     -- .eex templates
