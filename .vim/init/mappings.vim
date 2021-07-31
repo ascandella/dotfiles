@@ -9,9 +9,6 @@ nnoremap s l
 nnoremap l nzzzv
 nnoremap L Nzzzv
 
-" Rolling escape, dvorak friendly
-inoremap jk <esc>
-
 "
 " Window movement (doesn't work in iTerm)
 "
@@ -63,9 +60,6 @@ noremap <silent> <Leader>rs :setlocal spell!<cr>
 
 " Paste toggle
 map <silent> <Leader>p :set paste!<CR>
-
-" Fixup CSS
-autocmd FileType css map <Leader>cs :g#\({\n\)\@<=#.,/}/sort<CR>
 
 " Blank newline above this one
 nmap <Leader>. mmO<esc>`m
