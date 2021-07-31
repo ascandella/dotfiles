@@ -32,7 +32,7 @@ nnoremap <silent> <C-Down> :wincmd j<CR>
 
 " Undo break points after command, .
 inoremap , ,<c-g>u
-inoremap . ,<c-g>u
+inoremap . .<c-g>u
 
 "
 " Plugin mappings
