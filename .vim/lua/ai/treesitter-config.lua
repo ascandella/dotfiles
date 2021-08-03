@@ -1,5 +1,5 @@
-local ts = require 'nvim-treesitter.configs'
-ts.setup {
+local ts = require('nvim-treesitter.configs')
+ts.setup({
   ensure_installed = {
     'bash',
     'clojure',
@@ -12,6 +12,7 @@ ts.setup {
     'javascript',
     'json',
     'lua',
+    'python',
     'ruby',
     'rust',
     'svelte',
@@ -24,12 +25,12 @@ ts.setup {
     enable = true,
     disable = {
       -- These are all too slow to be usable
-      "elixir",
+      'elixir',
     },
   },
   indent = { enable = true },
   autotag = {
     enable = true,
-    filetypes = { "html", "typescriptreact", "javascriptreact" },
+    filetypes = { 'html', 'typescriptreact', 'javascriptreact' },
   },
-}
+})
