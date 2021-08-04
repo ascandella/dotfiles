@@ -15,7 +15,7 @@ rules:
     # For ansible
     allowed-values: ['true', 'false', 'yes', 'no']
 
-  # from defaults:
+  # `extend: default` doesn't seem to work properly, so duplicating from:
   # https://yamllint.readthedocs.io/en/stable/configuration.html
   braces: enable
   brackets: enable
