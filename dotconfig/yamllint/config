@@ -1,0 +1,13 @@
+---
+rules:
+  line-length:
+    max: 100
+    # For e.g. ansible, long URLs
+    allow-non-breakable-words: true
+    allow-non-breakable-inline-mappings: true
+
+  truthy:
+    # For ansible
+    allowed-values: ['true', 'false', 'yes', 'no']
+
+# vim: set ft=yaml
