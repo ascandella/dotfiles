@@ -1,4 +1,9 @@
 ---
+yaml-files:
+  - '*.yaml'
+  - '*.yml'
+  - '.yamllint'
+
 rules:
   line-length:
     max: 100
@@ -10,4 +15,29 @@ rules:
     # For ansible
     allowed-values: ['true', 'false', 'yes', 'no']
 
-# vim: set ft=yaml
+  # from defaults:
+  # https://yamllint.readthedocs.io/en/stable/configuration.html
+  braces: enable
+  brackets: enable
+  colons: enable
+  commas: enable
+  comments:
+    level: warning
+  comments-indentation:
+    level: warning
+  document-end: disable
+  document-start:
+    level: warning
+  empty-lines: enable
+  empty-values: disable
+  hyphens: enable
+  indentation: enable
+  key-duplicates: enable
+  key-ordering: disable
+  new-line-at-end-of-file: enable
+  new-lines: enable
+  octal-values: disable
+  quoted-strings: disable
+  trailing-spaces: enable
+
+# vim: ft=yaml
