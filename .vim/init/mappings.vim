@@ -66,6 +66,9 @@ nmap <Leader>. mmO<esc>`m
 " And below
 nmap <Leader>u mmo<esc>`m
 
+" Close tab
+nmap <Leader>tc :tabclose<cr>
+
 "
 " Other Mappings
 "
