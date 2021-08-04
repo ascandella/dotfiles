@@ -47,6 +47,10 @@ tools:
     format-command: "prettier --stdin-filepath ${INPUT}"
     format-stdin: true
 
+  python-black: &python-black
+    format-command: 'black --quiet -'
+    format-stdin: true
+
   sh-shellcheck: &sh-shellcheck
     lint-command: 'shellcheck -f gcc -x'
     lint-source: 'shellcheck'
@@ -103,6 +107,9 @@ languages:
     - <<: *eslint_d
     - <<: *prettier
     - <<: *rustywind
+
+  python:
+    - <<: *python-black
 
   typescript:
     - <<: *eslint_d

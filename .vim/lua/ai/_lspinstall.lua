@@ -22,6 +22,7 @@ local function efm_config(config)
     'javascript',
     'javascriptreact',
     'lua',
+    'python',
     'typescript',
     'typescriptreact',
     'sh',
