@@ -1,5 +1,6 @@
 {
   "common": {
+    "default_top_theme": "powerline_terminus",
     "term_truecolor": false
   },
   "ext": {
