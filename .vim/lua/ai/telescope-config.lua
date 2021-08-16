@@ -50,6 +50,7 @@ telescope.setup {
     mappings = {
       i = {
         ["<C-s-v>"] = actions.select_vertical,
+        ["<C-a-v>"] = actions.select_vertical,
         ["<esc>"] = actions.close,
         ["<C-t>"] = false,
         ["<C-u>"] = false,
