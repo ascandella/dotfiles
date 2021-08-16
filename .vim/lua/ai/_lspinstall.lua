@@ -41,6 +41,8 @@ for _, server in pairs(servers) do
   elseif server == 'elixirls' then
     -- Override to disable eelixir
     config.filetypes = { 'elixir' }
+  elseif server == 'lua' then
+    config.settings = require('ai/lua-ls').settings
   end
 
   require('lspconfig')[server].setup(config)
