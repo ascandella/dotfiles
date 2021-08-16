@@ -38,7 +38,7 @@ for _, server in pairs(servers) do
 
   if server == 'efm' then
     config = efm_config(config)
-  elseif server == 'elixirls' then
+  elseif server == 'elixir' then
     -- Override to disable eelixir
     config.filetypes = { 'elixir' }
   elseif server == 'lua' then
