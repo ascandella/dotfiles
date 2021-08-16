@@ -38,8 +38,8 @@ let mapleader = ","
 
 map <F2> :Goyo<CR>
 
-map <leader>- :call NERDComment(0,"toggle")<CR>
-map <C-b> :call NERDComment(0,"toggle")<CR>
+map <leader>- :call nerdcommenter#Comment(0,"toggle")<CR>
+map <C-b> :call nerdcommenter#Comment(0,"toggle")<CR>
 
 " FZF mappings
 map <Leader>, :Files<CR>
