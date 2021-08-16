@@ -38,6 +38,9 @@ for _, server in pairs(servers) do
 
   if server == 'efm' then
     config = efm_config(config)
+  elseif server == 'elixirls' then
+    -- Override to disable eelixir
+    config.filetypes = { 'elixir' }
   end
 
   require('lspconfig')[server].setup(config)
