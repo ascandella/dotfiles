@@ -8,10 +8,11 @@ local registrations = {
   f = {
     name = '+Telescope',
     b = 'Git branches',
-    f = 'Files',
+    f = 'Old files',
     h = 'Help',
     g = 'Live grep',
     l = 'File Browser',
+    o = 'Live grep open files',
     s = 'Search word under cursor',
   },
   g = {

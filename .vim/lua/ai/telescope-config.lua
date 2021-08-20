@@ -22,38 +22,30 @@ local M = {}
 M.project_files = function()
   -- local opts = require('telescope.themes').get_dropdown({  winblend = 10 })
   local opts = {}
-  local ok = pcall(require'telescope.builtin'.git_files, opts)
+  local ok = pcall(require('telescope.builtin').git_files, opts)
   if not ok then
-    require'telescope.builtin'.find_files(opts)
+    require('telescope.builtin').find_files(opts)
   end
 end
 
-M.livegrep_project = function()
-  require('telescope.builtin').live_grep({})
-end
-
-M.grep_string_hidden = function()
-  require('telescope.builtin').grep_string({})
-end
-
-telescope.setup {
+telescope.setup({
   defaults = {
     buffer_previewer_maker = new_maker,
     file_previewer = previewers.vim_buffer_cat.new,
     grep_previewer = previewers.vim_buffer_vimgrep.new,
     qflist_previewer = previewers.vim_buffer_qflist.new,
-    scroll_strategy = "cycle",
-    selection_strategy = "reset",
-    layout_strategy = "flex",
-    borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+    scroll_strategy = 'cycle',
+    selection_strategy = 'reset',
+    layout_strategy = 'flex',
+    borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
     layout_config = { horizontal = { width = 0.6 }, vertical = { width = 0.5 } },
     mappings = {
       i = {
-        ["<C-s-v>"] = actions.select_vertical,
-        ["<C-a-v>"] = actions.select_vertical,
-        ["<esc>"] = actions.close,
-        ["<C-t>"] = false,
-        ["<C-u>"] = false,
+        ['<C-s-v>'] = actions.select_vertical,
+        ['<C-a-v>'] = actions.select_vertical,
+        ['<esc>'] = actions.close,
+        ['<C-t>'] = false,
+        ['<C-u>'] = false,
       },
     },
   },
@@ -62,36 +54,48 @@ telescope.setup {
       fuzzy = true, -- false will only do exact matching
       override_generic_sorter = false, -- override the generic sorter
       override_file_sorter = true, -- override the file sorter
-      case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+      case_mode = 'smart_case', -- or "ignore_case" or "respect_case"
       -- the default case_mode is "smart_case"
     },
   },
-}
+})
 
 telescope.load_extension('frecency')
 telescope.load_extension('fzf')
 
--- Unused
+M.livegrep_project = function()
+  require('telescope.builtin').live_grep({})
+end
+
+M.livegrep_open_files = function()
+  require('telescope.builtin').live_grep({
+    grep_open_files = true,
+  })
+end
+
+M.grep_string_hidden = function()
+  require('telescope.builtin').grep_string({})
+end
 
 local lower_ivy = function(opts)
   opts = opts or {}
-  return require("telescope.themes").get_ivy(
-             vim.tbl_extend(
-                 "force", { layout_config = { height = 12 } }, opts
-             )
-         )
+  return require('telescope.themes').get_ivy(vim.tbl_extend('force', { layout_config = { height = 12 } }, opts))
 end
 
 M.frecency = function()
-  require("telescope").extensions.frecency.frecency(lower_ivy())
+  require('telescope').extensions.frecency.frecency(lower_ivy())
 end
 
 M.buffers = function()
-  require("telescope.builtin").buffers(lower_ivy())
+  require('telescope.builtin').buffers(lower_ivy())
 end
 
 M.git_branches = function()
-  require("telescope.builtin").git_branches(lower_ivy())
+  require('telescope.builtin').git_branches()
+end
+
+M.oldfiles = function()
+  require('telescope.builtin').oldfiles()
 end
 
 return M

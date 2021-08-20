@@ -7,6 +7,8 @@ nnoremap({ '-', '<cmd>Explore<cr>', { silent = true } })
 nnoremap({ '<Leader>,', telescope_commands.project_files, { silent = true } })
 
 nnoremap({ '<Leader>h', telescope_commands.frecency, { silent = true } })
+nnoremap({ '<Leader>ff', telescope_commands.oldfiles, { silent = true } })
+nnoremap({ '<Leader>fo', telescope_commands.livegrep_open_files, { silent = true } })
 
 nnoremap({ '<Leader>n', telescope_commands.buffers, { silent = true } })
 nnoremap({
