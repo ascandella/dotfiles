@@ -1,7 +1,7 @@
 -- Neogit setup
 local neogit = require('neogit')
 local status = require('neogit.status')
-local a = require('plenary.async_lib')
+local a = require('plenary.async')
 
 neogit.setup({
   disable_commit_confirmation = true,
@@ -13,14 +13,14 @@ neogit.setup({
 local M = {}
 -- https://github.com/TimUntersberger/neogit/issues/118
 M.open_pr = function()
-  a.scope(function()
-    local remote_url = a.await(neogit.cli.config.get('remote.origin.url').call())[1]
+  a.run(function()
+    local remote_url = neogit.cli.config.get('remote.origin.url').call()[1]
     local repo_name = remote_url:gsub('^git@github.com:', '')
     local clean_name = repo_name:gsub('.git$', '')
     local branch = status.repo.head.branch
 
     local open_pr_url = string.format('https://github.com/%s/pull/new/%s', clean_name, branch)
-    a.await(a.scheduler())
+    a.util.scheduler()
 
     if vim.fn.has('mac') == 1 then
       vim.cmd('!open ' .. open_pr_url)
