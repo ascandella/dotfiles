@@ -28,6 +28,10 @@ gsw() {
   \git checkout $(_gb)
 }
 
+db() {
+  \git branch -D $(_gb)
+}
+
 _gh() {
   is_in_git_repo || return
   git log --date=short --format="%C(green)%C(bold)%cd %C(auto)%h%d %s (%an)" --graph --color=always |
