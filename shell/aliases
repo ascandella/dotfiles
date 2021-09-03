@@ -22,17 +22,10 @@ _aliasto () {
 # Aliases
 #
 
-alias ':q'='echo "\033[31mThis is zsh, not vim\033[0m"'
-# May already be defined in 2-environment for lemonade. This is a fallback.
-if ! _command_exists clip >/dev/null; then
-  alias clip='nc localhost 8377'
-fi
 alias ll='ls -l'
 alias ltr='ls -ltr'
 alias rm > /dev/null && unalias rm
-alias s='ssh-reagent'
 alias t='tmux -u'
-alias e='emacsclient -t'
 
 alias grep='grep --color=auto'
 
@@ -72,11 +65,6 @@ alias hst='hg status'
 # Global aliases
 #
 alias -g G=' | grep '
-
-if which go > /dev/null ; then
-  alias go='nocorrect go'
-  alias gotest='go test $(go list ./... | grep -v "/vendor/")'
-fi
 
 if command -v bat >/dev/null ; then
   alias cat='bat'
