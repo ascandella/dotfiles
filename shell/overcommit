@@ -1,5 +1,0 @@
-# undoing this since it's too annoying with glide :(
-#if which overcommit &> /dev/null ; then
-#  GIT_TEMPLATE_DIR="$(overcommit --template-dir)"
-#  export GIT_TEMPLATE_DIR
-#fi
