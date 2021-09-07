@@ -28,7 +28,14 @@ ts.setup({
       'elixir',
     },
   },
-  indent = { enable = true },
+  indent = {
+    enable = true,
+    disable = {
+      -- until at least this issue is fixed
+      -- https://github.com/nvim-treesitter/nvim-treesitter/issues/1136
+      'python',
+    },
+  },
   autotag = {
     enable = true,
     filetypes = { 'html', 'typescriptreact', 'javascriptreact' },
