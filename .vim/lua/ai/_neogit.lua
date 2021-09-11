@@ -23,7 +23,7 @@ M.open_pr = function()
     a.util.scheduler()
 
     if vim.fn.has('mac') == 1 then
-      vim.cmd('!open ' .. open_pr_url)
+      vim.cmd('silent !open ' .. open_pr_url)
     elseif vim.fn.executable('xdg-open') == 1 then
       vim.cmd('silent !xdg-open ' .. open_pr_url)
     else
