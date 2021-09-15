@@ -57,9 +57,9 @@ alias gcaf='git commit --amend --no-verify'
 alias gcn='git commit --amend --no-verify --no-edit'
 alias gst='git status -sb'
 
-# mercurial stuff
-
-alias hst='hg status'
+# Elixir aliases
+alias mts='mix test --stale'
+alias mtf='mix test --failed'
 
 #
 # Global aliases
