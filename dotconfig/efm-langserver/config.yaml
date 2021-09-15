@@ -12,6 +12,13 @@ tools:
   caddy-fmt: &caddy-fmt
     format-command: "caddy fmt"
 
+  css-prettier: &css-prettier
+    format-command: >-
+      prettier
+      ${--tab-width:tabWidth}
+      ${--single-quote:singleQuote}
+      --parser css
+
   eslint_d: &eslint_d
     lint-command: 'eslint_d -f visualstudio --stdin --stdin-filename ${INPUT}'
     lint-ignore-exit-code: true
@@ -79,6 +86,8 @@ languages:
     # Disabled because it doesn't play well with jinja2 variable templating in
     # ansible
     # - <<: *caddy-fmt
+  css:
+    - <<: *css-prettier
 
   eelixir:
     - <<: *htmlbeautifier

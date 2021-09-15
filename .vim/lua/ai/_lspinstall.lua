@@ -15,6 +15,7 @@ end
 local function efm_config(config)
   config.filetypes = {
     'caddyfile',
+    'css',
     -- .eex templates
     'eelixir',
     'graphql',

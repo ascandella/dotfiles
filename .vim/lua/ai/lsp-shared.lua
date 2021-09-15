@@ -78,7 +78,9 @@ M.on_attach = function(client, bufnr)
     )
   end
 
-  require('lsp_signature').on_attach()
+  -- Disable until this issue is fixed:
+  -- https://github.com/ray-x/lsp_signature.nvim/issues/94
+  -- require('lsp_signature').on_attach()
   require('illuminate').on_attach(client)
 
   if client.server_capabilities.colorProvider then
