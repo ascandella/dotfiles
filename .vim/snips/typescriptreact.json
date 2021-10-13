@@ -3,5 +3,22 @@
     "prefix": ["cn="],
     "body": ["className=\"$1\""],
     "description": "Class name"
+  },
+  "FunctionComponent": {
+    "prefix": ["rfc"],
+    "body": [
+      "import React from \"react\"",
+      "",
+      "interface ${TM_FILENAME_BASE}Props {",
+      "  $1",
+      "}",
+      "",
+      "const ${TM_FILENAME_BASE}: React.FC<${TM_FILENAME_BASE}Props> = () => {",
+      "  return null;",
+      "};",
+      "",
+      "export default ${TM_FILENAME_BASE};"
+    ],
+    "description": "React new function component"
   }
 }
