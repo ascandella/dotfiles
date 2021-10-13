@@ -5,6 +5,7 @@ local a = require('plenary.async')
 
 neogit.setup({
   disable_commit_confirmation = true,
+  disable_hint = true,
   integrations = {
     diffview = true,
   },
