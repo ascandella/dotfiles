@@ -43,7 +43,6 @@ fi
 # fi
 
 case ${TERM} in
-  screen-256color) TERM=xterm-256color ;;
   xterm) TERM=xterm-256color ;;
 esac
 
