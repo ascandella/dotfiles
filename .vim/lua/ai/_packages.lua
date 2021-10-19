@@ -76,11 +76,11 @@ local function init_packer(use)
 
   -- Code completion
   use({
-    'hrsh7th/nvim-compe',
+    'hrsh7th/nvim-cmp',
+    requires = { 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-vsnip', 'hrsh7th/cmp-path' },
     config = function()
       require('ai/completion')
     end,
-    event = 'InsertEnter *',
   })
 
   -- Highlight other usages of a symbol under cursor, using LSP
