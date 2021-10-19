@@ -7,11 +7,60 @@ local feedkey = function(key, mode)
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
 end
 
+local lsp_symbols = {
+  Text = '   ',
+  Method = '  ',
+  Function = '  ',
+  Constructor = '  ',
+  Field = ' ﴲ ',
+  Variable = '[]',
+  Class = '  ',
+  Interface = ' ﰮ ',
+  Module = '  ',
+  Property = ' 襁',
+  Unit = '  ',
+  Value = '  ',
+  Enum = ' 練',
+  Keyword = '  ',
+  Snippet = '  ',
+  Color = '  ',
+  File = '  ',
+  Reference = '  ',
+  Folder = '  ',
+  EnumMember = '  ',
+  Constant = ' ﲀ ',
+  Struct = ' ﳤ ',
+  Event = '  ',
+  Operator = '  ',
+  TypeParameter = '  ',
+}
+
 cmp.setup({
   snippet = {
     expand = function(args)
       -- For `vsnip` user.
       vim.fn['vsnip#anonymous'](args.body)
+    end,
+  },
+  formatting = {
+    format = function(entry, item)
+      item.kind = lsp_symbols[item.kind] .. ' ' .. item.kind
+      -- set a name for each source
+      item.menu = ({
+        spell = '[Spell]',
+        buffer = '[Buffer]',
+        calc = '[Calc]',
+        emoji = '[Emoji]',
+        nvim_lsp = '[LSP]',
+        path = '[Path]',
+        look = '[Look]',
+        treesitter = '[treesitter]',
+        luasnip = '[LuaSnip]',
+        nvim_lua = '[Lua]',
+        latex_symbols = '[Latex]',
+        cmp_tabnine = '[Tab9]',
+      })[entry.source.name]
+      return item
     end,
   },
   mapping = {
