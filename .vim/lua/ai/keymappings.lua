@@ -35,6 +35,8 @@ nnoremap({ '<Leader>sp', require('spectre').open_file_search, { silent = true } 
 nnoremap({ '<Leader>gg', '<cmd>Neogit<cr>', { silent = true } })
 nnoremap({ '<Leader>gc', require('ai/_neogit').open_pr, { silent = true } })
 
+-- Undo Tree
+nnoremap({ '<F1>', '<cmd>UndotreeToggle<cr>', { silent = true } })
 nnoremap({ '<Leader>u', '<cmd>UndotreeToggle<cr>', { silent = true } })
 
 nnoremap({ '<Leader>ft', '<cmd>FloatermToggle<cr>', { silent = true } })
@@ -49,6 +51,7 @@ tnoremap({ '<Esc>', '<C-\\><C-n>', { silent = true } })
 -- Harpoon mappings
 nnoremap({ '<A-h>', require('harpoon.ui').toggle_quick_menu, { silent = true } })
 nnoremap({ '<Leader>m', require('harpoon.mark').add_file, { silent = true } })
+
 
 local harpoon_jumpers = { '<C-h>', '<C-t>', '<C-n>', '<C-s>' }
 for index, mapping in ipairs(harpoon_jumpers) do

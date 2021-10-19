@@ -27,6 +27,9 @@ nnoremap <silent> <C-Left> :wincmd h<CR>
 nnoremap <silent> <C-Up> :wincmd k<CR>
 nnoremap <silent> <C-Down> :wincmd j<CR>
 
+" Go to previous window
+nnoremap <c-e> <c-w><c-p>
+
 " Undo break points after command, .
 inoremap , ,<c-g>u
 inoremap . .<c-g>u
