@@ -13,6 +13,7 @@
     "editor.formatOnSave": true,
     "editor.scrollBeyondLastLine": false,
     "editor.minimap.enabled": false,
+    "editor.bracketPairColorization.enabled": true,
     "files.eol": "\n",
     "files.exclude": {
         ".venv": true,
@@ -33,7 +34,6 @@
     "files.autoSave": "onFocusChange",
     "files.insertFinalNewline": true,
     "go.autocompleteUnimportedPackages": true,
-    "go.lintTool": "gometalinter",
     "go.lintFlags": [
         "--fast",
         "--enable=errcheck"
@@ -56,8 +56,8 @@
         "typescriptreact": "html",
         "typescript": "javascript"
     },
-    "workbench.colorTheme": "Material Theme",
-    "editor.fontFamily": "Monaco, Menlo, Consolas, 'Courier New', monospace",
+    "workbench.colorTheme": "One Dark Pro Darker",
+    "editor.fontFamily": "'CaskaydiaCove Nerd Font', Monaco, Menlo, Consolas, 'Courier New', monospace",
     "python.formatting.provider": "black",
     "python.linting.pylintEnabled": false,
     "python.linting.mypyEnabled": true,
@@ -183,16 +183,17 @@
     ],
     "editor.multiCursorModifier": "alt",
     "explorer.confirmDragAndDrop": false,
-    "workbench.editorAssociations": [
-        {
-            "viewType": "jupyter.notebook.ipynb",
-            "filenamePattern": "*.ipynb"
-        }
-    ],
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
     "elixirLS.suggestSpecs": false,
     "typescript.updateImportsOnFileMove.enabled": "always",
     "javascript.updateImportsOnFileMove.enabled": "always",
     "terminal.integrated.tabs.enabled": true,
     "terminal.integrated.tabs.location": "left",
-    "workbench.iconTheme": "eq-material-theme-icons",
+    "workbench.iconTheme": "material-icon-theme",
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
 }
