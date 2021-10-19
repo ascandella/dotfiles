@@ -1,4 +1,5 @@
 require('lspinstall').setup()
+local cmp_nvim_lsp = require('cmp_nvim_lsp')
 
 local function make_config()
   local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -6,7 +7,7 @@ local function make_config()
   capabilities.textDocument.colorProvider = { dynamicRegistration = false }
   -- LuaFormatter off
   return {
-    capabilities = capabilities,
+    capabilities = cmp_nvim_lsp.update_capabilities(capabilities),
     on_attach = require('ai/lsp-shared').on_attach,
   }
   -- LuaFormatter on

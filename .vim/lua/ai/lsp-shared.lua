@@ -87,7 +87,10 @@ M.on_attach = function(client, bufnr)
     require('ai/lsp-documentcolors').buf_attach(bufnr, { single_column = true })
   end
 end
+
 -- LuaFormatter on
+
+local cmp_nvim_lsp = require('cmp_nvim_lsp')
 
 M.capabilities = function()
   local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -95,7 +98,7 @@ M.capabilities = function()
   capabilities.textDocument.completion.completionItem.resolveSupport = {
     properties = { 'documentation', 'detail', 'additionalTextEdits' },
   }
-  return capabilities
+  return cmp_nvim_lsp.update_capabilities(capabilities)
 end
 
 return M
