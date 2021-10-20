@@ -52,7 +52,6 @@ tnoremap({ '<Esc>', '<C-\\><C-n>', { silent = true } })
 nnoremap({ '<A-h>', require('harpoon.ui').toggle_quick_menu, { silent = true } })
 nnoremap({ '<Leader>m', require('harpoon.mark').add_file, { silent = true } })
 
-
 local harpoon_jumpers = { '<C-h>', '<C-t>', '<C-n>', '<C-s>' }
 for index, mapping in ipairs(harpoon_jumpers) do
   nnoremap({
