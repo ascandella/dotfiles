@@ -13,7 +13,6 @@ require('nvim-autopairs.completion.cmp').setup({
   insert = true, -- use insert confirm behavior instead of replace
   map_char = { -- modifies the function or method delimiter by filetypes
     all = '(',
-    tex = '{',
   },
 })
 
