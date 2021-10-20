@@ -93,6 +93,10 @@ languages:
     - <<: *htmlbeautifier
     - <<: *rustywind
 
+  heex:
+    - <<: *htmlbeautifier
+    - <<: *rustywind
+
   graphql:
     - <<: *prettier
 

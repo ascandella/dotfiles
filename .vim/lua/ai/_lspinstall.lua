@@ -20,6 +20,8 @@ local function efm_config(config)
     -- .eex templates
     'eelixir',
     'graphql',
+    -- .heex files, eelixir templates for Phoenix LiveView
+    'heex',
     'json',
     'javascript',
     'javascriptreact',

@@ -4,7 +4,7 @@ local servers = require('lspinstall').installed_servers()
 if servers['elixirls'] ~= nil then
   nvim_lsp.elixirls.setup({
     -- Override to disable eelixir
-    filetypes = { 'elixir' },
+    filetypes = { 'elixir', 'heex' },
     on_attach = require('ai/lsp-shared').on_attach,
     capabilities = require('ai/lsp-shared').capabilities(),
     cmd = { vim.fn.expand('$HOME/src/elixir-ls/language_server.sh') },
