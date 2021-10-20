@@ -185,6 +185,7 @@ local function init_packer(use)
 
   use({
     'windwp/nvim-autopairs',
+    requires = { 'hrsh7th/nvim-cmp' },
     config = [[require('ai/_autopairs')]],
   })
 
