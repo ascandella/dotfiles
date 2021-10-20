@@ -46,7 +46,8 @@ telescope.setup({
         ['<esc>'] = actions.close,
         ['<C-t>'] = false,
         ['<C-u>'] = false,
-
+        -- History in the prompts.
+        -- https://github.com/nvim-telescope/telescope.nvim/issues/1208
         ['<C-Down>'] = require('telescope.actions').cycle_history_next,
         ['<C-Up>'] = require('telescope.actions').cycle_history_prev,
       },
