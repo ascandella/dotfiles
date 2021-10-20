@@ -58,6 +58,8 @@ local function init_packer(use)
     requires = {
       -- Autoclose HTML/TSX tags
       'windwp/nvim-ts-autotag',
+      -- rainbow pairs
+      'p00f/nvim-ts-rainbow',
     },
     run = ':TSUpdate',
     config = function()
