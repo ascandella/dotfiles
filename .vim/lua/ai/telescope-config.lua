@@ -46,6 +46,9 @@ telescope.setup({
         ['<esc>'] = actions.close,
         ['<C-t>'] = false,
         ['<C-u>'] = false,
+
+        ['<C-Down>'] = require('telescope.actions').cycle_history_next,
+        ['<C-Up>'] = require('telescope.actions').cycle_history_prev,
       },
     },
   },
