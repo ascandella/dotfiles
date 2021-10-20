@@ -9,6 +9,7 @@ ts.setup({
     'go',
     'graphql',
     'hcl',
+    'heex',
     'javascript',
     'json',
     'lua',
