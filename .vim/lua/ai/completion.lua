@@ -64,6 +64,7 @@ cmp.setup({
     end,
   },
   mapping = {
+    ['<CR>'] = cmp.mapping.confirm({ select = false }),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<S-Tab>'] = cmp.mapping(function()
       if cmp.visible() then
