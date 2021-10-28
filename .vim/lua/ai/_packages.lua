@@ -108,14 +108,6 @@ local function init_packer(use)
     event = 'InsertEnter *',
   })
 
-  -- Show type signature when calling functions
-  use({
-    'ray-x/lsp_signature.nvim',
-    config = function()
-      require('ai/_lsp_signature')
-    end,
-  })
-
   -- Emacs-like keyboard shortcut completion helper
   use({
     'folke/which-key.nvim',

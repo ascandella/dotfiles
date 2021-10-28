@@ -78,7 +78,6 @@ M.on_attach = function(client, bufnr)
     )
   end
 
-  require('lsp_signature').on_attach()
   require('illuminate').on_attach(client)
 
   if client.server_capabilities.colorProvider then
