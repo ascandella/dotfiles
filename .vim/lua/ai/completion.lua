@@ -103,6 +103,13 @@ cmp.setup({
   },
 })
 
+-- Use buffer source for `/`.
+cmp.setup.cmdline('/', {
+  sources = {
+    { name = 'buffer' },
+  },
+})
+
 vim.o.completeopt = 'menu,menuone,noselect'
 
 -- Disable in commit modes
