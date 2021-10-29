@@ -36,6 +36,9 @@ local lsp_symbols = {
 }
 
 cmp.setup({
+  experimental = {
+    ghost_text = true,
+  },
   snippet = {
     expand = function(args)
       -- For `vsnip` user.
