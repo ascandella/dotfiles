@@ -80,9 +80,10 @@ M.on_attach = function(client, bufnr)
 
   require('illuminate').on_attach(client)
 
-  if client.server_capabilities.colorProvider then
-    require('ai/lsp-documentcolors').buf_attach(bufnr, { single_column = true })
-  end
+  -- Disabled because this stopped working in neovim 0.5.1
+  --if client.server_capabilities.colorProvider then
+  --require('ai/lsp-documentcolors').buf_attach(bufnr, { single_column = true })
+  --end
 end
 
 -- LuaFormatter on
@@ -113,6 +114,8 @@ local format_async = function(err, _, result, _, bufnr)
   end
 end
 
-vim.lsp.handlers['textDocument/formatting'] = format_async
+-- Disabled because this stopped working in the latest neovim (0.5.1)
+-- Something to do with: https://github.com/neovim/neovim/pull/15561 ?
+--vim.lsp.handlers['textDocument/formatting'] = format_async
 
 return M
