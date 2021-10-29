@@ -129,6 +129,11 @@ local function init_packer(use)
     end,
   })
 
+  -- Github integration
+  if vim.fn.executable('gh') == 1 then
+    use({ 'pwntester/octo.nvim' })
+  end
+
   use({
     'neovim/nvim-lspconfig',
     requires = {
