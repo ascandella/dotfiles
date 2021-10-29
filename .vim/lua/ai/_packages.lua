@@ -144,7 +144,8 @@ local function init_packer(use)
     requires = {
       'kabouzeid/nvim-lspinstall',
       {
-        'glepnir/lspsaga.nvim',
+        'tami5/lspsaga.nvim',
+        branch = 'nvim51',
         requires = { 'neovim/nvim-lspconfig' },
         config = function()
           require('ai/_lspsaga')
