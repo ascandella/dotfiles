@@ -131,7 +131,12 @@ local function init_packer(use)
 
   -- Github integration
   if vim.fn.executable('gh') == 1 then
-    use({ 'pwntester/octo.nvim' })
+    use({
+      'pwntester/octo.nvim',
+      config = function()
+        require('ai/_octo')
+      end,
+    })
   end
 
   use({
