@@ -113,3 +113,11 @@ augroup NvimCmpGitCommit
   au FileType gitcommit lua require('cmp').setup.buffer { enabled = false }
 augroup END
 ]])
+
+-- Add SQL completion via dadbod
+vim.cmd([[
+  augroup DadbodSql
+    au!
+    autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })
+  augroup END
+]])
