@@ -100,7 +100,7 @@ M.capabilities = function()
 end
 
 -- https://jose-elias-alvarez.medium.com/configuring-neovims-lsp-client-for-typescript-development-5789d58ea9c
-local format_async = function(err, _, result, _, bufnr)
+local format_async = function(err, result, _, bufnr)
   if err ~= nil or result == nil then
     return
   end
@@ -114,8 +114,6 @@ local format_async = function(err, _, result, _, bufnr)
   end
 end
 
--- Disabled because this stopped working in the latest neovim (0.5.1)
--- Something to do with: https://github.com/neovim/neovim/pull/15561 ?
---vim.lsp.handlers['textDocument/formatting'] = format_async
+vim.lsp.handlers['textDocument/formatting'] = format_async
 
 return M
