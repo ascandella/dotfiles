@@ -1,1 +1,1 @@
-require("oct").setup({ })
+require('octo').setup({})
