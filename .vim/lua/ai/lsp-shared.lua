@@ -81,9 +81,9 @@ M.on_attach = function(client, bufnr)
   require('illuminate').on_attach(client)
 
   -- Disabled because this stopped working in neovim 0.5.1
-  --if client.server_capabilities.colorProvider then
-  --require('ai/lsp-documentcolors').buf_attach(bufnr, { single_column = true })
-  --end
+  if client.server_capabilities.colorProvider then
+    require('ai/lsp-documentcolors').buf_attach(bufnr, { single_column = true })
+  end
 end
 
 -- LuaFormatter on
