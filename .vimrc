@@ -88,6 +88,10 @@ if !b:enable_nightly
 
   " Auto pairs
   Plug 'tmsvg/pear-tree'
+
+
+  " Focused editing. Use zen-mode.nvim in neovim 0.5+
+  Plug 'junegunn/goyo.vim'
 end
 
 " Better Python indenting
@@ -95,9 +99,6 @@ Plug 'Vimjas/vim-python-pep8-indent'
 
 " Elixir
 Plug 'elixir-editors/vim-elixir'
-
-" Focused editing
-Plug 'junegunn/goyo.vim'
 
 Plug 'troydm/zoomwintab.vim'
 

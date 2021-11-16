@@ -201,6 +201,14 @@ local function init_packer(use)
     'ThePrimeagen/harpoon',
     config = [[require('ai/_harpoon')]],
   })
+
+  -- Focused editing
+  use({
+    'folke/zen-mode.nvim',
+    config = function()
+      require('zen-mode').setup({})
+    end,
+  })
 end
 
 --- startup and add configure plugins
