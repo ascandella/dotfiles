@@ -21,7 +21,7 @@ local function send_command_and_show(command)
   local full_command = [[FloatermSend --name=elixir ]] .. command
   local resp = vim.api.nvim_exec(full_command, true)
 
-  if string.match(resp, ".*No more floaterms.*") then
+  if string.match(resp, '.*No more floaterms.*') then
     open_tests()
     vim.api.nvim_command(full_command)
   end
@@ -48,6 +48,14 @@ end
 M.run_test_at_file = function()
   local buffer_filename = vim.api.nvim_buf_get_name(0)
   send_command_and_show('mix test ' .. buffer_filename)
+end
+
+M.copy_module_alias = function()
+  vim.api.nvim_feedkeys(
+    vim.api.nvim_replace_termcodes([[mTgg0w"zyiW`T<c-w>pIalias <c-r>z]], true, false, true),
+    'n',
+    true
+  )
 end
 
 return M
