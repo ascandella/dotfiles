@@ -19,15 +19,6 @@ end
 
 local M = {}
 
-M.project_files = function()
-  -- local opts = require('telescope.themes').get_dropdown({  winblend = 10 })
-  local opts = {}
-  local ok = pcall(require('telescope.builtin').git_files, opts)
-  if not ok then
-    require('telescope.builtin').find_files(opts)
-  end
-end
-
 telescope.setup({
   defaults = {
     buffer_previewer_maker = new_maker,
@@ -83,7 +74,7 @@ end
 
 local lower_ivy = function(opts)
   opts = opts or {}
-  return require('telescope.themes').get_ivy(vim.tbl_extend('force', { layout_config = { height = 12 } }, opts))
+  return require('telescope.themes').get_ivy(vim.tbl_extend('force', { layout_config = { height = 0.4 } }, opts))
 end
 
 M.frecency = function()
@@ -95,11 +86,20 @@ M.buffers = function()
 end
 
 M.git_branches = function()
-  require('telescope.builtin').git_branches()
+  require('telescope.builtin').git_branches(lower_ivy())
 end
 
 M.oldfiles = function()
-  require('telescope.builtin').oldfiles()
+  require('telescope.builtin').oldfiles(lower_ivy())
+end
+
+M.project_files = function()
+  -- local opts = require('telescope.themes').get_dropdown({  winblend = 10 })
+  local opts = lower_ivy({})
+  local ok = pcall(require('telescope.builtin').git_files, opts)
+  if not ok then
+    require('telescope.builtin').find_files(opts)
+  end
 end
 
 return M
