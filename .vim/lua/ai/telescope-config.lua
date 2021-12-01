@@ -58,23 +58,23 @@ telescope.setup({
 telescope.load_extension('frecency')
 telescope.load_extension('fzf')
 
+local lower_ivy = function(opts)
+  opts = opts or {}
+  return require('telescope.themes').get_ivy(vim.tbl_extend('force', { layout_config = { height = 0.4 } }, opts))
+end
+
 M.livegrep_project = function()
-  require('telescope.builtin').live_grep({})
+  require('telescope.builtin').live_grep(lower_ivy())
 end
 
 M.livegrep_open_files = function()
-  require('telescope.builtin').live_grep({
+  require('telescope.builtin').live_grep(lower_ivy({
     grep_open_files = true,
-  })
+  }))
 end
 
 M.grep_string_hidden = function()
   require('telescope.builtin').grep_string({})
-end
-
-local lower_ivy = function(opts)
-  opts = opts or {}
-  return require('telescope.themes').get_ivy(vim.tbl_extend('force', { layout_config = { height = 0.4 } }, opts))
 end
 
 M.frecency = function()
