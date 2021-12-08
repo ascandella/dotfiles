@@ -93,6 +93,10 @@ M.oldfiles = function()
   require('telescope.builtin').oldfiles(lower_ivy())
 end
 
+M.lsp_references = function()
+  require('telescope.builtin').lsp_references(lower_ivy())
+end
+
 M.project_files = function()
   -- local opts = require('telescope.themes').get_dropdown({  winblend = 10 })
   local opts = lower_ivy({})
