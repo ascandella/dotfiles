@@ -142,7 +142,7 @@ local function init_packer(use)
   use({
     'neovim/nvim-lspconfig',
     requires = {
-      'kabouzeid/nvim-lspinstall',
+      'williamboman/nvim-lsp-installer',
       {
         'tami5/lspsaga.nvim',
         branch = 'nvim51',

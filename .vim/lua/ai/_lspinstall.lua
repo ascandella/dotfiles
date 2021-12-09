@@ -1,5 +1,32 @@
-require('lspinstall').setup()
 local cmp_nvim_lsp = require('cmp_nvim_lsp')
+local lsp_installer = require("nvim-lsp-installer")
+
+-- Include the servers you want to have installed by default below
+local servers = {
+  "bashls",
+  "elixirls",
+  "gopls",
+  "pyright",
+  "rust_analyzer",
+  "sumneko_lua",
+  "tailwindcss",
+  "terraformls",
+  "tflint",
+  "tsserver",
+  "yamlls",
+}
+
+-- Autoinstall servers
+for _, name in pairs(servers) do
+  local server_is_found, server = lsp_installer.get_server(name)
+  if server_is_found then
+    if not server:is_installed() then
+      print("Installing " .. name)
+      server:install()
+    end
+  end
+end
+
 
 local function make_config()
   local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -36,18 +63,16 @@ local function efm_config(config)
   return config
 end
 
-local servers = require('lspinstall').installed_servers()
-for _, server in pairs(servers) do
+lsp_installer.on_server_ready(function(server)
   local config = make_config()
 
-  if server == 'efm' then
+  if server.name == 'efm' then
     config = efm_config(config)
-  elseif server == 'elixir' then
+  elseif server.name == 'elixir' then
     -- Override to disable eelixir
-    config.filetypes = { 'elixir' }
-  elseif server == 'lua' then
+    config.filetypes = { 'elixir', 'heex' }
+  elseif server.name == 'lua' then
     config.settings = require('ai/lua-ls').settings
   end
-
-  require('lspconfig')[server].setup(config)
-end
+  server:setup(config)
+end)
