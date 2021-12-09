@@ -209,6 +209,11 @@ local function init_packer(use)
       require('zen-mode').setup({})
     end,
   })
+
+  use({
+    'numToStr/Comment.nvim',
+    config = [[require('ai/_comment')]],
+  })
 end
 
 --- startup and add configure plugins

@@ -92,6 +92,9 @@ if !b:enable_nightly
 
   " Focused editing. Use zen-mode.nvim in neovim 0.5+
   Plug 'junegunn/goyo.vim'
+
+  " Superceded by Comment.nvim
+  Plug 'scrooloose/nerdcommenter'
 end
 
 " Better Python indenting
@@ -115,8 +118,6 @@ Plug 'Valloric/ListToggle'
 Plug 'joshdick/onedark.vim'
 
 "# "Format code with one button press" - https://github.com/Chiel92/vim-autoformat
-
-Plug 'scrooloose/nerdcommenter'
 
 Plug 'mhinz/vim-signify'
 
