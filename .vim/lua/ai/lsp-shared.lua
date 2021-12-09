@@ -99,15 +99,15 @@ M.capabilities = function()
 end
 
 -- https://jose-elias-alvarez.medium.com/configuring-neovims-lsp-client-for-typescript-development-5789d58ea9c
-local format_async = function(err, result, _, bufnr)
+local format_async = function(err, result, ctx)
   if err ~= nil or result == nil then
     return
   end
-  if not vim.api.nvim_buf_get_option(bufnr, 'modified') then
+  if not vim.api.nvim_buf_get_option(ctx.bufnr, 'modified') then
     local view = vim.fn.winsaveview()
-    vim.lsp.util.apply_text_edits(result, bufnr)
+    vim.lsp.util.apply_text_edits(result, ctx.bufnr)
     vim.fn.winrestview(view)
-    if bufnr == vim.api.nvim_get_current_buf() then
+    if ctx.bufnr == vim.api.nvim_get_current_buf() then
       vim.api.nvim_command('noautocmd :update')
     end
   end

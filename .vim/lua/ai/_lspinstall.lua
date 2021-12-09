@@ -6,14 +6,14 @@ local servers = {
   "bashls",
   "elixirls",
   "gopls",
-  "pyright",
-  "rust_analyzer",
-  "sumneko_lua",
-  "tailwindcss",
   "terraformls",
+  "tailwindcss",
   "tflint",
   "tsserver",
+  "pyright",
+  "sumneko_lua",
   "yamlls",
+  "rust_analyzer",
 }
 
 -- Autoinstall servers
@@ -71,7 +71,7 @@ lsp_installer.on_server_ready(function(server)
   elseif server.name == 'elixir' then
     -- Override to disable eelixir
     config.filetypes = { 'elixir', 'heex' }
-  elseif server.name == 'lua' then
+  elseif server.name == 'sumneko_lua' then
     config.settings = require('ai/lua-ls').settings
   end
   server:setup(config)
