@@ -87,8 +87,6 @@ local function init_packer(use)
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-emoji',
       'hrsh7th/cmp-calc',
-      'tpope/vim-dadbod',
-      'kristijanhusak/vim-dadbod-completion',
     },
     config = function()
       require('ai/completion')
