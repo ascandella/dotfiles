@@ -98,6 +98,26 @@ M.capabilities = function()
   return cmp_nvim_lsp.update_capabilities(capabilities)
 end
 
+local fixup_prettier_newlines = function(result, ctx)
+  local document_uri = ctx.params.textDocument.uri
+  if not document_uri:match('.tsx?$') then
+    print('Not a tsx file')
+    return result
+  end
+  if #result < 2 then
+    return result
+  end
+
+  local second_to_last = result[#result - 1]
+  local last = result[#result]
+  -- Remove both of them, the `export default is already there`
+  if second_to_last.newText == '' and last.newText:match('^export ') then
+    table.remove(result, #result - 1)
+    table.remove(result, #result)
+  end
+  return result
+end
+
 -- https://jose-elias-alvarez.medium.com/configuring-neovims-lsp-client-for-typescript-development-5789d58ea9c
 local format_async = function(err, result, ctx)
   if err ~= nil or result == nil then
@@ -105,7 +125,8 @@ local format_async = function(err, result, ctx)
   end
   if not vim.api.nvim_buf_get_option(ctx.bufnr, 'modified') then
     local view = vim.fn.winsaveview()
-    vim.lsp.util.apply_text_edits(result, ctx.bufnr)
+    local cleaned_result = fixup_prettier_newlines(result, ctx)
+    vim.lsp.util.apply_text_edits(cleaned_result, ctx.bufnr)
     vim.fn.winrestview(view)
     if ctx.bufnr == vim.api.nvim_get_current_buf() then
       vim.api.nvim_command('noautocmd :update')
