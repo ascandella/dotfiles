@@ -143,7 +143,6 @@ local function init_packer(use)
       'williamboman/nvim-lsp-installer',
       {
         'tami5/lspsaga.nvim',
-        branch = 'nvim51',
         requires = { 'neovim/nvim-lspconfig' },
         config = function()
           require('ai/_lspsaga')
