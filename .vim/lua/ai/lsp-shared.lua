@@ -101,7 +101,6 @@ end
 local fixup_prettier_newlines = function(result, ctx)
   local document_uri = ctx.params.textDocument.uri
   if not document_uri:match('.tsx?$') then
-    print('Not a tsx file')
     return result
   end
   if #result < 2 then

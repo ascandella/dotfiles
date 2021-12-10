@@ -1,5 +1,3 @@
-local nvim_lsp = require('lspconfig')
-
 vim.api.nvim_command([[
   autocmd BufEnter *.ex :setlocal filetype=elixir
 ]])

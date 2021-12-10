@@ -68,7 +68,7 @@ lsp_installer.on_server_ready(function(server)
 
   if server.name == 'efm' then
     config = efm_config(config)
-  elseif server.name == 'elixir' then
+  elseif server.name == 'elixirls' then
     -- Override to disable eelixir
     config.filetypes = { 'elixir', 'heex' }
   elseif server.name == 'sumneko_lua' then
