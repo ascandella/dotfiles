@@ -121,6 +121,9 @@ Plug 'joshdick/onedark.vim'
 
 Plug 'mhinz/vim-signify'
 
+" Jinja2 / HTML syntax
+Plug 'Glench/Vim-Jinja2-Syntax'
+
 if has('unix')
   Plug 'Matt-Deacalion/vim-systemd-syntax'
 endif
