@@ -1,5 +1,6 @@
 local k = require('astronauta.keymap')
 local nnoremap = k.nnoremap
+local nmap = k.nmap
 local xmap = k.xmap
 local tnoremap = k.tnoremap
 local telescope_commands = require('ai/telescope-config')
@@ -57,7 +58,7 @@ nnoremap({ '<Leader>m', require('harpoon.mark').add_file, { silent = true } })
 nnoremap({ '<F2>', '<cmd>ZenMode<cr>', { silent = true } })
 
 -- Commenting
-nnoremap({ '<Leader>-', require('Comment.api').toggle, { silent = true } })
+nmap({ '<Leader>-', 'gcc', { silent = true } })
 xmap({ '<Leader>-', 'gc', { silent = true } })
 
 local harpoon_jumpers = { '<C-h>', '<C-t>', '<C-n>', '<C-s>' }
