@@ -29,6 +29,8 @@ set colorcolumn=+0
 " hi Todo ctermbg=none
 
 highlight ExtraWhitespace ctermbg=red guibg=red
+" Italicize keywords
+hi Keyword cterm=italic gui=italic
 match ExtraWhitespace /\s\+$\| \+\ze\t/
 
 " Disable syntax for large files
