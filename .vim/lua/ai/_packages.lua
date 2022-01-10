@@ -141,6 +141,7 @@ local function init_packer(use)
     'neovim/nvim-lspconfig',
     requires = {
       'williamboman/nvim-lsp-installer',
+      'simrat39/rust-tools.nvim',
       {
         'tami5/lspsaga.nvim',
         requires = { 'neovim/nvim-lspconfig' },
@@ -155,6 +156,7 @@ local function init_packer(use)
       require('ai/lua-ls')
       require('ai/typescript')
       require('ai/elixir-config')
+      require('ai/_rust-tools')
     end,
   })
 

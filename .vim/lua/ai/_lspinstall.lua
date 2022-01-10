@@ -79,6 +79,17 @@ lsp_installer.on_server_ready(function(server)
       client.resolved_capabilities.document_formatting = false
       vim.api.nvim_exec([[set signcolumn=yes]], true)
     end
+  elseif server.name == 'rust_analyzer' then
+    -- https://github.com/simrat39/rust-tools.nvim/issues/89#issuecomment-988066548
+    require('rust-tools').setup({
+      -- The "server" property provided in rust-tools setup function are the settings rust-tools will provide to
+      -- lspconfig during init.
+      -- We merge the necessary settings from nvim-lsp-installer (server:get_default_options()) with
+      -- the user's own settings (opts).
+      server = vim.tbl_deep_extend('force', server:get_default_options(), config),
+    })
+    -- Don't run the normal lspinstall setup, let `rust-tools.nvim` handle it.
+    return
   end
   server:setup(config)
 end)
