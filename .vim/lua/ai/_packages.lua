@@ -156,7 +156,6 @@ local function init_packer(use)
       require('ai/lua-ls')
       require('ai/typescript')
       require('ai/elixir-config')
-      require('ai/_rust-tools')
     end,
   })
 
