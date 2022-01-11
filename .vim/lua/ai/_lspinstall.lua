@@ -63,6 +63,27 @@ local function efm_config(config)
   return config
 end
 
+local function tailwindcss_config(config)
+  config.filetypes = {
+    'django-html',
+    'jinja',
+    'tsx',
+    'html',
+    'eelixir',
+    'gohtml',
+    'css',
+    'sass',
+    'javascript',
+    'typescript',
+  }
+  config.init_options = {
+    userLanguages = {
+      jinja = 'django-html',
+    },
+  }
+  return config
+end
+
 lsp_installer.on_server_ready(function(server)
   local config = make_config()
 
@@ -73,6 +94,8 @@ lsp_installer.on_server_ready(function(server)
     config.filetypes = { 'elixir', 'heex' }
   elseif server.name == 'sumneko_lua' then
     config.settings = require('ai/lua-ls').settings
+  elseif server.name == 'tailwindcss' then
+    config = tailwindcss_config(config)
   elseif server.name == 'tsserver' then
     config.on_attach = function(client)
       -- Disable document formatting; allow efm/prettier to win
