@@ -16,6 +16,7 @@
 	renames = copies
 	mnemonicprefix = true
 	colorMoved = default
+	algorithm = histogram
 
 [branch]
 	autosetuprebase = always
