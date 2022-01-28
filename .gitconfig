@@ -1,7 +1,8 @@
+# vim: noexpandtab
 [core]
 	whitespace = trailing-space,space-before-tab
 	excludesfile = ~/.gitignore_global
-	pager = diff-so-fancy | less --tabs=1,5 -RFX
+	pager = delta
 
 [user]
 	name = Aiden Scandella
@@ -14,6 +15,7 @@
 [diff]
 	renames = copies
 	mnemonicprefix = true
+	colorMoved = default
 
 [branch]
 	autosetuprebase = always
@@ -56,6 +58,7 @@
 
 [color]
 	gui = true
+	ui = true
 
 [log]
 	gdecorate = short
@@ -69,8 +72,6 @@
 [pager]
 	status = true
 	show-branch = true
-	diff = diff-so-fancy | less --tabs=1,5 -RFX
-	show = diff-so-fancy | less --tabs=1,5 -RFX
 
 [help]
 	autocorrect = 5
@@ -93,9 +94,15 @@
 	meta = yellow bold
 [commit]
 	gpgsign = true
-# vim: noexpandtab
 [interactive]
 	singleKey = true
+	diffFilter = delta --color-only
+
 [pretty]
 	reflg = %C(red)%h%C(reset) %C(green)%ci%C(reset) %s %C(bold blue)-- %an%C(reset) %C(yellow)(%gd)%C(reset)
-  lg = %Cred%h%Creset %s%C(yellow)%d%Creset %Cgreen(%cr)%Creset %C(bold blue)-- %an%C(reset)%C(yellow)%d%C(reset)
+	lg = %Cred%h%Creset %s%C(yellow)%d%Creset %Cgreen(%cr)%Creset %C(bold blue)-- %an%C(reset)%C(yellow)%d%C(reset)
+[merge]
+	conflictStyle = diff3
+
+[delta]
+	navigate = true
