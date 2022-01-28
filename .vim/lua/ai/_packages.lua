@@ -212,6 +212,9 @@ local function init_packer(use)
     'numToStr/Comment.nvim',
     config = [[require('ai/_comment')]],
   })
+
+  -- Copilot
+  use('https://github.com/github/copilot.vim')
 end
 
 --- startup and add configure plugins
