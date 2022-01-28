@@ -7,9 +7,6 @@
 [submodule ".fzf"]
 	path = .fzf
 	url = https://github.com/junegunn/fzf.git
-[submodule "git-extensions/diff-so-fancy"]
-	path = git-extensions/diff-so-fancy
-	url = https://github.com/so-fancy/diff-so-fancy/
 [submodule "chat/weechat-plugins"]
 	path = chat/weechat-plugins
 	url = https://github.com/recht/weechat-plugins.git
