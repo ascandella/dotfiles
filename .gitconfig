@@ -97,13 +97,28 @@
 	gpgsign = true
 [interactive]
 	singleKey = true
-	diffFilter = delta --color-only
+	diffFilter = delta --color-only --features=interactive
 
 [pretty]
 	reflg = %C(red)%h%C(reset) %C(green)%ci%C(reset) %s %C(bold blue)-- %an%C(reset) %C(yellow)(%gd)%C(reset)
 	lg = %Cred%h%Creset %s%C(yellow)%d%Creset %Cgreen(%cr)%Creset %C(bold blue)-- %an%C(reset)%C(yellow)%d%C(reset)
+
 [merge]
 	conflictStyle = diff3
 
 [delta]
 	navigate = true
+	features = decorations
+
+[delta "interactive"]
+	keep-plus-minus-markers = false
+
+[delta "decorations"]
+	commit-decoration-style = blue ol
+	commit-style = raw
+	hunk-header-decoration-style = blue box
+	hunk-header-file-style = red
+	hunk-header-line-number-style = "#6935BF"
+	hunk-header-style = line-number syntax
+[init]
+	defaultBranch = main
