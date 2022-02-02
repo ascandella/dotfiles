@@ -101,6 +101,11 @@ nmap <silent> <leader>rr :set norelativenumber!<cr>
 " Spurious shift-key failure
 command W w
 
+" Holding down shift failures
+command Cq cq
+
+nmap ; :
+
 " Make Y consistent with D and C (instead of yy)
 noremap Y y$
 
