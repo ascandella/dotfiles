@@ -56,6 +56,10 @@ nnoremap({ '<Leader>m', require('harpoon.mark').add_file, { silent = true } })
 
 -- Zen Mode
 nnoremap({ '<F2>', '<cmd>ZenMode<cr>', { silent = true } })
+nnoremap({ '<Leader>tz', '<cmd>ZenMode<cr>', { silent = true } })
+
+-- Twilight (dim inactive)
+nnoremap({ '<Leader>tt', '<cmd>Twilight<cr>', { silent = true } })
 
 -- Commenting
 nmap({ '<Leader>-', 'gcc', { silent = true } })
