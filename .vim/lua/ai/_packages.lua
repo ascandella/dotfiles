@@ -208,6 +208,11 @@ local function init_packer(use)
     end,
   })
 
+  -- Dim inactive regions of code, plays well with zen-mode
+  use({
+    'folke/twilight.nvim',
+  })
+
   use({
     'numToStr/Comment.nvim',
     config = [[require('ai/_comment')]],
