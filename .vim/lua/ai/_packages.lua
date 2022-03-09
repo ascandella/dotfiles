@@ -69,10 +69,10 @@ local function init_packer(use)
 
   -- New status line
   use({
-    'glepnir/galaxyline.nvim',
+    'NTBBloodbath/galaxyline.nvim',
     requires = { 'nvim-lua/lsp-status.nvim' },
     config = function()
-      require('ai/_galaxyline')
+      require('galaxyline.themes.eviline')
     end,
   })
 
