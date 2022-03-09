@@ -1,199 +1,159 @@
 {
-    "telemetry.enableTelemetry": false,
-    "editor.cursorBlinking": "phase",
-    "editor.tabSize": 2,
-    "editor.roundedSelection": true,
-    "editor.glyphMargin": true,
-    "editor.lineNumbers": "off",
-    "editor.rulers": [
-        100
-    ],
-    "editor.renderIndentGuides": true,
-    "editor.formatOnType": true,
-    "editor.formatOnSave": true,
-    "editor.scrollBeyondLastLine": false,
-    "editor.minimap.enabled": false,
-    "editor.bracketPairColorization.enabled": true,
-    "files.eol": "\n",
-    "files.exclude": {
-        ".venv": true,
-        "**/vendor": true,
-        "**/.git": true,
-        "**/.DS_Store": true,
-        ".vscode": true,
-        "env": true,
-        "debian": true,
-        "**/*.test": true,
-        "**/*.pyc": true,
-        "**/coverage.html": true,
-        "**/_build": true,
-        "**/*.coverprofile": true,
-        "**/__pycache__": true
+  "telemetry.telemetryLevel": "off",
+  "editor.cursorBlinking": "phase",
+  "editor.tabSize": 2,
+  "editor.roundedSelection": true,
+  "editor.glyphMargin": true,
+  "editor.lineNumbers": "off",
+  "editor.rulers": [100],
+  "editor.formatOnType": true,
+  "editor.formatOnSave": true,
+  "editor.scrollBeyondLastLine": false,
+  "editor.minimap.enabled": false,
+  "editor.bracketPairColorization.enabled": true,
+  "files.eol": "\n",
+  "files.exclude": {
+    ".venv": true,
+    "**/vendor": true,
+    "**/.git": true,
+    "**/.DS_Store": true,
+    ".vscode": true,
+    "env": true,
+    "debian": true,
+    "**/*.test": true,
+    "**/*.pyc": true,
+    "**/coverage.html": true,
+    "**/_build": true,
+    "**/*.coverprofile": true,
+    "**/__pycache__": true
+  },
+  "files.trimTrailingWhitespace": true,
+  "files.autoSave": "onFocusChange",
+  "files.insertFinalNewline": true,
+  "explorer.confirmDelete": false,
+  "window.zoomLevel": 0,
+  "python.venvPath": "${workspaceFolder}",
+  "extensions.ignoreRecommendations": false,
+  "emmet.includeLanguages": {
+    "html-eex": "html"
+  },
+  "workbench.colorTheme": "One Dark Pro Darker",
+  "editor.fontFamily": "'CaskaydiaCove Nerd Font', Monaco, Menlo, Consolas, 'Courier New', monospace",
+  "python.formatting.provider": "black",
+  "python.linting.pylintEnabled": false,
+  "python.linting.mypyEnabled": true,
+  "vim.commandLineModeKeyBindingsNonRecursive": [
+    {
+      "before": ["W"],
+      "after": ["w"]
+    }
+  ],
+  "vim.handleKeys": {
+    "<C-c>": false,
+    "<C-f>": false,
+    "<C-j>": false,
+    "<C-b>": false
+  },
+  "terminal.integrated.fontFamily": "'CaskaydiaCove Nerd Font'",
+  "terminal.integrated.fontSize": 16,
+  "settingsSync.ignoredExtensions": [],
+  "terminal.integrated.profiles.linux": {
+    "zsh": {
+      "path": "zsh"
     },
-    "files.trimTrailingWhitespace": true,
-    "files.autoSave": "onFocusChange",
-    "files.insertFinalNewline": true,
-    "go.autocompleteUnimportedPackages": true,
-    "go.lintFlags": [
-        "--fast",
-        "--enable=errcheck"
-    ],
-    "go.vetFlags": [
-        "-printfuncs=wrapf,statusf,warnf,infof,debugf,noerrorf,equalf,newexiterrorf,containsf,truef,falsef,equalf,emptyf,failf"
-    ],
-    "explorer.confirmDelete": false,
-    "window.zoomLevel": 0,
-    "python.venvPath": "${workspaceFolder}",
-    "extensions.ignoreRecommendations": false,
-    "eslint.format.enable": true,
-    "eslint.lintTask.enable": true,
-    "eslint.packageManager": "yarn",
-    "emmet.includeLanguages": {
-        "html-eex": "html"
+    "pwsh": {
+      "path": "pwsh",
+      "icon": "terminal-powershell"
+    }
+  },
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "[typescriptreact]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": false
     },
-    "tailwindCSS.emmetCompletions": true,
-    "tailwindCSS.includeLanguages": {
-        "typescriptreact": "html",
-        "typescript": "javascript"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": false
     },
-    "workbench.colorTheme": "One Dark Pro Darker",
-    "editor.fontFamily": "'CaskaydiaCove Nerd Font', Monaco, Menlo, Consolas, 'Courier New', monospace",
-    "python.formatting.provider": "black",
-    "python.linting.pylintEnabled": false,
-    "python.linting.mypyEnabled": true,
-    "vim.commandLineModeKeyBindingsNonRecursive": [
-        {
-            "before": [
-                "W"
-            ],
-            "after": [
-                "w"
-            ]
-        }
-    ],
-    "vim.handleKeys": {
-        "<C-c>": false,
-        "<C-f>": false,
-        "<C-j>": false,
-        "<C-b>": false,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "css.validate": false,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [",", "a"],
+      "commands": ["fzf-quick-open.runFzfSearch"]
     },
-    "terminal.integrated.fontFamily": "Ubuntu Mono derivative Powerline",
-    "terminal.integrated.fontSize": 16,
-    "settingsSync.ignoredExtensions": [],
-    "terminal.integrated.profiles.linux": {
-        "zsh": {
-            "path": "zsh"
-        },
-        "pwsh": {
-            "path": "pwsh",
-            "icon": "terminal-powershell"
-        }
+    {
+      "before": ["t"],
+      "after": ["j"]
     },
-    "terminal.integrated.defaultProfile.linux": "zsh",
-    "[typescriptreact]": {
-        "editor.codeActionsOnSave": {
-            "source.organizeImports": false
-        },
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    {
+      "before": ["s"],
+      "after": ["l"]
     },
-    "[typescript]": {
-        "editor.codeActionsOnSave": {
-            "source.organizeImports": false
-        },
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "css.validate": false,
-    "stylelint.enable": true,
-    "[json]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "vim.normalModeKeyBindingsNonRecursive": [
-        {
-            "before": [
-                ",",
-                "a"
-            ],
-            "commands": [
-                "fzf-quick-open.runFzfSearch"
-            ]
-        },
-        {
-            "before": [
-                "t"
-            ],
-            "after": [
-                "j"
-            ]
-        },
-        {
-            "before": [
-                "s"
-            ],
-            "after": [
-                "l"
-            ]
-        },
-        {
-            "before": [
-                "n"
-            ],
-            "after": [
-                "k"
-            ]
-        }
-    ],
-    "files.associations": {
-        "*.eex": "erb",
-        "*.leex": "erb"
-    },
-    "importSorter.importStringConfiguration.trailingComma": "multiLine",
-    "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.type": "newLineEachExpressionAfterCountLimitExceptIfOnlyOne",
-    "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.count": 80,
-    "importSorter.generalConfiguration.sortOnBeforeSave": false,
-    "importSorter.importStringConfiguration.tabSize": 2,
-    "importSorter.importStringConfiguration.quoteMark": "double",
+    {
+      "before": ["n"],
+      "after": ["k"]
+    }
+  ],
+  "files.associations": {
+    "*.eex": "erb",
+    "*.leex": "erb"
+  },
+  "importSorter.importStringConfiguration.trailingComma": "multiLine",
+  "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.type": "newLineEachExpressionAfterCountLimitExceptIfOnlyOne",
+  "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.count": 80,
+  "importSorter.generalConfiguration.sortOnBeforeSave": false,
+  "importSorter.importStringConfiguration.tabSize": 2,
+  "importSorter.importStringConfiguration.quoteMark": "double",
 
-    // The default order level of everything which is not included into rules
-    "importSorter.sortConfiguration.customOrderingRules.rules": [
-            {
-                "type": "importMember",
-                "regex": "^$",
-                "orderLevel": 10,
-                "disableSort": true
-            },
-            {
-                "regex": "^react",
-                "orderLevel": 10,
-            },
-            {
-                "regex": "^[@]|next",
-                "orderLevel": 15
-            },
-            {
-                "regex": "^test/",
-                "orderLevel": 40
-            },
-            {
-                "regex": "^[.]",
-                "orderLevel": 40
-            }
-    ],
-    "editor.multiCursorModifier": "alt",
-    "explorer.confirmDragAndDrop": false,
-    "workbench.editorAssociations": {
-        "*.ipynb": "jupyter-notebook"
+  // The default order level of everything which is not included into rules
+  "importSorter.sortConfiguration.customOrderingRules.rules": [
+    {
+      "type": "importMember",
+      "regex": "^$",
+      "orderLevel": 10,
+      "disableSort": true
     },
-    "elixirLS.suggestSpecs": false,
-    "typescript.updateImportsOnFileMove.enabled": "always",
-    "javascript.updateImportsOnFileMove.enabled": "always",
-    "terminal.integrated.tabs.enabled": true,
-    "terminal.integrated.tabs.location": "left",
-    "workbench.iconTheme": "material-icon-theme",
-    "notebook.cellToolbarLocation": {
-        "default": "right",
-        "jupyter-notebook": "left"
+    {
+      "regex": "^react",
+      "orderLevel": 10
     },
+    {
+      "regex": "^[@]|next",
+      "orderLevel": 15
+    },
+    {
+      "regex": "^test/",
+      "orderLevel": 40
+    },
+    {
+      "regex": "^[.]",
+      "orderLevel": 40
+    }
+  ],
+  "editor.multiCursorModifier": "alt",
+  "explorer.confirmDragAndDrop": false,
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+  "elixirLS.suggestSpecs": false,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "terminal.integrated.tabs.enabled": true,
+  "terminal.integrated.tabs.location": "left",
+  "workbench.iconTheme": "material-icon-theme",
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  },
+  "workbench.startupEditor": "none"
 }
