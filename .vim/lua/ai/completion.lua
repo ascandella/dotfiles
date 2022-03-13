@@ -85,7 +85,13 @@ cmp.setup({
       elseif vim.fn['vsnip#available']() == 1 then
         feedkey('<Plug>(vsnip-expand-or-jump)', '')
       else
-        fallback()
+        -- https://github.com/jose-elias-alvarez/dotfiles/commit/7ab0a3d66915b5d97f01b8bc0815ac50af9a7ed1
+        local copilot_keys = vim.fn['copilot#Accept']('')
+        if copilot_keys ~= '' then
+          vim.api.nvim_feedkeys(copilot_keys, 'i', true)
+        else
+          fallback()
+        end
       end
     end, {
       'i',

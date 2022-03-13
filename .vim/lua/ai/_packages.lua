@@ -219,7 +219,10 @@ local function init_packer(use)
   })
 
   -- Copilot
-  use('https://github.com/github/copilot.vim')
+  use({
+    'https://github.com/github/copilot.vim',
+    config = [[require('ai/_copilot')]],
+  })
 end
 
 --- startup and add configure plugins
