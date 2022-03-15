@@ -1,6 +1,7 @@
 local k = require('astronauta.keymap')
 local nnoremap = k.nnoremap
 local nmap = k.nmap
+local imap = k.imap
 local xmap = k.xmap
 local tnoremap = k.tnoremap
 local telescope_commands = require('ai/telescope-config')
@@ -64,6 +65,19 @@ nnoremap({ '<Leader>tt', '<cmd>Twilight<cr>', { silent = true } })
 -- Commenting
 nmap({ '<Leader>-', 'gcc', { silent = true } })
 xmap({ '<Leader>-', 'gc', { silent = true } })
+
+-- Copilot
+-- Couldn't get this to work with vimscript
+vim.api.nvim_command([[
+  imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
+]])
+-- imap({
+--   '<C-j>',
+--   function()
+--     return 'copilot#Accept("<cr>")'
+--   end,
+--   { expr = true, silent = true, remap = true },
+-- })
 
 local harpoon_jumpers = { '<C-h>', '<C-t>', '<C-n>', '<C-s>' }
 for index, mapping in ipairs(harpoon_jumpers) do
