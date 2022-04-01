@@ -119,7 +119,6 @@ languages:
   javascriptreact:
     - <<: *eslint_d
     - <<: *prettier
-    - <<: *rustywind
 
   python:
     - <<: *python-black
