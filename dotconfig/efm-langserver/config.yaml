@@ -130,7 +130,6 @@ languages:
   typescriptreact:
     - <<: *eslint_d
     - <<: *prettier
-    - <<: *rustywind
 
   yaml:
     - <<: *yaml-yamllint
