@@ -63,10 +63,51 @@ if [[ -s "${ANTIGEN_SOURCE}" ]] ; then
   . "${ANTIGEN_SOURCE}"
   antigen bundle Tarrasch/zsh-autoenv
   antigen bundle Tarrasch/zsh-command-not-found
+  antigen theme spaceship-prompt/spaceship-prompt
   # TODO consider smart antigen init
   antigen apply
 fi
 unset ANTIGEN_SOURCE
+
+# https://github.com/spaceship-prompt/spaceship-prompt/blob/eed57700e30a36993e9107c8f3259289ac6828bd/docs/options.md
+SPACESHIP_PROMPT_ORDER=(
+  time          # Time stamps section
+  user          # Username section
+  dir           # Current directory section
+  host          # Hostname section
+  git           # Git section (git_branch + git_status)
+  hg            # Mercurial section (hg_branch  + hg_status)
+  package       # Package version
+  gradle        # Gradle section
+  maven         # Maven section
+  node          # Node.js section
+  ruby          # Ruby section
+  elixir        # Elixir section
+  xcode         # Xcode section
+  swift         # Swift section
+  golang        # Go section
+  php           # PHP section
+  rust          # Rust section
+  haskell       # Haskell Stack section
+  julia         # Julia section
+  aws           # Amazon Web Services section
+  gcloud        # Google Cloud Platform section
+  venv          # virtualenv section
+  conda         # conda virtualenv section
+  pyenv         # Pyenv section
+  dotnet        # .NET section
+  ember         # Ember.js section
+  kubectl       # Kubectl context section
+  terraform     # Terraform workspace section
+  ibmcloud      # IBM Cloud section
+  exec_time     # Execution time
+  line_sep      # Line break
+  battery       # Battery level and status
+  vi_mode       # Vi-mode indicator
+  jobs          # Background jobs indicator
+  exit_code     # Exit code section
+  char          # Prompt character
+)
 
 
 SUPPORT="${DOTFILES}/.support"
