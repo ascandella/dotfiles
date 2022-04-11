@@ -40,15 +40,6 @@ fi
 # Initialize modules.
 source ${ZIM_HOME}/init.zsh
 
-# if [ -d "$HOME/.rbenv" ] ; then
-#   export PATH="$PATH:$HOME/.rbenv/bin"
-# fi
-
-# Load rbenv if available
-# if which rbenv > /dev/null; then
-#   eval "$(rbenv init -)"
-# fi
-
 case ${TERM} in
   xterm) TERM=xterm-256color ;;
 esac
