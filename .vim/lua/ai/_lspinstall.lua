@@ -90,8 +90,8 @@ lsp_installer.on_server_ready(function(server)
   if server.name == 'efm' then
     config = efm_config(config)
   elseif server.name == 'elixirls' then
-    -- Override to disable eelixir
-    config.filetypes = { 'elixir', 'heex' }
+    -- Override to disable eelixir and heex (use EFM)
+    config.filetypes = { 'elixir' }
   elseif server.name == 'sumneko_lua' then
     config.settings = require('ai/lua-ls').settings
   elseif server.name == 'tailwindcss' then
