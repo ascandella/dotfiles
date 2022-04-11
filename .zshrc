@@ -18,20 +18,27 @@ setopt interactivecomments
 
 unsetopt notify
 zstyle :compinstall filename '$HOME/.zshrc'
-autoload -Uz compinit
-compinit
 
 # Need patched nerd fonts for this
 POWERLEVEL9K_MODE='nerdfont-complete'
 
 DOTFILES="${DOTFILES:-${HOME}/.dotfiles}"
 
-#
-# Load Prezto
-#
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+# Zim configuration
+zstyle ':zim:zmodule' use 'degit'
+ZIM_HOME=~/.zim
+# Download zimfw plugin manager if missing.
+if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
+  curl -fsSL --create-dirs -o ${ZIM_HOME}/zimfw.zsh \
+      https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
 fi
+
+# Install missing modules, and update ${ZIM_HOME}/init.zsh if missing or outdated.
+if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZDOTDIR:-${HOME}}/.zimrc ]]; then
+  source ${ZIM_HOME}/zimfw.zsh init -q
+fi
+# Initialize modules.
+source ${ZIM_HOME}/init.zsh
 
 # if [ -d "$HOME/.rbenv" ] ; then
 #   export PATH="$PATH:$HOME/.rbenv/bin"
@@ -53,21 +60,6 @@ else
 fi
 
 [ -d "/usr/local/sbin" ] && export PATH="/usr/local/sbin:$PATH"
-
-#
-# Load extra functionality
-#
-
-ANTIGEN_SOURCE="${DOTFILES}/ext/antigen/antigen.zsh"
-if [[ -s "${ANTIGEN_SOURCE}" ]] ; then
-  . "${ANTIGEN_SOURCE}"
-  antigen bundle Tarrasch/zsh-autoenv
-  antigen bundle Tarrasch/zsh-command-not-found
-  antigen theme spaceship-prompt/spaceship-prompt
-  # TODO consider smart antigen init
-  antigen apply
-fi
-unset ANTIGEN_SOURCE
 
 # https://github.com/spaceship-prompt/spaceship-prompt/blob/eed57700e30a36993e9107c8f3259289ac6828bd/docs/options.md
 SPACESHIP_PROMPT_ORDER=(
