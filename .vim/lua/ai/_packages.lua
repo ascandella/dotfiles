@@ -117,16 +117,6 @@ local function init_packer(use)
     end,
   })
 
-  -- Use lua for keymapping. Will be builtin to neovim once
-  -- https://github.com/neovim/neovim/pull/13823
-  -- is merge
-  use({
-    'tjdevries/astronauta.nvim',
-    config = function()
-      require('ai/keymappings')
-    end,
-  })
-
   -- Github integration
   if vim.fn.executable('gh') == 1 then
     use({
