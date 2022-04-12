@@ -70,6 +70,9 @@ fi
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
+# Use emacs keybindings for c-a, c-e etc
+bindkey -e
+
 # https://github.com/zsh-users/zsh-syntax-highlighting/issues/171
 # Cursor disappearing on move in linux
 export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
