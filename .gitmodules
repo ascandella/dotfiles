@@ -1,6 +1,3 @@
-[submodule ".zprezto"]
-	path = .zprezto
-	url = git@github.com:ascandella/prezto.git
 [submodule "ext/z"]
 	path = ext/z
 	url = git@github.com:rupa/z.git
