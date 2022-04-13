@@ -49,8 +49,8 @@ vim.keymap.set('n', '<Leader>tz', '<cmd>ZenMode<cr>', { silent = true })
 vim.keymap.set('n', '<Leader>tt', '<cmd>Twilight<cr>', { silent = true })
 
 -- Commenting
-vim.keymap.set('n', '<Leader>-', 'gcc', { silent = true })
-vim.keymap.set('x', '<Leader>-', 'gc', { silent = true })
+vim.keymap.set('n', '<Leader>-', 'gcc', { silent = true, remap = true })
+vim.keymap.set('x', '<Leader>-', 'gc', { silent = true, remap = true })
 
 -- Copilot
 -- Couldn't get this to work with vimscript
