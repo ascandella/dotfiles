@@ -73,6 +73,9 @@ bindkey '^[[B' history-substring-search-down
 # Use emacs keybindings for c-a, c-e etc
 bindkey -e
 
+# Allow c-w to backwards word but stop at e.g. path separators
+WORDCHARS='*?_-.[]~&;!#$%^(){}<>'
+
 # https://github.com/zsh-users/zsh-syntax-highlighting/issues/171
 # Cursor disappearing on move in linux
 export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
