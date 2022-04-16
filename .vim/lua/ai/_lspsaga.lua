@@ -1,4 +1,7 @@
-local saga = require('lspsaga')
+local lspsaga = require('lspsaga')
 
-saga.init_lsp_saga({
+lspsaga.setup({
+  code_action_prompt = {
+    enable = false,
+  },
 })
