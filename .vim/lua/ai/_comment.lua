@@ -1,1 +1,6 @@
-require('Comment').setup()
+require('Comment').setup({
+  toggler = {
+    line = '<Leader>-',
+    block = '<Leader>_',
+  },
+})
