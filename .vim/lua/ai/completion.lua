@@ -7,37 +7,37 @@ local feedkey = function(key, mode)
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
 end
 
-local lsp_symbols = {
-  Text = '   ',
-  Method = '  ',
-  Function = '  ',
-  Constructor = '  ',
-  Field = ' ﴲ ',
-  Variable = '[]',
-  Class = '  ',
-  Interface = ' ﰮ ',
-  Module = '  ',
-  Property = ' 襁',
-  Unit = '  ',
-  Value = '  ',
-  Enum = ' 練',
-  Keyword = '  ',
-  Snippet = '  ',
-  Color = '  ',
-  File = '  ',
-  Reference = '  ',
-  Folder = '  ',
-  EnumMember = '  ',
-  Constant = ' ﲀ ',
-  Struct = ' ﳤ ',
-  Event = '  ',
-  Operator = '  ',
-  TypeParameter = '  ',
+local icons = {
+  Text = '',
+  Method = '',
+  Function = '',
+  Constructor = '⌘',
+  Field = 'ﰠ',
+  Variable = '',
+  Class = 'ﴯ',
+  Interface = '',
+  Module = '',
+  Property = 'ﰠ',
+  Unit = '塞',
+  Value = '',
+  Enum = '',
+  Keyword = '廓',
+  Snippet = '',
+  Color = '',
+  File = '',
+  Reference = '',
+  Folder = '',
+  EnumMember = '',
+  Constant = '',
+  Struct = 'פּ',
+  Event = '',
+  Operator = '',
+  TypeParameter = '',
 }
 
 cmp.setup({
   experimental = {
-    ghost_text = true,
+    ghost_text = false,
   },
   snippet = {
     expand = function(args)
@@ -46,10 +46,10 @@ cmp.setup({
     end,
   },
   formatting = {
-    format = function(entry, item)
-      item.kind = lsp_symbols[item.kind] .. ' ' .. item.kind
-      -- set a name for each source
-      item.menu = ({
+    fields = { 'kind', 'abbr', 'menu' },
+    format = function(entry, vim_item)
+      vim_item.kind = icons[vim_item.kind]
+      vim_item.menu = ({
         spell = '[Spell]',
         buffer = '[Buffer]',
         calc = '[Calc]',
@@ -63,7 +63,8 @@ cmp.setup({
         latex_symbols = '[Latex]',
         cmp_tabnine = '[Tab9]',
       })[entry.source.name]
-      return item
+
+      return vim_item
     end,
   },
   mapping = {
@@ -83,7 +84,11 @@ cmp.setup({
       if cmp.visible() then
         cmp.select_next_item()
       elseif vim.fn['vsnip#available']() == 1 then
-        feedkey('<Plug>(vsnip-expand-or-jump)', '')
+        vim.api.nvim_feedkeys(
+          vim.api.nvim_replace_termcodes('<Plug>(vsnip-expand-or-jump)', true, true, true),
+          '',
+          true
+        )
       else
         fallback()
       end
@@ -100,6 +105,7 @@ cmp.setup({
     { name = 'calc' },
     { name = 'emoji' },
     { name = 'buffer', keyword_length = 5 },
+    { name = 'nvim_lsp_signature_help' },
   },
 })
 

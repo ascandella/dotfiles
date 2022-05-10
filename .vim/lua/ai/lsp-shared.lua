@@ -114,5 +114,6 @@ local format_async = function(err, result, ctx)
 end
 
 vim.lsp.handlers['textDocument/formatting'] = format_async
+vim.lsp.handlers['window/showMessage'] = require('ai.lsp.show_message')
 
 return M
