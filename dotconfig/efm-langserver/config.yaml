@@ -50,6 +50,10 @@ tools:
       -
     format-stdin: true
 
+  mixformat: &mixformat
+    format-command: "mix format -"
+    format-stdin: true
+
   prettier: &prettier
     format-command: "prettier --stdin-filepath ${INPUT}"
     format-stdin: true
@@ -94,8 +98,8 @@ languages:
     - <<: *rustywind
 
   heex:
-    - <<: *htmlbeautifier
     - <<: *rustywind
+    - <<: *mixformat
 
   graphql:
     - <<: *prettier
