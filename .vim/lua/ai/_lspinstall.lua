@@ -16,7 +16,7 @@ local servers = {
   'rust_analyzer',
 }
 
-require("nvim-lsp-installer").setup({
+require('nvim-lsp-installer').setup({
   ensure_installed = servers,
   automatic_installation = true,
 })
@@ -65,7 +65,9 @@ local function tailwindcss_config(config)
     'css',
     'sass',
     'javascript',
+    'javascriptreact',
     'typescript',
+    'typescriptreact',
   }
   config.init_options = {
     userLanguages = {
@@ -100,6 +102,6 @@ lspconfig.tsserver.setup(make_config({
 
 require('rust-tools').setup({
   server = {
-    on_attach = require('ai/lsp-shared').on_attach
-  }
+    on_attach = require('ai/lsp-shared').on_attach,
+  },
 })
