@@ -212,6 +212,14 @@ local function init_packer(use)
     'https://github.com/github/copilot.vim',
     config = [[require('ai/_copilot')]],
   })
+
+  -- UI
+  use({
+    'rmehri01/onenord.nvim',
+    config = function()
+      require('ai/theme').init()
+    end,
+  })
 end
 
 --- startup and add configure plugins
