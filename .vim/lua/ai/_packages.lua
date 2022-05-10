@@ -128,21 +128,17 @@ local function init_packer(use)
   end
 
   use({
-    'neovim/nvim-lspconfig',
+    'williamboman/nvim-lsp-installer',
     requires = {
-      'williamboman/nvim-lsp-installer',
+      'neovim/nvim-lspconfig',
       'simrat39/rust-tools.nvim',
-      {
-        'tami5/lspsaga.nvim',
-        requires = { 'neovim/nvim-lspconfig' },
-        config = function()
-          require('ai/_lspsaga')
-        end,
-      }, -- Extensible linters/formatters
-      { 'mattn/efm-langserver', requires = { 'neovim/nvim-lspconfig' } },
+      -- Extensible linters/formatters
+      'tami5/lspsaga.nvim',
+      'mattn/efm-langserver',
     },
     config = function()
       require('ai/_lspinstall')
+      require('ai/_lspsaga')
       require('ai/lua-ls')
       require('ai/typescript')
       require('ai/elixir-config')
