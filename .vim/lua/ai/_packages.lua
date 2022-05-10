@@ -127,6 +127,9 @@ local function init_packer(use)
     })
   end
 
+  -- Better git commit messages
+  use({'rhysd/committia.vim'})
+
   use({
     'williamboman/nvim-lsp-installer',
     requires = {
