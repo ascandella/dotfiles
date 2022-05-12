@@ -101,6 +101,8 @@ lspconfig.tsserver.setup(make_config({
   end,
 }))
 
+lspconfig.terraformls.setup(make_config())
+
 require('rust-tools').setup({
   server = {
     on_attach = require('ai/lsp-shared').on_attach,
