@@ -3,8 +3,4 @@ require('Comment').setup({
     line = '<Leader>-',
     block = '<Leader>_',
   },
-  opleader = {
-    line = '<Leader>-',
-    block = '<Leader>_',
-  },
 })
