@@ -51,6 +51,7 @@ local function efm_config(config)
     'svelte',
     'yaml',
   }
+  config.root_dir = require('lspconfig').util.root_pattern('mix.exs', 'package.json', '.git')
   return config
 end
 

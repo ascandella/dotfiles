@@ -5,6 +5,7 @@ version: 2
 # log-level: 1
 
 root-markers:
+  - mix.exs
   - package.json
   - .git
 
@@ -27,10 +28,6 @@ tools:
       - "%f(%l,%c): %tarning %m"
       - "%f(%l,%c): %trror %m"
 
-  htmlbeautifier: &htmlbeautifier
-    format-command: "htmlbeautifier --tab-stops 2"
-    format-stdin: true
-
   lua-selene: &lua-selene
     lint-command: >-
       selene --display-style quiet
@@ -50,6 +47,7 @@ tools:
       -
     format-stdin: true
 
+  # NOTE: Doesn't work for HEEX
   mixformat: &mixformat
     format-command: "mix format -"
     format-stdin: true
@@ -94,8 +92,8 @@ languages:
     - <<: *css-prettier
 
   eelixir:
-    - <<: *htmlbeautifier
     - <<: *rustywind
+    - <<: *mixformat
 
   heex:
     - <<: *rustywind
