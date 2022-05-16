@@ -39,9 +39,7 @@ local group = vim.api.nvim_create_augroup('ai/neogit', { clear = true })
 vim.api.nvim_create_autocmd('User', {
   pattern = 'NeogitPushComplete',
   group = group,
-  callback = function()
-    neogit.close()
-  end,
+  callback = neogit.close,
 })
 
 return M
