@@ -65,3 +65,7 @@ rmbrokensym () {
 va () {
   vim +"Ag $*"
 }
+
+vz () {
+  vim $(fzf --border --query="${1}")
+}
