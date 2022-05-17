@@ -102,6 +102,7 @@ lspconfig.tsserver.setup(make_config({
 }))
 
 lspconfig.terraformls.setup(make_config())
+lspconfig.gopls.setup(make_config())
 
 require('rust-tools').setup({
   server = {
