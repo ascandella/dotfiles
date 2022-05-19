@@ -4,21 +4,12 @@
 [submodule ".fzf"]
 	path = .fzf
 	url = https://github.com/junegunn/fzf.git
-[submodule "chat/weechat-plugins"]
-	path = chat/weechat-plugins
-	url = https://github.com/recht/weechat-plugins.git
 [submodule ".tmux/plugins/tpm"]
 	path = .tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
-[submodule "ext/antigen"]
-	path = ext/antigen
-	url = https://github.com/zsh-users/antigen.git
 [submodule "to-install/osx/appsupport/ubersicht/widgets/Pecan"]
 	path = to-install/osx/appsupport/ubersicht/widgets/Pecan
 	url = https://github.com/zzzeyez/Pecan.git
-[submodule "doom"]
-	path = .emacs.d
-	url = https://github.com/hlissner/doom-emacs
 [submodule "ext/git-fuzzy"]
 	path = ext/git-fuzzy
 	url = https://github.com/bigH/git-fuzzy.git
