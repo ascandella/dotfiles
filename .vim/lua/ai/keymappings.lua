@@ -79,3 +79,12 @@ for index, mapping in ipairs(harpoon_jumpers) do
     require('harpoon.ui').nav_file(index)
   end, { silent = true })
 end
+
+local lspinfo_group = vim.api.nvim_create_augroup('ai/lspinfo', { clear = true })
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'lspinfo',
+  group = lspinfo_group,
+  callback = function()
+    vim.keymap.set('n', 'q', ':b<cr>', { silent = true, buffer = true })
+  end,
+})
