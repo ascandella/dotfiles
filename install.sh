@@ -259,6 +259,7 @@ case "$(uname)" in
     _scanAndLink "to-install/osx/appsupport/ubersicht/widgets" "*" "Library/Application Support/Übersicht/widgets/"
     _scanAndLink "library/VSCode/User" "*" "Library/Application Support/Code/User/"
     _scanAndLink "library/Preferences/org.dystroy.broot" "*" "Library/Preferences/org.dystroy.broot/"
+    _scanAndLink "osx" "DefaultKeyBinding.dict" "Library/KeyBindings/"
     _setupOsXDefaults
     ;;
 
