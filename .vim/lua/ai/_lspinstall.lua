@@ -89,6 +89,10 @@ lspconfig.elixirls.setup(make_config({
 
 lspconfig.sumneko_lua.setup(make_config({
   settings = require('ai/lua-ls').settings,
+  on_attach = function(client)
+    -- Disable document formatting; allow efm to win
+    client.resolved_capabilities.document_formatting = false
+  end,
 }))
 
 lspconfig.tailwindcss.setup(tailwindcss_config(make_config()))
