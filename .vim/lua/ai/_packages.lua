@@ -87,6 +87,7 @@ local function init_packer(use)
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-emoji',
       'hrsh7th/cmp-calc',
+      { 'tzachar/cmp-tabnine', run = './install.sh', requires = 'hrsh7th/nvim-cmp' },
     },
     config = function()
       require('ai/completion')
