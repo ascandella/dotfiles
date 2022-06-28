@@ -66,10 +66,14 @@ alias mtf='mix test --failed'
 #
 alias -g G=' | grep '
 
-if command -v bat >/dev/null ; then
+if _command_exists bat ; then
   alias cat='bat'
-elif command -v ccat >/dev/null ; then
+elif _command_exists ccat ; then
   alias cat='ccat --bg=dark'
+fi
+
+if _command_exists viddy ; then
+  alias watch='viddy'
 fi
 
 # shellcheck disable=SC2139
