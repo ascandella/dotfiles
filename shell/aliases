@@ -76,6 +76,10 @@ if _command_exists viddy ; then
   alias watch='viddy'
 fi
 
+if _command_exists kubectl ; then
+  alias k='kubectl'
+fi
+
 # shellcheck disable=SC2139
 alias updatedotfiles="FORCE_DOTFILES_UPDATE=1 source ${DOTFILES}/shell/autoupdate"
 
