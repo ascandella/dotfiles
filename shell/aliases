@@ -78,6 +78,7 @@ fi
 
 if _command_exists kubectl ; then
   alias k='kubectl'
+  alias krp='kubectl get pods --field-selector=status.phase=Running'
 fi
 
 # shellcheck disable=SC2139
