@@ -137,7 +137,7 @@ local function init_packer(use)
       'neovim/nvim-lspconfig',
       'simrat39/rust-tools.nvim',
       -- Extensible linters/formatters
-      'tami5/lspsaga.nvim',
+      'glepnir/lspsaga.nvim',
       'mattn/efm-langserver',
     },
     config = function()
