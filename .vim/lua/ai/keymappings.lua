@@ -13,7 +13,7 @@ vim.keymap.set('n', '<Leader>gf', require('telescope.builtin').git_status, { sil
 vim.keymap.set('n', '<Leader>a', telescope_commands.livegrep_project, { silent = true })
 
 vim.keymap.set('n', '<Leader>fs', telescope_commands.grep_string_hidden, { silent = true })
-vim.keymap.set('n', '<Leader>fb', telescope_commands.git_branches, { silent = true })
+vim.keymap.set('n', '<Leader>fb', require('telescope.builtin').current_buffer_fuzzy_find, { silent = true })
 
 vim.keymap.set('n', '<Leader>S', require('spectre').open, { silent = true })
 
