@@ -41,7 +41,7 @@
   lg = log --graph --pretty=lg --date=relative --abbrev-commit --decorate
 	lol = log --oneline --decorate
 	patch = add -p
-	refresh = !ssh-add -l && STASH=$(git stash) && git fetch && OVERCOMMIT_DISABLE=1 git rebase origin/master && test \"$STASH\" != \"No local changes to save\" && git stash pop || true
+	refresh = !ssh-add -l && STASH=$(git stash) && git fetch && OVERCOMMIT_DISABLE=1 git rebase origin/HEAD && test \"$STASH\" != \"No local changes to save\" && git stash pop || true
 	rmb = !sh -c 'git branch -D $1 && git push origin :$1' -
 	sha1 = rev-parse HEAD
 	sha = !git rev-parse HEAD | cut -c 1-8
