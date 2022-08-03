@@ -67,6 +67,16 @@ local function init_packer(use)
     end,
   })
 
+  use({
+    'nvim-treesitter/nvim-treesitter-context',
+    requires = {
+      'nvim-treesitter/nvim-treesitter',
+    },
+    config = function()
+      require('ai/treesitter-context-config')
+    end,
+  })
+
   -- New status line
   use({
     'NTBBloodbath/galaxyline.nvim',
