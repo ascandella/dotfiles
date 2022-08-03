@@ -35,7 +35,7 @@ M.on_attach = function(client, bufnr)
   vim.cmd('command! LspSignatureHelp lua vim.lsp.buf.signature_help()')
 
   buf_map(bufnr, 'n', '<C-c><C-j>', ':LspDef<CR>', { silent = true })
-  buf_map(bufnr, 'n', 'gd', ':LspDef<CR>', { silent = true })
+  buf_map(bufnr, 'n', 'gd', ':Lspsaga preview_definition<CR>', { silent = true })
   buf_map(bufnr, 'n', 'gr', ':Lspsaga rename<CR>', { silent = true })
   buf_map(bufnr, 'n', 'gR', ':lua require("ai/telescope-config").lsp_references() <CR>', { silent = true })
   buf_map(bufnr, 'n', 'gy', ':LspTypeDef<CR>', { silent = true })
