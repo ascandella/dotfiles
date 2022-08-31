@@ -231,6 +231,11 @@ local function init_packer(use)
       require('ai/theme').init()
     end,
   })
+
+  use({
+    'laytan/cloak.nvim',
+    config = [[ require('ai/_cloak') ]],
+  })
 end
 
 --- startup and add configure plugins
