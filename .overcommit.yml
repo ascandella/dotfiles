@@ -46,7 +46,6 @@ PreCommit:
     enabled: true
     exclude:
       - 'bin/huepi'
-      - 'dotconfig/htop/htoprc'
 #    exclude:
 #      - '**/db/structure.sql' # Ignore trailing whitespace in generated files
 #
