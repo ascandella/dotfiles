@@ -159,9 +159,6 @@ local function init_packer(use)
     end,
   })
 
-  -- Find and replace
-  use('windwp/nvim-spectre')
-
   -- Wrapping/delimiters
   use({
     'andymass/vim-matchup',
