@@ -1,5 +1,7 @@
 local _M = {}
 
+vim.cmd([[ colorscheme catppuccin_macchiato ]])
+
 _M.colors = {
   bg = '#2e3440',
   fg = '#ECEFF4',

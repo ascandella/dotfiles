@@ -223,7 +223,7 @@ local function init_packer(use)
 
   -- UI
   use({
-    'rmehri01/onenord.nvim',
+    'catppuccin/vim',
     config = function()
       require('ai/theme').init()
     end,
