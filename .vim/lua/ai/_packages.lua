@@ -233,6 +233,10 @@ local function init_packer(use)
     'laytan/cloak.nvim',
     config = [[ require('ai/_cloak') ]],
   })
+
+  use({
+    'pantharshit00/vim-prisma'
+  })
 end
 
 --- startup and add configure plugins
