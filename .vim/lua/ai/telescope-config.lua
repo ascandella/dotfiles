@@ -27,9 +27,24 @@ telescope.setup({
     qflist_previewer = previewers.vim_buffer_qflist.new,
     scroll_strategy = 'cycle',
     selection_strategy = 'reset',
-    layout_strategy = 'flex',
+    border = {},
     borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
-    layout_config = { horizontal = { width = 0.6 }, vertical = { width = 0.5 } },
+    color_devicons = true,
+    sorting_strategy = 'ascending',
+    layout_strategy = 'horizontal',
+    layout_config = {
+      horizontal = {
+        prompt_position = 'top',
+        preview_width = 0.55,
+        results_width = 0.8,
+      },
+      vertical = {
+        mirror = false,
+      },
+      width = 0.87,
+      height = 0.80,
+      preview_cutoff = 120,
+    },
     mappings = {
       i = {
         ['<C-s-v>'] = actions.select_vertical,
@@ -99,7 +114,7 @@ end
 
 M.project_files = function()
   -- local opts = require('telescope.themes').get_dropdown({  winblend = 10 })
-  local opts = lower_ivy({})
+  local opts = {}
   local ok = pcall(require('telescope.builtin').git_files, opts)
   if not ok then
     require('telescope.builtin').find_files(opts)
