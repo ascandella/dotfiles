@@ -47,7 +47,7 @@ M.on_attach = function(client, bufnr)
   buf_map(bufnr, 'n', '<Leader>gd', ':Lspsaga preview_definition<CR>', { silent = true })
   buf_map(bufnr, 'n', '<Leader>d', ':Lspsaga show_line_diagnostics<CR>', { silent = true })
   buf_map(bufnr, 'n', '<Leader>ld', ':Telescope lsp_document_symbols<CR>', { silent = true })
-  buf_map(bufnr, 'i', '<C-x><C-x>', '<cmd> Lspsaga signature_help<CR>', { silent = true })
+  buf_map(bufnr, 'i', '<C-x><C-x>', '<cmd> LspSignatureHelp<CR>', { silent = true })
   buf_map(bufnr, 'n', '<Leader>tf', ':LspToggleFormatting<CR>', { silent = true })
 
   -- Illuminate visual display. Visual or Cursorline are good fits
