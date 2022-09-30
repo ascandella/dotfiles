@@ -91,7 +91,7 @@ lspconfig.sumneko_lua.setup(make_config({
   settings = require('ai/lua-ls').settings,
   on_attach = function(client)
     -- Disable document formatting; allow efm to win
-    client.resolved_capabilities.document_formatting = false
+    client.server_capabilities.documentFormattingProvider = false
   end,
 }))
 
@@ -100,7 +100,7 @@ lspconfig.tailwindcss.setup(tailwindcss_config(make_config()))
 lspconfig.tsserver.setup(make_config({
   on_attach = function(client)
     -- Disable document formatting; allow efm/prettier to win
-    client.resolved_capabilities.document_formatting = false
+    client.server_capabilities.documentFormattingProvider = false
     vim.api.nvim_exec([[set signcolumn=yes]], true)
   end,
 }))

@@ -3,7 +3,7 @@ local M = {}
 
 M.maybe_lsp_format = function()
   if not vim.b.lsp_disable_formatting then
-    vim.lsp.buf.formatting()
+    vim.lsp.buf.format({ async = true})
   end
 end
 
@@ -65,7 +65,7 @@ M.on_attach = function(client, bufnr)
     { noremap = true }
   )
 
-  if client.resolved_capabilities.document_formatting then
+  if client.server_capabilities.documentFormattingProvider then
     vim.api.nvim_exec(
       [[
      augroup LspAutocommands
