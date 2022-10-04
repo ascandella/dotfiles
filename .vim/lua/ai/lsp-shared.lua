@@ -31,7 +31,7 @@ M.on_attach = function(client, bufnr)
   vim.cmd('command! LspImplementation lua vim.lsp.buf.implementation()')
   vim.cmd('command! LspDiagPrev lua vim.diagnostic.goto_prev()')
   vim.cmd('command! LspDiagNext lua vim.diagnostic.goto_next()')
-  vim.cmd('command! LspDiagLine lua vim.diagnostic.show_line_diagnostics()')
+  vim.cmd('command! LspDiagLine lua vim.diagnostic.open_float()')
   vim.cmd('command! LspSignatureHelp lua vim.lsp.buf.signature_help()')
 
   buf_map(bufnr, 'n', '<C-c><C-j>', ':LspDef<CR>', { silent = true })
