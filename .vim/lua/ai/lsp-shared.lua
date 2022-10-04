@@ -3,7 +3,7 @@ local M = {}
 
 M.maybe_lsp_format = function()
   if not vim.b.lsp_disable_formatting then
-    vim.lsp.buf.format({ async = true})
+    vim.lsp.buf.format({ async = true })
   end
 end
 
@@ -29,9 +29,9 @@ M.on_attach = function(client, bufnr)
   vim.cmd('command! LspRefs lua vim.lsp.buf.references()')
   vim.cmd('command! LspTypeDef lua vim.lsp.buf.type_definition()')
   vim.cmd('command! LspImplementation lua vim.lsp.buf.implementation()')
-  vim.cmd('command! LspDiagPrev lua vim.lsp.diagnostic.goto_prev()')
-  vim.cmd('command! LspDiagNext lua vim.lsp.diagnostic.goto_next()')
-  vim.cmd('command! LspDiagLine lua vim.lsp.diagnostic.show_line_diagnostics()')
+  vim.cmd('command! LspDiagPrev lua vim.diagnostic.goto_prev()')
+  vim.cmd('command! LspDiagNext lua vim.diagnostic.goto_next()')
+  vim.cmd('command! LspDiagLine lua vim.diagnostic.show_line_diagnostics()')
   vim.cmd('command! LspSignatureHelp lua vim.lsp.buf.signature_help()')
 
   buf_map(bufnr, 'n', '<C-c><C-j>', ':LspDef<CR>', { silent = true })
