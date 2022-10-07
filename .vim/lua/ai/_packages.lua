@@ -223,7 +223,8 @@ local function init_packer(use)
 
   -- UI
   use({
-    'catppuccin/vim',
+    'catppuccin/nvim',
+    as = 'catppuccin',
     config = function()
       require('ai/theme').init()
     end,
@@ -235,7 +236,7 @@ local function init_packer(use)
   })
 
   use({
-    'pantharshit00/vim-prisma'
+    'pantharshit00/vim-prisma',
   })
 end
 

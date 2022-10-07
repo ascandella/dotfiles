@@ -1,6 +1,8 @@
 local _M = {}
 
-vim.cmd([[ colorscheme catppuccin_macchiato ]])
+vim.g.catppuccin_flavour = 'macchiato' -- latte, frappe, macchiato, mocha
+require('catppuccin').setup()
+vim.api.nvim_command('colorscheme catppuccin')
 
 _M.colors = {
   bg = '#2e3440',
