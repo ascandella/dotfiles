@@ -26,16 +26,8 @@ vim.keymap.set('n', '<Leader>ft', '<cmd>FloatermToggle<cr>', { silent = true })
 vim.keymap.set('n', '<A-j>', '<cmd>FloatermToggle<cr>', { silent = true })
 
 -- Commenting (most done by plugin in ai/_comment.lua)
-vim.keymap.set('x', '<Leader>-', function()
-  require('Comment.api').locked.toggle_linewise_op(vim.fn.visualmode())
-end, {
-  silent = true,
-})
-vim.keymap.set('x', '<Leader>_', function()
-  require('Comment.api').locked.toggle_blockwise_op(vim.fn.visualmode())
-end, {
-  silent = true,
-})
+vim.keymap.set('x', '<Leader>-', 'gcc', { remap = true })
+vim.keymap.set('x', '<Leader>_', 'gbc', { remap = true })
 
 -- Terminal mode mappings
 vim.keymap.set('t', '<Leader>ft', '<cmd>FloatermToggle<cr>', { silent = true })
