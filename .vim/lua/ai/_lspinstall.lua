@@ -26,7 +26,7 @@ local function make_config(extra_options)
   capabilities.textDocument.completion.completionItem.snippetSupport = true
   capabilities.textDocument.colorProvider = { dynamicRegistration = false }
   return vim.tbl_deep_extend('force', {
-    capabilities = cmp_nvim_lsp.update_capabilities(capabilities),
+    capabilities = cmp_nvim_lsp.default_capabilities(capabilities),
     on_attach = require('ai/lsp-shared').on_attach,
   }, extra_options or {})
 end
