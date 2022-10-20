@@ -95,7 +95,7 @@ M.capabilities = function()
   capabilities.textDocument.completion.completionItem.resolveSupport = {
     properties = { 'documentation', 'detail', 'additionalTextEdits' },
   }
-  return cmp_nvim_lsp.update_capabilities(capabilities)
+  return cmp_nvim_lsp.default_capabilities(capabilities)
 end
 
 -- https://jose-elias-alvarez.medium.com/configuring-neovims-lsp-client-for-typescript-development-5789d58ea9c
