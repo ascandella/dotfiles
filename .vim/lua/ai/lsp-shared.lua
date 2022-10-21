@@ -50,11 +50,6 @@ M.on_attach = function(client, bufnr)
   buf_map(bufnr, 'i', '<C-x><C-x>', '<cmd> LspSignatureHelp<CR>', { silent = true })
   buf_map(bufnr, 'n', '<Leader>tf', ':LspToggleFormatting<CR>', { silent = true })
 
-  -- Illuminate visual display. Visual or Cursorline are good fits
-  vim.api.nvim_command([[ hi def link LspReferenceText CursorLine ]])
-  vim.api.nvim_command([[ hi def link LspReferenceWrite CursorLine ]])
-  vim.api.nvim_command([[ hi def link LspReferenceRead Visual ]])
-
   -- Illuminate mappings
   buf_map(bufnr, 'n', '<a-n>', '<cmd>lua require"illuminate".next_reference{wrap=true}<cr>', { noremap = true })
   buf_map(
@@ -76,8 +71,6 @@ M.on_attach = function(client, bufnr)
       true
     )
   end
-
-  require('illuminate').on_attach(client)
 
   -- Disabled because this stopped working in neovim 0.5.1
   if client.server_capabilities.colorProvider then

@@ -105,7 +105,12 @@ local function init_packer(use)
   })
 
   -- Highlight other usages of a symbol under cursor, using LSP
-  use({ 'RRethy/vim-illuminate' })
+  use({
+    'RRethy/vim-illuminate',
+    config = function()
+      require('ai/_illuminate')
+    end,
+  })
 
   -- Snippets
   use({
