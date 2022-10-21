@@ -16,10 +16,19 @@ M.toggle_lsp_formatting = function()
   end
 end
 
+local function on_list(options)
+  vim.fn.setqflist({}, ' ', options)
+  vim.api.nvim_command('cfirst')
+end
+
+M.lsp_definition = function()
+  vim.lsp.buf.definition({ on_list = on_list })
+end
+
 -- LuaFormatter off
 M.on_attach = function(client, bufnr)
   local buf_map = vim.api.nvim_buf_set_keymap
-  vim.cmd('command! LspDef lua vim.lsp.buf.definition()')
+  vim.cmd('command! LspDef lua require("ai/lsp-shared").lsp_definition()')
   vim.cmd("command! LspFormatting lua require('ai/lsp-shared').maybe_lsp_format()")
   vim.cmd("command! LspToggleFormatting lua require('ai/lsp-shared').toggle_lsp_formatting()")
   vim.cmd('command! LspCodeAction lua vim.lsp.buf.code_action()')
