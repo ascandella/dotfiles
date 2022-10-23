@@ -146,6 +146,17 @@ local function init_packer(use)
   -- Better git commit messages
   use({ 'rhysd/committia.vim' })
 
+  -- For CodeLLBD / rust stuff
+  use({
+    'williamboman/mason-lspconfig.nvim',
+    requires = {
+      'williamboman/mason.nvim',
+    },
+    config = function()
+      require('ai/_mason').init()
+    end,
+  })
+
   use({
     'williamboman/nvim-lsp-installer',
     requires = {
@@ -161,6 +172,7 @@ local function init_packer(use)
       require('ai/lua-ls')
       require('ai/typescript')
       require('ai/elixir-config')
+      require('ai/rust-config')
     end,
   })
 
