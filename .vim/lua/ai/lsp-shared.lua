@@ -1,9 +1,10 @@
 -- https://jose-elias-alvarez.medium.com/configuring-neovims-lsp-client-for-typescript-development-5789d58ea9c
 local M = {}
 
-M.maybe_lsp_format = function()
+M.maybe_lsp_format = function(options)
   if not vim.b.lsp_disable_formatting then
-    vim.lsp.buf.format({ async = true })
+    options = options or { async = true }
+    vim.lsp.buf.format(options)
   end
 end
 
@@ -24,6 +25,62 @@ end
 M.lsp_definition = function()
   vim.lsp.buf.definition({ on_list = on_list })
 end
+
+local augroup_format = vim.api.nvim_create_augroup('custom-lsp-format', { clear = true })
+local augroup_codelens = vim.api.nvim_create_augroup('custom-lsp-codelens', { clear = true })
+
+local autocmd_format = function(async, filter)
+  vim.api.nvim_clear_autocmds({ buffer = 0, group = augroup_format })
+  vim.api.nvim_create_autocmd('BufWritePre', {
+    buffer = 0,
+    callback = function()
+      M.maybe_lsp_format({ async = async, filter = filter })
+    end,
+  })
+end
+
+local filetype_attach = setmetatable({
+  go = function()
+    autocmd_format(false)
+  end,
+
+  css = function()
+    autocmd_format(false)
+  end,
+
+  lua = function()
+    autocmd_format(false)
+  end,
+
+  rust = function(bufnr)
+    vim.api.nvim_buf_set_keymap(
+      bufnr,
+      'n',
+      '<leader>fs',
+      "<cmd>lua require('ai/telescope-config').workspace_symbols()<cr>",
+      {
+        noremap = true,
+        silent = true,
+      }
+    )
+
+    autocmd_format(false)
+  end,
+
+  racket = function()
+    autocmd_format(false)
+  end,
+
+  typescript = function()
+    autocmd_format(false, function(client)
+      return client.name ~= 'tsserver'
+    end)
+  end,
+}, {
+  __index = function()
+    return function() end
+  end,
+})
 
 -- LuaFormatter off
 M.on_attach = function(client, bufnr)
@@ -68,22 +125,32 @@ M.on_attach = function(client, bufnr)
     { noremap = true }
   )
 
-  if client.server_capabilities.documentFormattingProvider then
-    vim.api.nvim_exec(
-      [[
-     augroup LspAutocommands
-       autocmd! * <buffer>
-       autocmd BufWritePost <buffer> LspFormatting
-     augroup END
-     ]],
-      true
-    )
-  end
-
   -- Disabled because this stopped working in neovim 0.5.1
   if client.server_capabilities.colorProvider then
     require('ai/lsp-documentcolors').buf_attach(bufnr, { single_column = true })
   end
+
+  local filetype = vim.api.nvim_buf_get_option(0, 'filetype')
+
+  print(vim.inspect(client.server_capabilities))
+  if client.server_capabilities.codeLensProvider then
+    vim.api.nvim_clear_autocmds({ group = augroup_codelens, buffer = bufnr })
+    vim.api.nvim_create_autocmd('BufEnter', {
+      group = augroup_codelens,
+      buffer = bufnr,
+      callback = vim.lsp.codelens.refresh,
+      once = true,
+    })
+    vim.api.nvim_create_autocmd({ 'BufWritePost', 'CursorHold' }, {
+      group = augroup_codelens,
+      buffer = bufnr,
+      callback = vim.lsp.codelens.refresh,
+      once = true,
+    })
+  end
+
+  -- Attach any filetype specific options to the client
+  filetype_attach[filetype](bufnr, client)
 end
 
 -- LuaFormatter on

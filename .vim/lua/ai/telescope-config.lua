@@ -112,6 +112,10 @@ M.lsp_references = function()
   require('telescope.builtin').lsp_references(lower_ivy())
 end
 
+M.workspace_symbols = function()
+  require('telescope.builtin').lsp_workspace_symbols()
+end
+
 M.project_files = function()
   -- local opts = require('telescope.themes').get_dropdown({  winblend = 10 })
   local opts = {}
