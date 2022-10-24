@@ -29,6 +29,8 @@ end
 local augroup_format = vim.api.nvim_create_augroup('custom-lsp-format', { clear = true })
 local augroup_codelens = vim.api.nvim_create_augroup('custom-lsp-codelens', { clear = true })
 
+local has_inlayhints, inlayhints = pcall(require, 'lsp-inlayhints')
+
 local autocmd_format = function(async, filter)
   vim.api.nvim_clear_autocmds({ buffer = 0, group = augroup_format })
   vim.api.nvim_create_autocmd('BufWritePre', {
@@ -63,6 +65,7 @@ local filetype_attach = setmetatable({
         silent = true,
       }
     )
+    vim.api.nvim_exec([[set signcolumn=yes]], true)
 
     autocmd_format(false)
   end,
@@ -148,6 +151,10 @@ M.on_attach = function(client, bufnr)
     })
   end
 
+  if has_inlayhints then
+    inlayhints.on_attach(client, bufnr)
+  end
+
   -- Attach any filetype specific options to the client
   filetype_attach[filetype](bufnr, client)
 end
@@ -182,5 +189,16 @@ end
 
 vim.lsp.handlers['textDocument/formatting'] = format_async
 vim.lsp.handlers['window/showMessage'] = require('ai.lsp.show_message')
+
+if has_inlayhints then
+  inlayhints.setup({
+    inlay_hints = {
+      type_hints = {
+        prefix = '<- ',
+        remove_colon_start = true,
+      },
+    },
+  })
+end
 
 return M

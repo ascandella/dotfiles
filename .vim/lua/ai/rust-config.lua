@@ -17,6 +17,7 @@ rt.setup({
     },
     inlay_hints = {
       right_align = false,
+      auto = false,
     },
   },
 

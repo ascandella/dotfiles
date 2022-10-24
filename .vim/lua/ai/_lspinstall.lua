@@ -16,9 +16,9 @@ local servers = {
   'rust_analyzer',
 }
 
-require('nvim-lsp-installer').setup({
+require('mason').setup({})
+require('mason-lspconfig').setup({
   ensure_installed = servers,
-  automatic_installation = true,
 })
 
 local function make_config(extra_options)
@@ -98,6 +98,30 @@ lspconfig.sumneko_lua.setup(make_config({
 lspconfig.tailwindcss.setup(tailwindcss_config(make_config()))
 
 lspconfig.tsserver.setup(make_config({
+  settings = {
+    typescript = {
+      inlayHints = {
+        includeInlayParameterNameHints = 'all',
+        includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+        includeInlayFunctionParameterTypeHints = true,
+        includeInlayVariableTypeHints = true,
+        includeInlayPropertyDeclarationTypeHints = true,
+        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayEnumMemberValueHints = true,
+      },
+    },
+    javascript = {
+      inlayHints = {
+        includeInlayParameterNameHints = 'all',
+        includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+        includeInlayFunctionParameterTypeHints = true,
+        includeInlayVariableTypeHints = true,
+        includeInlayPropertyDeclarationTypeHints = true,
+        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayEnumMemberValueHints = true,
+      },
+    },
+  },
   on_attach = function(client)
     -- Disable document formatting; allow efm/prettier to win
     client.server_capabilities.documentFormattingProvider = false
