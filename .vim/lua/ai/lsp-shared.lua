@@ -132,7 +132,6 @@ M.on_attach = function(client, bufnr)
 
   local filetype = vim.api.nvim_buf_get_option(0, 'filetype')
 
-  print(vim.inspect(client.server_capabilities))
   if client.server_capabilities.codeLensProvider then
     vim.api.nvim_clear_autocmds({ group = augroup_codelens, buffer = bufnr })
     vim.api.nvim_create_autocmd('BufEnter', {
