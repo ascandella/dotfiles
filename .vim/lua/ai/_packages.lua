@@ -247,6 +247,13 @@ local function init_packer(use)
   use({
     'pantharshit00/vim-prisma',
   })
+
+  use({
+    'folke/trouble.nvim',
+    config = function()
+      require('ai/_trouble').init()
+    end,
+  })
 end
 
 --- startup and add configure plugins

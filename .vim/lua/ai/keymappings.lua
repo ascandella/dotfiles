@@ -46,6 +46,9 @@ vim.keymap.set('n', '<Leader>tz', '<cmd>ZenMode<cr>', { silent = true })
 -- Twilight (dim inactive)
 vim.keymap.set('n', '<Leader>tt', '<cmd>Twilight<cr>', { silent = true })
 
+-- Trouble (LSP diagnostics)
+vim.keymap.set('n', '<Leader>th', '<cmd>Trouble<cr>', { silent = true })
+
 -- Copilot
 -- Couldn't get this to work with vimscript
 vim.api.nvim_command([[
