@@ -118,16 +118,6 @@ M.on_attach = function(client, bufnr)
   buf_map(bufnr, 'i', '<C-x><C-x>', '<cmd> LspSignatureHelp<CR>', { silent = true })
   buf_map(bufnr, 'n', '<Leader>tf', ':LspToggleFormatting<CR>', { silent = true })
 
-  -- Illuminate mappings
-  buf_map(bufnr, 'n', '<a-n>', '<cmd>lua require"illuminate".next_reference{wrap=true}<cr>', { noremap = true })
-  buf_map(
-    bufnr,
-    'n',
-    '<a-p>',
-    '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>',
-    { noremap = true }
-  )
-
   -- Disabled because this stopped working in neovim 0.5.1
   if client.server_capabilities.colorProvider then
     require('ai/lsp-documentcolors').buf_attach(bufnr, { single_column = true })
