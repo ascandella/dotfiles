@@ -98,6 +98,7 @@ lspconfig.sumneko_lua.setup(make_config({
 lspconfig.tailwindcss.setup(tailwindcss_config(make_config()))
 
 lspconfig.tsserver.setup(make_config({
+  -- TODO these inlay hints don't seem to be working? remove this whole block?
   settings = {
     typescript = {
       inlayHints = {
@@ -122,6 +123,7 @@ lspconfig.tsserver.setup(make_config({
       },
     },
   },
+  -- END TODO
   on_attach = function(client)
     -- Disable document formatting; allow efm/prettier to win
     client.server_capabilities.documentFormattingProvider = false
