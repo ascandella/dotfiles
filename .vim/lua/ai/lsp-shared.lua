@@ -43,15 +43,11 @@ end
 
 local filetype_attach = setmetatable({
   go = function()
-    autocmd_format(false)
-  end,
-
-  css = function()
-    autocmd_format(false)
+    autocmd_format(true)
   end,
 
   lua = function()
-    autocmd_format(false)
+    autocmd_format(true)
   end,
 
   rust = function(bufnr)
@@ -67,11 +63,7 @@ local filetype_attach = setmetatable({
     )
     vim.api.nvim_exec([[set signcolumn=yes]], true)
 
-    autocmd_format(false)
-  end,
-
-  racket = function()
-    autocmd_format(false)
+    autocmd_format(true)
   end,
 
   typescript = function()

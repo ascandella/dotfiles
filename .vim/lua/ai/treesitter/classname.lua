@@ -96,7 +96,7 @@ function M.add_or_insert_class_attribute()
 
   -- if the element doesn't have a class attribute, then add one
   for _id, node, _metadata in element_query_:iter_captures(node, 0, current_row - 1, current_row) do
-    local start_row, start_col, end_row, end_col = node:range()
+    local start_row, _start_col, _end_row, end_col = node:range()
     vim.api.nvim_win_set_cursor(0, { start_row + 1, end_col - 1 })
 
     -- go into insert mode and add a a class attribute
