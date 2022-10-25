@@ -5,8 +5,9 @@ local attribute_query = vim.treesitter.parse_query(
   'tsx',
   [[
   (jsx_element
-    (jsx_opening_element (jsx_attribute
-       (
+    (jsx_opening_element
+      (jsx_attribute
+        (
           (property_identifier) @attr_name)
           (#eq? @attr_name "className")
           (string (string_fragment) @attr_value)
@@ -21,11 +22,11 @@ local attribute_self_closing_query = vim.treesitter.parse_query(
   [[
   (jsx_self_closing_element
     (jsx_attribute
-       (
-          (property_identifier) @attr_name)
-          (#eq? @attr_name "className")
-          (string (string_fragment) @attr_value)
-        )
+      (
+        (property_identifier) @attr_name)
+        (#eq? @attr_name "className")
+        (string (string_fragment) @attr_value)
+      )
     )
   ]]
 )
