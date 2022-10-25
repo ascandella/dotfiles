@@ -20,9 +20,8 @@ local function default_handler(choice, results)
   print(vim.inspect(results))
 end
 
-local function request(bufnr, handler)
-  local method = 'experimental/runnables'
-  return vim.lsp.buf_request(bufnr, method, get_params(), handler)
+local function runnables_request(bufnr, handler)
+  return vim.lsp.buf_request(bufnr, 'experimental/runnables', get_params(), handler)
 end
 
 local function find_test(bufnr)
@@ -45,16 +44,37 @@ local function find_test(bufnr)
         local sibling = parent:prev_sibling()
         -- Not actually testing if it's a `#[test]` attribute, just assuming
         if sibling and sibling:type() == 'attribute_item' then
-          print('Found attribute')
           local test_name = ts_utils.get_node_text(node, 0)[1]
-          print(test_name)
-          return
+          return {
+            name = test_name,
+            start = node:start(),
+            ['end_'] = node:end_(),
+          }
         end
       end
     end
   end
 
   print('Ended loop without match')
+end
+
+local function find_and_run_tests(bufnr)
+  local found_test = find_test(bufnr)
+  if not found_test then
+    return
+  end
+  runnables_request(bufnr, function(_, results)
+    if results == nil then
+      return
+    end
+    for _, runnable in ipairs(results) do
+      -- package level stuff not interesting and doesn't include `location`
+      if runnable.location then
+        print(vim.inspect(runnable.label))
+        print(vim.inspect(runnable.location))
+      end
+    end
+  end)
 end
 
 -- TODO:
@@ -64,6 +84,5 @@ end
 -- [ ] run it
 
 vim.keymap.set('n', '<Leader>ll', function()
-  -- request(0, default_handler)
-  find_test(0)
+  find_and_run_tests(0)
 end, { silent = true })
