@@ -75,7 +75,23 @@ local filetype_attach = setmetatable({
   end,
 
   typescript = function()
-    autocmd_format(false, function(client)
+    autocmd_format(true, function(client)
+      return client.name ~= 'tsserver'
+    end)
+  end,
+
+  typescriptreact = function(bufnr)
+    vim.api.nvim_buf_set_keymap(
+      bufnr,
+      'n',
+      '<leader>cn',
+      "<cmd>lua require('ai/treesitter/classname').add_or_insert_class_attribute()<cr>",
+      {
+        noremap = true,
+        silent = true,
+      }
+    )
+    autocmd_format(true, function(client)
       return client.name ~= 'tsserver'
     end)
   end,
