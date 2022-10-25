@@ -9,19 +9,15 @@ local test_query = vim.treesitter.parse_query(
   ]]
 )
 
-local function get_params()
+local function get_params(bufnr)
   return {
-    textDocument = vim.lsp.util.make_text_document_params(0),
+    textDocument = vim.lsp.util.make_text_document_params(bufnr),
     position = nil,
   }
 end
 
-local function default_handler(choice, results)
-  print(vim.inspect(results))
-end
-
 local function runnables_request(bufnr, handler)
-  return vim.lsp.buf_request(bufnr, 'experimental/runnables', get_params(), handler)
+  return vim.lsp.buf_request(bufnr, 'experimental/runnables', get_params(bufnr), handler)
 end
 
 local function find_test(bufnr)
@@ -63,6 +59,7 @@ local function find_and_run_tests(bufnr)
   if not found_test then
     return
   end
+
   runnables_request(bufnr, function(_, results)
     if results == nil then
       return
@@ -79,7 +76,7 @@ end
 
 -- TODO:
 -- [x] use TreeSitter to find nearest test function
--- [ ] get all runnables (`position` arg doesn't seem to work)
+-- [x] get all runnables (`position` arg doesn't seem to work)
 -- [ ] filter runnables by test function line
 -- [ ] run it
 
