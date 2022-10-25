@@ -100,10 +100,10 @@ function M.add_or_insert_class_attribute()
     vim.api.nvim_win_set_cursor(0, { start_row + 1, end_col - 1 })
 
     -- go into insert mode and add a a class attribute
-    vim.api.nvim_feedkeys('a className="" ', 'n', false)
+    vim.api.nvim_feedkeys('a className=""', 'n', false)
 
     -- move cursor back to the middle of the quotes
-    local left_key = vim.api.nvim_replace_termcodes('<Left><left>', true, true, true)
+    local left_key = vim.api.nvim_replace_termcodes('<left>', true, true, true)
     vim.api.nvim_feedkeys(left_key, 'n', false)
   end
 end
