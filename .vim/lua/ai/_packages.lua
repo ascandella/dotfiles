@@ -254,6 +254,8 @@ local function init_packer(use)
       require('ai/_trouble').init()
     end,
   })
+
+  use('nvim-treesitter/playground')
 end
 
 --- startup and add configure plugins
