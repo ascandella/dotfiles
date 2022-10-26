@@ -188,13 +188,6 @@ local function init_packer(use)
   -- View registers
   use('tversteeg/registers.nvim')
 
-  -- Floating terminal
-  use({
-    'voldikss/vim-floaterm',
-    cmd = { 'FloatermNew', 'FloatermToggle' },
-    config = [[require('ai/_floaterm')]],
-  })
-
   -- Better terminal
   use({
     'akinsho/toggleterm.nvim',

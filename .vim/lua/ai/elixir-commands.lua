@@ -1,32 +1,24 @@
 local nvim_lsp = require('lspconfig')
+local Terminal = require('toggleterm.terminal').Terminal
 
 local M = {}
 
-local buffer_opened = false
-
 local project_root_finder = nvim_lsp.util.root_pattern('mix.exs', '.git')
 
-local function open_tests()
+local function open_tests(cmd)
   local buffer_filename = vim.api.nvim_buf_get_name(0)
   local project_root = project_root_finder(buffer_filename)
-  vim.api.nvim_command([[FloatermNew --name=elixir --position=center --cwd=]] .. project_root)
-  buffer_opened = true
+  local term = Terminal:new({
+    cmd = cmd,
+    dir = project_root,
+    close_on_exit = false,
+  })
+  term:open()
+  return term
 end
 
 local function send_command_and_show(command)
-  if not buffer_opened then
-    open_tests()
-  end
-
-  local full_command = [[FloatermSend --name=elixir ]] .. command
-  local resp = vim.api.nvim_exec(full_command, true)
-
-  if string.match(resp, '.*No more floaterms.*') then
-    open_tests()
-    vim.api.nvim_command(full_command)
-  end
-
-  vim.api.nvim_command([[FloatermShow --name=elixir]])
+  open_tests(command)
 end
 
 local function current_line_number()
