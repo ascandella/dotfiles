@@ -86,6 +86,7 @@ cmp.setup({
         look = '[Look]',
         treesitter = '[treesitter]',
         luasnip = '[LuaSnip]',
+        vsnip = '[Snip]',
         nvim_lua = '[Lua]',
         latex_symbols = '[Latex]',
         cmp_tabnine = '[Tab9]',
@@ -95,6 +96,7 @@ cmp.setup({
     end,
   },
   mapping = {
+    ['<C-e>'] = cmp.mapping.abort(),
     ['<CR>'] = cmp.mapping.confirm({ select = false }),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<S-Tab>'] = cmp.mapping(function()
@@ -153,10 +155,10 @@ cmp.setup({
     }),
   },
   sources = {
+    { name = 'vsnip', priority = 1 },
     { name = 'nvim_lsp' },
-    { name = 'cmp_tabnine' },
+    { name = 'cmp_tabnine', keyword_length = 4 },
     { name = 'nvim_lua' },
-    { name = 'vsnip' },
     { name = 'path' },
     { name = 'calc' },
     { name = 'emoji' },

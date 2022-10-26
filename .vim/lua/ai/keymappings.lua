@@ -15,7 +15,7 @@ vim.keymap.set('n', '<Leader>a', telescope_commands.livegrep_project, { silent =
 vim.keymap.set('n', '<Leader>fs', telescope_commands.grep_string_hidden, { silent = true })
 vim.keymap.set('n', '<Leader>fb', require('telescope.builtin').current_buffer_fuzzy_find, { silent = true })
 
-vim.keymap.set('n', '<Leader>gg', '<cmd>Neogit<cr>', { silent = true })
+vim.keymap.set('n', '<Leader>gg', require('neogit').open, { silent = true })
 vim.keymap.set('n', '<Leader>gc', require('ai/_neogit').open_pr, { silent = true })
 
 -- Undo Tree
