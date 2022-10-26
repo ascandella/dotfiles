@@ -257,6 +257,14 @@ local function init_packer(use)
   })
 
   use('nvim-treesitter/playground')
+
+  use({
+    'krivahtoo/silicon.nvim',
+    run = './install.sh',
+    config = function()
+      require('ai/_silicon')
+    end,
+  })
 end
 
 --- startup and add configure plugins
