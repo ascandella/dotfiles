@@ -9,18 +9,18 @@ local test_query = vim.treesitter.parse_query(
   ]]
 )
 
-local function get_params(bufnr)
+local function get_params(winnr)
   return {
-    textDocument = vim.lsp.util.make_text_document_params(bufnr),
+    textDocument = vim.lsp.util.make_text_document_params(winnr),
     position = nil,
   }
 end
 
-local function runnables_request(bufnr, handler)
-  return vim.lsp.buf_request(bufnr, 'experimental/runnables', get_params(bufnr), handler)
+local function runnables_request(winnr, handler)
+  return vim.lsp.buf_request(winnr, 'experimental/runnables', get_params(winnr), handler)
 end
 
-local function find_test(bufnr)
+local function find_test(winnr)
   local node = ts_utils.get_node_at_cursor()
   while node:type() ~= 'function_item' and node:type() ~= 'attribute_item' do
     node = node:parent()
@@ -30,9 +30,9 @@ local function find_test(bufnr)
     end
   end
 
-  local current_row = unpack(vim.api.nvim_win_get_cursor(bufnr))
+  local current_row = unpack(vim.api.nvim_win_get_cursor(winnr))
 
-  for id, node, _metadata in test_query:iter_captures(node, bufnr, current_row - 1, current_row) do
+  for id, node, _metadata in test_query:iter_captures(node, winnr, current_row - 1, current_row) do
     local capture_name = test_query.captures[id]
     if capture_name == 'function_name' then
       local parent = node:parent()
@@ -54,13 +54,13 @@ local function find_test(bufnr)
   print('Ended loop without match')
 end
 
-local function run_tests_at_cursor(bufnr)
-  local found_test = find_test(bufnr)
+local function run_tests_at_cursor(winnr)
+  local found_test = find_test(winnr)
   if not found_test then
     return
   end
 
-  runnables_request(bufnr, function(_, results)
+  runnables_request(winnr, function(_, results)
     if results == nil then
       return
     end
