@@ -40,7 +40,7 @@ local function find_test(bufnr)
         local sibling = parent:prev_sibling()
         -- Not actually testing if it's a `#[test]` attribute, just assuming
         if sibling and sibling:type() == 'attribute_item' then
-          local test_name = ts_utils.get_node_text(node, 0)[1]
+          local test_name = vim.treesitter.query.get_node_text(node, 0)[1]
           return {
             name = test_name,
             start = node:start(),
@@ -54,7 +54,7 @@ local function find_test(bufnr)
   print('Ended loop without match')
 end
 
-local function find_and_run_tests(bufnr)
+local function run_tests_at_cursor(bufnr)
   local found_test = find_test(bufnr)
   if not found_test then
     return
@@ -80,6 +80,6 @@ end
 -- [ ] filter runnables by test function line
 -- [ ] run it
 
-vim.keymap.set('n', '<Leader>ll', function()
-  find_and_run_tests(0)
-end, { silent = true })
+return {
+  run_tests_at_cursor = run_tests_at_cursor,
+}
