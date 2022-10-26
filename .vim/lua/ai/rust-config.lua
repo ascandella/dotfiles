@@ -19,6 +19,7 @@ rt.setup({
       right_align = false,
       auto = false,
     },
+    executor = require('rust-tools/executors').toggleterm,
   },
 
   dap = {

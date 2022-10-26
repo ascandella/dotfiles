@@ -195,6 +195,14 @@ local function init_packer(use)
     config = [[require('ai/_floaterm')]],
   })
 
+  -- Better terminal
+  use({
+    'akinsho/toggleterm.nvim',
+    config = function()
+      require('ai/_toggleterm').init()
+    end,
+  })
+
   use({
     'windwp/nvim-autopairs',
     requires = { 'hrsh7th/nvim-cmp' },
