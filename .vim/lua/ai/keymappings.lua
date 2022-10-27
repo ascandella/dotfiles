@@ -22,9 +22,6 @@ vim.keymap.set('n', '<Leader>gc', require('ai/_neogit').open_pr, { silent = true
 vim.keymap.set('n', '<F1>', '<cmd>UndotreeToggle<cr>', { silent = true })
 vim.keymap.set('n', '<Leader>u', '<cmd>UndotreeToggle<cr>', { silent = true })
 
-vim.keymap.set('n', '<Leader>ft', '<cmd>FloatermToggle<cr>', { silent = true })
-vim.keymap.set('n', '<A-j>', '<cmd>FloatermToggle<cr>', { silent = true })
-
 -- Commenting (most done by plugin in ai/_comment.lua)
 vim.keymap.set('x', '<Leader>-', 'gcc', { remap = true })
 vim.keymap.set('x', '<Leader>_', 'gbc', { remap = true })
