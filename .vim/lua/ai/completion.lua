@@ -57,6 +57,11 @@ cmp.setup({
   enabled = function()
     -- disable completion in comments
     local context = require('cmp.config.context')
+    -- Disable in buf-type prompts
+    local buftype = vim.api.nvim_buf_get_option(0, 'buftype')
+    if buftype == 'prompt' then
+      return false
+    end
     -- keep command mode completion enabled when cursor is in a comment
     if vim.api.nvim_get_mode().mode == 'c' then
       return true
@@ -182,14 +187,6 @@ augroup NvimCmpGitCommit
   au!
   au FileType NeogitCommitMessage lua require('cmp').setup.buffer { enabled = false }
   au FileType gitcommit lua require('cmp').setup.buffer { enabled = false }
-augroup END
-]])
-
--- Disable in Telescope
-vim.cmd([[
-augroup NvimCmpTelescope
-  au!
-  au FileType TelescopePrompt lua require('cmp').setup.buffer { enabled = false }
 augroup END
 ]])
 
