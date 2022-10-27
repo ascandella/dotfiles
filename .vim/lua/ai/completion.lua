@@ -185,6 +185,14 @@ augroup NvimCmpGitCommit
 augroup END
 ]])
 
+-- Disable in Telescope
+vim.cmd([[
+augroup NvimCmpTelescope
+  au!
+  au FileType TelescopePrompt lua require('cmp').setup.buffer { enabled = false }
+augroup END
+]])
+
 -- Add SQL completion via dadbod
 vim.cmd([[
   augroup DadbodSql
