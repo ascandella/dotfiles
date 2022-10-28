@@ -69,6 +69,8 @@ cmp.setup({
       return not context.in_treesitter_capture('comment') and not context.in_syntax_group('Comment')
     end
   end,
+  -- Don't preselect items from the menu
+  preselect = cmp.PreselectMode.None,
   experimental = {
     ghost_text = false,
   },
