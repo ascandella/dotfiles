@@ -50,6 +50,10 @@ local filetype_attach = setmetatable({
     autocmd_format(true)
   end,
 
+  terraform = function()
+    autocmd_format(true)
+  end,
+
   rust = function(bufnr)
     vim.api.nvim_buf_set_keymap(
       bufnr,
