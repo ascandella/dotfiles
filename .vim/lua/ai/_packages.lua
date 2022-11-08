@@ -265,6 +265,19 @@ local function init_packer(use)
       require('ai/_silicon')
     end,
   })
+
+  use({
+    'nvim-neotest/neotest',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'nvim-neotest/neotest-go',
+      'rouge8/neotest-rust',
+      'jfpedroza/neotest-elixir',
+    },
+    config = function()
+      require('ai/_neotest').init()
+    end,
+  })
 end
 
 --- startup and add configure plugins
