@@ -20,7 +20,7 @@ local function init()
   vim.keymap.set('n', '<Leader>ee', function()
     neotest.run.run(vim.fn.expand('%'))
   end, { silent = true })
-  vim.keymap.set('n', '<Leader>eo', function()
+  vim.keymap.set('n', '<Leader>ei', function()
     neotest.output.open()
   end, { silent = true })
 end
