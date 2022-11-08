@@ -49,6 +49,13 @@ local registrations = {
     name = '+Yank',
     p = 'Current buffer',
   },
+  e = {
+    name = '+Neotest',
+    e = 'Run all tests in file',
+    i = 'Open test output',
+    u = 'Run test at cursor',
+    s = 'Toggle neotest summary',
+  },
 }
 registrations[','] = 'Search Project'
 registrations['.'] = 'Newline above'

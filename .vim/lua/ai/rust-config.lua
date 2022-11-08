@@ -1,5 +1,4 @@
 local rt = require('rust-tools')
-local rust_tests = require('ai/treesitter/rust-tests')
 
 rt.setup({
   server = {
@@ -8,11 +7,6 @@ rt.setup({
       vim.keymap.set('n', '<Leader>ra', rt.hover_actions.hover_actions, { buffer = bufnr })
       -- Code action groups
       vim.keymap.set('n', '<Leader>rc', rt.code_action_group.code_action_group, { buffer = bufnr })
-
-      -- Run tests at cursor
-      vim.keymap.set('n', '<Leader>eu', function()
-        rust_tests.run_tests_at_cursor(0)
-      end, { buffer = bufnr })
 
       require('ai/lsp-shared').on_attach(client, bufnr)
     end,

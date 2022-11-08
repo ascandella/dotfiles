@@ -23,6 +23,9 @@ local function init()
   vim.keymap.set('n', '<Leader>ei', function()
     neotest.output.open()
   end, { silent = true })
+  vim.keymap.set('n', '<Leader>es', function()
+    neotest.summary.toggle()
+  end, { silent = true })
 end
 
 return {
