@@ -84,6 +84,7 @@ $(dirname $0)/configure-monitors
 # Float the pulse audio volume control dialog
 bspc rule -a Pavucontrol state=floating
 bspc rule -a Gimp state=floating
+bspc rule -a Screenkey manage=off
 bspc rule -a Emacs state=tiled
 
 # Experimental!! Rounded corners
