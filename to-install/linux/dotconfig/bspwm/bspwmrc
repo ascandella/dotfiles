@@ -7,7 +7,7 @@ declare -a startonce=(
   "sxhkd -m -1"
 
   "picom --config $HOME/.config/picom/picom.conf"
-  "$HOME/.config/polybar/launch.sh"
+  "$HOME/.config/polybar/launch.sh --shades"
   "dunst"
 
   "nm-applet"
@@ -20,7 +20,8 @@ declare -a startonce=(
   "/usr/lib/gnome-settings-daemon/gsd-xsettings"
 
   # Clipboard history
-  "greenclip daemon"
+  "$HOME/.local/bin/greenclip daemon"
+
   "nextcloud"
 
   # Not sure why this is necessary
@@ -43,7 +44,7 @@ bspc config bottom_padding     0
 bspc config left_padding       0
 bspc config right_padding      0
 bspc config border_width       0
-bspc config window_gap         20
+bspc config window_gap         10
 
 # Borders and gaps
 bspc config borderless_monocle true

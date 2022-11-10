@@ -8,7 +8,7 @@ super + Return
 
 # program launcher
 super + e
-  rofi -show combi
+  rofi -show combi -theme ~/.config/polybar/hack/scripts/rofi/launcher.rasi
 
 # frequently browsed website
 super + shift + e
@@ -16,7 +16,7 @@ super + shift + e
 
 # Clipboard
 super + shift + c
-  rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+  rofi -modi "clipboard:$HOME/.local/bin/greenclip print" -show clipboard -theme ~/.config/polybar/hack/scripts/rofi/launcher.rasi -run-command '{cmd}'
 
 # Quick launch browser
 super + shift + apostrophe
