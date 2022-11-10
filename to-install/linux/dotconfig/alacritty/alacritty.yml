@@ -23,6 +23,12 @@ window:
     columns: 80
     lines: 24
 
+# Background opacity
+#
+# Window opacity as a floating point number from `0.0` to `1.0`.
+# The value `0.0` is completely transparent and `1.0` is opaque.
+  opacity: 0.9
+
   # Window padding (changes require restart)
   #
   # Blank space added around the window in pixels. This padding is not scaled
@@ -67,13 +73,13 @@ scrolling:
 font:
   # Normal (roman) font face
   normal:
-    family: Ubuntu Mono Nerd Font
+    family: CaskaydiaCove Nerd Font
     # The `style` can be specified to pick a specific face.
     # style: Regular
 
   # Bold font face
   bold:
-    family: Ubuntu Mono Nerd Font
+    family: CaskaydiaCove Nerd Font
     # The `style` can be specified to pick a specific face.
     # style: Bold
 
@@ -84,7 +90,7 @@ font:
     # style: Italic
 
   # Point size
-  size: 10.0
+  size: 13.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -167,12 +173,6 @@ colors:
 visual_bell:
   animation: EaseOutExpo
   duration: 0
-
-# Background opacity
-#
-# Window opacity as a floating point number from `0.0` to `1.0`.
-# The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.9
 
 # Mouse bindings
 #
@@ -321,7 +321,7 @@ key_bindings:
   - { key: Insert,   mods: Shift,   action: PasteSelection               }
   - { key: Key0,     mods: Control, action: ResetFontSize                }
   - { key: Equals,   mods: Control, action: IncreaseFontSize             }
-  - { key: Subtract, mods: Control, action: DecreaseFontSize             }
+  # - { key: Subtract, mods: Control, action: DecreaseFontSize             }
   - { key: Home,                    chars: "\x1bOH",   mode: AppCursor   }
   - { key: Home,                    chars: "\x1b[H",   mode: ~AppCursor  }
   - { key: End,                     chars: "\x1bOF",   mode: AppCursor   }

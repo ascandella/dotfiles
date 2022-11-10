@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-  alacritty
+  gnome-terminal
 
 # program launcher
 super + e
