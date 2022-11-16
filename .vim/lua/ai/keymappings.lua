@@ -15,7 +15,7 @@ vim.keymap.set('n', '<Leader>a', telescope_commands.livegrep_project, { silent =
 vim.keymap.set('n', '<Leader>fs', telescope_commands.grep_string_hidden, { silent = true })
 vim.keymap.set('n', '<Leader>fb', require('telescope.builtin').current_buffer_fuzzy_find, { silent = true })
 
-vim.keymap.set('n', '<Leader>gg', require('neogit').open, { silent = true })
+vim.keymap.set('n', '<Leader>gg', require('neogit').open, { silent = true, desc = 'Neogit' })
 vim.keymap.set('n', '<Leader>gc', require('ai/_neogit').open_pr, { silent = true })
 
 -- Undo Tree
@@ -34,17 +34,17 @@ vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { silent = true })
 
 -- Harpoon mappings
 vim.keymap.set('n', '<A-h>', require('harpoon.ui').toggle_quick_menu, { silent = true })
-vim.keymap.set('n', '<Leader>m', require('harpoon.mark').add_file, { silent = true })
+vim.keymap.set('n', '<Leader>m', require('harpoon.mark').add_file, { silent = true, desc = 'Mark harpoon' })
 
 -- Zen Mode
-vim.keymap.set('n', '<F2>', '<cmd>ZenMode<cr>', { silent = true })
-vim.keymap.set('n', '<Leader>tz', '<cmd>ZenMode<cr>', { silent = true })
+vim.keymap.set('n', '<F2>', '<cmd>ZenMode<cr>', { silent = true, desc = 'Zen mode' })
+vim.keymap.set('n', '<Leader>tz', '<cmd>ZenMode<cr>', { silent = true, desc = 'Zen mode' })
 
 -- Twilight (dim inactive)
 vim.keymap.set('n', '<Leader>tt', '<cmd>Twilight<cr>', { silent = true })
 
 -- Trouble (LSP diagnostics)
-vim.keymap.set('n', '<Leader>th', '<cmd>TroubleToggle<cr>', { silent = true })
+vim.keymap.set('n', '<Leader>th', '<cmd>TroubleToggle<cr>', { silent = true, desc = 'Toggle Trouble (LSP errors)' })
 
 -- Copilot
 -- Couldn't get this to work with vimscript
