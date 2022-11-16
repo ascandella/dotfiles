@@ -185,9 +185,6 @@ local function init_packer(use)
     config = [[require('ai/_undotree')]],
   })
 
-  -- View registers
-  use('tversteeg/registers.nvim')
-
   -- Better terminal
   use({
     'akinsho/toggleterm.nvim',
