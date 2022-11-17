@@ -275,6 +275,8 @@ local function init_packer(use)
       require('ai/_neotest').init()
     end,
   })
+
+  use('wuelnerdotexe/vim-astro')
 end
 
 --- startup and add configure plugins

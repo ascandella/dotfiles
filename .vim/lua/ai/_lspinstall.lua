@@ -134,3 +134,4 @@ lspconfig.tsserver.setup(make_config({
 
 lspconfig.terraformls.setup(make_config())
 lspconfig.gopls.setup(make_config())
+lspconfig.astro.setup(make_config())
