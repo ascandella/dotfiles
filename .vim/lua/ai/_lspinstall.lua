@@ -2,6 +2,7 @@ local cmp_nvim_lsp = require('cmp_nvim_lsp')
 
 -- Include the servers you want to have installed by default below
 local servers = {
+  'astro',
   'bashls',
   'efm',
   'elixirls',
