@@ -34,6 +34,7 @@ end
 
 local function efm_config(config)
   config.filetypes = {
+    'astro',
     'caddyfile',
     'css',
     -- .eex templates
@@ -58,6 +59,7 @@ end
 
 local function tailwindcss_config(config)
   config.filetypes = {
+    'astro',
     'django-html',
     'jinja',
     'tsx',

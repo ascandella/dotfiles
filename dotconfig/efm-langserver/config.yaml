@@ -84,6 +84,9 @@ tools:
       - '%f:%l:%c: [%tarning] %m'
 
 languages:
+  astro:
+    - <<: *prettier
+
   caddyfile:
     # Disabled because it doesn't play well with jinja2 variable templating in
     # ansible
