@@ -54,6 +54,14 @@ tabnine:setup({
   show_prediction_strength = false,
 })
 
+local has_words_before = function()
+  if vim.api.nvim_buf_get_option(0, 'buftype') == 'prompt' then
+    return false
+  end
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_text(0, line - 1, 0, line - 1, col, {})[1]:match('^%s*$') == nil
+end
+
 cmp.setup({
   enabled = function()
     -- disable completion in comments
@@ -124,7 +132,11 @@ cmp.setup({
     }),
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
-        cmp.select_next_item()
+        if has_words_before() then
+          cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+        else
+          cmp.select_next_item()
+        end
       elseif vim.fn['vsnip#available']() == 1 then
         vim.api.nvim_feedkeys(t('<Plug>(vsnip-expand-or-jump)'), '', true)
       else
