@@ -7,6 +7,7 @@ local servers = {
   'efm',
   'elixirls',
   'gopls',
+  'rnix',
   'terraformls',
   'tailwindcss',
   'tflint',
@@ -137,3 +138,4 @@ lspconfig.tsserver.setup(make_config({
 lspconfig.terraformls.setup(make_config())
 lspconfig.gopls.setup(make_config())
 lspconfig.astro.setup(make_config())
+lspconfig.rnix.setup(make_config())

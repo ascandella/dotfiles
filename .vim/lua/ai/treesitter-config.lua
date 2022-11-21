@@ -13,6 +13,7 @@ ts.setup({
     'javascript',
     'json',
     'lua',
+    'nix',
     'python',
     'ruby',
     'rust',
