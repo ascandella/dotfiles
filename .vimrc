@@ -106,7 +106,7 @@ Plug 'elixir-editors/vim-elixir'
 Plug 'troydm/zoomwintab.vim'
 
 " Automatically set current directory (project) when loading file
-Plug 'paroxayte/autocd.vim'
+" Plug 'paroxayte/autocd.vim'
 
 " Better startup screen
 Plug 'mhinz/vim-startify'

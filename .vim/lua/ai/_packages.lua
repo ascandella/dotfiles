@@ -98,6 +98,7 @@ local function init_packer(use)
       'hrsh7th/cmp-emoji',
       'hrsh7th/cmp-calc',
       'hrsh7th/cmp-nvim-lsp-signature-help',
+      'zbirenbaum/copilot-cmp',
       { 'tzachar/cmp-tabnine', run = './install.sh', requires = 'hrsh7th/nvim-cmp' },
     },
     config = function()
@@ -224,8 +225,14 @@ local function init_packer(use)
 
   -- Copilot
   use({
-    'https://github.com/github/copilot.vim',
+    'zbirenbaum/copilot.lua',
+    event = 'VimEnter',
     config = [[require('ai/_copilot')]],
+  })
+
+  use({
+    'zbirenbaum/copilot-cmp',
+    after = { 'copilot.lua' },
   })
 
   -- UI

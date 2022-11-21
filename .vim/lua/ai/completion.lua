@@ -8,6 +8,7 @@ local feedkey = function(key, mode)
 end
 
 local icons = {
+  Copilot = '',
   Text = '',
   Method = '',
   Function = '',
@@ -84,6 +85,7 @@ cmp.setup({
     format = function(entry, vim_item)
       vim_item.kind = icons[vim_item.kind]
       vim_item.menu = ({
+        copilot = '[Copilot]',
         spell = '[Spell]',
         buffer = '[Buffer]',
         calc = '[Calc]',
@@ -104,7 +106,11 @@ cmp.setup({
   },
   mapping = {
     ['<C-e>'] = cmp.mapping.abort(),
-    ['<CR>'] = cmp.mapping.confirm({ select = false }),
+    ['<CR>'] = cmp.mapping.confirm({
+      -- For Copilot
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = false,
+    }),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<S-Tab>'] = cmp.mapping(function()
       if cmp.visible() then
@@ -163,7 +169,8 @@ cmp.setup({
   },
   sources = {
     { name = 'vsnip', priority = 1 },
-    { name = 'nvim_lsp' },
+    { name = 'copilot', group_index = 2 },
+    { name = 'nvim_lsp', group_index = 2 },
     { name = 'cmp_tabnine', keyword_length = 4 },
     { name = 'nvim_lua' },
     { name = 'path' },
@@ -199,3 +206,5 @@ vim.cmd([[
     autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })
   augroup END
 ]])
+
+vim.api.nvim_set_hl(0, 'CmpItemKindCopilot', { fg = '#6CC644' })

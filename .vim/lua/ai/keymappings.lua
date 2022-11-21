@@ -46,19 +46,6 @@ vim.keymap.set('n', '<Leader>tt', '<cmd>Twilight<cr>', { silent = true })
 -- Trouble (LSP diagnostics)
 vim.keymap.set('n', '<Leader>th', '<cmd>TroubleToggle<cr>', { silent = true, desc = 'Toggle Trouble (LSP errors)' })
 
--- Copilot
--- Couldn't get this to work with vimscript
-vim.api.nvim_command([[
-  imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
-]])
--- imap({
---   '<C-j>',
---   function()
---     return 'copilot#Accept("<cr>")'
---   end,
---   { expr = true, silent = true, remap = true },
--- })
-
 local harpoon_jumpers = { '<C-h>', '<C-t>', '<C-n>', '<C-s>' }
 for index, mapping in ipairs(harpoon_jumpers) do
   vim.keymap.set('n', mapping, function()

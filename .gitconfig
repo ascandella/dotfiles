@@ -95,7 +95,7 @@
 	meta = yellow bold
 [commit]
 	gpgsign = true
-	verbose = true
+	verbose = false
 [interactive]
 	singleKey = true
 	diffFilter = delta --color-only --features=interactive
