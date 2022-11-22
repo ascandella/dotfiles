@@ -4,6 +4,13 @@
 -- vim.g.copilot_tab_fallback = ''
 
 vim.defer_fn(function()
-  require('copilot').setup()
+  require('copilot').setup({
+    suggestion = {
+      auto_trigger = true,
+      keymap = {
+        accept = '<C-j>',
+      },
+    },
+  })
   require('copilot_cmp').setup()
 end, 100)
