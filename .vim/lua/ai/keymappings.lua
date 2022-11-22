@@ -37,6 +37,9 @@ vim.keymap.set('n', '<Leader>m', require('harpoon.mark').add_file, { silent = tr
 vim.keymap.set('n', '<F2>', '<cmd>ZenMode<cr>', { silent = true, desc = 'Zen mode' })
 vim.keymap.set('n', '<Leader>tz', '<cmd>ZenMode<cr>', { silent = true, desc = 'Zen mode' })
 
+vim.keymap.set('x', 'k', ':m -2<cr>gv=gv', { desc = 'Move lines up' })
+vim.keymap.set('x', 'j', ":m'>+<cr>gv=gv", { desc = 'Move lines down' })
+
 -- Twilight (dim inactive)
 vim.keymap.set('n', '<Leader>tt', '<cmd>Twilight<cr>', { silent = true })
 
