@@ -26,9 +26,6 @@ vim.keymap.set('n', '<Leader>u', '<cmd>UndotreeToggle<cr>', { silent = true })
 vim.keymap.set('x', '<Leader>-', 'gcc', { remap = true })
 vim.keymap.set('x', '<Leader>_', 'gbc', { remap = true })
 
--- Terminal mode mappings
-vim.keymap.set('t', '<Leader>ft', '<cmd>FloatermToggle<cr>', { silent = true })
-vim.keymap.set('t', '<A-j>', '<cmd>FloatermToggle<cr>', { silent = true })
 -- Go back to normal mode
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { silent = true })
 

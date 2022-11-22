@@ -71,7 +71,7 @@ local filetype_attach = setmetatable({
     )
     vim.api.nvim_exec([[set signcolumn=yes]], true)
 
-    autocmd_format(true)
+    autocmd_format(false)
   end,
 
   typescript = function()

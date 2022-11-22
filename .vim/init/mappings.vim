@@ -22,13 +22,14 @@ imap <silent> <A-Down> <Esc>:wincmd j<CR>a
 imap <silent> <A-Left> <Esc>:wincmd h<CR>a
 imap <silent> <A-Right> <Esc>:wincmd l<CR>a
 
-nnoremap <silent> <C-Right> :wincmd l<CR>
 nnoremap <silent> <C-Left> :wincmd h<CR>
-nnoremap <silent> <C-Up> :wincmd k<CR>
 nnoremap <silent> <C-Down> :wincmd j<CR>
+nnoremap <silent> <C-Up> :wincmd k<CR>
+nnoremap <silent> <C-Right> :wincmd l<CR>
 
 " Go to previous window
-nnoremap <c-e> <c-w><c-p>
+nnoremap <C-e> <c-w><c-p>
+nnoremap <A-e> <c-w><c-p>
 
 " Undo break points after command, .
 inoremap , ,<c-g>u
