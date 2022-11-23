@@ -4,7 +4,6 @@ ts.setup({
     'bash',
     'clojure',
     'css',
-    'dockerfile',
     'erlang',
     'go',
     'graphql',
