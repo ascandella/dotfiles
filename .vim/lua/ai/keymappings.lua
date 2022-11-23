@@ -46,6 +46,14 @@ vim.keymap.set('n', '<Leader>tt', '<cmd>Twilight<cr>', { silent = true })
 -- Trouble (LSP diagnostics)
 vim.keymap.set('n', '<Leader>th', '<cmd>TroubleToggle<cr>', { silent = true, desc = 'Toggle Trouble (LSP errors)' })
 
+-- Toggle between lines and virtual text diagnostics
+vim.keymap.set(
+  'n',
+  '<Leader>td',
+  require('ai/_lsp_lines').toggle_lsp_lines,
+  { silent = true, desc = 'Toggle diagnostic style' }
+)
+
 local harpoon_jumpers = { '<C-h>', '<C-t>', '<C-n>', '<C-s>' }
 for index, mapping in ipairs(harpoon_jumpers) do
   vim.keymap.set('n', mapping, function()
