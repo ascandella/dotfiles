@@ -148,6 +148,7 @@ local function init_packer(use)
   -- Better git commit messages
   use({ 'rhysd/committia.vim' })
 
+  -- LSP and associated things
   use({
     'williamboman/mason.nvim',
     requires = {
@@ -158,6 +159,7 @@ local function init_packer(use)
       'glepnir/lspsaga.nvim',
       'mattn/efm-langserver',
       'lvimuser/lsp-inlayhints.nvim',
+      'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
     },
     config = function()
       require('ai/_lspinstall')
@@ -166,6 +168,7 @@ local function init_packer(use)
       require('ai/typescript')
       require('ai/elixir-config')
       require('ai/rust-config')
+      require('ai/_lsp_lines')
     end,
   })
 
