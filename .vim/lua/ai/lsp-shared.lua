@@ -58,17 +58,7 @@ local filetype_attach = setmetatable({
     autocmd_format(true)
   end,
 
-  rust = function(bufnr)
-    vim.api.nvim_buf_set_keymap(
-      bufnr,
-      'n',
-      '<leader>fs',
-      "<cmd>lua require('ai/telescope-config').workspace_symbols()<cr>",
-      {
-        noremap = true,
-        silent = true,
-      }
-    )
+  rust = function()
     vim.api.nvim_exec([[set signcolumn=yes]], true)
 
     autocmd_format(false)
