@@ -160,6 +160,7 @@ local function init_packer(use)
       'mattn/efm-langserver',
       'lvimuser/lsp-inlayhints.nvim',
       'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
+      'j-hui/fidget.nvim',
     },
     config = function()
       require('ai/_lspinstall')
@@ -169,6 +170,7 @@ local function init_packer(use)
       require('ai/elixir-config')
       require('ai/rust-config')
       require('ai/_lsp_lines')
+      require('fidget').setup({})
     end,
   })
 
