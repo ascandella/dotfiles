@@ -2,6 +2,7 @@
 --
 
 local cmp = require('cmp')
+local compare = require('cmp.config.compare')
 
 local feedkey = function(key, mode)
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
@@ -78,6 +79,13 @@ cmp.setup({
       return not context.in_treesitter_capture('comment') and not context.in_syntax_group('Comment')
     end
   end,
+
+  sorting = {
+    priority_weight = 2,
+    comparators = {
+      compare.score,
+    },
+  },
   -- Don't preselect items from the menu
   preselect = cmp.PreselectMode.None,
   experimental = {
@@ -183,7 +191,7 @@ cmp.setup({
     { name = 'vsnip', priority = 1 },
     { name = 'copilot', group_index = 2 },
     { name = 'nvim_lsp', group_index = 2 },
-    { name = 'cmp_tabnine', keyword_length = 4 },
+    -- { name = 'cmp_tabnine', keyword_length = 4 },
     { name = 'nvim_lua' },
     { name = 'path' },
     { name = 'calc' },
@@ -199,6 +207,15 @@ cmp.setup.cmdline('/', {
     { name = 'buffer' },
   },
 })
+
+-- Copilot integration
+cmp.event:on('menu_opened', function()
+  vim.b.copilot_suggestion_hidden = true
+end)
+
+cmp.event:on('menu_closed', function()
+  vim.b.copilot_suggestion_hidden = false
+end)
 
 vim.o.completeopt = 'menu,menuone,noselect'
 
