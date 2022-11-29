@@ -3,4 +3,3 @@ require('fidget').setup({
     spinner = 'dots',
   },
 })
-

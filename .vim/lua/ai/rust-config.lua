@@ -10,6 +10,22 @@ rt.setup({
 
       require('ai/lsp-shared').on_attach(client, bufnr)
     end,
+
+    capabilities = {
+      textDocument = {
+        completion = {
+          completionItem = {
+            snippetSupport = false,
+          },
+        },
+      },
+    },
+
+    completion = {
+      snippets = {
+        custom = {},
+      },
+    },
   },
 
   tools = {
