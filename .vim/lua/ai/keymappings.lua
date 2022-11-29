@@ -46,6 +46,9 @@ vim.keymap.set('n', '<Leader>tz', '<cmd>ZenMode<cr>', { silent = true, desc = 'Z
 vim.keymap.set('x', 'k', ':m -2<cr>gv=gv', { desc = 'Move lines up' })
 vim.keymap.set('x', 'j', ":m'>+<cr>gv=gv", { desc = 'Move lines down' })
 
+-- Inlay hints
+vim.keymap.set('n', '<Leader>ti', require('lsp-inlayhints').toggle, { silent = true, desc = 'Toggle inlay hints' })
+
 -- Twilight (dim inactive)
 vim.keymap.set('n', '<Leader>tt', '<cmd>Twilight<cr>', { silent = true })
 
