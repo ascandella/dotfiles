@@ -188,7 +188,6 @@ cmp.setup({
     }),
   },
   sources = {
-    { name = 'vsnip', priority = 1 },
     { name = 'copilot', group_index = 2 },
     { name = 'nvim_lsp', group_index = 2 },
     -- { name = 'cmp_tabnine', keyword_length = 4 },
@@ -198,6 +197,7 @@ cmp.setup({
     { name = 'emoji' },
     { name = 'buffer', keyword_length = 5 },
     { name = 'nvim_lsp_signature_help' },
+    -- { name = 'vsnip', priority = 9 },
   },
 })
 
