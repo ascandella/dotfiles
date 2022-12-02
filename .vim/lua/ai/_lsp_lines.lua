@@ -1,11 +1,14 @@
 local ok, lsp_lines = pcall(require, 'lsp_lines')
 
-local lines_enabled = true
+-- Disable by default, too annoying to write rust with
+local lines_enabled = false
+
 if ok then
   lsp_lines.setup()
   -- Disable virtual_text since it's redundant due to lsp_lines.
   vim.diagnostic.config({
-    virtual_text = false,
+    virtual_text = not lines_enabled,
+    virtual_lines = lines_enabled,
   })
 end
 
