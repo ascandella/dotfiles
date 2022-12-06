@@ -53,7 +53,7 @@ tools:
     format-stdin: true
 
   prettier: &prettier
-    format-command: "prettierd --stdin-filepath ${INPUT}"
+    format-command: "prettierd ${INPUT}"
     format-stdin: true
 
   python-black: &python-black
