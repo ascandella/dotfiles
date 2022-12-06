@@ -81,7 +81,7 @@ local filetype_attach = setmetatable({
         silent = true,
       }
     )
-    autocmd_format(true, function(client)
+    autocmd_format(false, function(client)
       return client.name ~= 'tsserver'
     end)
   end,
