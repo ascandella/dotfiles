@@ -1,2 +1,2 @@
-iabbrev <buffer> deps [deploy staging]
+iabbrev <buffer> dps [deploy staging]
 iabbrev <buffer> cis [ci skip]
