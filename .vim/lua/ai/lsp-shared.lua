@@ -35,7 +35,7 @@ local function filter(arr, fn)
 end
 
 local function filterReactDTS(value)
-  return string.match(value.filename, 'react/index.d.ts') == nil
+  return string.match(value.filename, '%.d.ts') == nil
 end
 
 local function on_list(options)
