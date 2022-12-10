@@ -92,17 +92,17 @@ local filetype_attach = setmetatable({
   end,
 
   typescript = function()
-    autocmd_format(true, function(client)
+    autocmd_format(false, function(client)
       return client.name ~= 'tsserver'
     end)
   end,
 
   javascript = function()
-    autocmd_format(true)
+    autocmd_format(false)
   end,
 
   json = function()
-    autocmd_format(true)
+    autocmd_format(false)
   end,
 
   typescriptreact = function(bufnr)
