@@ -97,6 +97,14 @@ local filetype_attach = setmetatable({
     end)
   end,
 
+  javascript = function()
+    autocmd_format(true)
+  end,
+
+  json = function()
+    autocmd_format(true)
+  end,
+
   typescriptreact = function(bufnr)
     vim.api.nvim_buf_set_keymap(
       bufnr,
