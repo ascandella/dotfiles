@@ -249,10 +249,11 @@ local function init_packer(use)
     end,
   })
 
-  use({
-    'laytan/cloak.nvim',
-    config = [[ require('ai/_cloak') ]],
-  })
+  -- Disabled for now -- not using
+  -- use({
+  --   'laytan/cloak.nvim',
+  --   config = [[ require('ai/_cloak') ]],
+  -- })
 
   use({
     'pantharshit00/vim-prisma',
