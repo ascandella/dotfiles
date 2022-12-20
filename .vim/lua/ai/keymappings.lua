@@ -8,18 +8,29 @@ vim.keymap.set('n', '<Leader>ff', telescope_commands.oldfiles, { silent = true }
 vim.keymap.set('n', '<Leader>fo', telescope_commands.livegrep_open_files, { silent = true })
 
 vim.keymap.set('n', '<Leader>n', telescope_commands.buffers, { silent = true })
-vim.keymap.set('n', '<Leader>gf', require('telescope.builtin').git_status, { silent = true })
+vim.keymap.set('n', '<Leader>gf', require('telescope.builtin').git_status, { silent = true, desc = 'Git files' })
 
-vim.keymap.set('n', '<Leader>a', telescope_commands.livegrep_project, { silent = true })
+vim.keymap.set('n', '<Leader>a', telescope_commands.livegrep_project, { silent = true, desc = 'Grep project' })
 
-vim.keymap.set('n', '<Leader>fs', telescope_commands.grep_string_hidden, { silent = true })
+vim.keymap.set(
+  'n',
+  '<Leader>fs',
+  telescope_commands.grep_string_hidden,
+  { silent = true, desc = 'Find string under cursor' }
+)
+
 vim.keymap.set(
   'n',
   '<Leader>fn',
   telescope_commands.workspace_symbols,
   { silent = true, desc = 'LSP Workspace Symbols' }
 )
-vim.keymap.set('n', '<Leader>fb', require('telescope.builtin').current_buffer_fuzzy_find, { silent = true })
+vim.keymap.set(
+  'n',
+  '<Leader>fb',
+  require('telescope.builtin').current_buffer_fuzzy_find,
+  { silent = true, desc = 'Current buffer fuzy' }
+)
 
 vim.keymap.set('n', '<Leader>gg', require('neogit').open, { silent = true, desc = 'Neogit' })
 vim.keymap.set('n', '<Leader>gc', require('ai/_neogit').open_pr, { silent = true })
