@@ -20,7 +20,6 @@ function! s:show_current_hunk() abort
 endfunction
 
 " Remap gitgutter leader-h
-nmap <Leader>gp :SignifyHunkDiff<cr>
 nmap <Leader>gu :SignifyHunkUndo<cr>
 
 " Navigate into messenger popup on leader-gm
