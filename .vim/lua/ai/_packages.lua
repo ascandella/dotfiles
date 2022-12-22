@@ -67,6 +67,11 @@ local function init_packer(use)
     end,
   })
 
+  use({ -- Additional text objects via treesitter
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    after = 'nvim-treesitter',
+  })
+
   use({
     'nvim-treesitter/nvim-treesitter-context',
     requires = {
