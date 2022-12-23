@@ -258,7 +258,7 @@ local packages = {
     end,
   },
 
-  { 'pantharshit00/vim-prisma' },
+  { 'pantharshit00/vim-prisma', ft = 'prisma' },
 
   {
     'folke/trouble.nvim',
@@ -294,7 +294,8 @@ local packages = {
   },
 
   -- Astro syntax
-  'wuelnerdotexe/vim-astro',
+  { 'wuelnerdotexe/vim-astro', ft = 'astro' },
+
   -- Start screen
   'mhinz/vim-startify',
   -- Automatically set current directory (project) when loading file
@@ -316,6 +317,7 @@ local packages = {
 if vim.fn.executable('gh') == 1 then
   table.insert(packages, {
     'pwntester/octo.nvim',
+    cmd = 'Octo',
     config = function()
       require('ai/_octo')
     end,
