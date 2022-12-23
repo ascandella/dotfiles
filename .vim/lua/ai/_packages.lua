@@ -1,39 +1,36 @@
-local vim = vim
-local execute = vim.api.nvim_command
-local fn = vim.fn
--- ensure that packer is installed
-local install_path = fn.stdpath('data') .. '/site/pack/packer/opt/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-  execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
-  execute('packadd packer.nvim')
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    'git',
+    'clone',
+    '--filter=blob:none',
+    '--single-branch',
+    'https://github.com/folke/lazy.nvim.git',
+    lazypath,
+  })
 end
-vim.cmd([[packadd packer.nvim]])
+vim.opt.runtimepath:prepend(lazypath)
 
-local packer = require('packer')
-local util = require('packer.util')
-packer.init({ package_root = util.join_paths(vim.fn.stdpath('data'), 'site', 'pack') })
-
-local function init_packer(use)
-  use({ 'wbthomason/packer.nvim', opt = true })
+local packages = {
   -- Fuzzy find everything
-  use({
+  {
     'nvim-telescope/telescope.nvim',
-    requires = {
+    dependencies = {
       { 'nvim-lua/popup.nvim' },
       { 'nvim-lua/plenary.nvim' },
       { 'kyazdani42/nvim-web-devicons' },
-      { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+      { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     },
     config = function()
       require('ai/telescope-config')
     end,
-  })
+  },
 
   -- Magit for neovim
-  use({
+  {
     'TimUntersberger/neogit',
     -- '~/src/neogit',
-    requires = {
+    dependencies = {
       'nvim-lua/plenary.nvim',
       {
         'sindrets/diffview.nvim',
@@ -45,17 +42,17 @@ local function init_packer(use)
     config = function()
       require('ai/_neogit')
     end,
-  })
+  },
 
   -- Frequency/recency
-  use({
+  {
     'nvim-telescope/telescope-frecency.nvim',
-    requires = { { 'tami5/sql.nvim' } },
-  })
+    dependencies = { { 'tami5/sql.nvim' } },
+  },
 
-  use({
+  {
     'nvim-treesitter/nvim-treesitter',
-    requires = {
+    dependencies = {
       -- Autoclose HTML/TSX tags
       'windwp/nvim-ts-autotag',
       -- rainbow pairs
@@ -65,36 +62,36 @@ local function init_packer(use)
     config = function()
       require('ai/treesitter-config')
     end,
-  })
+  },
 
-  use({ -- Additional text objects via treesitter
+  { -- Additional text objects via treesitter
     'nvim-treesitter/nvim-treesitter-textobjects',
     after = 'nvim-treesitter',
-  })
+  },
 
-  use({
+  {
     'nvim-treesitter/nvim-treesitter-context',
-    requires = {
+    dependencies = {
       'nvim-treesitter/nvim-treesitter',
     },
     config = function()
       require('ai/treesitter-context-config')
     end,
-  })
+  },
 
   -- New status line
-  use({
+  {
     'NTBBloodbath/galaxyline.nvim',
-    requires = { 'nvim-lua/lsp-status.nvim' },
+    dependencies = { 'nvim-lua/lsp-status.nvim' },
     config = function()
       require('galaxyline.themes.eviline')
     end,
-  })
+  },
 
   -- Code completion
-  use({
+  {
     'hrsh7th/nvim-cmp',
-    requires = {
+    dependencies = {
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-nvim-lua',
       'hrsh7th/cmp-buffer',
@@ -104,25 +101,25 @@ local function init_packer(use)
       'hrsh7th/cmp-calc',
       'hrsh7th/cmp-nvim-lsp-signature-help',
       'zbirenbaum/copilot-cmp',
-      { 'tzachar/cmp-tabnine', run = './install.sh', requires = 'hrsh7th/nvim-cmp' },
+      { 'tzachar/cmp-tabnine', build = './install.sh', dependencies = 'hrsh7th/nvim-cmp' },
     },
     config = function()
       require('ai/completion')
     end,
-  })
+  },
 
   -- Highlight other usages of a symbol under cursor, using LSP
-  use({
+  {
     'RRethy/vim-illuminate',
     config = function()
       require('ai/_illuminate')
     end,
-  })
+  },
 
   -- Snippets
-  use({
+  {
     'hrsh7th/vim-vsnip',
-    requires = {
+    dependencies = {
       -- Default snippets
       'rafamadriz/friendly-snippets',
     },
@@ -130,33 +127,23 @@ local function init_packer(use)
       require('ai/_vsnip')
     end,
     event = 'InsertEnter *',
-  })
+  },
 
   -- Emacs-like keyboard shortcut completion helper
-  use({
+  {
     'folke/which-key.nvim',
     config = function()
       require('ai/_which-key')
     end,
-  })
-
-  -- Github integration
-  if vim.fn.executable('gh') == 1 then
-    use({
-      'pwntester/octo.nvim',
-      config = function()
-        require('ai/_octo')
-      end,
-    })
-  end
+  },
 
   -- Better git commit messages
-  use({ 'rhysd/committia.vim' })
+  { 'rhysd/committia.vim' },
 
   -- LSP and associated things
-  use({
+  {
     'williamboman/mason.nvim',
-    requires = {
+    dependencies = {
       'williamboman/mason-lspconfig.nvim',
       'neovim/nvim-lspconfig',
       'simrat39/rust-tools.nvim',
@@ -164,7 +151,7 @@ local function init_packer(use)
       'glepnir/lspsaga.nvim',
       'mattn/efm-langserver',
       'lvimuser/lsp-inlayhints.nvim',
-      'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
+      { url = 'https://git.sr.ht/~whynothugo/lsp_lines.nvim' },
       'j-hui/fidget.nvim',
     },
     config = function()
@@ -177,113 +164,125 @@ local function init_packer(use)
       require('ai/_lsp_lines')
       require('ai/_fidget')
     end,
-  })
+  },
 
   -- Wrapping/delimiters
-  use({
+  {
     'andymass/vim-matchup',
-    setup = [[require('ai/_matchup')]],
+    setup = function()
+      require('ai/_matchup')
+    end,
     event = 'BufEnter',
-  })
+  },
 
   -- Automatically insert endwise pairs
-  use({ 'tpope/vim-endwise', setup = [[require('ai/_endwise')]] })
+  {
+    'tpope/vim-endwise',
+    init = function()
+      require('ai/_endwise')
+    end,
+  },
 
   -- Undo tree
-  use({
+  {
     'mbbill/undotree',
     cmd = 'UndotreeToggle',
-    config = [[require('ai/_undotree')]],
-  })
+    config = function()
+      require('ai/_undotree')
+    end,
+  },
 
   -- Better terminal
-  use({
+  {
     'akinsho/toggleterm.nvim',
     config = function()
       require('ai/_toggleterm').init()
     end,
-  })
+  },
 
-  use({
+  {
     'windwp/nvim-autopairs',
-    requires = { 'hrsh7th/nvim-cmp' },
-    config = [[require('ai/_autopairs')]],
-  })
+    dependencies = { 'hrsh7th/nvim-cmp' },
+    config = function()
+      require('ai/_autopairs')
+    end,
+  },
 
-  use({
+  {
     'ThePrimeagen/harpoon',
-    config = [[require('ai/_harpoon')]],
-  })
+    config = function()
+      require('ai/_harpoon')
+    end,
+  },
 
-  -- Focused editing
-  use({
+  -- Focediting
+  {
     'folke/zen-mode.nvim',
     config = function()
       require('zen-mode').setup({})
     end,
-  })
+  },
 
   -- Dim inactive regions of code, plays well with zen-mode
-  use({
+  {
     'folke/twilight.nvim',
-  })
+  },
 
-  use({
+  {
     'numToStr/Comment.nvim',
-    config = [[require('ai/_comment')]],
-  })
+    config = function()
+      require('ai/_comment')
+    end,
+  },
 
   -- Copilot
-  use({
+  {
     'zbirenbaum/copilot.lua',
     event = 'VimEnter',
-    config = [[require('ai/_copilot')]],
-  })
+    config = function()
+      require('ai/_copilot')
+    end,
+  },
 
-  use({
+  {
     'zbirenbaum/copilot-cmp',
     after = { 'copilot.lua' },
-  })
+  },
 
   -- UI
-  use({
+  {
     'catppuccin/nvim',
     as = 'catppuccin',
     config = function()
       require('ai/theme').init()
     end,
-  })
+  },
 
-  -- Disabled for now -- not using
-  -- use({
-  --   'laytan/cloak.nvim',
-  --   config = [[ require('ai/_cloak') ]],
-  -- })
+  { 'pantharshit00/vim-prisma', ft = 'prisma' },
 
-  use({
-    'pantharshit00/vim-prisma',
-  })
-
-  use({
+  {
     'folke/trouble.nvim',
     config = function()
       require('ai/_trouble').init()
     end,
-  })
+  },
 
-  use('nvim-treesitter/playground')
+  'nvim-treesitter/playground',
 
-  use({
+  -- Screenshot tool
+  {
     'krivahtoo/silicon.nvim',
-    run = './install.sh',
+    build = './install.sh',
+    cmd = 'Silicon',
     config = function()
       require('ai/_silicon')
     end,
-  })
+  },
 
-  use({
+  -- Test runner (mostly used for Rust right now
+  {
     'nvim-neotest/neotest',
-    requires = {
+    dependencies = {
       'nvim-lua/plenary.nvim',
       'nvim-neotest/neotest-go',
       'rouge8/neotest-rust',
@@ -292,10 +291,37 @@ local function init_packer(use)
     config = function()
       require('ai/_neotest').init()
     end,
-  })
+  },
 
-  use('wuelnerdotexe/vim-astro')
+  -- Astro syntax
+  { 'wuelnerdotexe/vim-astro', ft = 'astro' },
+
+  -- Start screen
+  'mhinz/vim-startify',
+  -- Automatically set current directory (project) when loading file
+  'paroxayte/autocd.vim',
+
+  -- Surround
+  'tpope/vim-surround',
+
+  -- Git gutter signs
+  {
+    'lewis6991/gitsigns.nvim',
+    config = function()
+      require('gitsigns').setup()
+    end,
+  },
+}
+
+-- Github integration
+if vim.fn.executable('gh') == 1 then
+  table.insert(packages, {
+    'pwntester/octo.nvim',
+    cmd = 'Octo',
+    config = function()
+      require('ai/_octo')
+    end,
+  })
 end
 
---- startup and add configure plugins
-packer.startup(init_packer)
+require('lazy').setup(packages, {})
