@@ -258,9 +258,7 @@ local packages = {
     end,
   },
 
-  {
-    'pantharshit00/vim-prisma',
-  },
+  { 'pantharshit00/vim-prisma' },
 
   {
     'folke/trouble.nvim',
@@ -271,14 +269,17 @@ local packages = {
 
   'nvim-treesitter/playground',
 
+  -- Screenshot tool
   {
     'krivahtoo/silicon.nvim',
     build = './install.sh',
+    cmd = 'Silicon',
     config = function()
       require('ai/_silicon')
     end,
   },
 
+  -- Test runner (mostly used for Rust right now
   {
     'nvim-neotest/neotest',
     dependencies = {
@@ -292,8 +293,23 @@ local packages = {
     end,
   },
 
+  -- Astro syntax
   'wuelnerdotexe/vim-astro',
+  -- Start screen
   'mhinz/vim-startify',
+  -- Automatically set current directory (project) when loading file
+  'paroxayte/autocd.vim',
+
+  -- Surround
+  'tpope/vim-surround',
+
+  -- Git gutter signs
+  {
+    'lewis6991/gitsigns.nvim',
+    config = function()
+      require('gitsigns').setup()
+    end,
+  },
 }
 
 -- Github integration

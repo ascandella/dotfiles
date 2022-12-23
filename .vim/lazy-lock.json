@@ -1,5 +1,6 @@
 {
   "Comment.nvim": { "branch": "master", "commit": "5f01c1a89adafc52bf34e3bf690f80d9d726715d" },
+  "autocd.vim": { "branch": "master", "commit": "515b91712c51436bfe27bf5d92299c1fe0bc1f7b" },
   "cmp-buffer": { "branch": "main", "commit": "3022dbc9166796b644a841a02de8dd1cc1d311fa" },
   "cmp-calc": { "branch": "main", "commit": "50792f34a628ea6eb31d2c90e8df174671e4e7a0" },
   "cmp-emoji": { "branch": "main", "commit": "19075c36d5820253d32e2478b6aaf3734aeaafa0" },
@@ -17,6 +18,7 @@
   "fidget.nvim": { "branch": "main", "commit": "44585a0c0085765195e6961c15529ba6c5a2a13b" },
   "friendly-snippets": { "branch": "main", "commit": "1a6a02350568d6830bcfa167c72f9b6e75e454ae" },
   "galaxyline.nvim": { "branch": "main", "commit": "4d4f5fc8e20a10824117e5beea7ec6e445466a8f" },
+  "gitsigns.nvim": { "branch": "main", "commit": "2ab3bdf0a40bab53033048c6be75bda86316b55d" },
   "harpoon": { "branch": "master", "commit": "21d0d1bfa3000e4384740bfaefa0ebc51c773786" },
   "lazy.nvim": { "branch": "main", "commit": "aec3baa555a6833b4447c9768bf5dd1f8b1cba12" },
   "lsp-inlayhints.nvim": { "branch": "main", "commit": "a28c51a6362e3faa17f67749436cb5c8b55dcc6d" },
@@ -60,6 +62,7 @@
   "vim-matchup": { "branch": "master", "commit": "db5120dd9887c988de7cd973ddb951e465d413e5" },
   "vim-prisma": { "branch": "master", "commit": "e91ac5011232e1bd8ea53204db8d01203d5d0f3c" },
   "vim-startify": { "branch": "master", "commit": "81e36c352a8deea54df5ec1e2f4348685569bed2" },
+  "vim-surround": { "branch": "master", "commit": "3d188ed2113431cf8dac77be61b842acb64433d9" },
   "vim-vsnip": { "branch": "master", "commit": "8dde8c0ef10bb1afdbb301e2bd7eb1c153dd558e" },
   "which-key.nvim": { "branch": "main", "commit": "61553aeb3d5ca8c11eea8be6eadf478062982ac9" },
   "zen-mode.nvim": { "branch": "main", "commit": "6f5702db4fd4a4c9a212f8de3b7b982f3d93b03c" }
