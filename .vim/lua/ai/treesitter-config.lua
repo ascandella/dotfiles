@@ -9,6 +9,7 @@ ts.setup({
     'graphql',
     'hcl',
     'heex',
+    'help',
     'javascript',
     'json',
     'lua',
@@ -20,6 +21,7 @@ ts.setup({
     'toml',
     'tsx',
     'typescript',
+    'vim',
     'yaml',
   },
   incremental_selection = {
