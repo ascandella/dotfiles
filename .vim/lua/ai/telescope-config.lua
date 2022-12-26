@@ -93,7 +93,7 @@ M.grep_string_hidden = function()
 end
 
 M.frecency = function()
-  require('telescope').extensions.frecency.frecency(lower_ivy())
+  require('telescope').extensions.frecency.frecency(lower_ivy({ previewer = false }))
 end
 
 M.buffers = function()

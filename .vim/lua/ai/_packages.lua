@@ -304,6 +304,9 @@ local packages = {
   -- Surround
   'tpope/vim-surround',
 
+  -- Toggle quickfix list
+  'Valloric/ListToggle',
+
   -- Git gutter signs
   {
     'lewis6991/gitsigns.nvim',
