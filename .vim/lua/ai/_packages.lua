@@ -319,6 +319,8 @@ local packages = {
       require('gitsigns').setup()
     end,
   },
+
+  'axelf4/vim-strip-trailing-whitespace',
 }
 
 -- Github integration

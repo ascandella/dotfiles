@@ -32,6 +32,16 @@ vim.g.netrw_liststyle = 0
 vim.g.netrw_banner = 0
 vim.o.sw = 2
 
+vim.o.foldcolumn = 'auto'
+
+vim.cmd([[
+  augroup SaveFolds
+    autocmd!
+    au BufWinLeave *.* mkview 1
+    au BufWinEnter *.* silent! loadview 1
+  augroup END
+]])
+
 vim.api.nvim_command([[
   match ExtraWhitespace /\s\+$\| \+\ze\t/
   highlight ExtraWhitespace ctermbg=red guibg=red
@@ -43,14 +53,14 @@ vim.api.nvim_command([[
 ]])
 
 vim.cmd([[
-augroup gitcommit-mapping
-  autocmd!
-  " Enter append on the first line
-  autocmd FileType gitcommit execute "normal! 0" | startinsert
-  autocmd FileType gitcommit setlocal textwidth=72 fo+=t
+  augroup gitcommit-mapping
+    autocmd!
+    " Enter append on the first line
+    autocmd FileType gitcommit execute "normal! 0" | startinsert
+    autocmd FileType gitcommit setlocal textwidth=72 fo+=t
 
-  " Same, but for neogit
-  autocmd FileType NeogitCommitMessage execute "normal! 0" | startinsert
-  autocmd FileType NeogitCommitMessage setlocal textwidth=72 fo+=t
-augroup END
+    " Same, but for neogit
+    autocmd FileType NeogitCommitMessage execute "normal! 0" | startinsert
+    autocmd FileType NeogitCommitMessage setlocal textwidth=72 fo+=t
+  augroup END
 ]])
