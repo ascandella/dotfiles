@@ -1,7 +1,0 @@
-{
-  "coc.preferences.diagnostic.displayByAle": true,
-  "python.linting.pylintEnabled": true,
-  "python.linting.enabled": true,
-  "python.autoComplete.showAdvancedMembers": false,
-  "python.formatting.provider": "black"
-}

@@ -297,7 +297,12 @@ local packages = {
   { 'wuelnerdotexe/vim-astro', ft = 'astro' },
 
   -- Start screen
-  'mhinz/vim-startify',
+  {
+    'mhinz/vim-startify',
+    config = function()
+      require('ai/startify')
+    end,
+  },
   -- Automatically set current directory (project) when loading file
   'paroxayte/autocd.vim',
 

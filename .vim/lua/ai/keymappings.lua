@@ -74,6 +74,38 @@ vim.keymap.set(
   { silent = true, desc = 'Toggle diagnostic style' }
 )
 
+-- Write
+vim.keymap.set('n', '<Leader>w', '<cmd>w<cr>', { silent = true })
+
+-- Dvorak motions
+vim.keymap.set('n', 't', 'j', { silent = true })
+vim.keymap.set('n', 'n', 'k', { silent = true })
+vim.keymap.set('n', 's', 'l', { silent = true })
+
+-- Window movements
+--
+-- Previous
+vim.keymap.set('n', '<C-e>', '<C-w><C-p>', { silent = true })
+vim.keymap.set('n', '<A-e>', '<C-w><C-p>', { silent = true })
+-- End window movements
+
+vim.keymap.set('i', ',', ',<C-g>u')
+vim.keymap.set('i', '.', '.<C-g>u')
+
+vim.keymap.set('n', '<Leader>b', '<cmd>bd<cr>', { silent = true, desc = 'Delete buffer' })
+
+vim.keymap.set('n', '<Leader>yp', '<cmd>let @" = expand("%")<cr>', { silent = true, desc = 'Yank path' })
+
+vim.keymap.set('n', '<Leader>p', '<cmd>set paste!<cr>', { silent = true, desc = 'Toggle paste mode' })
+
+vim.keymap.set('n', '<Leader>tc', '<cmd>tabclose<cr>', { silent = true, desc = 'Close tab' })
+vim.keymap.set(
+  'n',
+  '<Leader>rn',
+  '<cmd>:exec &nu==&rnu? "se rnu!" : "se nu!"<cr>',
+  { silent = true, desc = 'Cycle line numbers' }
+)
+
 local harpoon_jumpers = { '<C-h>', '<C-t>', '<C-n>', '<C-s>' }
 for index, mapping in ipairs(harpoon_jumpers) do
   vim.keymap.set('n', mapping, function()
