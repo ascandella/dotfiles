@@ -107,6 +107,7 @@ vim.keymap.set(
 )
 
 vim.cmd([[command! Cq cq]])
+vim.cmd([[command! W w]])
 
 local harpoon_jumpers = { '<C-h>', '<C-t>', '<C-n>', '<C-s>' }
 for index, mapping in ipairs(harpoon_jumpers) do
