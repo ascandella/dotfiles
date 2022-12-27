@@ -74,7 +74,7 @@ local filetype_attach = setmetatable({
   end,
 
   lua = function()
-    autocmd_format(true)
+    autocmd_format(false)
   end,
 
   terraform = function()
