@@ -18,7 +18,6 @@ M.toggle_lsp_formatting = function()
 end
 
 -- From: https://github.com/daliusd/cfg/blob/0e61894c689d736fa8c59ace8f149ecffb187cc4/.vimrc#L319-L332
---
 local function filter(arr, fn)
   if type(arr) ~= 'table' then
     return arr
@@ -58,12 +57,12 @@ local augroup_codelens = vim.api.nvim_create_augroup('custom-lsp-codelens', { cl
 
 local has_inlayhints, inlayhints = pcall(require, 'lsp-inlayhints')
 
-local autocmd_format = function(async, filter)
+local autocmd_format = function(async, the_filter)
   vim.api.nvim_clear_autocmds({ buffer = 0, group = augroup_format })
   vim.api.nvim_create_autocmd('BufWritePre', {
     buffer = 0,
     callback = function()
-      M.maybe_lsp_format({ async = async, filter = filter })
+      M.maybe_lsp_format({ async = async, filter = the_filter })
     end,
   })
 end
@@ -129,20 +128,6 @@ local filetype_attach = setmetatable({
 -- LuaFormatter off
 M.on_attach = function(client, bufnr)
   local buf_map = vim.api.nvim_buf_set_keymap
-  vim.cmd('command! LspDef lua require("ai/lsp-shared").lsp_definition()')
-  vim.cmd("command! LspFormatting lua require('ai/lsp-shared').maybe_lsp_format()")
-  vim.cmd("command! LspToggleFormatting lua require('ai/lsp-shared').toggle_lsp_formatting()")
-  vim.cmd('command! LspCodeAction lua vim.lsp.buf.code_action()')
-  vim.cmd('command! LspHover lua vim.lsp.buf.hover()')
-  vim.cmd('command! LspRename lua vim.lsp.buf.rename()')
-  vim.cmd('command! LspOrganize lua lsp_organize_imports()')
-  vim.cmd('command! LspRefs lua vim.lsp.buf.references()')
-  vim.cmd('command! LspTypeDef lua vim.lsp.buf.type_definition()')
-  vim.cmd('command! LspImplementation lua vim.lsp.buf.implementation()')
-  vim.cmd('command! LspDiagPrev lua vim.diagnostic.goto_prev()')
-  vim.cmd('command! LspDiagNext lua vim.diagnostic.goto_next()')
-  vim.cmd('command! LspDiagLine lua vim.diagnostic.open_float()')
-  vim.cmd('command! LspSignatureHelp lua vim.lsp.buf.signature_help()')
 
   buf_map(bufnr, 'n', '<C-c><C-j>', ':LspDef<CR>', { silent = true })
   buf_map(bufnr, 'n', 'gd', ':Lspsaga peek_definition<CR>', { silent = true })
@@ -231,5 +216,20 @@ if has_inlayhints then
     },
   })
 end
+
+vim.cmd('command! LspDef lua require("ai/lsp-shared").lsp_definition()')
+vim.cmd("command! LspFormatting lua require('ai/lsp-shared').maybe_lsp_format()")
+vim.cmd("command! LspToggleFormatting lua require('ai/lsp-shared').toggle_lsp_formatting()")
+vim.cmd('command! LspCodeAction lua vim.lsp.buf.code_action()')
+vim.cmd('command! LspHover lua vim.lsp.buf.hover()')
+vim.cmd('command! LspRename lua vim.lsp.buf.rename()')
+vim.cmd('command! LspOrganize lua lsp_organize_imports()')
+vim.cmd('command! LspRefs lua vim.lsp.buf.references()')
+vim.cmd('command! LspTypeDef lua vim.lsp.buf.type_definition()')
+vim.cmd('command! LspImplementation lua vim.lsp.buf.implementation()')
+vim.cmd('command! LspDiagPrev lua vim.diagnostic.goto_prev()')
+vim.cmd('command! LspDiagNext lua vim.diagnostic.goto_next()')
+vim.cmd('command! LspDiagLine lua vim.diagnostic.open_float()')
+vim.cmd('command! LspSignatureHelp lua vim.lsp.buf.signature_help()')
 
 return M
