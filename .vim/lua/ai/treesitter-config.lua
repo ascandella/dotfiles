@@ -1,4 +1,5 @@
 local ts = require('nvim-treesitter.configs')
+
 ts.setup({
   ensure_installed = {
     'bash',
@@ -25,6 +26,7 @@ ts.setup({
     'vim',
     'yaml',
   },
+
   incremental_selection = {
     enable = true,
     keymaps = {
@@ -34,6 +36,7 @@ ts.setup({
       node_decremental = '<leader>sd',
     },
   },
+
   highlight = {
     enable = true,
     disable = {
@@ -41,6 +44,7 @@ ts.setup({
       'elixir',
     },
   },
+
   indent = {
     enable = true,
     disable = {
@@ -49,10 +53,12 @@ ts.setup({
       'python',
     },
   },
+
   autotag = {
     enable = true,
     filetypes = { 'html', 'typescriptreact', 'javascriptreact' },
   },
+
   rainbow = {
     enable = true,
     extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
