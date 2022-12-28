@@ -1,11 +1,12 @@
 local telescope_commands = require('ai/telescope-config')
 
 vim.keymap.set('n', '-', '<cmd>Explore<cr>', { silent = true })
-vim.keymap.set('n', '<Leader>,', telescope_commands.project_files, { silent = true })
+vim.keymap.set('n', '<Leader>,', telescope_commands.project_files, { silent = true, desc = 'Project files' })
 
-vim.keymap.set('n', '<Leader>h', telescope_commands.frecency, { silent = true })
-vim.keymap.set('n', '<Leader>ff', telescope_commands.oldfiles, { silent = true })
-vim.keymap.set('n', '<Leader>fo', telescope_commands.livegrep_open_files, { silent = true })
+vim.keymap.set('n', '<Leader>h', telescope_commands.frecency, { silent = true, desc = 'Recent files' })
+vim.keymap.set('n', '<Leader>ff', telescope_commands.oldfiles, { silent = true, desc = 'Old files' })
+vim.keymap.set('n', '<Leader>fo', telescope_commands.livegrep_open_files, { silent = true, desc = 'Grep open files' })
+vim.keymap.set('n', '<Leader>fp', telescope_commands.projects, { silent = true, desc = 'Projects' })
 
 vim.keymap.set('n', '<Leader>n', telescope_commands.buffers, { silent = true })
 vim.keymap.set('n', '<Leader>gf', require('telescope.builtin').git_status, { silent = true, desc = 'Git files' })

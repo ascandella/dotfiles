@@ -72,6 +72,7 @@ telescope.setup({
 
 telescope.load_extension('frecency')
 telescope.load_extension('fzf')
+telescope.load_extension('projects')
 
 local lower_ivy = function(opts)
   opts = opts or {}
@@ -80,6 +81,10 @@ end
 
 M.livegrep_project = function()
   require('telescope.builtin').live_grep(lower_ivy())
+end
+
+M.projects = function()
+  require('telescope').extensions.projects.projects(lower_ivy({}))
 end
 
 M.livegrep_open_files = function()
