@@ -81,10 +81,9 @@ local packages = {
 
   -- New status line
   {
-    'NTBBloodbath/galaxyline.nvim',
-    dependencies = { 'nvim-lua/lsp-status.nvim' },
+    'windwp/windline.nvim',
     config = function()
-      require('galaxyline.themes.eviline')
+      require('ai/windline').setup()
     end,
   },
 
@@ -321,6 +320,13 @@ local packages = {
   },
 
   'axelf4/vim-strip-trailing-whitespace',
+
+  {
+    'sunjon/Shade.nvim',
+    config = function()
+      require('ai/shade')
+    end,
+  },
 }
 
 -- Github integration
