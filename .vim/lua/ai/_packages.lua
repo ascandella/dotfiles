@@ -326,6 +326,7 @@ local packages = {
 
   'axelf4/vim-strip-trailing-whitespace',
 
+  -- Auto-balance splits
   {
     'beauwilliams/focus.nvim',
     config = function()
