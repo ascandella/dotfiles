@@ -303,7 +303,12 @@ local packages = {
     end,
   },
   -- Automatically set current directory (project) when loading file
-  'paroxayte/autocd.vim',
+  {
+    'ahmedkhalf/project.nvim',
+    config = function()
+      require('ai/project')
+    end,
+  },
 
   -- Surround
   'tpope/vim-surround',
