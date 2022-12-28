@@ -49,13 +49,6 @@ vim.cmd([[
 ]])
 
 vim.api.nvim_command([[
-  autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
-  match ExtraWhitespace /\s\+$/
-  autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-  autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-  autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-  autocmd BufWinLeave * call clearmatches()
-
   " Disable syntax for large files
   autocmd BufWinEnter * if line2byte(line("$") + 1) > 1000000 | syntax clear | endif
 ]])
