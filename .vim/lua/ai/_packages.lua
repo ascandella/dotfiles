@@ -320,6 +320,13 @@ local packages = {
   },
 
   'axelf4/vim-strip-trailing-whitespace',
+
+  {
+    'beauwilliams/focus.nvim',
+    config = function()
+      require('ai/focus')
+    end,
+  },
 }
 
 -- Github integration
