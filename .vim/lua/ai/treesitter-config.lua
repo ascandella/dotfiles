@@ -22,7 +22,6 @@ ts.setup({
     'toml',
     'tsx',
     'typescript',
-    'tsx',
     'vim',
     'yaml',
   },
