@@ -207,6 +207,7 @@ local packages = {
     end,
   },
 
+  -- TOKIOOOOO
   {
     'ThePrimeagen/harpoon',
     config = function()
@@ -214,7 +215,7 @@ local packages = {
     end,
   },
 
-  -- Focediting
+  -- Focused editing
   {
     'folke/zen-mode.nvim',
     config = function()
@@ -223,9 +224,7 @@ local packages = {
   },
 
   -- Dim inactive regions of code, plays well with zen-mode
-  {
-    'folke/twilight.nvim',
-  },
+  { 'folke/twilight.nvim' },
 
   {
     'numToStr/Comment.nvim',
@@ -302,6 +301,7 @@ local packages = {
       require('ai/startify')
     end,
   },
+
   -- Automatically set current directory (project) when loading file
   {
     'ahmedkhalf/project.nvim',
