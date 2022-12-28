@@ -3,7 +3,6 @@
 local wk = require('which-key')
 
 local registrations = {
-  b = 'Close buffer',
   h = 'Telescope Frecency',
   f = {
     name = '+Telescope',
@@ -30,21 +29,14 @@ local registrations = {
     ['['] = 'Prev Diagnostic',
   },
   n = 'Telescope buffers',
-  a = 'Swap With Next Parameter',
-  A = 'Swap With Prev Parameter',
   w = 'Write',
-  S = 'Search and replace',
   s = {
     s = 'Sort paragraph',
     w = 'Search and replace word under cursor',
   },
   t = {
     name = '+Toggle',
-    n = 'Quickfix',
-    l = 'Location List',
-    s = 'Toggle trailing whitespace cleanup hook',
   },
-  u = 'Toggle undo tree',
   y = {
     name = '+Yank',
     p = 'Current buffer',

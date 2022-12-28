@@ -37,7 +37,7 @@ vim.keymap.set('n', '<Leader>gc', require('ai/_neogit').open_pr, { silent = true
 
 -- Undo Tree
 vim.keymap.set('n', '<F1>', '<cmd>UndotreeToggle<cr>', { silent = true })
-vim.keymap.set('n', '<Leader>u', '<cmd>UndotreeToggle<cr>', { silent = true })
+vim.keymap.set('n', '<Leader>u', '<cmd>UndotreeToggle<cr>', { silent = true, desc = 'Toggle undo tree' })
 
 -- Commenting (most done by plugin in ai/_comment.lua)
 vim.keymap.set('x', '<Leader>-', 'gcc', { remap = true })
@@ -53,6 +53,9 @@ vim.keymap.set('n', '<Leader>m', require('harpoon.mark').add_file, { silent = tr
 -- Zen Mode
 vim.keymap.set('n', '<F2>', '<cmd>ZenMode<cr>', { silent = true, desc = 'Zen mode' })
 vim.keymap.set('n', '<Leader>tz', '<cmd>ZenMode<cr>', { silent = true, desc = 'Zen mode' })
+
+vim.keymap.set('n', '<Leader>tn', '<cmd>QToggle<cr>', { desc = 'Quickfix toggle' })
+vim.keymap.set('n', '<Leader>tl', '<cmd>LToggle<cr>', { desc = 'Location list toggle' })
 
 vim.keymap.set('x', 'k', ':m -2<cr>gv=gv', { desc = 'Move lines up' })
 vim.keymap.set('x', 'j', ":m'>+<cr>gv=gv", { desc = 'Move lines down' })
