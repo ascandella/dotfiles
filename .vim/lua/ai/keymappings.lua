@@ -84,6 +84,9 @@ vim.keymap.set('n', '<Leader>w', '<cmd>w<cr>', { silent = true })
 vim.keymap.set('n', 't', 'j', { silent = true })
 vim.keymap.set('n', 'n', 'k', { silent = true })
 vim.keymap.set('n', 's', 'l', { silent = true })
+-- Search
+vim.keymap.set('n', 'l', 'nzzzv', { silent = true })
+vim.keymap.set('n', 'L', 'Nzzzv', { silent = true })
 
 -- Window movements
 --
