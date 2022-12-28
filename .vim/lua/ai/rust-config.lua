@@ -29,6 +29,9 @@ rt.setup({
   },
 
   tools = {
+    on_initialized = function()
+      require('inlay-hints').set_all()
+    end,
     hover_actions = {
       auto_focus = true,
     },
