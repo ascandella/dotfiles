@@ -320,13 +320,6 @@ local packages = {
   },
 
   'axelf4/vim-strip-trailing-whitespace',
-
-  {
-    'sunjon/Shade.nvim',
-    config = function()
-      require('ai/shade')
-    end,
-  },
 }
 
 -- Github integration
