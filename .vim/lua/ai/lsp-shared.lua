@@ -17,6 +17,15 @@ M.toggle_lsp_formatting = function()
   end
 end
 
+local function toggle_inlayhints()
+  vim.b.inlayhints_disabled = not vim.b.inlayhints_disabled
+  if vim.b.inlayhints_disabled then
+    require('inlay-hints').unset()
+  else
+    require('inlay-hints').set()
+  end
+end
+
 -- From: https://github.com/daliusd/cfg/blob/0e61894c689d736fa8c59ace8f149ecffb187cc4/.vimrc#L319-L332
 local function filter(arr, fn)
   if type(arr) ~= 'table' then
@@ -55,7 +64,7 @@ end
 local augroup_format = vim.api.nvim_create_augroup('custom-lsp-format', { clear = true })
 local augroup_codelens = vim.api.nvim_create_augroup('custom-lsp-codelens', { clear = true })
 
-local has_inlayhints, inlayhints = pcall(require, 'lsp-inlayhints')
+local has_inlayhints, inlayhints = pcall(require, 'inlay-hints')
 
 local autocmd_format = function(async, the_filter)
   vim.api.nvim_clear_autocmds({ buffer = 0, group = augroup_format })
@@ -144,6 +153,10 @@ M.on_attach = function(client, bufnr)
   buf_map(bufnr, 'i', '<C-x><C-x>', '<cmd> LspSignatureHelp<CR>', { silent = true })
   buf_map(bufnr, 'n', '<Leader>tf', ':LspToggleFormatting<CR>', { silent = true })
 
+  if has_inlayhints then
+    vim.keymap.set('n', '<Leader>ti', toggle_inlayhints, { silent = true, desc = 'Toggle inlay hints', buffer = bufnr })
+  end
+
   -- Disabled because this stopped working in neovim 0.5.1
   if client.server_capabilities.colorProvider then
     require('ai/lsp-documentcolors').buf_attach(bufnr, { single_column = true })
@@ -208,10 +221,34 @@ vim.lsp.handlers['window/showMessage'] = require('ai.lsp.show_message')
 
 if has_inlayhints then
   inlayhints.setup({
-    inlay_hints = {
-      type_hints = {
-        prefix = '<- ',
-        remove_colon_start = true,
+    -- Default of `dynamic` puts hints in weird places for Rust. Put them all at
+    -- EOL.
+    renderer = 'inlay-hints/render/eol',
+    hints = {
+      parameter = {
+        show = true,
+        -- Make these stand out / blend in from type inlay hints, especially for
+        -- Rust
+        highlight = 'Comment',
+      },
+      type = {
+        show = true,
+        highlight = 'LspInlayHint',
+      },
+    },
+    eol = {
+      parameter = {
+        separator = ', ',
+        format = function(hints)
+          return string.format(' <- (%s) ', hints)
+        end,
+      },
+
+      type = {
+        separator = ', ',
+        format = function(hints)
+          return string.format(' » %s ', hints:gsub('^:', ''))
+        end,
       },
     },
   })

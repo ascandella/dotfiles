@@ -149,7 +149,7 @@ local packages = {
       -- Extensible linters/formatters
       'glepnir/lspsaga.nvim',
       'mattn/efm-langserver',
-      'lvimuser/lsp-inlayhints.nvim',
+      'simrat39/inlay-hints.nvim',
       { url = 'https://git.sr.ht/~whynothugo/lsp_lines.nvim' },
       'j-hui/fidget.nvim',
     },
@@ -320,7 +320,7 @@ local packages = {
   {
     'lewis6991/gitsigns.nvim',
     config = function()
-      require('gitsigns').setup()
+      require('ai/gitsigns').setup()
     end,
   },
 
