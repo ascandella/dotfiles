@@ -28,9 +28,9 @@ vim.keymap.set(
 )
 vim.keymap.set(
   'n',
-  '<Leader>fb',
+  '<Leader>fc',
   require('telescope.builtin').current_buffer_fuzzy_find,
-  { silent = true, desc = 'Current buffer fuzy' }
+  { silent = true, desc = 'Current buffer fuzzy' }
 )
 
 vim.keymap.set('n', '<Leader>gg', require('neogit').open, { silent = true, desc = 'Neogit' })
