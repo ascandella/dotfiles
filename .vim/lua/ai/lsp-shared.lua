@@ -164,22 +164,6 @@ M.on_attach = function(client, bufnr)
 
   local filetype = vim.api.nvim_buf_get_option(0, 'filetype')
 
-  if client.server_capabilities.codeLensProvider then
-    vim.api.nvim_clear_autocmds({ group = augroup_codelens, buffer = bufnr })
-    vim.api.nvim_create_autocmd('BufEnter', {
-      group = augroup_codelens,
-      buffer = bufnr,
-      callback = vim.lsp.codelens.refresh,
-      once = true,
-    })
-    vim.api.nvim_create_autocmd({ 'BufWritePost', 'CursorHold' }, {
-      group = augroup_codelens,
-      buffer = bufnr,
-      callback = vim.lsp.codelens.refresh,
-      once = true,
-    })
-  end
-
   if has_inlayhints then
     inlayhints.on_attach(client, bufnr)
   end
