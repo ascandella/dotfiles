@@ -37,8 +37,7 @@ vim.o.foldcolumn = 'auto'
 vim.o.relativenumber = true
 vim.o.number = true
 
--- Use the same status bar for all windows (requires nvim 0.8+)
-vim.o.laststatus = 3
+vim.o.laststatus = 2
 
 vim.cmd([[
   augroup SaveFolds
