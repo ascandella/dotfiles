@@ -30,13 +30,16 @@ vim.o.undodir = vim.fn.expand('$HOME/.vim/undo-nvim')
 
 vim.g.netrw_liststyle = 0
 vim.g.netrw_banner = 0
+
 vim.o.sw = 2
 
 vim.o.foldcolumn = 'auto'
 
+-- Relative and current line numbers both on
 vim.o.relativenumber = true
 vim.o.number = true
 
+-- Separate status bars per window
 vim.o.laststatus = 2
 
 vim.cmd([[
