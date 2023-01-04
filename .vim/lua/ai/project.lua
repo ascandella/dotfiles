@@ -1,6 +1,6 @@
 require('project_nvim').setup({
-  -- your configuration comes here
-  -- or leave it empty to use the default settings
-  -- refer to the configuration section below
-  patterns = { '.git', 'Cargo.lock', '.hg', '.bzr', '.svn', 'Makefile', 'package.json' },
+  -- Pattern before LSP-- better for monorepo
+  detection_methods = { 'pattern', 'lsp' },
+  -- Prefer git, then fall back to LSP
+  patterns = { '.git' },
 })
