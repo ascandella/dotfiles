@@ -1,7 +1,10 @@
 # This is for fzf from vim so that it will ignore stuff from .gitignore etc
 _shell="$(basename "${SHELL}")"
 _shell_setup="${HOME}/.fzf.${_shell}"
-[ -e "${_shell_setup}" ] && source "${_shell_setup}"
+
+if ! command -v atuin >/dev/null ; then
+  [ -e "${_shell_setup}" ] && source "${_shell_setup}"
+fi
 
 if command -v rg > /dev/null ; then
   FZF_DEFAULT_COMMAND='rg --files --hidden --follow'
