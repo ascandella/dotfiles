@@ -80,6 +80,10 @@ if _command_exists kubectl ; then
   alias k='kubectl'
   alias krp='kubectl get pods --field-selector=status.phase=Running'
   alias kc='kubectl config use-context'
+
+  ks () {
+    kubectl get secret -n "$1" "$2" -o=go-template="{{index .data \"$3\"}}" | base64 -d
+  }
 fi
 
 # shellcheck disable=SC2139
