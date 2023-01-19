@@ -78,7 +78,7 @@ end
 
 local filetype_attach = setmetatable({
   go = function()
-    autocmd_format(true)
+    autocmd_format(false)
   end,
 
   lua = function()
