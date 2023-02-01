@@ -1,8 +1,3 @@
-# Top-level only
-/Godeps/_workspace
-# Vendor, same deal
-/vendor/
-# Node?? I have no ihea what they're trying to accomplish
 node_modules/
 _build
 # Sucks when editing the .vim directory
@@ -12,7 +7,6 @@ git-extensions
 /.emacs.d
 /.fzf/
 .git
-/.zprezto/
 /idl
 env
 *.pyc
