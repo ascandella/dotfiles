@@ -91,6 +91,9 @@ vim.keymap.set('n', 'L', 'Nzzzv', { silent = true })
 -- Previous
 vim.keymap.set('n', '<C-e>', '<C-w><C-p>', { silent = true })
 vim.keymap.set('n', '<A-e>', '<C-w><C-p>', { silent = true })
+
+vim.keymap.set('n', '<A-right>', '<C-w>l', { silent = true })
+vim.keymap.set('n', '<A-left>', '<C-w>h', { silent = true })
 -- End window movements
 
 vim.keymap.set('i', ',', ',<C-g>u')
