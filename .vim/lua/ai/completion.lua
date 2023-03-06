@@ -190,13 +190,13 @@ cmp.setup({
   sources = {
     { name = 'copilot', group_index = 2 },
     { name = 'nvim_lsp', group_index = 2 },
+    { name = 'nvim_lsp_signature_help' },
     -- { name = 'cmp_tabnine', keyword_length = 4 },
     { name = 'nvim_lua' },
     { name = 'path' },
     { name = 'calc' },
     { name = 'emoji' },
     { name = 'buffer', keyword_length = 5 },
-    { name = 'nvim_lsp_signature_help' },
     -- { name = 'vsnip', priority = 9 },
   },
 })
