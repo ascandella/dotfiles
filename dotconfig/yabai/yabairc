@@ -20,3 +20,7 @@ yabai -m config mouse_action2 move
 yabai -m config window_opacity on
 yabai -m config active_window_opacity 1.0
 yabai -m config normal_window_opacity 0.9
+
+# Exclusions
+yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^zoom.us" manage=off
