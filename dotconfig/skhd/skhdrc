@@ -106,12 +106,13 @@ shift + alt - 0 : yabai -m space --balance
 
 # fast focus desktop
 cmd + alt - x : yabai -m space --focus recent
-cmd + shift - 1 : yabai -m space --focus 1
-cmd + shift - 2 : yabai -m space --focus 2
+cmd - 1 : yabai -m space --focus 1
+cmd - 2 : yabai -m space --focus 2
 
 # send window to desktop and follow focus
-# shift + cmd - z : yabai -m window --space next; yabai -m space --focus next
-# shift + cmd - 2 : yabai -m window --space  2; yabai -m space --focus 2
+shift + cmd - z : yabai -m window --space next; yabai -m space --focus next
+shift + cmd - 1 : yabai -m window --space  1; yabai -m space --focus 1
+shift + cmd - 2 : yabai -m window --space  2; yabai -m space --focus 2
 
 # focus monitor
 # ctrl + alt - z  : yabai -m display --focus prev
@@ -138,7 +139,7 @@ shift + alt - w : yabai -m window --resize top:0:-20
 
 # toggle window zoom
 # alt - d : yabai -m window --toggle zoom-parent
-# alt - f : yabai -m window --toggle zoom-fullscreen
+alt - f : yabai -m window --toggle zoom-fullscreen
 
 # toggle window split type
 alt - e : yabai -m window --toggle split
