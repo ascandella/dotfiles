@@ -24,3 +24,7 @@ yabai -m config normal_window_opacity 0.9
 # Exclusions
 yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^zoom.us" manage=off
+
+# refresh my Übersicht bar when the space changes
+yabai -m signal --add event=space_changed \
+    action="osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-index-jsx\"'"
