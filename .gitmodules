@@ -7,9 +7,9 @@
 [submodule ".tmux/plugins/tpm"]
 	path = .tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
-[submodule "to-install/osx/appsupport/ubersicht/widgets/Pecan"]
-	path = to-install/osx/appsupport/ubersicht/widgets/Pecan
-	url = https://github.com/zzzeyez/Pecan.git
 [submodule "ext/git-fuzzy"]
 	path = ext/git-fuzzy
 	url = https://github.com/bigH/git-fuzzy.git
+[submodule "to-install/osx/appsupport/ubersicht/widgets/simple-bar"]
+	path = to-install/osx/appsupport/ubersicht/widgets/simple-bar
+	url = https://github.com/Jean-Tinland/simple-bar
