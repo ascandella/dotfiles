@@ -333,6 +333,15 @@ local packages = {
       require('ai/focus')
     end,
   },
+
+  -- Highlight TODOs, search them with Telescope, and show them in Trouble
+  {
+    'folke/todo-comments.nvim',
+    requires = 'nvim-lua/plenary.nvim',
+    config = function()
+      require('ai/todo')
+    end,
+  },
 }
 
 -- Github integration
