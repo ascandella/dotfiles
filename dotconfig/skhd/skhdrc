@@ -142,6 +142,7 @@ shift + alt - 5 : yabai -m window --space  5; yabai -m space --focus 5
 shift + alt - a : yabai -m window --resize left:-30:0
 shift + alt - d : yabai -m window --resize left:30:0
 shift + alt - w : yabai -m window --resize top:0:-30
+# TODO this conflicts with swapping vertically
 shift + alt - s : yabai -m window --resize top:0:30
 
 # set insertion point in focused container
