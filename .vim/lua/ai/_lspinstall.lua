@@ -13,7 +13,7 @@ local servers = {
   'tflint',
   'tsserver',
   'pyright',
-  'sumneko_lua',
+  'lua_ls',
   'yamlls',
   'rust_analyzer',
 }

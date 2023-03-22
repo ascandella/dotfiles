@@ -7,4 +7,5 @@ zmodule Tarrasch/zsh-command-not-found
 zmodule zimfw/git-info
 zmodule zimfw/eriner
 zmodule zimfw/input
+zmodule zimfw/prompt-pwd
 zmodule zsh-users/zsh-syntax-highlighting

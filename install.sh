@@ -246,13 +246,6 @@ fi
 
 case "$(uname)" in
   Darwin)
-    OSX_FONTS="${HOME}/src/fonts"
-    if [[ ! -d "${OSX_FONTS}" ]] ; then
-      git clone "https://github.com/powerline/fonts.git" "${OSX_FONTS}"
-      pushd "${OSX_FONTS}"
-      ./install.sh
-      popd
-    fi
     _scanAndLink "to-install/osx"
     # No macOS binaries yet
     _scanAndLink "to-install/osx/bin" "*" ".local/bin/"
