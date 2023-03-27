@@ -100,7 +100,7 @@ local filetype_attach = setmetatable({
   end,
 
   typescript = function()
-    autocmd_format(false, function(client)
+    autocmd_format(true, function(client)
       return client.name ~= 'tsserver'
     end)
   end,
