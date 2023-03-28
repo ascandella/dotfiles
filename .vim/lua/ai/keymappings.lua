@@ -48,7 +48,7 @@ vim.keymap.set('x', '<Leader>_', 'gbc', { remap = true })
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { silent = true })
 
 -- Harpoon mappings
-vim.keymap.set('n', '<A-m>', function()
+vim.keymap.set('n', '<Leader>v', function()
   -- From: https://github.com/beauwilliams/focus.nvim/issues/64#issuecomment-1439991082
   require('focus').focus_disable()
   require('harpoon.ui').toggle_quick_menu()
