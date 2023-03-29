@@ -14,6 +14,8 @@ ts.setup({
     'javascript',
     'json',
     'lua',
+    'markdown',
+    'markdown_inline',
     'nix',
     'python',
     'ruby',
