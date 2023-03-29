@@ -342,6 +342,11 @@ local packages = {
       require('ai/todo')
     end,
   },
+
+  -- Async formatting
+  {
+    'lukas-reineke/lsp-format.nvim',
+  },
 }
 
 -- Github integration

@@ -62,58 +62,55 @@ M.lsp_definition = function()
 end
 
 local augroup_format = vim.api.nvim_create_augroup('custom-lsp-format', { clear = true })
-local augroup_codelens = vim.api.nvim_create_augroup('custom-lsp-codelens', { clear = true })
 
 local has_inlayhints, inlayhints = pcall(require, 'inlay-hints')
 
-local autocmd_format = function(async, the_filter)
-  vim.api.nvim_clear_autocmds({ buffer = 0, group = augroup_format })
-  vim.api.nvim_create_autocmd('BufWritePre', {
-    buffer = 0,
-    callback = function()
-      M.maybe_lsp_format({ async = async, filter = the_filter })
-    end,
-  })
+local lsp_format = require('lsp-format')
+
+lsp_format.setup({
+  exclude = 'tsserver',
+})
+
+local autocmd_format = function(client)
+  lsp_format.on_attach(client)
 end
 
 local filetype_attach = setmetatable({
-  go = function()
-    autocmd_format(false)
+  go = function(_, client)
+    autocmd_format(client)
   end,
 
-  lua = function()
-    autocmd_format(false)
+  lua = function(_, client)
+    autocmd_format(client)
   end,
 
-  terraform = function()
-    autocmd_format(true)
+  terraform = function(_, client)
+    autocmd_format(client)
   end,
 
-  elixir = function()
-    autocmd_format(true)
+  elixir = function(_, client)
+    autocmd_format(client)
   end,
 
-  rust = function()
+  rust = function(_, client)
     vim.api.nvim_exec([[set signcolumn=yes]], true)
 
-    autocmd_format(false)
+    autocmd_format(client)
   end,
 
-  typescript = function()
-    autocmd_format(true, function(client)
-      return client.name ~= 'tsserver'
-    end)
+  typescript = function(_, client)
+    autocmd_format(client)
   end,
 
-  javascript = function()
-    autocmd_format(false)
+  javascript = function(_, client)
+    autocmd_format(client)
   end,
 
-  json = function()
-    autocmd_format(false)
+  json = function(_, client)
+    autocmd_format(client)
   end,
 
-  typescriptreact = function(bufnr)
+  typescriptreact = function(bufnr, client)
     vim.api.nvim_buf_set_keymap(
       bufnr,
       'n',
@@ -124,9 +121,8 @@ local filetype_attach = setmetatable({
         silent = true,
       }
     )
-    autocmd_format(false, function(client)
-      return client.name ~= 'tsserver'
-    end)
+
+    autocmd_format(client)
   end,
 }, {
   __index = function()
