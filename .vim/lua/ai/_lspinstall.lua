@@ -93,7 +93,7 @@ lspconfig.elixirls.setup(make_config({
   filetypes = { 'elixir' },
 }))
 
-lspconfig.sumneko_lua.setup(make_config({
+lspconfig.lua_ls.setup(make_config({
   settings = require('ai/lua-ls').settings,
   on_attach = function(client, bufnr)
     on_attach(client, bufnr)

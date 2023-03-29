@@ -1,6 +1,6 @@
 local lspsaga = require('lspsaga')
 
-lspsaga.init_lsp_saga({
+lspsaga.setup({
   code_action_lightbulb = {
     enable = false,
   },
