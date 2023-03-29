@@ -348,6 +348,14 @@ local packages = {
   {
     'lukas-reineke/lsp-format.nvim',
   },
+
+  -- Git blame / browse
+  {
+    'tpope/vim-fugitive',
+    dependencies = {
+      'tpope/vim-rhubarb',
+    },
+  },
 }
 
 -- Github integration
