@@ -6,10 +6,12 @@ sudo yabai --load-sa
 yabai -m config layout bsp
 
 yabai -m config top_padding    15
-yabai -m config bottom_padding 45
+yabai -m config bottom_padding 15
 yabai -m config left_padding   15
 yabai -m config right_padding  15
 yabai -m config window_gap     15
+
+yabai -m config external_bar all:0:30
 
 yabai -m config mouse_modifier ctrl
 
