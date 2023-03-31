@@ -11,7 +11,7 @@ yabai -m config left_padding   15
 yabai -m config right_padding  15
 yabai -m config window_gap     15
 
-yabai -m config external_bar all:0:30
+yabai -m config external_bar all:38:0
 
 yabai -m config mouse_modifier ctrl
 
