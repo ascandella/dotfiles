@@ -1,3 +1,7 @@
 if which fnm > /dev/null ; then
-  eval "$(fnm env --use-on-cd)"
+  # Only if we're not already in an fnm-managed shell (prevents tmux from
+  # double-sourcing)
+  if [[ -z "${FNM_MULTISHELL_PATH:-}" ]] ; then
+    eval "$(fnm env --use-on-cd)"
+  fi
 fi

@@ -86,9 +86,9 @@ if _command_exists kubectl ; then
   }
 fi
 
-if _command_exists fnm ; then
-  NODEPATH="$(command -v node)"
-  alias nvim="PATH='$NODEPATH:$PATH' nvim"
+if _command_exists fnm && [[ -d "${HOMEBREW_PREFIX}" ]]; then
+  # Hack to avoid using fnm node in neovim
+  alias nvim="PATH='${HOMEBREW_PREFIX}/bin:$PATH' \nvim"
 fi
 
 # shellcheck disable=SC2139
