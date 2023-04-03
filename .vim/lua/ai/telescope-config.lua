@@ -30,10 +30,10 @@ telescope.setup({
     border = {},
     borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
     color_devicons = true,
-    set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
+    set_env = { ['COLORTERM'] = 'truecolor' }, -- default = nil,
     sorting_strategy = 'ascending',
-    selection_caret = "  ",
-    entry_prefix = "  ",
+    selection_caret = '  ',
+    entry_prefix = '  ',
     layout_strategy = 'horizontal',
     layout_config = {
       horizontal = {
@@ -48,6 +48,7 @@ telescope.setup({
       height = 0.80,
       preview_cutoff = 120,
     },
+    prompt_prefix = '  ',
     mappings = {
       i = {
         ['<C-s-v>'] = actions.select_vertical,
