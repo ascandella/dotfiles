@@ -51,6 +51,7 @@ telescope.setup({
     -- See: https://gitlab.com/dmease/nerd-font-dmenu/-/blob/master/nerdfont.map
     -- for list of nerd font icons
     prompt_prefix = '  ',
+    path_display = { 'truncate' },
     mappings = {
       i = {
         ['<C-s-v>'] = actions.select_vertical,
