@@ -48,6 +48,8 @@ telescope.setup({
       height = 0.80,
       preview_cutoff = 120,
     },
+    -- See: https://gitlab.com/dmease/nerd-font-dmenu/-/blob/master/nerdfont.map
+    -- for list of nerd font icons
     prompt_prefix = '  ',
     mappings = {
       i = {
