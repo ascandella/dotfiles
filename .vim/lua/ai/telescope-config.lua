@@ -30,7 +30,10 @@ telescope.setup({
     border = {},
     borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
     color_devicons = true,
+    set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
     sorting_strategy = 'ascending',
+    selection_caret = "  ",
+    entry_prefix = "  ",
     layout_strategy = 'horizontal',
     layout_config = {
       horizontal = {
