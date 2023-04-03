@@ -31,6 +31,17 @@ vim.o.undodir = vim.fn.expand('$HOME/.vim/undo-nvim')
 vim.g.netrw_liststyle = 0
 vim.g.netrw_banner = 0
 
+vim.cmd([[
+  function! NetrwMapping()
+    nmap <buffer> h -^
+  endfunction
+
+  augroup netrw_mapping
+    autocmd!
+    autocmd filetype netrw call NetrwMapping()
+  augroup END
+]])
+
 vim.o.sw = 2
 
 vim.o.foldcolumn = 'auto'
