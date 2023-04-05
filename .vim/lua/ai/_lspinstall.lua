@@ -147,3 +147,4 @@ lspconfig.gopls.setup(make_config({
 
 lspconfig.astro.setup(make_config())
 lspconfig.rnix.setup(make_config())
+lspconfig.pyright.setup(make_config())
