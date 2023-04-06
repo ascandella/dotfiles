@@ -29,8 +29,6 @@ alias t='tmux -u'
 
 alias grep='grep --color=auto'
 
-_aliasto vim vi
-_aliasto nvim vim
 _aliasto rg ag
 # Use Neovim nightly if installed
 if [ -x "$HOME/src/neovim/nvim.appimage" ] ; then
@@ -89,6 +87,11 @@ fi
 if _command_exists fnm && [[ -d "${HOMEBREW_PREFIX}" ]]; then
   # Hack to avoid using fnm node in neovim
   alias nvim="PATH='${HOMEBREW_PREFIX}/bin:$PATH' \nvim"
+  alias vim="PATH='${HOMEBREW_PREFIX}/bin:$PATH' \nvim"
+  alias vi="PATH='${HOMEBREW_PREFIX}/bin:$PATH' \nvim"
+else
+  _aliasto vim vi
+  _aliasto nvim vim
 fi
 
 # shellcheck disable=SC2139
