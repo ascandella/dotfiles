@@ -120,9 +120,9 @@ lspconfig.tsserver.setup(make_config({
     },
   },
   on_attach = function(client, bufnr)
-    on_attach(client, bufnr)
     -- Disable document formatting; allow efm/prettier to win
     client.server_capabilities.documentFormattingProvider = false
+    on_attach(client, bufnr)
     vim.api.nvim_exec([[set signcolumn=yes]], true)
   end,
 }))
