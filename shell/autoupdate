@@ -22,7 +22,7 @@ _update() {
     set +e
     popd
     return 0
-  elif [[ -z "$(git log HEAD..origin/master)" ]] ; then
+  elif [[ -z "$(git log HEAD..origin/main)" ]] ; then
     echo -e "${GRAY_BG}Already up-to-date, skipping install${RESET}"
     set +e
   else
