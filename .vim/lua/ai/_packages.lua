@@ -57,7 +57,7 @@ local packages = {
       -- Autoclose HTML/TSX tags
       'windwp/nvim-ts-autotag',
       -- rainbow pairs
-      'p00f/nvim-ts-rainbow',
+      'mrjones2014/nvim-ts-rainbow',
     },
     run = ':TSUpdate',
     config = function()
