@@ -1,5 +1,9 @@
 local ts = require('nvim-treesitter.configs')
 
+local function ts_disable(_, bufnr)
+  return vim.api.nvim_buf_line_count(bufnr) > 5000
+end
+
 ts.setup({
   ensure_installed = {
     'bash',
@@ -10,7 +14,6 @@ ts.setup({
     'graphql',
     'hcl',
     'heex',
-    'help',
     'javascript',
     'json',
     'lua',
@@ -40,10 +43,9 @@ ts.setup({
 
   highlight = {
     enable = true,
-    disable = {
-      -- These are all too slow to be usable
-      'elixir',
-    },
+    disable = function(lang, bufnr)
+      return lang == 'elixir' or ts_disable(lang, bufnr)
+    end,
   },
 
   indent = {

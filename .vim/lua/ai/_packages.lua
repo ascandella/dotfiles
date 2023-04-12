@@ -369,4 +369,8 @@ if vim.fn.executable('gh') == 1 then
   })
 end
 
-require('lazy').setup(packages, {})
+require('lazy').setup(packages, {
+  defaults = {
+    version = nil,
+  },
+})
