@@ -142,12 +142,7 @@ M.on_attach = function(client, bufnr)
   buf_map(bufnr, 'n', '<Leader>tf', ':LspToggleFormatting<CR>', { silent = true })
 
   if has_inlayhints then
-    vim.keymap.set(
-      'n',
-      '<Leader>ti',
-      inlayhints.toggle(),
-      { silent = true, desc = 'Toggle inlay hints', buffer = bufnr }
-    )
+    vim.keymap.set('n', '<Leader>ti', inlayhints.toggle, { silent = true, desc = 'Toggle inlay hints', buffer = bufnr })
   end
 
   -- Disabled because this stopped working in neovim 0.5.1
