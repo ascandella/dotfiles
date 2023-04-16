@@ -114,11 +114,15 @@ cmp.setup({
   },
   mapping = {
     ['<C-e>'] = cmp.mapping.abort(),
-    ['<CR>'] = cmp.mapping.confirm({
-      -- For Copilot
-      behavior = cmp.ConfirmBehavior.Replace,
-      -- Only when explicitly selected
-      select = false,
+    ['<CR>'] = cmp.mapping({
+      i = cmp.mapping.confirm({
+        -- For Copilot
+        behavior = cmp.ConfirmBehavior.Replace,
+        -- Only when explicitly selected
+        select = false,
+      }),
+      s = cmp.mapping.confirm({ select = true }),
+      c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false }),
     }),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-j>'] = cmp.mapping.complete({
@@ -159,6 +163,7 @@ cmp.setup({
     end, {
       'i',
       's',
+      'c',
     }),
     ['<C-n>'] = cmp.mapping({
       c = function()
@@ -209,12 +214,22 @@ cmp.setup({
 
 -- Use buffer source for `/`.
 cmp.setup.cmdline('/', {
+  -- Wildmenu to be less intrusive
   view = {
     entries = { name = 'wildmenu', separator = '|' },
   },
   sources = {
     { name = 'buffer' },
   },
+})
+
+-- Use cmdline & path source for ':'.
+cmp.setup.cmdline(':', {
+  sources = cmp.config.sources({
+    { name = 'path' },
+  }, {
+    { name = 'cmdline' },
+  }),
 })
 
 -- Copilot integration
