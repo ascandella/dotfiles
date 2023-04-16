@@ -162,7 +162,6 @@ cmp.setup({
     end, {
       'i',
       's',
-      'c',
     }),
     ['<C-n>'] = cmp.mapping({
       c = function()
