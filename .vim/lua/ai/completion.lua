@@ -204,6 +204,9 @@ cmp.setup({
 
 -- Use buffer source for `/`.
 cmp.setup.cmdline('/', {
+  view = {
+    entries = { name = 'wildmenu', separator = '|' },
+  },
   sources = {
     { name = 'buffer' },
   },
