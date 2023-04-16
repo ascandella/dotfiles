@@ -149,7 +149,6 @@ cmp.setup({
         -- Tab selects and confirms if nothing is selected
         if not entry then
           cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-          cmp.confirm()
         elseif has_words_before() then
           cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
         else
