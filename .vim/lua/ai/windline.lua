@@ -1,5 +1,5 @@
 local function setup()
-  require('wlsample.evil_line')
+  require('wlsample.bubble2')
 end
 
 return {
