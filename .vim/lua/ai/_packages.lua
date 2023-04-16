@@ -150,7 +150,7 @@ local packages = {
       -- Extensible linters/formatters
       'glepnir/lspsaga.nvim',
       'mattn/efm-langserver',
-      'simrat39/inlay-hints.nvim',
+      'lvimuser/lsp-inlayhints.nvim',
       { url = 'https://git.sr.ht/~whynothugo/lsp_lines.nvim' },
       'j-hui/fidget.nvim',
     },

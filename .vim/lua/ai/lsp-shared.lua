@@ -17,15 +17,6 @@ M.toggle_lsp_formatting = function()
   end
 end
 
-local function toggle_inlayhints()
-  vim.b.inlayhints_disabled = not vim.b.inlayhints_disabled
-  if vim.b.inlayhints_disabled then
-    require('inlay-hints').unset()
-  else
-    require('inlay-hints').set()
-  end
-end
-
 -- From: https://github.com/daliusd/cfg/blob/0e61894c689d736fa8c59ace8f149ecffb187cc4/.vimrc#L319-L332
 local function filter(arr, fn)
   if type(arr) ~= 'table' then
@@ -63,7 +54,7 @@ end
 
 local augroup_format = vim.api.nvim_create_augroup('custom-lsp-format', { clear = true })
 
-local has_inlayhints, inlayhints = pcall(require, 'inlay-hints')
+local has_inlayhints, inlayhints = pcall(require, 'lsp-inlayhints')
 
 local lsp_format = require('lsp-format')
 
@@ -151,7 +142,12 @@ M.on_attach = function(client, bufnr)
   buf_map(bufnr, 'n', '<Leader>tf', ':LspToggleFormatting<CR>', { silent = true })
 
   if has_inlayhints then
-    vim.keymap.set('n', '<Leader>ti', toggle_inlayhints, { silent = true, desc = 'Toggle inlay hints', buffer = bufnr })
+    vim.keymap.set(
+      'n',
+      '<Leader>ti',
+      inlayhints.toggle(),
+      { silent = true, desc = 'Toggle inlay hints', buffer = bufnr }
+    )
   end
 
   -- Disabled because this stopped working in neovim 0.5.1
@@ -160,10 +156,6 @@ M.on_attach = function(client, bufnr)
   end
 
   local filetype = vim.api.nvim_buf_get_option(0, 'filetype')
-
-  if has_inlayhints then
-    inlayhints.on_attach(client, bufnr)
-  end
 
   -- Attach any filetype specific options to the client
   filetype_attach[filetype](bufnr, client)
@@ -201,37 +193,19 @@ vim.lsp.handlers['textDocument/formatting'] = format_async
 vim.lsp.handlers['window/showMessage'] = require('ai.lsp.show_message')
 
 if has_inlayhints then
-  inlayhints.setup({
-    -- Default of `dynamic` puts hints in weird places for Rust. Put them all at
-    -- EOL.
-    renderer = 'inlay-hints/render/eol',
-    hints = {
-      parameter = {
-        show = true,
-        -- Make these stand out / blend in from type inlay hints, especially for
-        -- Rust
-        highlight = 'Comment',
-      },
-      type = {
-        show = true,
-        highlight = 'LspInlayHint',
-      },
-    },
-    eol = {
-      parameter = {
-        separator = ', ',
-        format = function(hints)
-          return string.format(' <- (%s) ', hints)
-        end,
-      },
+  inlayhints.setup({})
+  vim.api.nvim_create_augroup('LspAttach_inlayhints', {})
+  vim.api.nvim_create_autocmd('LspAttach', {
+    group = 'LspAttach_inlayhints',
+    callback = function(args)
+      if not (args.data and args.data.client_id) then
+        return
+      end
 
-      type = {
-        separator = ', ',
-        format = function(hints)
-          return string.format(' » %s ', hints:gsub('^:', ''))
-        end,
-      },
-    },
+      local bufnr = args.buf
+      local client = vim.lsp.get_client_by_id(args.data.client_id)
+      require('lsp-inlayhints').on_attach(client, bufnr)
+    end,
   })
 end
 
