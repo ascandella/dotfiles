@@ -72,6 +72,7 @@ local filetype_attach = setmetatable({
   end,
 
   lua = function(_, client)
+    vim.api.nvim_exec([[set signcolumn=yes]], true)
     autocmd_format(client)
   end,
 
@@ -90,6 +91,7 @@ local filetype_attach = setmetatable({
   end,
 
   typescript = function(_, client)
+    vim.api.nvim_exec([[set signcolumn=yes]], true)
     autocmd_format(client)
   end,
 
@@ -138,7 +140,7 @@ M.on_attach = function(client, bufnr)
   buf_map(bufnr, 'n', 'ga', ':Lspsaga code_action<CR>', { silent = true })
   buf_map(bufnr, 'n', '<Leader>ld', ':Lspsaga show_line_diagnostics<CR>', { silent = true })
   buf_map(bufnr, 'n', '<Leader>ft', ':Telescope lsp_document_symbols<CR>', { silent = true })
-  buf_map(bufnr, 'i', '<C-x><C-x>', '<cmd> LspSignatureHelp<CR>', { silent = true })
+  buf_map(bufnr, 'i', '<C-k>', '<cmd> LspSignatureHelp<CR>', { silent = true })
   buf_map(bufnr, 'n', '<Leader>tf', ':LspToggleFormatting<CR>', { silent = true })
 
   if has_inlayhints then
