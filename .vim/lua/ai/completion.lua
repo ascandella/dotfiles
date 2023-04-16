@@ -3,6 +3,7 @@
 
 local cmp = require('cmp')
 local compare = require('cmp.config.compare')
+local lspkind = require('lspkind')
 
 local feedkey = function(key, mode)
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
@@ -79,7 +80,6 @@ cmp.setup({
       return not context.in_treesitter_capture('comment') and not context.in_syntax_group('Comment')
     end
   end,
-
   sorting = {
     priority_weight = 2,
     comparators = {
@@ -98,27 +98,20 @@ cmp.setup({
   },
   formatting = {
     fields = { 'kind', 'abbr', 'menu' },
-    format = function(entry, vim_item)
-      vim_item.kind = icons[vim_item.kind]
-      vim_item.menu = ({
-        copilot = '[Copilot]',
-        spell = '[Spell]',
-        buffer = '[Buffer]',
-        calc = '[Calc]',
-        emoji = '[Emoji]',
-        nvim_lsp = '[LSP]',
-        path = '[Path]',
-        look = '[Look]',
-        treesitter = '[treesitter]',
-        luasnip = '[LuaSnip]',
-        vsnip = '[Snip]',
-        nvim_lua = '[Lua]',
-        latex_symbols = '[Latex]',
-        cmp_tabnine = '[Tab9]',
-      })[entry.source.name]
-
-      return vim_item
-    end,
+    format = lspkind.cmp_format({
+      mode = 'symbol',
+      -- menu = {
+      --   copilot = '[Copilot]',
+      --   buffer = '[Buffer]',
+      --   nvim_lsp = '[LSP]',
+      --   luasnip = '[LuaSnip]',
+      --   nvim_lua = '[Lua]',
+      --   latex_symbols = '[Latex]',
+      -- },
+      maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+      ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+      symbol_map = icons,
+    }),
   },
   mapping = {
     ['<C-e>'] = cmp.mapping.abort(),
@@ -245,3 +238,23 @@ vim.cmd([[
 ]])
 
 vim.api.nvim_set_hl(0, 'CmpItemKindCopilot', { fg = '#6CC644' })
+
+-- https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance#how-to-add-visual-studio-code-dark-theme-colors-to-the-menu
+vim.cmd([[
+  " gray
+  highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080
+  " blue
+  highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6
+  highlight! link CmpItemAbbrMatchFuzzy CmpItemAbbrMatch
+  " light blue
+  highlight! CmpItemKindVariable guibg=NONE guifg=#9CDCFE
+  highlight! link CmpItemKindInterface CmpItemKindVariable
+  highlight! link CmpItemKindText CmpItemKindVariable
+  " pink
+  highlight! CmpItemKindFunction guibg=NONE guifg=#C586C0
+  highlight! link CmpItemKindMethod CmpItemKindFunction
+  " front
+  highlight! CmpItemKindKeyword guibg=NONE guifg=#D4D4D4
+  highlight! link CmpItemKindProperty CmpItemKindKeyword
+  highlight! link CmpItemKindUnit CmpItemKindKeyword
+]])
