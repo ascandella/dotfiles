@@ -125,9 +125,16 @@ cmp.setup({
     ['<CR>'] = cmp.mapping.confirm({
       -- For Copilot
       behavior = cmp.ConfirmBehavior.Replace,
-      select = false,
+      select = true,
     }),
     ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-j>'] = cmp.mapping.complete({
+      config = {
+        sources = {
+          { name = 'copilot' },
+        },
+      },
+    }),
     ['<S-Tab>'] = cmp.mapping(function()
       if cmp.visible() then
         cmp.select_prev_item()
@@ -188,7 +195,7 @@ cmp.setup({
     }),
   },
   sources = {
-    { name = 'copilot', group_index = 2 },
+    { name = 'copilot', group_index = 2, keyword_pattern = '.' },
     { name = 'nvim_lsp', group_index = 2 },
     { name = 'nvim_lsp_signature_help' },
     -- { name = 'cmp_tabnine', keyword_length = 4 },
@@ -210,11 +217,11 @@ cmp.setup.cmdline('/', {
 
 -- Copilot integration
 cmp.event:on('menu_opened', function()
-  vim.b.copilot_suggestion_hidden = true
+  -- vim.b.copilot_suggestion_hidden = true
 end)
 
 cmp.event:on('menu_closed', function()
-  vim.b.copilot_suggestion_hidden = false
+  -- vim.b.copilot_suggestion_hidden = false
 end)
 
 vim.o.completeopt = 'menu,menuone,noselect'
