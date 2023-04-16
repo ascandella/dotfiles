@@ -357,6 +357,14 @@ local packages = {
       'tpope/vim-rhubarb',
     },
   },
+
+  -- Better f/F
+  {
+    'hrsh7th/vim-eft',
+    config = function()
+      require('ai/eft')
+    end,
+  },
 }
 
 -- Github integration
