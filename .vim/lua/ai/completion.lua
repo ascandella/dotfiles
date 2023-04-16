@@ -125,7 +125,8 @@ cmp.setup({
     ['<CR>'] = cmp.mapping.confirm({
       -- For Copilot
       behavior = cmp.ConfirmBehavior.Replace,
-      select = true,
+      -- Only when explicitly selected
+      select = false,
     }),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-j>'] = cmp.mapping.complete({
