@@ -209,15 +209,15 @@ cmp.setup({
 })
 
 -- Use buffer source for `/`.
-cmp.setup.cmdline('/', {
-  -- Wildmenu to be less intrusive
-  view = {
-    entries = { name = 'wildmenu', separator = '|' },
-  },
-  sources = {
-    { name = 'buffer' },
-  },
-})
+-- cmp.setup.cmdline('/', {
+--   -- Wildmenu to be less intrusive
+--   view = {
+--     entries = { name = 'wildmenu', separator = '|' },
+--   },
+--   sources = {
+--     { name = 'buffer' },
+--   },
+-- })
 
 -- Use cmdline & path source for ':'.
 cmp.setup.cmdline(':', {
