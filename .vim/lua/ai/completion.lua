@@ -196,7 +196,7 @@ cmp.setup({
     { name = 'copilot', group_index = 2, keyword_pattern = '.' },
     { name = 'nvim_lsp', group_index = 2 },
     -- Disable default '.' trigger character
-    { name = 'tmux', trigger_characters = {} },
+    { name = 'tmux', option = { trigger_characters = {}, keyword_pattern = [[\w\w\w\+]] } },
     { name = 'nvim_lsp_signature_help' },
     -- { name = 'cmp_tabnine', keyword_length = 4 },
     { name = 'nvim_lua' },
