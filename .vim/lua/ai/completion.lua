@@ -115,14 +115,20 @@ cmp.setup({
   mapping = {
     ['<C-e>'] = cmp.mapping.abort(),
     ['<CR>'] = cmp.mapping({
-      i = cmp.mapping.confirm({
-        -- For Copilot
-        behavior = cmp.ConfirmBehavior.Replace,
-        -- Only when explicitly selected
-        select = false,
-      }),
+      i = function(fallback)
+        if cmp.visible() and cmp.get_active_entry() then
+          cmp.confirm({
+            -- For Copilot
+            behavior = cmp.ConfirmBehavior.Replace,
+            -- Only when explicitly selected
+            select = false,
+          })
+        else
+          fallback()
+        end
+      end,
       s = cmp.mapping.confirm({ select = true }),
-      c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false }),
+      c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
     }),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-j>'] = cmp.mapping.complete({
@@ -132,48 +138,38 @@ cmp.setup({
         },
       },
     }),
+    ['<Tab>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif vim.fn['vsnip#available'](1) == 1 then
+        feedkey('<Plug>(vsnip-expand-or-jump)', '')
+      elseif has_words_before() then
+        cmp.complete()
+      else
+        fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
+      end
+    end, {
+      'i',
+      's',
+    }),
     ['<S-Tab>'] = cmp.mapping(function()
       if cmp.visible() then
         cmp.select_prev_item()
       elseif vim.fn['vsnip#jumpable'](-1) == 1 then
         feedkey('<Plug>(vsnip-jump-prev)', '')
       end
-    end, {
-      'i',
-      's',
-    }),
-    ['<Tab>'] = cmp.mapping(function(fallback)
-      -- https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings#intellij-like-mapping
-      if cmp.visible() then
-        local entry = cmp.get_selected_entry()
-        -- Tab selects and confirms if nothing is selected
-        if not entry then
-          cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-        elseif has_words_before() then
-          cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-        else
-          cmp.select_next_item()
-        end
-      elseif vim.fn['vsnip#available']() == 1 then
-        vim.api.nvim_feedkeys(t('<Plug>(vsnip-expand-or-jump)'), '', true)
-      else
-        fallback()
-      end
-    end, {
-      'i',
-      's',
-    }),
+    end, { 'i', 's' }),
     ['<C-n>'] = cmp.mapping({
       c = function()
         if cmp.visible() then
-          cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+          cmp.select_next_item()
         else
           vim.api.nvim_feedkeys(t('<Down>'), 'n', true)
         end
       end,
       i = function(fallback)
         if cmp.visible() then
-          cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+          cmp.select_next_item()
         else
           fallback()
         end
@@ -182,14 +178,14 @@ cmp.setup({
     ['<C-p>'] = cmp.mapping({
       c = function()
         if cmp.visible() then
-          cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
+          cmp.select_prev_item()
         else
           vim.api.nvim_feedkeys(t('<Up>'), 'n', true)
         end
       end,
       i = function(fallback)
         if cmp.visible() then
-          cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
+          cmp.select_prev_item()
         else
           fallback()
         end
@@ -199,6 +195,8 @@ cmp.setup({
   sources = {
     { name = 'copilot', group_index = 2, keyword_pattern = '.' },
     { name = 'nvim_lsp', group_index = 2 },
+    -- Disable default '.' trigger character
+    { name = 'tmux', trigger_characters = {} },
     { name = 'nvim_lsp_signature_help' },
     -- { name = 'cmp_tabnine', keyword_length = 4 },
     { name = 'nvim_lua' },

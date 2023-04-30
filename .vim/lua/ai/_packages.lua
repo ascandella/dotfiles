@@ -102,6 +102,7 @@ local packages = {
       'hrsh7th/cmp-nvim-lsp-signature-help',
       'zbirenbaum/copilot-cmp',
       'onsails/lspkind.nvim',
+      'andersevenrud/cmp-tmux',
       { 'tzachar/cmp-tabnine', build = './install.sh', dependencies = 'hrsh7th/nvim-cmp' },
     },
     config = function()
