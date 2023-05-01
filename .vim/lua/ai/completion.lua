@@ -228,14 +228,14 @@ cmp.setup.cmdline(':', {
   }),
 })
 
--- Copilot integration
-cmp.event:on('menu_opened', function()
-  -- vim.b.copilot_suggestion_hidden = true
-end)
-
-cmp.event:on('menu_closed', function()
-  -- vim.b.copilot_suggestion_hidden = false
-end)
+-- -- Copilot integration
+-- cmp.event:on('menu_opened', function()
+--   -- vim.b.copilot_suggestion_hidden = true
+-- end)
+--
+-- cmp.event:on('menu_closed', function()
+--   -- vim.b.copilot_suggestion_hidden = false
+-- end)
 
 vim.o.completeopt = 'menu,menuone,noselect'
 
