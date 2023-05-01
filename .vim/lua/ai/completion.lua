@@ -56,14 +56,6 @@ tabnine:setup({
   show_prediction_strength = false,
 })
 
-local has_words_before = function()
-  if vim.api.nvim_buf_get_option(0, 'buftype') == 'prompt' then
-    return false
-  end
-  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  return col ~= 0 and vim.api.nvim_buf_get_text(0, line - 1, 0, line - 1, col, {})[1]:match('^%s*$') == nil
-end
-
 cmp.setup({
   enabled = function()
     -- disable completion in comments
@@ -143,8 +135,6 @@ cmp.setup({
         cmp.select_next_item()
       elseif vim.fn['vsnip#available'](1) == 1 then
         feedkey('<Plug>(vsnip-expand-or-jump)', '')
-      elseif has_words_before() then
-        cmp.complete()
       else
         fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
       end
