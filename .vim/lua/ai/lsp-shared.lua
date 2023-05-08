@@ -1,6 +1,8 @@
 -- https://jose-elias-alvarez.medium.com/configuring-neovims-lsp-client-for-typescript-development-5789d58ea9c
 local M = {}
 
+local lsp_format = require('lsp-format')
+
 M.maybe_lsp_format = function(options)
   if not vim.b.lsp_disable_formatting then
     options = options or { async = true }
@@ -9,6 +11,7 @@ M.maybe_lsp_format = function(options)
 end
 
 M.toggle_lsp_formatting = function()
+  lsp_format.toggle({ args = '' })
   vim.b.lsp_disable_formatting = not vim.b.lsp_disable_formatting
   if vim.b.lsp_disable_formatting then
     print('LSP Formatting disabled')
@@ -55,8 +58,6 @@ end
 local augroup_format = vim.api.nvim_create_augroup('custom-lsp-format', { clear = true })
 
 local has_inlayhints, inlayhints = pcall(require, 'lsp-inlayhints')
-
-local lsp_format = require('lsp-format')
 
 lsp_format.setup({
   exclude = 'tsserver',
