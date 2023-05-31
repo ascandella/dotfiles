@@ -35,6 +35,7 @@ vim.keymap.set(
 
 vim.keymap.set('n', '<Leader>gg', require('neogit').open, { silent = true, desc = 'Neogit' })
 vim.keymap.set('n', '<Leader>gc', require('ai/_neogit').open_pr, { silent = true })
+vim.keymap.set('n', '<Leader>gb', '<cmd>Git blame<cr>', { silent = true })
 
 -- Undo Tree
 vim.keymap.set('n', '<F1>', '<cmd>UndotreeToggle<cr>', { silent = true })
