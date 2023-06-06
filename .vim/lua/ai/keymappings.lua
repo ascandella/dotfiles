@@ -119,6 +119,11 @@ vim.keymap.set(
   { silent = true, desc = 'Cycle line numbers' }
 )
 
+-- Focus test, TODO: only run this on TS/JS
+-- it()
+vim.keymap.set('n', '<Leader>fi', 'mf?it(<cr>wi.only<esc>`f', { silent = true, desc = 'Focus test' })
+vim.keymap.set('n', '<Leader>fo', 'mf?it\\.<cr>wdt(`f', { silent = true, desc = 'Unfocus test' })
+
 vim.cmd([[command! Cq cq]])
 vim.cmd([[command! W w]])
 
