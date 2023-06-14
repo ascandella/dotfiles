@@ -129,8 +129,14 @@ M.workspace_symbols = function()
 end
 
 M.project_files = function()
-  -- local opts = require('telescope.themes').get_dropdown({  winblend = 10 })
   local opts = {}
+  -- local opts = require('telescope.themes').get_dropdown({  winblend = 10 })
+
+  local current_directory = vim.api.nvim_buf_get_name(0)
+  if string.find(current_directory, '/vitally') then
+    opts.git_command = { 'git', 'ls-files', '--exclude-standard', '--cached', '.', ':!:packages/client' }
+  end
+
   local ok = pcall(require('telescope.builtin').git_files, opts)
   if not ok then
     require('telescope.builtin').find_files(opts)
