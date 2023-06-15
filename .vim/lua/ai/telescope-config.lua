@@ -133,6 +133,9 @@ M.project_files = function()
   -- local opts = require('telescope.themes').get_dropdown({  winblend = 10 })
 
   local current_directory = vim.api.nvim_buf_get_name(0)
+  if current_directory == '' then
+    current_directory = vim.fn.getcwd()
+  end
   if string.find(current_directory, '/vitally') then
     opts.git_command = { 'git', 'ls-files', '--exclude-standard', '--cached', '.', ':!:packages/client' }
   end
