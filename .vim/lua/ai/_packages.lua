@@ -153,7 +153,7 @@ local packages = {
       'mattn/efm-langserver',
       'lvimuser/lsp-inlayhints.nvim',
       { url = 'https://git.sr.ht/~whynothugo/lsp_lines.nvim' },
-      'j-hui/fidget.nvim',
+      { 'j-hui/fidget.nvim', branch = 'legacy' },
     },
     config = function()
       require('ai/_lspinstall')
