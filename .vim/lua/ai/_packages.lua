@@ -173,7 +173,6 @@ local packages = {
     setup = function()
       require('ai/_matchup')
     end,
-    event = 'BufEnter',
   },
 
   -- Automatically insert endwise pairs

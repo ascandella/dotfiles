@@ -70,6 +70,11 @@ ts.setup({
     -- termcolors = {} -- table of colour name strings
   },
 
+  matchup = {
+    -- https://github.com/andymass/vim-matchup#tree-sitter-integration
+    enable = true,
+  },
+
   textobjects = {
     select = {
       enable = true,
