@@ -118,6 +118,10 @@ local filetype_attach = setmetatable({
 
     autocmd_format(client)
   end,
+
+  python = function(_, client)
+    autocmd_format(client)
+  end,
 }, {
   __index = function()
     return function() end
@@ -135,7 +139,6 @@ M.on_attach = function(client, bufnr)
   buf_map(bufnr, 'n', 'gr', ':lua require("ai/telescope-config").lsp_references() <CR>', { silent = true })
   buf_map(bufnr, 'n', 'gi', ':LspTypeDef<CR>', { silent = true, desc = 'Type definition' })
   buf_map(bufnr, 'n', 'K', ':Lspsaga hover_doc<CR>', { silent = true })
-  buf_map(bufnr, 'n', '<Leader>gs', ':LspOrganize<CR>', { silent = true })
   buf_map(bufnr, 'n', '[a', ':LspDiagPrev<CR>', { silent = true })
   buf_map(bufnr, 'n', ']a', ':LspDiagNext<CR>', { silent = true })
   buf_map(bufnr, 'n', 'ga', ':Lspsaga code_action<CR>', { silent = true })

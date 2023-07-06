@@ -1,8 +1,8 @@
 ---
 version: 2
 # Enable to debug issues
-# log-file: /tmp/efm.log
-# log-level: 1
+log-file: /tmp/efm.log
+log-level: 1
 
 root-markers:
   - mix.exs
@@ -21,6 +21,7 @@ tools:
       --parser css
 
   eslint_d: &eslint_d
+    lint-debounce: 2s
     lint-command: 'eslint_d -f visualstudio --stdin --stdin-filename ${INPUT}'
     lint-ignore-exit-code: true
     lint-stdin: true
