@@ -24,6 +24,7 @@ ts.setup({
     'ruby',
     'rust',
     'svelte',
+    'terraform',
     'toml',
     'tsx',
     'typescript',
