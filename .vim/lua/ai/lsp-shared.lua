@@ -67,23 +67,22 @@ local autocmd_format = function(client)
   lsp_format.on_attach(client)
 end
 
+local default_formatter = function(_, client)
+  autocmd_format(client)
+end
+
 local filetype_attach = setmetatable({
-  go = function(_, client)
-    autocmd_format(client)
-  end,
+  astro = default_formatter,
+  go = default_formatter,
 
   lua = function(_, client)
     vim.api.nvim_exec([[set signcolumn=yes]], true)
     autocmd_format(client)
   end,
 
-  terraform = function(_, client)
-    autocmd_format(client)
-  end,
+  terraform = default_formatter,
 
-  elixir = function(_, client)
-    autocmd_format(client)
-  end,
+  elixir = default_formatter,
 
   rust = function(_, client)
     vim.api.nvim_exec([[set signcolumn=yes]], true)
@@ -96,13 +95,9 @@ local filetype_attach = setmetatable({
     autocmd_format(client)
   end,
 
-  javascript = function(_, client)
-    autocmd_format(client)
-  end,
+  javascript = default_formatter,
 
-  json = function(_, client)
-    autocmd_format(client)
-  end,
+  json = default_formatter,
 
   typescriptreact = function(bufnr, client)
     vim.api.nvim_buf_set_keymap(
@@ -119,9 +114,7 @@ local filetype_attach = setmetatable({
     autocmd_format(client)
   end,
 
-  python = function(_, client)
-    autocmd_format(client)
-  end,
+  python = default_formatter,
 }, {
   __index = function()
     return function() end
