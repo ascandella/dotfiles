@@ -14,10 +14,10 @@ keymap = [
 	{ on = [ "J" ], exec = "arrow 5",  desc = "Move cursor down 5 lines" },
 
 	{ on = [ "h" ], exec = "leave", desc = "Go back to the parent directory" },
-	{ on = [ "l" ], exec = "enter", desc = "Enter the child directory" },
+	{ on = [ "s" ], exec = "enter", desc = "Enter the child directory" },
 
 	{ on = [ "H" ], exec = "back",    desc = "Go back to the previous directory" },
-	{ on = [ "L" ], exec = "forward", desc = "Go forward to the next directory" },
+	{ on = [ "S" ], exec = "forward", desc = "Go forward to the next directory" },
 
 	{ on = [ "<C-k>" ], exec = "peek -5", desc = "Peek up 5 units in the preview" },
 	{ on = [ "<C-j>" ], exec = "peek 5",  desc = "Peek down 5 units in the preview" },
@@ -111,6 +111,7 @@ keymap = [
 	{ on = [ "g", "h" ],       exec = "cd ~",             desc = "Go to the home directory" },
 	{ on = [ "g", "c" ],       exec = "cd ~/.config",     desc = "Go to the config directory" },
 	{ on = [ "g", "d" ],       exec = "cd ~/Downloads",   desc = "Go to the downloads directory" },
+	{ on = [ "g", "s" ],       exec = "cd ~/src",         desc = "Go to the src directory" },
 	{ on = [ "g", "t" ],       exec = "cd /tmp",          desc = "Go to the temporary directory" },
 	{ on = [ "g", "<Space>" ], exec = "cd --interactive", desc = "Go to a directory interactively" },
 
