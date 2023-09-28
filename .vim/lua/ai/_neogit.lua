@@ -6,7 +6,11 @@ local a = require('plenary.async')
 neogit.setup({
   disable_commit_confirmation = true,
   disable_hint = true,
+  -- Use insert for commit messages
+  disable_insert_on_commit = false,
+  kind = 'tab',
   integrations = {
+    telescope = true,
     diffview = true,
   },
 })

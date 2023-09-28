@@ -29,7 +29,7 @@ local packages = {
   -- Magit for neovim
   {
     'TimUntersberger/neogit',
-    commit = '0d6002c6af432343937283fb70791fc76fa7227c',
+    -- commit = '0d6002c6af432343937283fb70791fc76fa7227c',
     -- '~/src/neogit',
     dependencies = {
       'nvim-lua/plenary.nvim',
@@ -139,7 +139,7 @@ local packages = {
   },
 
   -- Better git commit messages
-  { 'rhysd/committia.vim' },
+  -- { 'rhysd/committia.vim' },
 
   -- LSP and associated things
   {
@@ -294,7 +294,7 @@ local packages = {
 
   -- Astro syntax
   { 'wuelnerdotexe/vim-astro', ft = 'astro' },
-
+  --
   -- Start screen
   {
     'mhinz/vim-startify',
@@ -325,7 +325,8 @@ local packages = {
     end,
   },
 
-  'axelf4/vim-strip-trailing-whitespace',
+  -- Conflicts with newer versions of neogit :(
+  -- 'axelf4/vim-strip-trailing-whitespace',
 
   -- Auto-balance splits
   {

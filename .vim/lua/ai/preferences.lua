@@ -74,7 +74,7 @@ vim.cmd([[
     autocmd FileType gitcommit setlocal textwidth=72 fo+=t
 
     " Same, but for neogit
-    autocmd FileType NeogitCommitMessage execute "normal! 0" | startinsert
+    " autocmd FileType NeogitCommitMessage execute "normal! 0" | startinsert
     autocmd FileType NeogitCommitMessage setlocal textwidth=72 fo+=t
   augroup END
 ]])
