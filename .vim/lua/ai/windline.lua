@@ -1,3 +1,4 @@
+-- forked from https://github.com/windwp/windline.nvim/blob/f58634d649d5774d438f745fbd96caca16aef2c2/lua/wlsample/evil_line.lua
 local windline = require('windline')
 local helper = require('windline.helpers')
 local b_components = require('windline.components.basic')
@@ -7,10 +8,10 @@ local lsp_comps = require('windline.components.lsp')
 local git_comps = require('windline.components.git')
 
 local hl_list = {
-  Black = { 'white', 'black' },
+  Black = { 'white', 'AidenBlack' },
   White = { 'black', 'white' },
   Inactive = { 'InactiveFg', 'InactiveBg' },
-  Active = { 'InactiveBg', 'InactiveBg' },
+  Active = { 'ActiveFg', 'AidenBlack' },
 }
 local basic = {}
 
@@ -19,11 +20,11 @@ basic.divider = { b_components.divider, '' }
 basic.bg = { ' ', 'StatusLine' }
 
 local colors_mode = {
-  Normal = { 'red', 'black' },
-  Insert = { 'green', 'black' },
-  Visual = { 'yellow', 'black' },
-  Replace = { 'blue_light', 'black' },
-  Command = { 'magenta', 'black' },
+  Normal = { 'red', 'AidenBlack' },
+  Insert = { 'green', 'AidenBlack' },
+  Visual = { 'yellow', 'AidenBlack' },
+  Replace = { 'blue_light', 'AidenBlack' },
+  Command = { 'AidenHighlight', 'AidenBlack' },
 }
 
 basic.vi_mode = {
@@ -43,9 +44,9 @@ basic.square_mode = {
 basic.lsp_diagnos = {
   name = 'diagnostic',
   hl_colors = {
-    red = { 'red', 'black' },
-    yellow = { 'yellow', 'black' },
-    blue = { 'blue', 'black' },
+    red = { 'red', 'AidenBlack' },
+    yellow = { 'yellow', 'AidenBlack' },
+    blue = { 'blue', 'AidenBlack' },
   },
   width = breakpoint_width,
   text = function(bufnr)
@@ -63,8 +64,8 @@ basic.file = {
   name = 'file',
   hl_colors = {
     default = hl_list.Black,
-    white = { 'white', 'black' },
-    magenta = { 'magenta', 'black' },
+    white = { 'white', 'AidenBlack' },
+    magenta = { 'AidenHighlight', 'AidenBlack' },
   },
   text = function(_, _, width)
     if width > breakpoint_width then
@@ -91,8 +92,8 @@ basic.file = {
 basic.file_right = {
   hl_colors = {
     default = hl_list.Black,
-    white = { 'white', 'black' },
-    magenta = { 'magenta', 'black' },
+    white = { 'white', 'AidenBlack' },
+    magenta = { 'AidenHighlight', 'AidenBlack' },
   },
   text = function(_, _, width)
     if width < breakpoint_width then
@@ -107,7 +108,7 @@ basic.file_right = {
 local quickfix = {
   filetypes = { 'qf', 'Trouble' },
   active = {
-    { '🚦 Quickfix ', { 'white', 'black' } },
+    { '🚦 Quickfix ', { 'white', 'AidenBlack' } },
     { helper.separators.slant_right, { 'black', 'black_light' } },
     {
       function()
@@ -119,8 +120,8 @@ local quickfix = {
     { helper.separators.slant_right, { 'black_light', 'InactiveBg' } },
     { ' ', { 'InactiveFg', 'InactiveBg' } },
     basic.divider,
-    { helper.separators.slant_right, { 'InactiveBg', 'black' } },
-    { '🧛 ', { 'white', 'black' } },
+    { helper.separators.slant_right, { 'InactiveBg', 'AidenBlack' } },
+    { '🧛 ', { 'white', 'AidenBlack' } },
   },
 
   always_active = true,
@@ -148,7 +149,7 @@ local default = {
     basic.divider,
     basic.lsp_diagnos,
     basic.file_right,
-    { git_comps.git_branch(), { 'magenta', 'black' }, breakpoint_width },
+    { git_comps.git_branch(), { 'magenta', 'AidenBlack' }, breakpoint_width },
     { ' ', hl_list.Black },
     basic.square_mode,
   },
@@ -165,7 +166,8 @@ local default = {
 local function setup()
   windline.setup({
     colors_name = function(colors)
-      -- ADD MORE COLOR HERE ----
+      colors.AidenHighlight = '#ad7cc8'
+      colors.AidenBlack = '#0f0e26'
       return colors
     end,
     statuslines = {
