@@ -1,7 +1,22 @@
 -- latte, frappe, macchiato, mocha
 local function init()
   vim.g.catppuccin_flavour = 'mocha'
-  require('catppuccin').setup()
+  require('catppuccin').setup({
+    integrations = {
+      cmp = true,
+      treesitter = true,
+      gitsigns = true,
+      illuminate = {
+        enable = true,
+        lsp = false,
+      },
+      neogit = true,
+      telescope = {
+        enabled = true,
+        style = 'nvchad',
+      },
+    },
+  })
 
   vim.api.nvim_command('colorscheme catppuccin')
 
