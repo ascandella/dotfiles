@@ -1,9 +1,22 @@
 -- latte, frappe, macchiato, mocha
 local function init()
-  vim.g.catppuccin_flavour = 'mocha'
   require('catppuccin').setup({
+    term_colors = false,
+    flavour = 'mocha', -- latte, frappe, macchiato, mocha
+    styles = {
+      keywords = { 'italic' },
+      variables = { 'italic' },
+      booleans = { 'italic' },
+      properties = { 'italic' },
+    },
+    dim_inactive = {
+      enabled = true, -- dims the background color of inactive window
+      shade = 'dark',
+      percentage = 0.10, -- percentage of the shade to apply to the inactive window
+    },
     integrations = {
       cmp = true,
+      lsp_trouble = true,
       treesitter = true,
       gitsigns = true,
       illuminate = {

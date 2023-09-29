@@ -21,7 +21,7 @@ basic.bg = { ' ', 'StatusLine' }
 
 local colors_mode = {
   Normal = { 'red', 'AidenBlack' },
-  Insert = { 'green', 'AidenBlack' },
+  Insert = { 'AidenGreen', 'AidenBlack' },
   Visual = { 'yellow', 'AidenBlack' },
   Replace = { 'blue_light', 'AidenBlack' },
   Command = { 'AidenHighlight', 'AidenBlack' },
@@ -36,6 +36,7 @@ basic.vi_mode = {
 }
 basic.square_mode = {
   hl_colors = colors_mode,
+
   text = function()
     return { { '▊', state.mode[2] } }
   end,
@@ -149,7 +150,7 @@ local default = {
     basic.divider,
     basic.lsp_diagnos,
     basic.file_right,
-    { git_comps.git_branch(), { 'magenta', 'AidenBlack' }, breakpoint_width },
+    { git_comps.git_branch(), { 'AidenHighlight', 'AidenBlack' }, breakpoint_width },
     { ' ', hl_list.Black },
     basic.square_mode,
   },
@@ -167,6 +168,7 @@ local function setup()
   windline.setup({
     colors_name = function(colors)
       colors.AidenHighlight = '#ad7cc8'
+      colors.AidenGreen = '#C4E88D'
       colors.AidenBlack = '#0f0e26'
       return colors
     end,
