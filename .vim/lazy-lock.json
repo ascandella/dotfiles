@@ -24,7 +24,7 @@
   "lsp-inlayhints.nvim": { "branch": "main", "commit": "d981f65c9ae0b6062176f0accb9c151daeda6f16" },
   "lsp_lines.nvim": { "branch": "main", "commit": "9e3f99fbbd28aaec80dc0158c43be8cca8dd5017" },
   "lspkind.nvim": { "branch": "master", "commit": "57610d5ab560c073c465d6faf0c19f200cb67e6e" },
-  "lspsaga.nvim": { "branch": "main", "commit": "353f53fb5ed8fbb9c484cb581ee4ca760dde29d6" },
+  "lspsaga.nvim": { "branch": "main", "commit": "59a44bd9536a8b019877cd03f4fdcd8202d0cdd2" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "81e30dd629de24cbb26d08073ee938ab40006695" },
   "mason.nvim": { "branch": "main", "commit": "d66c60e17dd6fd8165194b1d14d21f7eb2c1697a" },
   "neogit": { "branch": "master", "commit": "8b06f91ae973fd68fde074f15a887f9a3a3411cb" },
