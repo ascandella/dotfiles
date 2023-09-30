@@ -4,10 +4,10 @@ local function init()
     term_colors = false,
     flavour = 'mocha', -- latte, frappe, macchiato, mocha
     styles = {
-      keywords = { 'italic' },
-      variables = { 'italic' },
+      -- keywords = { 'italic' },
+      -- variables = { 'italic' },
       booleans = { 'italic' },
-      properties = { 'italic' },
+      -- properties = { 'italic' },
     },
     dim_inactive = {
       enabled = true, -- dims the background color of inactive window
