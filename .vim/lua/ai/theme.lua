@@ -4,7 +4,7 @@ local function init()
     term_colors = false,
     flavour = 'mocha', -- latte, frappe, macchiato, mocha
     styles = {
-      -- keywords = { 'italic' },
+      keywords = { 'italic' },
       -- variables = { 'italic' },
       booleans = { 'italic' },
       -- properties = { 'italic' },
