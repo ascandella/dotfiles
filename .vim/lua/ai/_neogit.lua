@@ -13,6 +13,18 @@ neogit.setup({
     telescope = true,
     diffview = true,
   },
+  sections = {
+    -- Don't care about stashes in this view
+    stashes = {
+      hidden = true,
+    },
+  },
+  signs = {
+    -- { CLOSED, OPENED }
+    hunk = { "", "" },
+    item = { "", "" },
+    section = { "", "" },
+  },
 })
 
 local M = {}
