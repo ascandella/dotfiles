@@ -57,7 +57,7 @@ local packages = {
       -- Autoclose HTML/TSX tags
       'windwp/nvim-ts-autotag',
       -- rainbow pairs
-      'mrjones2014/nvim-ts-rainbow',
+      'https://gitlab.com/HiPhish/rainbow-delimiters.nvim',
     },
     run = ':TSUpdate',
     config = function()
