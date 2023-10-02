@@ -1,6 +1,5 @@
 -- Neogit setup
 local neogit = require('neogit')
-local status = require('neogit.status')
 local a = require('plenary.async')
 
 neogit.setup({
@@ -31,10 +30,12 @@ local M = {}
 -- https://github.com/TimUntersberger/neogit/issues/118
 M.open_pr = function()
   a.run(function()
-    local remote_url = neogit.cli.config.get('remote.origin.url').call()[1]
+    print(vim.inspect(neogit.cli.config.get('remote.origin.url').call().stdout[1]))
+    local remote_url = neogit.cli.config.get('remote.origin.url').call().stdout[1]
     local repo_name = remote_url:gsub('^git@github.com:', '')
     local clean_name = repo_name:gsub('.git$', '')
-    local branch = status.repo.head.branch
+    local branch = require('neogit.lib.git.branch').current()
+    print(vim.inspect(branch))
 
     local open_pr_url = string.format('https://github.com/%s/pull/new/%s', clean_name, branch)
     a.util.scheduler()
