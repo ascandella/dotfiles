@@ -1,4 +1,6 @@
-if [ -f "$DOTFILES/ext/z/z.sh" ] ; then
+if command -v zoxide >/dev/null ; then
+  eval "$(zoxide init zsh --cmd j)"
+elif [ -f "$DOTFILES/ext/z/z.sh" ] ; then
   . "$DOTFILES/ext/z/z.sh"
   alias j='nocorrect z'
 fi
