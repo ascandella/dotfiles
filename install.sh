@@ -318,20 +318,6 @@ if files_changed "bootstrap" ; then
   fi
 fi
 
-if files_changed ".vimrc" ; then
-  # TODO pass vars from autoupdate to only run if .vimrc has changed
-  if command -v vim >/dev/null ; then
-    _vim=vim
-    if command -v nvim > /dev/null ; then
-      _vim=nvim
-    fi
-    echo "Detected change to .vimrc, updating vim plugins"
-    ${_vim} +PlugInstall +PlugClean +qall
-    unset _vim
-    echo -e "${BLUE_BG}Done${RESET}"
-  fi
-fi
-
 if files_changed ".doom.d/init.el" ; then
   "${HOME}/.emacs.d/bin/doom" sync
 fi
