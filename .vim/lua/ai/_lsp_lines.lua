@@ -2,6 +2,7 @@ local ok, lsp_lines = pcall(require, 'lsp_lines')
 
 -- Disable by default, too annoying to write rust with
 local lines_enabled = false
+local diagnostics_disabled = false
 
 if ok then
   lsp_lines.setup()
@@ -12,8 +13,7 @@ if ok then
   })
 end
 
-local function toggle_lsp_lines()
-  lines_enabled = not lines_enabled
+local function update_config()
   local diagnostic_config = {
     virtual_text = not lines_enabled,
   }
@@ -21,9 +21,25 @@ local function toggle_lsp_lines()
     diagnostic_config.virtual_lines = lines_enabled
   end
 
+  if diagnostics_disabled then
+    diagnostic_config.virtual_text = false
+    diagnostic_config.virtual_lines = false
+  end
+
   vim.diagnostic.config(diagnostic_config)
+end
+
+local function toggle_lsp_lines()
+  lines_enabled = not lines_enabled
+  update_config()
+end
+
+local function toggle_diagnostics()
+  diagnostics_disabled = not diagnostics_disabled
+  update_config()
 end
 
 return {
   toggle_lsp_lines = toggle_lsp_lines,
+  toggle_diagnostics = toggle_diagnostics,
 }

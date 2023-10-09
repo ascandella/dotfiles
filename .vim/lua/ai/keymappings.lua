@@ -81,6 +81,14 @@ vim.keymap.set(
   { silent = true, desc = 'Toggle diagnostic style' }
 )
 
+-- Toggle diagnostics showing at all
+vim.keymap.set(
+  'n',
+  '<Leader>tm',
+  require('ai/_lsp_lines').toggle_diagnostics,
+  { silent = true, desc = 'Toggle diagnostic enabled' }
+)
+
 -- Write
 vim.keymap.set('n', '<Leader>w', '<cmd>w<cr>', { silent = true })
 
