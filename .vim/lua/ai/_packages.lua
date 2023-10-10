@@ -365,6 +365,14 @@ local packages = {
       require('ai/eft')
     end,
   },
+
+  -- Notification
+  {
+    'rcarriga/nvim-notify',
+    config = function()
+      vim.notify = require('notify')
+    end,
+  },
 }
 
 -- Github integration
