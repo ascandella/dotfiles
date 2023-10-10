@@ -370,7 +370,7 @@ local packages = {
   {
     'rcarriga/nvim-notify',
     config = function()
-      vim.notify = require('notify')
+      require('ai/notify')
     end,
   },
 }
