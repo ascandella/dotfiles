@@ -30,7 +30,6 @@ local M = {}
 -- https://github.com/TimUntersberger/neogit/issues/118
 M.open_pr = function()
   a.run(function()
-    print(vim.inspect(neogit.cli.config.get('remote.origin.url').call().stdout[1]))
     local remote_url = neogit.cli.config.get('remote.origin.url').call().stdout[1]
     local repo_name = remote_url:gsub('^git@github.com:', '')
     local clean_name = repo_name:gsub('.git$', '')
