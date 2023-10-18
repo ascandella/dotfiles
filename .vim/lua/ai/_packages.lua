@@ -148,8 +148,8 @@ local packages = {
       'williamboman/mason-lspconfig.nvim',
       'neovim/nvim-lspconfig',
       'simrat39/rust-tools.nvim',
+      'nvimdev/lspsaga.nvim',
       -- Extensible linters/formatters
-      'glepnir/lspsaga.nvim',
       'mattn/efm-langserver',
       'lvimuser/lsp-inlayhints.nvim',
       { url = 'https://git.sr.ht/~whynothugo/lsp_lines.nvim' },

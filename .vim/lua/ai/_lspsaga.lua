@@ -1,7 +1,7 @@
 local lspsaga = require('lspsaga')
 
 lspsaga.setup({
-  code_action_lightbulb = {
+  lightbulb = {
     enable = false,
   },
 })
