@@ -36,6 +36,7 @@ end
 
 local function toggle_diagnostics()
   diagnostics_disabled = not diagnostics_disabled
+  vim.notify('Diagnostics ' .. (diagnostics_disabled and 'disabled' or 'enabled'))
   update_config()
 end
 
