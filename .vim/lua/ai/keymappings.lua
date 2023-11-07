@@ -35,7 +35,7 @@ vim.keymap.set(
 
 vim.keymap.set('n', '<Leader>gg', require('neogit').open, { silent = true, desc = 'Neogit' })
 vim.keymap.set('n', '<Leader>gc', require('ai/_neogit').open_pr, { silent = true })
-vim.keymap.set('n', '<Leader>gb', '<cmd>Git blame<cr>', { silent = true })
+vim.keymap.set('n', '<Leader>gb', require('ai/git').git_blame, { silent = true, desc = 'Git blame' })
 
 -- Undo Tree
 vim.keymap.set('n', '<F1>', '<cmd>UndotreeToggle<cr>', { silent = true })
@@ -151,5 +151,14 @@ vim.api.nvim_create_autocmd('FileType', {
   group = lspinfo_group,
   callback = function()
     vim.keymap.set('n', 'q', ':b<cr>', { silent = true, buffer = true })
+  end,
+})
+
+local gitblame_group = vim.api.nvim_create_augroup('ai/gitblame', { clear = true })
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'fugitiveblame',
+  group = gitblame_group,
+  callback = function()
+    vim.keymap.set('n', 'q', require('ai/git').git_unblame, { silent = true, buffer = true })
   end,
 })
