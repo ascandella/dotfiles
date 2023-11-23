@@ -154,11 +154,22 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
+-- "q" to close git blame and restore lspsaga winbar
 local gitblame_group = vim.api.nvim_create_augroup('ai/gitblame', { clear = true })
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'fugitiveblame',
   group = gitblame_group,
   callback = function()
     vim.keymap.set('n', 'q', require('ai/git').git_unblame, { silent = true, buffer = true })
+  end,
+})
+
+-- After entering a commit from fugitive (blame), just "q" to close
+local git_group = vim.api.nvim_create_augroup('ai/git', { clear = true })
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'git',
+  group = git_group,
+  callback = function()
+    vim.keymap.set('n', 'q', ':bd<cr>', { silent = true, buffer = true })
   end,
 })
