@@ -1,4 +1,3 @@
-
 is_in_git_repo() {
   git rev-parse HEAD > /dev/null 2>&1
 }
@@ -67,3 +66,4 @@ bind-git-helper() {
 
 bind-git-helper f b r h
 unset -f bind-git-helper
+# vi: ft=zsh
