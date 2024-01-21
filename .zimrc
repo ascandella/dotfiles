@@ -9,3 +9,4 @@ zmodule zimfw/eriner
 zmodule zimfw/input
 zmodule zimfw/prompt-pwd
 zmodule zsh-users/zsh-syntax-highlighting
+zmodule larkery/zsh-histdb
