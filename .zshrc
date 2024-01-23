@@ -112,6 +112,11 @@ bindkey '^[[B' history-substring-search-down
 # Use emacs keybindings for c-a, c-e etc
 bindkey -e
 
+# Edit command
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey "^X^E" edit-command-line
+
 command -v autopair-init >/dev/null && autopair-init
 
 # Allow c-w to backwards word but stop at e.g. path separators
