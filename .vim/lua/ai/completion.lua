@@ -195,12 +195,11 @@ cmp.setup({
 --   },
 -- })
 
--- Use cmdline & path source for ':'.
-cmp.setup.cmdline(':', {
+cmp.setup.filetype('gitcommit', {
   sources = cmp.config.sources({
-    { name = 'path' },
+    { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
   }, {
-    { name = 'cmdline' },
+    { name = 'buffer' },
   }),
 })
 
