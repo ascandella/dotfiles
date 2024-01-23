@@ -103,6 +103,7 @@ local packages = {
       'zbirenbaum/copilot-cmp',
       'onsails/lspkind.nvim',
       'andersevenrud/cmp-tmux',
+      'petertriho/cmp-git',
     },
     config = function()
       require('ai/completion')

@@ -184,23 +184,21 @@ cmp.setup({
   },
 })
 
--- Use buffer source for `/`.
--- cmp.setup.cmdline('/', {
---   -- Wildmenu to be less intrusive
---   view = {
---     entries = { name = 'wildmenu', separator = '|' },
---   },
---   sources = {
---     { name = 'buffer' },
---   },
--- })
-
 cmp.setup.filetype('gitcommit', {
   sources = cmp.config.sources({
-    { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
-  }, {
-    { name = 'buffer' },
+    { name = 'git' },
   }),
+})
+
+cmp.setup.filetype('NeogitCommitMessage', {
+  sources = cmp.config.sources({
+    { name = 'git' },
+  }),
+})
+
+require('cmp_git').setup({
+  -- defaults
+  filetypes = { 'gitcommit', 'NeogitCommitMessage' },
 })
 
 -- -- Copilot integration
@@ -215,13 +213,13 @@ cmp.setup.filetype('gitcommit', {
 vim.o.completeopt = 'menu,menuone,noselect'
 
 -- Disable in commit modes
-vim.cmd([[
-augroup NvimCmpGitCommit
-  au!
-  au FileType NeogitCommitMessage lua require('cmp').setup.buffer { enabled = false }
-  au FileType gitcommit lua require('cmp').setup.buffer { enabled = false }
-augroup END
-]])
+-- vim.cmd([[
+-- augroup NvimCmpGitCommit
+--   au!
+--   au FileType NeogitCommitMessage lua require('cmp').setup.buffer { enabled = false }
+--   au FileType gitcommit lua require('cmp').setup.buffer { enabled = false }
+-- augroup END
+-- ]])
 
 -- Add SQL completion via dadbod
 vim.cmd([[
