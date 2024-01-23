@@ -110,6 +110,8 @@ bindkey '^[[B' history-substring-search-down
 # Use emacs keybindings for c-a, c-e etc
 bindkey -e
 
+command -v autopair-init >/dev/null && autopair-init
+
 # Allow c-w to backwards word but stop at e.g. path separators
 WORDCHARS='*?_-.[]~&;!#$%^(){}<>'
 
