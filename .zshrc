@@ -50,9 +50,6 @@ setopt interactivecomments
 unsetopt notify
 zstyle :compinstall filename '$HOME/.zshrc'
 
-# Need patched nerd fonts for this
-POWERLEVEL9K_MODE='nerdfont-complete'
-
 DOTFILES="${DOTFILES:-${HOME}/.dotfiles}"
 
 # Zim configuration
