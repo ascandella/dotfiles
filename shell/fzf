@@ -2,9 +2,7 @@
 _shell="$(basename "${SHELL}")"
 _shell_setup="${HOME}/.fzf.${_shell}"
 
-if ! command -v atuin >/dev/null ; then
-  [ -e "${_shell_setup}" ] && source "${_shell_setup}"
-fi
+[ -e "${_shell_setup}" ] && source "${_shell_setup}"
 
 fzf_default_opts+=(
   "--layout=reverse"
