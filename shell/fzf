@@ -1,11 +1,16 @@
 # This is for fzf from vim so that it will ignore stuff from .gitignore etc
+_shell="$(basename "${SHELL}")"
+_shell_setup="${HOME}/.fzf.${_shell}"
+
+if ! command -v atuin >/dev/null ; then
+  [ -e "${_shell_setup}" ] && source "${_shell_setup}"
+fi
+
 fzf_default_opts+=(
   "--layout=reverse"
   "--info=inline"
   "--height=40%"
   "--multi"
-  "--preview='${FZF_PREVIEW}'"
-  "--preview-window='${FZF_PREVIEW_WINDOW}'"
   "--color=fg:#d0d0d0,fg+:#d0d0d0,bg:#121212,bg+:#262626"
   "--color=hl:#5f87af,hl+:#5fd7ff,info:#afaf87,marker:#87ff00"
   "--color=prompt:#d7005f,spinner:#af5fff,pointer:#af5fff,header:#87afaf"
@@ -36,4 +41,3 @@ elif command -v ag > /dev/null ; then
   export FZF_DEFAULT_COMMAND='ag -g ""'
   export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
 fi
-# vi: ft=zsh
