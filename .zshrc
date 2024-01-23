@@ -74,6 +74,8 @@ if [[ $(uname) == "Darwin" ]] ; then
   export HISTDB_TABULATE_CMD=(sed -e $'s/\x1f/\t/g')
 fi
 
+AUTOPAIR_INHIBIT_INIT=1
+
 # Initialize modules.
 source ${ZIM_HOME}/init.zsh
 
