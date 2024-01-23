@@ -29,6 +29,7 @@ alias t='tmux -u'
 
 alias grep='grep --color=auto'
 
+alias rg="rg --hidden --glob '!.git'"
 _aliasto rg ag
 # Use Neovim nightly if installed
 if [ -x "$HOME/src/neovim/nvim.appimage" ] ; then

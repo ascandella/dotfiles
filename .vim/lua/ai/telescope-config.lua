@@ -65,6 +65,16 @@ telescope.setup({
         ['<C-Up>'] = require('telescope.actions').cycle_history_prev,
       },
     },
+    vimgrep_arguments = {
+      'rg',
+      '--hidden', -- search in hidden files
+      '--color=never',
+      '--no-heading',
+      '--with-filename',
+      '--line-number',
+      '--column',
+      '--smart-case',
+    },
   },
   extensions = {
     fzf = {
