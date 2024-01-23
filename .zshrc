@@ -88,23 +88,17 @@ fi
 
 [ -d "/usr/local/sbin" ] && export PATH="/usr/local/sbin:$PATH"
 
+
+# Use emacs keybindings for c-a, c-e etc
+bindkey -e
+# Unbind "^g" for git-fzf
+bindkey -r "^g"
+
 if [[ -d "${DOTFILES}" ]] ; then
   for f in "${DOTFILES}/shell/"* ; do
     . $f
   done
 fi
-
-# bind UP and DOWN arrow keys
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-
-# Use emacs keybindings for c-a, c-e etc
-bindkey -e
-
-# Edit command
-autoload -z edit-command-line
-zle -N edit-command-line
-bindkey "^X^E" edit-command-line
 
 command -v autopair-init >/dev/null && autopair-init
 
