@@ -12,3 +12,4 @@ env
 *.pyc
 *.po
 __pycache__
+lazy-lock.json
