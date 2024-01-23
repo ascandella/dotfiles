@@ -11,3 +11,4 @@ zmodule zimfw/prompt-pwd
 zmodule zsh-users/zsh-syntax-highlighting
 zmodule larkery/zsh-histdb
 zmodule hlissner/zsh-autopair
+zmodule unixorn/fzf-zsh-plugin
