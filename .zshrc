@@ -91,8 +91,6 @@ fi
 
 # Use emacs keybindings for c-a, c-e etc
 bindkey -e
-# Unbind "^g" for git-fzf
-bindkey -r "^g"
 
 if [[ -d "${DOTFILES}" ]] ; then
   for f in "${DOTFILES}/shell/"* ; do

@@ -64,6 +64,8 @@ bind-git-helper() {
   done
 }
 
+# Unbind "^g"
+bindkey -r "^g"
 bind-git-helper f b r h
 unset -f bind-git-helper
 # vi: ft=zsh

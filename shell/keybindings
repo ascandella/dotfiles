@@ -13,11 +13,6 @@ key=(
     PageDown   "${terminfo[knp]}"
 )
 
-# Use emacs keybindings for c-a, c-e etc
-bindkey -e
-# Unbind "^g" for git-fzf
-bindkey -r "^g"
-
 # bind UP and DOWN arrow keys
 bindkey "$key[Up]" history-substring-search-up
 bindkey "$key[Down]" history-substring-search-down
