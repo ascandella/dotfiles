@@ -123,7 +123,7 @@
 	hunk-header-decoration-style = blue box
 	hunk-header-file-style = red
 	hunk-header-line-number-style = "#6935BF"
-	hunk-header-style = syntax
+	hunk-header-style = line-number syntax file
 	file-style=bold
 
 [init]
