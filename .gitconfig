@@ -122,5 +122,7 @@
 	hunk-header-file-style = red
 	hunk-header-line-number-style = "#6935BF"
 	hunk-header-style = line-number syntax
+	file-style=bold
+
 [init]
 	defaultBranch = main
