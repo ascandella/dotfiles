@@ -1,5 +1,5 @@
 if _command_exists jira ; then
   alias jiraissues='jira issue list -a$(jira me)'
-  alias ji='jiraissues -s "In Progress" --plain --columns KEY,SUMMARY --no-headers'
+  alias inprog='jiraissues -s "In Progress" --plain --columns KEY,SUMMARY --no-headers'
 fi
 # vi: ft=zsh
