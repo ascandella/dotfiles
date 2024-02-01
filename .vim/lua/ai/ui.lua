@@ -16,3 +16,7 @@ vim.api.nvim_create_autocmd('VimResized', {
     vim.cmd('wincmd =')
   end,
 })
+
+vim.o.guifont = 'BerkeleyMonoVariable Nerd Font Mono'
+-- https://github.com/neovide/neovide/discussions/1270
+vim.g.neovide_input_macos_alt_is_meta = true
