@@ -295,6 +295,8 @@ local packages = {
 
   -- Astro syntax
   { 'wuelnerdotexe/vim-astro', ft = 'astro' },
+  -- KDL syntax, for zellij
+  { 'imsnif/kdl.vim', ft = 'kdl' },
   --
   -- Start screen
   {
