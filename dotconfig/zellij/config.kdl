@@ -6,6 +6,7 @@ keybinds {
         unbind "Alt j" // for vim toggleterm
         unbind "Ctrl g" // for fzf git commands
         unbind "Ctrl q" // No quitters
+        unbind "Ctrl n" // For next match in telescope
     }
     locked {
         bind "Alt l" { SwitchToMode "Normal"; }
@@ -190,7 +191,7 @@ keybinds {
         bind "Ctrl p" { SwitchToMode "Pane"; }
     }
     shared_except "resize" "locked" {
-        bind "Ctrl n" { SwitchToMode "Resize"; }
+        // bind "Ctrl n" { SwitchToMode "Resize"; }
     }
     shared_except "scroll" "locked" {
         bind "Ctrl s" { SwitchToMode "Scroll"; }
