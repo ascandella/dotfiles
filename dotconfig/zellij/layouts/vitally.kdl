@@ -6,7 +6,7 @@ layout {
             plugin location="zellij:compact-bar"
         }
     }
-    tab name="watch" {
+    tab name="build" {
         pane {
             command "yarn" 
             args "build:watch"
