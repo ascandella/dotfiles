@@ -4,9 +4,11 @@ keybinds {
         // uncomment this and adjust key if using copy_on_select=false
         // bind "Alt c" { Copy; }
         unbind "Alt j" // for vim toggleterm
+        unbind "Ctrl g" // for fzf git commands
+        unbind "Ctrl q" // No quitters
     }
     locked {
-        bind "Ctrl g" { SwitchToMode "Normal"; }
+        bind "Alt l" { SwitchToMode "Normal"; }
     }
     resize {
         bind "Ctrl n" { SwitchToMode "Normal"; }
@@ -51,7 +53,7 @@ keybinds {
         bind "Ctrl t" { SwitchToMode "Normal"; }
         bind "r" { SwitchToMode "RenameTab"; TabNameInput 0; }
         bind "h" "Left" "Up" "k" { GoToPreviousTab; }
-        bind "l" "Right" "Down" "j" { GoToNextTab; }
+        bind "s" "Right" "Down" "j" { GoToNextTab; }
         bind "n" { NewTab; SwitchToMode "Normal"; }
         bind "x" { CloseTab; SwitchToMode "Normal"; }
         bind "s" { ToggleActiveSyncTab; SwitchToMode "Normal"; }
@@ -167,12 +169,15 @@ keybinds {
         bind "9" { GoToTab 9; SwitchToMode "Normal"; }
     }
     shared_except "locked" {
-        bind "Ctrl g" { SwitchToMode "Locked"; }
-        bind "Ctrl q" { Quit; }
-        bind "Alt n" { NewPane; }
-        bind "Alt h" "Alt Left" { MoveFocusOrTab "Left"; }
-        bind "Alt s" "Alt Right" { MoveFocusOrTab "Right"; }
-        bind "Alt k" "Alt Up" { MoveFocus "Up"; }
+        bind "Alt l" { SwitchToMode "Locked"; }
+        // bind "Ctrl q" { Quit; } // don't want to quit so easily
+
+        // Yabai (skhd) conflicts:
+        // bind "Alt n" { NewPane; } 
+        // bind "Alt h" "Alt Left" { MoveFocusOrTab "Left"; }
+        // bind "Alt s" "Alt Right" { MoveFocusOrTab "Right"; }
+        // bind "Alt k" "Alt Up" { MoveFocus "Up"; }
+
         bind "Alt =" "Alt +" { Resize "Increase"; }
         bind "Alt -" { Resize "Decrease"; }
         bind "Alt [" { PreviousSwapLayout; }
