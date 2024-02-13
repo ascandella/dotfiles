@@ -9,6 +9,7 @@ keybinds {
         unbind "Ctrl n" // For next match in telescope
         unbind "Ctrl p" // For previous match in telescope
         unbind "Ctrl o" // For jumping out in vim
+        unbind "Ctrl b" // For shell C-b e edit command line
     }
     locked {
         bind "Alt l" { SwitchToMode "Normal"; }
