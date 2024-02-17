@@ -10,7 +10,8 @@
 	signingkey = C19FAEAAFD6CC39783DAEB6617C559C421D83A19
 
 [push]
-	default = upstream
+	default = current
+	autoSetupRemote = true
 
 [diff]
 	renames = copies
@@ -20,6 +21,7 @@
 
 [branch]
 	autosetuprebase = always
+	sort = -committerdate
 
 [branch "master"]
 	rebase = true
@@ -38,7 +40,7 @@
 	graph = log --oneline --graph
 	ir = !git rebase -i origin/master
 	l = log --decorate --stat
-  lg = log --graph --pretty=lg --date=relative --abbrev-commit --decorate
+	lg = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'
 	lol = log --oneline --decorate
 	patch = add -p
 	refresh = !ssh-add -l && STASH=$(git stash) && git fetch && OVERCOMMIT_DISABLE=1 git rebase origin/HEAD && test \"$STASH\" != \"No local changes to save\" && git stash pop || true
@@ -69,6 +71,7 @@
 
 [rebase]
 	autosquash = true
+	autostash = true
 
 [pager]
 	status = true
@@ -95,7 +98,8 @@
 	meta = yellow bold
 [commit]
 	gpgsign = true
-	verbose = false
+	verbose = true
+
 [interactive]
 	singleKey = true
 	diffFilter = delta --color-only --features=interactive
@@ -105,12 +109,11 @@
 	lg = %Cred%h%Creset %s%C(yellow)%d%Creset %Cgreen(%cr)%Creset %C(bold blue)-- %an%C(reset)%C(yellow)%d%C(reset)
 
 [merge]
-	conflictStyle = diff3
+	conflictStyle = zdiff3
 
 [delta]
 	navigate = true
 	features = decorations
-	side-by-side = true
 	line-numbers-left-format = ""
 	line-numbers-right-format = "│ "
 
@@ -128,3 +131,6 @@
 
 [init]
 	defaultBranch = main
+
+[submodule]
+	recurse = true
