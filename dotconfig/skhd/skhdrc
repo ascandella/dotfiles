@@ -77,8 +77,16 @@
 # ############################################################### #
 
 # focus window
-alt - h : yabai -m window --focus west
-alt - s : yabai -m window --focus east
+alt - h : yabai -m query --spaces --space \
+  | jq -re ".index" \
+  | xargs -I{} yabai -m query --windows --space {} \
+  | jq -sre 'add | map(select(."is-minimized"==false)) | sort_by(.display, .frame.y, .frame.x, .id) | . as $array | length as $array_length | index(map(select(."has-focus"==true))) as $has_index | if $array_length - 1 > $has_index then nth($has_index + 1).id else nth(0).id end' \
+  | xargs -I{} yabai -m window --focus {}
+alt - s : yabai -m query --spaces --space \
+  | jq -re ".index" \
+  | xargs -I{} yabai -m query --windows --space {} \
+  | jq -sre 'add | map(select(."is-minimized"==false)) | sort_by(.display, .frame.y, .frame.x, .id) | . as $array | length as $array_length | index(map(select(."has-focus"==true))) as $has_index | if $has_index > 0 then nth($has_index - 1).id else nth($array_length - 1).id end' \
+  | xargs -I{} yabai -m window --focus {}
 alt - n : yabai -m window --focus north
 alt - t : yabai -m window --focus south
 
@@ -144,7 +152,7 @@ shift + alt - a : yabai -m window --resize left:-30:0
 shift + alt - d : yabai -m window --resize left:30:0
 shift + alt - w : yabai -m window --resize top:0:-30
 # TODO this conflicts with swapping vertically
-shift + alt - s : yabai -m window --resize top:0:30
+# shift + alt - s : yabai -m window --resize top:0:30
 
 # set insertion point in focused container
 # ctrl + alt - h : yabai -m window --insert west
@@ -153,8 +161,9 @@ shift + alt - s : yabai -m window --resize top:0:30
 # alt - d : yabai -m window --toggle zoom-parent
 alt - d : yabai -m window --toggle zoom-fullscreen
 
+# toggle between stack/bsp
+shift + alt - f : if [ $(yabai -m query --spaces --space | jq -re ".type") = "stack" ]; then yabai -m space --layout bsp; else yabai -m space --layout stack; fi
 # float space
-shift + alt - f : yabai -m space --layout float
 shift + alt - b : yabai -m space --layout bsp
 
 # toggle window split type
