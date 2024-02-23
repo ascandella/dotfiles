@@ -163,9 +163,14 @@ shift + alt - d : yabai -m window west --resize right:80:0 2>/dev/null || yabai 
 alt - d : yabai -m window --toggle zoom-fullscreen
 
 # toggle between stack/bsp
-shift + alt - f : if [ $(yabai -m query --spaces --space | jq -re ".type") = "stack" ]; then yabai -m space --layout bsp; else yabai -m space --layout stack; fi
+shift + alt - f : if [ $(yabai -m query --spaces --space | jq -re ".type") = "bsp" ]; \
+  then; \
+    yabai -m space --layout stack; \
+  else; \
+    yabai -m space --layout bsp; \
+  fi
 # float space
-shift + alt - b : yabai -m space --layout bsp
+shift + alt - b : yabai -m space --layout float
 
 # toggle window split type
 alt - e : yabai -m window --toggle split
