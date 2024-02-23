@@ -148,9 +148,10 @@ shift + alt - 5 : yabai -m window --space  5; yabai -m space --focus 5
 # shift + ctrl - s : yabai -m window --move rel:0:20
 
 # increase window size
-shift + alt - a : yabai -m window --resize left:-30:0
-shift + alt - d : yabai -m window --resize left:30:0
-shift + alt - w : yabai -m window --resize top:0:-30
+shift + alt - a : yabai -m window west --resize right:-80:0 2>/dev/null || yabai -m window --resize right:80:0
+# decrease window size
+shift + alt - d : yabai -m window west --resize right:80:0 2>/dev/null || yabai -m window --resize right:-80:0
+# shift + alt - d : yabai -m window --resize left:60:0
 # TODO this conflicts with swapping vertically
 # shift + alt - s : yabai -m window --resize top:0:30
 
