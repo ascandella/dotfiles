@@ -138,7 +138,7 @@ vim.cmd([[command! W w]])
 -- Focus
 vim.api.nvim_set_keymap('n', '<c-l>', ':FocusSplitNicely<CR>', { silent = true, desc = 'Focus split nicely' })
 
-local harpoon_jumpers = { '<C-h>', '<C-t>', '<C-n>', '<C-s>' }
+local harpoon_jumpers = { '<A-m>', '<A-w>', '<A-v>', '<A-z>' }
 for index, mapping in ipairs(harpoon_jumpers) do
   vim.keymap.set('n', mapping, function()
     require('harpoon.ui').nav_file(index)
