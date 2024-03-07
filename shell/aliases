@@ -35,7 +35,7 @@ if _command_exists delta ; then
   ag() {
     if [ -n "$1" ]; then
       local args=""
-      if [ -n "$2" ]; then
+      if [[ -n "$2" && -z "$3" ]]; then
         args="-C $2"
       fi
       # https://github.com/dandavison/delta/issues/1588#issuecomment-e898999756
