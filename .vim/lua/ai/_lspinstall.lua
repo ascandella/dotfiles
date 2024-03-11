@@ -7,7 +7,6 @@ local servers = {
   'efm',
   'elixirls',
   'gopls',
-  'rnix',
   'terraformls',
   'tailwindcss',
   'tflint',
@@ -17,6 +16,11 @@ local servers = {
   'yamlls',
   'rust_analyzer',
 }
+
+local nix_enabled = vim.fn.executable('nix') == 1
+if nix_enabled then
+  table.insert(servers, 'nil_ls')
+end
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
@@ -146,5 +150,7 @@ lspconfig.gopls.setup(make_config({
 }))
 
 lspconfig.astro.setup(make_config())
-lspconfig.rnix.setup(make_config())
+if nix_enabled then
+  lspconfig.nil_ls.setup(make_config())
+end
 lspconfig.pyright.setup(make_config())
