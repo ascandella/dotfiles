@@ -9,11 +9,11 @@ curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix 
 This is only needed once, afterwards `home-manager switch` works.
 
 ```sh
-ln -s $PWD $HOME/.config/home-manager
+nix run nix-darwin --extra-experimental-features nix-command --extra-experimental-features flakes -- switch --flake ".#ai-studio"
 ```
 
 ## Old way:
 
 ```sh
-nix build ".#homeConfigurations.${USER}.activationPackage"  && ./result/activate
+nix run nix-darwin -- switch --flake ".#ai-studio"
 ```
