@@ -48,7 +48,7 @@
   ];
   
   home.shellAliases = {
-    reload-home-manager-config = "home-manager switch";
+    reload-home-manager-config = "home-manager switch && exec zsh -L";
   };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

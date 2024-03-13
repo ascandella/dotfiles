@@ -25,14 +25,26 @@
     shellAliases = {
       j = "z";
       g = "git";
-      gst = "git status";
+      gst = "git status -sb";
+      gco = "git checkout";
+      gcp = "git cherry-pick";
+      gca = "git commit --amend";
+      gcn = "git commit --no-edit --no-verify --amend";
       vi = "nvim";
       vim = "nvim";
+      k = "kubectl";
+      kc = "kubectl config use-context";
     };
 
     initExtra = ''
       # Allow c-w to backwards word but stop at e.g. path separators
       WORDCHARS='*?_-.[]~&;!#$%^(){}<>'
+      # Postfix alias, syntax not supported in nix?
+      alias -g G=' | grep '
+      # Allow git commit -m and auto-quote arguments
+      gcm () {
+        git commit -m "$*"
+      }
 
       # https://github.com/zsh-users/zsh-syntax-highlighting/issues/171
       # Cursor disappearing on move in linux
@@ -76,6 +88,23 @@
         export FZF_DEFAULT_COMMAND='ag -g ""'
         export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
       fi
+
+      # https://github.com/larkery/zsh-histdb?tab=readme-ov-file#integration-with-zsh-autosuggestions
+      _zsh_autosuggest_strategy_histdb_top() {
+          local query="
+              select commands.argv from history
+              left join commands on history.command_id = commands.rowid
+              left join places on history.place_id = places.rowid
+              where commands.argv LIKE '$(sql_escape $1)%'
+              group by commands.argv, places.dir
+              order by places.dir != '$(sql_escape $PWD)', count(*) desc
+              limit 1
+          "
+          suggestion=$(_histdb_query "$query")
+      }
+
+      ZSH_AUTOSUGGEST_STRATEGY=histdb_top
+
 
       # Workaround for zsh-histdb on macos
       if [[ $(uname) == "Darwin" ]] ; then
