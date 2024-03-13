@@ -1,4 +1,4 @@
-{ pkgs, darwin, home-manager, username, homeDirectory, ... }:
+{ pkgs, darwin, home-manager, username, homeDirectory, inputs, ... }:
 
 darwin.lib.darwinSystem {
   system = "aarch64-darwin";
@@ -12,7 +12,7 @@ darwin.lib.darwinSystem {
         shell = pkgs.zsh;
       };
       home-manager.users.${username} = import ../../modules/home/home.nix {
-        inherit username pkgs homeDirectory;
+        inherit username pkgs homeDirectory inputs;
       };
     }
   ];

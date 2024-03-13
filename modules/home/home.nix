@@ -1,11 +1,13 @@
-{ username, pkgs, homeDirectory, ... }:
+{ username, pkgs, homeDirectory, inputs, ... }:
 
 {
   imports = [
     ./shell.nix
     ./darwin.nix
     ./git.nix
-    ./dotconfig.nix
+    ({ lib, ... }: import ./dotconfig.nix {
+      inherit inputs lib pkgs;
+    })
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.

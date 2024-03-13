@@ -17,7 +17,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, darwin, simple-bar-src }:
+  outputs = { self, nixpkgs, home-manager, darwin, ... }@inputs:
     let
       username = "aiden"; # $USER
       system = "aarch64-darwin"; # TODO make this work on linux
@@ -37,8 +37,8 @@
       # Contains my full Mac system builds, including home-manager
       # darwin-rebuild switch --flake .#ai-studio
       darwinConfigurations = {
-        ai-studio = import ./hosts/studio { inherit pkgs darwin home-manager username homeDirectory; };
-        workbook = import ./hosts/workbook { inherit pkgs darwin home-manager username homeDirectory; };
+        ai-studio = import ./hosts/studio { inherit pkgs darwin home-manager username homeDirectory inputs; };
+        workbook = import ./hosts/workbook { inherit pkgs darwin home-manager username homeDirectory inputs; };
       };
 
       # For quickly applying home-manager settings with:
