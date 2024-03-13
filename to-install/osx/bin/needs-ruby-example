@@ -1,6 +1,0 @@
-#!/usr/bin/env/ruby
-# needs ruby (ai)
-
-puts "Hello, World"
-
-# vim ft=ruby

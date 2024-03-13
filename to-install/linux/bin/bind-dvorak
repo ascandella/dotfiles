@@ -1,6 +1,0 @@
-#!/bin/bash
-
-export DISPLAY=":0"
-/usr/bin/setxkbmap dvorak
-/usr/bin/setxkbmap -option altwin:swap_alt_win
-

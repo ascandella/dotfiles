@@ -1,8 +1,0 @@
-#!/usr/bin/env xdg-open
-[Desktop Entry]
-Name=Windows Reboot
-GenericName=Win10
-Exec=/home/aiden/.local/bin/reboot-to-windows
-Terminal=false
-Type=Application
-Categories=Network;

@@ -1,4 +1,0 @@
-# Only used in VirtualBox VMs
-# RESOLUTION="1400x1050"
-#RESOLUTION="1280x800"
-#xrandr --output VGA-1 --mode "${RESOLUTION}"

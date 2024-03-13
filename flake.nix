@@ -11,9 +11,13 @@
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    simple-bar-src = {
+      url = "github:Jean-Tinland/simple-bar"
+      flake = false;
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, darwin }:
+  outputs = { self, nixpkgs, home-manager, darwin, simple-bar-src }:
     let
       username = "aiden"; # $USER
       system = "aarch64-darwin"; # TODO make this work on linux
