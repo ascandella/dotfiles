@@ -46,6 +46,19 @@
         git commit -m "$*"
       }
 
+      ag() {
+        if [ -n "$1" ]; then
+          local args=""
+          if [[ -n "$2" && -z "$3" ]]; then
+            args="-C $2"
+          fi
+          # https://github.com/dandavison/delta/issues/1588#issuecomment-e898999756
+          rg --json "$1" ''${=args} | delta --tabs=1
+        else
+          rg
+        fi
+      }
+
       # https://github.com/zsh-users/zsh-syntax-highlighting/issues/171
       # Cursor disappearing on move in linux
       export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
