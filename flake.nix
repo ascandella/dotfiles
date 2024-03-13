@@ -12,7 +12,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     simple-bar-src = {
-      url = "github:Jean-Tinland/simple-bar"
+      url = "github:Jean-Tinland/simple-bar";
       flake = false;
     };
   };

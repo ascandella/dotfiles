@@ -59,7 +59,24 @@
       "inputs": {
         "darwin": "darwin",
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "simple-bar-src": "simple-bar-src"
+      }
+    },
+    "simple-bar-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1710362015,
+        "narHash": "sha256-8JARXQqYwVRds1try+YkxkGnl5uGUXOo9sKC26FL1VI=",
+        "owner": "Jean-Tinland",
+        "repo": "simple-bar",
+        "rev": "bf3c5b547411ae6d51e8fc4f408cb79ca2367454",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Jean-Tinland",
+        "repo": "simple-bar",
+        "type": "github"
       }
     }
   },
