@@ -134,3 +134,5 @@
 
 [submodule]
 	recurse = true
+[column]
+	ui = auto
