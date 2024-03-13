@@ -140,36 +140,53 @@
       [[ -f $HOME/.zshrc.local ]] && . "$HOME/.zshrc.local"
     '';
 
-    zplug = {
-      enable = true;
-      plugins = [
-        { name = "zsh-users/zsh-completions"; }
-        { name = "zsh-users/zsh-history-substring-search"; }
-        { name = "zsh-users/zsh-autosuggestions"; }
-        { name = "Tarrasch/zsh-autoenv"; }
-        # { name = "Tarrasch/zsh-command-not-found"; }
-        # {
-        #   name = "zimfw/git-info";
-        #   tags = [ "lazy:true" ];
-        # }
-        # {
-        #   name = "zimfw/eriner";
-        #   tags = [ "as:theme" ];
-        # }
-        # { name = "mafredri/zsh-async"; } # for pure
-        # {
-        #   name = "sindresorhus/pure";
-        #   tags = [
-        #     "as:theme"
-        #     "use:pure.zsh"
-        #   ];
-        # }
-        { name = "zimfw/input"; }
-        { name = "zsh-users/zsh-syntax-highlighting"; }
-        { name = "larkery/zsh-histdb"; }
-        { name = "hlissner/zsh-autopair"; }
-      ];
-    };
+    plugins = [
+      {
+        name = "zsh-history-substring-search";
+        src = pkgs.fetchFromGitHub {
+          owner = "zsh-users";
+          repo = "zsh-history-substring-search";
+          rev = "8dd05bfcc12b0cd1ee9ea64be725b3d9f713cf64";
+          sha256 = "houujb1CrRTjhCc+dp3PRHALvres1YylgxXwjjK6VZA=";
+        };
+      }
+      {
+        name = "zsh-syntax-highlighting";
+        src = pkgs.fetchFromGitHub {
+          owner = "zsh-users";
+          repo = "zsh-syntax-highlighting";
+          rev = "e0165eaa730dd0fa321a6a6de74f092fe87630b0";
+          sha256 = "4rW2N+ankAH4sA6Sa5mr9IKsdAg7WTgrmyqJ2V1vygQ=";
+        };
+      }
+      {
+        name = "zsh-histdb";
+        src = pkgs.fetchFromGitHub {
+          owner = "larkery";
+          repo = "zsh-histdb";
+          rev = "30797f0c50c31c8d8de32386970c5d480e5ab35d";
+          sha256 = "PQIFF8kz+baqmZWiSr+wc4EleZ/KD8Y+lxW2NT35/bg=";
+        };
+      }
+      {
+        name = "zsh-autosuggestions";
+        src = pkgs.fetchFromGitHub {
+          owner = "zsh-users";
+          repo = "zsh-autosuggestions";
+          rev = "v0.7.0";
+          sha256 = "KLUYpUu4DHRumQZ3w59m9aTW6TBKMCXl2UcKi4uMd7w=";
+        };
+      }
+      {
+        name = "zsh-autopair";
+        src = pkgs.fetchFromGitHub {
+          owner = "hlissner";
+          repo = "zsh-autopair";
+          rev = "2ec3fd3c9b950c01dbffbb2a4d191e1d34b8c58a";
+          sha256 = "Y7fkpvCOC/lC2CHYui+6vOdNO8dNHGrVYTGGNf9qgdg=";
+        };
+      }
+    ];
   };
 
   programs = {
