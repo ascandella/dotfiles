@@ -118,14 +118,13 @@
 
       ZSH_AUTOSUGGEST_STRATEGY=histdb_top
 
-
       # Workaround for zsh-histdb on macos
       if [[ $(uname) == "Darwin" ]] ; then
         export HISTDB_TABULATE_CMD=(sed -e $'s/\x1f/\t/g')
       fi
 
       eval "$(${pkgs.fnm}/bin/fnm env --use-on-cd)"
-      export SPACESHIP_PROMPT_ORDER=(
+      SPACESHIP_PROMPT_ORDER=(
         time
         user dir host git
         exec_time
