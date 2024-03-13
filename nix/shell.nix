@@ -125,6 +125,16 @@
       fi
 
       eval "$(${pkgs.fnm}/bin/fnm env --use-on-cd)"
+      export SPACESHIP_PROMPT_ORDER=(
+        time
+        user dir host git
+        exec_time
+        async
+        line_sep
+        jobs
+        exit_code sudo char
+      )
+      source "${pkgs.spaceship-prompt}/lib/spaceship-prompt/spaceship.zsh"
     '';
 
     envExtra = ''
@@ -160,56 +170,6 @@
         { name = "larkery/zsh-histdb"; }
         { name = "hlissner/zsh-autopair"; }
       ];
-    };
-  };
-
-  programs.starship = {
-    enable = true;
-    # Configuration written to ~/.config/starship.toml
-    settings = {
-      # add_newline = false;
-
-      # character = {
-      #   success_symbol = "[➜](bold green)";
-      #   error_symbol = "[➜](bold red)";
-      # };
-
-      aws.disabled = true;
-      c.disabled = true;
-      cmake.disabled = true;
-      cobol.disabled = true;
-      conda.disabled = true;
-      crystal.disabled = true;
-      dart.disabled = true;
-      deno.disabled = true;
-      docker_context.disabled = true;
-      dotnet.disabled = true;
-      elixir.disabled = true;
-      erlang.disabled = true;
-      gcloud.disabled = true;
-      haskell.disabled = true;
-      helm.disabled = true;
-      java.disabled = true;
-      kotlin.disabled = true;
-      lua.disabled = true;
-      nim.disabled = true;
-      nodejs.disabled = true;
-      ocaml.disabled = true;
-      openstack.disabled = true;
-      package.disabled = true;
-      perl.disabled = true;
-      php.disabled = true;
-      pulumi.disabled = true;
-      purescript.disabled = true;
-      python.disabled = true;
-      ruby.disabled = true;
-      scala.disabled = true;
-      singularity.disabled = true;
-      spack.disabled = true;
-      swift.disabled = true;
-      vagrant.disabled = true;
-      vcsh.disabled = true;
-      vlang.disabled = true;
     };
   };
 
