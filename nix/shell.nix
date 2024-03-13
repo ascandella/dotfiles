@@ -123,6 +123,8 @@
       if [[ $(uname) == "Darwin" ]] ; then
         export HISTDB_TABULATE_CMD=(sed -e $'s/\x1f/\t/g')
       fi
+
+      eval "$(${pkgs.fnm}/bin/fnm env --use-on-cd)"
     '';
 
     envExtra = ''
