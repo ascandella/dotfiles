@@ -9,6 +9,7 @@ darwin.lib.darwinSystem {
     {
       users.users.${username} = {
         home = homeDirectory;
+        shell = pkgs.zsh;
       };
       home-manager.users.${username} = import ../../modules/home/home.nix {
         inherit username pkgs homeDirectory;

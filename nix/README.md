@@ -12,8 +12,8 @@ This is only needed once, afterwards `home-manager switch` works.
 nix run nix-darwin --extra-experimental-features nix-command --extra-experimental-features flakes -- switch --flake ".#ai-studio"
 ```
 
-## Old way:
+## After the first run, you can:
 
 ```sh
-nix run nix-darwin -- switch --flake ".#ai-studio"
+darwin-rebuild switch --flake ".#ai-studio"
 ```
