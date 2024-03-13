@@ -1,16 +1,22 @@
-[![Build Status](https://travis-ci.org/ascandella/dotfiles.svg?branch=master)](https://travis-ci.org/ascandella/dotfiles)
+## Installing Nix
 
-Dotfiles
-========
+```sh
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+```
 
-Published here so I can keep my configuration sane across the various machines
-I work on.
+## First run
 
-![My Desktop](https://raw.githubusercontent.com/ascandella/dotfiles/docs/docs/my-desktop.png)
+This is only needed once
 
-Testing
--------
+```sh
+nix run nix-darwin \
+    --extra-experimental-features nix-command \
+    --extra-experimental-features flakes -- \
+    switch --flake ".#ai-studio"
+```
 
-Tests are run via [zunit](https://zunit.xyz/)
+## After the first run, you can:
 
-![ZUnit](https://raw.githubusercontent.com/ascandella/dotfiles/docs/docs/zunit.png)
+```sh
+darwin-rebuild switch --flake ".#ai-studio"
+```
