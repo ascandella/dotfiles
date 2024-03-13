@@ -12,7 +12,7 @@
   outputs = { self, nixpkgs, home-manager }:
     let
       username = "aiden"; # $USER
-      system = "aarch64-darwin";
+      system = "aarch64-darwin"; # TODO make this work on linux
       stateVersion = "23.11";     # See https://nixos.org/manual/nixpkgs/stable for most recent
 
       pkgs = import nixpkgs {
