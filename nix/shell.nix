@@ -132,14 +132,14 @@
         #   name = "zimfw/eriner";
         #   tags = [ "as:theme" ];
         # }
-        { name = "mafredri/zsh-async"; }
-        {
-          name = "sindresorhus/pure";
-          tags = [
-            "as:theme"
-            "use:pure.zsh"
-          ];
-        }
+        # { name = "mafredri/zsh-async"; } # for pure
+        # {
+        #   name = "sindresorhus/pure";
+        #   tags = [
+        #     "as:theme"
+        #     "use:pure.zsh"
+        #   ];
+        # }
         { name = "zimfw/input"; }
         { name = "zsh-users/zsh-syntax-highlighting"; }
         { name = "larkery/zsh-histdb"; }
@@ -148,6 +148,31 @@
     };
   };
 
+  programs.starship = {
+    enable = true;
+    # Configuration written to ~/.config/starship.toml
+    settings = {
+      # add_newline = false;
+
+      # character = {
+      #   success_symbol = "[➜](bold green)";
+      #   error_symbol = "[➜](bold red)";
+      # };
+
+      package.disabled = true;
+      aws.disabled = true;
+      docker_context.disabled = true;
+      nodejs.disabled = true;
+    };
+  };
+
+  programs = {
+    direnv = {
+      enable = true;
+      enableZshIntegration = true; # see note on other shells below
+      nix-direnv.enable = true;
+    };
+  };
   
   programs.fzf = {
     enable = true;
