@@ -34,6 +34,7 @@
       vim = "nvim";
       k = "kubectl";
       kc = "kubectl config use-context";
+      less = "most";
     };
 
     initExtra = ''
