@@ -19,6 +19,15 @@
 
   outputs = { self, nixpkgs, home-manager, darwin, ... }@inputs:
     let
+      hostnames = builtins.attrNames (builtins.readDir ./hosts);
+      systemForHost = hostname:
+        if builtins.elem hostname ["studio" "workbook"] then "aarch64-darwin"
+        else "x86_64-linux";
+      #unstablePkgsForHost = hostname:
+        #import unstable {
+	  #system = systemForHost hostname;
+	  #config.allowUnfree = true;
+	#};
       username = "aiden"; # $USER
       system = "aarch64-darwin"; # TODO make this work on linux
 
@@ -35,6 +44,9 @@
       darwinOptions = {
        inherit pkgs darwin home-manager username homeDirectory inputs; 
       };
+      nixosOptions = {
+        inherit inputs nixpkgs home-manager;
+      };
 
     in rec {
       # Contains my full Mac system builds, including home-manager
@@ -49,6 +61,14 @@
       homeConfigurations = {
         ai-studio = darwinConfigurations.ai-studio.config.home-manager.users.${username}.home;
         workbook-studio = darwinConfigurations.workbook.config.home-manager.users.${username}.home;
+      };
+
+      # Contains my full system builds, including home-manager
+      # nixos-rebuild switch --flake .#wallynix
+      nixosConfigurations = {
+        wallynix = import ./hosts/wallynix (nixosOptions // {
+          system = systemForHost "wallynix";
+        });
       };
     };
 }
