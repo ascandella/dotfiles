@@ -1,4 +1,0 @@
-# Enable history in `iex`.
-# Considered doing this as `alias iex="iex --erl '-kernel ..."` but thought this
-# was nicer
-export ERL_AFLAGS="-kernel shell_history enabled"

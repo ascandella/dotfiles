@@ -1,4 +1,0 @@
-if command -v most > /dev/null 2>&1 ; then
-  alias more=most
-  alias less=most
-fi

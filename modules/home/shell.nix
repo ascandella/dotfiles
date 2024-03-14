@@ -38,6 +38,7 @@
     };
 
     initExtra = ''
+      setopt correct
       # Allow c-w to backwards word but stop at e.g. path separators
       WORDCHARS='*?_-.[]~&;!#$%^(){}<>'
       # Postfix alias, syntax not supported in nix?
