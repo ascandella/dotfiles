@@ -212,4 +212,12 @@
     enable = true;
     enableZshIntegration = true;
   };
+
+  programs.bat = {
+    enable = true;
+    config = {
+      theme = "Coldark-Dark";
+      style = "plain";
+    };
+  };
 }
