@@ -33,6 +33,7 @@
     fnm
     fzf
     htop
+    kubectl
     most
     neovim
     ngrok
