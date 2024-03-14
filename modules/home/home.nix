@@ -42,7 +42,6 @@
     rustup
     spaceship-prompt
     ssm-session-manager-plugin
-    yarn
     zellij
     zimfw
     zoxide

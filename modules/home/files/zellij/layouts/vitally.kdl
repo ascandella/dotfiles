@@ -8,7 +8,7 @@ layout {
     }
     tab name="build" {
         pane {
-            command "yarn" 
+            command "yarn"
             args "build:watch"
         }
     }
