@@ -40,7 +40,7 @@
       };
 
       homeDirPrefix = if pkgs.stdenv.hostPlatform.isDarwin then "/Users" else "/home";
-      homeDirectory = "/${homeDirPrefix}/${username}";
+      homeDirectory = "${homeDirPrefix}/${username}";
       darwinOptions = {
        inherit pkgs darwin home-manager username homeDirectory inputs; 
       };
