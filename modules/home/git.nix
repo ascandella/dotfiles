@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   programs.zsh.initExtra = ''
     is_in_git_repo() {
@@ -72,4 +72,18 @@
     bind-git-helper f b r h
     unset -f bind-git-helper
   '';
+
+  home.packages = [
+    (pkgs.writeShellScriptBin "git-gsub" ''
+      #!/bin/bash
+
+      old="$1"
+      new="$2"
+      path=$3
+
+      files=$(git grep -l "$old" $path)
+      echo $files
+      sed -i ''' -e "s|$old|$new|g" $files
+    '')
+  ];
 }
