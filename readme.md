@@ -12,11 +12,11 @@ This is only needed once
 nix run nix-darwin \
     --extra-experimental-features nix-command \
     --extra-experimental-features flakes -- \
-    switch --flake ".#ai-studio"
+    switch --flake ".#studio"
 ```
 
 ## After the first run, you can:
 
 ```sh
-darwin-rebuild switch --flake ".#ai-studio"
+darwin-rebuild switch --flake ".#studio"
 ```
