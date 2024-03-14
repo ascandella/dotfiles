@@ -1,7 +1,0 @@
-_assert_executable () {
-  for f in ${1} ; do
-    assert ../${f} is_executable
-  done
-}
-
-# vim: ft=sh
