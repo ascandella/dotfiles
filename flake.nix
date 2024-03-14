@@ -45,7 +45,7 @@
        inherit pkgs darwin home-manager username homeDirectory inputs; 
       };
       nixosOptions = {
-        inherit inputs nixpkgs home-manager username homeDirectory;
+        inherit inputs pkgs nixpkgs home-manager username homeDirectory;
       };
 
     in rec {
