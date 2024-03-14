@@ -91,6 +91,9 @@
   #
   home.sessionVariables = {
     EDITOR = "nvim";
+    CLICOLOR = "1";
+    GREP_OPTIONS = "--color=always";
+    GREP_COLOR = "1;35;40";
   };
 
   programs.zsh = {
