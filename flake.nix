@@ -32,16 +32,16 @@
 
       homeDirPrefix = if pkgs.stdenv.hostPlatform.isDarwin then "/Users" else "/home";
       homeDirectory = "/${homeDirPrefix}/${username}";
-      globals = {
-        # user = username;
+      darwinOptions = {
+       inherit pkgs darwin home-manager username homeDirectory inputs; 
       };
 
     in rec {
       # Contains my full Mac system builds, including home-manager
       # darwin-rebuild switch --flake .#ai-studio
       darwinConfigurations = {
-        ai-studio = import ./hosts/studio { inherit globals pkgs darwin home-manager username homeDirectory inputs; };
-        workbook = import ./hosts/workbook { inherit globals pkgs darwin home-manager username homeDirectory inputs; };
+        ai-studio = import ./hosts/studio darwinOptions;
+        workbook = import ./hosts/workbook darwinOptions;
       };
 
       # For quickly applying home-manager settings with:
