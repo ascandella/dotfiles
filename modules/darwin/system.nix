@@ -6,6 +6,10 @@
     # Reference: https://github.com/nmasur/dotfiles/blob/c697cd4e383997cdd45e6e4b76cc95d195efd6e0/modules/darwin/system.nix
     system = {
       defaults = {
+        trackpad = {
+          TrackpadRightClick = true;
+        };
+
         NSGlobalDomain = {
           # Set to dark mode
           AppleInterfaceStyle = "Dark";
@@ -25,6 +29,12 @@
           autohide = true;
         };
       };
+
+      activationScripts.postActivation.text = ''
+        # Not an option in nix-darwin (yet)
+        echo "Disabling standard click to show desktop..."
+        defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool false
+      '';
     };
   };
 }
