@@ -19,7 +19,7 @@
 
   outputs = { self, nixpkgs, home-manager, darwin, ... }@inputs:
     let
-      hostnames = builtins.attrNames (builtins.readDir ./hosts);
+      # hostnames = builtins.attrNames (builtins.readDir ./hosts);
       systemForHost = hostname:
         if builtins.elem hostname ["studio" "workbook"] then "aarch64-darwin"
         else "x86_64-linux";
@@ -29,10 +29,9 @@
 	  #config.allowUnfree = true;
 	#};
       username = "aiden"; # $USER
-      system = "aarch64-darwin"; # TODO make this work on linux
 
-      pkgs = import nixpkgs {
-        inherit system;
+      pkgs = host: import nixpkgs {
+        system = systemForHost host;
 
         config = {
           allowUnfree = true;
@@ -41,19 +40,21 @@
 
       homeDirPrefix = if pkgs.stdenv.hostPlatform.isDarwin then "/Users" else "/home";
       homeDirectory = "${homeDirPrefix}/${username}";
-      darwinOptions = {
-       inherit pkgs darwin home-manager username homeDirectory inputs; 
+      darwinOptions = host: {
+       inherit darwin home-manager username homeDirectory inputs; 
+       pkgs = pkgs host;
       };
-      nixosOptions = {
-        inherit inputs pkgs nixpkgs home-manager username;
+      nixosOptions = host: {
+        inherit inputs nixpkgs home-manager username;
+       pkgs = pkgs host;
       };
 
     in rec {
       # Contains my full Mac system builds, including home-manager
       # darwin-rebuild switch --flake .#ai-studio
       darwinConfigurations = {
-        ai-studio = import ./hosts/studio darwinOptions;
-        workbook = import ./hosts/workbook darwinOptions;
+        ai-studio = import ./hosts/studio darwinOptions "ai-studio";
+        workbook = import ./hosts/workbook darwinOptions "workbook";
       };
 
       # For quickly applying home-manager settings with:
@@ -66,7 +67,7 @@
       # Contains my full system builds, including home-manager
       # nixos-rebuild switch --flake .#wallynix
       nixosConfigurations = {
-        wallynix = import ./hosts/wallynix (nixosOptions // {
+        wallynix = import ./hosts/wallynix (nixosOptions "wallynix" // {
           system = systemForHost "wallynix";
           homeDirectory = "/home/${username}";
         });
