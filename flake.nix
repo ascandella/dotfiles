@@ -45,7 +45,7 @@
        inherit pkgs darwin home-manager username homeDirectory inputs; 
       };
       nixosOptions = {
-        inherit inputs pkgs nixpkgs home-manager username homeDirectory;
+        inherit inputs pkgs nixpkgs home-manager username;
       };
 
     in rec {
@@ -68,6 +68,7 @@
       nixosConfigurations = {
         wallynix = import ./hosts/wallynix (nixosOptions // {
           system = systemForHost "wallynix";
+          homeDirectory = "/home/${username}";
         });
       };
     };
