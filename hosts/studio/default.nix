@@ -5,7 +5,7 @@ darwin.lib.darwinSystem {
   modules = [
     ../../modules/darwin
     ../../modules/common
-    # globals
+    globals
     home-manager.darwinModules.home-manager
     {
       users.users.${username} = {
