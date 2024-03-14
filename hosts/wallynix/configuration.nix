@@ -17,11 +17,14 @@
     ];
 
   # Bootloader.
-  boot.loader.grub = {
-    enable = true;
-    device = "/dev/sda";
-    useOSProber = true;
-    configurationLimit = 5;
+  boot.loader = {
+    timeout = 2;
+    grub = {
+      enable = true;
+      device = "/dev/sda";
+      useOSProber = true;
+      configurationLimit = 5;
+    };
   };
 
   networking.hostName = "wallynix"; # Define your hostname.
@@ -66,14 +69,7 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    vim
-    wget
-    curl
-    git
-  ];
+  # nixos/roles/base.nix contains most of the base config
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -83,15 +79,7 @@
   #   enableSSHSupport = true;
   # };
 
-  # List services that you want to enable:
-
   services.qemuGuest.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -100,5 +88,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
-
 }
