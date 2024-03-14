@@ -28,6 +28,7 @@
   # environment.
   home.packages = with pkgs; [
     awscli2
+    bat
     bun
     delta
     fnm

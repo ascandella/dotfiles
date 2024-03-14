@@ -24,6 +24,7 @@
 
     shellAliases = {
       j = "z";
+      cat = "bat";
       g = "git";
       gst = "git status -sb";
       gco = "git checkout";
@@ -34,6 +35,7 @@
       vim = "nvim";
       k = "kubectl";
       kc = "kubectl config use-context";
+      krp = "kubectl get pods --field-selector=status.phase=Running";
       less = "most";
     };
 
