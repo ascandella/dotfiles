@@ -24,9 +24,6 @@
     configurationLimit = 5;
   };
 
-  # Enable flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
   networking.hostName = "wallynix"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
