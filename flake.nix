@@ -21,7 +21,7 @@
     let
       # hostnames = builtins.attrNames (builtins.readDir ./hosts);
       systemForHost = hostname:
-        if builtins.elem hostname ["studio" "workbook"] then "aarch64-darwin"
+        if builtins.elem hostname ["ai-studio" "workbook"] then "aarch64-darwin"
         else "x86_64-linux";
       #unstablePkgsForHost = hostname:
         #import unstable {
@@ -30,7 +30,7 @@
 	#};
       username = "aiden"; # $USER
 
-      pkgs = host: import nixpkgs {
+      pkgsForHost = host: import nixpkgs {
         system = systemForHost host;
 
         config = {
@@ -38,23 +38,25 @@
         };
       };
 
-      homeDirPrefix = if pkgs.stdenv.hostPlatform.isDarwin then "/Users" else "/home";
-      homeDirectory = "${homeDirPrefix}/${username}";
+      homeDirPrefix = host: if systemForHost host == "aarch64-darwin" then "/Users" else "/home";
+      homeDirectory = host: "${homeDirPrefix host}/${username}";
       darwinOptions = host: {
-       inherit darwin home-manager username homeDirectory inputs; 
-       pkgs = pkgs host;
+        inherit darwin home-manager username inputs;
+        homeDirectory = homeDirectory host;
+        pkgs = pkgsForHost host;
       };
       nixosOptions = host: {
         inherit inputs nixpkgs home-manager username;
-       pkgs = pkgs host;
+        homeDirectory = homeDirectory host;
+        pkgs = pkgsForHost host;
       };
 
     in rec {
       # Contains my full Mac system builds, including home-manager
       # darwin-rebuild switch --flake .#ai-studio
       darwinConfigurations = {
-        ai-studio = import ./hosts/studio darwinOptions "ai-studio";
-        workbook = import ./hosts/workbook darwinOptions "workbook";
+        ai-studio = import ./hosts/studio (darwinOptions "ai-studio");
+        workbook = import ./hosts/workbook (darwinOptions "workbook");
       };
 
       # For quickly applying home-manager settings with:
@@ -69,7 +71,7 @@
       nixosConfigurations = {
         wallynix = import ./hosts/wallynix (nixosOptions "wallynix" // {
           system = systemForHost "wallynix";
-          homeDirectory = "/home/${username}";
+          # homeDirectory = homeDirectory "wallynix";
         });
       };
     };
