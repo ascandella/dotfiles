@@ -1,4 +1,0 @@
-if command -v yabai >/dev/null ; then
-  alias topbar='yabai -m config external_bar all:38:0'
-  alias bottombar='yabai -m config external_bar all:0:30'
-fi

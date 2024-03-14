@@ -11,5 +11,11 @@
       fi
       unset _iterm2_shell
     '';
+
+    # TODO: remove these, I'm not using them
+    programs.zsh.shellAliases = {
+      topbar = "yabai -m config external_bar all:38:0";
+      bottombar = "yabai -m config external_bar all:0:30";
+    };
   };
 }

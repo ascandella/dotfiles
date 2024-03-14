@@ -28,20 +28,22 @@
   # environment.
   home.packages = with pkgs; [
     awscli2
-    ssm-session-manager-plugin
+    bun
+    delta
+    fnm
+    fzf
     htop
+    most
     neovim
+    ngrok
+    ripgrep
+    spaceship-prompt
+    ssm-session-manager-plugin
+    yarn
     zellij
     zimfw
     zoxide
-    ripgrep
-    delta
-    fnm
-    yarn
-    spaceship-prompt
-    ngrok
-    fzf
-    most
+
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
