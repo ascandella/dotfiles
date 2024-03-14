@@ -3,6 +3,7 @@
 {
   imports = [
     ./shell.nix
+    ./shell-keybindings.nix
     ./darwin.nix
     ./git.nix
     ({ lib, ... }: import ./dotconfig.nix {

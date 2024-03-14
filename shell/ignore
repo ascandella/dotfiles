@@ -1,7 +1,0 @@
-ignore() {
-  # zsh is set up to complain about appending to non-existent files
-  [ -f ".gitignore" ] || touch ".gitignore"
-  for ign in "$@" ; do
-    echo "$ign" >> .gitignore
-  done
-}
