@@ -38,6 +38,7 @@
     neovim
     ngrok
     ripgrep
+    rustup
     spaceship-prompt
     ssm-session-manager-plugin
     yarn

@@ -125,6 +125,8 @@
         export HISTDB_TABULATE_CMD=(sed -e $'s/\x1f/\t/g')
       fi
 
+      [[ -f "$HOME/.cargo/env" ]] && . "$HOME/.cargo/env"
+
       eval "$(${pkgs.fnm}/bin/fnm env --use-on-cd)"
       SPACESHIP_PROMPT_ORDER=(
         time
