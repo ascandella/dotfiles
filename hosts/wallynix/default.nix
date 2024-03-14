@@ -1,4 +1,4 @@
-{ nixpkgs, home-manager, username, homeDirectory, system, ... }:
+{ inputs, nixpkgs, home-manager, username, homeDirectory, system, ... }:
 
 nixpkgs.lib.nixosSystem {
   inherit system;
@@ -7,9 +7,8 @@ nixpkgs.lib.nixosSystem {
     home-manager.nixosModules.home-manager
     {
       home-manager.users.${username} = import ../../modules/home/home.nix {
-        inherit username homeDirectory;
+        inherit username homeDirectory inputs;
       };
     }
-
   ];
 }
