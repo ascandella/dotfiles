@@ -1,10 +1,11 @@
-{ pkgs, darwin, home-manager, username, homeDirectory, inputs, ... }:
+{ pkgs, darwin, globals, home-manager, username, homeDirectory, inputs, ... }:
 
 darwin.lib.darwinSystem {
   system = "aarch64-darwin";
   modules = [
     ../../modules/darwin
     ../../modules/common
+    # globals
     home-manager.darwinModules.home-manager
     {
       users.users.${username} = {
