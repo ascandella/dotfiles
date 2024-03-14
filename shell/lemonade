@@ -1,9 +1,0 @@
-if [[ -e "${HOME}/.config/.lemonademaster" ]] ; then
-  if command -v lemonade >/dev/null ; then
-    if ! pgrep -f "lemonade server" >/dev/null ; then
-      export LEMONADE_LOGFILE="$(mktemp)"
-      [[ -e "${LEMONADE_LOGFILE}" ]] && rm "${LEMONADE_LOGFILE}"
-      _out="$(nohup lemonade server -allow "127.0.0.1,::1" >"${LEMONADE_LOGFILE}" 2>&1 &)"
-    fi
-  fi
-fi

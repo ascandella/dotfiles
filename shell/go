@@ -1,4 +1,0 @@
-if ! which go > /dev/null && [ -x /usr/local/go/bin/go ] ; then
-  # debian maintainers are weird
-  export PATH="/usr/local/go/bin:${PATH}"
-fi
