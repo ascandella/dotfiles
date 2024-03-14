@@ -3,14 +3,16 @@
 {
   fileSystems = let
     nasBase = "truenas:/mnt/truepool-rust";
-  in {
-    "/media/movies" = {
-      device = "${nasBase}/movies";
+    nfsBase = {
       fsType = "nfs";
+      options = ["x-systemd.mount-timeout=3m"];
     };
-    "/media/tv" = {
+  in {
+    "/media/movies" = nfsBase // {
+      device = "${nasBase}/movies";
+    };
+    "/media/tv" = nfsBase // {
       device = "${nasBase}/tv";
-      fsType = "nfs";
     };
   };
 }

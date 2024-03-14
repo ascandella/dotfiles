@@ -71,7 +71,6 @@
       nixosConfigurations = {
         wallynix = import ./hosts/wallynix (nixosOptions "wallynix" // {
           system = systemForHost "wallynix";
-          # homeDirectory = homeDirectory "wallynix";
         });
       };
     };
