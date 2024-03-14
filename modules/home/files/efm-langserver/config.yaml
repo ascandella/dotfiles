@@ -1,8 +1,8 @@
 ---
 version: 2
 # Enable to debug issues
-log-file: /tmp/efm.log
-log-level: 1
+# log-file: /tmp/efm.log
+# log-level: 1
 
 root-markers:
   - mix.exs
