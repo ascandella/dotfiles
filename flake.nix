@@ -23,10 +23,11 @@
       darwinHosts = ["studio" "workbook"];
       isLinuxHost = host: !builtins.elem host darwinHosts;
       linuxHosts = builtins.filter isLinuxHost allHosts;
+
       systemForHost = hostname:
-        if builtins.elem hostname darwinHosts then "aarch64-darwin"
-        else "x86_64-linux";
-      username = "aiden"; # $USER
+        if isLinuxHost hostname then "x86_64-linux"
+        else "aarch64-darwin";
+      username = "aiden";
 
       pkgsForHost = host: import nixpkgs {
         system = systemForHost host;
@@ -36,7 +37,9 @@
         };
       };
 
-      homeDirPrefix = host: if systemForHost host == "aarch64-darwin" then "/Users" else "/home";
+      homeDirPrefix = host:
+        if systemForHost host == "aarch64-darwin" then "/Users"
+        else "/home";
       homeDirectory = host: "${homeDirPrefix host}/${username}";
 
     in rec {
