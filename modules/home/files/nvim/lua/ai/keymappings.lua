@@ -12,6 +12,7 @@ vim.keymap.set('n', '<Leader>n', telescope_commands.buffers, { silent = true })
 vim.keymap.set('n', '<Leader>gf', require('telescope.builtin').git_status, { silent = true, desc = 'Git files' })
 
 vim.keymap.set('n', '<Leader>a', telescope_commands.livegrep_project, { silent = true, desc = 'Grep project' })
+vim.keymap.set('v', '<Leader>y', '"*y', { silent = true, desc = 'Yank to system clipboard' })
 
 vim.keymap.set(
   'n',
