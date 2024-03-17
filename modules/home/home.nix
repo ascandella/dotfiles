@@ -33,6 +33,7 @@
     delta
     fnm
     fzf
+    go
     htop
     kubectl
     most
