@@ -42,9 +42,8 @@
     ripgrep
     rustup
     spaceship-prompt
-    ssm-session-manager-plugin
+    ssm-session-manager-plugin # for awscli
     zellij
-    zimfw
     zoxide
 
     # Language servers (for Neovim)
