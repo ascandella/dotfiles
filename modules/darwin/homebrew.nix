@@ -11,6 +11,9 @@
       brews = [
         # TODO what do we want to brew install?
       ];
+      casks = [
+        "1password"
+      ];
     };
   };
 }
