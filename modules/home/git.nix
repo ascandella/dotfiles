@@ -64,7 +64,7 @@
         diffFilter = "delta --color-only --features=interactive";
       };
       help = {
-        autocorrect = 1; # 0.1 seconds
+        autocorrect = 10; # 1 second
       };
       merge = {
         conflictStyle = "zdiff3";
