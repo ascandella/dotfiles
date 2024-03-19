@@ -285,6 +285,7 @@ local packages = {
     dependencies = {
       'nvim-lua/plenary.nvim',
       'nvim-neotest/neotest-go',
+      'nvim-neotest/nvim-nio',
       'rouge8/neotest-rust',
       'jfpedroza/neotest-elixir',
     },
