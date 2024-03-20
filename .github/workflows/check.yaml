@@ -15,5 +15,9 @@ jobs:
         uses: DeterminateSystems/flake-checker-action@v5
       - name: Add Nix Cache
         uses: DeterminateSystems/magic-nix-cache-action@v4
-      - name: Check the Flake
-        run: nix run .
+      - name: Nix flake check
+        run: nix flake check
+      - name: Statix analysis
+        run: nix run .#statix -- check
+      - name: Check formatting
+        run: nix run .#fmt -- --check .

@@ -87,16 +87,20 @@
         pkgs = import nixpkgs { inherit system; };
       in
       rec {
-        # So you can run lint with:
-        # nix run .
-        packages.default = pkgs.writeScriptBin "lint" ''
-          echo "Nix flake check"
-          ${pkgs.nix}/bin/nix flake check --all-systems
-          echo "Statix check"
-          ${pkgs.statix}/bin/statix check
-          echo "Format check"
-          ${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt --check .
-        '';
-        packages.lint = packages.default;
+        packages = with pkgs; {
+          inherit statix nix;
+          fmt = nixpkgs-fmt;
+          # So you can run lint with:
+          # nix run .
+          default = pkgs.writeScriptBin "lint" ''
+            echo "Nix flake check"
+            ${nix}/bin/nix flake check
+            echo "Statix check"
+            ${statix}/bin/statix check
+            echo "Format check"
+            ${nixpkgs-fmt}/bin/nixpkgs-fmt --check .
+          '';
+          lint = packages.default;
+        };
       });
 }
