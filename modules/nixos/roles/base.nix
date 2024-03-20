@@ -1,17 +1,30 @@
-{ pkgs, ...}:
+{ pkgs, ... }:
 
 {
   environment.systemPackages = with pkgs; [
     # utilities
-    bc pv zsh dmidecode
+    bc
+    pv
+    zsh
+    dmidecode
     # monitoring
-    htop iotop
+    htop
+    iotop
     # dev tools
-    neovim jq ripgrep zellij sqlite delta
+    neovim
+    jq
+    ripgrep
+    zellij
+    sqlite
+    delta
     # security
-    gnupg pinentry-curses
+    gnupg
+    pinentry-curses
     # networking
-    wget curl iperf dnsutils
+    wget
+    curl
+    iperf
+    dnsutils
   ];
   programs.zsh = {
     enable = true;

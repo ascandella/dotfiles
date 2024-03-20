@@ -6,7 +6,8 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../modules/nixos/roles/base.nix
       ../../modules/nixos/roles/podman.nix
@@ -59,7 +60,7 @@
   services.xserver = {
     xkb = {
       layout = "us";
-      variant = "dvorak"; 
+      variant = "dvorak";
     };
   };
 

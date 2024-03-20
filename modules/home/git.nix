@@ -10,7 +10,7 @@
     userName = "Aiden Scandella";
     userEmail = "git@sca.ndella.com";
     aliases = {
-      abbrev= "!sh -c 'git rev-parse --short '\${1-`echo HEAD`}' -";
+      abbrev = "!sh -c 'git rev-parse --short '\${1-`echo HEAD`}' -";
       add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`";
       amend = "commit --amend";
       branchname = "rev-parse --abbrev-ref HEAD";
@@ -40,8 +40,8 @@
       delta = {
         navigate = true;
         features = "decorations";
-	line-numbers-left-format = "";
-	line-numbers-right-format = "│ ";
+        line-numbers-left-format = "";
+        line-numbers-right-format = "│ ";
         interactive = {
           keep-plus-minus-markers = false;
         };

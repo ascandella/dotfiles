@@ -8,14 +8,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@v4
       - name: Check Nixpkgs Inputs
         uses: DeterminateSystems/flake-checker-action@v5
       - name: Add Nix Cache
-        uses: DeterminateSystems/magic-nix-cache-action@v2
-      - name: Check the Flake
+        uses: DeterminateSystems/magic-nix-cache-action@v4
+      - name: Nix flake check
         run: nix flake check
       - name: Statix analysis
-        run: nix run nixpkgs#statix -- check
+        run: nix run .#statix -- check
+      - name: Check formatting
+        run: nix run .#nixpkgs-fmt -- --check .

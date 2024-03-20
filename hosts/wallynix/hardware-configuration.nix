@@ -5,7 +5,8 @@
 
 {
   imports =
-    [ (modulesPath + "/profiles/qemu-guest.nix")
+    [
+      (modulesPath + "/profiles/qemu-guest.nix")
     ];
 
   boot = {
@@ -17,7 +18,8 @@
 
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/c857c2ce-40ac-46f5-b366-164bca527e15";
+    {
+      device = "/dev/disk/by-uuid/c857c2ce-40ac-46f5-b366-164bca527e15";
       fsType = "ext4";
     };
 

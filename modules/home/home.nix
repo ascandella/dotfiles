@@ -68,7 +68,7 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
   ];
-  
+
   home.shellAliases = {
     reload-home-manager-config = "home-manager switch && exec zsh -L";
   };
