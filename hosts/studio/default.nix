@@ -1,7 +1,10 @@
-{ pkgs, darwin, home-manager, username, homeDirectory, inputs, ... }:
+{ pkgs, darwin, home-manager, username, pubkeys, homeDirectory, inputs, ... }:
 
 darwin.lib.darwinSystem {
   system = "aarch64-darwin";
+  specialArgs = {
+    inherit pubkeys;
+  };
   modules = [
     ../../modules/darwin
     ../../modules/common

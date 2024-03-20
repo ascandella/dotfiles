@@ -17,3 +17,5 @@ jobs:
         uses: DeterminateSystems/magic-nix-cache-action@v2
       - name: Check the Flake
         run: nix flake check
+      - name: Statix analysis
+        run: rix run nixpkgs#statix -- check

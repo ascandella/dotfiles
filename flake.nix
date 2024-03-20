@@ -49,10 +49,7 @@
       darwinConfigurations = builtins.listToAttrs (builtins.map (host: {
         name = host;
         value = import ./hosts/${host} {
-          inherit darwin home-manager username inputs;
-          specialArgs = {
-            inherit pubkeys;
-          };
+          inherit darwin home-manager username inputs pubkeys;
           homeDirectory = homeDirectory host;
           pkgs = pkgsForHost host;
         };
@@ -70,10 +67,7 @@
       nixosConfigurations = builtins.listToAttrs (builtins.map (host: {
         name = host;
         value = import ./hosts/${host} {
-          inherit inputs nixpkgs home-manager username;
-          specialArgs = {
-            inherit pubkeys;
-          };
+          inherit inputs nixpkgs home-manager username pubkeys;
           system = systemForHost host;
           homeDirectory = homeDirectory host;
           pkgs = pkgsForHost host;

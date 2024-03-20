@@ -1,4 +1,4 @@
-{ ... }:
+_:
 
 {
   programs.zsh.initExtra = ''
