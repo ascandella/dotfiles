@@ -36,6 +36,7 @@
           allowUnfree = true;
         };
       };
+      pubkeys = import ./data/pubkeys.nix;
 
       homeDirPrefix = host:
         if systemForHost host == "aarch64-darwin" then "/Users"
@@ -49,6 +50,9 @@
         name = host;
         value = import ./hosts/${host} {
           inherit darwin home-manager username inputs;
+          specialArgs = {
+            inherit pubkeys;
+          };
           homeDirectory = homeDirectory host;
           pkgs = pkgsForHost host;
         };
@@ -67,6 +71,9 @@
         name = host;
         value = import ./hosts/${host} {
           inherit inputs nixpkgs home-manager username;
+          specialArgs = {
+            inherit pubkeys;
+          };
           system = systemForHost host;
           homeDirectory = homeDirectory host;
           pkgs = pkgsForHost host;
