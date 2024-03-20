@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, homeDirectory, ... }:
 {
   config = lib.mkIf pkgs.stdenv.isDarwin {
     home.sessionPath = [ "/opt/homebrew/bin/" ];
@@ -47,5 +47,7 @@
       jiraissues = "jira issue list -a$(jira me)";
       inprog = "jiraissues -s 'In Progress' --plain --columns KEY,SUMMARY --no-headers";
     };
+
+    my.configDir = "${homeDirectory}/src/dotfiles";
   };
 }

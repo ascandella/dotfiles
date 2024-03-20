@@ -1,4 +1,4 @@
-{ lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 {
   xdg.configFile = {
     "efm-langserver".source = ./files/efm-langserver;
@@ -14,9 +14,13 @@
           gcc = '${lib.getExe pkgs.gcc}';
         }
     '';
+    "nvim/foo".text = ''
+      ${config.my.configDir}
+    '';
+    "nvim/lazy-lock.json".source = config.lib.file.mkOutOfStoreSymlink "${config.my.configDir}/modules/home/files/nvim/lazy-lock.json";
     "nvim" = {
       recursive = true;
-      source = ./files/nvim;
+      source = ./files/nvim/config;
     };
     "zellij".source = ./files/zellij;
   };
