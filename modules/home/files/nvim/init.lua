@@ -7,3 +7,4 @@ require('ai/_packages')
 require('ai/keymappings')
 
 require('ai/ui')
+require('ai/nix/tools')

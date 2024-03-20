@@ -7,7 +7,7 @@
     "stylua".source = ./files/stylua;
     "yabai".source = ./files/yabai;
     "yazi".source = ./files/yazi;
-    "nvim/lua/nix/tools.lua".text = ''
+    "nvim/lua/ai/nix/tools.lua".text = ''
         vim.g.sqlite_clib_path = '${pkgs.sqlite.out}/lib/libsqlite3.so'
 
         return {
