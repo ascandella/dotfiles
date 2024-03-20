@@ -47,5 +47,25 @@
       jiraissues = "jira issue list -a$(jira me)";
       inprog = "jiraissues -s 'In Progress' --plain --columns KEY,SUMMARY --no-headers";
     };
+
+    home.file = {
+      ".gnupg/gpg-agent.conf".text = ''
+        # Enables GPG to find gpg-agent
+        use-standard-socket
+
+        # Connects gpg-agent to the OSX keychain via the brew-installed
+        # pinentry program from GPGtools. This is the OSX 'magic sauce',
+        # allowing the gpg key's passphrase to be stored in the login
+        # keychain, enabling automatic key signing.
+        pinentry-program ${pkgs.pinentry_mac}/Applications/pinentry-mac.app/Contents/MacOS/pinentry-mac
+      '';
+      ".gnupg/gpg.conf".text = ''
+        use-agent
+        # This silences the "you need a passphrase" message once the passphrase handling is all set.
+        # Use at your own discretion - may prevent the successful interactive use of some operations.
+        # It is working fine for my use cases though.
+        batch
+      '';
+    };
   };
 }
