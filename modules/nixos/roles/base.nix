@@ -45,12 +45,6 @@
     viAlias = true;
     vimAlias = true;
     defaultEditor = true;
-    extraPackages = with pkgs; [
-      sqlite
-      lua-language-server
-      stylua
-      prettierd
-    ];
   };
 
   environment.variables = {
