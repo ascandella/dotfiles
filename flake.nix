@@ -21,7 +21,7 @@
   outputs = { self, nixpkgs, home-manager, darwin, flake-utils, ... }@inputs:
     let
       allHosts = builtins.attrNames (builtins.readDir ./hosts);
-      darwinHosts = ["studio" "workbook"];
+      darwinHosts = [ "studio" "workbook" ];
       isLinuxHost = host: !builtins.elem host darwinHosts;
       linuxHosts = builtins.filter isLinuxHost allHosts;
 
@@ -44,47 +44,59 @@
         else "/home";
       homeDirectory = host: "${homeDirPrefix host}/${username}";
 
-    in rec {
+    in
+    rec {
       # Contains my full Mac system builds, including home-manager
       # darwin-rebuild switch --flake .#studio
-      darwinConfigurations = builtins.listToAttrs (builtins.map (host: {
-        name = host;
-        value = import ./hosts/${host} {
-          inherit darwin home-manager username inputs pubkeys;
-          homeDirectory = homeDirectory host;
-          pkgs = pkgsForHost host;
-        };
-      }) darwinHosts);
+      darwinConfigurations = builtins.listToAttrs (builtins.map
+        (host: {
+          name = host;
+          value = import ./hosts/${host} {
+            inherit darwin home-manager username inputs pubkeys;
+            homeDirectory = homeDirectory host;
+            pkgs = pkgsForHost host;
+          };
+        })
+        darwinHosts);
 
       # For quickly applying home-manager settings with:
       # home-manager switch --flake .#studio
-      homeConfigurations = builtins.listToAttrs (builtins.map (host: {
-        name = host;
-        value = darwinConfigurations.${host}.config.home-manager.users.${username}.home;
-      }) darwinHosts);
+      homeConfigurations = builtins.listToAttrs (builtins.map
+        (host: {
+          name = host;
+          value = darwinConfigurations.${host}.config.home-manager.users.${username}.home;
+        })
+        darwinHosts);
 
       # Contains my full system builds, including home-manager
       # nixos-rebuild switch --flake .#wallynix
-      nixosConfigurations = builtins.listToAttrs (builtins.map (host: {
-        name = host;
-        value = import ./hosts/${host} {
-          inherit inputs nixpkgs home-manager username pubkeys;
-          system = systemForHost host;
-          homeDirectory = homeDirectory host;
-          pkgs = pkgsForHost host;
-        };
-      }) linuxHosts);
+      nixosConfigurations = builtins.listToAttrs (builtins.map
+        (host: {
+          name = host;
+          value = import ./hosts/${host} {
+            inherit inputs nixpkgs home-manager username pubkeys;
+            system = systemForHost host;
+            homeDirectory = homeDirectory host;
+            pkgs = pkgsForHost host;
+          };
+        })
+        linuxHosts);
 
     } // flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs { inherit system; };
-      in rec {
+      in
+      rec {
+        # So you can run lint with:
+        # nix run .
         packages.default = pkgs.writeScriptBin "lint" ''
           echo "Nix flake check"
           ${pkgs.nix}/bin/nix flake check --all-systems
           echo "Statix check"
           ${pkgs.statix}/bin/statix check
+          echo "Format check"
+          ${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt --check .
         '';
         packages.lint = packages.default;
-    });
+      });
 }

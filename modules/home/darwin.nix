@@ -1,7 +1,7 @@
 { pkgs, lib, ... }:
 {
   config = lib.mkIf pkgs.stdenv.isDarwin {
-    home.sessionPath = ["/opt/homebrew/bin/"];
+    home.sessionPath = [ "/opt/homebrew/bin/" ];
     home.packages = with pkgs; [
       jira-cli-go
     ];
