@@ -18,4 +18,4 @@ jobs:
       - name: Check the Flake
         run: nix flake check
       - name: Statix analysis
-        run: rix run nixpkgs#statix -- check
+        run: nix run nixpkgs#statix -- check
