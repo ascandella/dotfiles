@@ -88,8 +88,10 @@
       in
       rec {
         packages = with pkgs; {
-          inherit statix nix;
-          fmt = nixpkgs-fmt;
+          inherit statix nix nixpkgs-fmt;
+          fmt = pkgs.writeScriptBin "format" ''
+            ${nixpkgs-fmt}/bin/nixpkgs-fmt .;
+          '';
           # So you can run lint with:
           # nix run .
           default = pkgs.writeScriptBin "lint" ''
