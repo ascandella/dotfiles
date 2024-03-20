@@ -5,7 +5,7 @@
     ./shell.nix
     ./shell-keybindings.nix
     ./neovim.nix
-    ({ lib, ...}: import ./darwin.nix {
+    ({ lib, ... }: import ./darwin.nix {
       inherit lib pkgs homeDirectory;
     })
     ./git.nix
