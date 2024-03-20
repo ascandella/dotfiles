@@ -7,7 +7,17 @@
     "stylua".source = ./files/stylua;
     "yabai".source = ./files/yabai;
     "yazi".source = ./files/yazi;
-    "nvim".source = ./files/nvim;
+    "nvim/lua/nix/tools.lua".text = ''
+        vim.g.sqlite_clib_path = '${pkgs.sqlite.out}/lib/libsqlite3.so'
+
+        return {
+          gcc = '${lib.getExe pkgs.gcc}';
+        }
+    '';
+    "nvim" = {
+      recursive = true;
+      source = ./files/nvim;
+    };
     "zellij".source = ./files/zellij;
   };
 
