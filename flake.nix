@@ -15,9 +15,10 @@
       url = "github:Jean-Tinland/simple-bar";
       flake = false;
     };
+    flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, nixpkgs, home-manager, darwin, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, darwin, flake-utils, ... }@inputs:
     let
       allHosts = builtins.attrNames (builtins.readDir ./hosts);
       darwinHosts = ["studio" "workbook"];
@@ -73,5 +74,17 @@
           pkgs = pkgsForHost host;
         };
       }) linuxHosts);
-    };
+
+    } // flake-utils.lib.eachDefaultSystem (system:
+      let
+        pkgs = import nixpkgs { inherit system; };
+      in rec {
+        packages.default = pkgs.writeScriptBin "lint" ''
+          echo "Nix flake check"
+          ${pkgs.nix}/bin/nix flake check --all-systems
+          echo "Statix check"
+          ${pkgs.statix}/bin/statix check
+        '';
+        packages.lint = packages.default;
+    });
 }
