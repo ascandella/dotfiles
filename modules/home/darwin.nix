@@ -1,4 +1,4 @@
-{ pkgs, lib, homeDirectory, ... }:
+{ pkgs, lib, ... }:
 {
   config = lib.mkIf pkgs.stdenv.isDarwin {
     home.sessionPath = [ "/opt/homebrew/bin/" ];
