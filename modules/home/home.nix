@@ -5,6 +5,9 @@
     ./shell.nix
     ./shell-keybindings.nix
     ./neovim.nix
+    {
+      my.configDir = "${homeDirectory}/src/dotfiles";
+    }
     ({ lib, ... }: import ./darwin.nix {
       inherit lib pkgs homeDirectory;
     })

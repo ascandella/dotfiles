@@ -47,7 +47,5 @@
       jiraissues = "jira issue list -a$(jira me)";
       inprog = "jiraissues -s 'In Progress' --plain --columns KEY,SUMMARY --no-headers";
     };
-
-    my.configDir = "${homeDirectory}/src/dotfiles";
   };
 }
