@@ -16,6 +16,7 @@
     zellij
     sqlite
     delta
+    neovim
     # security
     gnupg
     pinentry-curses
