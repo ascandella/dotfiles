@@ -69,7 +69,7 @@
         darwinHosts);
 
       # Contains my full system builds, including home-manager
-      # nixos-rebuild switch --flake .#wallynix
+      # nixos-rebuild switch --flake .#baymax
       nixosConfigurations = builtins.listToAttrs (builtins.map
         (host: {
           name = host;
