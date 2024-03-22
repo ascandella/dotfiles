@@ -24,7 +24,8 @@
       };
 
       shellAliases = {
-        j = "z";
+        j = "z"; # jump
+        ji = "zi"; # interactive jump
         cat = "bat";
         g = "git";
         gst = "git status -sb";
