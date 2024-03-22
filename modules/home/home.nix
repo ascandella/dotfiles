@@ -58,7 +58,6 @@
       htop
       kubectl
       most
-      neovim
       ngrok
       ripgrep
       rustup

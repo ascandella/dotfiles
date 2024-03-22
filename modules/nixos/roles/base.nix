@@ -11,7 +11,6 @@
     htop
     iotop
     # dev tools
-    neovim
     jq
     ripgrep
     zellij
@@ -39,13 +38,6 @@
     };
   };
   users.defaultUserShell = pkgs.zsh;
-
-  programs.neovim = {
-    enable = true;
-    viAlias = true;
-    vimAlias = true;
-    defaultEditor = true;
-  };
 
   environment.variables = {
     EDITOR = "nvim";
