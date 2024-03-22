@@ -16,6 +16,7 @@
       nodePackages.npm # mason
       nodePackages.pyright
       unzip # mason
+      gnumake # mason
     ];
   };
 }

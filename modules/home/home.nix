@@ -66,6 +66,8 @@
       zellij
       zoxide
 
+      gh # GitHub CLI, used with Octo
+
       # Language servers (for Neovim)
       efm-langserver
       gopls
