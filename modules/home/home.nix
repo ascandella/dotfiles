@@ -58,7 +58,6 @@
       htop
       kubectl
       most
-      neovim
       ngrok
       ripgrep
       rustup
@@ -66,6 +65,8 @@
       ssm-session-manager-plugin # for awscli
       zellij
       zoxide
+
+      gh # GitHub CLI, used with Octo
 
       # Language servers (for Neovim)
       efm-langserver

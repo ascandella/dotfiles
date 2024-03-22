@@ -11,12 +11,12 @@
     htop
     iotop
     # dev tools
-    neovim
     jq
     ripgrep
     zellij
     sqlite
     delta
+    neovim
     # security
     gnupg
     pinentry-curses
@@ -39,13 +39,6 @@
     };
   };
   users.defaultUserShell = pkgs.zsh;
-
-  programs.neovim = {
-    enable = true;
-    viAlias = true;
-    vimAlias = true;
-    defaultEditor = true;
-  };
 
   environment.variables = {
     EDITOR = "nvim";
