@@ -31,6 +31,13 @@
       {
         groups = [ config.my.deploy.group ];
         commands = [
+          # For local
+          {
+            command = "/run/current-system/sw/bin/nixos-rebuild";
+            options = [ "NOPASSWD" ];
+          }
+
+          # For remote
           {
             command = "/nix/store/*/bin/switch-to-configuration";
             options = [ "NOPASSWD" ];
