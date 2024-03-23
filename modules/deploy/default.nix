@@ -15,16 +15,19 @@
   };
 
   config = {
-    users.groups.${config.my.deploy.group} = {};
-    users.users.${config.my.deploy.user} = {
-      extraGroups = [ config.my.deploy.group ];
-      isSystemUser = true;
-      group = "deploy";
-      shell = pkgs.bash;
-      openssh.authorizedKeys.keys = pubkeys.aispace.user;
-    };
-    users.users.${username} = {
-      extraGroups = [ config.my.deploy.group ];
+    users = {
+      groups.${config.my.deploy.group} = {};
+      users.${config.my.deploy.user} = {
+        extraGroups = [ config.my.deploy.group ];
+        isSystemUser = true;
+        group = "deploy";
+        shell = pkgs.bash;
+        openssh.authorizedKeys.keys = pubkeys.aispace.user;
+      };
+
+      users.${username} = {
+        extraGroups = [ config.my.deploy.group ];
+      };
     };
 
     security.sudo.extraRules = [
