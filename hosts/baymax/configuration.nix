@@ -15,6 +15,7 @@
       ../../modules/nixos/roles/nvidia.nix
       ../../modules/nixos/roles/nas-mounts.nix
       ../../modules/common
+      ../../modules/deploy
     ];
 
   # Bootloader.
