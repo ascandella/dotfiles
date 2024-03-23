@@ -16,7 +16,7 @@
 
   config = {
     users = {
-      groups.${config.my.deploy.group} = {};
+      groups.${config.my.deploy.group} = { };
       users.${config.my.deploy.user} = {
         extraGroups = [ config.my.deploy.group ];
         isSystemUser = true;
