@@ -1,4 +1,4 @@
-{ pubkeys, pkgs, config, ... }:
+{ username, pubkeys, pkgs, config, ... }:
 
 {
   options.my = {
@@ -21,8 +21,10 @@
       isSystemUser = true;
       group = "deploy";
       shell = pkgs.bash;
-      
-      openssh.authorizedKeys.keys = pubkeys.aispace.users;
+      openssh.authorizedKeys.keys = pubkeys.aispace.user;
+    };
+    users.users.${username} = {
+      extraGroups = [ config.my.deploy.group ];
     };
 
     security.sudo.extraRules = [
