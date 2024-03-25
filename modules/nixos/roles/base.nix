@@ -7,6 +7,8 @@
     pv
     zsh
     dmidecode
+    pciutils
+    usbutils
     # monitoring
     htop
     iotop
