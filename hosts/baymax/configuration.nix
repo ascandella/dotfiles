@@ -16,6 +16,7 @@
       ../../modules/nixos/roles/nas-mounts.nix
       ../../modules/common
       ../../modules/deploy
+      ../../modules/plex
     ];
 
   # Bootloader.
