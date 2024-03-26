@@ -106,15 +106,21 @@
         sshUser = "deploy";
         remoteBuild = true;
 
-        nodes.baymax = {
-          hostname = "baymax";
-          profiles.system = {
-            path = (deployPkgs "baymax").deploy-rs.lib.activate.nixos self.nixosConfigurations.baymax;
-          };
-        };
+        nodes = builtins.listToAttrs (builtins.map
+          (host: {
+            name = host;
+            value = {
+              hostname = host;
+              profiles.system = {
+                path = (deployPkgs host).deploy-rs.lib.activate.nixos self.nixosConfigurations.baymax;
+              };
+            };
+          })
+          linuxHosts);
       };
 
-      checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
+      # doesn't work in GitHub actions
+      # checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
 
     } // flake-utils.lib.eachDefaultSystem (system:
       let
