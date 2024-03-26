@@ -16,9 +16,15 @@
       flake = false;
     };
     flake-utils.url = "github:numtide/flake-utils";
+    
+    # For accessing `deploy-rs`'s utility Nix functions
+    deploy-rs = {
+      url = "github:serokell/deploy-rs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, darwin, flake-utils, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, darwin, flake-utils, deploy-rs, ... }@inputs:
     let
       allHosts = builtins.attrNames (builtins.readDir ./hosts);
       darwinHosts = [ "studio" "workbook" ];
@@ -43,6 +49,19 @@
         if systemForHost host == "aarch64-darwin" then "/Users"
         else "/home";
       homeDirectory = host: "${homeDirPrefix host}/${username}";
+
+      deployPkgs = host: import nixpkgs {
+        system = systemForHost host;
+        overlays = [
+          deploy-rs.overlay
+          (self: super: {
+            deploy-rs = {
+              inherit (pkgsForHost host) deploy-rs;
+              lib = super.deploy-rs.lib;
+            };
+          })
+        ];
+      };
 
     in
     rec {
@@ -81,6 +100,22 @@
           };
         })
         linuxHosts);
+      
+      deploy = {
+        user = "root";
+        sshUser = "deploy";
+        remoteBuild = true;
+
+        nodes.baymax = {
+          hostname = "baymax";
+          interactiveSudo = true;
+          profiles.system = {
+            path = (deployPkgs "baymax").deploy-rs.lib.activate.nixos self.nixosConfigurations.baymax;
+          };
+        };
+      };
+
+      checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
 
     } // flake-utils.lib.eachDefaultSystem (system:
       let
@@ -103,6 +138,9 @@
             ${nixpkgs-fmt}/bin/nixpkgs-fmt --check .
           '';
           lint = packages.default;
+        };
+        apps = {
+          deploy-rs = deploy-rs.apps.${system}.deploy-rs;
         };
       });
 }

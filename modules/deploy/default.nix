@@ -42,19 +42,7 @@
 
           # For remote
           {
-            command = "/nix/store/*/bin/switch-to-configuration";
-            options = [ "NOPASSWD" ];
-          }
-          {
-            command = "/run/current-system/sw/bin/nix-store";
-            options = [ "NOPASSWD" ];
-          }
-          {
-            command = "/run/current-system/sw/bin/nix-env";
-            options = [ "NOPASSWD" ];
-          }
-          {
-            command = ''/bin/sh -c "readlink -e /nix/var/nix/profiles/system || readlink -e /run/current-system"'';
+            command = "/nix/store/*-activate-rs/activate-rs";
             options = [ "NOPASSWD" ];
           }
           {
