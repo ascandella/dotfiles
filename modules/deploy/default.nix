@@ -46,6 +46,12 @@
             options = [ "NOPASSWD" ];
           }
           {
+            command = "/run/current-system/sw/bin/rm";
+            options = [ "NOPASSWD" ];
+          }
+
+          # Other
+          {
             command = "/run/current-system/sw/bin/nix-collect-garbage";
             options = [ "NOPASSWD" ];
           }
