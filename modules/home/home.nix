@@ -57,6 +57,7 @@
       go
       htop
       kubectl
+      magic-wormhole
       most
       ngrok
       ripgrep
