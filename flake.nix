@@ -112,7 +112,7 @@
             value = {
               hostname = host;
               profiles.system = {
-                path = (deployPkgs host).deploy-rs.lib.activate.nixos self.nixosConfigurations.baymax;
+                path = (deployPkgs host).deploy-rs.lib.activate.nixos self.nixosConfigurations.${host};
               };
             };
           })
