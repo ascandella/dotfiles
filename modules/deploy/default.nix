@@ -1,4 +1,4 @@
-{ username, pubkeys, pkgs, config, ... }:
+{ pubkeys, pkgs, config, ... }:
 
 {
   options.my = {
@@ -23,10 +23,6 @@
         group = "deploy";
         shell = pkgs.bash;
         openssh.authorizedKeys.keys = pubkeys.aispace.user;
-      };
-
-      users.${username} = {
-        extraGroups = [ config.my.deploy.group ];
       };
     };
 
