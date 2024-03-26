@@ -42,7 +42,7 @@
 
           # For remote
           {
-            command = "/nix/store/*-activate-rs/activate-rs";
+            command = "/nix/store/*/activate-rs";
             options = [ "NOPASSWD" ];
           }
           {

@@ -108,7 +108,6 @@
 
         nodes.baymax = {
           hostname = "baymax";
-          interactiveSudo = true;
           profiles.system = {
             path = (deployPkgs "baymax").deploy-rs.lib.activate.nixos self.nixosConfigurations.baymax;
           };
