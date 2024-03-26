@@ -16,7 +16,7 @@
       flake = false;
     };
     flake-utils.url = "github:numtide/flake-utils";
-    
+
     # For accessing `deploy-rs`'s utility Nix functions
     deploy-rs = {
       url = "github:serokell/deploy-rs";
@@ -100,7 +100,7 @@
           };
         })
         linuxHosts);
-      
+
       deploy = {
         user = "root";
         sshUser = "deploy";
