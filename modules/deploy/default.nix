@@ -12,7 +12,7 @@
       default = "deploy";
       description = "Deploy group name";
     };
-    
+
     # Makes running sudo `nixos-rebuild switch` more convenient -- since
     # `deploy` user has the same SSH keys accepted, not a unique attack vector.
     users.${username} = {
