@@ -1,4 +1,4 @@
-{ username, pubkeys, pkgs, config, ... }:
+{ pubkeys, pkgs, config, ... }:
 
 {
   options.my = {
@@ -24,10 +24,6 @@
         shell = pkgs.bash;
         openssh.authorizedKeys.keys = pubkeys.aispace.user;
       };
-
-      users.${username} = {
-        extraGroups = [ config.my.deploy.group ];
-      };
     };
 
     security.sudo.extraRules = [
@@ -42,21 +38,15 @@
 
           # For remote
           {
-            command = "/nix/store/*/bin/switch-to-configuration";
+            command = "/nix/store/*/activate-rs";
             options = [ "NOPASSWD" ];
           }
           {
-            command = "/run/current-system/sw/bin/nix-store";
+            command = "/run/current-system/sw/bin/rm";
             options = [ "NOPASSWD" ];
           }
-          {
-            command = "/run/current-system/sw/bin/nix-env";
-            options = [ "NOPASSWD" ];
-          }
-          {
-            command = ''/bin/sh -c "readlink -e /nix/var/nix/profiles/system || readlink -e /run/current-system"'';
-            options = [ "NOPASSWD" ];
-          }
+
+          # Other
           {
             command = "/run/current-system/sw/bin/nix-collect-garbage";
             options = [ "NOPASSWD" ];
