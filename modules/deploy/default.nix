@@ -1,4 +1,4 @@
-{ pubkeys, pkgs, config, ... }:
+{ pubkeys, username, pkgs, config, ... }:
 
 {
   options.my = {
@@ -11,6 +11,12 @@
       type = pkgs.lib.types.str;
       default = "deploy";
       description = "Deploy group name";
+    };
+    
+    # Makes running sudo `nixos-rebuild switch` more convenient -- since
+    # `deploy` user has the same SSH keys accepted, not a unique attack vector.
+    users.${username} = {
+      extraGroups = [ config.my.deploy.group ];
     };
   };
 
