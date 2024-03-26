@@ -57,7 +57,7 @@
           (self: super: {
             deploy-rs = {
               inherit (pkgsForHost host) deploy-rs;
-              lib = super.deploy-rs.lib;
+              inherit (super.deploy-rs) lib;
             };
           })
         ];
@@ -145,7 +145,7 @@
           lint = packages.default;
         };
         apps = {
-          deploy-rs = deploy-rs.apps.${system}.deploy-rs;
+          inherit (deploy-rs.apps.${system}) deploy-rs;
         };
       });
 }
