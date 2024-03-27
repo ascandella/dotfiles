@@ -66,7 +66,6 @@
       topbar = "yabai -m config external_bar all:38:0";
       bottombar = "yabai -m config external_bar all:0:30";
 
-      # TODO: not currently installing
       jiraissues = "jira issue list -a$(jira me)";
       inprog = "jiraissues -s 'In Progress' --plain --columns KEY,SUMMARY --no-headers";
     };
