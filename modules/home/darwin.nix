@@ -68,6 +68,8 @@
 
       jiraissues = "jira issue list -a$(jira me)";
       inprog = "jiraissues -s 'In Progress' --plain --columns KEY,SUMMARY --no-headers";
+
+      resetdns = "sudo dscacheutil -flushcache ; sudo killall -HUP mDNSResponder";
     };
   };
 }
