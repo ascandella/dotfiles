@@ -9,6 +9,7 @@
     dmidecode
     pciutils
     usbutils
+    lsof
     # monitoring
     htop
     iotop
