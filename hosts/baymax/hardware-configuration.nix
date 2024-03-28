@@ -10,7 +10,12 @@
     initrd.availableKernelModules =
       [ "ata_piix" "uhci_hcd" "virtio_pci" "virtio_scsi" "sd_mod" "sr_mod" ];
     initrd.kernelModules = [ "nvidia" ];
-    kernelModules = [ "kvm-amd" ];
+    kernelModules = [
+      # AMD Zen1 power management
+      "kvm-amd"
+      # USB Zigbee dongle
+      "cp210x"
+    ];
     extraModulePackages = [ ];
   };
 
