@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   imports =
@@ -17,7 +17,15 @@
       ../../modules/common
       ../../modules/deploy
       ../../modules/plex
+      ../../modules/torrenting
     ];
+
+  services.qbittorrent = {
+    enable = true;
+    port = 9124;
+    extraGroups = [ config.my.media.group ];
+    openFirewall = true;
+  };
 
   # Bootloader.
   boot.loader = {
