@@ -120,9 +120,8 @@ in
 
     users.users = mkIf (cfg.user == "qbittorrent") {
       qbittorrent = {
-        group = cfg.group;
         uid = UID;
-        extraGroups = cfg.extraGroups;
+        inherit (cfg) extraGroups group;
       };
     };
 

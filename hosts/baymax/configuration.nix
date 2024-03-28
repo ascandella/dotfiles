@@ -20,13 +20,6 @@
       ../../modules/torrenting
     ];
 
-  services.qbittorrent = {
-    enable = true;
-    port = 9124;
-    extraGroups = [ config.my.media.group ];
-    openFirewall = true;
-  };
-
   # Bootloader.
   boot.loader = {
     timeout = 2;
@@ -61,14 +54,22 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Configure keymap in X11
-  services.xserver = {
-    xkb = {
-      layout = "us";
-      variant = "dvorak";
+  services = {
+    qbittorrent = {
+      enable = true;
+      port = 9124;
+      extraGroups = [ config.my.media.group ];
+      openFirewall = true;
     };
-  };
 
+    # Configure keymap in X11
+    # services.xserver = {
+    #   xkb = {
+    #     layout = "us";
+    #     variant = "dvorak";
+    #   };
+    # };
+  };
   # Configure console keymap
   console.keyMap = "dvorak";
 
