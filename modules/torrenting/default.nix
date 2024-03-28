@@ -16,5 +16,10 @@
     vuetorrent = {
       enable = true;
     };
+    jackett = {
+      enable = true;
+      openFirewall = true;
+      dataDir = "${config.my.nas.serverConfigDir}/jackett";
+    };
   };
 }
