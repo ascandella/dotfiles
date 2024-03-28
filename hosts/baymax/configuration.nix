@@ -55,16 +55,6 @@
   };
 
   services = {
-    qbittorrent = {
-      enable = true;
-      port = 9124;
-      extraGroups = [ config.my.media.group ];
-      openFirewall = true;
-    };
-    vuetorrent = {
-      enable = true;
-    };
-
     # Configure keymap in X11
     # services.xserver = {
     #   xkb = {
