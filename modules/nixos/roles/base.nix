@@ -4,12 +4,13 @@
   environment.systemPackages = with pkgs; [
     # utilities
     bc
-    pv
-    zsh
     dmidecode
-    pciutils
-    usbutils
+    file
     lsof
+    pciutils
+    pv
+    usbutils
+    zsh
     # monitoring
     htop
     iotop
