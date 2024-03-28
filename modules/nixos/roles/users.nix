@@ -1,4 +1,4 @@
-{ pkgs, lib, pubkeys, username, ... }:
+{ pkgs, lib, config, pubkeys, username, ... }:
 
 {
   options = {
@@ -19,7 +19,7 @@
 
       groups.media = {
         gid = 2000;
-        name = "media";
+        name = config.my.media.group;
       };
 
       users.${username} = {
@@ -27,7 +27,7 @@
         isNormalUser = true;
         description = "Aiden";
         shell = pkgs.zsh;
-        extraGroups = [ "networkmanager" "wheel" "media" ];
+        extraGroups = [ "networkmanager" "wheel" config.my.media.group ];
         openssh.authorizedKeys.keys = pubkeys.aispace.user;
       };
     };
