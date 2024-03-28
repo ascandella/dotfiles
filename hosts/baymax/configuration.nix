@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   imports =
@@ -17,6 +17,7 @@
       ../../modules/common
       ../../modules/deploy
       ../../modules/plex
+      ../../modules/torrenting
     ];
 
   # Bootloader.
@@ -53,14 +54,22 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Configure keymap in X11
-  services.xserver = {
-    xkb = {
-      layout = "us";
-      variant = "dvorak";
+  services = {
+    qbittorrent = {
+      enable = true;
+      port = 9124;
+      extraGroups = [ config.my.media.group ];
+      openFirewall = true;
     };
-  };
 
+    # Configure keymap in X11
+    # services.xserver = {
+    #   xkb = {
+    #     layout = "us";
+    #     variant = "dvorak";
+    #   };
+    # };
+  };
   # Configure console keymap
   console.keyMap = "dvorak";
 
