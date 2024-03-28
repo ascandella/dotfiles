@@ -16,6 +16,9 @@
       "/media/tv" = nfsBase // {
         device = "${nasBase}/tv";
       };
+      "/media/downloads" = nfsBase // {
+        device = "${nasBase}/downloads";
+      };
       "/config" = nfsBase // {
         device = "${nasBase}/server-config";
       };
