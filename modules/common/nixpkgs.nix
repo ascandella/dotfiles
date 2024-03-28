@@ -9,4 +9,8 @@
       warn-dirty = false
     '';
   };
+
+  nixpkgs.overlays = [
+    (final: prev: import ../../pkgs { inherit pkgs; })
+  ];
 }
