@@ -10,7 +10,5 @@
     '';
   };
 
-  nixpkgs.overlays = [
-    (final: prev: import ../../pkgs { inherit pkgs; })
-  ];
+  nixpkgs.overlays = [ (final: prev: import ../../pkgs { inherit pkgs; }) ];
 }

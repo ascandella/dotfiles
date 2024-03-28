@@ -1,9 +1,7 @@
 { pkgs, ... }:
 
 {
-  home.packages = with pkgs; [
-    zsh-autopair
-  ];
+  home.packages = with pkgs; [ zsh-autopair ];
 
   programs = {
     zsh = {

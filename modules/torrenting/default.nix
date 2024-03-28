@@ -1,10 +1,7 @@
 { config, ... }:
 
 {
-  imports = [
-    ./qbittorrent.nix
-    ./vuetorrent.nix
-  ];
+  imports = [ ./qbittorrent.nix ./vuetorrent.nix ];
 
   services = {
     qbittorrent = {
@@ -13,9 +10,7 @@
       extraGroups = [ config.my.media.group ];
       openFirewall = true;
     };
-    vuetorrent = {
-      enable = true;
-    };
+    vuetorrent = { enable = true; };
     jackett = {
       enable = true;
       openFirewall = true;

@@ -2,9 +2,7 @@
 
 darwin.lib.darwinSystem {
   system = "aarch64-darwin";
-  specialArgs = {
-    inherit pubkeys;
-  };
+  specialArgs = { inherit pubkeys; };
   modules = [
     ../../modules/darwin
     ../../modules/common

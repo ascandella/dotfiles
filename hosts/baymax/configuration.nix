@@ -5,21 +5,20 @@
 { ... }:
 
 {
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ../../modules/nixos/roles/base.nix
-      ../../modules/nixos/roles/podman.nix
-      ../../modules/nixos/roles/users.nix
-      ../../modules/nixos/roles/nvidia.nix
-      ../../modules/nixos/roles/nas-mounts.nix
-      ../../modules/common
-      ../../modules/deploy
-      ../../modules/plex
-      ../../modules/torrenting
-      ../../modules/mediamanagement
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ../../modules/nixos/roles/base.nix
+    ../../modules/nixos/roles/podman.nix
+    ../../modules/nixos/roles/users.nix
+    ../../modules/nixos/roles/nvidia.nix
+    ../../modules/nixos/roles/nas-mounts.nix
+    ../../modules/common
+    ../../modules/deploy
+    ../../modules/plex
+    ../../modules/torrenting
+    ../../modules/mediamanagement
+  ];
 
   # Bootloader.
   boot.loader = {

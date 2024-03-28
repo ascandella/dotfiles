@@ -1,9 +1,7 @@
 { config, ... }:
 
-let
-  dataDir = config.my.nas.serverConfigDir;
-in
-{
+let dataDir = config.my.nas.serverConfigDir;
+in {
   users = {
     users.${config.services.sonarr.user} = {
       extraGroups = [ config.my.media.group ];

@@ -5,15 +5,11 @@
 
     homebrew = {
       enable = true;
-      global = {
-        autoUpdate = false;
-      };
+      global = { autoUpdate = false; };
       brews = [
         # TODO what do we want to brew install?
       ];
-      casks = [
-        "1password"
-      ];
+      casks = [ "1password" ];
     };
   };
 }

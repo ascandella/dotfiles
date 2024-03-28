@@ -1,5 +1,4 @@
-{ environment, config, pkgs, ... }:
-{
+{ environment, config, pkgs, ... }: {
 
   # Enable OpenGL
   hardware.opengl = {

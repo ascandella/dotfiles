@@ -5,7 +5,8 @@ stdenv.mkDerivation rec {
   version = "2.7.2";
 
   src = fetchzip {
-    url = "https://github.com/WDaan/VueTorrent/releases/download/v${version}/vuetorrent.zip";
+    url =
+      "https://github.com/WDaan/VueTorrent/releases/download/v${version}/vuetorrent.zip";
     sha256 = "bJyI7RvVCf0M5vs8Qi+uAHv74CWxSDZ0Bb6zWJ4x4CM=";
   };
 

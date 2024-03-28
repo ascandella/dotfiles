@@ -1,12 +1,8 @@
-{ pkgs, lib, ... }:
-{
+{ pkgs, lib, ... }: {
   config = lib.mkIf pkgs.stdenv.isDarwin {
     home = {
       sessionPath = [ "/opt/homebrew/bin/" ];
-      packages = with pkgs; [
-        jira-cli-go
-      ];
-
+      packages = with pkgs; [ jira-cli-go ];
 
       file = {
         ".gnupg/gpg-agent.conf".text = ''
@@ -67,9 +63,11 @@
       bottombar = "yabai -m config external_bar all:0:30";
 
       jiraissues = "jira issue list -a$(jira me)";
-      inprog = "jiraissues -s 'In Progress' --plain --columns KEY,SUMMARY --no-headers";
+      inprog =
+        "jiraissues -s 'In Progress' --plain --columns KEY,SUMMARY --no-headers";
 
-      resetdns = "sudo dscacheutil -flushcache ; sudo killall -HUP mDNSResponder";
+      resetdns =
+        "sudo dscacheutil -flushcache ; sudo killall -HUP mDNSResponder";
     };
   };
 }

@@ -5,19 +5,12 @@
     ./shell.nix
     ./shell-keybindings.nix
     ./neovim.nix
-    {
-      my.configDir = "${homeDirectory}/src/dotfiles";
-    }
-    ({ lib, ... }: import ./darwin.nix {
-      inherit lib pkgs homeDirectory;
-    })
+    { my.configDir = "${homeDirectory}/src/dotfiles"; }
+    ({ lib, ... }: import ./darwin.nix { inherit lib pkgs homeDirectory; })
     ./git.nix
-    ({ lib, config, ... }: import ./dotconfig.nix {
-      inherit inputs lib pkgs config;
-    })
-    ({ config, ... }: import ./session.nix {
-      inherit config;
-    })
+    ({ lib, config, ... }:
+      import ./dotconfig.nix { inherit inputs lib pkgs config; })
+    ({ config, ... }: import ./session.nix { inherit config; })
   ];
 
   options.my = {
