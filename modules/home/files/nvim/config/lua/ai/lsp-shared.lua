@@ -74,6 +74,7 @@ end
 local filetype_attach = setmetatable({
   astro = default_formatter,
   go = default_formatter,
+  nix = default_formatter,
 
   lua = function(_, client)
     vim.api.nvim_exec([[set signcolumn=yes]], true)
