@@ -53,6 +53,10 @@ tools:
     format-command: "mix format -"
     format-stdin: true
 
+  nixfmt: &nixfmt
+    format-command: "nixfmt"
+    format-stdin: true
+
   prettier: &prettier
     format-command: "prettierd ${INPUT}"
     format-stdin: true
@@ -110,6 +114,9 @@ languages:
     - <<: *lua-stylua
     # Disabled because it doesn't seem to recognize `vim` global.
     #- <<: *lua-selene
+  
+  nix:
+    - <<: *nixfmt
 
   sh:
     - <<: *sh-shellcheck
