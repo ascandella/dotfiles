@@ -63,13 +63,13 @@
       postSetup = ''
         ${pkgs.iptables}/bin/iptables -A FORWARD -i wg0 -j ACCEPT;
         ${pkgs.iptables}/bin/iptables -A FORWARD -o wg0 -j ACCEPT;
-        ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.2.0.0/24 -o ens19 -j MASQUERADE
+        ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.20.0.0/24 -o ens18 -j MASQUERADE
       '';
 
       postShutdown = ''
         ${pkgs.iptables}/bin/iptables -D FORWARD -i wg0 -j ACCEPT;
         ${pkgs.iptables}/bin/iptables -D FORWARD -o wg0 -j ACCEPT;
-        ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.2.0.0/24 -o ens19 -j MASQUERADE
+        ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.20.0.0/24 -o ens18 -j MASQUERADE
       '';
     };
   };
