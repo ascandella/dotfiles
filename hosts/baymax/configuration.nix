@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, lib, ... }:
+{ pkgs, config, lib, ... }:
 
 {
   imports = [
@@ -21,13 +21,20 @@
   ];
 
   # Bootloader.
-  boot.loader = {
-    timeout = 2;
-    grub = {
-      enable = true;
-      device = "/dev/sda";
-      useOSProber = true;
-      configurationLimit = 5;
+  boot = {
+    loader = {
+      timeout = 2;
+      grub = {
+        enable = true;
+        device = "/dev/sda";
+        useOSProber = true;
+        configurationLimit = 5;
+      };
+    };
+
+    kernel.sysctl = {
+      # For Wireguard access to LAN
+      "net.ipv4.ip_forward" = 1;
     };
   };
 
@@ -52,6 +59,18 @@
 
       peers = (import ../../data/wireguard.nix { inherit lib; }).peersForServer
         config.networking.hostName;
+
+      postSetup = ''
+        ${pkgs.iptables}/bin/iptables -A FORWARD -i wg0 -j ACCEPT;
+        ${pkgs.iptables}/bin/iptables -A FORWARD -o wg0 -j ACCEPT;
+        ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.2.0.0/24 -o ens19 -j MASQUERADE
+      '';
+
+      postShutdown = ''
+        ${pkgs.iptables}/bin/iptables -D FORWARD -i wg0 -j ACCEPT;
+        ${pkgs.iptables}/bin/iptables -D FORWARD -o wg0 -j ACCEPT;
+        ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.2.0.0/24 -o ens19 -j MASQUERADE
+      '';
     };
   };
 
@@ -73,15 +92,6 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  services = {
-    # Configure keymap in X11
-    # services.xserver = {
-    #   xkb = {
-    #     layout = "us";
-    #     variant = "dvorak";
-    #   };
-    # };
-  };
   # Configure console keymap
   console.keyMap = "dvorak";
 
