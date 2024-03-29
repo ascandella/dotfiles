@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ ... }:
+{ config, lib, ... }:
 
 {
   imports = [
@@ -31,10 +31,29 @@
     };
   };
 
-  networking.hostName = "baymax";
+  networking = {
+    hostName = "baymax";
 
-  # Enable networking
-  networking.networkmanager.enable = true;
+    # Enable networking
+    networkmanager.enable = true;
+
+    firewall = {
+      allowedUDPPorts = [
+        # Wireguard
+        51820
+      ];
+    };
+
+    wireguard.interfaces.wg0 = {
+      ips = [ "10.20.0.35/24" ];
+      privateKeyFile = "/etc/wireguard/private-key";
+      generatePrivateKeyFile = true;
+      listenPort = 51820;
+
+      peers = (import ../../data/wireguard.nix { inherit lib; }).peersForServer
+        config.networking.hostName;
+    };
+  };
 
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
