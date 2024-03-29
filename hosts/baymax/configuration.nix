@@ -48,9 +48,10 @@
       ips = [ "10.20.0.35/24" ];
       privateKeyFile = "/etc/wireguard/private-key";
       generatePrivateKeyFile = true;
+      listenPort = 51820;
 
       peers = (import ../../data/wireguard.nix { inherit lib; }).peersForServer
-        "baymax";
+        config.networking.hostName;
     };
   };
 

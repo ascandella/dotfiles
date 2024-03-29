@@ -14,15 +14,26 @@ let
       publicKey = "j+GGVsCah/sbBUwDoEE3GeCiYbPk/knNWoxTw+SlEDM=";
       allowedIPs = [ "10.20.0.45/32" ];
     };
+    aideck = {
+      publicKey = "grTWxzNIQtYjXY6M3gYLWn8aUyBXHGZ53GyXAwpxLyU=";
+      allowedIPs = [ "10.20.0.80/32" ];
+    };
   };
   servers = {
     baymax = {
       publicKey = "tBAYmax7sr1szCXdyZVhLzrByLGeyYPCLtC5y5UXSyc=";
       allowedIPs = [ "10.20.0.35/32" ];
+      endpoint = "sea.ndella.com:51820";
+    };
+    oracle = {
+      publicKey = "A5KEeDIO3vHmovXe/hl/8vvAKtxcwditcBQrbh5WfGs=";
+      allowedIPs = [ "10.20.0.100/32" ];
+      endpoint = "sjc.ndella.com:51820";
     };
   };
 in {
   inherit clients servers;
   peersForServer = serverName:
-    clients ++ (lib.filterAttrs (name: value: name != serverName) servers);
+    (lib.attrValues clients ++ lib.attrValues
+      (lib.filterAttrs (name: value: name != serverName) servers));
 }
