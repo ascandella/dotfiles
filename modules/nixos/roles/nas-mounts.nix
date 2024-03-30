@@ -3,6 +3,14 @@
 {
   options = {
     my.nas = {
+      moviesDir = lib.mkOption {
+        type = lib.types.str;
+        default = "/media/movies";
+      };
+      tvDir = lib.mkOption {
+        type = lib.types.str;
+        default = "/media/tv";
+      };
       serverConfigDir = lib.mkOption {
         type = lib.types.str;
         default = "/config";
@@ -10,6 +18,10 @@
       downloadsDir = lib.mkOption {
         type = lib.types.str;
         default = "/media/downloads";
+      };
+      nextcloudDir = lib.mkOption {
+        type = lib.types.str;
+        default = "/data/nextcloud";
       };
     };
   };
@@ -22,8 +34,13 @@
         options = [ "x-systemd.mount-timeout=3m" ];
       };
     in {
-      "/media/movies" = nfsBase // { device = "${nasBase}/movies"; };
-      "/media/tv" = nfsBase // { device = "${nasBase}/tv"; };
+      "${config.my.nas.moviesDir}" = nfsBase // {
+        device = "${nasBase}/movies";
+      };
+      "${config.my.nas.tvDir}" = nfsBase // { device = "${nasBase}/tv"; };
+      "${config.my.nas.nextcloudDir}" = nfsBase // {
+        device = "${nasBase}/nextcloud";
+      };
       "${config.my.nas.downloadsDir}" = nfsBase // {
         device = "${nasBase}/downloads";
       };
