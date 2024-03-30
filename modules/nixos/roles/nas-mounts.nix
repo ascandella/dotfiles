@@ -28,25 +28,19 @@
 
   config = {
     fileSystems = let
-      nasBase = "truenas:/mnt/truepool-rust";
-      nfsBase = {
+      nasMappings = {
+        movies = config.my.nas.moviesDir;
+        tv = config.my.nas.tvDir;
+        nextcloud = config.my.nas.nextcloudDir;
+        downloads = config.my.nas.downloadsDir;
+        server-config = config.my.nas.serverConfigDir;
+      };
+    in lib.concatMapAttrs (source: destination: {
+      "${destination}" = {
         fsType = "nfs";
         options = [ "x-systemd.mount-timeout=3m" ];
+        device = "truenas:/mnt/truepool-rust/${source}";
       };
-    in {
-      "${config.my.nas.moviesDir}" = nfsBase // {
-        device = "${nasBase}/movies";
-      };
-      "${config.my.nas.tvDir}" = nfsBase // { device = "${nasBase}/tv"; };
-      "${config.my.nas.nextcloudDir}" = nfsBase // {
-        device = "${nasBase}/nextcloud";
-      };
-      "${config.my.nas.downloadsDir}" = nfsBase // {
-        device = "${nasBase}/downloads";
-      };
-      "${config.my.nas.serverConfigDir}" = nfsBase // {
-        device = "${nasBase}/server-config";
-      };
-    };
+    }) nasMappings;
   };
 }
