@@ -4,7 +4,7 @@
 
 { pkgs, config, lib, ... }:
 
-let wireguard = (import ../../data/wireguard.nix { inherit lib; });
+let wireguard = import ../../data/wireguard.nix { inherit lib; };
 in {
   imports = [
     # Include the results of the hardware scan.
