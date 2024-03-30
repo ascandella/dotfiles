@@ -1,5 +1,11 @@
 { pkgs, lib, ... }: {
   config = lib.mkIf pkgs.stdenv.isDarwin {
+    targets.darwin.keybindings = {
+      # https://gist.github.com/trusktr/1e5e516df4e8032cbc3d
+      "~b" = "moveWordBackward:";
+      "~f" = "moveWordForward:";
+    };
+
     home = {
       sessionPath = [ "/opt/homebrew/bin/" ];
       packages = with pkgs; [ jira-cli-go ];

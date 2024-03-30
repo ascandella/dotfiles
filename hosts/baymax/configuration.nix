@@ -4,7 +4,8 @@
 
 { pkgs, config, lib, ... }:
 
-{
+let wireguard = (import ../../data/wireguard.nix { inherit lib; });
+in {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -57,8 +58,7 @@
       generatePrivateKeyFile = true;
       listenPort = 51820;
 
-      peers = (import ../../data/wireguard.nix { inherit lib; }).peersForServer
-        config.networking.hostName;
+      peers = wireguard.peersForServer config.networking.hostName;
 
       postSetup = ''
         ${pkgs.iptables}/bin/iptables -A FORWARD -i wg0 -j ACCEPT;

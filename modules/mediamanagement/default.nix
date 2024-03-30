@@ -1,14 +1,12 @@
 { config, ... }:
 
-let dataDir = config.my.nas.serverConfigDir;
+let
+  dataDir = config.my.nas.serverConfigDir;
+  mediaGroup = config.my.media.group;
 in {
   users = {
-    users.${config.services.sonarr.user} = {
-      extraGroups = [ config.my.media.group ];
-    };
-    users.${config.services.radarr.user} = {
-      extraGroups = [ config.my.media.group ];
-    };
+    users.${config.services.sonarr.user} = { extraGroups = [ mediaGroup ]; };
+    users.${config.services.radarr.user} = { extraGroups = [ mediaGroup ]; };
   };
 
   services = {
