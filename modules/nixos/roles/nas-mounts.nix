@@ -13,7 +13,7 @@
       };
       serverConfigDir = lib.mkOption {
         type = lib.types.str;
-        default = "/config";
+        default = "/data/apps";
       };
       downloadsDir = lib.mkOption {
         type = lib.types.str;
