@@ -4,21 +4,25 @@ let
   dataDir = config.my.nas.serverConfigDir;
   mediaGroup = config.my.media.group;
 in {
-  users = {
-    users.${config.services.sonarr.user} = { extraGroups = [ mediaGroup ]; };
-    users.${config.services.radarr.user} = { extraGroups = [ mediaGroup ]; };
-  };
+  imports = [ ./overseerr.nix ];
 
-  services = {
-    radarr = {
-      enable = true;
-      dataDir = "${dataDir}/radarr";
-      openFirewall = true;
+  config = {
+    users = {
+      users.${config.services.sonarr.user} = { extraGroups = [ mediaGroup ]; };
+      users.${config.services.radarr.user} = { extraGroups = [ mediaGroup ]; };
     };
-    sonarr = {
-      enable = true;
-      dataDir = "${dataDir}/sonarr";
-      openFirewall = true;
+
+    services = {
+      radarr = {
+        enable = true;
+        dataDir = "${dataDir}/radarr";
+        openFirewall = true;
+      };
+      sonarr = {
+        enable = true;
+        dataDir = "${dataDir}/sonarr";
+        openFirewall = true;
+      };
     };
   };
 }
