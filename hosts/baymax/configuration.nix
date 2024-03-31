@@ -36,6 +36,9 @@ in {
     kernel.sysctl = {
       # For Wireguard access to LAN
       "net.ipv4.ip_forward" = 1;
+      # Better congestion control
+      "net.core.default_qdisc" = "fq";
+      "net.ipv4.tcp_congestion_control" = "bbr";
     };
   };
 
