@@ -21,27 +21,30 @@
         share = true;
       };
 
-      shellAliases = {
-        j = "z"; # jump
-        ji = "zi"; # interactive jump
-        cat = "bat";
-        g = "git";
-        gst = "git status -sb";
-        gco = "git checkout";
-        gcp = "git cherry-pick";
-        gca = "git commit --amend";
-        gcn = "git commit --no-edit --no-verify --amend";
-        vi = "nvim";
-        vim = "nvim";
-        k = "kubectl";
-        kc = "kubectl config use-context";
-        krp = "kubectl get pods --field-selector=status.phase=Running";
-        less = "most";
-      } // lib.mkIf pkgs.stdenv.isLinux {
-        # Don't quote directories with spaces in them. This is the default on
-        # Darwin, and the option is not available.
-        ls = "ls --color=tty -N";
-      };
+      shellAliases = lib.mkMerge [
+        {
+          j = "z"; # jump
+          ji = "zi"; # interactive jump
+          cat = "bat";
+          g = "git";
+          gst = "git status -sb";
+          gco = "git checkout";
+          gcp = "git cherry-pick";
+          gca = "git commit --amend";
+          gcn = "git commit --no-edit --no-verify --amend";
+          vi = "nvim";
+          vim = "nvim";
+          k = "kubectl";
+          kc = "kubectl config use-context";
+          krp = "kubectl get pods --field-selector=status.phase=Running";
+          less = "most";
+        }
+        (lib.mkIf pkgs.stdenv.isLinux {
+          # Don't quote directories with spaces in them. This is the default on
+          # Darwin, and the option is not available.
+          ls = "ls --color=tty -N";
+        })
+      ];
 
       initExtra = ''
         setopt correct
