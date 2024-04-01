@@ -31,8 +31,10 @@ in {
       };
     };
 
-    systemd.services.radarr = { after = [ "data-apps.mount" ]; };
-    systemd.services.sonarr = { after = [ "data-apps.mount" ]; };
-    systemd.services.tautulli = { after = [ "data-apps.mount" ]; };
+    systemd.services = {
+      radarr = { after = [ "data-apps.mount" ]; };
+      sonarr = { after = [ "data-apps.mount" ]; };
+      tautulli = { after = [ "data-apps.mount" ]; };
+    };
   };
 }
