@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 {
   home.packages = with pkgs; [ zsh-autopair ];
@@ -37,6 +37,10 @@
         kc = "kubectl config use-context";
         krp = "kubectl get pods --field-selector=status.phase=Running";
         less = "most";
+      } // lib.mkIf pkgs.stdenv.isLinux {
+        # Don't quote directories with spaces in them. This is the default on
+        # Darwin, and the option is not available.
+        ls = "ls --color=tty -N";
       };
 
       initExtra = ''
