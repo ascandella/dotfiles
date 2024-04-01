@@ -19,4 +19,6 @@
     openFirewall = true;
     package = plexpass;
   };
+
+  systemd.services.plex = { after = [ "data-apps.mount" ]; };
 }

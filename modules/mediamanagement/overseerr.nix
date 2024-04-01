@@ -66,5 +66,10 @@ in {
         ];
       };
     };
+
+    systemd.services."${config.virtualisation.oci-containers.backend}-overseerr" =
+      {
+        after = [ "data-apps.mount" ];
+      };
   };
 }

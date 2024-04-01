@@ -17,4 +17,6 @@
       dataDir = "${config.my.nas.serverConfigDir}/jackett";
     };
   };
+
+  systemd.services.jackett = { after = [ "data-apps.mount" ]; };
 }

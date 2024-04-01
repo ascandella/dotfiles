@@ -24,5 +24,8 @@ in {
         openFirewall = true;
       };
     };
+
+    systemd.services.radarr = { after = [ "data-apps.mount" ]; };
+    systemd.services.sonarr = { after = [ "data-apps.mount" ]; };
   };
 }
