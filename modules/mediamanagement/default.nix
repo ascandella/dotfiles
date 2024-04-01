@@ -23,9 +23,16 @@ in {
         dataDir = "${dataDir}/sonarr";
         openFirewall = true;
       };
+      tautulli = {
+        enable = true;
+        openFirewall = true;
+        dataDir = "${dataDir}/tautulli";
+        configFile = "${dataDir}/tautulli/config.ini";
+      };
     };
 
     systemd.services.radarr = { after = [ "data-apps.mount" ]; };
     systemd.services.sonarr = { after = [ "data-apps.mount" ]; };
+    systemd.services.tautulli = { after = [ "data-apps.mount" ]; };
   };
 }
