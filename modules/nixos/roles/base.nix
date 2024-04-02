@@ -13,6 +13,7 @@
     zsh
     # monitoring
     htop
+    btop
     iotop
     # dev tools
     jq
