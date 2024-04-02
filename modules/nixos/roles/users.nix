@@ -30,6 +30,11 @@
         extraGroups = [ "networkmanager" "wheel" config.my.media.group ];
         openssh.authorizedKeys.keys = pubkeys.aispace.user;
       };
+
+      users.root = {
+        # For NAS shares
+        extraGroups = [ config.my.media.group ];
+      };
     };
   };
 }

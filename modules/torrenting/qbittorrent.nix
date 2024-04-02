@@ -94,8 +94,13 @@ in {
     virtualisation.oci-containers.containers.qbittorrent = {
       image = "trigus42/qbittorrentvpn:${cfg.version}";
       environment = {
-        PGID = toString GID;
-        PUID = toString UID;
+        # TODO: Not working with NFS mounts... permission denied
+        # PGID = toString GID;
+        # PUID = toString UID;
+
+        # Use root for now...
+        PGID = "0";
+        PUID = "0";
         DOWNLOAD_DIR_CHOWN = "no";
         DEBUG = "yes";
         BIND_INTERFACE = "yes";
