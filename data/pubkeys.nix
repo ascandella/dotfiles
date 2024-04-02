@@ -10,6 +10,8 @@ let
     };
   in {
     inherit user hosts;
-    ageHostKeys = host: user ++ hosts.${host};
+    ageHostKeys = host:
+      (builtins.filter (key: builtins.match "^ssh-ed25519.*" key != null) user)
+      ++ [ hosts.${host} ];
   };
 in { inherit aispace; }
