@@ -80,7 +80,7 @@ in {
       mkIf cfg.openFirewall { allowedTCPPorts = [ cfg.port ]; };
 
     age.secrets.baymax-vpn = {
-      path = "/etc/qbittorrent-vpn/wg0.conf";
+      file = ../../secrets/baymax-vpn.age;
       mode = "0400";
       owner = cfg.user;
       group = cfg.group;
@@ -93,9 +93,27 @@ in {
 
     virtualisation.oci-containers.containers.qbittorrent = {
       image = "trigus42/qbittorrentvpn:${cfg.version}";
+      environment = {
+        PGID = toString GID;
+        PUID = toString UID;
+        DOWNLOAD_DIR_CHOWN = "no";
+        DEBUG = "yes";
+        BIND_INTERFACE = "yes";
+      };
       volumes = [
-        "/etc/qbittorrent-vpn:/config"
+        "/var/lib/qbittorrent/qBittorrent:/config"
+        "/run/agenix/baymax-vpn:/config/wireguard/wg1.conf:ro"
+        "/etc/vuetorrent:/etc/vuetorrent:ro"
         "${config.my.nas.downloadsDir}:/downloads"
+      ];
+
+      ports = [ "${toString cfg.port}:8080" ];
+
+      extraOptions = [
+        # Create wireguard interface
+        "--cap-add=NET_ADMIN"
+        # For pinging
+        "--cap-add=NET_RAW"
       ];
     };
 
