@@ -20,5 +20,7 @@
     package = plexpass;
   };
 
-  systemd.services.plex = { after = [ "data-apps.mount" ]; };
+  systemd.services.plex = {
+    after = [ "data-apps.mount" "media-tv.mount" "media-movies.mount" ];
+  };
 }
