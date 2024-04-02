@@ -23,10 +23,28 @@
         type = lib.types.str;
         default = "/data/nextcloud";
       };
+      squashGroup = lib.mkOption {
+        type = lib.types.str;
+        default = "nfs-mounts";
+      };
+      squashGroupId = lib.mkOption {
+        type = lib.types.int;
+        default = 1002;
+      };
     };
   };
 
   config = {
+    users = {
+      users.root = {
+        # For OCI containers running as root
+        extraGroups = [ config.my.nas.squashGroup ];
+      };
+      groups.${config.my.nas.squashGroup} = {
+        gid = config.my.nas.squashGroupId;
+      };
+    };
+
     fileSystems = let
       nasMappings = {
         movies = config.my.nas.moviesDir;
