@@ -22,10 +22,15 @@
       url = "github:serokell/deploy-rs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    agenix = {
+      url = "github:ryantm/agenix";
+      follows = "nixpkgs";
+    };
   };
 
-  outputs =
-    { self, nixpkgs, home-manager, darwin, flake-utils, deploy-rs, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, darwin, flake-utils, deploy-rs
+    , agenix, ... }@inputs:
     let
       allHosts = builtins.attrNames (builtins.readDir ./hosts);
       darwinHosts = [ "studio" "workbook" ];
@@ -68,7 +73,7 @@
       darwinConfigurations = builtins.listToAttrs (builtins.map (host: {
         name = host;
         value = import ./hosts/${host} {
-          inherit darwin home-manager username inputs pubkeys;
+          inherit darwin home-manager username inputs pubkeys agenix;
           homeDirectory = homeDirectory host;
           pkgs = pkgsForHost host;
         };
@@ -87,7 +92,7 @@
       nixosConfigurations = builtins.listToAttrs (builtins.map (host: {
         name = host;
         value = import ./hosts/${host} {
-          inherit inputs nixpkgs home-manager username pubkeys;
+          inherit inputs nixpkgs home-manager username pubkeys agenix;
           system = systemForHost host;
           homeDirectory = homeDirectory host;
           pkgs = pkgsForHost host;
@@ -133,6 +138,7 @@
             ${nixfmt}/bin/nixfmt --check .
           '';
           lint = packages.default;
+          agenix = agenix.packages.${system}.default;
         };
         apps = { inherit (deploy-rs.apps.${system}) deploy-rs; };
       });

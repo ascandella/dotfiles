@@ -113,6 +113,9 @@
     },
     "root": {
       "inputs": {
+        "agenix": [
+          "nixpkgs"
+        ],
         "darwin": "darwin",
         "deploy-rs": "deploy-rs",
         "flake-utils": "flake-utils",
