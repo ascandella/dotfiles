@@ -8,5 +8,8 @@ let
       baymax =
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHvV4lf5yReZHdlE2qVnc7gVrigfx2ged272S5kBy+D3";
     };
-  in { inherit user hosts; };
+  in {
+    inherit user hosts;
+    ageHostKeys = host: user ++ hosts.${host};
+  };
 in { inherit aispace; }
