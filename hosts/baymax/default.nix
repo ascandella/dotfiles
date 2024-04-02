@@ -1,11 +1,12 @@
 { inputs, pkgs, nixpkgs, home-manager, username, pubkeys, homeDirectory, system
-, ... }:
+, agenix, ... }:
 
 nixpkgs.lib.nixosSystem {
   inherit system;
   specialArgs = { inherit pubkeys username; };
   modules = [
     ./configuration.nix
+    agenix.nixosModules.default
     home-manager.nixosModules.home-manager
     {
       home-manager.users.${username} = import ../../modules/home/home.nix {

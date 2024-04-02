@@ -11,6 +11,12 @@ in {
   options.services.qbittorrent = {
     enable = mkEnableOption (lib.mdDoc "qBittorrent headless");
 
+    version = mkOption {
+      type = types.str;
+      default = "qbt4.6.4-20240402";
+      description = "Docker hub image tage";
+    };
+
     dataDir = mkOption {
       type = types.path;
       default = "/var/lib/qbittorrent";
@@ -73,45 +79,42 @@ in {
     networking.firewall =
       mkIf cfg.openFirewall { allowedTCPPorts = [ cfg.port ]; };
 
-    systemd.services.qbittorrent = {
-      # based on the plex.nix service module and
-      # https://github.com/qbittorrent/qBittorrent/blob/master/dist/unix/systemd/qbittorrent-nox%40.service.in
-      description = "qBittorrent-nox service";
-      documentation = [ "man:qbittorrent-nox(1)" ];
-      after = [ "network.target" "media-downloads.mount" ];
-      wantedBy = [ "multi-user.target" ];
+    age.secrets.baymax-vpn = {
+      inherit (cfg) group;
+      file = ../../secrets/baymax-vpn.age;
+      mode = "0400";
+      owner = cfg.user;
+    };
 
-      serviceConfig = {
-        Type = "simple";
-        User = cfg.user;
-        Group = cfg.group;
-
-        # Run the pre-start script with full permissions (the "!" prefix) so it
-        # can create the data directory if necessary.
-        ExecStartPre = let
-          preStartScript = pkgs.writeScript "qbittorrent-run-prestart" ''
-            #!${pkgs.bash}/bin/bash
-
-            # Create data directory if it doesn't exist
-            if ! test -d "$QBT_PROFILE"; then
-              echo "Creating initial qBittorrent data directory in: $QBT_PROFILE"
-              install -d -m 0755 -o "${cfg.user}" -g "${cfg.group}" "$QBT_PROFILE"
-            fi
-          '';
-        in "!${preStartScript}";
-
-        ExecStart = "${cfg.package}/bin/qbittorrent-nox";
-        # To prevent "Quit & shutdown daemon" from working; we want systemd to
-        # manage it!
-        #Restart = "on-success";
-        #UMask = "0002";
-        #LimitNOFILE = cfg.openFilesLimit;
+    systemd.services."${config.virtualisation.oci-containers.backend}-qbittorrent" =
+      {
+        after = [ "media-downloads.mount" ];
       };
 
+    virtualisation.oci-containers.containers.qbittorrent = {
+      image = "trigus42/qbittorrentvpn:${cfg.version}";
       environment = {
-        QBT_PROFILE = cfg.dataDir;
-        QBT_WEBUI_PORT = toString cfg.port;
+        PGID = toString GID;
+        PUID = toString UID;
+        DOWNLOAD_DIR_CHOWN = "no";
+        DEBUG = "yes";
+        BIND_INTERFACE = "yes";
       };
+      volumes = [
+        "/var/lib/qbittorrent/qBittorrent:/config"
+        "/run/agenix/baymax-vpn:/config/wireguard/wg1.conf:ro"
+        "/etc/vuetorrent:/etc/vuetorrent:ro"
+        "${config.my.nas.downloadsDir}:/downloads"
+      ];
+
+      ports = [ "${toString cfg.port}:8080" ];
+
+      extraOptions = [
+        # Create wireguard interface
+        "--cap-add=NET_ADMIN"
+        # For pinging
+        "--cap-add=NET_RAW"
+      ];
     };
 
     users.users = mkIf (cfg.user == "qbittorrent") {
