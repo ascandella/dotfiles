@@ -48,8 +48,17 @@ in with lib; {
     # temporary hack until official lingering support is added to `users.users`
     # systemd.tmpfiles.rules = [ "f /var/lib/systemd/linger/${cfg.user}" ];
 
-    networking.firewall =
-      mkIf cfg.openFirewall { allowedTCPPorts = [ cfg.port ]; };
+    networking.firewall = mkIf cfg.openFirewall {
+      allowedTCPPorts = [
+        cfg.port
+        # Homekit Bridge
+        21063
+      ];
+      allowedUDPPorts = [
+        # Homekit Bridge
+        5353
+      ];
+    };
 
     virtualisation.oci-containers.containers.home-assistant = {
       image = "ghcr.io/home-assistant/home-assistant:${cfg.version}";
