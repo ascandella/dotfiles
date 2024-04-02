@@ -80,10 +80,10 @@ in {
       mkIf cfg.openFirewall { allowedTCPPorts = [ cfg.port ]; };
 
     age.secrets.baymax-vpn = {
+      inherit (cfg) group;
       file = ../../secrets/baymax-vpn.age;
       mode = "0400";
       owner = cfg.user;
-      group = cfg.group;
     };
 
     systemd.services."${config.virtualisation.oci-containers.backend}-qbittorrent" =
