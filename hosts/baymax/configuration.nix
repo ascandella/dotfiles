@@ -14,6 +14,7 @@ in {
     ../../modules/nixos/roles/users.nix
     ../../modules/nixos/roles/nvidia.nix
     ../../modules/nixos/roles/nas-mounts.nix
+    ../../modules/nixos/roles/home-assistant.nix
     ../../modules/common
     ../../modules/deploy
     ../../modules/plex
@@ -105,8 +106,24 @@ in {
 
   # nixos/roles/base.nix contains most of the base config
 
-  # PROXMOOOOOX
-  services.qemuGuest.enable = true;
+  services = {
+    # PROXMOOOOOX
+    qemuGuest.enable = true;
+    # Custom services
+    aispace = {
+      home-assistant = {
+        # enable = true;
+        openFirewall = true;
+      };
+      zwave-js = {
+        enable = true;
+        openFirewall = true;
+        serialDevice =
+          # TODO: This is the Zigbee device, not z-wave
+          "/dev/serial/by-id/usb-ITEAD_SONOFF_Zigbee_3.0_USB_Dongle_Plus_V2_20231215082359-if00";
+      };
+    };
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
