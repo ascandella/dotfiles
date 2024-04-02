@@ -15,6 +15,7 @@ in {
     ../../modules/nixos/roles/nvidia.nix
     ../../modules/nixos/roles/nas-mounts.nix
     ../../modules/nixos/roles/home-assistant.nix
+    ../../modules/nixos/roles/zwave-js.nix
     ../../modules/common
     ../../modules/deploy
     ../../modules/plex
@@ -115,6 +116,7 @@ in {
         # enable = true;
         openFirewall = true;
       };
+
       zwave-js = {
         enable = true;
         openFirewall = true;
