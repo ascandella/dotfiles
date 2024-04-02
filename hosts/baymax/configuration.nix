@@ -14,6 +14,7 @@ in {
     ../../modules/nixos/roles/users.nix
     ../../modules/nixos/roles/nvidia.nix
     ../../modules/nixos/roles/nas-mounts.nix
+    ../../modules/nixos/roles/home-assistant.nix
     ../../modules/common
     ../../modules/deploy
     ../../modules/plex
@@ -105,8 +106,15 @@ in {
 
   # nixos/roles/base.nix contains most of the base config
 
-  # PROXMOOOOOX
-  services.qemuGuest.enable = true;
+  services = {
+    # PROXMOOOOOX
+    qemuGuest.enable = true;
+    # Custom services
+    aispace = {
+      home-assistant.enable = true;
+      zwave-js.enable = true;
+    };
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
