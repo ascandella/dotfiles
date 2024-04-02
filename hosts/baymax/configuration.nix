@@ -111,8 +111,16 @@ in {
     qemuGuest.enable = true;
     # Custom services
     aispace = {
-      home-assistant.enable = true;
-      zwave-js.enable = true;
+      home-assistant = {
+        enable = true;
+        openFirewall = true;
+      };
+      zwave-js = {
+        enable = true;
+        openFirewall = true;
+        serialDevice =
+          "/dev/serial/by-id/usb-ITEAD_SONOFF_Zigbee_3.0_USB_Dongle_Plus_V2_20231215082359-if00";
+      };
     };
   };
 
