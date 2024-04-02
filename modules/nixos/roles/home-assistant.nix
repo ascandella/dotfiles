@@ -52,8 +52,25 @@ in with lib; {
       mkIf cfg.openFirewall { allowedTCPPorts = [ cfg.port ]; };
 
     virtualisation.oci-containers.containers.home-assistant = {
-      # TODO: This
       image = "ghcr.io/home-assistant/home-assistant:${cfg.version}";
+      volumes = [
+        "${config.my.nas.serverConfigDir}/home-assistant:/config"
+        "/etc/localtime:/etc/localtime:ro"
+      ];
+      extraOptions = [
+        "--network"
+        "host"
+        # For access to serial device
+        "--group-add"
+        "dialout"
+        "--device"
+        cfg.serialDevice
+        # "--userns="
+
+        # Special perms
+        "--cap-add=NET_ADMIN"
+        "--cap-add=NET_RAW"
+      ];
     };
     systemd.services."${config.virtualisation.oci-containers.backend}-home-assistant" =
       {

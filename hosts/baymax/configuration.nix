@@ -113,8 +113,10 @@ in {
     # Custom services
     aispace = {
       home-assistant = {
-        # enable = true;
+        enable = true;
         openFirewall = true;
+        serialDevice =
+          "/dev/serial/by-id/usb-ITEAD_SONOFF_Zigbee_3.0_USB_Dongle_Plus_V2_20231215082359-if00";
       };
 
       zwave-js = {
