@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   config = {
@@ -34,7 +34,7 @@
           adminpassFile = "/etc/nextcloud/admin-pass";
           dbtype = "mysql";
           dbuser = "nextcloud";
-          dbpassFile = "/etc/nextcloud/db-pass";
+          dbpassFile = config.age.secrets.nextcloud-db-pass.path;
         };
       };
     };
