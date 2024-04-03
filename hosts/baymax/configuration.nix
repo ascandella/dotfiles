@@ -123,6 +123,12 @@ in {
         ensurePermissions = { "nextcloud.*" = "ALL PRIVILEGES"; };
       }];
     };
+    nextcloud = {
+      enable = true;
+      datadir = config.my.nas.nextcloudDir;
+      hostName = "cloud.ndella.com";
+      https = true;
+    };
 
     # Custom services
     aispace = {
