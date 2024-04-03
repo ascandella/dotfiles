@@ -4,4 +4,5 @@ let
 in {
   "baymax-vpn.age".publicKeys = baymaxKeys;
   "nextcloud-db-pass.age".publicKeys = baymaxKeys;
+  "gitea-db-pass.age".publicKeys = baymaxKeys;
 }
