@@ -127,7 +127,9 @@ in {
       enable = true;
       datadir = config.my.nas.nextcloudDir;
       hostName = "cloud.ndella.com";
+      package = pkgs.nextcloud28;
       https = true;
+      config = { dbtype = "mysql"; };
     };
 
     # Custom services
