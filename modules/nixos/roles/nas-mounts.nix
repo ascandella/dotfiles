@@ -21,7 +21,7 @@
       };
       nextcloudDir = lib.mkOption {
         type = lib.types.str;
-        default = "/data/nextcloud";
+        default = "/var/lib/nextcloud/data";
       };
       squashGroup = lib.mkOption {
         type = lib.types.str;

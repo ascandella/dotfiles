@@ -16,6 +16,8 @@ in {
     ../../modules/nixos/roles/nas-mounts.nix
     ../../modules/nixos/roles/home-assistant.nix
     ../../modules/nixos/roles/zwave-js.nix
+    ../../modules/nixos/roles/nextcloud.nix
+    ../../modules/nixos/roles/k3s.nix
     ../../modules/common
     ../../modules/deploy
     ../../modules/plex
