@@ -25,4 +25,9 @@
 
     mysqlBackup = { databases = [ "gitea" ]; };
   };
+
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ 9023 ];
+  };
 }
