@@ -110,6 +110,20 @@ in {
   services = {
     # PROXMOOOOOX
     qemuGuest.enable = true;
+    mysqlBackup = {
+      enable = true;
+      databases = [ "nextcloud" ];
+    };
+    mysql = {
+      enable = true;
+      ensureDatabases = [ "nextcloud" ];
+      package = pkgs.mysql80;
+      ensureUsers = [{
+        name = "nextcloud";
+        ensurePermissions = { "nextcloud.*" = "ALL PRIVILEGES"; };
+      }];
+    };
+
     # Custom services
     aispace = {
       home-assistant = {
