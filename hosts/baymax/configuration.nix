@@ -129,7 +129,10 @@ in {
       hostName = "cloud.ndella.com";
       package = pkgs.nextcloud28;
       https = true;
-      config = { dbtype = "mysql"; };
+      config = {
+        adminpassFile = "/etc/nextcloud/admin-pass";
+        dbtype = "mysql";
+      };
     };
 
     # Custom services
