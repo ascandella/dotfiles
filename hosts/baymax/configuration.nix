@@ -16,6 +16,7 @@ in {
     ../../modules/nixos/roles/nas-mounts.nix
     ../../modules/nixos/roles/home-assistant.nix
     ../../modules/nixos/roles/zwave-js.nix
+    ../../modules/nixos/roles/nextcloud.nix
     ../../modules/common
     ../../modules/deploy
     ../../modules/plex
@@ -110,31 +111,6 @@ in {
   services = {
     # PROXMOOOOOX
     qemuGuest.enable = true;
-    mysqlBackup = {
-      enable = true;
-      databases = [ "nextcloud" ];
-    };
-    mysql = {
-      enable = true;
-      ensureDatabases = [ "nextcloud" ];
-      package = pkgs.mysql80;
-      ensureUsers = [{
-        name = "nextcloud";
-        ensurePermissions = { "nextcloud.*" = "ALL PRIVILEGES"; };
-      }];
-    };
-    nextcloud = {
-      enable = true;
-      datadir = config.my.nas.nextcloudDir;
-      hostName = "cloud.ndella.com";
-      package = pkgs.nextcloud28;
-      https = true;
-      config = {
-        adminpassFile = "/etc/nextcloud/admin-pass";
-        dbtype = "mysql";
-      };
-    };
-
     # Custom services
     aispace = {
       home-assistant = {

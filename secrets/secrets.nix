@@ -1,3 +1,7 @@
-let pubkeys = import ../data/pubkeys.nix;
-in { "baymax-vpn.age".publicKeys = pubkeys.aispace.ageHostKeys "baymax"; }
-
+let
+  pubkeys = import ../data/pubkeys.nix;
+  baymaxKeys = pubkeys.aispace.ageHostKeys "baymax";
+in {
+  "baymax-vpn.age".publicKeys = baymaxKeys;
+  "nextcloud-db-pass.age".publicKeys = baymaxKeys;
+}
