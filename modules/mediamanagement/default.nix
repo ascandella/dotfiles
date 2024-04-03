@@ -16,16 +16,13 @@ in {
       radarr = {
         enable = true;
         dataDir = "${dataDir}/radarr";
-        openFirewall = true;
       };
       sonarr = {
         enable = true;
         dataDir = "${dataDir}/sonarr";
-        openFirewall = true;
       };
       tautulli = {
         enable = true;
-        openFirewall = true;
         dataDir = "${dataDir}/tautulli";
         configFile = "${dataDir}/tautulli/config.ini";
       };
