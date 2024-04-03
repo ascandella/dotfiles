@@ -29,8 +29,7 @@
         enable = true;
         hostName = "cloud.ndella.com";
         package = pkgs.nextcloud28;
-        # TODO: enable
-        # https = true;
+        https = true;
         config = {
           adminpassFile = "/etc/nextcloud/admin-pass";
           dbtype = "mysql";
@@ -40,7 +39,6 @@
         };
         settings = {
           loglevel = 1; # TODO: tune down to 2
-          trusted_domains = [ "baymax.lfp" ];
         };
       };
 
@@ -55,8 +53,5 @@
         }
       ];
     };
-
-    # TODO: Remove after k8s installed
-    networking.firewall = { allowedTCPPorts = [ 8082 ]; };
   };
 }
