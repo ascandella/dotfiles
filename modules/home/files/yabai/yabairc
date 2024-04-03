@@ -27,9 +27,14 @@ yabai -m config active_window_opacity 1.0
 yabai -m config normal_window_opacity 0.9
 
 # Exclusions
-yabai -m rule --add app="^System Settings$" manage=off layer=below
-yabai -m rule --add app="^zoom.us" manage=off layer=below
-yabai -m rule --add app="^Messages$" manage=off layer=below
+# https://github.com/koekeishiya/yabai/issues/2199#issuecomment-2031528636
+ function yabai_rule {
+  yabai -m rule --add "$@"
+  yabai -m rule --apply "$@"
+}
+yabai_rule app="^System Settings$" manage=off sub-layer=below
+yabai_rule app="^zoom.us" manage=off sub-layer=below
+yabai_rule app="^Messages$" manage=off sub-layer=below
 
 # refresh my Übersicht bar when the space changes
 yabai -m signal --add event=space_changed \
