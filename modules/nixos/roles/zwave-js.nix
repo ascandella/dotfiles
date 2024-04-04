@@ -13,7 +13,7 @@ in with lib; {
       default = "zwavejs";
     };
     port = mkOption {
-      type = types.int;
+      type = types.port;
       default = 8091;
     };
     serialDevice = mkOption { type = types.str; };

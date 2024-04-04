@@ -9,7 +9,7 @@ in with lib; {
       default = "2024.3.3";
     };
     port = mkOption {
-      type = types.int;
+      type = types.port;
       default = 8123;
     };
     user = mkOption {

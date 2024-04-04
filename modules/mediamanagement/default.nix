@@ -4,7 +4,7 @@ let
   dataDir = config.my.nas.serverConfigDir;
   mediaGroup = config.my.media.group;
 in {
-  imports = [ ./overseerr.nix ];
+  imports = [ ./overseerr.nix ./homarr.nix ];
 
   config = {
     users = {
@@ -26,12 +26,21 @@ in {
         dataDir = "${dataDir}/tautulli";
         configFile = "${dataDir}/tautulli/config.ini";
       };
+      aispace.homarr = {
+        enable = true;
+        dataDir = "${dataDir}/homarr/data";
+        iconsDir = "${dataDir}/homarr/icons";
+        configDir = "${dataDir}/homarr/configs";
+      };
     };
 
     systemd.services = {
       radarr = { after = [ "data-apps.mount" ]; };
       sonarr = { after = [ "data-apps.mount" ]; };
       tautulli = { after = [ "data-apps.mount" ]; };
+      "${config.virtualisation.oci-containers.backend}-homarr" = {
+        after = [ "data-apps.mount" ];
+      };
     };
   };
 }
