@@ -48,6 +48,7 @@
       fzf
       go
       htop
+      just
       kubectl
       magic-wormhole
       most
