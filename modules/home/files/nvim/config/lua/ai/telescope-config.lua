@@ -143,15 +143,25 @@ end
 
 M.project_files = function()
   local opts = {}
-  -- local opts = require('telescope.themes').get_dropdown({  winblend = 10 })
 
   local current_directory = vim.api.nvim_buf_get_name(0)
   if current_directory == '' then
     current_directory = vim.fn.getcwd()
   end
+  local excludes = {
+    ':!:*.age',
+  }
+  local git_command = { 'git', 'ls-files', '--exclude-standard', '--cached', '.' }
+
   if string.find(current_directory, '/vitally') then
-    opts.git_command = { 'git', 'ls-files', '--exclude-standard', '--cached', '.', ':!:packages/client' }
+    vim.table.insert(excludes, ':!:packages/client')
   end
+
+  for _, exclude in ipairs(excludes) do
+    table.insert(git_command, exclude)
+  end
+
+  opts.git_command = git_command
 
   local ok = pcall(require('telescope.builtin').git_files, opts)
   if not ok then

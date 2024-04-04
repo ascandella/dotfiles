@@ -102,7 +102,7 @@
 
         if command -v rg > /dev/null ; then
           FZF_DEFAULT_COMMAND='rg --files --hidden --follow'
-          for ignore in "*.pyc" "idl/*" "go-build/*" "vendor/*" ; do
+          for ignore in "*.pyc" "idl/*" "vendor/*" "*.age" ; do
             FZF_DEFAULT_COMMAND+=" --glob \"!''${ignore}\""
           done
 
