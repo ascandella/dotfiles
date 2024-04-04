@@ -154,7 +154,7 @@ M.project_files = function()
   local git_command = { 'git', 'ls-files', '--exclude-standard', '--cached', '.' }
 
   if string.find(current_directory, '/vitally') then
-    vim.table.insert(excludes, ':!:packages/client')
+    table.insert(excludes, ':!:packages/client')
   end
 
   for _, exclude in ipairs(excludes) do
