@@ -19,6 +19,7 @@ in {
     ../../modules/nixos/roles/nextcloud.nix
     ../../modules/nixos/roles/k3s.nix
     ../../modules/nixos/roles/gitea.nix
+    ../../modules/nixos/roles/backups.nix
     ../../modules/common
     ../../modules/deploy
     ../../modules/plex

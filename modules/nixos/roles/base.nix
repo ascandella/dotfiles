@@ -30,6 +30,8 @@
     curl
     iperf
     dnsutils
+    # backups
+    borgbackup
   ];
   programs.zsh = {
     enable = true;

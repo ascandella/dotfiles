@@ -11,6 +11,10 @@
         type = lib.types.str;
         default = "/media/tv";
       };
+      backupsDir = lib.mkOption {
+        type = lib.types.str;
+        default = "/data/backups";
+      };
       serverConfigDir = lib.mkOption {
         type = lib.types.str;
         default = "/data/apps";
@@ -52,6 +56,7 @@
         nextcloud = config.my.nas.nextcloudDir;
         downloads = config.my.nas.downloadsDir;
         server-config = config.my.nas.serverConfigDir;
+        backups = config.my.nas.backupsDir;
       };
     in lib.concatMapAttrs (source: destination: {
       "${destination}" = {
