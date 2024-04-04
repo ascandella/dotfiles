@@ -13,19 +13,9 @@ in {
     };
 
     services = {
-      radarr = {
-        enable = true;
-        dataDir = "${dataDir}/radarr";
-      };
-      sonarr = {
-        enable = true;
-        dataDir = "${dataDir}/sonarr";
-      };
-      tautulli = {
-        enable = true;
-        dataDir = "${dataDir}/tautulli";
-        configFile = "${dataDir}/tautulli/config.ini";
-      };
+      radarr = { enable = true; };
+      sonarr = { enable = true; };
+      tautulli = { enable = true; };
       aispace.homarr = {
         enable = true;
         dataDir = "${dataDir}/homarr/data";
@@ -35,9 +25,6 @@ in {
     };
 
     systemd.services = {
-      radarr = { after = [ "data-apps.mount" ]; };
-      sonarr = { after = [ "data-apps.mount" ]; };
-      tautulli = { after = [ "data-apps.mount" ]; };
       "${config.virtualisation.oci-containers.backend}-homarr" = {
         after = [ "data-apps.mount" ];
       };
