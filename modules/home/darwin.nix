@@ -1,4 +1,9 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
 {
   config = lib.mkIf pkgs.stdenv.isDarwin {
     targets.darwin.keybindings = {
@@ -73,6 +78,13 @@
       inprog = "jiraissues -s 'In Progress' --plain --columns KEY,SUMMARY --no-headers";
 
       resetdns = "sudo dscacheutil -flushcache ; sudo killall -HUP mDNSResponder";
+    };
+
+    home.file = {
+      "Library/Application Support/Übersicht/widgets/simple-bar".source = inputs.simple-bar-src.outPath;
+      ".ignore".source = ./files/ignore;
+      ".pylintrc".source = ./files/.pylintrc;
+      ".luacheckrc".source = ./files/.luacheckrc;
     };
   };
 }

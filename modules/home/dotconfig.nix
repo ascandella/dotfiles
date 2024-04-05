@@ -30,11 +30,4 @@
     };
     "zellij".source = ./files/zellij;
   };
-
-  home.file = lib.mkIf pkgs.stdenv.isDarwin {
-    "Library/Application Support/Übersicht/widgets/simple-bar".source = inputs.simple-bar-src.outPath;
-    ".ignore".source = ./files/ignore;
-    ".pylintrc".source = ./files/.pylintrc;
-    ".luacheckrc".source = ./files/.luacheckrc;
-  };
 }
