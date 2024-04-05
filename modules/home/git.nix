@@ -43,6 +43,8 @@
     };
     extraConfig = {
       delta = {
+        # Necessary inside zellij
+        dark = true;
         navigate = true;
         features = "decorations";
         line-numbers-left-format = "";
