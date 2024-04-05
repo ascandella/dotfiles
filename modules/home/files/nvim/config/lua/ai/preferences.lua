@@ -78,3 +78,9 @@ vim.cmd([[
     autocmd FileType NeogitCommitMessage setlocal textwidth=72 fo+=t
   augroup END
 ]])
+
+vim.filetype.add({
+  filename = {
+    ['justfile'] = 'make',
+  },
+})
