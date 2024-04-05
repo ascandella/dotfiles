@@ -4,3 +4,7 @@ require('treesitter-context').setup({
   line_numbers = false,
   separator = nil,
 })
+
+vim.api.nvim_command([[
+  hi TreesitterContextBottom gui=none guisp=Grey
+]])

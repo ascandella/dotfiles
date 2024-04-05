@@ -24,6 +24,7 @@ local function init()
         lsp = false,
       },
       neogit = true,
+      treesitter_context = false, -- use custom theme
       telescope = {
         enabled = true,
         style = 'nvchad',
