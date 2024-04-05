@@ -161,6 +161,7 @@
       rec {
         packages = with pkgs; {
           inherit statix nix nixfmt-rfc-style;
+          nixfmt = nixfmt-rfc-style;
           fmt = pkgs.writeScriptBin "format" ''
             ${nixfmt-rfc-style}/bin/nixfmt .;
           '';
