@@ -35,11 +35,15 @@
   ];
   programs.zsh = {
     enable = true;
-    syntaxHighlighting = { enable = true; };
+    syntaxHighlighting = {
+      enable = true;
+    };
     shellInit = ''
       bindkey -e
     '';
-    shellAliases = { g = "git"; };
+    shellAliases = {
+      g = "git";
+    };
   };
   users.defaultUserShell = pkgs.zsh;
 
@@ -65,10 +69,16 @@
 
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ 22 80 443 ];
-    allowedTCPPortRanges = [{
-      from = 5201;
-      to = 5210;
-    }];
+    allowedTCPPorts = [
+      22
+      80
+      443
+    ];
+    allowedTCPPortRanges = [
+      {
+        from = 5201;
+        to = 5210;
+      }
+    ];
   };
 }

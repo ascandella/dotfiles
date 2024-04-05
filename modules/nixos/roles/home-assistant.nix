@@ -1,7 +1,10 @@
 { lib, config, ... }:
 
-let cfg = config.services.aispace.home-assistant;
-in with lib; {
+let
+  cfg = config.services.aispace.home-assistant;
+in
+with lib;
+{
   options.services.aispace.home-assistant = {
     enable = mkEnableOption (mdDoc "enable home-assistant via OCI container");
     version = mkOption {
@@ -51,10 +54,12 @@ in with lib; {
     networking.firewall = mkIf cfg.openFirewall {
       allowedTCPPorts = [ cfg.port ];
       # Homekit Bridge
-      allowedTCPPortRanges = [{
-        from = 21063;
-        to = 21065;
-      }];
+      allowedTCPPortRanges = [
+        {
+          from = 21063;
+          to = 21065;
+        }
+      ];
       allowedUDPPorts = [
         # Homekit Bridge
         5353
@@ -82,10 +87,9 @@ in with lib; {
         "--cap-add=NET_RAW"
       ];
     };
-    systemd.services."${config.virtualisation.oci-containers.backend}-home-assistant" =
-      {
-        after = [ "data-apps.mount" ];
-        # serviceConfig.User = cfg.user;
-      };
+    systemd.services."${config.virtualisation.oci-containers.backend}-home-assistant" = {
+      after = [ "data-apps.mount" ];
+      # serviceConfig.User = cfg.user;
+    };
   };
 }

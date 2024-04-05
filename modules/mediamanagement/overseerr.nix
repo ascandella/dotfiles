@@ -3,7 +3,8 @@
 let
   dataDir = config.my.nas.serverConfigDir;
   overseerrCfg = config.my.overseerr;
-in {
+in
+{
   options = {
     my.overseerr = {
       version = lib.mkOption {
@@ -38,7 +39,9 @@ in {
         inherit (overseerrCfg.user) uid group;
         isSystemUser = true;
       };
-      groups.${overseerrCfg.user.group} = { inherit (overseerrCfg.user) gid; };
+      groups.${overseerrCfg.user.group} = {
+        inherit (overseerrCfg.user) gid;
+      };
     };
 
     networking.firewall = {
@@ -67,9 +70,8 @@ in {
       };
     };
 
-    systemd.services."${config.virtualisation.oci-containers.backend}-overseerr" =
-      {
-        after = [ "data-apps.mount" ];
-      };
+    systemd.services."${config.virtualisation.oci-containers.backend}-overseerr" = {
+      after = [ "data-apps.mount" ];
+    };
   };
 }

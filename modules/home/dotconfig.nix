@@ -1,4 +1,11 @@
-{ config, lib, pkgs, inputs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
+{
   xdg.configFile = {
     "efm-langserver".source = ./files/efm-langserver;
     "selene".source = ./files/selene;
@@ -16,8 +23,7 @@
     "nvim/foo".text = ''
       ${config.my.configDir}
     '';
-    "nvim/lazy-lock.json".source = config.lib.file.mkOutOfStoreSymlink
-      "${config.my.configDir}/modules/home/files/nvim/lazy-lock.json";
+    "nvim/lazy-lock.json".source = config.lib.file.mkOutOfStoreSymlink "${config.my.configDir}/modules/home/files/nvim/lazy-lock.json";
     "nvim" = {
       recursive = true;
       source = ./files/nvim/config;
@@ -26,8 +32,7 @@
   };
 
   home.file = lib.mkIf pkgs.stdenv.isDarwin {
-    "Library/Application Support/Übersicht/widgets/simple-bar".source =
-      inputs.simple-bar-src.outPath;
+    "Library/Application Support/Übersicht/widgets/simple-bar".source = inputs.simple-bar-src.outPath;
     ".ignore".source = ./files/ignore;
     ".pylintrc".source = ./files/.pylintrc;
     ".luacheckrc".source = ./files/.luacheckrc;

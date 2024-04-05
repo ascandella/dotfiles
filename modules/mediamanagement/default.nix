@@ -3,19 +3,33 @@
 let
   dataDir = config.my.nas.serverConfigDir;
   mediaGroup = config.my.media.group;
-in {
-  imports = [ ./overseerr.nix ./homarr.nix ];
+in
+{
+  imports = [
+    ./overseerr.nix
+    ./homarr.nix
+  ];
 
   config = {
     users = {
-      users.${config.services.sonarr.user} = { extraGroups = [ mediaGroup ]; };
-      users.${config.services.radarr.user} = { extraGroups = [ mediaGroup ]; };
+      users.${config.services.sonarr.user} = {
+        extraGroups = [ mediaGroup ];
+      };
+      users.${config.services.radarr.user} = {
+        extraGroups = [ mediaGroup ];
+      };
     };
 
     services = {
-      radarr = { enable = true; };
-      sonarr = { enable = true; };
-      tautulli = { enable = true; };
+      radarr = {
+        enable = true;
+      };
+      sonarr = {
+        enable = true;
+      };
+      tautulli = {
+        enable = true;
+      };
       aispace.homarr = {
         enable = true;
         dataDir = "${dataDir}/homarr/data";

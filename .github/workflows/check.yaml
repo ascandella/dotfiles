@@ -4,7 +4,7 @@ on: push
 
 jobs:
   check:
-    name: Check
+    name: Check Nix
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -20,4 +20,4 @@ jobs:
       - name: Statix analysis
         run: nix run .#statix -- check
       - name: Check formatting
-        run: nix run .#nixfmt -- --check .
+        run: nix run .#nixfmt-rfc-style -- --check .

@@ -1,7 +1,10 @@
 { config, ... }:
 
 {
-  imports = [ ./qbittorrent.nix ./vuetorrent.nix ];
+  imports = [
+    ./qbittorrent.nix
+    ./vuetorrent.nix
+  ];
 
   services = {
     qbittorrent = {
@@ -10,7 +13,9 @@
       extraGroups = [ config.my.media.group ];
       openFirewall = true;
     };
-    vuetorrent = { enable = true; };
+    vuetorrent = {
+      enable = true;
+    };
     jackett = {
       enable = true;
       openFirewall = true;
@@ -18,5 +23,7 @@
     };
   };
 
-  systemd.services.jackett = { after = [ "data-apps.mount" ]; };
+  systemd.services.jackett = {
+    after = [ "data-apps.mount" ];
+  };
 }

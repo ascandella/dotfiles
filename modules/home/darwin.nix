@@ -1,4 +1,5 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, ... }:
+{
   config = lib.mkIf pkgs.stdenv.isDarwin {
     targets.darwin.keybindings = {
       # https://gist.github.com/trusktr/1e5e516df4e8032cbc3d
@@ -69,11 +70,9 @@
       bottombar = "yabai -m config external_bar all:0:30";
 
       jiraissues = "jira issue list -a$(jira me)";
-      inprog =
-        "jiraissues -s 'In Progress' --plain --columns KEY,SUMMARY --no-headers";
+      inprog = "jiraissues -s 'In Progress' --plain --columns KEY,SUMMARY --no-headers";
 
-      resetdns =
-        "sudo dscacheutil -flushcache ; sudo killall -HUP mDNSResponder";
+      resetdns = "sudo dscacheutil -flushcache ; sudo killall -HUP mDNSResponder";
     };
   };
 }

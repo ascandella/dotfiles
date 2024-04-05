@@ -4,7 +4,10 @@
   services.k3s = {
     enable = true;
     role = "server";
-    extraFlags = toString [ "--node-label" "ai-location=home" ];
+    extraFlags = toString [
+      "--node-label"
+      "ai-location=home"
+    ];
   };
 
   environment.systemPackages = [ pkgs.k3s ];

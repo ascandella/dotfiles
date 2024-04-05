@@ -1,7 +1,14 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
-let cfg = config.services.aispace.homarr;
-in {
+let
+  cfg = config.services.aispace.homarr;
+in
+{
   options = with lib; {
     services.aispace.homarr = {
       enable = mkEnableOption (mdDoc "Homarr");
@@ -46,7 +53,6 @@ in {
       ];
     };
 
-    networking.firewall =
-      lib.mkIf cfg.openFirewall { allowedTCPPorts = [ cfg.port ]; };
+    networking.firewall = lib.mkIf cfg.openFirewall { allowedTCPPorts = [ cfg.port ]; };
   };
 }

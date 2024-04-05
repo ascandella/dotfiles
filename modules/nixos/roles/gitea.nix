@@ -24,6 +24,8 @@
       };
     };
 
-    mysqlBackup = { databases = [ "gitea" ]; };
+    mysqlBackup = {
+      databases = [ "gitea" ];
+    };
   };
 }

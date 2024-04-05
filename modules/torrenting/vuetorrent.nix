@@ -1,7 +1,14 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
-let cfg = config.services.vuetorrent;
-in {
+let
+  cfg = config.services.vuetorrent;
+in
+{
   options = {
     services.vuetorrent = {
       enable = lib.mkEnableOption (lib.mdDoc "vuetorrent");
