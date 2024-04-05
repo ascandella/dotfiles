@@ -31,9 +31,12 @@ let
       endpoint = "sjc.ndella.com:51820";
     };
   };
-in {
+in
+{
   inherit clients servers;
-  peersForServer = serverName:
-    (lib.attrValues clients ++ lib.attrValues
-      (lib.filterAttrs (name: value: name != serverName) servers));
+  peersForServer =
+    serverName:
+    (
+      lib.attrValues clients ++ lib.attrValues (lib.filterAttrs (name: value: name != serverName) servers)
+    );
 }

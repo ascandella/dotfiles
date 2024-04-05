@@ -49,21 +49,23 @@
       };
     };
 
-    fileSystems = let
-      nasMappings = {
-        movies = config.my.nas.moviesDir;
-        tv = config.my.nas.tvDir;
-        nextcloud = config.my.nas.nextcloudDir;
-        downloads = config.my.nas.downloadsDir;
-        server-config = config.my.nas.serverConfigDir;
-        backups = config.my.nas.backupsDir;
-      };
-    in lib.concatMapAttrs (source: destination: {
-      "${destination}" = {
-        fsType = "nfs";
-        options = [ "x-systemd.mount-timeout=3m" ];
-        device = "truenas:/mnt/truepool-rust/${source}";
-      };
-    }) nasMappings;
+    fileSystems =
+      let
+        nasMappings = {
+          movies = config.my.nas.moviesDir;
+          tv = config.my.nas.tvDir;
+          nextcloud = config.my.nas.nextcloudDir;
+          downloads = config.my.nas.downloadsDir;
+          server-config = config.my.nas.serverConfigDir;
+          backups = config.my.nas.backupsDir;
+        };
+      in
+      lib.concatMapAttrs (source: destination: {
+        "${destination}" = {
+          fsType = "nfs";
+          options = [ "x-systemd.mount-timeout=3m" ];
+          device = "truenas:/mnt/truepool-rust/${source}";
+        };
+      }) nasMappings;
   };
 }

@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 # From: https://github.com/pceiley/nix-config/blob/3854c687d951ee3fe48be46ff15e8e094dd8e89f/hosts/common/modules/qbittorrent.nix
 
 with lib;
@@ -7,7 +12,8 @@ let
   cfg = config.services.qbittorrent;
   UID = 888;
   GID = 888;
-in {
+in
+{
   options.services.qbittorrent = {
     enable = mkEnableOption (lib.mdDoc "qBittorrent headless");
 
@@ -76,8 +82,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    networking.firewall =
-      mkIf cfg.openFirewall { allowedTCPPorts = [ cfg.port ]; };
+    networking.firewall = mkIf cfg.openFirewall { allowedTCPPorts = [ cfg.port ]; };
 
     age.secrets.baymax-vpn = {
       inherit (cfg) group;
@@ -86,10 +91,9 @@ in {
       owner = cfg.user;
     };
 
-    systemd.services."${config.virtualisation.oci-containers.backend}-qbittorrent" =
-      {
-        after = [ "media-downloads.mount" ];
-      };
+    systemd.services."${config.virtualisation.oci-containers.backend}-qbittorrent" = {
+      after = [ "media-downloads.mount" ];
+    };
 
     virtualisation.oci-containers.containers.qbittorrent = {
       image = "trigus42/qbittorrentvpn:${cfg.version}";
@@ -129,7 +133,10 @@ in {
       };
     };
 
-    users.groups =
-      mkIf (cfg.group == "qbittorrent") { qbittorrent = { gid = GID; }; };
+    users.groups = mkIf (cfg.group == "qbittorrent") {
+      qbittorrent = {
+        gid = GID;
+      };
+    };
   };
 }

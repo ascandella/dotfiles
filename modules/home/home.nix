@@ -1,4 +1,10 @@
-{ username, pkgs, homeDirectory, inputs, ... }:
+{
+  username,
+  pkgs,
+  homeDirectory,
+  inputs,
+  ...
+}:
 
 {
   imports = [
@@ -8,8 +14,17 @@
     { my.configDir = "${homeDirectory}/src/dotfiles"; }
     ({ lib, ... }: import ./darwin.nix { inherit lib pkgs homeDirectory; })
     ./git.nix
-    ({ lib, config, ... }:
-      import ./dotconfig.nix { inherit inputs lib pkgs config; })
+    (
+      { lib, config, ... }:
+      import ./dotconfig.nix {
+        inherit
+          inputs
+          lib
+          pkgs
+          config
+          ;
+      }
+    )
     ({ config, ... }: import ./session.nix { inherit config; })
   ];
 
@@ -52,7 +67,7 @@
       kubectl
       magic-wormhole
       most
-      nixfmt
+      nixfmt-rfc-style
       ngrok
       ripgrep
       rustup

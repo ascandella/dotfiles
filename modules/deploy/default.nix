@@ -1,4 +1,10 @@
-{ pubkeys, username, pkgs, config, ... }:
+{
+  pubkeys,
+  username,
+  pkgs,
+  config,
+  ...
+}:
 
 {
   options.my = {
@@ -27,34 +33,38 @@
 
       # Makes running sudo `nixos-rebuild switch` more convenient -- since
       # `deploy` user has the same SSH keys accepted, not a unique attack vector.
-      users.${username} = { extraGroups = [ config.my.deploy.group ]; };
+      users.${username} = {
+        extraGroups = [ config.my.deploy.group ];
+      };
     };
 
-    security.sudo.extraRules = [{
-      groups = [ config.my.deploy.group ];
-      commands = [
-        # For local
-        {
-          command = "/run/current-system/sw/bin/nixos-rebuild";
-          options = [ "NOPASSWD" ];
-        }
+    security.sudo.extraRules = [
+      {
+        groups = [ config.my.deploy.group ];
+        commands = [
+          # For local
+          {
+            command = "/run/current-system/sw/bin/nixos-rebuild";
+            options = [ "NOPASSWD" ];
+          }
 
-        # For remote
-        {
-          command = "/nix/store/*/activate-rs";
-          options = [ "NOPASSWD" ];
-        }
-        {
-          command = "/run/current-system/sw/bin/rm";
-          options = [ "NOPASSWD" ];
-        }
+          # For remote
+          {
+            command = "/nix/store/*/activate-rs";
+            options = [ "NOPASSWD" ];
+          }
+          {
+            command = "/run/current-system/sw/bin/rm";
+            options = [ "NOPASSWD" ];
+          }
 
-        # Other
-        {
-          command = "/run/current-system/sw/bin/nix-collect-garbage";
-          options = [ "NOPASSWD" ];
-        }
-      ];
-    }];
+          # Other
+          {
+            command = "/run/current-system/sw/bin/nix-collect-garbage";
+            options = [ "NOPASSWD" ];
+          }
+        ];
+      }
+    ];
   };
 }

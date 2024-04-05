@@ -2,10 +2,17 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
-let wireguard = import ../../data/wireguard.nix { inherit lib; };
-in {
+let
+  wireguard = import ../../data/wireguard.nix { inherit lib; };
+in
+{
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -119,8 +126,7 @@ in {
       home-assistant = {
         enable = true;
         openFirewall = true;
-        serialDevice =
-          "/dev/serial/by-id/usb-ITEAD_SONOFF_Zigbee_3.0_USB_Dongle_Plus_V2_20231215082359-if00";
+        serialDevice = "/dev/serial/by-id/usb-ITEAD_SONOFF_Zigbee_3.0_USB_Dongle_Plus_V2_20231215082359-if00";
       };
 
       zwave-js = {

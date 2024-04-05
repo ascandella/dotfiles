@@ -29,31 +29,45 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, darwin, flake-utils, deploy-rs
-    , agenix, ... }@inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      darwin,
+      flake-utils,
+      deploy-rs,
+      agenix,
+      ...
+    }@inputs:
     let
       allHosts = builtins.attrNames (builtins.readDir ./hosts);
-      darwinHosts = [ "studio" "workbook" ];
+      darwinHosts = [
+        "studio"
+        "workbook"
+      ];
       isLinuxHost = host: !builtins.elem host darwinHosts;
       linuxHosts = builtins.filter isLinuxHost allHosts;
 
-      systemForHost = hostname:
-        if isLinuxHost hostname then "x86_64-linux" else "aarch64-darwin";
+      systemForHost = hostname: if isLinuxHost hostname then "x86_64-linux" else "aarch64-darwin";
       username = "aiden";
 
-      pkgsForHost = host:
+      pkgsForHost =
+        host:
         import nixpkgs {
           system = systemForHost host;
 
-          config = { allowUnfree = true; };
+          config = {
+            allowUnfree = true;
+          };
         };
       pubkeys = import ./data/pubkeys.nix;
 
-      homeDirPrefix = host:
-        if systemForHost host == "aarch64-darwin" then "/Users" else "/home";
+      homeDirPrefix = host: if systemForHost host == "aarch64-darwin" then "/Users" else "/home";
       homeDirectory = host: "${homeDirPrefix host}/${username}";
 
-      deployPkgs = host:
+      deployPkgs =
+        host:
         import nixpkgs {
           system = systemForHost host;
           overlays = [
@@ -66,66 +80,89 @@
             })
           ];
         };
-
-    in rec {
+    in
+    rec {
       # Contains my full Mac system builds, including home-manager
       # darwin-rebuild switch --flake .#studio
-      darwinConfigurations = builtins.listToAttrs (builtins.map (host: {
-        name = host;
-        value = import ./hosts/${host} {
-          inherit darwin home-manager username inputs pubkeys agenix;
-          homeDirectory = homeDirectory host;
-          pkgs = pkgsForHost host;
-        };
-      }) darwinHosts);
+      darwinConfigurations = builtins.listToAttrs (
+        builtins.map (host: {
+          name = host;
+          value = import ./hosts/${host} {
+            inherit
+              darwin
+              home-manager
+              username
+              inputs
+              pubkeys
+              agenix
+              ;
+            homeDirectory = homeDirectory host;
+            pkgs = pkgsForHost host;
+          };
+        }) darwinHosts
+      );
 
       # For quickly applying home-manager settings with:
       # home-manager switch --flake .#studio
-      homeConfigurations = builtins.listToAttrs (builtins.map (host: {
-        name = host;
-        value =
-          darwinConfigurations.${host}.config.home-manager.users.${username}.home;
-      }) darwinHosts);
+      homeConfigurations = builtins.listToAttrs (
+        builtins.map (host: {
+          name = host;
+          value = darwinConfigurations.${host}.config.home-manager.users.${username}.home;
+        }) darwinHosts
+      );
 
       # Contains my full system builds, including home-manager
       # nixos-rebuild switch --flake .#baymax
-      nixosConfigurations = builtins.listToAttrs (builtins.map (host: {
-        name = host;
-        value = import ./hosts/${host} {
-          inherit inputs nixpkgs home-manager username pubkeys agenix;
-          system = systemForHost host;
-          homeDirectory = homeDirectory host;
-          pkgs = pkgsForHost host;
-        };
-      }) linuxHosts);
+      nixosConfigurations = builtins.listToAttrs (
+        builtins.map (host: {
+          name = host;
+          value = import ./hosts/${host} {
+            inherit
+              inputs
+              nixpkgs
+              home-manager
+              username
+              pubkeys
+              agenix
+              ;
+            system = systemForHost host;
+            homeDirectory = homeDirectory host;
+            pkgs = pkgsForHost host;
+          };
+        }) linuxHosts
+      );
 
       deploy = {
         user = "root";
         sshUser = "deploy";
         remoteBuild = true;
 
-        nodes = builtins.listToAttrs (builtins.map (host: {
-          name = host;
-          value = {
-            hostname = host;
-            profiles.system = {
-              path = (deployPkgs host).deploy-rs.lib.activate.nixos
-                self.nixosConfigurations.${host};
+        nodes = builtins.listToAttrs (
+          builtins.map (host: {
+            name = host;
+            value = {
+              hostname = host;
+              profiles.system = {
+                path = (deployPkgs host).deploy-rs.lib.activate.nixos self.nixosConfigurations.${host};
+              };
             };
-          };
-        }) linuxHosts);
+          }) linuxHosts
+        );
       };
 
       # doesn't work in GitHub actions
       # checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
-
-    } // flake-utils.lib.eachDefaultSystem (system:
-      let pkgs = import nixpkgs { inherit system; };
-      in rec {
+    }
+    // flake-utils.lib.eachDefaultSystem (
+      system:
+      let
+        pkgs = import nixpkgs { inherit system; };
+      in
+      rec {
         packages = with pkgs; {
-          inherit statix nix nixfmt;
+          inherit statix nix nixfmt-rfc-style;
           fmt = pkgs.writeScriptBin "format" ''
-            ${nixfmt}/bin/nixfmt .;
+            ${nixfmt-rfc-style}/bin/nixfmt .;
           '';
           # So you can run lint with:
           # nix run .
@@ -135,11 +172,14 @@
             echo "Statix check"
             ${statix}/bin/statix check
             echo "Format check"
-            ${nixfmt}/bin/nixfmt --check .
+            ${nixfmt-rfc-style}/bin/nixfmt --check .
           '';
           lint = packages.default;
           agenix = agenix.packages.${system}.default;
         };
-        apps = { inherit (deploy-rs.apps.${system}) deploy-rs; };
-      });
+        apps = {
+          inherit (deploy-rs.apps.${system}) deploy-rs;
+        };
+      }
+    );
 }

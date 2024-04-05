@@ -19,10 +19,14 @@
         enable = true;
         ensureDatabases = [ "nextcloud" ];
         package = pkgs.mysql80;
-        ensureUsers = [{
-          name = "nextcloud";
-          ensurePermissions = { "nextcloud.*" = "ALL PRIVILEGES"; };
-        }];
+        ensureUsers = [
+          {
+            name = "nextcloud";
+            ensurePermissions = {
+              "nextcloud.*" = "ALL PRIVILEGES";
+            };
+          }
+        ];
       };
 
       nextcloud = {

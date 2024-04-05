@@ -2,6 +2,8 @@
 
 {
   config = {
-    home.sessionVariables = { DOTFILES_DIR = "${config.my.configDir}"; };
+    home.sessionVariables = {
+      DOTFILES_DIR = "${config.my.configDir}";
+    };
   };
 }

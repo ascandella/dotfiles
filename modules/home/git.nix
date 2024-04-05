@@ -1,4 +1,10 @@
-{ config, lib, pkgs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
   programs.git = {
     enable = true;
     # TODO: make this configurable, not just on macs
@@ -10,27 +16,20 @@
     userEmail = "git@sca.ndella.com";
     aliases = {
       abbrev = "!sh -c 'git rev-parse --short '\${1-`echo HEAD`}' -";
-      add-unmerged =
-        "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`";
+      add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`";
       amend = "commit --amend";
       branchname = "rev-parse --abbrev-ref HEAD";
       cached = "diff --cached";
-      edit-unmerged =
-        "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f` +Gdiff";
-      delmerged = ''
-        !git branch --merged | grep -v "\\*" | grep -v '^master' | xargs -n 1 git branch -d'';
-      delsquash =
-        "!git fetch -p && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -n 1 git branch -D";
-      resquash =
-        "!git checkout master && git fetch && OVERCOMMIT_DISABLE=1 git rebase origin/master && git delsquash";
+      edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f` +Gdiff";
+      delmerged = ''!git branch --merged | grep -v "\\*" | grep -v '^master' | xargs -n 1 git branch -d'';
+      delsquash = "!git fetch -p && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -n 1 git branch -D";
+      resquash = "!git checkout master && git fetch && OVERCOMMIT_DISABLE=1 git rebase origin/master && git delsquash";
       graph = "log --oneline --graph";
       l = "log --decorate --stat";
-      lg =
-        "log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'";
+      lg = "log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'";
       lol = "log --oneline --decorate";
       patch = "add -p";
-      refresh = ''
-        !ssh-add -l && STASH=$(git stash) && git fetch && OVERCOMMIT_DISABLE=1 git rebase origin/HEAD && test "$STASH" != "No local changes to save" && git stash pop || true'';
+      refresh = ''!ssh-add -l && STASH=$(git stash) && git fetch && OVERCOMMIT_DISABLE=1 git rebase origin/HEAD && test "$STASH" != "No local changes to save" && git stash pop || true'';
       rmb = "!sh -c 'git branch -D $1 && git push origin :$1' -";
       sha1 = "rev-parse HEAD";
       sha = "!git rev-parse HEAD | cut -c 1-8";
@@ -48,7 +47,9 @@
         features = "decorations";
         line-numbers-left-format = "";
         line-numbers-right-format = "│ ";
-        interactive = { keep-plus-minus-markers = false; };
+        interactive = {
+          keep-plus-minus-markers = false;
+        };
         decorations = {
           commit-decoration-style = "blue ol";
           commit-style = "raw";
@@ -70,9 +71,15 @@
       help = {
         autocorrect = 10; # 1 second
       };
-      merge = { conflictStyle = "zdiff3"; };
-      rerere = { enabled = true; };
-      log = { gdecorate = "short"; };
+      merge = {
+        conflictStyle = "zdiff3";
+      };
+      rerere = {
+        enabled = true;
+      };
+      log = {
+        gdecorate = "short";
+      };
       color = {
         gui = true;
         ui = true;
@@ -81,10 +88,18 @@
         autosquash = true;
         autostash = true;
       };
-      column = { ui = "auto"; };
-      init = { defaultBranch = "main"; };
-      push = { autoSetupRemote = true; };
-      pull = { ff = "only"; };
+      column = {
+        ui = "auto";
+      };
+      init = {
+        defaultBranch = "main";
+      };
+      push = {
+        autoSetupRemote = true;
+      };
+      pull = {
+        ff = "only";
+      };
     };
   };
 
