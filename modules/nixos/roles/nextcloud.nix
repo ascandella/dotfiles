@@ -57,8 +57,8 @@
         }
       ];
     };
-  };
-  systemd.services.nextcloud-setup = {
-    after = [ "mysql.service" ];
+    systemd.services.nextcloud-setup = {
+      after = [ "mysql.service" ];
+    };
   };
 }
