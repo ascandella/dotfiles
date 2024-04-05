@@ -11,3 +11,6 @@ darwin-name:
 
 darwin:
   darwin-rebuild switch --flake ".#$(just darwin-name)"
+
+lint:
+  nix run .#lint
