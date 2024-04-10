@@ -29,6 +29,7 @@ keybinds {
     }
     pane {
         bind "Ctrl x" { SwitchToMode "Normal"; }
+        bind "Ctrl z" "Ctrl c" { Write 24; SwitchToMode "Normal"; } // Control-x
         bind "h" "Left" { MoveFocus "Left"; }
         bind "l" "Right" { MoveFocus "Right"; }
         bind "j" "Down" { MoveFocus "Down"; }
