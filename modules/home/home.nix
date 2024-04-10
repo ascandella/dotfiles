@@ -67,6 +67,7 @@
     home.packages = with pkgs; [
       awscli2
       bat
+      btop
       bun
       delta
       fnm
