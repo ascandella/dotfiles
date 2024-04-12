@@ -13,11 +13,7 @@ end
 M.toggle_lsp_formatting = function()
   lsp_format.toggle({ args = '' })
   vim.b.lsp_disable_formatting = not vim.b.lsp_disable_formatting
-  if vim.b.lsp_disable_formatting then
-    print('LSP Formatting disabled')
-  else
-    print('LSP Formatting enabled')
-  end
+  vim.notify('LSP Formatting ' .. (vim.b.lsp_disable_formatting and 'disabled' or 'enabled'))
 end
 
 -- From: https://github.com/daliusd/cfg/blob/0e61894c689d736fa8c59ace8f149ecffb187cc4/.vimrc#L319-L332
