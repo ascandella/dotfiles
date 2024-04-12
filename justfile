@@ -3,10 +3,10 @@ deploy:
 
 darwin-name:
   #!/usr/bin/env bash
-  if [[ "$(hostname)" =~ ^Aidens-Mac ]] ; then 
-    echo "studio" 
-  else
+  if [[ "$(hostname)" =~ ^Aidens-MacBook ]] ; then 
     echo "workbook"
+  else
+    echo "studio" 
   fi
 
 darwin:
