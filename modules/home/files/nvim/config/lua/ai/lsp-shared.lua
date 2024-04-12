@@ -53,7 +53,11 @@ end
 
 local augroup_format = vim.api.nvim_create_augroup('custom-lsp-format', { clear = true })
 
-local has_inlayhints, inlayhints = pcall(require, 'lsp-inlayhints')
+if vim.lsp.inlay_hint then
+  vim.keymap.set('n', '<leader>ti', function()
+    vim.lsp.inlay_hint.enable(0, not vim.lsp.inlay_hint.is_enabled())
+  end, { desc = 'Toggle Inlay Hints' })
+end
 
 lsp_format.setup({
   exclude = 'tsserver',
@@ -143,10 +147,6 @@ M.on_attach = function(client, bufnr)
   buf_map(bufnr, 'i', '<C-k>', '<cmd> LspSignatureHelp<CR>', { silent = true })
   buf_map(bufnr, 'n', '<Leader>tf', ':LspToggleFormatting<CR>', { silent = true })
 
-  if has_inlayhints then
-    vim.keymap.set('n', '<Leader>ti', inlayhints.toggle, { silent = true, desc = 'Toggle inlay hints', buffer = bufnr })
-  end
-
   -- Disabled because this stopped working in neovim 0.5.1
   if client.server_capabilities.colorProvider then
     require('ai/lsp-documentcolors').buf_attach(bufnr, { single_column = true })
@@ -188,23 +188,6 @@ end
 
 vim.lsp.handlers['textDocument/formatting'] = format_async
 vim.lsp.handlers['window/showMessage'] = require('ai.lsp.show_message')
-
-if has_inlayhints then
-  inlayhints.setup({})
-  vim.api.nvim_create_augroup('LspAttach_inlayhints', {})
-  vim.api.nvim_create_autocmd('LspAttach', {
-    group = 'LspAttach_inlayhints',
-    callback = function(args)
-      if not (args.data and args.data.client_id) then
-        return
-      end
-
-      local bufnr = args.buf
-      local client = vim.lsp.get_client_by_id(args.data.client_id)
-      require('lsp-inlayhints').on_attach(client, bufnr)
-    end,
-  })
-end
 
 vim.cmd('command! LspDef lua require("ai/lsp-shared").lsp_definition()')
 vim.cmd("command! LspFormatting lua require('ai/lsp-shared').maybe_lsp_format()")

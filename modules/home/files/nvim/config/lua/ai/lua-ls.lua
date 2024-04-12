@@ -18,7 +18,7 @@ local M = {}
 M.settings = {
   Lua = {
     format = {
-      enable = false,
+      enable = true,
     },
     hint = {
       enable = true,

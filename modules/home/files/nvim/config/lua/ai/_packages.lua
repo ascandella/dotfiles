@@ -29,7 +29,7 @@ local packages = {
   -- Magit for neovim
   {
     'TimUntersberger/neogit',
-    branch = 'nightly',
+    commit = '876f14b67496bd7b780b752cd49494b03f2fcb90', -- nightly
     -- commit = '0d6002c6af432343937283fb70791fc76fa7227c',
     -- '~/src/neogit',
     dependencies = {
@@ -154,7 +154,6 @@ local packages = {
       'nvimdev/lspsaga.nvim',
       -- Extensible linters/formatters
       'mattn/efm-langserver',
-      'lvimuser/lsp-inlayhints.nvim',
       { url = 'https://git.sr.ht/~whynothugo/lsp_lines.nvim' },
       { 'j-hui/fidget.nvim', branch = 'legacy' },
     },
