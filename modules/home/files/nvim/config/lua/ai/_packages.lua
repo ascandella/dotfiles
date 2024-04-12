@@ -29,6 +29,7 @@ local packages = {
   -- Magit for neovim
   {
     'TimUntersberger/neogit',
+    branch = 'nightly',
     -- commit = '0d6002c6af432343937283fb70791fc76fa7227c',
     -- '~/src/neogit',
     dependencies = {

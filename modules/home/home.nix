@@ -10,7 +10,7 @@
   imports = [
     ./shell.nix
     ./shell-keybindings.nix
-    ./neovim.nix
+    ({ pkgs, ... }: import ./neovim.nix { inherit pkgs inputs; })
     { my.configDir = "${homeDirectory}/src/dotfiles"; }
     (
       { lib, ... }:

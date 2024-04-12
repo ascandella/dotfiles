@@ -1,9 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   programs.neovim = {
     enable = true;
     vimAlias = true;
+    package = inputs.neovim-flake.packages.${pkgs.system}.neovim;
 
     extraPackages = with pkgs; [
       sqlite
