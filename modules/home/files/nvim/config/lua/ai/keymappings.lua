@@ -38,6 +38,10 @@ vim.keymap.set('n', '<Leader>gg', require('neogit').open, { silent = true, desc 
 vim.keymap.set('n', '<Leader>gc', require('ai/_neogit').open_pr, { silent = true })
 vim.keymap.set('n', '<Leader>gb', require('ai/git').git_blame, { silent = true, desc = 'Git blame' })
 
+-- Quickfix
+vim.keymap.set('n', '<C-j>', '<cmd>cnext<cr>', { silent = true, desc = 'Next quickfix' })
+vim.keymap.set('n', '<C-k>', '<cmd>cprev<cr>', { silent = true, desc = 'Prev quickfix' })
+
 -- Undo Tree
 vim.keymap.set('n', '<F1>', '<cmd>UndotreeToggle<cr>', { silent = true })
 vim.keymap.set('n', '<Leader>u', '<cmd>UndotreeToggle<cr>', { silent = true, desc = 'Toggle undo tree' })

@@ -134,7 +134,7 @@ M.oldfiles = function()
 end
 
 M.lsp_references = function()
-  require('telescope.builtin').lsp_references(lower_ivy())
+  require('telescope.builtin').lsp_references()
 end
 
 M.workspace_symbols = function()
