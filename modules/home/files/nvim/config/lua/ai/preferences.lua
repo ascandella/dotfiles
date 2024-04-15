@@ -13,6 +13,8 @@ vim.o.mouse = 'a'
 vim.o.breakindent = true
 vim.o.undofile = true
 
+vim.o.scrolloff = 10
+
 -- Case insensitive searching UNLESS /C or capital in search
 vim.o.ignorecase = true
 vim.o.smartcase = true
