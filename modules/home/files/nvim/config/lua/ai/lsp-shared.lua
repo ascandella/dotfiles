@@ -122,7 +122,6 @@ local filetype_attach = setmetatable({
   end,
 })
 
--- LuaFormatter off
 M.on_attach = function(client, bufnr)
   local buf_map = vim.api.nvim_buf_set_keymap
 
@@ -157,8 +156,6 @@ M.on_attach = function(client, bufnr)
   -- Attach any filetype specific options to the client
   filetype_attach[filetype](bufnr, client)
 end
-
--- LuaFormatter on
 
 local cmp_nvim_lsp = require('cmp_nvim_lsp')
 
