@@ -110,7 +110,7 @@
       bottombar = "yabai -m config external_bar all:0:30";
 
       plainissues = "jira issue list -a$(jira me) --plain --columns KEY,SUMMARY --no-headers";
-      jiraissues = "plainissues -s 'In Progress' -s 'To Do'";
+      jiraissues = "plainissues -s '~Done' -s '~Shipped' -s '~Closed'";
       inprog = "plainissues -s 'In Progress'";
 
       resetdns = "sudo dscacheutil -flushcache ; sudo killall -HUP mDNSResponder";
