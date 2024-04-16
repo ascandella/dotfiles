@@ -67,6 +67,36 @@
         ( [ -n "$1" ] && [ -n "$secret" ] ) || return 1
         security add-generic-password -U -a ''${USER} -D "environment variable" -s "''${1}" -w "''${secret}"
       }
+
+      issuebranch() {
+        if ! command -v inprog &> /dev/null; then
+          echo "Missing Jira helper 'inprog"
+          return 2
+        fi
+        local issues=$(inprog)
+        if [ -z "$issues" ]; then
+          echo "No issues in progress"
+          return 1
+        fi
+        if [[ $(echo "$issues" | wc -l) > 1 ]]; then
+          issues=$("''${issues}" | fzf --height 50% --border)
+        fi
+        if [[ -z "''${issues}" ]] ; then
+          echo "No issue selected"
+          return 1
+        fi
+        local ticket=$(echo "$issues" | cut -f1 | tr '[:upper:]' '[:lower:]')
+        local description="$(echo "$issues" | cut -f2)"
+        description="$(
+          echo "$description" |
+            cut -d' ' -f1-5 |
+            tr ' ' '-' |
+            tr -cd '[:alnum:]._-' |
+            tr '[:upper:]' '[:lower:]'
+        )"
+
+        git checkout -b "''${USER}/''${ticket}/''${description}"
+      }
     '';
 
     programs.zsh.shellAliases = {
