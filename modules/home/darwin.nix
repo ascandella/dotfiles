@@ -78,9 +78,13 @@
           issues=$(jiraissues)
         else
           issues=$(inprog)
+          if [[ -z "$issues" ]] ; then
+            echo "No in-progress issues, falling back to all open"
+            issues=$(jiraissues)
+          fi
         fi
         if [[ -z "$issues" ]]; then
-          echo "No issues in progress"
+          echo "No issues found"
           return 1
         fi
         if [[ $(echo "$issues" | wc -l) -gt 1 ]]; then
