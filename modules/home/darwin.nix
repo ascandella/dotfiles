@@ -68,20 +68,25 @@
         security add-generic-password -U -a ''${USER} -D "environment variable" -s "''${1}" -w "''${secret}"
       }
 
-      issuebranch() {
+      ib() {
         if ! command -v inprog &> /dev/null; then
           echo "Missing Jira helper 'inprog"
           return 2
         fi
-        local issues=$(inprog)
-        if [ -z "$issues" ]; then
+        local issues
+        if [[ "$1" == "all" ]]; then
+          issues=$(jiraissues)
+        else
+          issues=$(inprog)
+        fi
+        if [[ -z "$issues" ]]; then
           echo "No issues in progress"
           return 1
         fi
-        if [[ $(echo "$issues" | wc -l) > 1 ]]; then
-          issues=$("''${issues}" | fzf --height 50% --border)
+        if [[ $(echo "$issues" | wc -l) -gt 1 ]]; then
+          issues=$(echo "$issues" | fzf --height 50% --border)
         fi
-        if [[ -z "''${issues}" ]] ; then
+        if [[ -z "$issues" ]] ; then
           echo "No issue selected"
           return 1
         fi
@@ -95,7 +100,7 @@
             tr '[:upper:]' '[:lower:]'
         )"
 
-        git checkout -b "''${USER}/''${ticket}/''${description}"
+        git checkout -b "$USER/$ticket/$description"
       }
     '';
 
@@ -104,8 +109,9 @@
       topbar = "yabai -m config external_bar all:38:0";
       bottombar = "yabai -m config external_bar all:0:30";
 
-      jiraissues = "jira issue list -a$(jira me)";
-      inprog = "jiraissues -s 'In Progress' --plain --columns KEY,SUMMARY --no-headers";
+      plainissues = "jira issue list -a$(jira me) --plain --columns KEY,SUMMARY --no-headers";
+      jiraissues = "plainissues -s 'In Progress' -s 'To Do'";
+      inprog = "plainissues -s 'In Progress'";
 
       resetdns = "sudo dscacheutil -flushcache ; sudo killall -HUP mDNSResponder";
     };
