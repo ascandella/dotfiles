@@ -18,6 +18,7 @@
         server = {
           HTTP_PORT = 3009;
           DOMAIN = "code.ndella.com";
+          SSH_DOMAIN = "baymax.lfp";
           SSH_PORT = 9023;
           ROOT_URL = "https://code.ndella.com/";
         };
