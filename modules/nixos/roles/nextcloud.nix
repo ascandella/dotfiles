@@ -42,7 +42,11 @@
           dbtableprefix = "";
         };
         settings = {
-          loglevel = 1; # TODO: tune down to 2
+          loglevel = 2;
+          trusted_proxies = [
+            "10.42.0.0/24"
+            "10.43.0.0/16"
+          ];
         };
       };
 
