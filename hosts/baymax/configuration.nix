@@ -53,6 +53,8 @@ in
       "net.ipv4.conf.all.src_valid_mark" = 1;
       # For k3s / traefik with `externalTrafficPolicy: Local`
       "net.ipv6.conf.all.forwarding" = 1;
+      # Ensure we propagate IPv6 settings from above into namespaces
+      "net.core.devconf_inherit_init_net" = 1;
       # Better congestion control
       "net.core.default_qdisc" = "fq";
       "net.ipv4.tcp_congestion_control" = "bbr";
