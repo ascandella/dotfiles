@@ -85,7 +85,7 @@ cmp.setup({
       --   luasnip = '[LuaSnip]',
       --   nvim_lua = '[Lua]',
       -- },
-      maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+      maxwidth = 50,         -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
       ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
       symbol_map = icons,
     }),
@@ -168,20 +168,18 @@ cmp.setup({
       end,
     }),
   },
-  sources = {
-    { name = 'copilot', group_index = 2, keyword_pattern = '.' },
-    { name = 'nvim_lsp', group_index = 2 },
-    -- Disable default '.' trigger character
-    -- { name = 'tmux', option = { trigger_characters = {}, keyword_pattern = [[\w\w\w\+]] } },
+  sources = cmp.config.sources({
+    { name = 'copilot',                keyword_pattern = '.' },
+    { name = 'nvim_lsp' },
     { name = 'nvim_lsp_signature_help' },
-    -- { name = 'cmp_tabnine', keyword_length = 4 },
     { name = 'nvim_lua' },
+  }, {
     { name = 'path' },
     { name = 'calc' },
     { name = 'emoji' },
     { name = 'buffer', keyword_length = 5 },
     -- { name = 'vsnip', priority = 9 },
-  },
+  }),
 })
 
 cmp.setup.filetype('gitcommit', {
