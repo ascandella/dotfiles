@@ -198,8 +198,6 @@
 
   home.packages = [
     (pkgs.writeShellScriptBin "git-gsub" ''
-      #!/bin/bash
-
       old="$1"
       new="$2"
       path=$3
