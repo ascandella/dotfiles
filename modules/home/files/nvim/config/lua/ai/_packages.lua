@@ -67,7 +67,8 @@ local packages = {
     end,
   },
 
-  { -- Additional text objects via treesitter
+  {
+    -- Additional text objects via treesitter
     'nvim-treesitter/nvim-treesitter-textobjects',
     after = 'nvim-treesitter',
   },
@@ -155,7 +156,7 @@ local packages = {
       -- Extensible linters/formatters
       'mattn/efm-langserver',
       { url = 'https://git.sr.ht/~whynothugo/lsp_lines.nvim' },
-      { 'j-hui/fidget.nvim', branch = 'legacy' },
+      { 'j-hui/fidget.nvim' },
     },
     config = function()
       require('ai/_lspinstall')
@@ -298,7 +299,7 @@ local packages = {
   -- Astro syntax
   { 'wuelnerdotexe/vim-astro', ft = 'astro' },
   -- KDL syntax, for zellij
-  { 'imsnif/kdl.vim', ft = 'kdl' },
+  { 'imsnif/kdl.vim',          ft = 'kdl' },
   --
   -- Start screen
   {
