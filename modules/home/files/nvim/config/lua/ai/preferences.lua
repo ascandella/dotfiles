@@ -72,7 +72,7 @@ vim.cmd([[
   augroup gitcommit-mapping
     autocmd!
     " Enter append on the first line
-    autocmd FileType gitcommit execute "normal! 0" | startinsert
+    autocmd FileType gitcommit if getline(1) == "" | execute "normal! 0" | startinsert | endif
     autocmd FileType gitcommit setlocal textwidth=72 fo+=t
 
     " Same, but for neogit
