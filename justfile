@@ -14,3 +14,6 @@ darwin:
 
 lint:
   nix run .#lint
+
+nixos:
+  sudo nixos-rebuild switch --flake .
