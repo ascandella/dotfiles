@@ -134,11 +134,6 @@ vim.keymap.set(
   { silent = true, desc = 'Cycle line numbers' }
 )
 
--- Focus test, TODO: only run this on TS/JS
--- it()
-vim.keymap.set('n', '<Leader>fi', 'mf?it(<cr>wi.only<esc>`f', { silent = true, desc = 'Focus test' })
-vim.keymap.set('n', '<Leader>fo', 'mf?it\\.<cr>wdt(`f', { silent = true, desc = 'Unfocus test' })
-
 vim.cmd([[command! Cq cq]])
 vim.cmd([[command! W w]])
 
@@ -158,6 +153,18 @@ vim.api.nvim_create_autocmd('FileType', {
   group = lspinfo_group,
   callback = function()
     vim.keymap.set('n', 'q', ':b<cr>', { silent = true, buffer = true })
+  end,
+})
+
+local ts_group = vim.api.nvim_create_augroup('ai/ts', { clear = true })
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'typescript', 'javascript' },
+  group = ts_group,
+  callback = function()
+    -- Focus test, it()
+    vim.keymap.set('n', '<Leader>fi', 'mf?it(<cr>wi.only<esc>`f', { silent = true, desc = 'Focus test', buffer = true })
+    -- Unfocus test
+    vim.keymap.set('n', '<Leader>fo', 'mf?it\\.<cr>wdt(`f', { silent = true, desc = 'Unfocus test', buffer = true })
   end,
 })
 
