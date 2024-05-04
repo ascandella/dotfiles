@@ -18,6 +18,10 @@ let
       publicKey = "grTWxzNIQtYjXY6M3gYLWn8aUyBXHGZ53GyXAwpxLyU=";
       allowedIPs = [ "10.20.0.80/32" ];
     };
+    aipad = {
+      publicKey = "NW2smAK+DddZ43/EPt2+0G9+OjGbDDghwQUGwcjkuEc=";
+      allowedIPs = [ "10.20.0.82/32" ];
+    };
   };
   servers = {
     baymax = {
