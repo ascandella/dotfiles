@@ -34,6 +34,7 @@
         hostName = "cloud.ndella.com";
         package = pkgs.nextcloud28;
         https = true;
+        maxUploadSize = "5G";
         config = {
           adminpassFile = "/etc/nextcloud/admin-pass";
           dbtype = "mysql";
