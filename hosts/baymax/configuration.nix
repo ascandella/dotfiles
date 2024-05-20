@@ -27,6 +27,7 @@ in
     ../../modules/nixos/roles/k3s.nix
     ../../modules/nixos/roles/gitea.nix
     ../../modules/nixos/roles/backups.nix
+    ../../modules/nixos/roles/sponsorblocktv.nix
     ../../modules/common
     ../../modules/deploy
     ../../modules/plex
@@ -145,6 +146,8 @@ in
         openFirewall = true;
         serialDevice = "/dev/serial/by-id/usb-0658_0200-if00";
       };
+
+      sponsorblocktv.enable = true;
     };
   };
 
