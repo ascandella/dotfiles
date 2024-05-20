@@ -1,7 +1,6 @@
 -- https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
 
 local cmp = require('cmp')
-local compare = require('cmp.config.compare')
 local cmp_window = require('cmp.config.window')
 local lspkind = require('lspkind')
 
@@ -66,7 +65,18 @@ cmp.setup({
   sorting = {
     priority_weight = 2,
     comparators = {
-      compare.score,
+
+      -- Below is the default comparitor list and order for nvim-cmp
+      cmp.config.compare.offset,
+      -- cmp.config.compare.scopes, --this is commented in nvim-cmp too
+      cmp.config.compare.exact,
+      cmp.config.compare.score,
+      cmp.config.compare.recently_used,
+      cmp.config.compare.locality,
+      cmp.config.compare.kind,
+      cmp.config.compare.sort_text,
+      cmp.config.compare.length,
+      cmp.config.compare.order,
     },
   },
   -- Don't preselect items from the menu
@@ -168,16 +178,22 @@ cmp.setup({
   },
   sources = {
     {
+      name = 'nvim_lsp',
+      group_index = 2,
+      priority = 2,
+    },
+    {
       name = 'copilot',
       group_index = 2,
       keyword_pattern = '.',
+      priority = 10,
     },
     {
-      name = 'nvim_lsp',
+      name = 'nvim_lua',
       group_index = 2,
+      priority = 1,
     },
     { name = 'nvim_lsp_signature_help' },
-    { name = 'nvim_lua' },
     { name = 'path' },
     { name = 'calc' },
     { name = 'emoji' },
