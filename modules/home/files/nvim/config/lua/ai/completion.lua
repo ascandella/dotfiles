@@ -1,8 +1,8 @@
 -- https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
---
 
 local cmp = require('cmp')
 local compare = require('cmp.config.compare')
+local cmp_window = require('cmp.config.window')
 local lspkind = require('lspkind')
 
 local feedkey = function(key, mode)
@@ -58,6 +58,11 @@ cmp.setup({
       return not context.in_treesitter_capture('comment') and not context.in_syntax_group('Comment')
     end
   end,
+
+  window = {
+    completion = cmp_window.bordered(),
+    documentation = cmp_window.bordered(),
+  },
   sorting = {
     priority_weight = 2,
     comparators = {
@@ -77,15 +82,8 @@ cmp.setup({
   formatting = {
     fields = { 'abbr', 'kind', 'menu' },
     format = lspkind.cmp_format({
-      mode = 'symbol_text',
-      -- menu = {
-      --   copilot = '[Copilot]',
-      --   buffer = '[Buffer]',
-      --   nvim_lsp = '[LSP]',
-      --   luasnip = '[LuaSnip]',
-      --   nvim_lua = '[Lua]',
-      -- },
-      maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+      mode = 'symbol',
+      maxwidth = 50,         -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
       ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
       symbol_map = icons,
     }),
@@ -168,18 +166,27 @@ cmp.setup({
       end,
     }),
   },
-  sources = cmp.config.sources({
-    { name = 'copilot', keyword_pattern = '.' },
-    { name = 'nvim_lsp' },
+  sources = {
+    {
+      name = 'copilot',
+      group_index = 2,
+      keyword_pattern = '.',
+    },
+    {
+      name = 'nvim_lsp',
+      group_index = 2,
+    },
     { name = 'nvim_lsp_signature_help' },
     { name = 'nvim_lua' },
-  }, {
     { name = 'path' },
     { name = 'calc' },
     { name = 'emoji' },
-    { name = 'buffer', keyword_length = 5 },
+    {
+      name = 'buffer',
+      keyword_length = 5,
+    },
     -- { name = 'vsnip', priority = 9 },
-  }),
+  },
 })
 
 cmp.setup.filetype('gitcommit', {
