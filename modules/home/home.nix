@@ -69,6 +69,7 @@
       bat
       btop
       bun
+      curl
       delta
       fnm
       fzf
