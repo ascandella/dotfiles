@@ -26,7 +26,7 @@
       resquash = "!git checkout master && git fetch && OVERCOMMIT_DISABLE=1 git rebase origin/master && git delsquash";
       graph = "log --oneline --graph";
       l = "log --decorate --stat";
-      lg = "log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'";
+      lg = "log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'";
       lol = "log --oneline --decorate";
       patch = "add -p";
       refresh = ''!ssh-add -l && STASH=$(git stash) && git fetch && OVERCOMMIT_DISABLE=1 git rebase origin/HEAD && test "$STASH" != "No local changes to save" && git stash pop || true'';
