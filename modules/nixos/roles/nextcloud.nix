@@ -32,7 +32,7 @@
       nextcloud = {
         enable = true;
         hostName = "cloud.ndella.com";
-        package = pkgs.nextcloud28;
+        package = pkgs.nextcloud29;
         https = true;
         maxUploadSize = "5G";
         config = {
