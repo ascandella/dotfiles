@@ -19,9 +19,9 @@
   ];
 
   # Unstable only; enable auto-generation of CDI for nvidia
-  virtualisation.containers.cdi.dynamic.nvidia.enable = true;
+  hardware.nvidia-container-toolkit.enable = true;
 
-  services.xserver.videoDrivers = [ "nvidia" ]; # or "nvidiaLegacy470 etc.
+  services.xserver.videoDrivers = [ "nvidia" ]; # or "nvidiaLegacy470" etc.
 
   hardware.nvidia = {
     # Modesetting is required.
