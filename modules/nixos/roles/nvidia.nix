@@ -6,11 +6,23 @@
 }:
 {
 
-  # Enable OpenGL
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
+  hardware = {
+    # Enable OpenGL
+    opengl = {
+      enable = true;
+      driSupport = true;
+      driSupport32Bit = true;
+    };
+    # Enable auto-generation of CDI for nvidia
+    nvidia-container-toolkit.enable = true;
+
+    nvidia = {
+      # Modesetting is required.
+      modesetting.enable = true;
+      # Currently alpha-quality/buggy, so false is currently the recommended setting.
+      open = false;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+    };
   };
 
   environment.systemPackages = with pkgs; [
@@ -18,16 +30,5 @@
     nvidia-container-toolkit
   ];
 
-  # Unstable only; enable auto-generation of CDI for nvidia
-  hardware.nvidia-container-toolkit.enable = true;
-
   services.xserver.videoDrivers = [ "nvidia" ]; # or "nvidiaLegacy470" etc.
-
-  hardware.nvidia = {
-    # Modesetting is required.
-    modesetting.enable = true;
-    # Currently alpha-quality/buggy, so false is currently the recommended setting.
-    open = false;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-  };
 }
