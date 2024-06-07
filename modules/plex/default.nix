@@ -2,7 +2,10 @@
 
 {
   users.users.${config.services.plex.user} = {
-    extraGroups = [ "media" ];
+    extraGroups = [
+      "media" # for NAS shares
+      "video" # for tuner card
+    ];
   };
 
   services.plex =
