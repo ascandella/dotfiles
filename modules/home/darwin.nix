@@ -109,10 +109,6 @@
     '';
 
     programs.zsh.shellAliases = {
-      # TODO: remove these, I'm not using them
-      topbar = "yabai -m config external_bar all:38:0";
-      bottombar = "yabai -m config external_bar all:0:30";
-
       plainissues = "jira issue list -a$(jira me) --plain --columns KEY,SUMMARY --no-headers";
       jiraissues = "plainissues -s '~Done' -s '~Shipped' -s '~Closed'";
       inprog = "plainissues -s 'In Progress'";
@@ -125,6 +121,10 @@
       ".ignore".source = ./files/ignore;
       ".pylintrc".source = ./files/.pylintrc;
       ".luacheckrc".source = ./files/.luacheckrc;
+    };
+
+    xdg.configFile = {
+      "sketchybar".source = ./files/sketchybar;
     };
   };
 }

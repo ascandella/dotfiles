@@ -8,9 +8,10 @@
       global = {
         autoUpdate = false;
       };
-      brews = [
-        # TODO what do we want to brew install?
+      taps = [
+        "FelixKratz/formulae" # for sketchybar
       ];
+      brews = [ "sketchybar" ];
       casks = [ "1password" ];
     };
   };
