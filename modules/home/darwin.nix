@@ -115,7 +115,7 @@
 
       plainissues = "jira issue list -a$(jira me) --plain --columns KEY,SUMMARY --no-headers";
       jiraissues = "plainissues -s '~Done' -s '~Shipped' -s '~Closed'";
-      inprog = "plainissues -s 'In Progress'";
+      inprog = "plainissues -s 'In Progress' -s 'Review'";
 
       resetdns = "sudo dscacheutil -flushcache ; sudo killall -HUP mDNSResponder";
     };
