@@ -21,6 +21,7 @@ local function setup()
         return '<Ignore>'
       end, {
         expr = true,
+        desc = 'Next git hunk',
       })
 
       map('n', '<leader>gp', function()
@@ -33,9 +34,10 @@ local function setup()
         return '<Ignore>'
       end, {
         expr = true,
+        desc = 'Previous git hunk',
       })
 
-      map({ 'n', 'v' }, '<leader>gs', ':Gitsigns stage_hunk<CR>', { silent = true })
+      map({ 'n', 'v' }, '<leader>gs', ':Gitsigns stage_hunk<CR>', { silent = true, desc = 'Stage git hunk' })
     end,
   })
 end
