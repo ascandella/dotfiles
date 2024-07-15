@@ -55,7 +55,7 @@ local augroup_format = vim.api.nvim_create_augroup('custom-lsp-format', { clear 
 
 if vim.lsp.inlay_hint then
   vim.keymap.set('n', '<leader>ti', function()
-    vim.lsp.inlay_hint.enable(0, not vim.lsp.inlay_hint.is_enabled())
+    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = 0 }), { bufnr = 0 })
   end, { desc = 'Toggle Inlay Hints' })
 end
 
