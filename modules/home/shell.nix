@@ -61,12 +61,15 @@
 
         ag() {
           if [ -n "$1" ]; then
+            local needle="$1"
+            shift
             local args=""
-            if [[ -n "$2" && -z "$3" ]]; then
-              args="-C $2"
+            if [[ -n "$1" && -z "$2" && "$1" =~ '^[0-9]+$' ]]; then
+              args="-C $1"
+              shift
             fi
             # https://github.com/dandavison/delta/issues/1588#issuecomment-e898999756
-            rg --json "$1" ''${=args} | delta --tabs=1
+            rg --json "$needle" ''${=args} "$@" | delta --tabs=1
           else
             rg
           fi
