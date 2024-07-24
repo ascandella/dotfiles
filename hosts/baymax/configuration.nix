@@ -28,6 +28,7 @@ in
     ../../modules/nixos/roles/gitea.nix
     ../../modules/nixos/roles/backups.nix
     ../../modules/nixos/roles/sponsorblocktv.nix
+    ../../modules/nixos/roles/ollama.nix
     ../../modules/common
     ../../modules/deploy
     ../../modules/plex
@@ -148,6 +149,9 @@ in
       };
 
       sponsorblocktv.enable = true;
+
+      ollama.enable = true;
+      ollama.enableWeb = true;
     };
   };
 
