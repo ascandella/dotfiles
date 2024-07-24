@@ -364,14 +364,6 @@ local packages = {
     },
   },
 
-  -- Better f/F
-  {
-    'hrsh7th/vim-eft',
-    config = function()
-      require('ai/eft')
-    end,
-  },
-
   -- Notification
   {
     'rcarriga/nvim-notify',
