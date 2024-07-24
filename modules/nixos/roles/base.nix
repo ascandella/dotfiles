@@ -32,6 +32,8 @@
     dnsutils
     # backups
     borgbackup
+    # For plex cache file management
+    jdupes
   ];
   programs.zsh = {
     enable = true;
