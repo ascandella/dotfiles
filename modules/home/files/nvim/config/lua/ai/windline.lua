@@ -107,7 +107,7 @@ basic.file_right = {
 }
 
 local quickfix = {
-  filetypes = { 'qf', 'Trouble' },
+  filetypes = { 'qf', 'Trouble', 'trouble' },
   active = {
     { '🚦 Quickfix ', { 'white', 'AidenBlack' } },
     { helper.separators.slant_right, { 'black', 'black_light' } },

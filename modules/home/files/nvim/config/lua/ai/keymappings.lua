@@ -78,7 +78,12 @@ vim.keymap.set('x', 'j', ":m'>+<cr>gv=gv", { desc = 'Move lines down' })
 vim.keymap.set('n', '<Leader>tt', '<cmd>Twilight<cr>', { silent = true })
 
 -- Trouble (LSP diagnostics)
-vim.keymap.set('n', '<Leader>th', '<cmd>TroubleToggle<cr>', { silent = true, desc = 'Toggle Trouble (LSP errors)' })
+vim.keymap.set(
+  'n',
+  '<Leader>th',
+  '<cmd>Trouble diagnostics toggle filter.buf=0<cr>',
+  { silent = true, desc = 'Toggle Trouble (LSP errors)' }
+)
 
 -- Toggle between lines and virtual text diagnostics
 vim.keymap.set(
