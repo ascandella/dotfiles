@@ -85,6 +85,7 @@
       rustup
       spaceship-prompt
       ssm-session-manager-plugin # for awscli
+      wezterm # superior terminal
       zellij
       zoxide
 

@@ -10,6 +10,7 @@
     "selene".source = ./files/selene;
     "skhd".source = ./files/skhd;
     "stylua".source = ./files/stylua;
+    "wezterm".source = ./files/wezterm;
     "yabai".source = ./files/yabai;
     "yazi".source = ./files/yazi;
     "nvim/lua/ai/nix/tools.lua".text = ''
