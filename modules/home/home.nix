@@ -71,6 +71,7 @@
       bun
       curl
       delta
+      eza # better ls
       fnm
       fzf
       go
