@@ -28,7 +28,7 @@ yabai -m config normal_window_opacity 0.9
 
 # Exclusions
 # https://github.com/koekeishiya/yabai/issues/2199#issuecomment-2031528636
- function yabai_rule {
+function yabai_rule {
   yabai -m rule --add "$@"
   yabai -m rule --apply "$@"
 }
@@ -38,4 +38,14 @@ yabai_rule app="^Messages$" manage=off sub-layer=below
 
 # refresh my Übersicht bar when the space changes
 yabai -m signal --add event=space_changed \
-    action="osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-index-jsx\"'"
+  action="osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-index-jsx\"'"
+
+# disable ubersicht on fullscreen (work around wezterm issue)
+yabai -m signal --add event=space_changed \
+  action='
+  hide_bar="false"
+  if [ $(yabai -m query --windows --space | jq -e "map(select(.\"is-native-fullscreen\" == true)) | length > 0") = "true" ]; then
+    hide_bar="true"
+  fi
+  osascript -e "tell application id \"tracesOf.Uebersicht\" to set hidden of widget id \"simple-bar-index-jsx\" to ${hide_bar}"
+  '
