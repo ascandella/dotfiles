@@ -28,6 +28,7 @@
           j = "z"; # jump
           ji = "zi"; # interactive jump
           cat = "bat";
+          e = "eza --icons=auto"; # also aliased as 'l'
           g = "git";
           gst = "git status -sb";
           gco = "git checkout";
