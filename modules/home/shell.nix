@@ -154,6 +154,7 @@
           exit_code sudo char
         )
         source "${pkgs.spaceship-prompt}/lib/spaceship-prompt/spaceship.zsh"
+        export FPATH="${pkgs.eza}/completions/zsh:$FPATH"
       '';
 
       envExtra = ''
