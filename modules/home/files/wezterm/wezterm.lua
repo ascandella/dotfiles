@@ -1,8 +1,23 @@
 local wezterm = require('wezterm')
 local config = wezterm.config_builder()
 
+local function _getHostname()
+  local f = io.popen('/bin/hostname')
+  if f then
+    local hostname = f:read('*a') or ''
+    f:close()
+    hostname = string.gsub(hostname, '\n$', '')
+    return hostname
+  end
+end
+
 config.font = wezterm.font('BerkeleyMonoVariable Nerd Font Mono')
-config.font_size = 22
+local hostname = _getHostname()
+if hostname:match('.*tudio.*') then
+  config.font_size = 22
+else
+  config.font_size = 14
+end
 
 config.freetype_load_target = 'Light'
 
