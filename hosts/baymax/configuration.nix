@@ -29,6 +29,7 @@ in
     ../../modules/nixos/roles/backups.nix
     ../../modules/nixos/roles/sponsorblocktv.nix
     ../../modules/nixos/roles/ollama.nix
+    ../../modules/nixos/roles/mosquitto.nix
     ../../modules/common
     ../../modules/deploy
     ../../modules/plex
