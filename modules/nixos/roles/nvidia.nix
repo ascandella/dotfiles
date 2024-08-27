@@ -1,9 +1,4 @@
-{
-  environment,
-  config,
-  pkgs,
-  ...
-}:
+{ config, pkgs, ... }:
 {
 
   hardware = {

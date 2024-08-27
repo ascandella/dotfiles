@@ -44,6 +44,8 @@ with lib;
         [
           "${config.my.nas.serverConfigDir}/frigate:/config"
           "${config.my.nas.frigateDir}:/media/frigate"
+          # Make sure this is the same as what's in system configuration
+          "${config.hardware.nvidia.package}/lib/libcuda.so:/usr/lib/libcuda.so:ro"
         ]
         ++ map (soFile: "${pkgs.cudaPackages.cudnn}/lib/${soFile}:/usr/lib/${soFile}:ro") [
           "libcudnn_cnn_infer.so.8"
