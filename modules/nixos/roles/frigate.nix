@@ -31,18 +31,28 @@ with lib;
 
     virtualisation.oci-containers.containers.frigate = {
       image = "ghcr.io/blakeblackshear/frigate:${cfg.version}";
+      environment = {
+        # HACK ALERT: See below for manually mounting cudnn/libcublas
+        LD_LIBRARY_PATH = "/usr/lib";
+      };
       ports = [
         "${toString cfg.port}:8971"
-        "8585:5000" # internal API, not exposed on network
-        "8554:8554" # rtsp streaming for go2rtc, not exposed on network
+        "8585:5000" # internal API, not exposed through firewall, only for home-assistant
+        "8554:8554" # rtsp streaming for go2rtc, not exposed through firewall, only for home-assistant
       ];
-      volumes = [
-        "${config.my.nas.serverConfigDir}/frigate:/config"
-        "${config.my.nas.frigateDir}:/media/frigate"
-        # https://www.reddit.com/r/NixOS/comments/n98spx/access_nvidia_gpu_in_nixos_container/
-        # "${pkgs.cudaPackages.cudnn}/lib/libcudnn_cnn_infer.so.8:/run/opengl-driver/lib/libcudnn_cnn_infer.so.8"
-        "${pkgs.cudaPackages.cudnn}/lib/libcudnn_cnn_infer.so.8:/tmp/libcudnn_cnn_infer.so.8"
-      ];
+      volumes =
+        [
+          "${config.my.nas.serverConfigDir}/frigate:/config"
+          "${config.my.nas.frigateDir}:/media/frigate"
+        ]
+        ++ map (soFile: "${pkgs.cudaPackages.cudnn}/lib/${soFile}:/usr/lib/${soFile}:ro") [
+          "libcudnn_cnn_infer.so.8"
+          "libcudnn_ops_infer.so.8"
+        ]
+        ++ map (soFile: "${pkgs.cudaPackages.libcublas}/lib/${soFile}:/usr/lib/${soFile}:ro") [
+          "libcublas.so"
+          "libcublasLt.so"
+        ];
       extraOptions = [
         # Add GPU
         "--device"
