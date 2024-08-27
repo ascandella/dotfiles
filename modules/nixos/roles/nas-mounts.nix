@@ -19,6 +19,10 @@
         type = lib.types.str;
         default = "/data/apps";
       };
+      frigateDir = lib.mkOption {
+        type = lib.types.str;
+        default = "/data/frigate";
+      };
       downloadsDir = lib.mkOption {
         type = lib.types.str;
         default = "/media/downloads";
@@ -58,6 +62,7 @@
           downloads = config.my.nas.downloadsDir;
           server-config = config.my.nas.serverConfigDir;
           backups = config.my.nas.backupsDir;
+          frigate = config.my.nas.frigateDir;
         };
       in
       lib.concatMapAttrs (source: destination: {
