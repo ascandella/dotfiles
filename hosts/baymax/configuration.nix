@@ -30,6 +30,7 @@ in
     ../../modules/nixos/roles/sponsorblocktv.nix
     ../../modules/nixos/roles/ollama.nix
     ../../modules/nixos/roles/mosquitto.nix
+    ../../modules/nixos/roles/frigate.nix
     ../../modules/common
     ../../modules/deploy
     ../../modules/plex
@@ -148,6 +149,8 @@ in
         openFirewall = true;
         serialDevice = "/dev/serial/by-id/usb-0658_0200-if00";
       };
+
+      frigate.enable = true;
 
       sponsorblocktv.enable = true;
 
