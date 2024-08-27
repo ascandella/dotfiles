@@ -37,8 +37,8 @@ with lib;
       };
       ports = [
         "${toString cfg.port}:8971"
-        "8585:5000" # internal API, not exposed through firewall, only for home-assistant
-        "8554:8554" # rtsp streaming for go2rtc, not exposed through firewall, only for home-assistant
+        "127.0.0.1:8585:5000" # internal API, not exposed through firewall, only for home-assistant
+        "127.0.0.1:8554:8554" # rtsp streaming for go2rtc, not exposed through firewall, only for home-assistant
       ];
       volumes =
         [
