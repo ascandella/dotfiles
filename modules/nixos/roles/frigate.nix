@@ -1,4 +1,9 @@
-{ lib, config, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 
 let
   cfg = config.services.aispace.frigate;
@@ -34,6 +39,9 @@ with lib;
       volumes = [
         "${config.my.nas.serverConfigDir}/frigate:/config"
         "${config.my.nas.frigateDir}:/media/frigate"
+        # https://www.reddit.com/r/NixOS/comments/n98spx/access_nvidia_gpu_in_nixos_container/
+        # "${pkgs.cudaPackages.cudnn}/lib/libcudnn_cnn_infer.so.8:/run/opengl-driver/lib/libcudnn_cnn_infer.so.8"
+        "${pkgs.cudaPackages.cudnn}/lib/libcudnn_cnn_infer.so.8:/tmp/libcudnn_cnn_infer.so.8"
       ];
       extraOptions = [
         # Add GPU
