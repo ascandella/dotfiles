@@ -20,6 +20,11 @@ with lib;
       type = types.int;
       default = 8971;
     };
+    dataDir = mkOption {
+      type = types.str;
+      default = "${config.my.nas.serverConfigDir}/frigate";
+      description = "Frigate configuration directory";
+    };
     openFirewall = mkOption {
       type = types.bool;
       default = true;
@@ -42,7 +47,7 @@ with lib;
       ];
       volumes =
         [
-          "${config.my.nas.serverConfigDir}/frigate:/config"
+          "${cfg.dataDir}:/config"
           "${config.my.nas.frigateDir}:/media/frigate"
           # Make sure this is the same as what's in system configuration
           "${config.hardware.nvidia.package}/lib/libcuda.so:/usr/lib/libcuda.so:ro"
