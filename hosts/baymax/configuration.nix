@@ -31,6 +31,7 @@ in
     ../../modules/nixos/roles/ollama.nix
     ../../modules/nixos/roles/mosquitto.nix
     ../../modules/nixos/roles/frigate.nix
+    ../../modules/nixos/roles/scrypted.nix
     ../../modules/common
     ../../modules/deploy
     ../../modules/plex
@@ -152,6 +153,7 @@ in
 
       frigate.enable = true;
 
+      scrypted.enable = true;
       sponsorblocktv.enable = true;
 
       ollama.enable = true;
