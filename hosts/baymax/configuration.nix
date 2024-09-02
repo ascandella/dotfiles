@@ -86,26 +86,32 @@ in
       ];
     };
 
-    wireguard.interfaces.wg0 = {
-      ips = [ "10.20.0.35/24" ];
-      privateKeyFile = "/etc/wireguard/private-key";
-      generatePrivateKeyFile = true;
-      listenPort = 51820;
+    wireguard.interfaces.wg0 =
+      let
+        # Hosts that are allowed to access lan over wireguard, not just this box
+        localTunnelPeers = "10.20.0.40/32,10.20.0.50/32,10.20.0.82/32";
+        localNetworkInterface = "ens18";
+      in
+      {
+        ips = [ "10.20.0.35/24" ];
+        privateKeyFile = "/etc/wireguard/private-key";
+        generatePrivateKeyFile = true;
+        listenPort = 51820;
 
-      peers = wireguard.peersForServer config.networking.hostName;
+        peers = wireguard.peersForServer config.networking.hostName;
 
-      postSetup = ''
-        ${pkgs.iptables}/bin/iptables -A FORWARD -i wg0 -j ACCEPT;
-        ${pkgs.iptables}/bin/iptables -A FORWARD -o wg0 -j ACCEPT;
-        ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.20.0.40/32,10.20.0.50/32,10.20.0.82/32 -o ens18 -j MASQUERADE
-      '';
+        postSetup = ''
+          ${pkgs.iptables}/bin/iptables -A FORWARD -i wg0 -j ACCEPT;
+          ${pkgs.iptables}/bin/iptables -A FORWARD -o wg0 -j ACCEPT;
+          ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s ${localTunnelPeers} -o ${localNetworkInterface} -j MASQUERADE
+        '';
 
-      postShutdown = ''
-        ${pkgs.iptables}/bin/iptables -D FORWARD -i wg0 -j ACCEPT;
-        ${pkgs.iptables}/bin/iptables -D FORWARD -o wg0 -j ACCEPT;
-        ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.20.0.40/32,10.20.0.50/32,10.20.0.82/32  -o ens18 -j MASQUERADE
-      '';
-    };
+        postShutdown = ''
+          ${pkgs.iptables}/bin/iptables -D FORWARD -i wg0 -j ACCEPT;
+          ${pkgs.iptables}/bin/iptables -D FORWARD -o wg0 -j ACCEPT;
+          ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s ${localTunnelPeers} -o ${localNetworkInterface} -j MASQUERADE
+        '';
+      };
   };
 
   # Set your time zone.
