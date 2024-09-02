@@ -89,7 +89,15 @@ in
     wireguard.interfaces.wg0 =
       let
         # Hosts that are allowed to access lan over wireguard, not just this box
-        localTunnelPeers = "10.20.0.40/32,10.20.0.50/32,10.20.0.82/32";
+        localTunnelPeers = lib.concatStringsSep "," (
+          lib.lists.flatten (
+            map wireguard.ipsForClient [
+              "aiphone"
+              "workbook"
+              "aipad"
+            ]
+          )
+        );
         localNetworkInterface = "ens18";
       in
       {
