@@ -86,6 +86,15 @@ in
       ];
     };
 
+    interfaces.ens19 = {
+      ipv4.addresses = [
+        {
+          address = "10.4.0.35";
+          prefixLength = 24;
+        }
+      ];
+    };
+
     wireguard.interfaces.wg0 =
       let
         # Hosts that are allowed to access lan over wireguard, not just this box
