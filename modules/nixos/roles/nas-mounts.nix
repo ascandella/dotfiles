@@ -69,7 +69,7 @@
         "${destination}" = {
           fsType = "nfs";
           options = [ "x-systemd.mount-timeout=3m" ];
-          device = "truenas:/mnt/truepool-rust/${source}";
+          device = "truenas-internal:/mnt/truepool-rust/${source}";
         };
       }) nasMappings;
   };
