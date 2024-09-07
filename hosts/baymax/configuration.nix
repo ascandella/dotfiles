@@ -39,6 +39,10 @@ in
     ../../modules/mediamanagement
   ];
 
+  age.secrets = {
+    nutuser.file = ../../secrets/nutuser.age;
+  };
+
   # Bootloader.
   boot = {
     loader = {
@@ -156,6 +160,31 @@ in
   nixpkgs.config.allowUnfree = true;
 
   # nixos/roles/base.nix contains most of the base config
+
+  power.ups = {
+    enable = true;
+    mode = "netserver";
+    openFirewall = true;
+    ups.usbups = {
+      driver = "usbhid-ups";
+      port = "auto";
+      description = "USB UPS";
+    };
+    upsmon.monitor.usbups = {
+      user = "nutuser";
+    };
+    upsd = {
+      listen = [
+        { address = "10.2.0.35"; }
+        { address = "127.0.0.1"; }
+      ];
+    };
+    users = {
+      nutuser = {
+        passwordFile = config.age.secrets.nutuser.path;
+      };
+    };
+  };
 
   services = {
     # PROXMOOOOOX

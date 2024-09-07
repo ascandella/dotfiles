@@ -10,4 +10,5 @@ in
   "baymax-borg.age".publicKeys = baymaxKeys;
   "mosquitto-homeassistant.age".publicKeys = baymaxKeys;
   "mosquitto-frigate.age".publicKeys = baymaxKeys;
+  "nutuser.age".publicKeys = baymaxKeys;
 }
