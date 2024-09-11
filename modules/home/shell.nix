@@ -143,6 +143,17 @@
 
         [[ -f "$HOME/.cargo/env" ]] && . "$HOME/.cargo/env"
 
+        kgetsec() {
+          local secret_name=$1
+          shift
+          local namespace="default"
+          if [[ -n $1 ]]; then
+            namespace="$1"
+          fi
+          kubectl get secret "$secret_name" -n "$namespace" -o \
+            go-template='{{range $k,$v := .data}}{{printf "%s: " $k}}{{if not $v}}{{$v}}{{else}}{{$v | base64decode}}{{end}}{{"\n"}}{{end}}'
+        }
+
         eval "$(${pkgs.fnm}/bin/fnm env --use-on-cd)"
         SPACESHIP_PROMPT_ORDER=(
           time
