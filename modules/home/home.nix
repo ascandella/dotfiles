@@ -78,6 +78,7 @@
       htop
       just
       kubectl
+      kustomize
       magic-wormhole
       most
       nixfmt-rfc-style
