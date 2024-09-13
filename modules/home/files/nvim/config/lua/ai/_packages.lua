@@ -356,6 +356,22 @@ local packages = {
     'lukas-reineke/lsp-format.nvim',
   },
 
+  -- YAML detection, for k8s
+  {
+    'someone-stole-my-name/yaml-companion.nvim',
+    ft = { 'yaml' },
+    requires = {
+      { 'neovim/nvim-lspconfig' },
+      { 'nvim-lua/plenary.nvim' },
+      { 'nvim-telescope/telescope.nvim' },
+    },
+    config = function(_, opts)
+      local cfg = require('yaml-companion').setup(opts)
+      require('lspconfig')['yamlls'].setup(cfg)
+      require('telescope').load_extension('yaml_schema')
+    end,
+  },
+
   -- Git blame / browse
   {
     'tpope/vim-fugitive',
