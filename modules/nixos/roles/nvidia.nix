@@ -3,10 +3,9 @@
 
   hardware = {
     # Enable OpenGL
-    opengl = {
+    graphics = {
       enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
+      enable32Bit = true;
     };
     # Enable auto-generation of CDI for nvidia
     nvidia-container-toolkit.enable = true;
@@ -21,7 +20,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    nvidia-podman
     nvidia-container-toolkit
   ];
 
