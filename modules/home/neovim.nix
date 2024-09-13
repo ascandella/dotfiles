@@ -14,7 +14,7 @@
 
       nodejs_20 # copilot
       nodePackages.npm # mason
-      nodePackages.pyright
+      pyright
       unzip # mason
       gnumake # mason
     ];
