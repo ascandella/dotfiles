@@ -56,7 +56,11 @@ with lib;
     # systemd.tmpfiles.rules = [ "f /var/lib/systemd/linger/${cfg.user}" ];
 
     networking.firewall = mkIf cfg.openFirewall {
-      allowedTCPPorts = [ cfg.port ];
+      # For Authentik access
+      interfaces.wg0.allowedTCPPorts = [
+        cfg.port
+      ];
+      # allowedTCPPorts = [ cfg.port ];
       # Homekit Bridge
       allowedTCPPortRanges = [
         {
