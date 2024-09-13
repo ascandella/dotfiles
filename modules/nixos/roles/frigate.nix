@@ -52,14 +52,22 @@ with lib;
           # Make sure this is the same as what's in system configuration
           "${config.hardware.nvidia.package}/lib/libcuda.so:/usr/lib/libcuda.so:ro"
         ]
-        ++ map (soFile: "${pkgs.cudaPackages.cudnn}/lib/${soFile}:/usr/lib/${soFile}:ro") [
-          "libcudnn_cnn_infer.so.8"
-          "libcudnn_ops_infer.so.8"
-        ]
-        ++ map (soFile: "${pkgs.cudaPackages_11.libcublas}/lib/${soFile}:/usr/lib/${soFile}:ro") [
-          "libcublas.so"
-          "libcublasLt.so"
-        ];
+        ++ map (soFile: "${lib.getLib pkgs.cudaPackages_11.cuda_nvrtc}/lib/${soFile}:/usr/lib/${soFile}:ro")
+          [
+            "libnvrtc.so"
+          ]
+        ++
+          map (soFile: "${lib.getLib pkgs.cudaPackages_11.cudnn_8_9}/lib/${soFile}:/usr/lib/${soFile}:ro")
+            [
+              "libcudnn_cnn_infer.so.8"
+              "libcudnn_ops_infer.so.8"
+            ]
+        ++
+          map (soFile: "${lib.getLib pkgs.cudaPackages_11.libcublas}/lib/${soFile}:/usr/lib/${soFile}:ro")
+            [
+              "libcublas.so"
+              "libcublasLt.so"
+            ];
       extraOptions = [
         # Add GPU
         "--device"
