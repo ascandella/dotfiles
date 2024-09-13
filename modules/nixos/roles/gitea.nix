@@ -21,6 +21,17 @@
           SSH_DOMAIN = "baymax.lfp";
           ROOT_URL = "https://code.ndella.com/";
         };
+        service = {
+          DISABLE_REGISTRATION = true;
+        };
+        openid = {
+          ENABLE_OPENID_SIGNIN = true;
+          ENABLE_OPENID_SIGNUP = true;
+        };
+        oauth2_client = {
+          ENABLE_AUTO_REGISTRATION = true;
+          ACCOUNT_LINKING = "login";
+        };
       };
     };
 
