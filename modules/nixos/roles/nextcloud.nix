@@ -33,6 +33,13 @@
         enable = true;
         hostName = "cloud.ndella.com";
         package = pkgs.nextcloud29;
+        extraApps = {
+          inherit (config.services.nextcloud.package.packages.apps)
+            # Set to default with:
+            #   nextcloud-occ config:app:set --value=0 user_oidc allow_multiple_user_backends
+            user_oidc
+            ;
+        };
         https = true;
         maxUploadSize = "5G";
         config = {
