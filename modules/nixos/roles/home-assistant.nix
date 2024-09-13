@@ -27,6 +27,10 @@ with lib;
       type = types.int;
       default = 880;
     };
+    dataDir = mkOption {
+      type = types.path;
+      default = "${config.my.nas.serverConfigDir}/home-assistant";
+    };
     serialDevice = mkOption { type = types.str; };
     openFirewall = mkOption {
       type = types.bool;
@@ -69,7 +73,7 @@ with lib;
     virtualisation.oci-containers.containers.home-assistant = {
       image = "ghcr.io/home-assistant/home-assistant:${cfg.version}";
       volumes = [
-        "${config.my.nas.serverConfigDir}/home-assistant:/config"
+        "${cfg.dataDir}:/config"
         "/etc/localtime:/etc/localtime:ro"
       ];
       extraOptions = [
@@ -80,7 +84,6 @@ with lib;
         "dialout"
         "--device"
         cfg.serialDevice
-        # "--userns="
 
         # Special perms
         "--cap-add=NET_ADMIN"
