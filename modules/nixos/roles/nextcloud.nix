@@ -40,7 +40,6 @@
           dbtype = "mysql";
           dbuser = "nextcloud";
           dbpassFile = config.age.secrets.nextcloud-db-pass.path;
-          dbtableprefix = "";
         };
         settings = {
           loglevel = 2;
