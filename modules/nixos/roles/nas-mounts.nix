@@ -69,7 +69,8 @@
         "${destination}" = {
           fsType = "nfs";
           options = [ "x-systemd.mount-timeout=3m" ];
-          device = "truenas-internal:/mnt/truepool-rust/${source}";
+          # truenas-internal; DNS failures on boot sometimes
+          device = "10.4.0.40:/mnt/truepool-rust/${source}";
         };
       }) nasMappings;
   };
