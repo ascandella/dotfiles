@@ -56,7 +56,7 @@ with lib;
           "libcudnn_cnn_infer.so.8"
           "libcudnn_ops_infer.so.8"
         ]
-        ++ map (soFile: "${pkgs.cudaPackages.libcublas}/lib/${soFile}:/usr/lib/${soFile}:ro") [
+        ++ map (soFile: "${pkgs.cudaPackages_11.libcublas}/lib/${soFile}:/usr/lib/${soFile}:ro") [
           "libcublas.so"
           "libcublasLt.so"
         ];
