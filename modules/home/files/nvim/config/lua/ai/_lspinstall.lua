@@ -10,7 +10,7 @@ local servers = {
   'terraformls',
   'tailwindcss',
   'tflint',
-  'tsserver',
+  'ts_ls',
   'pyright',
   'lua_ls',
   'yamlls',
@@ -109,7 +109,7 @@ lspconfig.lua_ls.setup(make_config({
 
 lspconfig.tailwindcss.setup(tailwindcss_config(make_config()))
 
-lspconfig.tsserver.setup(make_config({
+lspconfig.ts_ls.setup(make_config({
   settings = {
     typescript = {
       inlayHints = {

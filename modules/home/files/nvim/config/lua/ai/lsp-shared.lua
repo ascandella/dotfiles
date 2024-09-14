@@ -60,7 +60,7 @@ if vim.lsp.inlay_hint then
 end
 
 lsp_format.setup({
-  exclude = 'tsserver',
+  exclude = 'ts_ls',
 })
 
 local autocmd_format = function(client)
