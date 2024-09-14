@@ -86,6 +86,7 @@
       ngrok
       ripgrep
       rustup
+      scc # count lines of code
       spaceship-prompt
       ssm-session-manager-plugin # for awscli
       wezterm # superior terminal
