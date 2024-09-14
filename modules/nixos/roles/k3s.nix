@@ -7,6 +7,7 @@
     extraFlags = toString [
       "--node-label"
       "ai-location=home"
+      "--disable=traefik"
     ];
   };
 
