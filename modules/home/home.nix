@@ -77,6 +77,7 @@
       go
       htop
       just
+      k9s
       kubectl
       kustomize
       magic-wormhole
