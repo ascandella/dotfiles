@@ -21,6 +21,8 @@ local M = {}
 
 telescope.setup({
   defaults = {
+    -- https://github.com/typescript-language-server/typescript-language-server/issues/216#issuecomment-1501193510
+    file_ignore_patterns = { 'index.d.ts' },
     buffer_previewer_maker = new_maker,
     file_previewer = previewers.vim_buffer_cat.new,
     grep_previewer = previewers.vim_buffer_vimgrep.new,
@@ -77,10 +79,10 @@ telescope.setup({
   },
   extensions = {
     fzf = {
-      fuzzy = true,                    -- false will only do exact matching
+      fuzzy = true, -- false will only do exact matching
       override_generic_sorter = false, -- override the generic sorter
-      override_file_sorter = true,     -- override the file sorter
-      case_mode = 'smart_case',        -- or "ignore_case" or "respect_case"
+      override_file_sorter = true, -- override the file sorter
+      case_mode = 'smart_case', -- or "ignore_case" or "respect_case"
       -- the default case_mode is "smart_case"
     },
     frecency = {

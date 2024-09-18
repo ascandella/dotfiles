@@ -36,6 +36,7 @@ local function filterReactDTS(value)
   return string.match(value.filename, '%.d.ts') == nil
 end
 
+-- No longer used? Added file_ignore_patterns per https://github.com/typescript-language-server/typescript-language-server/issues/216#issuecomment-1501193510
 local function on_list(options)
   -- https://github.com/typescript-language-server/typescript-language-server/issues/216
   local items = options.items
