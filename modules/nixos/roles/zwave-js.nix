@@ -20,7 +20,6 @@ with lib;
       default = 8091;
     };
     serialDevice = mkOption { type = types.str; };
-    additionalSerialDevice = mkOption { type = types.str; };
     uid = mkOption {
       type = types.int;
       default = 881;
@@ -68,24 +67,14 @@ with lib;
         "3033:3000"
       ];
       volumes = [ "${config.my.nas.serverConfigDir}/zwavejs:/usr/src/app/store" ];
-      extraOptions =
-        [
-          # For access to serial device
-          "--group-add"
-          "dialout"
-          "--device"
-          cfg.serialDevice
-          # "--userns="
-        ]
-        ++ (
-          if cfg.additionalSerialDevice != null then
-            [
-              "--device"
-              cfg.additionalSerialDevice
-            ]
-          else
-            [ ]
-        );
+      extraOptions = [
+        # For access to serial device
+        "--group-add"
+        "dialout"
+        "--device"
+        cfg.serialDevice
+        # "--userns="
+      ];
     };
     systemd.services."${config.virtualisation.oci-containers.backend}-zwavejs" = {
       after = [ "data-apps.mount" ];
