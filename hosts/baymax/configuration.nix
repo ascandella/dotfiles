@@ -201,6 +201,7 @@ in
         enable = true;
         openFirewall = true;
         serialDevice = "/dev/serial/by-id/usb-0658_0200-if00";
+        additionalSerialDevice = "/dev/serial/by-id/usb-Zooz_800_Z-Wave_Stick_533D004242-if00";
       };
 
       frigate.enable = true;
