@@ -3,17 +3,12 @@ local M = {}
 
 local lsp_format = require('lsp-format')
 
-M.maybe_lsp_format = function(options)
-  if not vim.b.lsp_disable_formatting then
-    options = options or { async = true }
-    vim.lsp.buf.format(options)
-  end
-end
+local lsp_formatting_disabled = false
 
 M.toggle_lsp_formatting = function()
   lsp_format.toggle({ args = '' })
-  vim.b.lsp_disable_formatting = not vim.b.lsp_disable_formatting
-  vim.notify('LSP Formatting ' .. (vim.b.lsp_disable_formatting and 'disabled' or 'enabled'))
+  lsp_formatting_disabled = not lsp_formatting_disabled
+  vim.notify('LSP Formatting ' .. (lsp_formatting_disabled and 'disabled' or 'enabled'))
 end
 
 -- From: https://github.com/daliusd/cfg/blob/0e61894c689d736fa8c59ace8f149ecffb187cc4/.vimrc#L319-L332
@@ -64,12 +59,12 @@ lsp_format.setup({
   exclude = 'ts_ls',
 })
 
-local autocmd_format = function(client)
-  lsp_format.on_attach(client)
+local autocmd_format = function(client, bufnr)
+  lsp_format.on_attach(client, bufnr)
 end
 
-local default_formatter = function(_, client)
-  autocmd_format(client)
+local default_formatter = function(client, bufnr)
+  autocmd_format(client, bufnr)
 end
 
 local filetype_attach = setmetatable({
@@ -77,7 +72,7 @@ local filetype_attach = setmetatable({
   go = default_formatter,
   nix = default_formatter,
 
-  lua = function(_, client)
+  lua = function(client, _)
     vim.api.nvim_exec([[set signcolumn=yes]], true)
     autocmd_format(client)
   end,
@@ -86,22 +81,22 @@ local filetype_attach = setmetatable({
 
   elixir = default_formatter,
 
-  rust = function(_, client)
+  rust = function(client, bufnr)
     vim.api.nvim_exec([[set signcolumn=yes]], true)
 
-    autocmd_format(client)
+    autocmd_format(client, bufnr)
   end,
 
-  typescript = function(_, client)
+  typescript = function(client, bufnr)
     vim.api.nvim_exec([[set signcolumn=yes]], true)
-    autocmd_format(client)
+    autocmd_format(client, bufnr)
   end,
 
   javascript = default_formatter,
 
   json = default_formatter,
 
-  typescriptreact = function(bufnr, client)
+  typescriptreact = function(client, bufnr)
     vim.api.nvim_buf_set_keymap(
       bufnr,
       'n',
@@ -113,7 +108,7 @@ local filetype_attach = setmetatable({
       }
     )
 
-    autocmd_format(client)
+    autocmd_format(client, bufnr)
   end,
 
   python = default_formatter,
@@ -158,7 +153,7 @@ M.on_attach = function(client, bufnr)
   local filetype = vim.api.nvim_buf_get_option(0, 'filetype')
 
   -- Attach any filetype specific options to the client
-  filetype_attach[filetype](bufnr, client)
+  filetype_attach[filetype](client, bufnr)
 end
 
 local cmp_nvim_lsp = require('cmp_nvim_lsp')
@@ -191,7 +186,6 @@ vim.lsp.handlers['textDocument/formatting'] = format_async
 vim.lsp.handlers['window/showMessage'] = require('ai.lsp.show_message')
 
 vim.cmd('command! LspDef lua require("ai/lsp-shared").lsp_definition()')
-vim.cmd("command! LspFormatting lua require('ai/lsp-shared').maybe_lsp_format()")
 vim.cmd("command! LspToggleFormatting lua require('ai/lsp-shared').toggle_lsp_formatting()")
 vim.cmd('command! LspCodeAction lua vim.lsp.buf.code_action()')
 vim.cmd('command! LspHover lua vim.lsp.buf.hover()')
