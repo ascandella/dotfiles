@@ -14,7 +14,7 @@ with lib;
     enable = mkEnableOption (mdDoc "enable frigate via OCI container");
     version = mkOption {
       type = types.str;
-      default = "0.14.0-tensorrt";
+      default = "0.14.1-tensorrt";
     };
     port = mkOption {
       type = types.int;
