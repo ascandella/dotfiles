@@ -77,7 +77,7 @@ local filetype_attach = setmetatable({
   nix = default_formatter,
 
   lua = function(client, _)
-    vim.api.nvim_exec([[set signcolumn=yes]], true)
+    vim.api.nvim_exec2([[set signcolumn=yes]], { output = true })
     autocmd_format(client)
   end,
 
@@ -86,13 +86,13 @@ local filetype_attach = setmetatable({
   elixir = default_formatter,
 
   rust = function(client, bufnr)
-    vim.api.nvim_exec([[set signcolumn=yes]], true)
+    vim.api.nvim_exec2([[set signcolumn=yes]], { output = true })
 
     autocmd_format(client, bufnr)
   end,
 
   typescript = function(client, bufnr)
-    vim.api.nvim_exec([[set signcolumn=yes]], true)
+    vim.api.nvim_exec2([[set signcolumn=yes]], { output = true })
     autocmd_format(client, bufnr)
   end,
 
@@ -154,7 +154,7 @@ M.on_attach = function(client, bufnr)
     require('ai/lsp-documentcolors').buf_attach(bufnr, { single_column = true })
   end
 
-  local filetype = vim.api.nvim_buf_get_option(0, 'filetype')
+  local filetype = vim.api.nvim_get_option_value('filetype', { buf = 0 })
 
   -- Attach any filetype specific options to the client
   filetype_attach[filetype](client, bufnr)
@@ -176,7 +176,7 @@ local format_async = function(err, result, ctx)
   if err ~= nil or result == nil then
     return
   end
-  if not vim.api.nvim_buf_get_option(ctx.bufnr, 'modified') then
+  if not vim.api.nvim_get_option_value('modified', { buf = ctx.bufnr }) then
     local view = vim.fn.winsaveview()
     vim.lsp.util.apply_text_edits(result, ctx.bufnr, vim.lsp.get_client_by_id(ctx.client_id).offset_encoding)
     vim.fn.winrestview(view)
