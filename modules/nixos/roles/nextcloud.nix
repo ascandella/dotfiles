@@ -85,11 +85,7 @@
       environment.NEXTCLOUD_CONFIG_DIR = config.services.nextcloud.datadir;
       serviceConfig.Type = "oneshot";
       serviceConfig.User = "nextcloud";
-      # Run ./occ preview:generate-all once after installation.
-      # Add a (system) cron job for  ./occ preview:pre-generate     # preview:generate-all
-
-      # we could even be more verbose with -vvv
-      serviceConfig.ExecStart = "${config.services.nextcloud.occ}/bin/nextcloud-occ preview:generate-all -vv";
+      serviceConfig.ExecStart = "${config.services.nextcloud.occ}/bin/nextcloud-occ preview:pre-generate";
     };
   };
 }
