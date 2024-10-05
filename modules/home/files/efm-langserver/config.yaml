@@ -10,9 +10,6 @@ root-markers:
   - .git
 
 tools:
-  caddy-fmt: &caddy-fmt
-    format-command: "caddy fmt"
-
   css-prettier: &css-prettier
     format-command: >-
       prettier
@@ -28,17 +25,6 @@ tools:
     lint-formats:
       - "%f(%l,%c): %tarning %m"
       - "%f(%l,%c): %trror %m"
-
-  lua-selene: &lua-selene
-    lint-command: >-
-      selene --display-style quiet
-      --config "~/.config/selene/selene.toml"
-      ${INPUT}
-    lint-stdin: false
-    lint-ignore-exit-code: true
-    lint-formats:
-      - "%f:%l:%c: %tarning%m"
-      - "%f:%l:%c: %trror%m"
 
   lua-stylua: &lua-stylua
     format-command: >-

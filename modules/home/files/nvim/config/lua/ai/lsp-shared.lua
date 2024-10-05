@@ -58,9 +58,11 @@ M.maybe_lsp_format = function(client, bufnr)
 end
 
 local autocmd_format = function(client, bufnr)
-  vim.api.nvim_clear_autocmds({ buffer = 0, group = augroup_format })
+  vim.api.nvim_clear_autocmds({ buffer = bufnr, group = augroup_format })
   vim.api.nvim_create_autocmd('BufWritePre', {
-    buffer = 0,
+    group = augroup_format,
+    buffer = bufnr,
+    desc = 'Format on save',
     callback = function()
       M.maybe_lsp_format(client, bufnr)
     end,
@@ -76,9 +78,9 @@ local filetype_attach = setmetatable({
   go = default_formatter,
   nix = default_formatter,
 
-  lua = function(client, _)
+  lua = function(client, bufnr)
     vim.api.nvim_exec2([[set signcolumn=yes]], { output = true })
-    autocmd_format(client)
+    autocmd_format(client, bufnr)
   end,
 
   terraform = default_formatter,
