@@ -38,6 +38,7 @@
             # Set to default with:
             #   nextcloud-occ config:app:set --value=0 user_oidc allow_multiple_user_backends
             user_oidc
+            previewgenerator
             ;
         };
         https = true;
@@ -70,6 +71,25 @@
     };
     systemd.services.nextcloud-setup = {
       after = [ "mysql.service" ];
+    };
+    systemd.timers.nextcloud-previewgenerator-cron = {
+      wantedBy = [ "timers.target" ];
+      after = [ "nextcloud-setup.service" ];
+      timerConfig.OnBootSec = "5m";
+      timerConfig.OnUnitActiveSec = "10m";
+      timerConfig.Unit = "nextcloud-previewgenerator-cron.service";
+    };
+
+    systemd.services.nextcloud-previewgenerator-cron = {
+      after = [ "nextcloud-setup.service" ];
+      environment.NEXTCLOUD_CONFIG_DIR = config.services.nextcloud.datadir;
+      serviceConfig.Type = "oneshot";
+      serviceConfig.User = "nextcloud";
+      # Run ./occ preview:generate-all once after installation.
+      # Add a (system) cron job for  ./occ preview:pre-generate     # preview:generate-all
+
+      # we could even be more verbose with -vvv
+      serviceConfig.ExecStart = "${config.services.nextcloud.occ}/bin/nextcloud-occ preview:generate-all -vv";
     };
   };
 }
