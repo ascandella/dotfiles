@@ -1,14 +1,9 @@
 -- https://jose-elias-alvarez.medium.com/configuring-neovims-lsp-client-for-typescript-development-5789d58ea9c
 local M = {}
 
-local lsp_format = require('lsp-format')
-
-local lsp_formatting_disabled = false
-
 M.toggle_lsp_formatting = function()
-  lsp_format.toggle({ args = '' })
-  lsp_formatting_disabled = not lsp_formatting_disabled
-  vim.notify('LSP Formatting ' .. (lsp_formatting_disabled and 'disabled' or 'enabled'))
+  vim.b.lsp_disable_formatting = not vim.b.lsp_disable_formatting
+  vim.notify('LSP Formatting ' .. (vim.b.lsp_formatting_disabled and 'disabled' or 'enabled'))
 end
 
 -- From: https://github.com/daliusd/cfg/blob/0e61894c689d736fa8c59ace8f149ecffb187cc4/.vimrc#L319-L332
@@ -55,12 +50,21 @@ if vim.lsp.inlay_hint then
   end, { desc = 'Toggle Inlay Hints' })
 end
 
-lsp_format.setup({
-  exclude = 'ts_ls',
-})
+M.maybe_lsp_format = function(client, bufnr)
+  if not vim.b.lsp_disable_formatting then
+    local options = { async = true, bufnr = bufnr }
+    vim.lsp.buf.format(options)
+  end
+end
 
 local autocmd_format = function(client, bufnr)
-  lsp_format.on_attach(client, bufnr)
+  vim.api.nvim_clear_autocmds({ buffer = 0, group = augroup_format })
+  vim.api.nvim_create_autocmd('BufWritePre', {
+    buffer = 0,
+    callback = function()
+      M.maybe_lsp_format(client, bufnr)
+    end,
+  })
 end
 
 local default_formatter = function(client, bufnr)

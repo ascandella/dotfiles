@@ -299,7 +299,7 @@ local packages = {
   -- Astro syntax
   { 'wuelnerdotexe/vim-astro', ft = 'astro' },
   -- KDL syntax, for zellij
-  { 'imsnif/kdl.vim',          ft = 'kdl' },
+  { 'imsnif/kdl.vim', ft = 'kdl' },
   --
   -- Start screen
   {
@@ -349,11 +349,6 @@ local packages = {
     config = function()
       require('ai/todo')
     end,
-  },
-
-  -- Async formatting
-  {
-    'lukas-reineke/lsp-format.nvim',
   },
 
   -- YAML detection, for k8s
