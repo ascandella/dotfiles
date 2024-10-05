@@ -69,23 +69,29 @@
         }
       ];
     };
-    systemd.services.nextcloud-setup = {
-      after = [ "mysql.service" ];
-    };
     systemd.timers.nextcloud-previewgenerator-cron = {
       wantedBy = [ "timers.target" ];
       after = [ "nextcloud-setup.service" ];
-      timerConfig.OnBootSec = "5m";
-      timerConfig.OnUnitActiveSec = "10m";
-      timerConfig.Unit = "nextcloud-previewgenerator-cron.service";
+      timerConfig = {
+        OnBootSec = "5m";
+        OnUnitActiveSec = "10m";
+        Unit = "nextcloud-previewgenerator-cron.service";
+      };
+    };
+    systemd.services = {
+      nextcloud-setup = {
+        after = [ "mysql.service" ];
+      };
+      nextcloud-previewgenerator-cron = {
+        after = [ "nextcloud-setup.service" ];
+        environment.NEXTCLOUD_CONFIG_DIR = config.services.nextcloud.datadir;
+        serviceConfig = {
+          Type = "oneshot";
+          User = "nextcloud";
+          ExecStart = "${config.services.nextcloud.occ}/bin/nextcloud-occ preview:pre-generate";
+        };
+      };
     };
 
-    systemd.services.nextcloud-previewgenerator-cron = {
-      after = [ "nextcloud-setup.service" ];
-      environment.NEXTCLOUD_CONFIG_DIR = config.services.nextcloud.datadir;
-      serviceConfig.Type = "oneshot";
-      serviceConfig.User = "nextcloud";
-      serviceConfig.ExecStart = "${config.services.nextcloud.occ}/bin/nextcloud-occ preview:pre-generate";
-    };
   };
 }
