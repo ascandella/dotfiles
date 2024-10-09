@@ -12,6 +12,7 @@
         enable = true;
       };
       enableCompletion = true;
+      completionInit = "";
       dotDir = ".config/zsh";
 
       defaultKeymap = "emacs";
