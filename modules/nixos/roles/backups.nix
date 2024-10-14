@@ -38,6 +38,7 @@
     let
       basicBorgJob = name: {
         encryption = {
+          mode = "repokey-blake2";
           passCommand = "cat ${config.age.secrets.baymax-borg.path}";
         };
         extraCreateArgs = "--verbose --stats --checkpoint-interval 600";
