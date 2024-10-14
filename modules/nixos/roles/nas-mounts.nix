@@ -43,6 +43,10 @@
   };
 
   config = {
+    age.secrets = {
+      truenas-nixos.file = ../../../secrets/truenas-nixos.age;
+    };
+
     users = {
       users.root = {
         # For OCI containers running as root
@@ -55,23 +59,34 @@
 
     fileSystems =
       let
-        nasMappings = {
+        nfsMappings = {
           movies = config.my.nas.moviesDir;
           tv = config.my.nas.tvDir;
           nextcloud = config.my.nas.nextcloudDir;
           downloads = config.my.nas.downloadsDir;
           server-config = config.my.nas.serverConfigDir;
-          backups = config.my.nas.backupsDir;
           frigate = config.my.nas.frigateDir;
         };
+        smbMappings = {
+          backups = config.my.nas.backupsDir;
+        };
+        # truenas-internal; DNS failures on boot sometimes
+        truenasHost = "10.4.0.40";
       in
       lib.concatMapAttrs (source: destination: {
         "${destination}" = {
           fsType = "nfs";
           options = [ "x-systemd.mount-timeout=3m" ];
-          # truenas-internal; DNS failures on boot sometimes
-          device = "10.4.0.40:/mnt/truepool-rust/${source}";
+          device = "${truenasHost}:/mnt/truepool-rust/${source}";
         };
-      }) nasMappings;
+      }) nfsMappings
+      // lib.concatMapAttrs (source: destination: {
+        "${destination}" = {
+          fsType = "cifs";
+          options = [ "x-systemd.mount-timeout=1m,credentials=${config.age.secrets.truenas-nixos.path}" ];
+          # truenas-internal; DNS failures on boot sometimes
+          device = "//${truenasHost}/${source}";
+        };
+      }) smbMappings;
   };
 }
