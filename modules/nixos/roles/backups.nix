@@ -37,7 +37,6 @@
   services.borgbackup.jobs =
     let
       basicBorgJob = name: {
-        encryption.mode = "none";
         encryption = {
           passCommand = "cat ${config.age.secrets.baymax-borg.path}";
         };
