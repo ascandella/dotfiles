@@ -17,6 +17,7 @@ in
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../modules/nixos/roles/base.nix
+    ../../modules/nixos/roles/ntfy.nix
     ../../modules/nixos/roles/podman.nix
     ../../modules/nixos/roles/users.nix
     ../../modules/nixos/roles/nvidia.nix

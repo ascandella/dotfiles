@@ -8,6 +8,7 @@ in
   "nextcloud-db-pass.age".publicKeys = baymaxKeys;
   "gitea-db-pass.age".publicKeys = baymaxKeys;
   "baymax-borg.age".publicKeys = baymaxKeys;
+  "baymax-ntfy-token.age".publicKeys = baymaxKeys;
   "mosquitto-homeassistant.age".publicKeys = baymaxKeys;
   "mosquitto-frigate.age".publicKeys = baymaxKeys;
   "nutuser.age".publicKeys = baymaxKeys;
