@@ -29,6 +29,7 @@
           autohide = true;
           # Don't rearrange spaces based on recently used
           mru-spaces = false;
+          orientation = "left";
         };
       };
 
