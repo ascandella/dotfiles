@@ -27,6 +27,8 @@
         dock = {
           # Automatically show and hide the dock
           autohide = true;
+          # Don't rearrange spaces based on recently used
+          mru-spaces = false;
         };
       };
 
