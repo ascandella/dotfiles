@@ -19,6 +19,9 @@
 
           # Shorten delay before key repeat begins
           InitialKeyRepeat = 12;
+
+          # Disable double-space for period
+          NSAutomaticPeriodSubstitutionEnabled = false;
         };
 
         # Disable "Are you sure you want to open" dialog
