@@ -27,6 +27,7 @@ nixpkgs.lib.nixosSystem {
           homeDirectory
           inputs
           pkgs
+          system
           ;
       };
     }

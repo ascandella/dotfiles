@@ -3,6 +3,7 @@
   pkgs,
   homeDirectory,
   inputs,
+  system,
   ...
 }:
 
@@ -20,6 +21,7 @@
           pkgs
           homeDirectory
           inputs
+          system
           ;
       }
     )

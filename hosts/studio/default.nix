@@ -24,6 +24,7 @@ darwin.lib.darwinSystem {
         shell = pkgs.zsh;
       };
       home-manager.users.${username} = import ../../modules/home/home.nix {
+        system = "aarch64-darwin";
         inherit
           username
           pkgs

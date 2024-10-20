@@ -2,6 +2,7 @@
   pkgs,
   lib,
   inputs,
+  system,
   ...
 }:
 {
@@ -14,7 +15,11 @@
 
     home = {
       sessionPath = [ "/opt/homebrew/bin/" ];
-      packages = with pkgs; [ jira-cli-go ];
+      packages = with pkgs; [
+        jira-cli-go
+        # Install this so it doesn't get orphaned with `nix-collect-garbage -d`
+        inputs.deploy-rs.packages.${system}.default
+      ];
 
       file = {
         ".gnupg/gpg-agent.conf".text = ''
