@@ -17,12 +17,12 @@ if hostname:match('.*tudio.*') then
   config.font_size = 20
 else
   config.font_size = 14
-  if hostname:match('.*MacBook.*') then
-    -- https://github.com/wez/wezterm/issues/6005#issuecomment-2351659322
-    -- https://github.com/wez/wezterm/issues/5990
-    config.front_end = 'WebGpu'
-  end
 end
+
+-- Currently needed for all macs on wezterm from nixpkgs-unstable
+-- https://github.com/wez/wezterm/issues/6005#issuecomment-2351659322
+-- https://github.com/wez/wezterm/issues/5990
+config.front_end = 'WebGpu'
 
 config.freetype_load_target = 'Light'
 
