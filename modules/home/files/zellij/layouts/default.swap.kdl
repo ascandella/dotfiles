@@ -5,6 +5,16 @@ tab_template name="ui" {
     }
 }
 
+swap_tiled_layout name="3up" {
+    ui max_panes=4 {
+        pane split_direction="vertical" {
+            pane
+            pane
+            pane
+        }
+    }
+}
+
 swap_tiled_layout name="vertical" {
     ui max_panes=5 {
         pane split_direction="vertical" {

@@ -82,14 +82,14 @@ wezterm.plugin.require('https://github.com/nekowinston/wezterm-bar').apply_to_co
     },
   },
   tabs = {
-    numerals = 'arabic',        -- or "roman"
+    numerals = 'arabic', -- or "roman"
     pane_count = 'superscript', -- or "subscript", false
     brackets = {
       active = { '', ':' },
       inactive = { '', ':' },
     },
   },
-  clock = {           -- note that this overrides the whole set_right_status
+  clock = { -- note that this overrides the whole set_right_status
     enabled = true,
     format = '%H:%M', -- use https://wezfurlong.org/wezterm/config/lua/wezterm.time/Time/format.html
   },
