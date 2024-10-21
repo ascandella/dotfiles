@@ -68,19 +68,6 @@ vim.api.nvim_command([[
   autocmd BufWinEnter * if line2byte(line("$") + 1) > 1000000 | syntax clear | endif
 ]])
 
-vim.cmd([[
-  augroup gitcommit-mapping
-    autocmd!
-    " Enter append on the first line
-    autocmd FileType gitcommit if getline(1) == "" | execute "normal! 0" | startinsert | endif
-    autocmd FileType gitcommit setlocal textwidth=72 fo+=t
-
-    " Same, but for neogit
-    " autocmd FileType NeogitCommitMessage execute "normal! 0" | startinsert
-    autocmd FileType NeogitCommitMessage setlocal textwidth=72 fo+=t
-  augroup END
-]])
-
 vim.filetype.add({
   filename = {
     ['justfile'] = 'make',

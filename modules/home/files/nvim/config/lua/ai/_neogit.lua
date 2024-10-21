@@ -6,7 +6,7 @@ neogit.setup({
   disable_commit_confirmation = true,
   disable_hint = true,
   -- Use insert for commit messages
-  disable_insert_on_commit = false,
+  disable_insert_on_commit = true,
   graph_style = 'unicode',
   kind = 'tab',
   integrations = {
