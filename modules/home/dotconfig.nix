@@ -27,4 +27,10 @@
     };
     "zellij".source = ./files/zellij;
   };
+
+  home.file = {
+    ".npmrc".text = ''
+      update-notifier=false
+    '';
+  };
 }
