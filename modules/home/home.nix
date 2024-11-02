@@ -75,9 +75,7 @@
       curl
       delta
       eza # better ls
-      fnm
       fzf
-      go
       htop
       just
       k9s
@@ -88,7 +86,6 @@
       nixfmt-rfc-style
       ngrok
       ripgrep
-      rustup
       scc # count lines of code
       spaceship-prompt
       ssm-session-manager-plugin # for awscli
@@ -96,7 +93,20 @@
       zellij
       zoxide
 
-      gh # GitHub CLI, used with Octo
+      ## Programming languages
+
+      # Go
+      go
+
+      # Rust
+      rustup
+
+      # Node
+      fnm
+      pnpm
+
+      # GitHub CLI, used with Octo
+      gh
 
       # Language servers (for Neovim)
       efm-langserver
@@ -106,40 +116,12 @@
       tflint
       shfmt # shell formatting
       ruff # python formatting
-
-      # # It is sometimes useful to fine-tune packages, for example, by applying
-      # # overrides. You can do that directly here, just don't forget the
-      # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-      # # fonts?
-      # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
-
-      # # You can also create simple shell scripts directly inside your
-      # # configuration. For example, this adds a command 'my-hello' to your
-      # # environment:
-      # (pkgs.writeShellScriptBin "my-hello" ''
-      #   echo "Hello, ${config.home.username}!"
-      # '')
     ];
 
     home.shellAliases = {
       reload-home-manager-config = "home-manager switch && exec zsh -L";
     };
 
-    # Home Manager can also manage your environment variables through
-    # 'home.sessionVariables'. If you don't want to manage your shell through Home
-    # Manager then you have to manually source 'hm-session-vars.sh' located at
-    # either
-    #
-    #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-    #
-    # or
-    #
-    #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
-    #
-    # or
-    #
-    #  /etc/profiles/per-user/aiden/etc/profile.d/hm-session-vars.sh
-    #
     home.sessionVariables = {
       EDITOR = "nvim";
       CLICOLOR = "1";
