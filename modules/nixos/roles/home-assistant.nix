@@ -87,7 +87,7 @@ with lib;
         "--group-add"
         "dialout"
         "--device"
-        cfg.serialDevice
+        "${cfg.serialDevice}:${cfg.serialDevice}"
 
         # Special perms
         "--cap-add=NET_ADMIN"

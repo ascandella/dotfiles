@@ -72,8 +72,7 @@ with lib;
         "--group-add"
         "dialout"
         "--device"
-        cfg.serialDevice
-        # "--userns="
+        "${cfg.serialDevice}:${cfg.serialDevice}"
       ];
     };
     systemd.services."${config.virtualisation.oci-containers.backend}-zwavejs" = {
