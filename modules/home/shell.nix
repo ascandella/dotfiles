@@ -176,6 +176,15 @@
 
       plugins = [
         {
+          name = "zsh-npm-scripts-autocomplete";
+          src = pkgs.fetchFromGitHub {
+            owner = "grigorii-zander";
+            repo = "zsh-npm-scripts-autocomplete";
+            rev = "5d145e13150acf5dbb01dac6e57e57c357a47a4b";
+            sha256 = "sha256-Y34VXOU7b5z+R2SssCmbooVwrlmSxUxkObTV0YtsS50=";
+          };
+        }
+        {
           name = "zsh-history-substring-search";
           src = pkgs.fetchFromGitHub {
             owner = "zsh-users";
