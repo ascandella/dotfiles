@@ -119,7 +119,6 @@ shift + alt - 0 : yabai -m space --balance
 #                   yabai -m space --focus "${index}"
 
 # fast focus desktop
-cmd + shift - y : yabai -m space --focus recent
 alt - 1 : yabai -m space --focus 1
 alt - 2 : yabai -m space --focus 2
 alt - 3 : yabai -m space --focus 3
