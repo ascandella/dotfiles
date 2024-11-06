@@ -43,7 +43,6 @@
           k = "kubectl";
           kc = "kubectl config use-context";
           krp = "kubectl get pods --field-selector=status.phase=Running";
-          l = "eza --icons=auto";
           less = "most";
         }
         (lib.mkIf pkgs.stdenv.isLinux {
