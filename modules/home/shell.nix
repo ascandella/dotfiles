@@ -32,7 +32,7 @@
           e = "eza --icons=auto"; # also aliased as 'l'
           elt = "e -lt modified"; # like `ls -ltr`
           g = "git";
-          gm = "git main";
+          gi = "git main";
           gst = "git status -sb";
           gco = "git checkout";
           gcp = "git cherry-pick";
