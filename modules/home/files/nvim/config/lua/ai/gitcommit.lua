@@ -43,7 +43,7 @@ end
 local augroup_gitcommit = vim.api.nvim_create_augroup('gitcommit', { clear = true })
 
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'gitcommit', 'NeogitCommitMessage' },
+  pattern = { 'gitcommit' },
   group = augroup_gitcommit,
   callback = handle_gitcommit_enter,
 })
