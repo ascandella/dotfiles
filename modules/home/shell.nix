@@ -168,6 +168,7 @@
         )
         source "${pkgs.spaceship-prompt}/lib/spaceship-prompt/spaceship.zsh"
         export FPATH="${pkgs.eza}/completions/zsh:$FPATH"
+        source "${pkgs.awscli2}/bin/aws_zsh_completer.sh"
       '';
 
       envExtra = ''
