@@ -66,6 +66,9 @@
         pager = "${pkgs.delta}/bin/delta";
         excludesfile = "${config.xdg.configHome}/git/global-ignore";
       };
+      diff = {
+        noprefix = true;
+      };
       interactive = {
         singleKey = true;
         diffFilter = "delta --color-only --features=interactive";
