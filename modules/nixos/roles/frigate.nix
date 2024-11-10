@@ -42,6 +42,7 @@ with lib;
       environment = {
         # HACK ALERT: See below for manually mounting cudnn/libcublas
         LD_LIBRARY_PATH = "/usr/lib";
+        FRIGATE_PODMAN_NETWORK = config.my.podman.networkCidr;
       };
       environmentFiles = [
         config.age.secrets.frigate-secrets.path
