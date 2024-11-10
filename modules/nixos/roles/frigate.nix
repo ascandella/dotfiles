@@ -32,6 +32,9 @@ with lib;
   };
 
   config = mkIf cfg.enable {
+    age.secrets = {
+      frigate-secrets.file = ../../../secrets/frigate-secrets.age;
+    };
     networking.firewall = mkIf cfg.openFirewall { allowedTCPPorts = [ cfg.port ]; };
 
     virtualisation.oci-containers.containers.frigate = {
@@ -40,6 +43,9 @@ with lib;
         # HACK ALERT: See below for manually mounting cudnn/libcublas
         LD_LIBRARY_PATH = "/usr/lib";
       };
+      environmentFiles = [
+        config.age.secrets.frigate-secrets.path
+      ];
       ports = [
         "${toString cfg.port}:8971"
         "127.0.0.1:8585:5000" # internal API, not exposed through firewall, only for home-assistant
