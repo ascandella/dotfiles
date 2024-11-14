@@ -9,7 +9,7 @@ with lib;
     enable = mkEnableOption "Enable Ollama service";
     version = mkOption {
       type = types.str;
-      default = "0.2.8";
+      default = "0.4.1";
       description = "Ollama version";
     };
     port = mkOption {
