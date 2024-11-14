@@ -33,6 +33,11 @@ with lib;
       default = 4040;
       description = "Port to expose Ollama Web UI on";
     };
+    webDataDir = mkOption {
+      type = types.str;
+      default = "${config.my.nas.serverConfigDir}/open-webui";
+      description = "open-webui data directory";
+    };
   };
 
   config = mkIf cfg.enable {
@@ -55,6 +60,10 @@ with lib;
     virtualisation.oci-containers.containers.ollama-web = mkIf cfg.enableWeb {
       image = "ghcr.io/open-webui/open-webui:${cfg.webVersion}";
       ports = [ "${toString cfg.webPort}:8080" ];
+      volumes = [ "${cfg.webDataDir}:/app/backend/data" ];
+      environment = {
+        ENABLE_SIGNUP = "false";
+      };
       extraOptions = [
         "--device"
         "nvidia.com/gpu=all"
