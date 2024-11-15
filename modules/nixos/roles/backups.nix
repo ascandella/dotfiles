@@ -63,6 +63,9 @@
           config.services.aispace.homarr.configDir
         ];
       };
+      frigate = basicBorgJob "frigate" // {
+        paths = config.services.aispace.frigate.dataDir;
+      };
       gitea = basicBorgJob "gitea" // {
         paths = config.services.gitea.stateDir;
       };
