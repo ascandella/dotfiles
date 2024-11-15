@@ -25,8 +25,8 @@ with lib;
     enableWeb = mkEnableOption "Enable Ollama web interface";
     webVersion = mkOption {
       type = types.str;
-      default = "git-82079e6-cuda";
-      description = "Ollama web version";
+      default = "git-f5f2215-cuda";
+      description = "Open-webui web version";
     };
     webPort = mkOption {
       type = types.port;
