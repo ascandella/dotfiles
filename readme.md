@@ -18,5 +18,7 @@ nix run nix-darwin \
 ## After the first run, you can:
 
 ```sh
+just darwin
+# short for
 darwin-rebuild switch --flake ".#studio"
 ```
