@@ -64,11 +64,11 @@
           tv = config.my.nas.tvDir;
           nextcloud = config.my.nas.nextcloudDir;
           downloads = config.my.nas.downloadsDir;
+          server-config = config.my.nas.serverConfigDir;
           frigate = config.my.nas.frigateDir;
         };
         smbMappings = {
           backups = config.my.nas.backupsDir;
-          server-config = config.my.nas.serverConfigDir;
         };
         # truenas-internal; DNS failures on boot sometimes
         truenasHost = "10.4.0.40";
