@@ -53,8 +53,6 @@ with lib;
 
     networking.firewall.allowedTCPPorts = [
       cfg.port
-      # TODO: make this optional too, but I was fighting nix here with `lib.optional` inside this `lib.mkIf` block
-      cfg.webPort
     ];
 
     virtualisation.oci-containers.containers.ollama-web = mkIf cfg.enableWeb {
