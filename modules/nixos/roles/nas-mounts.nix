@@ -31,6 +31,10 @@
         type = lib.types.str;
         default = "/var/lib/nextcloud/data";
       };
+      minioDir = lib.mkOption {
+        type = lib.types.path;
+        default = "/data/minio";
+      };
       squashGroup = lib.mkOption {
         type = lib.types.str;
         default = "nfs-mounts";
@@ -69,6 +73,7 @@
         };
         smbMappings = {
           backups = config.my.nas.backupsDir;
+          minio = config.my.nas.minioDir;
         };
         # truenas-internal; DNS failures on boot sometimes
         truenasHost = "10.4.0.40";
