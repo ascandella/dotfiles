@@ -1,28 +1,30 @@
 { config, pkgs, ... }:
 
 {
-  services.k3s = {
-    enable = true;
-    role = "server";
-    extraFlags = toString [
-      "--node-label"
-      "ai-location=home"
-      "--disable=traefik"
-    ];
-  };
+  services = {
+    k3s = {
+      enable = true;
+      role = "server";
+      extraFlags = toString [
+        "--node-label"
+        "ai-location=home"
+        "--disable=traefik"
+      ];
+    };
 
-  # For Longhorn / Truenas iSCSI
-  services.openiscsi = {
-    enable = true;
-    name = "iqn.2024-11.com.nixos:${config.networking.hostName}";
-  };
-  services.multipath = {
-    enable = true;
-    pathGroups = [ ];
-    defaults = "
+    # For Longhorn / Truenas iSCSI
+    openiscsi = {
+      enable = true;
+      name = "iqn.2024-11.com.nixos:${config.networking.hostName}";
+    };
+    multipath = {
+      enable = true;
+      pathGroups = [ ];
+      defaults = "
       user_friendly_names yes
       find_multipaths yes
     ";
+    };
   };
 
   environment.systemPackages = [ pkgs.k3s ];
