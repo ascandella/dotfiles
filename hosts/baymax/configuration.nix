@@ -212,6 +212,8 @@ in
       ollama.enable = true;
       ollama.enableWeb = true;
     };
+
+    openiscsi.name = "iqn.2024-11.com.nixos:baymax";
   };
 
   # This value determines the NixOS release from which the default

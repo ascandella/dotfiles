@@ -80,6 +80,7 @@
       just
       k9s
       kubectl
+      kubernetes-helm
       kustomize
       magic-wormhole
       most
