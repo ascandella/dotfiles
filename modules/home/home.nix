@@ -84,6 +84,7 @@
       kubernetes-helm
       kustomize
       magic-wormhole
+      minio-client
       most
       nixfmt-rfc-style
       ngrok
@@ -94,6 +95,9 @@
       wezterm # superior terminal
       zellij
       zoxide
+
+      # nix tools
+      nix-search-cli
 
       ## Programming languages
 
