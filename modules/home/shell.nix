@@ -124,6 +124,15 @@
           export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
         fi
 
+        # Age decrypt
+        ad() {
+          local AGE_IDENTITY="$HOME/.age/identity"
+          if [[ ! -f "$AGE_IDENTITY" ]]; then
+            AGE_IDENTITY="$HOME/.ssh/id_ed25519"
+          fi
+          age -d -i "$AGE_IDENTITY" "$@"
+        }
+
         # https://github.com/larkery/zsh-histdb?tab=readme-ov-file#integration-with-zsh-autosuggestions
         _zsh_autosuggest_strategy_histdb_top() {
             local query="
