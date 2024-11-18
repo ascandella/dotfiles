@@ -41,6 +41,8 @@
           vi = "nvim";
           vim = "nvim";
           k = "kubectl";
+          ko = "kubectl --context oracle";
+          kb = "kubectl --context baymax";
           kc = "kubectl config use-context";
           krp = "kubectl get pods --field-selector=status.phase=Running";
           less = "most";
