@@ -8,6 +8,7 @@ in
   "baymax-vpn.age".publicKeys = baymaxKeys;
   "frigate-secrets.age".publicKeys = baymaxKeys;
   "gitea-db-pass.age".publicKeys = baymaxKeys;
+  "gitea-fastmail-app-password.age".publicKeys = baymaxKeys;
   "mosquitto-frigate.age".publicKeys = baymaxKeys;
   "mosquitto-homeassistant.age".publicKeys = baymaxKeys;
   "nextcloud-db-pass.age".publicKeys = baymaxKeys;

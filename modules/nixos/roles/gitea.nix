@@ -1,10 +1,17 @@
 { config, ... }:
 
 {
-  age.secrets.gitea-db-pass = {
-    file = ../../../secrets/gitea-db-pass.age;
-    owner = config.services.gitea.user;
-    mode = "0400";
+  age.secrets = {
+    gitea-db-pass = {
+      file = ../../../secrets/gitea-db-pass.age;
+      owner = config.services.gitea.user;
+      mode = "0400";
+    };
+    gitea-fastmail-app-password = {
+      file = ../../../secrets/gitea-fastmail-app-password.age;
+      owner = config.services.gitea.user;
+      mode = "0400";
+    };
   };
 
   services = {
@@ -14,12 +21,20 @@
         type = "mysql";
         passwordFile = config.age.secrets.gitea-db-pass.path;
       };
+      mailerPasswordFile = config.age.secrets.gitea-fastmail-app-password.path;
       settings = {
         server = {
           HTTP_PORT = 3009;
           DOMAIN = "code.ndella.com";
           SSH_DOMAIN = "baymax.lfp";
           ROOT_URL = "https://code.ndella.com/";
+        };
+        mailer = {
+          ENABLED = true;
+          PROTOCOL = "smtp";
+          HOST = "smtp.fastmail.com:587";
+          USER = "sc@ndella.com";
+          FROM = "Gitea <gitea@sca.ndella.com>";
         };
         service = {
           DISABLE_REGISTRATION = true;
