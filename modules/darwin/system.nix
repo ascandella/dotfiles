@@ -9,6 +9,9 @@
         trackpad = {
           TrackpadRightClick = true;
         };
+        screencapture = {
+          location = "~/Documents/Nextcloud/Screenshots";
+        };
 
         NSGlobalDomain = {
           # Set to dark mode
