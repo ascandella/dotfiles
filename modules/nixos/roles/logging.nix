@@ -38,7 +38,7 @@ with lib;
           sources = {
             journald = {
               type = "journald";
-              exclude_units = [ "vector" ];
+              # exclude_units = [ "vector" ];
             };
           };
           transforms = {
