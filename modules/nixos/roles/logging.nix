@@ -6,8 +6,11 @@
       enable = true;
       journaldAccess = true;
       settings = {
-
-        # TODO
+        sources = {
+          journald = {
+            type = "journald";
+          };
+        };
       };
     };
   };
