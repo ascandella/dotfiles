@@ -54,9 +54,7 @@ with lib;
                 .resource_attributes.service.container_id = .CONTAINER_ID
                 .attributes.syslog.procid = ._PID
                 .attributes.syslog.facility = .SYSLOG_FACILITY
-                .body = {
-                  message = .message
-                }
+                .body.message = .message
                 .scope_name = .__SEQNUM
                 .severity_text = if includes(["0", "1", "2", "3"], .PRIORITY) {
                   "ERROR"
@@ -71,6 +69,7 @@ with lib;
                 }
 
                 del(.source_type)
+                del(.timestamp)
                 del(.host)
                 del(.message)
                 del(.PRIORITY)
