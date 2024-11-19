@@ -188,9 +188,17 @@ in
     };
   };
 
+  hardware = {
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
+  };
+
   services = {
     # PROXMOOOOOX
     qemuGuest.enable = true;
+    blueman.enable = true;
     # Custom services
     aispace = {
       home-assistant = {
