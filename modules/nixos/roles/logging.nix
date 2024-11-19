@@ -15,9 +15,15 @@ with lib;
       quickwit = {
         host = mkOption {
           type = types.str;
+          default = "localhost";
+        };
+        index = mkOption {
+          type = types.str;
+          default = "otel-logs-v0_7";
         };
         port = mkOption {
           type = types.port;
+          default = 7280;
         };
       };
     };
@@ -118,10 +124,13 @@ with lib;
             };
           };
           sinks = {
-            console = {
+            quickwit = {
               inputs = [ "otel-journald" ];
-              type = "console";
+              type = "http";
+              method = "post";
               encoding.codec = "json";
+              framing.method = "newline_delimited";
+              uri = "http://${cfg.quickwit.host}:${toString cfg.quickwit.port}/api/v1/${cfg.quickwit.index}/ingest";
             };
           };
         };
