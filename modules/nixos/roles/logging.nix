@@ -19,7 +19,7 @@ with lib;
         };
         index = mkOption {
           type = types.str;
-          default = "otel-logs-v0_7";
+          default = "otel-logs-v0-7";
         };
         port = mkOption {
           type = types.port;
