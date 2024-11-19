@@ -9,7 +9,7 @@ with lib;
     enable = mkEnableOption (mdDoc "enable home-assistant via OCI container");
     version = mkOption {
       type = types.str;
-      default = "2024.8.3";
+      default = "2024.11.0";
     };
     port = mkOption {
       type = types.port;
