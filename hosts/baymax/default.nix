@@ -2,6 +2,7 @@
   inputs,
   pkgs,
   nixpkgs,
+  comin,
   home-manager,
   username,
   pubkeys,
@@ -19,6 +20,7 @@ nixpkgs.lib.nixosSystem {
   modules = [
     ./configuration.nix
     agenix.nixosModules.default
+    comin.nixosModules.comin
     home-manager.nixosModules.home-manager
     {
       home-manager.users.${username} = import ../../modules/home/home.nix {

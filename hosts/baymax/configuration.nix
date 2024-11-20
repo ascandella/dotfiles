@@ -17,6 +17,7 @@ in
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../modules/nixos/roles/base.nix
+    ../../modules/nixos/roles/comin.nix
     ../../modules/nixos/roles/logging.nix
     ../../modules/nixos/roles/ntfy.nix
     ../../modules/nixos/roles/podman.nix

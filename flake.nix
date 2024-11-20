@@ -27,6 +27,11 @@
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    comin = {
+      url = "github:nlewo/comin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -36,6 +41,7 @@
       home-manager,
       darwin,
       flake-utils,
+      comin,
       deploy-rs,
       agenix,
       ...
@@ -124,6 +130,7 @@
               username
               pubkeys
               agenix
+              comin
               ;
             system = systemForHost host;
             homeDirectory = homeDirectory host;
