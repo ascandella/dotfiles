@@ -88,6 +88,7 @@
       most
       nixfmt-rfc-style
       ngrok
+      ntfy-sh # ntfy client
       ripgrep
       scc # count lines of code
       spaceship-prompt
