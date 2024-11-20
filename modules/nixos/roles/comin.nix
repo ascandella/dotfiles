@@ -19,6 +19,10 @@ in
   config = {
     services.comin = {
       enable = true;
+      exporter = {
+        openFirewall = true;
+        listen_address = "10.20.0.35";
+      };
       remotes = [
         {
           name = "origin";
