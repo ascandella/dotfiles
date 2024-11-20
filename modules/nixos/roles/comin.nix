@@ -24,6 +24,7 @@ in
           name = "origin";
           url = cfg.repoUrl;
           branches.main.name = "main";
+          branches.testing.name = "testing";
         }
       ];
     };
