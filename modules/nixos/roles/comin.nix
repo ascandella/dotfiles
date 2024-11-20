@@ -11,16 +11,12 @@ in
       };
       repoUrl = mkOption {
         type = types.str;
-        default = "https://code.ndella.com/ai/ai-cloud.git";
+        default = "https://github.com/ascandella/dotfiles.git";
       };
     };
   };
 
   config = {
-    age.secrets = {
-      gitea-cloud-token.file = ../../../secrets/gitea-cloud-token.age;
-    };
-
     services.comin = {
       enable = true;
       remotes = [
@@ -28,7 +24,6 @@ in
           name = "origin";
           url = cfg.repoUrl;
           branches.main.name = "main";
-          auth.access_token_path = config.age.secrets.gitea-cloud-token.path;
         }
       ];
     };

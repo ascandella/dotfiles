@@ -5,7 +5,6 @@ let
       "baymax-borg"
       "baymax-ntfy-token"
       "baymax-vpn"
-      "gitea-cloud-token"
       "frigate-secrets"
       "gitea-db-pass"
       "gitea-fastmail-app-password"
