@@ -9,7 +9,7 @@ with lib;
     enable = mkEnableOption (mdDoc "enable zwave-js and UI via OCI container");
     version = mkOption {
       type = types.str;
-      default = "9.18";
+      default = "9.27.2";
     };
     user = mkOption {
       type = types.str;
