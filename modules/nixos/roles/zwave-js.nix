@@ -57,11 +57,17 @@ with lib;
     # users.groups.${cfg.user}.gid = cfg.gid;
     # temporary hack until official lingering support is added to `users.users`
     # systemd.tmpfiles.rules = [ "f /var/lib/systemd/linger/${cfg.user}" ];
+    age.secrets = {
+      zwavejs-env.file = ../../../secrets/zwavejs-env.age;
+    };
 
     networking.firewall = mkIf cfg.openFirewall { allowedTCPPorts = [ cfg.port ]; };
 
     virtualisation.oci-containers.containers.zwavejs = {
       image = "zwavejs/zwave-js-ui:${cfg.version}";
+      environmentFiles = [
+        config.age.secrets.zwavejs-env.path
+      ];
       ports = [
         "${toString cfg.port}:8091"
         "3033:3000"
