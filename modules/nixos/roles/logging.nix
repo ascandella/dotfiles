@@ -19,7 +19,7 @@ with lib;
         };
         index = mkOption {
           type = types.str;
-          default = "otel-logs-v0-7";
+          default = "otel-logs-v0_7";
         };
         port = mkOption {
           type = types.port;
@@ -46,17 +46,22 @@ with lib;
               type = "remap";
               inputs = [ "journald" ];
               source = ''
-                .service_name = .SYSLOG_IDENTIFIER
-                .timestamp_nanos = .__REALTIME_TIMESTAMP
-                .resource_attributes.source_type = .source_type
-                .resource_attributes.host.hostname = .host
-                .resource_attributes.service.name = ._SYSTEMD_UNIT
-                .resource_attributes.service.container_id = .CONTAINER_ID
-                .attributes.syslog.procid = ._PID
-                .attributes.syslog.facility = .SYSLOG_FACILITY
-                .body = .message
-                .scope_name = .__SEQNUM
-                .severity_text = if includes(["0", "1", "2", "3"], .PRIORITY) {
+                .body = del(.)
+                .service_name = .body.SYSLOG_IDENTIFIER
+                .timestamp_nanos = .body.__REALTIME_TIMESTAMP
+                .resource_attributes = {}
+                .resource_attributes.source_type = .body.source_type
+                .resource_attributes.host = {}
+                .resource_attributes.host.hostname = .body.host
+                .resource_attributes.service = {}
+                .resource_attributes.service.name = .body._SYSTEMD_UNIT
+                .resource_attributes.service.container_id = .body.CONTAINER_ID
+                .attributes = {}
+                .attributes.syslog = {}
+                .attributes.syslog.procid = .body._PID
+                .attributes.syslog.facility = .body.SYSLOG_FACILITY
+                .scope_name = .body.__SEQNUM
+                .severity_text = if includes(["0", "1", "2", "3"], .body.PRIORITY) {
                   "ERROR"
                 } else if .PRIORITY == "4" {
                   "WARN"
@@ -67,64 +72,6 @@ with lib;
                 } else {
                   "NOTICE"
                 }
-
-                del(.CODE_FILE)
-                del(.CODE_FUNC)
-                del(.CODE_LINE)
-                del(.CONTAINER_ID)
-                del(.CONTAINER_ID_FULL)
-                del(.CONTAINER_NAME)
-                del(.INVOCATION_ID)
-                del(.JOB_ID)
-                del(.JOB_RESULT)
-                del(.JOB_TYPE)
-                del(.LEADER)
-                del(.MESSAGE_ID)
-                del(.PRIORITY)
-                del(.SESSION_ID)
-                del(.SYSLOG_FACILITY)
-                del(.SYSLOG_IDENTIFIER)
-                del(.SYSLOG_PID)
-                del(.SYSLOG_RAW)
-                del(.SYSLOG_TIMESTAMP)
-                del(.TID)
-                del(.UNIT)
-                del(.USER_ID)
-                del(.USER_INVOCATION_ID)
-                del(.USER_UNIT)
-                del(._AUDIT_LOGINUID)
-                del(._AUDIT_SESSION)
-                del(._BOOT_ID)
-                del(._CAP_EFFECTIVE)
-                del(._CMDLINE)
-                del(._COMM)
-                del(._EXE)
-                del(._GID)
-                del(._MACHINE_ID)
-                del(._PID)
-                del(._RUNTIME_SCOPE)
-                del(._SELINUX_CONTEXT)
-                del(._SOURCE_MONOTONIC_TIMESTAMP)
-                del(._SOURCE_REALTIME_TIMESTAMP)
-                del(._STREAM_ID)
-                del(._SYSTEMD_CGROUP)
-                del(._SYSTEMD_INVOCATION_ID)
-                del(._SYSTEMD_OWNER_UID)
-                del(._SYSTEMD_SESSION)
-                del(._SYSTEMD_SLICE)
-                del(._SYSTEMD_UNIT)
-                del(._SYSTEMD_USER_SLICE)
-                del(._SYSTEMD_USER_UNIT)
-                del(._TRANSPORT)
-                del(._UID)
-                del(.__MONOTONIC_TIMESTAMP)
-                del(.__REALTIME_TIMESTAMP)
-                del(.__SEQNUM)
-                del(.__SEQNUM_ID)
-                del(.host)
-                del(.message)
-                del(.source_type)
-                del(.timestamp)
               '';
             };
           };
