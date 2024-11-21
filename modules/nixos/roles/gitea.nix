@@ -32,7 +32,8 @@
         mailer = {
           ENABLED = true;
           PROTOCOL = "smtp";
-          SMTP_ADDR = "smtp.fastmail.com:587";
+          SMTP_ADDR = "smtp.fastmail.com";
+          SMTP_PORT = 587;
           USER = "sc@ndella.com";
           FROM = "Gitea <gitea@sca.ndella.com>";
         };
