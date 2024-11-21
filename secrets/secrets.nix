@@ -17,19 +17,15 @@ let
       "zwavejs-env"
     ];
   };
+  buildSecret =
+    host: keys:
+    map (key: {
+      name = "${key}.age";
+      value = {
+        publicKeys = pubkeys.aispace.ageHostKeys host;
+      };
+    }) keys;
 in
 builtins.listToAttrs (
-  builtins.concatLists (
-    builtins.attrValues (
-      builtins.mapAttrs (
-        host: keys:
-        map (key: {
-          name = "${key}.age";
-          value = {
-            publicKeys = pubkeys.aispace.ageHostKeys host;
-          };
-        }) keys
-      ) keysByHost
-    )
-  )
+  builtins.concatLists (builtins.attrValues (builtins.mapAttrs buildSecret keysByHost))
 )
