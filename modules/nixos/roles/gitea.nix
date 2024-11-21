@@ -31,7 +31,7 @@
         };
         mailer = {
           ENABLED = true;
-          PROTOCOL = "smtp";
+          PROTOCOL = "smtps";
           SMTP_ADDR = "smtp.fastmail.com";
           SMTP_PORT = 587;
           USER = "sc@ndella.com";
