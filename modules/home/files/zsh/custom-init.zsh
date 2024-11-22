@@ -89,8 +89,9 @@ _zsh_autosuggest_strategy_histdb_top() {
 
 ZSH_AUTOSUGGEST_STRATEGY=histdb_top
 
+_UNAME=$(uname)
 # Workaround for zsh-histdb on macos
-if [[ $(uname) == "Darwin" ]] ; then
+if [[ "${_UNAME}" == "Darwin" ]] ; then
   export HISTDB_TABULATE_CMD=(sed -e $'s/\x1f/\t/g')
 fi
 
@@ -112,3 +113,11 @@ kgetsec() {
     go-template='{{range $k,$v := .data}}{{printf "%s: " $k}}{{if not $v}}{{$v}}{{else}}{{$v | base64decode}}{{end}}{{"\n"}}{{end}}'
 }
 
+update() {
+  cd "${DOTFILES_DIR}"
+  if [[ "${_UNAME}" == "Darwin" ]] ; then
+    just darwin
+  else
+    just nixos
+  fi
+}
