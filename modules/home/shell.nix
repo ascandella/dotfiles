@@ -46,6 +46,10 @@
           kc = "kubectl config use-context";
           krp = "kubectl get pods --field-selector=status.phase=Running";
           less = "most";
+          # From https://github.com/zellij-org/zellij/blob/09689eae8b96ddb95713e6612ec17007ced91306/zellij-utils/assets/completions/comp.zsh
+          ze = "zellij edit";
+          zef = "zellij edit --floating";
+          zei = " zellij edit --in-place";
         }
         (lib.mkIf pkgs.stdenv.isLinux {
           # Don't quote directories with spaces in them. This is the default on
@@ -155,6 +159,11 @@
         fi
 
         [[ -f "$HOME/.cargo/env" ]] && . "$HOME/.cargo/env"
+
+        # https://github.com/zellij-org/zellij/blob/09689eae8b96ddb95713e6612ec17007ced91306/zellij-utils/assets/completions/comp.zsh
+        function zr () { zellij run --name "$*" -- zsh -ic "$*";}
+        function zrf () { zellij run --name "$*" --floating -- zsh -ic "$*";}
+        function zri () { zellij run --name "$*" --in-place -- zsh -ic "$*";}
 
         kgetsec() {
           local secret_name=$1

@@ -107,6 +107,7 @@
 
       # Rust
       rustup
+      bacon # newer watcher
 
       # Node
       fnm
