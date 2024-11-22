@@ -108,6 +108,7 @@
       # Rust
       rustup
       bacon # newer watcher
+      cargo-nextest # better test runner
 
       # Node
       fnm

@@ -114,10 +114,11 @@ kgetsec() {
 }
 
 update() {
-  cd "${DOTFILES_DIR}"
+  pushd "${DOTFILES_DIR}"
   if [[ "${_UNAME}" == "Darwin" ]] ; then
     just darwin
   else
     just nixos
   fi
+  popd
 }
