@@ -79,10 +79,6 @@
       fzf
       htop
       just
-      k9s
-      kubectl
-      kubernetes-helm
-      kustomize
       magic-wormhole
       minio-client
       most
@@ -116,6 +112,13 @@
 
       # GitHub CLI, used with Octo
       gh
+
+      # Kubernetes
+      k9s
+      kubectl
+      kubernetes-helm
+      kustomize
+      pv-migrate
 
       # Language servers (for Neovim)
       efm-langserver
