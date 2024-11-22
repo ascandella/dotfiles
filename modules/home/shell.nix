@@ -1,7 +1,9 @@
 { lib, pkgs, ... }:
 
 {
-  home.packages = with pkgs; [ zsh-autopair ];
+  home.packages = with pkgs; [
+    zsh-autopair
+  ];
 
   programs = {
     zsh = {
@@ -248,6 +250,15 @@
             repo = "zsh-autopair";
             rev = "2ec3fd3c9b950c01dbffbb2a4d191e1d34b8c58a";
             sha256 = "Y7fkpvCOC/lC2CHYui+6vOdNO8dNHGrVYTGGNf9qgdg=";
+          };
+        }
+        {
+          name = "fzf-tab";
+          src = pkgs.fetchFromGitHub {
+            owner = "Aloxaf";
+            repo = "fzf-tab";
+            rev = "6aced3f35def61c5edf9d790e945e8bb4fe7b305";
+            sha256 = "EWMeslDgs/DWVaDdI9oAS46hfZtp4LHTRY8TclKTNK8=";
           };
         }
       ];
