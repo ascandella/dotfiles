@@ -122,3 +122,24 @@ update() {
   fi
   popd
 }
+
+autovenv () {(
+  set -e
+  local pyver="${1:-$(which python3)}"
+  if [[ ! -x "${pyver}" ]] ; then
+    echo "Invalid python specified, not executable: ${pyver}"
+    return 1
+  fi
+  local location="${2:-.venv}"
+  local systemsitepackages
+  # Unless explicitly asked not to, use system site packages. To opt out, pass a
+  # second argument
+  if [[ -z "${3}" || -n "${NO_SYSTEM_SITE_PACKAGES}" ]] ; then
+    systemsitepackages="--system-site-packages"
+  fi
+  "${pyver}" -m virtualenv "${systemsitepackages}" -p "${pyver}" "${location}"
+
+  # TODO(ai) make this respect the venv location
+  ln -s "${XDG_CONFIG_HOME}"/zsh/venv-autoenv.zsh \
+      "${AUTOENV_FILE_ENTER:-.autoenv.zsh}"
+)}

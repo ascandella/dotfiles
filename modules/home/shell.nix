@@ -12,6 +12,7 @@
 
   xdg.configFile = {
     "zsh/custom-init.zsh".source = ./files/zsh/custom-init.zsh;
+    "zsh/venv-autoenv.zsh".source = ./files/zsh/venv-autoenv.zsh;
   };
 
   programs = {
@@ -95,6 +96,15 @@
       '';
 
       plugins = [
+        {
+          name = "zsh-autoenv";
+          src = pkgs.fetchFromGitHub {
+            owner = "Tarrasch";
+            repo = "zsh-autoenv";
+            rev = "f5951dd0cfeb37eb18fd62e14edc902a2c308c1e";
+            sha256 = "sha256-8HznSWSBj1baetvDOIZ+H9mWg5gbbzF52nIEG+u9Di8=";
+          };
+        }
         {
           name = "zsh-npm-scripts-autocomplete";
           src = pkgs.fetchFromGitHub {
