@@ -114,13 +114,13 @@ kgetsec() {
 }
 
 update() {
-  pushd "${DOTFILES_DIR}"
+  pushd "${DOTFILES_DIR}" > /dev/null 2>&1
   if [[ "${_UNAME}" == "Darwin" ]] ; then
     just darwin
   else
     just nixos
   fi
-  popd
+  popd > /dev/null 2>&1
 }
 
 autovenv () {(
