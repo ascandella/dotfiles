@@ -34,6 +34,7 @@
           lib
           pkgs
           config
+          system
           ;
       }
     )
@@ -91,6 +92,7 @@
       ssm-session-manager-plugin # for awscli
       wezterm # superior terminal
       zellij
+      inputs.zjstatus.packages.${system}.default
       zoxide
 
       # nix tools
