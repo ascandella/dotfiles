@@ -1,3 +1,6 @@
+default:
+  @just --list
+
 deploy:
   nix run .#deploy-rs -- --skip-checks
 

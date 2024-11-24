@@ -78,6 +78,9 @@ with lib;
       image = "ghcr.io/home-assistant/home-assistant:${cfg.version}";
       volumes = [
         "${cfg.dataDir}:/config"
+        # https://github.com/home-assistant/core/issues/127966#issuecomment-2432185179
+        # Fake that we're in docker until they fix their detection to respect `podman`
+        "/dev/null:/.dockerenv"
         # `uv` needs to handlink so this can't be on NFS. It's fine if it gets
         # blown away; Home Assistant will re-install as needed
         "homeassistant-deps:/config/deps"
@@ -96,10 +99,6 @@ with lib;
         "--cap-add=NET_ADMIN"
         "--cap-add=NET_RAW"
       ];
-      environment = {
-        UV_LINK_MODE = "copy";
-        UV_SYSTEM_PYTHON = "false";
-      };
     };
     systemd.services."${config.virtualisation.oci-containers.backend}-home-assistant" = {
       after = [ "data-apps.mount" ];
