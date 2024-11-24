@@ -143,3 +143,11 @@ autovenv () {(
   ln -s "${XDG_CONFIG_HOME}"/zsh/venv-autoenv.zsh \
       "${AUTOENV_FILE_ENTER:-.autoenv.zsh}"
 )}
+
+zn() {
+  if [[ -z "${1}" ]]; then
+    echo "Usage: zn message"
+    return 1
+  fi
+  zellij pipe "zjstatus:notify:${1}"
+}

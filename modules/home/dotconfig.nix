@@ -25,7 +25,6 @@
       recursive = true;
       source = ./files/nvim/config;
     };
-    "zellij".source = ./files/zellij;
   };
 
   home.file = {
