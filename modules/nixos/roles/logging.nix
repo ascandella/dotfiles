@@ -23,7 +23,7 @@ with lib;
         };
         metrics_index = mkOption {
           type = types.str;
-          default = "otel-metrics-v0_8";
+          default = "otel-metrics-v0_7";
         };
         port = mkOption {
           type = types.port;
