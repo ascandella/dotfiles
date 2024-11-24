@@ -30,6 +30,7 @@
     curl
     iperf
     dnsutils
+    tcpdump
     # backups
     borgbackup
     # For plex cache file management
