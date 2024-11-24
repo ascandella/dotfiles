@@ -103,21 +103,22 @@ in
 
       '';
       "zellij/layouts/vitally.kdl".text = ''
-        cwd "${config.home.homeDirectory}/src/vitally"
-        default_tab_template {
-            children
-            ${zjstatus}
+        layout {
+          cwd "${config.home.homeDirectory}/src/vitally"
+          default_tab_template {
+              children
+              ${zjstatus}
+          }
+          tab name="build" {
+              pane {
+                  command "yarn"
+                  args "build:watch"
+              }
+          }
+          tab name="vim" {
+              pane
+          }
         }
-        tab name="build" {
-            pane {
-                command "yarn"
-                args "build:watch"
-            }
-        }
-        tab name="vim" {
-            pane
-        }
-
       '';
       "zelij/layouts/vitally.swap.kdl".source = ./files/zellij/layouts/default.swap.kdl;
     }
