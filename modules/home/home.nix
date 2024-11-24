@@ -38,6 +38,18 @@
           ;
       }
     )
+    (
+      { lib, config, ... }:
+      import ./zellij.nix {
+        inherit
+          inputs
+          lib
+          pkgs
+          config
+          system
+          ;
+      }
+    )
     ({ config, ... }: import ./session.nix { inherit config; })
   ];
 
