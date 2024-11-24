@@ -96,6 +96,9 @@ with lib;
         "--cap-add=NET_ADMIN"
         "--cap-add=NET_RAW"
       ];
+      environment = {
+        UV_LINK_MODE = "copy";
+      };
     };
     systemd.services."${config.virtualisation.oci-containers.backend}-home-assistant" = {
       after = [ "data-apps.mount" ];
