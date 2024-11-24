@@ -112,8 +112,8 @@ in
           }
           tab name="build" {
               pane {
-                  command "yarn"
-                  args "build:watch"
+                  command "zsh"
+                  args "-i" "-c" "yarn build:watch"
               }
           }
           tab name="vim" {
