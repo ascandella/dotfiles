@@ -59,6 +59,7 @@ in
     };
 
     kernel.sysctl = {
+      "fs.inotify.max_user_instances" = 1024; # default 128
       # For Wireguard access to LAN
       "net.ipv4.ip_forward" = 1;
       # For Wireguard client
