@@ -45,6 +45,7 @@
           elt = "e -lt modified"; # like `ls -ltr`
           g = "git";
           gi = "git main";
+          gp = "git patch";
           gst = "git status -sb";
           gco = "git checkout";
           gcp = "git cherry-pick";
