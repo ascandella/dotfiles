@@ -35,6 +35,7 @@ in
     ../../modules/nixos/roles/mosquitto.nix
     ../../modules/nixos/roles/frigate.nix
     ../../modules/nixos/roles/scrypted.nix
+    ../../modules/nixos/roles/wireguard.nix
     ../../modules/common
     ../../modules/deploy
     ../../modules/plex
