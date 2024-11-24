@@ -14,7 +14,7 @@ end
 config.font = wezterm.font('BerkeleyMonoVariable Nerd Font Mono')
 local hostname = _getHostname()
 if hostname:match('.*tudio.*') then
-  config.font_size = 20
+  config.font_size = 18
 else
   config.font_size = 14
 end
