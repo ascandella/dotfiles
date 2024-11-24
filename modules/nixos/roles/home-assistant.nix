@@ -78,6 +78,9 @@ with lib;
       image = "ghcr.io/home-assistant/home-assistant:${cfg.version}";
       volumes = [
         "${cfg.dataDir}:/config"
+        # `uv` needs to handlink so this can't be on NFS. It's fine if it gets
+        # blown away; Home Assistant will re-install as needed
+        "homeassistant-deps:/config/deps"
         "/etc/localtime:/etc/localtime:ro"
       ];
       extraOptions = [
