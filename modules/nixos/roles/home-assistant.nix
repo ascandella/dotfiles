@@ -98,6 +98,7 @@ with lib;
       ];
       environment = {
         UV_LINK_MODE = "copy";
+        UV_SYSTEM_PYTHON = "false";
       };
     };
     systemd.services."${config.virtualisation.oci-containers.backend}-home-assistant" = {
