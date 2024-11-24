@@ -45,7 +45,13 @@ with lib;
             };
             host-metrics = {
               type = "host_metrics";
-              filesystem.devices.excludes = [ "binfmt_misc" ];
+              filesystem = {
+                devices.excludes = [ "binfmt_misc" ];
+                mountpoints.excludes = [
+                  "*/proc/sys/fs/binfmt_misc"
+                  "/run/credentials/*"
+                ];
+              };
             };
           };
           transforms = {
