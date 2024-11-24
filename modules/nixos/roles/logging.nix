@@ -30,7 +30,9 @@ with lib;
   };
 
   config = mkIf cfg.vector.enable {
-    networking.firewall = mkIf cfg.openFirewall { allowedTCPPorts = [ 9598 ]; };
+    networking.firewall = {
+      allowedTCPPorts = [ 9598 ];
+    };
     services = {
       vector = {
         enable = true;
