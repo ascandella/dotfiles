@@ -29,6 +29,9 @@ local function create_new_buffer(opts)
       prompt = 'Enter name: ',
       default = '',
     }, function(input)
+      vim.defer_fn(function()
+        vim.cmd('echom ""')
+      end, 0)
       editfile(input)
     end)
     return
