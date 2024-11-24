@@ -104,7 +104,7 @@ in
       ];
     };
 
-    wireguard.interfaces.${config.my.services.aispace.wireguard.interface} =
+    wireguard.interfaces.${config.services.aispace.wireguard.interface} =
       let
         # Hosts that are allowed to access lan over wireguard, not just this box
         localTunnelPeers = lib.concatStringsSep "," (
@@ -217,10 +217,6 @@ in
 
       ollama.enable = true;
       ollama.enableWeb = true;
-    };
-
-    wireguard = {
-      interface = "wg0";
     };
 
     openiscsi.name = "iqn.2024-11.com.nixos:baymax";

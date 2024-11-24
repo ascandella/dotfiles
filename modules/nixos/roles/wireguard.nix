@@ -1,8 +1,12 @@
-{ ... }:
+{ lib, ... }:
+
+with lib;
 {
-  options = {
-    services.aispace.wireguard = {
-      interface = "wg0";
+  options = mkOption {
+    services.aispace.wireguard = mkOption {
+      type = types.str;
+      default = "wg0";
+      description = "Wireguard interface to configure";
     };
   };
 }
