@@ -27,7 +27,7 @@
            
             format_left   "{mode}#[bg=$bg] {tabs}"
             format_center "#[bg=$bg,fg=$fg] Zellij: #[bg=$bg,fg=$fg]{session}"
-            format_right  "{datetime}"
+            format_right  "{command_git_branch} {datetime}"
             format_space  "#[bg=$bg]"
             format_hide_on_overlength "true"
             format_precedence "crl"
@@ -37,7 +37,6 @@
             border_format   "#[fg=#6C7086]{char}"
             border_position "top"
 
-            hide_frame_for_single_pane "true"
 
             mode_normal        "#[bg=$green,fg=$bg,bold] NORMAL#[bg=$bg,fg=$green]"
             mode_locked        "#[bg=$red,fg=$bg,bold] LOCKED #[bg=$bg,fg=$red]"
@@ -104,16 +103,23 @@
         source = ./files/nvim/config;
       };
       "zellij/layouts/default.kdl".text = ''
+        pane_frames false
+        theme "nord"
         layout {
             default_tab_template {
               children
               ${zjstatus}
             }
             tab
+            tab_template name="ui" {
+                children
+                ${zjstatus}
+            }
         }
+
       '';
       "zellij/layouts/vitally.kdl".text = ''
-        cwd "/Users/aiden/src/vitally"
+        cwd "${config.home.homeDirectory}/src/vitally"
         default_tab_template {
             children
             ${zjstatus}
