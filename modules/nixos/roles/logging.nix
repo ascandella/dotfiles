@@ -21,6 +21,10 @@ with lib;
           type = types.str;
           default = "otel-logs-v0_7";
         };
+        metrics_index = mkOption {
+          type = types.str;
+          default = "otel-metrics-v0_8";
+        };
         port = mkOption {
           type = types.port;
           default = 7280;
@@ -38,7 +42,10 @@ with lib;
           sources = {
             journald = {
               type = "journald";
-              # exclude_units = [ "vector" ];
+            };
+            host-metrics = {
+              type = "host_metrics";
+              filesystem.devices.excludes = [ "binfmt_misc" ];
             };
           };
           transforms = {
@@ -83,6 +90,15 @@ with lib;
               encoding.codec = "json";
               framing.method = "newline_delimited";
               uri = "http://${cfg.quickwit.host}:${toString cfg.quickwit.port}/api/v1/${cfg.quickwit.index}/ingest";
+            };
+
+            quickwit-metrics = {
+              inputs = [ "host-metrics" ];
+              type = "http";
+              method = "post";
+              encoding.codec = "json";
+              framing.method = "newline_delimited";
+              uri = "http://${cfg.quickwit.host}:${toString cfg.quickwit.port}/api/v1/${cfg.quickwit.metrics_index}/ingest";
             };
           };
         };
