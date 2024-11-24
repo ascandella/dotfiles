@@ -49,7 +49,7 @@ with lib;
                 devices.excludes = [ "binfmt_misc" ];
                 mountpoints.excludes = [
                   "*/proc/sys/fs/binfmt_misc"
-                  "/run/credentials/*"
+                  "/run/*"
                 ];
               };
             };
