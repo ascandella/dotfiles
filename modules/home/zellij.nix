@@ -100,10 +100,6 @@ in
               ${zjstatus}
             }
             tab
-            tab_template name="ui" {
-                children
-                ${zjstatus}
-            }
         }
 
       '';
