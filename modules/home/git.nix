@@ -46,7 +46,7 @@
         # Necessary inside zellij
         dark = true;
         navigate = true;
-        hyperlinks = true;
+        hyperlinks = false;
         features = "decorations";
         line-numbers-left-format = "";
         line-numbers-right-format = "│ ";
