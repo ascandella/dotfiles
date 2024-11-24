@@ -44,3 +44,7 @@ vim.api.nvim_create_user_command(
   create_new_buffer,
   { nargs = '*', desc = 'Create new buffer from name in PWD', range = true }
 )
+
+vim.keymap.set('v', '<Leader>e', function()
+  vim.cmd([[ '<,'>:BufInCurrentDirectory ]])
+end, { desc = 'Create file in current directory' })
