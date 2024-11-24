@@ -21,10 +21,6 @@ with lib;
           type = types.str;
           default = "otel-logs-v0_7";
         };
-        metrics_index = mkOption {
-          type = types.str;
-          default = "otel-traces-v0_7";
-        };
         port = mkOption {
           type = types.port;
           default = 7280;
@@ -99,13 +95,9 @@ with lib;
               uri = "http://${cfg.quickwit.host}:${toString cfg.quickwit.port}/api/v1/${cfg.quickwit.index}/ingest";
             };
 
-            quickwit-metrics = {
+            prometheus = {
               inputs = [ "host-metrics" ];
-              type = "http";
-              method = "post";
-              encoding.codec = "json";
-              framing.method = "newline_delimited";
-              uri = "http://${cfg.quickwit.host}:${toString cfg.quickwit.port}/api/v1/${cfg.quickwit.metrics_index}/ingest";
+              type = "prometheus_exporter";
             };
           };
         };
