@@ -300,7 +300,9 @@ local packages = {
   { 'wuelnerdotexe/vim-astro', ft = 'astro' },
   -- KDL syntax, for zellij
   { 'imsnif/kdl.vim', ft = 'kdl' },
-  --
+  -- Helm template syntax within yaml
+  { 'towolf/vim-helm' },
+
   -- Start screen
   {
     'mhinz/vim-startify',
