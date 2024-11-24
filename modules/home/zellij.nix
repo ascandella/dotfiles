@@ -23,7 +23,7 @@ let
         color_orange "#D08770"
        
         format_left   "{mode}#[bg=$bg] {tabs}"
-        format_center "#[bg=$bg,fg=$fg] Zellij: #[bg=$bg,fg=$fg]{session} {notifications}"
+        format_center "#[bg=$bg,fg=$fg] Zellij: #[bg=$bg,fg=$fg]{session}"
         format_right  "{command_git_branch} {datetime}"
         format_space  "#[bg=$bg]"
         format_hide_on_overlength "true"
