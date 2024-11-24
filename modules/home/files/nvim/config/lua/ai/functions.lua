@@ -47,4 +47,4 @@ vim.api.nvim_create_user_command(
 
 vim.keymap.set('v', '<Leader>e', function()
   vim.cmd([[ '<,'>:BufInCurrentDirectory ]])
-end, { desc = 'Create file in current directory' })
+end, { desc = 'Create file in current directory', silent = true })

@@ -5,6 +5,7 @@ require('ai/gitcommit')
 
 require('ai/_packages')
 
+require('ai/functions')
 require('ai/keymappings')
 
 require('ai/ui')
