@@ -21,7 +21,7 @@ let
         color_cyan "#88C0D0"
         color_white "#E5E9F0"
         color_orange "#D08770"
-       
+
         format_left   "{mode}#[bg=$bg] {tabs}"
         format_center "#[bg=$bg,fg=$fg] Zellij: #[bg=$bg,fg=$fg]{session}"
         format_right  "{command_git_branch} {datetime}"
@@ -33,6 +33,11 @@ let
         border_char     "─"
         border_format   "#[fg=#6C7086]{char}"
         border_position "top"
+
+
+        hide_frame_for_single_pane       "false"
+        hide_frame_except_for_search     "false"
+        hide_frame_except_for_fullscreen "false"
 
 
         mode_normal        "#[bg=$green,fg=$bg,bold] NORMAL#[bg=$bg,fg=$green]"
@@ -120,7 +125,7 @@ in
           }
         }
       '';
-      "zelij/layouts/vitally.swap.kdl".source = ./files/zellij/layouts/default.swap.kdl;
+      "zellij/layouts/vitally.swap.kdl".source = ./files/zellij/layouts/default.swap.kdl;
     }
     // builtins.listToAttrs (
       map
