@@ -20,11 +20,20 @@ local function create_new_buffer(opts)
   if opts.range > 0 then
     fname = get_visual_selection()
   end
-  if fname == '' then
-    fname = vim.fn.input('Enter name: ', '', 'file')
+  local function editfile(name)
+    local newpath = vim.fn.resolve(bufdir .. '/' .. name)
+    vim.cmd('edit ' .. newpath)
   end
-  local newpath = vim.fn.resolve(bufdir .. '/' .. fname)
-  vim.cmd('edit ' .. newpath)
+  if fname == '' then
+    fname = vim.ui.input({
+      prompt = 'Enter name: ',
+      default = '',
+    }, function(input)
+      editfile(input)
+    end)
+    return
+  end
+  editfile(fname)
 end
 
 vim.api.nvim_create_user_command(
