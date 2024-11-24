@@ -103,7 +103,7 @@ in
       ];
     };
 
-    wireguard.interfaces.wg0 =
+    wireguard.interfaces.${config.my.services.aispace.wireguard.interface} =
       let
         # Hosts that are allowed to access lan over wireguard, not just this box
         localTunnelPeers = lib.concatStringsSep "," (
@@ -126,14 +126,14 @@ in
         peers = wireguard.peersForServer config.networking.hostName;
 
         postSetup = ''
-          ${pkgs.iptables}/bin/iptables -A FORWARD -i wg0 -j ACCEPT;
-          ${pkgs.iptables}/bin/iptables -A FORWARD -o wg0 -j ACCEPT;
+          ${pkgs.iptables}/bin/iptables -A FORWARD -i ${config.my.services.aispace.wireguard.interface} -j ACCEPT;
+          ${pkgs.iptables}/bin/iptables -A FORWARD -o ${config.my.services.aispace.wireguard.interface} -j ACCEPT;
           ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s ${localTunnelPeers} -o ${localNetworkInterface} -j MASQUERADE
         '';
 
         postShutdown = ''
-          ${pkgs.iptables}/bin/iptables -D FORWARD -i wg0 -j ACCEPT;
-          ${pkgs.iptables}/bin/iptables -D FORWARD -o wg0 -j ACCEPT;
+          ${pkgs.iptables}/bin/iptables -D FORWARD -i ${config.my.services.aispace.wireguard.interface} -j ACCEPT;
+          ${pkgs.iptables}/bin/iptables -D FORWARD -o ${config.my.services.aispace.wireguard.interface}  -j ACCEPT;
           ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s ${localTunnelPeers} -o ${localNetworkInterface} -j MASQUERADE
         '';
       };
@@ -195,6 +195,7 @@ in
     qemuGuest.enable = true;
     blueman.enable = true;
     # Custom services
+
     aispace = {
       home-assistant = {
         enable = true;
@@ -215,6 +216,10 @@ in
 
       ollama.enable = true;
       ollama.enableWeb = true;
+    };
+
+    wireguard = {
+      interface = "wg0";
     };
 
     openiscsi.name = "iqn.2024-11.com.nixos:baymax";

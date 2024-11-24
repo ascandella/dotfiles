@@ -30,7 +30,7 @@ with lib;
   };
 
   config = mkIf cfg.vector.enable {
-    networking.firewall = {
+    networking.firewall.interfaces.${config.services.aispace.wireguard.interface} = {
       allowedTCPPorts = [ 9598 ];
     };
     services = {
