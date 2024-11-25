@@ -25,6 +25,7 @@
     # security
     gnupg
     pinentry-curses
+    gpg-tui
     # networking
     wget
     curl
