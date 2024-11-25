@@ -27,7 +27,7 @@ let
         format_right  "{command_git_branch} {datetime}"
         format_space  "#[bg=$bg]"
         format_hide_on_overlength "true"
-        format_precedence "crl"
+        format_precedence "lrc"
 
         border_enabled  "false"
         border_char     "─"
