@@ -162,9 +162,13 @@ zn() {
 }
 
 
+__last_tab_title=""
 function change_tab_title() {
-  local title="$1"
-  command nohup zellij action rename-tab $title >/dev/null 2>&1
+  local title=$(echo "$1" | sed 's/\(.\{15\}\).*/\1.../')
+  if [[ "${__last_tab_title}" != "${title}" ]]; then
+    __last_tab_title="${title}"
+    command nohup zellij action rename-tab "$title" >/dev/null 2>&1
+  fi
 }
 
 # https://www.reddit.com/r/zellij/comments/10skez0/does_zellij_support_changing_tabs_name_according/
@@ -178,7 +182,7 @@ set_tab_to_working_dir () {
     tab_name=${tab_name%/}
   else
     tab_name=$PWD
-    if [[ $tab_name == $HOME ]]; then
+    if [[ "$tab_name" == "$HOME" ]]; then
       tab_name="~"
     else
       tab_name=${tab_name##*/}
@@ -187,13 +191,6 @@ set_tab_to_working_dir () {
   change_tab_title "$tab_name"
 }
 
-function set_tab_to_command_line() {
-  local cmdline="$1"
-  change_tab_title "$cmdline"
-}
-
-
 if [[ -n $ZELLIJ ]]; then
   add-zsh-hook precmd set_tab_to_working_dir
-  add-zsh-hook preexec set_tab_to_command_line
 fi

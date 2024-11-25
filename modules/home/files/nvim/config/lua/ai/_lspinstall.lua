@@ -58,6 +58,7 @@ local function efm_config(config)
     'typescript',
     'typescriptreact',
     'sh',
+    'zsh',
     'svelte',
     'yaml',
   }
