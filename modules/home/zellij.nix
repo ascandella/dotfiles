@@ -81,8 +81,9 @@ let
         command_git_branch_interval    "10"
         command_git_branch_rendermode  "static"
 
-        datetime        "#[fg=$fg] {format} "
-        datetime_format "%Y-%m-%d %H:%M"
+        datetime          "#[fg=$fg] {format} "
+        datetime_format   "%Y-%m-%d %H:%M"
+        datetime_timezone "America/Los_Angeles"
       }
     }
 
