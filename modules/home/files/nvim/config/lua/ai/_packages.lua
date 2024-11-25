@@ -102,7 +102,6 @@ local packages = {
       'hrsh7th/cmp-emoji',
       'hrsh7th/cmp-calc',
       'hrsh7th/cmp-nvim-lsp-signature-help',
-      'zbirenbaum/copilot-cmp',
       'onsails/lspkind.nvim',
       'andersevenrud/cmp-tmux',
       'petertriho/cmp-git',
@@ -243,11 +242,6 @@ local packages = {
     config = function()
       require('ai/_copilot')
     end,
-  },
-
-  {
-    'zbirenbaum/copilot-cmp',
-    after = { 'copilot.lua' },
   },
 
   -- UI
