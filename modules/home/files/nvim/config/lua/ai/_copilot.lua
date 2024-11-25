@@ -9,17 +9,14 @@ vim.defer_fn(function()
       enabled = false,
     },
     suggestion = {
-      enabled = false,
-      auto_trigger = false,
+      enabled = true,
+      auto_trigger = true,
       keymap = {
-        accept = '<C-j>',
+        accept = '<M-m>',
+        next = '<M-w>',
+        prev = '<M-v>',
+        dismiss = '<M-z>',
       },
-    },
-  })
-  require('copilot_cmp').setup({
-    -- Remove trailing parens on copilot insertion
-    formatters = {
-      insert_text = require('copilot_cmp.format').remove_existing,
     },
   })
 end, 100)
