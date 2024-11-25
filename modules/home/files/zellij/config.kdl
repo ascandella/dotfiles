@@ -66,6 +66,18 @@ keybinds {
             }
             SwitchToMode "Normal"
         }
+        bind "n" {
+            LaunchOrFocusPlugin "https://github.com/laperlej/zellij-sessionizer/releases/download/v0.4.3/zellij-sessionizer.wasm" {
+                floating true
+                move_to_focused_tab true
+                cwd "/"
+                // TODO: Template this with nix so it has my home directory on
+                // linux
+                root_dirs "/Users/aiden/src"
+                session_layout "default"
+            };
+            SwitchToMode "Locked";
+        }
         bind "x" { CloseTab; SwitchToMode "Normal"; }
         bind "s" { ToggleActiveSyncTab; SwitchToMode "Normal"; }
         bind "]" { BreakPaneRight; SwitchToMode "Normal"; }
