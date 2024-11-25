@@ -160,3 +160,40 @@ zn() {
   fi
   zellij pipe "zjstatus:notify:${1}"
 }
+
+
+function change_tab_title() {
+  local title="$1"
+  command nohup zellij action rename-tab $title >/dev/null 2>&1
+}
+
+# https://www.reddit.com/r/zellij/comments/10skez0/does_zellij_support_changing_tabs_name_according/
+# and
+# https://jcd.pub/2024/06/24/setting-the-zellij-tab-title-to-the-running-process-in-zsh/
+set_tab_to_working_dir () {
+  tab_name=''
+  if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+    tab_name+=$(basename "$(git rev-parse --show-toplevel)")/
+    tab_name+=$(git rev-parse --show-prefix)
+    tab_name=${tab_name%/}
+  else
+    tab_name=$PWD
+    if [[ $tab_name == $HOME ]]; then
+      tab_name="~"
+    else
+      tab_name=${tab_name##*/}
+    fi
+  fi
+  change_tab_title "$tab_name"
+}
+
+function set_tab_to_command_line() {
+  local cmdline="$1"
+  change_tab_title "$cmdline"
+}
+
+
+if [[ -n $ZELLIJ ]]; then
+  add-zsh-hook precmd set_tab_to_working_dir
+  add-zsh-hook preexec set_tab_to_command_line
+fi
