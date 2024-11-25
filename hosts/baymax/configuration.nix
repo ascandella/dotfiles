@@ -127,14 +127,14 @@ in
         peers = wireguard.peersForServer config.networking.hostName;
 
         postSetup = ''
-          ${pkgs.iptables}/bin/iptables -A FORWARD -i ${config.my.services.aispace.wireguard.interface} -j ACCEPT;
-          ${pkgs.iptables}/bin/iptables -A FORWARD -o ${config.my.services.aispace.wireguard.interface} -j ACCEPT;
+          ${pkgs.iptables}/bin/iptables -A FORWARD -i ${config.services.aispace.wireguard.interface} -j ACCEPT;
+          ${pkgs.iptables}/bin/iptables -A FORWARD -o ${config.services.aispace.wireguard.interface} -j ACCEPT;
           ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s ${localTunnelPeers} -o ${localNetworkInterface} -j MASQUERADE
         '';
 
         postShutdown = ''
-          ${pkgs.iptables}/bin/iptables -D FORWARD -i ${config.my.services.aispace.wireguard.interface} -j ACCEPT;
-          ${pkgs.iptables}/bin/iptables -D FORWARD -o ${config.my.services.aispace.wireguard.interface}  -j ACCEPT;
+          ${pkgs.iptables}/bin/iptables -D FORWARD -i ${config.services.aispace.wireguard.interface} -j ACCEPT;
+          ${pkgs.iptables}/bin/iptables -D FORWARD -o ${config.services.aispace.wireguard.interface}  -j ACCEPT;
           ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s ${localTunnelPeers} -o ${localNetworkInterface} -j MASQUERADE
         '';
       };
