@@ -23,6 +23,8 @@
       autosuggestion = {
         enable = true;
       };
+      # uncomment to enable profiling if shell init gets slow
+      # zprof.enable = true;
       enableCompletion = true;
       completionInit = "";
       dotDir = ".config/zsh";
