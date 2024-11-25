@@ -53,7 +53,7 @@ let
         mode_session       "#[bg=$blue,fg=$bg,bold] SESSION#[bg=$bg,fg=$blue]"
         mode_move          "#[bg=$blue,fg=$bg,bold] MOVE#[bg=$bg,fg=$blue]"
         mode_prompt        "#[bg=$blue,fg=$bg,bold] PROMPT#[bg=$bg,fg=$blue]"
-        mode_tmux          "#[bg=$magenta,fg=$bg,bold]   TMUX#[bg=$bg,fg=$magenta]"
+        mode_tmux          "#[bg=$magenta,fg=$bg,bold]  TMUX #[bg=$bg,fg=$magenta]"
 
         // formatting for inactive tabs
         tab_normal              "#[bg=$bg,fg=$cyan]#[bg=$cyan,fg=$bg,bold]{index} #[bg=$bg,fg=$cyan,bold] {name}{floating_indicator} #[bg=$cyan,fg=$bg] #[bg=$bg,fg=$cyan,bold]"
