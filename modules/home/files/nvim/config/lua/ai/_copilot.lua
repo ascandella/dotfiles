@@ -12,10 +12,10 @@ vim.defer_fn(function()
       enabled = true,
       auto_trigger = true,
       keymap = {
-        accept = '<A-m>',
-        next = '<A-w>',
-        prev = '<A-v>',
-        dismiss = '<A-z>',
+        accept = '<M-m>',
+        next = '<M-w>',
+        prev = '<M-v>',
+        dismiss = '<M-z>',
       },
     },
   })
