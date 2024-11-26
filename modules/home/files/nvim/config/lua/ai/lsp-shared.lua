@@ -129,7 +129,6 @@ local filetype_attach = setmetatable({
 M.on_attach = function(client, bufnr)
   local buf_map = vim.api.nvim_buf_set_keymap
 
-  buf_map(bufnr, 'n', '<C-c><C-j>', ':LspDef<CR>', { silent = true, desc = 'Jump to definition' })
   buf_map(bufnr, 'n', 'gd', ':LspDef<CR>', { silent = true, desc = 'Jump to definition' })
   buf_map(bufnr, 'n', '<Leader>d', ':LspDef<CR>', { silent = true, desc = 'Jump to definition' })
   buf_map(bufnr, 'n', '<Leader>pd', ':Lspsaga peek_definition<CR>', { silent = true, desc = 'Peek definition' })
