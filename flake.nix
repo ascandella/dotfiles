@@ -8,7 +8,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     darwin = {
-      url = "github:LnL7/nix-darwin";
+      url = "git+file:///Users/aiden/src/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     simple-bar-src = {
