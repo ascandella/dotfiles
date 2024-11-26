@@ -117,13 +117,6 @@ cmp.setup({
       c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
     }),
     ['<C-Space>'] = cmp.mapping.complete(),
-    ['<C-j>'] = cmp.mapping.complete({
-      config = {
-        sources = {
-          { name = 'copilot' },
-        },
-      },
-    }),
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
