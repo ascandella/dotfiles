@@ -10,7 +10,7 @@ bindkey "^B^E" edit-command-line
 
 alias -g G=' | grep '
 # Allow git commit -m and auto-quote arguments
-gcm () {
+gcm() {
   git commit -m "$*"
 }
 
@@ -19,12 +19,12 @@ ag() {
     local needle="$1"
     shift
     local args=""
-    if [[ -n "$1" && -z "$2" && "$1" =~ '^[0-9]+$' ]]; then
+    if [[ -n $1 && -z $2 && $1 =~ ^[0-9]+$ ]]; then
       args="-C $1"
       shift
     fi
     # https://github.com/dandavison/delta/issues/1588#issuecomment-e898999756
-    rg --json "$needle" ${=args} "$@" | delta --tabs=1
+    rg --json "$needle" ${args} "$@" | delta --tabs=1
   else
     rg
   fi
@@ -60,15 +60,15 @@ if _command_exists pbcopy; then
 fi
 export FZF_DEFAULT_OPTS=$(printf '%s\n' "${fzf_default_opts[@]}")
 
-if command -v rg > /dev/null ; then
+if command -v rg >/dev/null; then
   FZF_DEFAULT_COMMAND='rg --files --hidden --follow'
-  for ignore in "*.pyc" "idl/*" "vendor/*" "*.age" ; do
+  for ignore in "*.pyc" "idl/*" "vendor/*" "*.age"; do
     FZF_DEFAULT_COMMAND+=" --glob \"!${ignore}\""
   done
 
   export FZF_DEFAULT_COMMAND
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-elif command -v ag > /dev/null ; then
+elif command -v ag >/dev/null; then
   export FZF_DEFAULT_COMMAND='ag -g ""'
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 fi
@@ -76,7 +76,7 @@ fi
 # Age decrypt
 ad() {
   local AGE_IDENTITY="$HOME/.age/identity"
-  if [[ ! -f "$AGE_IDENTITY" ]]; then
+  if [[ ! -f $AGE_IDENTITY ]]; then
     AGE_IDENTITY="$HOME/.ssh/id_ed25519"
   fi
   age -d -i "$AGE_IDENTITY" "$@"
@@ -84,7 +84,7 @@ ad() {
 
 # https://github.com/larkery/zsh-histdb?tab=readme-ov-file#integration-with-zsh-autosuggestions
 _zsh_autosuggest_strategy_histdb_top() {
-    local query="
+  local query="
         select commands.argv from history
         left join commands on history.command_id = commands.rowid
         left join places on history.place_id = places.rowid
@@ -93,23 +93,23 @@ _zsh_autosuggest_strategy_histdb_top() {
         order by places.dir != '$(sql_escape $PWD)', count(*) desc
         limit 1
     "
-    suggestion=$(_histdb_query "$query")
+  suggestion=$(_histdb_query "$query")
 }
 
 ZSH_AUTOSUGGEST_STRATEGY=histdb_top
 
 _UNAME=$(uname)
 # Workaround for zsh-histdb on macos
-if [[ "${_UNAME}" == "Darwin" ]] ; then
+if [[ ${_UNAME} == "Darwin" ]]; then
   export HISTDB_TABULATE_CMD=(sed -e $'s/\x1f/\t/g')
 fi
 
 [[ -f "$HOME/.cargo/env" ]] && . "$HOME/.cargo/env"
 
 # https://github.com/zellij-org/zellij/blob/09689eae8b96ddb95713e6612ec17007ced91306/zellij-utils/assets/completions/comp.zsh
-function zr () { zellij run --name "$*" -- zsh -ic "$*";}
-function zrf () { zellij run --name "$*" --floating -- zsh -ic "$*";}
-function zri () { zellij run --name "$*" --in-place -- zsh -ic "$*";}
+function zr() { zellij run --name "$*" -- zsh -ic "$*"; }
+function zrf() { zellij run --name "$*" --floating -- zsh -ic "$*"; }
+function zri() { zellij run --name "$*" --in-place -- zsh -ic "$*"; }
 
 kgetsec() {
   local secret_name=$1
@@ -123,19 +123,19 @@ kgetsec() {
 }
 
 update() {
-  pushd "${DOTFILES_DIR}" > /dev/null 2>&1
-  if [[ "${_UNAME}" == "Darwin" ]] ; then
+  pushd "${DOTFILES_DIR}" >/dev/null 2>&1
+  if [[ ${_UNAME} == "Darwin" ]]; then
     just darwin
   else
     just nixos
   fi
-  popd > /dev/null 2>&1
+  popd >/dev/null 2>&1
 }
 
-autovenv () {(
+autovenv() { (
   set -e
   local pyver="${1:-$(which python3)}"
-  if [[ ! -x "${pyver}" ]] ; then
+  if [[ ! -x ${pyver} ]]; then
     echo "Invalid python specified, not executable: ${pyver}"
     return 1
   fi
@@ -143,29 +143,28 @@ autovenv () {(
   local systemsitepackages
   # Unless explicitly asked not to, use system site packages. To opt out, pass a
   # second argument
-  if [[ -z "${3}" || -n "${NO_SYSTEM_SITE_PACKAGES}" ]] ; then
+  if [[ -z ${3} || -n ${NO_SYSTEM_SITE_PACKAGES} ]]; then
     systemsitepackages="--system-site-packages"
   fi
   "${pyver}" -m virtualenv "${systemsitepackages}" -p "${pyver}" "${location}"
 
   # TODO(ai) make this respect the venv location
   ln -s "${XDG_CONFIG_HOME}"/zsh/venv-autoenv.zsh \
-      "${AUTOENV_FILE_ENTER:-.autoenv.zsh}"
-)}
+    "${AUTOENV_FILE_ENTER:-.autoenv.zsh}"
+); }
 
 zn() {
-  if [[ -z "${1}" ]]; then
+  if [[ -z ${1} ]]; then
     echo "Usage: zn message"
     return 1
   fi
   zellij pipe "zjstatus:notify:${1}"
 }
 
-
 __last_tab_title=""
 function change_tab_title() {
   local title=$(echo "$1" | sed 's/\(.\{15\}\).*/\1.../')
-  if [[ "${__last_tab_title}" != "${title}" ]]; then
+  if [[ ${__last_tab_title} != "${title}" ]]; then
     __last_tab_title="${title}"
     command nohup zellij action rename-tab "$title" >/dev/null 2>&1
   fi
@@ -174,7 +173,7 @@ function change_tab_title() {
 # https://www.reddit.com/r/zellij/comments/10skez0/does_zellij_support_changing_tabs_name_according/
 # and
 # https://jcd.pub/2024/06/24/setting-the-zellij-tab-title-to-the-running-process-in-zsh/
-set_tab_to_working_dir () {
+set_tab_to_working_dir() {
   tab_name=''
   if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
     tab_name+=$(basename "$(git rev-parse --show-toplevel)")/
@@ -182,7 +181,7 @@ set_tab_to_working_dir () {
     tab_name=${tab_name%/}
   else
     tab_name=$PWD
-    if [[ "$tab_name" == "$HOME" ]]; then
+    if [[ $tab_name == "$HOME" ]]; then
       tab_name="~"
     else
       tab_name=${tab_name##*/}
@@ -194,3 +193,4 @@ set_tab_to_working_dir () {
 if [[ -n $ZELLIJ ]]; then
   add-zsh-hook precmd set_tab_to_working_dir
 fi
+# vi: ft=sh
