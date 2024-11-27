@@ -180,6 +180,7 @@
           # So you can run lint with:
           # nix run .
           default = pkgs.writeScriptBin "lint" ''
+            #!${pkgs.bash}/bin/bash
             echo "Nix flake check"
             ${nix}/bin/nix flake check
             echo "Statix check"
