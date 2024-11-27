@@ -1,3 +1,4 @@
+# shellcheck shell=bash disable=SC1091,SC2155,SC2089,SC2090
 # bind UP and DOWN arrow keys
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
@@ -24,6 +25,7 @@ ag() {
       shift
     fi
     # https://github.com/dandavison/delta/issues/1588#issuecomment-e898999756
+    # shellcheck disable=SC2086
     rg --json "$needle" ${args} "$@" | delta --tabs=1
   else
     rg
@@ -88,14 +90,16 @@ _zsh_autosuggest_strategy_histdb_top() {
         select commands.argv from history
         left join commands on history.command_id = commands.rowid
         left join places on history.place_id = places.rowid
-        where commands.argv LIKE '$(sql_escape $1)%'
+        where commands.argv LIKE '$(sql_escape "$1")%'
         group by commands.argv, places.dir
-        order by places.dir != '$(sql_escape $PWD)', count(*) desc
+        order by places.dir != '$(sql_escape "$PWD")', count(*) desc
         limit 1
     "
+  # shellcheck disable=SC2034
   suggestion=$(_histdb_query "$query")
 }
 
+# shellcheck disable=SC2034
 ZSH_AUTOSUGGEST_STRATEGY=histdb_top
 
 _UNAME=$(uname)
@@ -118,6 +122,7 @@ kgetsec() {
   if [[ -n $1 ]]; then
     namespace="$1"
   fi
+  # shellcheck disable=SC2016
   kubectl get secret "$secret_name" -n "$namespace" -o \
     go-template='{{range $k,$v := .data}}{{printf "%s: " $k}}{{if not $v}}{{$v}}{{else}}{{$v | base64decode}}{{end}}{{"\n"}}{{end}}'
 }
@@ -163,7 +168,12 @@ zn() {
 
 __last_tab_title=""
 function change_tab_title() {
-  local title=$(echo "$1" | sed 's/\(.\{15\}\).*/\1.../')
+  local title="${1}"
+  if [[ ${#title} -gt 10 ]]; then
+    # Get the last part of the path
+    title="${title##*/}"
+  fi
+
   if [[ ${__last_tab_title} != "${title}" ]]; then
     __last_tab_title="${title}"
     command nohup zellij action rename-tab "$title" >/dev/null 2>&1
