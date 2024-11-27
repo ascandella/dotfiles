@@ -4,6 +4,7 @@
   imports = [
     ./system.nix
     ./homebrew.nix
+    ./yabai.nix
   ];
 
   config = {

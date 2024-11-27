@@ -1,7 +1,9 @@
 { lib, pkgs, ... }:
 {
   config = lib.mkIf pkgs.stdenv.isDarwin {
-    services.nix-daemon.enable = true;
+    services = {
+      nix-daemon.enable = true;
+    };
 
     # Reference: https://github.com/nmasur/dotfiles/blob/c697cd4e383997cdd45e6e4b76cc95d195efd6e0/modules/darwin/system.nix
     system = {

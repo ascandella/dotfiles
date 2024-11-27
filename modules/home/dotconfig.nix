@@ -11,7 +11,6 @@
     "skhd".source = ./files/skhd;
     "stylua".source = ./files/stylua;
     "wezterm".source = ./files/wezterm;
-    "yabai".source = ./files/yabai;
     "yazi".source = ./files/yazi;
     "nvim/lua/ai/nix/tools.lua".text = ''
       vim.g.sqlite_clib_path = '${pkgs.sqlite.out}/lib/libsqlite3.so'
