@@ -30,6 +30,10 @@ _:
       normal_window_opacity = "0.9";
     };
     extraConfig = ''
+      # Not sure why this is necessary, but running it without sudo doesn't
+      # load the scripting additions and makes workspace switching not work
+      sudo yabai --load-sa
+
       # Exclusions
       # https://github.com/koekeishiya/yabai/issues/2199#issuecomment-2031528636
       function yabai_rule {
