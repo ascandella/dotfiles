@@ -48,7 +48,7 @@ keybinds {
     }
     move {
         bind "Ctrl h" { SwitchToMode "Normal"; }
-        bind "n" "Tab" { MovePane; }
+        bind "Tab" { MovePane; }
         bind "p" { MovePaneBackwards; }
         bind "h" "Left" { MovePane "Left"; }
         bind "t" "Down" { MovePane "Down"; }
