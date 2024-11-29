@@ -32,6 +32,7 @@ _:
     extraConfig = ''
       # Not sure why this is necessary, but running it without sudo doesn't
       # load the scripting additions and makes workspace switching not work
+      yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
       sudo yabai --load-sa
 
       # Exclusions
