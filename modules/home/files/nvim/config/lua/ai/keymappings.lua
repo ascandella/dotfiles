@@ -39,7 +39,7 @@ vim.keymap.set('n', '<Leader>fh', require('telescope.builtin').help_tags, { sile
 vim.keymap.set('n', '<Leader>gg', require('neogit').open, { silent = true, desc = 'Neogit' })
 vim.keymap.set('n', '<Leader>gc', require('ai/_neogit').open_pr, { silent = true })
 vim.keymap.set('n', '<Leader>gb', require('ai/git').git_blame, { silent = true, desc = 'Git blame' })
-vim.keymap.set('x', '<Leader>go', "<cmd>'<'>GBrowse<cr>", { silent = true, desc = 'Browse selection' })
+vim.keymap.set('x', '<Leader>go', ':GBrowse<cr>', { silent = true, desc = 'Browse selection' })
 
 -- Quickfix
 vim.keymap.set('n', '<C-j>', '<cmd>cnext<cr>', { silent = true, desc = 'Next quickfix' })
