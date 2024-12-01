@@ -42,7 +42,9 @@ local function create_new_buffer(opts)
     vim.defer_fn(function()
       vim.cmd('echom ""')
     end, 0)
-    editfile(input)
+    if input ~= nil then
+      editfile(input)
+    end
   end)
 end
 
@@ -55,6 +57,6 @@ vim.api.nvim_create_user_command(
 vim.keymap.set(
   'v',
   '<Leader>e',
-  '<cmd>BufInCurrentDirectory<CR>',
+  ':BufInCurrentDirectory<CR>',
   { desc = 'Create file in current directory', silent = true }
 )
