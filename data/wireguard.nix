@@ -7,7 +7,7 @@ let
       allowedIPs = [ "10.20.0.50/32" ];
     };
     workbook = {
-      publicKey = "HCu0BSExp9ihj9s8sMjvr9bQ3Ol39OFCck7WFw5fLGU=";
+      publicKey = "AibOOk67HA9JdNmQmmgw060cVGHb+STK072D8FJIDh8=";
       allowedIPs = [ "10.20.0.40/32" ];
     };
     studio = {

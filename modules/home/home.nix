@@ -89,6 +89,7 @@
       delta
       eza # better ls
       fzf
+      gnupg
       htop
       just
       magic-wormhole
