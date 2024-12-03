@@ -41,6 +41,9 @@
           DISABLE_REGISTRATION = true;
           ENABLE_NOTIFY_MAIL = true;
         };
+        session = {
+          SESSION_LIFE_TIME = 604800; # 7 days
+        };
         openid = {
           ENABLE_OPENID_SIGNIN = true;
           ENABLE_OPENID_SIGNUP = true;
