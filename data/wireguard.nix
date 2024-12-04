@@ -11,7 +11,7 @@ let
       allowedIPs = [ "10.20.0.40/32" ];
     };
     studio = {
-      publicKey = "j+GGVsCah/sbBUwDoEE3GeCiYbPk/knNWoxTw+SlEDM=";
+      publicKey = "STUdiOvSStsTJ2AOXsNAzydfHC1iSRvXRX8op08FP2g=";
       allowedIPs = [ "10.20.0.45/32" ];
     };
     aideck = {
