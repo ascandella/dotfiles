@@ -3,6 +3,9 @@
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
+# End-of-line aka accept history suggestion, a la copilot vim bindings
+bindkey '^[m' end-of-line
+
 # Edit command
 autoload -z edit-command-line
 zle -N edit-command-line
