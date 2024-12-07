@@ -201,6 +201,7 @@
   };
 
   home.packages = [
+    pkgs.git-lfs
     (pkgs.writeShellScriptBin "git-gsub" ''
       old="$1"
       new="$2"
