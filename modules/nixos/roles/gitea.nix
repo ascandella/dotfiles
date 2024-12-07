@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 {
   age.secrets = {
@@ -13,6 +13,8 @@
       mode = "0400";
     };
   };
+
+  environment.etc."gitea-catppucin".source = pkgs.gitea-catppucin;
 
   services = {
     gitea = {
