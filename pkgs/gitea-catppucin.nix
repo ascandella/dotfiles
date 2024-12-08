@@ -12,6 +12,6 @@ stdenv.mkDerivation rec {
   buildPhase = "";
   installPhase = ''
     mkdir -p $out
-    mv public $out
+    mv *.css $out
   '';
 }
