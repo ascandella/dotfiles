@@ -11,6 +11,13 @@
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    ghostty = {
+      url = "github:ghostty-org/ghostty?tag=1.0.0";
+      inputs = {
+        nixpkgs-unstable.follows = "nixpkgs";
+        nixpkgs-stable.follows = "nixpkgs";
+      };
+    };
     simple-bar-src = {
       url = "github:Jean-Tinland/simple-bar";
       flake = false;

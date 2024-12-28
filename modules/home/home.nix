@@ -105,6 +105,7 @@
       wezterm # superior terminal
       zellij
       inputs.zjstatus.packages.${system}.default
+      inputs.ghostty.packages.${system}.default
       zoxide
 
       # nix tools
