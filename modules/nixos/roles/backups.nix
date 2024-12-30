@@ -59,8 +59,6 @@
           config.services.radarr.dataDir
           config.services.sonarr.dataDir
           config.services.tautulli.dataDir
-          config.services.aispace.homarr.dataDir
-          config.services.aispace.homarr.configDir
         ];
       };
       frigate = basicBorgJob "frigate" // {
