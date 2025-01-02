@@ -15,6 +15,7 @@ mouse-hide-while-typing = true
 theme = catppuccin-mocha
 macos-titlebar-style = hidden
 macos-option-as-alt = true
+macos-window-shadow = false
 
 # For Zellij
 keybind = alt+left=unbind
@@ -23,3 +24,6 @@ keybind = ctrl+tab=unbind
 
 macos-auto-secure-input = true
 macos-secure-input-indication = true
+
+window-padding-x = 6
+window-padding-y = 4
