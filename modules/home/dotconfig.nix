@@ -7,6 +7,7 @@
 {
   xdg.configFile = {
     "efm-langserver".source = ./files/efm-langserver;
+    "ghostty".source = ./files/ghostty;
     "selene".source = ./files/selene;
     "skhd".source = ./files/skhd;
     "stylua".source = ./files/stylua;

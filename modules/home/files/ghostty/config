@@ -1,0 +1,15 @@
+cursor-style = block
+cursor-style-blink = false
+
+# Otherwise zsh has a blinking insert cursor
+shell-integration-features = no-cursor
+
+background-opacity = 0.9
+
+font-size = 18
+font-family = BerkeleyMonoVariable Nerd Font Mono
+
+mouse-hide-while-typing = true
+
+theme = catppuccin-mocha
+macos-titlebar-style = hidden
