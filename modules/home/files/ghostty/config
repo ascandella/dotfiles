@@ -5,6 +5,7 @@ cursor-style-blink = false
 shell-integration-features = no-cursor
 
 background-opacity = 0.9
+background-blur-radius = 20
 
 font-size = 18
 font-family = BerkeleyMonoVariable Nerd Font Mono
@@ -13,3 +14,12 @@ mouse-hide-while-typing = true
 
 theme = catppuccin-mocha
 macos-titlebar-style = hidden
+macos-option-as-alt = true
+
+# For Zellij
+keybind = alt+left=unbind
+keybind = alt+right=unbind
+keybind = ctrl+tab=unbind
+
+macos-auto-secure-input = true
+macos-secure-input-indication = true
