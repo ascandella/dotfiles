@@ -31,10 +31,6 @@
         type = lib.types.str;
         default = "/var/lib/nextcloud/data";
       };
-      pvcsDir = lib.mkOption {
-        type = lib.types.path;
-        default = "/data/nas-pvcs";
-      };
       squashGroup = lib.mkOption {
         type = lib.types.str;
         default = "nfs-mounts";
@@ -70,7 +66,6 @@
           downloads = config.my.nas.downloadsDir;
           server-config = config.my.nas.serverConfigDir;
           frigate = config.my.nas.frigateDir;
-          pvcs = config.my.nas.pvcsDir;
         };
         smbMappings = {
           backups = config.my.nas.backupsDir;
