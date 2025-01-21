@@ -162,7 +162,12 @@ in
   console.keyMap = "dvorak";
 
   # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    permittedInsecurePackages = [
+      "dotnet-sdk-6.0.428"
+    ];
+  };
 
   # nixos/roles/base.nix contains most of the base config
 
