@@ -32,7 +32,7 @@
     "k9s/aliases.yaml".source = ./files/k9s/aliases.yaml;
     "k9s/plugins.yaml".source = ./files/k9s/plugins.yaml;
     "k9s/skins".source = ./files/k9s/skins;
-    "ghostty".text = ''
+    "ghostty/config".text = ''
       cursor-style = block
       cursor-style-blink = false
 
