@@ -9,6 +9,7 @@
   homeDirectory,
   system,
   agenix,
+  hostname,
   ...
 }:
 
@@ -27,6 +28,7 @@ nixpkgs.lib.nixosSystem {
         inherit
           username
           homeDirectory
+          hostname
           inputs
           pkgs
           system

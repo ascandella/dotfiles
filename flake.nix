@@ -138,6 +138,7 @@
               agenix
               comin
               ;
+            hostname = host;
             system = systemForHost host;
             homeDirectory = homeDirectory host;
             pkgs = pkgsForHost host;
