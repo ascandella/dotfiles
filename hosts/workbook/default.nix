@@ -6,6 +6,7 @@
   pubkeys,
   homeDirectory,
   inputs,
+  hostname,
   ...
 }:
 
@@ -30,6 +31,7 @@ darwin.lib.darwinSystem {
           pkgs
           homeDirectory
           inputs
+          hostname
           ;
       };
     }

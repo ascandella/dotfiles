@@ -2,6 +2,7 @@
   username,
   pkgs,
   homeDirectory,
+  hostname,
   inputs,
   system,
   ...
@@ -34,6 +35,7 @@
           pkgs
           config
           system
+          hostname
           ;
       }
     )

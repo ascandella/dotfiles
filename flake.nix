@@ -107,6 +107,7 @@
               pubkeys
               agenix
               ;
+            hostname = host;
             homeDirectory = homeDirectory host;
             pkgs = pkgsForHost host;
           };

@@ -2,12 +2,12 @@
   config,
   lib,
   pkgs,
+  hostname,
   ...
 }:
 {
   xdg.configFile = {
     "efm-langserver".source = ./files/efm-langserver;
-    "ghostty".source = ./files/ghostty;
     "selene".source = ./files/selene;
     "skhd".source = ./files/skhd;
     "stylua".source = ./files/stylua;
@@ -32,6 +32,37 @@
     "k9s/aliases.yaml".source = ./files/k9s/aliases.yaml;
     "k9s/plugins.yaml".source = ./files/k9s/plugins.yaml;
     "k9s/skins".source = ./files/k9s/skins;
+    "ghostty".text = ''
+      cursor-style = block
+      cursor-style-blink = false
+
+      # Otherwise zsh has a blinking insert cursor
+      shell-integration-features = no-cursor
+
+      background-opacity = 0.9
+      background-blur-radius = 20
+
+      font-size = ${if hostname == "studio" then "18" else "14"}
+      font-family = BerkeleyMonoVariable Nerd Font Mono
+
+      mouse-hide-while-typing = true
+
+      theme = catppuccin-mocha
+      macos-titlebar-style = hidden
+      macos-option-as-alt = true
+      macos-window-shadow = false
+
+      # For Zellij
+      keybind = alt+left=unbind
+      keybind = alt+right=unbind
+      keybind = ctrl+tab=unbind
+
+      macos-auto-secure-input = true
+      macos-secure-input-indication = true
+
+      window-padding-x = 6
+      window-padding-y = 4
+    '';
   };
 
   home = {
