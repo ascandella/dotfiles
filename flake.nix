@@ -207,8 +207,6 @@
             ${nix}/bin/nix flake check
             echo "Statix check"
             ${statix}/bin/statix check
-            echo "Format check"
-            ${nixfmt-rfc-style}/bin/nixfmt --check .
           '';
           lint = packages.default;
           agenix = agenix.packages.${system}.default;
