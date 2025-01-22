@@ -28,7 +28,7 @@
       };
     }
     // lib.flip lib.mapAttrs' config.services.borgbackup.jobs (
-      name: value:
+      name: _value:
       lib.nameValuePair "borgbackup-job-${name}" {
         unitConfig.OnFailure = "notify-problems@%i.service";
       }

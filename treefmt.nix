@@ -1,5 +1,5 @@
 # treefmt.nix
-{ pkgs, ... }:
+{ ... }:
 {
   # Used to find the project root
   projectRootFile = "flake.nix";
@@ -7,6 +7,7 @@
   programs = {
     # Nix
     nixfmt.enable = true;
+    deadnix.enable = true;
     # Lua
     stylua.enable = true;
     # Markdomwn

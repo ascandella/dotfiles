@@ -90,7 +90,7 @@
           system = systemForHost host;
           overlays = [
             deploy-rs.overlay
-            (self: super: {
+            (_self: super: {
               deploy-rs = {
                 inherit (pkgsForHost host) deploy-rs;
                 inherit (super.deploy-rs) lib;
