@@ -1,6 +1,5 @@
 # treefmt.nix
-{ _ }:
-{
+_: {
   # Used to find the project root
   projectRootFile = "flake.nix";
 
