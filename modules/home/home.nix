@@ -143,9 +143,7 @@
       terraform-ls
       tflint
       shfmt # shell formatting
-      # Temporarily disabled: https://github.com/NixOS/nixpkgs/issues/375305
-      # Wait til this lands in nixpkgs-unstable: https://nixpkgs-tracker.ocfox.me/?pr=374697
-      # ruff # python formatting
+      ruff # python formatting
     ];
 
     home.shellAliases = {
