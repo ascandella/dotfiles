@@ -90,6 +90,7 @@
       curl
       delta
       eza # better ls
+      fd # better find
       fzf
       gnupg
       htop
