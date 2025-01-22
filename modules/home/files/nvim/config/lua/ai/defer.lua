@@ -17,7 +17,7 @@ function M.debounce_trailing(fn, ms, first)
 
   if not first then
     function wrapped_fn(...)
-      local argv = {...}
+      local argv = { ... }
       local argc = select('#', ...)
 
       timer:start(ms, 0, function()
@@ -27,7 +27,7 @@ function M.debounce_trailing(fn, ms, first)
   else
     local argv, argc
     function wrapped_fn(...)
-      argv = argv or {...}
+      argv = argv or { ... }
       argc = argc or select('#', ...)
 
       timer:start(ms, 0, function()

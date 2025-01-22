@@ -19,5 +19,3 @@ jobs:
         run: nix flake check
       - name: Statix analysis
         run: nix run .#statix -- check
-      - name: Check formatting
-        run: nix run .#nixfmt-rfc-style -- --check .

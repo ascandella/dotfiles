@@ -37,6 +37,11 @@
       url = "github:dj95/zjstatus";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -49,6 +54,8 @@
       comin,
       deploy-rs,
       agenix,
+      treefmt-nix,
+      systems,
       ...
     }@inputs:
     let
@@ -91,6 +98,13 @@
             })
           ];
         };
+
+      # Small tool to iterate over each systems
+      eachSystem = f: nixpkgs.lib.genAttrs (import systems) (system: f nixpkgs.legacyPackages.${system});
+
+      # Eval the treefmt modules from ./treefmt.nix
+      treefmtEval = eachSystem (pkgs: treefmt-nix.lib.evalModule pkgs ./treefmt.nix);
+
     in
     rec {
       # Contains my full Mac system builds, including home-manager
@@ -166,6 +180,12 @@
 
       # doesn't work in GitHub actions
       # checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
+
+      checks = eachSystem (pkgs: {
+        formatting = treefmtEval.${pkgs.system}.config.build.check self;
+      });
+
+      formatter = eachSystem (pkgs: treefmtEval.${pkgs.system}.config.build.wrapper);
     }
     // flake-utils.lib.eachDefaultSystem (
       system:
