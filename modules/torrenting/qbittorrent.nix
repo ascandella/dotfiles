@@ -114,6 +114,7 @@ in
         "/run/agenix/baymax-vpn:/config/wireguard/wg1.conf:ro"
         "/etc/vuetorrent:/etc/vuetorrent:ro"
         "${config.my.nas.downloadsDir}:/downloads"
+        "/dev/net/tun:/dev/net/tun"
       ];
 
       ports = [ "${toString cfg.port}:8080" ];
