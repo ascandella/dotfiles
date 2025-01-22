@@ -4,12 +4,14 @@
   # Used to find the project root
   projectRootFile = "flake.nix";
 
-  # Nix
-  programs.nixfmt.enable = true;
-  # Lua
-  programs.stylua.enable = true;
-  # Markdomwn
-  programs.mdformat.enable = true;
+  programs = {
+    # Nix
+    nixfmt.enable = true;
+    # Lua
+    stylua.enable = true;
+    # Markdomwn
+    mdformat.enable = true;
+  };
 
   settings.on-unmatched = "debug";
 }
