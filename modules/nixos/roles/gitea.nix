@@ -42,10 +42,6 @@ in
           USER = "sc@ndella.com";
           FROM = "Gitea <gitea@sca.ndella.com>";
         };
-        openid = {
-          ENABLE_OPENID_SIGNIN = true;
-          ENABLE_OPENID_SIGNUP = true;
-        };
         oauth2_client = {
           ENABLE_AUTO_REGISTRATION = true;
           ACCOUNT_LINKING = "login";
