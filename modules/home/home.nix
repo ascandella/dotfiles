@@ -137,6 +137,9 @@
       kustomize
       pv-migrate
 
+      # Terraform
+      tenv # newer tfenv
+
       # Language servers (for Neovim)
       efm-langserver
       gopls
