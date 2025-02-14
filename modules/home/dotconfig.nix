@@ -52,6 +52,7 @@
       macos-titlebar-style = hidden
       macos-option-as-alt = true
       macos-window-shadow = false
+      macos-icon = glass
 
       # For Zellij
       keybind = alt+left=unbind

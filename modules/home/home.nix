@@ -139,6 +139,7 @@
 
       # Terraform
       tenv # newer tfenv
+      tflint # linting
 
       # Language servers (for Neovim)
       efm-langserver
