@@ -330,14 +330,6 @@ local packages = {
   -- Conflicts with newer versions of neogit :(
   -- 'axelf4/vim-strip-trailing-whitespace',
 
-  -- Auto-balance splits
-  {
-    'beauwilliams/focus.nvim',
-    config = function()
-      require('ai/focus')
-    end,
-  },
-
   -- Highlight TODOs, search them with Telescope, and show them in Trouble
   {
     'folke/todo-comments.nvim',
