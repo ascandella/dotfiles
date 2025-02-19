@@ -117,6 +117,24 @@ local function setup()
       -- https://github.com/yetone/avante.nvim/blob/main/cursor-planning-mode.md
       enable_cursor_planning_mode = true, -- enable cursor planning mode!
     },
+    mappings = {
+      ask = '<leader>ca', -- ask
+      edit = '<leader>ce', -- edit
+      refresh = '<leader>cr', -- refresh
+      focus = '<leader>cf',
+
+      toggle = {
+        default = '<leader>ct',
+        debug = '<leader>cd',
+        hint = '<leader>ch',
+        suggestion = '<leader>cs',
+        repomap = '<leader>cR',
+      },
+      files = {
+        add_current = '<leader>cc', -- Add current buffer to selected files
+      },
+      select_model = '<leader>c?', -- Select model command
+    },
   }
 
   avante.setup(opts)
