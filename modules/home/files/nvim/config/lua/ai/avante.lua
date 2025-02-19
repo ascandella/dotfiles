@@ -113,6 +113,10 @@ local function setup()
     vendors = {
       ollama = ollama,
     },
+    behaviour = {
+      -- https://github.com/yetone/avante.nvim/blob/main/cursor-planning-mode.md
+      enable_cursor_planning_mode = true, -- enable cursor planning mode!
+    },
   }
 
   avante.setup(opts)
