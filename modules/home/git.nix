@@ -70,6 +70,11 @@
       diff = {
         noprefix = true;
       };
+      fetch = {
+        prune = true;
+        pruneTags = true;
+        all = true;
+      };
       interactive = {
         singleKey = true;
         diffFilter = "delta --color-only --features=interactive";
@@ -82,6 +87,8 @@
       };
       rerere = {
         enabled = true;
+        autoupdate = true;
+        updateRefs = true;
       };
       log = {
         gdecorate = "short";
@@ -105,6 +112,7 @@
       };
       pull = {
         ff = "only";
+        rebase = true;
       };
     };
   };
