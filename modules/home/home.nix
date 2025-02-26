@@ -89,6 +89,7 @@
       bun
       curl
       delta
+      difftastic # treesitter-aware diffs
       eza # better ls
       fd # better find
       fzf
