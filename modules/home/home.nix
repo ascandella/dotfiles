@@ -116,6 +116,8 @@
 
       ## Programming languages
 
+      exercism # exercism.org -- learn languages
+
       # Go
       go
 
