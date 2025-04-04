@@ -110,6 +110,8 @@ lspconfig.lua_ls.setup(make_config({
 
 lspconfig.tailwindcss.setup(tailwindcss_config(make_config()))
 
+lspconfig.tflint.setup(make_config())
+
 lspconfig.ts_ls.setup(make_config({
   settings = {
     typescript = {
