@@ -21,6 +21,18 @@
         gcc = '${lib.getExe pkgs.gcc}';
       }
     '';
+    # Bypass tenv's `terraform` for terraform-ls otherwise it can't format
+    "nvim/lua/ai/nix/terraformls.lua".text = ''
+      local lspinstall = require('ai/_lspinstall')
+      local lspconfig = require('lspconfig')
+      lspconfig.terraformls.setup(lspinstall.make_config({
+        init_options = {
+          terraform = {
+            path = "${pkgs.terraform.out}/bin/terraform",
+          }
+        }
+      }))
+    '';
     "nvim/lazy-lock.json".source =
       config.lib.file.mkOutOfStoreSymlink "${config.my.configDir}/modules/home/files/nvim/lazy-lock.json";
     "nvim" = {

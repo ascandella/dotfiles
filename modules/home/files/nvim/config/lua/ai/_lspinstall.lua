@@ -133,8 +133,6 @@ lspconfig.ts_ls.setup(make_config({
   end,
 }))
 
-lspconfig.terraformls.setup(make_config())
-
 lspconfig.gopls.setup(make_config({
   settings = {
     gopls = {
@@ -156,3 +154,7 @@ if nix_enabled then
   lspconfig.nil_ls.setup(make_config())
 end
 lspconfig.pyright.setup(make_config())
+
+return {
+  make_config = make_config,
+}

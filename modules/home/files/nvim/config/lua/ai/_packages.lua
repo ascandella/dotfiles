@@ -165,6 +165,7 @@ local packages = {
       require('ai/rust-config')
       require('ai/_lsp_lines')
       require('ai/_fidget')
+      require('ai/nix/terraformls')
     end,
   },
 
