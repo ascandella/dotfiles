@@ -39,7 +39,7 @@
       nextcloud = {
         enable = true;
         hostName = "cloud.ndella.com";
-        package = pkgs.nextcloud30;
+        package = pkgs.nextcloud31;
         extraApps = {
           inherit (config.services.nextcloud.package.packages.apps)
             # Set to default with:
