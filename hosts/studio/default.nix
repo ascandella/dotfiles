@@ -20,6 +20,7 @@ darwin.lib.darwinSystem {
     ../../modules/common
     home-manager.darwinModules.home-manager
     {
+      ids.gids.nixbld = 30000;
       users.users.${username} = {
         home = homeDirectory;
         shell = pkgs.zsh;

@@ -106,7 +106,6 @@
       scc # count lines of code
       spaceship-prompt
       ssm-session-manager-plugin # for awscli
-      wezterm # superior terminal
       zellij
       inputs.zjstatus.packages.${system}.default
       zoxide
