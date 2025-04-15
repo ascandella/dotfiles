@@ -23,7 +23,7 @@ in
 
   config = {
     environment.etc.comin."gpg-key.asc" = {
-      text = pubkeys.gpgPublicKeey;
+      text = pubkeys.aispace.gpgPublicKey;
     };
     services.comin = {
       gpgPublicKeyPaths = [
