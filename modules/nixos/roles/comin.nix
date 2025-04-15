@@ -1,4 +1,9 @@
-{ lib, config, ... }:
+{
+  lib,
+  config,
+  pubkeys,
+  ...
+}:
 
 let
   cfg = config.my.comin;
@@ -17,7 +22,13 @@ in
   };
 
   config = {
+    environment.etc."comin/gpg-key.asc" = {
+      text = pubkeys.aispace.gpgPublicKey;
+    };
     services.comin = {
+      gpgPublicKeyPaths = [
+        "/etc/comin/gpg-key.asc"
+      ];
       enable = true;
       remotes = [
         {
