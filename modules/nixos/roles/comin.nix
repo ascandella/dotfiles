@@ -1,4 +1,9 @@
-{ lib, config, ... }:
+{
+  lib,
+  config,
+  pubkeys,
+  ...
+}:
 
 let
   cfg = config.my.comin;
