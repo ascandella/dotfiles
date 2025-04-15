@@ -31,6 +31,7 @@ nixpkgs.lib.nixosSystem {
           hostname
           inputs
           pkgs
+          pubkeys
           system
           ;
       };

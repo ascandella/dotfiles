@@ -16,5 +16,6 @@ in
   aispace = {
     inherit user hosts age;
     ageHostKeys = host: ageCompatibleKeys ++ [ hosts.${host} ];
+    gpgPublicKey = builtins.readFile "./gpg-pubkey.asc";
   };
 }
