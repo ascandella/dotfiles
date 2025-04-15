@@ -27,7 +27,7 @@ in
     };
     services.comin = {
       gpgPublicKeyPaths = [
-        config.environment.etc."comin/gpg-key.asc".path
+        "/etc/comin/gpg-key.asc"
       ];
       enable = true;
       remotes = [
