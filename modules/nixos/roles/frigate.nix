@@ -29,6 +29,10 @@ with lib;
       type = types.bool;
       default = true;
     };
+    shmSize = mkOption {
+      type = types.str;
+      default = "128m";
+    };
   };
 
   config = mkIf cfg.enable {
@@ -74,6 +78,8 @@ with lib;
         # Add GPU
         "--device"
         "nvidia.com/gpu=all"
+        "--shm-size"
+        cfg.shmSize
       ];
     };
     systemd.services."${config.virtualisation.oci-containers.backend}-frigate" = {
