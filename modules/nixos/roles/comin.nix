@@ -22,7 +22,13 @@ in
   };
 
   config = {
+    environment.etc.comin."gpg-key.asc" = {
+      text = pubkeys.gpgPublicKeey;
+    };
     services.comin = {
+      gpgPublicKeyPaths = [
+        config.environment.etc.comin."gpg-key.asc".path
+      ];
       enable = true;
       remotes = [
         {
