@@ -15,7 +15,7 @@
       modesetting.enable = true;
       # Currently alpha-quality/buggy, so false is currently the recommended setting.
       open = false;
-      package = config.boot.kernelPackages.nvidiaPackages.legacy_390;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
     };
   };
 
