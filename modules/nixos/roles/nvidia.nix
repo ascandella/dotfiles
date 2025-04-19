@@ -25,5 +25,5 @@
     nvidia-container-toolkit
   ];
 
-  services.xserver.videoDrivers = [ "nvidia" ]; # or "nvidiaLegacy470" etc.
+  services.xserver.videoDrivers = [ "nvidiaLegacy390" ]; # or "nvidiaLegacy470" etc.
 }
