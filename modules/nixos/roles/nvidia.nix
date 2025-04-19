@@ -19,6 +19,8 @@
     };
   };
 
+  nixpkgs.config.nvidia.acceptLicense = true;
+
   environment.systemPackages = with pkgs; [
     nvidia-container-toolkit
   ];
