@@ -78,6 +78,11 @@ elif command -v ag >/dev/null; then
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 fi
 
+if [[ -d "${HOME}/.jenv/bin" ]]; then
+  export PATH="$PATH:$HOME/.jenv/bin"
+  eval "$(jenv init -)"
+fi
+
 # Age decrypt
 ad() {
   local AGE_IDENTITY="$HOME/.age/identity"
