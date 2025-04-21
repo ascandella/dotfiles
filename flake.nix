@@ -147,11 +147,11 @@
               inputs
               nixpkgs
               home-manager
-              username
               pubkeys
               agenix
               comin
               ;
+            username = username host;
             hostname = host;
             system = systemForHost host;
             homeDirectory = homeDirectory host;

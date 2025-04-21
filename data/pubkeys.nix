@@ -1,6 +1,6 @@
 let
   studioKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG8n0CileVU4jKA43cCTD/zHeg2Ozp+JX0qW80P/7iau aiden@ai-studio";
-  workbookKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJv4kmti8JLFIEWbvazw8bTPx0iCVwe5YbHi6UXgujuz ascandella@sofi"
+  workbookKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJv4kmti8JLFIEWbvazw8bTPx0iCVwe5YbHi6UXgujuz ascandella@sofi";
   user = [
     studioKey
     workbookKey
