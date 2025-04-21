@@ -1,11 +1,13 @@
 let
   studioKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG8n0CileVU4jKA43cCTD/zHeg2Ozp+JX0qW80P/7iau aiden@ai-studio";
+  workbookKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJv4kmti8JLFIEWbvazw8bTPx0iCVwe5YbHi6UXgujuz ascandella@sofi"
   user = [
     studioKey
+    workbookKey
   ];
   age = {
     studio = studioKey;
-    workbook = "age1luaq2rfyylnp93950l4u0rsfd0kv4dh2xagr47kuc7jr3640z96q04f5ga";
+    workbook = workbookKey;
   };
   hosts = {
     baymax = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHvV4lf5yReZHdlE2qVnc7gVrigfx2ged272S5kBy+D3";

@@ -68,7 +68,7 @@
       linuxHosts = builtins.filter isLinuxHost allHosts;
 
       systemForHost = hostname: if isLinuxHost hostname then "x86_64-linux" else "aarch64-darwin";
-      username = "aiden";
+      username = hostname: if hostname == "workbook" then "ascandella" else "aiden";
 
       pkgsForHost =
         host:
@@ -82,7 +82,7 @@
       pubkeys = import ./data/pubkeys.nix;
 
       homeDirPrefix = host: if systemForHost host == "aarch64-darwin" then "/Users" else "/home";
-      homeDirectory = host: "${homeDirPrefix host}/${username}";
+      homeDirectory = host: "${homeDirPrefix host}/${username host}";
 
       deployPkgs =
         host:
@@ -116,11 +116,11 @@
             inherit
               darwin
               home-manager
-              username
               inputs
               pubkeys
               agenix
               ;
+            username = username host;
             hostname = host;
             homeDirectory = homeDirectory host;
             pkgs = pkgsForHost host;
