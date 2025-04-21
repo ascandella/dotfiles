@@ -42,6 +42,9 @@
       glg = "log --graph --pretty=lg";
     };
     extraConfig = {
+      http = lib.mkIf config.my.caCert.enable {
+        sslCAInfo = config.my.caCert.path;
+      };
       delta = {
         # Necessary inside zellij
         dark = true;

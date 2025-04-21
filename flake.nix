@@ -106,7 +106,7 @@
       treefmtEval = eachSystem (pkgs: treefmt-nix.lib.evalModule pkgs ./treefmt.nix);
 
     in
-    rec {
+    {
       # Contains my full Mac system builds, including home-manager
       # darwin-rebuild switch --flake .#studio
       darwinConfigurations = builtins.listToAttrs (
@@ -133,7 +133,21 @@
       homeConfigurations = builtins.listToAttrs (
         builtins.map (host: {
           name = host;
-          value = darwinConfigurations.${host}.config.home-manager.users.${username}.home;
+          value = home-manager.lib.homeManagerConfiguration {
+            pkgs = pkgsForHost host;
+            modules = [
+              (import ./modules/home/home.nix {
+                system = systemForHost host;
+                hostname = host;
+                homeDirectory = homeDirectory host;
+                username = username host;
+                pkgs = pkgsForHost host;
+                inherit
+                  inputs
+                  ;
+              })
+            ];
+          };
         }) darwinHosts
       );
 
