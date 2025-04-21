@@ -6,7 +6,7 @@ deploy:
 
 darwin-name:
   #!/usr/bin/env bash
-  if [[ "$(hostname)" =~ ^Aidens-MacBook ]] ; then 
+  if [[ "$(hostname)" =~ ^GFT- ]] ; then 
     echo "workbook"
   else
     echo "studio" 
@@ -14,6 +14,9 @@ darwin-name:
 
 darwin:
   darwin-rebuild switch --flake ".#$(just darwin-name)"
+
+home:
+  home-manager switch --flake ".#$(just darwin-name)"
 
 lint:
   nix run .#lint
