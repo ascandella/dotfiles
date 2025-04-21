@@ -59,7 +59,7 @@
       hostCaMap = {
         workbook = "/Library/SoFi/PKI/cacert.pem";
       };
-      myCaCert = if hostCaMap ? host then hostCaMap.${hostname} else null;
+      myCaCert = if hostCaMap ? "${hostname}" then hostCaMap.${hostname} else null;
     in
     {
       configDir = pkgs.lib.mkOption {
