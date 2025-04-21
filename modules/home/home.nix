@@ -54,18 +54,30 @@
     ({ config, ... }: import ./session.nix { inherit config; })
   ];
 
-  options.my = {
-    configDir = pkgs.lib.mkOption {
-      type = pkgs.lib.types.str;
-      default = "/etc/nixos";
-      description = "Location of the nix config directory (this repo)";
+  options.my =
+    let
+      hostCaMap = {
+        workbook = "/Library/SoFi/PKI/cacert.pem";
+      };
+      myCaCert = if hostCaMap ? host then hostCaMap.${hostname} else null;
+    in
+    {
+      configDir = pkgs.lib.mkOption {
+        type = pkgs.lib.types.str;
+        default = "/etc/nixos";
+        description = "Location of the nix config directory (this repo)";
+      };
+      caCert = {
+        enable = pkgs.lib.mkEnableOption "Enable custom CA cert" // {
+          default = myCaCert != null;
+        };
+        path = pkgs.lib.mkOption {
+          type = pkgs.lib.types.str;
+          default = myCaCert;
+          description = "Custom CA cert path";
+        };
+      };
     };
-    caCertPath = pkgs.lib.mkOption {
-      type = pkgs.lib.types.str;
-      default = null;
-      description = "Custom CA cert path";
-    };
-  };
 
   config = {
     # Home Manager needs a bit of information about you and the paths it should
@@ -99,7 +111,6 @@
       fd # better find
       fzf
       gnupg
-      home-manager
       htop
       just
       magic-wormhole
