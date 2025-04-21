@@ -133,7 +133,7 @@
       homeConfigurations = builtins.listToAttrs (
         builtins.map (host: {
           name = host;
-          value = darwinConfigurations.${host}.config.home-manager.users.${username}.home;
+          value = darwinConfigurations.${host}.config.home-manager.users.${username host}.home;
         }) darwinHosts
       );
 

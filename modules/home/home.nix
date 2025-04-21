@@ -60,6 +60,11 @@
       default = "/etc/nixos";
       description = "Location of the nix config directory (this repo)";
     };
+    caCertPath = pkgs.lib.mkOption {
+      type = pkgs.lib.types.str;
+      default = null;
+      description = "Custom CA cert path";
+    };
   };
 
   config = {
@@ -94,6 +99,7 @@
       fd # better find
       fzf
       gnupg
+      home-manager
       htop
       just
       magic-wormhole
