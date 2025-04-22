@@ -12,9 +12,10 @@ jobs:
 
       - name: Install Nix
         uses: nixbuild/nix-quick-install-action@v30
-        nix_conf: |
-          keep-env-derivations = true
-          keep-outputs = true
+        with:
+          nix_conf: |
+            keep-env-derivations = true
+            keep-outputs = true
 
       - name: Check Nixpkgs Inputs
         uses: DeterminateSystems/flake-checker-action@v5
