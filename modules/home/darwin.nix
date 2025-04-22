@@ -34,10 +34,6 @@
         '';
         ".gnupg/gpg.conf".text = ''
           use-agent
-          # This silences the "you need a passphrase" message once the passphrase handling is all set.
-          # Use at your own discretion - may prevent the successful interactive use of some operations.
-          # It is working fine for my use cases though.
-          batch
         '';
       };
     };
