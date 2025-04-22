@@ -78,8 +78,7 @@ elif command -v ag >/dev/null; then
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 fi
 
-if [[ -d "${HOME}/.jenv/bin" ]]; then
-  export PATH="$PATH:$HOME/.jenv/bin"
+if _command_exists jenv; then
   eval "$(jenv init -)"
 fi
 

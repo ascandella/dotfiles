@@ -383,6 +383,13 @@ local packages = {
       'nvim-treesitter/nvim-treesitter',
     },
   },
+
+  {
+    'mfussenegger/nvim-jdtls',
+    config = function()
+      require('ai/jdtls').setup()
+    end,
+  },
 }
 
 -- Github integration
