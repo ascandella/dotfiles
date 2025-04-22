@@ -24,7 +24,7 @@ jobs:
         uses: nix-community/cache-nix-action@v6
         with:
           # restore and save a cache using this key
-          primary-key: nix-${{ runner.os }}-${{ hashFiles('**/*.nix', '**/flake.lock') }}
+          primary-key: nix2-${{ runner.os }}-${{ hashFiles('**/*.nix', '**/flake.lock') }}
 
       - name: Nix flake check
         run: nix flake check
