@@ -15,12 +15,11 @@ local function setup()
   -- }
 
   local config = {
+    cmd_env = {
+      JENV_VERSION = '21',
+    },
     cmd = {
-      home_dir .. '/.jenv/versions/21/bin/java',
-      '-jar',
-      install_path .. '/plugins/org.eclipse.equinox.launcher_1.7.0.v20250331-1702.jar',
-      '-configuration',
-      install_path .. '/config_mac_arm',
+      install_path .. '/bin/jdtls',
       '--jvm-arg=-javaagent:' .. install_path .. '/lombok.jar',
       '-Declipse.application=org.eclipse.jdt.ls.core.id1',
       '-Dosgi.bundles.defaultStartLevel=4',
