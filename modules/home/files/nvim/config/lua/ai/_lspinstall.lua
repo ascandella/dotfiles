@@ -7,6 +7,7 @@ local servers = {
   'efm',
   'elixirls',
   'gopls',
+  'jdtls',
   'terraformls',
   'tailwindcss',
   'tflint',
@@ -156,6 +157,7 @@ if nix_enabled then
   lspconfig.nil_ls.setup(make_config())
 end
 lspconfig.pyright.setup(make_config())
+lspconfig.kotlin_language_server.setup(make_config())
 
 return {
   make_config = make_config,
