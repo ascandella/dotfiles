@@ -13,8 +13,8 @@ jobs:
         uses: DeterminateSystems/nix-installer-action@v4
       - name: Check Nixpkgs Inputs
         uses: DeterminateSystems/flake-checker-action@v5
-      - name: Add Nix Cache
-        uses: DeterminateSystems/magic-nix-cache-action@v9
+      - name: Restore and save Nix store
+        uses: nix-community/cache-nix-action@v6
       - name: Nix flake check
         run: nix flake check
       - name: Statix analysis
