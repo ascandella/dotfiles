@@ -9,13 +9,21 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@v4
+
       - name: Check Nixpkgs Inputs
         uses: DeterminateSystems/flake-checker-action@v5
+
       - name: Restore and save Nix store
         uses: nix-community/cache-nix-action@v6
+        with:
+          # restore and save a cache using this key
+          primary-key: nix-${{ runner.os }}-${{ hashFiles('**/*.nix', '**/flake.lock') }}
+
       - name: Nix flake check
         run: nix flake check
+
       - name: Statix analysis
         run: nix run .#statix -- check
