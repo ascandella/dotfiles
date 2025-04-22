@@ -7,6 +7,7 @@ local servers = {
   'efm',
   'elixirls',
   'gopls',
+  'jdtls',
   'terraformls',
   'tailwindcss',
   'tflint',
