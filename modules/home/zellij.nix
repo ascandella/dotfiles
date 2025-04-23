@@ -1,7 +1,6 @@
 {
   system,
   inputs,
-  config,
   ...
 }:
 
