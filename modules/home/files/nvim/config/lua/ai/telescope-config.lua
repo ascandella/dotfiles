@@ -159,10 +159,6 @@ M.project_files = function()
   }
   local git_command = { 'git', 'ls-files', '--exclude-standard', '--cached', '.' }
 
-  if string.find(current_directory, '/vitally') then
-    table.insert(excludes, ':!:packages/client')
-  end
-
   for _, exclude in ipairs(excludes) do
     table.insert(git_command, exclude)
   end

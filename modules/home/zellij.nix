@@ -120,25 +120,6 @@ in
         }
 
       '';
-      "zellij/layouts/vitally.kdl".text = ''
-        layout {
-          cwd "${config.home.homeDirectory}/src/vitally"
-          default_tab_template {
-              children
-              ${zjstatus}
-          }
-          tab name="build" {
-              pane {
-                  command "zsh"
-                  args "-i" "-c" "yarn build:watch"
-              }
-          }
-          tab name="vim" {
-              pane
-          }
-        }
-      '';
-      "zellij/layouts/vitally.swap.kdl".source = ./files/zellij/layouts/default.swap.kdl;
     }
     // builtins.listToAttrs (
       map
