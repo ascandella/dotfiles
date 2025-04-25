@@ -51,7 +51,7 @@
           ;
       }
     )
-    ({ config, ... }: import ./session.nix { inherit config; })
+    ./session.nix
   ];
 
   options.my =
