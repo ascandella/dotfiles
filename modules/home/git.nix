@@ -13,7 +13,7 @@
       signByDefault = true;
     };
     userName = "Aiden Scandella";
-    userEmail = "git@sca.ndella.com";
+    userEmail = config.my.gitEmail;
     aliases = {
       abbrev = "!sh -c 'git rev-parse --short '\${1-`echo HEAD`}' -";
       add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`";

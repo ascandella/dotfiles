@@ -56,16 +56,24 @@
 
   options.my =
     let
-      hostCaMap = {
-        workbook = "CHANGEME";
+      hostMap = {
+        workbook = {
+          caCert = "CHANGEME";
+          gitEmail = "CHANGEME";
+        };
       };
-      myCaCert = if hostCaMap ? "${hostname}" then hostCaMap.${hostname} else null;
+      myCaCert = if hostMap ? "${hostname}" then hostMap.${hostname}.caCert else null;
     in
     {
       configDir = pkgs.lib.mkOption {
         type = pkgs.lib.types.str;
         default = "/etc/nixos";
         description = "Location of the nix config directory (this repo)";
+      };
+      gitEmail = pkgs.lib.mkOption {
+        type = pkgs.lib.types.str;
+        default = if hostMap ? "${hostname}" then hostMap.${hostname}.gitEmail else "git@sca.ndella.com";
+        description = "Git email address";
       };
       caCert = {
         enable = pkgs.lib.mkEnableOption "Enable custom CA cert" // {
