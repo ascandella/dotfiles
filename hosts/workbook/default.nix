@@ -16,6 +16,11 @@ darwin.lib.darwinSystem {
     inherit pubkeys;
   };
   modules = [
+    ../../modules/home-options
+    (import ./modules/home-options/host.nix {
+      inherit pkgs;
+      hostname = "workbook";
+    })
     ../../modules/darwin
     ../../modules/common
     home-manager.darwinModules.home-manager

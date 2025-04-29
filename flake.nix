@@ -136,6 +136,10 @@
           value = home-manager.lib.homeManagerConfiguration {
             pkgs = pkgsForHost host;
             modules = [
+              ./modules/home-options
+              (import ./modules/home-options/host.nix {
+                hostname = host;
+              })
               (import ./modules/home/home.nix {
                 system = systemForHost host;
                 hostname = host;
