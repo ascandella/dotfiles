@@ -22,6 +22,7 @@ nixpkgs.lib.nixosSystem {
     ./configuration.nix
     agenix.nixosModules.default
     comin.nixosModules.comin
+    ../../modules/home-options
     home-manager.nixosModules.home-manager
     {
       home-manager.users.${username} = import ../../modules/home/home.nix {

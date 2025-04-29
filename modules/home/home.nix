@@ -11,6 +11,7 @@
 {
   imports = [
     ./shell.nix
+    ../home-options
     ({ pkgs, ... }: import ./neovim.nix { inherit pkgs inputs; })
     { my.configDir = "${homeDirectory}/src/dotfiles"; }
     (
