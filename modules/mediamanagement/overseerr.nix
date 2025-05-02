@@ -9,7 +9,7 @@ in
     my.overseerr = {
       version = lib.mkOption {
         type = lib.types.str;
-        default = "1.33.2";
+        default = "1.34.0";
       };
       user = {
         uid = lib.mkOption {
