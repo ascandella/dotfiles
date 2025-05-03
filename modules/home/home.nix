@@ -84,6 +84,7 @@
       delta
       difftastic # treesitter-aware diffs
       eza # better ls
+      faas-cli # openfaas
       fd # better find
       fzf
       gnupg
