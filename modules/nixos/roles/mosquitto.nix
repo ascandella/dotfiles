@@ -5,6 +5,7 @@
   age.secrets = {
     mosquitto-homeassistant.file = ../../../secrets/mosquitto-homeassistant.age;
     mosquitto-frigate.file = ../../../secrets/mosquitto-frigate.age;
+    mosquitto-opensprinkler.file = ../../../secrets/mosquitto-opensprinkler.age;
   };
 
   services.mosquitto = {
