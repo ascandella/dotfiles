@@ -12,17 +12,19 @@
     enable = true;
     listeners = [
       {
-        users.homeassistant = {
-          acl = [ "readwrite #" ];
-          hashedPasswordFile = config.age.secrets.mosquitto-homeassistant.path;
-        };
-        users.frigate = {
-          acl = [ "readwrite #" ];
-          hashedPasswordFile = config.age.secrets.mosquitto-frigate.path;
-        };
-        users.opensprinkler = {
-          acl = [ "readwrite opensprinkler/#" ];
-          hashedPasswordFile = config.age.secrets.mosquitto-opensprinkler.path;
+        users = {
+          homeassistant = {
+            acl = [ "readwrite #" ];
+            hashedPasswordFile = config.age.secrets.mosquitto-homeassistant.path;
+          };
+          frigate = {
+            acl = [ "readwrite #" ];
+            hashedPasswordFile = config.age.secrets.mosquitto-frigate.path;
+          };
+          opensprinkler = {
+            acl = [ "readwrite opensprinkler/#" ];
+            hashedPasswordFile = config.age.secrets.mosquitto-opensprinkler.path;
+          };
         };
       }
     ];
