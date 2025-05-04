@@ -19,6 +19,10 @@
           acl = [ "readwrite #" ];
           hashedPasswordFile = config.age.secrets.mosquitto-frigate.path;
         };
+        users.opensprinkler = {
+          acl = [ "readwrite #" ];
+          hashedPasswordFile = config.age.secrets.mosquitto-opensprinkler.path;
+        };
       }
     ];
   };

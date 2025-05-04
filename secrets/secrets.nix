@@ -10,6 +10,7 @@ let
       "gitea-fastmail-app-password"
       "mosquitto-frigate"
       "mosquitto-homeassistant"
+      "mosquitto-opensprinkler"
       "nextcloud-db-pass"
       "nutuser"
       "sponsorblocktv"
