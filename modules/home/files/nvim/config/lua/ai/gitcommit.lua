@@ -4,7 +4,7 @@ local function get_commit_tag(branch)
   end
 
   for tag in branch:gmatch('/([%w-_]+)/') do
-    return string.format('[%s] ', string.upper(tag))
+    return string.format('%s ', string.upper(tag))
   end
 
   return nil
