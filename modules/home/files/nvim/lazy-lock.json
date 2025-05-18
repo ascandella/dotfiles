@@ -53,6 +53,7 @@
   "project.nvim": { "branch": "main", "commit": "8c6bad7d22eef1b71144b401c9f74ed01526a4fb" },
   "rainbow-delimiters.nvim": { "branch": "master", "commit": "55ad4fb76ab68460f700599b7449385f0c4e858e" },
   "rust-tools.nvim": { "branch": "master", "commit": "676187908a1ce35ffcd727c654ed68d851299d3e" },
+  "schemastore.nvim": { "branch": "main", "commit": "386bdbf18abb6ca103495c5bdbab65e46f3c361d" },
   "silicon.nvim": { "branch": "main", "commit": "d8a6852b7158cc98f44ab12a0811ccf7d111dc71" },
   "sql.nvim": { "branch": "master", "commit": "50092d60feb242602d7578398c6eb53b4a8ffe7b" },
   "telescope-frecency.nvim": { "branch": "master", "commit": "4d2f5854d3a161b355c4949059e6cd1087fd1d4a" },

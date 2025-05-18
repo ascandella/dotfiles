@@ -154,7 +154,8 @@ local packages = {
       -- Extensible linters/formatters
       'mattn/efm-langserver',
       { url = 'https://git.sr.ht/~whynothugo/lsp_lines.nvim' },
-      { 'j-hui/fidget.nvim' },
+      'j-hui/fidget.nvim',
+      'b0o/schemastore.nvim',
     },
     config = function()
       require('ai/_lspinstall')

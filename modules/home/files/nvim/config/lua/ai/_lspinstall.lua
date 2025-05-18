@@ -8,6 +8,7 @@ local servers = {
   'elixirls',
   'gopls',
   'jdtls',
+  'jsonls',
   'terraformls',
   'tailwindcss',
   'tflint',
@@ -148,6 +149,28 @@ lspconfig.gopls.setup(make_config({
         parameterNames = true,
         rangeVariableTypes = true,
       },
+    },
+  },
+}))
+
+lspconfig.jsonls.setup(make_config({
+  settings = {
+    json = {
+      schemas = require('schemastore').json.schemas(),
+      validate = { enable = true },
+    },
+  },
+}))
+
+lspconfig.yamlls.setup(make_config({
+  settings = {
+    yaml = {
+      schemaStore = {
+        enable = false,
+        url = '',
+      },
+      schemas = require('schemastore').json.schemas(),
+      validate = true,
     },
   },
 }))

@@ -130,6 +130,7 @@
       k9s
       kubectl
       kubernetes-helm
+      kubeseal # sealed secrets
       kustomize
       pv-migrate
 
