@@ -36,6 +36,7 @@ in
     ../../modules/nixos/roles/frigate.nix
     ../../modules/nixos/roles/scrypted.nix
     ../../modules/nixos/roles/wireguard.nix
+    ../../modules/nixos/roles/cloudflared.nix
     ../../modules/common
     ../../modules/deploy
     ../../modules/plex
