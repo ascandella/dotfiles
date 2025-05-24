@@ -343,7 +343,8 @@ local packages = {
 
   -- YAML detection, for k8s
   {
-    'someone-stole-my-name/yaml-companion.nvim',
+    -- Fork from main, to update deprecated LSP usage
+    'alteriks/yaml-companion.nvim',
     ft = { 'yaml' },
     requires = {
       { 'neovim/nvim-lspconfig' },

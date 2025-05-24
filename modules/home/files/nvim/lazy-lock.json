@@ -77,6 +77,6 @@
   "vim-vsnip": { "branch": "master", "commit": "0a4b8419e44f47c57eec4c90df17567ad4b1b36e" },
   "which-key.nvim": { "branch": "main", "commit": "370ec46f710e058c9c1646273e6b225acf47cbed" },
   "windline.nvim": { "branch": "master", "commit": "bef735787bef64697036774eca6418e7a786100b" },
-  "yaml-companion.nvim": { "branch": "main", "commit": "131b0d67bd2e0f1a02e0daf2f3460482221ce3c0" },
+  "yaml-companion.nvim": { "branch": "main", "commit": "fc75ea810f427fe09165322b9c9bd32880650cd2" },
   "zen-mode.nvim": { "branch": "main", "commit": "863f150ca321b3dd8aa1a2b69b5f411a220e144f" }
 }
