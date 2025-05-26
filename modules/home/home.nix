@@ -129,7 +129,7 @@
       # Kubernetes
       k9s
       kubectl
-      kubelogin # OIDC login for k8s api (e.g. authentik)
+      kubelogin-oidc # OIDC login for k8s api (e.g. authentik)
       kubernetes-helm
       kubeseal # sealed secrets
       kustomize
