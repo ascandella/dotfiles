@@ -223,6 +223,13 @@ in
 
       ollama.enable = true;
       ollama.enableWeb = true;
+
+      k3s = {
+        enable = true;
+        oidc = {
+          enable = true;
+        };
+      };
     };
 
     openiscsi.name = "iqn.2024-11.com.nixos:baymax";

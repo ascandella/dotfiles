@@ -7,46 +7,41 @@
 
 let
   cfg = config.services.aispace.k3s;
-  oidc = lib.types.submodule (
-    { _ }:
-    {
-      enable = lib.mkOption {
-        type = lib.types.bool;
-        default = true;
-        description = "Whether OIDC auth is enabled for k3s";
-      };
-      issuerUrl = lib.mkOption {
-        type = lib.types.nonEmptyStr;
-        example = "https://oidc.example.com/application/o/kubernetes";
-        description = "The OIDC issuer URL";
-      };
-      clientId = lib.mkOption {
-        type = lib.types.nonEmptyStr;
-        example = "kubernetes";
-        description = "The OIDC client ID";
-      };
-      emailClaim = lib.mkOption {
-        type = lib.types.nonEmptyStr;
-        default = "email";
-        example = "email";
-        description = "The OIDC claim to use for the email address";
-      };
-      groupsClaim = lib.mkOption {
-        type = lib.types.nonEmptyStr;
-        default = "groups";
-        example = "groups";
-        description = "The OIDC claim to use for user groups";
-      };
-    }
-  );
 in
 {
   options = {
     services.aispace.k3s = {
       enable = lib.mkEnableOption "enable k3s server";
-      oidc = lib.mkOption {
-        type = lib.types.attrsOf oidc;
-        default = { };
+      oidc = {
+        enable = lib.mkOption {
+          type = lib.types.bool;
+          default = true;
+          description = "Whether OIDC auth is enabled for k3s";
+        };
+        issuerUrl = lib.mkOption {
+          type = lib.types.nonEmptyStr;
+          example = "https://oidc.example.com/application/o/kubernetes";
+          default = "https://auth.ndella.com/application/o/kubernetes/";
+          description = "The OIDC issuer URL";
+        };
+        clientId = lib.mkOption {
+          type = lib.types.nonEmptyStr;
+          example = "kubernetes";
+          default = "AWaT6g7hUCn74xGHG4NqxE09ywPeMZcJZJVkN7uU";
+          description = "The OIDC client ID";
+        };
+        userClaim = lib.mkOption {
+          type = lib.types.nonEmptyStr;
+          default = "email";
+          example = "email";
+          description = "The OIDC claim to use for the username";
+        };
+        groupsClaim = lib.mkOption {
+          type = lib.types.nonEmptyStr;
+          default = "groups";
+          example = "groups";
+          description = "The OIDC claim to use for user groups";
+        };
       };
     };
   };
@@ -56,11 +51,20 @@ in
       k3s = {
         enable = true;
         role = "server";
-        extraFlags = toString [
-          "--node-label"
-          "ai-location=home"
-          "--disable=traefik"
-        ];
+        extraFlags = toString (
+          [
+            "--node-label"
+            "ai-location=home"
+            "--disable=traefik"
+          ]
+          ++ lib.lists.optionals cfg.oidc.enable [
+            "--kube-apiserver-arg=oidc-issuer-url=${cfg.oidc.issuerUrl}"
+            "--kube-apiserver-arg=oidc-client-id=${cfg.oidc.clientId}"
+            "--kube-apiserver-arg=oidc-username-claim=${cfg.oidc.userClaim}"
+            "--kube-apiserver-arg=oidc-groups-claim=${cfg.oidc.groupsClaim}"
+            "--kube-apiserver-arg=oidc-groups-prefix=oidc:"
+          ]
+        );
       };
 
       # For Longhorn / Truenas iSCSI
