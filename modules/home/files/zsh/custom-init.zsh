@@ -78,10 +78,10 @@ elif command -v ag >/dev/null; then
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 fi
 
-if _command_exists jenv; then
-  eval "$(jenv init -)"
-fi
-
+# if _command_exists jenv; then
+#   eval "$(jenv init -)"
+# fi
+#
 # Age decrypt
 ad() {
   local AGE_IDENTITY="$HOME/.age/identity"
