@@ -41,6 +41,7 @@ in
     ../../modules/plex
     ../../modules/torrenting
     ../../modules/mediamanagement
+    ../../modules/networking
   ];
 
   age.secrets = {
