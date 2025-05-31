@@ -27,7 +27,7 @@ with lib;
     };
     openFirewall = mkOption {
       type = types.bool;
-      default = true;
+      default = false;
     };
     shmSize = mkOption {
       type = types.str;
@@ -52,7 +52,7 @@ with lib;
         config.age.secrets.frigate-secrets.path
       ];
       ports = [
-        "${toString cfg.port}:8971"
+        "${config.my.network.privateAddress}:${toString cfg.port}:8971"
         "127.0.0.1:8585:5000" # internal API, not exposed through firewall, only for home-assistant
         "127.0.0.1:8554:8554" # rtsp streaming for go2rtc, not exposed through firewall, only for home-assistant
       ];

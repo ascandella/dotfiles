@@ -98,7 +98,7 @@ in
     interfaces.ens19 = {
       ipv4.addresses = [
         {
-          address = "10.4.0.35";
+          address = "${config.my.network.privateAddress}";
           prefixLength = 24;
         }
       ];
@@ -195,6 +195,10 @@ in
         passwordFile = config.age.secrets.nutuser.path;
       };
     };
+  };
+
+  my.network = {
+    privateAddress = "10.4.0.35";
   };
 
   services = {

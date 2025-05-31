@@ -117,7 +117,7 @@ in
         "/dev/net/tun:/dev/net/tun"
       ];
 
-      ports = [ "10.4.0.35:${toString cfg.port}:8080" ];
+      ports = [ "${config.my.network.privateAddress}:${toString cfg.port}:8080" ];
 
       extraOptions = [
         # Create wireguard interface
