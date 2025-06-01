@@ -42,6 +42,13 @@
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # For generating installer ISO
+    # https://github.com/nix-community/nixos-generators
+    nixos-generators = {
+      url = "github:nix-community/nixos-generators";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -51,6 +58,7 @@
       home-manager,
       darwin,
       flake-utils,
+      nixos-generators,
       comin,
       deploy-rs,
       agenix,
@@ -228,6 +236,19 @@
           '';
           lint = packages.default;
           agenix = agenix.packages.${system}.default;
+          installISO = nixos-generators.nixosGenerate {
+            inherit system;
+            specialArgs = {
+              inherit pubkeys;
+            };
+            format = "install-iso";
+            modules = [
+              {
+                nix.registry.nixpkgs.flake = nixpkgs;
+              }
+              ./modules/installer
+            ];
+          };
         };
         apps = {
           inherit (deploy-rs.apps.${system}) deploy-rs;
