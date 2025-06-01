@@ -80,6 +80,7 @@
       bat
       btop
       bun
+      cilium-cli
       curl
       delta
       difftastic # treesitter-aware diffs
