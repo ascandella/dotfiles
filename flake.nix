@@ -238,7 +238,16 @@
           agenix = agenix.packages.${system}.default;
           installISO = nixos-generators.nixosGenerate {
             inherit system;
+            specialArgs = {
+              inherit pubkeys;
+            };
             format = "install-iso";
+            modules = [
+              {
+                nix.registry.nixpkgs.flake = nixpkgs;
+              }
+              ./modules/installer
+            ];
           };
         };
         apps = {
