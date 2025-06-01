@@ -75,12 +75,10 @@
     # environment.
     home.packages = with pkgs; [
       age # encryption
-      argocd # manage argo
       awscli2
       bat
       btop
       bun
-      cilium-cli
       curl
       delta
       difftastic # treesitter-aware diffs
@@ -128,6 +126,7 @@
       gh
 
       # Kubernetes
+      argocd # manage argo
       k9s
       kubectl
       kubelogin-oidc # OIDC login for k8s api (e.g. authentik)
@@ -135,6 +134,8 @@
       kubeseal # sealed secrets
       kustomize
       pv-migrate
+      talosctl
+      cilium-cli # CNI
 
       # Terraform
       tenv # newer tfenv
