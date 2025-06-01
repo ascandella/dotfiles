@@ -56,8 +56,6 @@ in
             "--node-label"
             "ai-location=home"
             "--disable=traefik"
-            # Cilium https://docs.cilium.io/en/stable/installation/k3s/
-            "--flannel-backend=none --disable-network-policy"
           ]
           ++ lib.lists.optionals cfg.oidc.enable [
             "--kube-apiserver-arg=oidc-issuer-url=${cfg.oidc.issuerUrl}"
