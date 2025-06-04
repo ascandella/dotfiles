@@ -117,6 +117,14 @@ in
             ]
           )
         );
+        serverTunnelPeers = lib.concatStringsSep "," (
+          lib.lists.flatten (
+            map wireguard.ipsForServer [
+              "oracle"
+            ]
+          )
+        );
+        homelabServerCIDR = "10.2.1.0/24";
         localNetworkInterface = "ens18";
       in
       {
@@ -131,12 +139,14 @@ in
           ${pkgs.iptables}/bin/iptables -A FORWARD -i ${config.services.aispace.wireguard.interface} -j ACCEPT;
           ${pkgs.iptables}/bin/iptables -A FORWARD -o ${config.services.aispace.wireguard.interface} -j ACCEPT;
           ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s ${localTunnelPeers} -o ${localNetworkInterface} -j MASQUERADE
+          ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s ${serverTunnelPeers} -o ${localNetworkInterface} -d ${homelabServerCIDR} -j MASQUERADE
         '';
 
         postShutdown = ''
           ${pkgs.iptables}/bin/iptables -D FORWARD -i ${config.services.aispace.wireguard.interface} -j ACCEPT;
           ${pkgs.iptables}/bin/iptables -D FORWARD -o ${config.services.aispace.wireguard.interface}  -j ACCEPT;
           ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s ${localTunnelPeers} -o ${localNetworkInterface} -j MASQUERADE
+          ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s ${serverTunnelPeers} -o ${localNetworkInterface} -d ${homelabServerCIDR} -j MASQUERADE
         '';
       };
   };

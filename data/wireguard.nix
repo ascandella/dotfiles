@@ -45,4 +45,5 @@ in
       ++ lib.attrValues (lib.filterAttrs (name: _value: name != serverName) servers)
     );
   ipsForClient = client: clients.${client}.allowedIPs;
+  ipsForServer = server: servers.${server}.allowedIPs;
 }
