@@ -136,6 +136,7 @@
       pv-migrate
       talosctl
       cilium-cli # CNI
+      hubble # Cilium observability
 
       # Terraform
       tenv # newer tfenv
