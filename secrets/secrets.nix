@@ -6,8 +6,6 @@ let
       "baymax-ntfy-token"
       "baymax-vpn"
       "frigate-secrets"
-      "gitea-db-pass"
-      "gitea-fastmail-app-password"
       "mosquitto-frigate"
       "mosquitto-homeassistant"
       "mosquitto-opensprinkler"
