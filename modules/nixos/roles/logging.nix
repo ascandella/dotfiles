@@ -9,7 +9,7 @@ with lib;
     my.logging = {
       vector = {
         enable = mkEnableOption (mdDoc "enable vector quickwit") // {
-          default = true;
+          default = false;
         };
       };
       quickwit = {
