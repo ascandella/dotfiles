@@ -76,6 +76,7 @@
         }
       ];
     };
+    networking.firewall.allowedTCPPorts = [ 8082 ];
     systemd.timers.nextcloud-previewgenerator-cron = {
       wantedBy = [ "timers.target" ];
       after = [ "nextcloud-setup.service" ];
@@ -99,6 +100,5 @@
         };
       };
     };
-
   };
 }
