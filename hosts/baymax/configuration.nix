@@ -27,7 +27,6 @@ in
     ../../modules/nixos/roles/home-assistant.nix
     ../../modules/nixos/roles/zwave-js.nix
     ../../modules/nixos/roles/nextcloud.nix
-    ../../modules/nixos/roles/k3s.nix
     ../../modules/nixos/roles/backups.nix
     ../../modules/nixos/roles/sponsorblocktv.nix
     ../../modules/nixos/roles/ollama.nix
@@ -237,13 +236,6 @@ in
 
       ollama.enable = true;
       ollama.enableWeb = true;
-
-      k3s = {
-        enable = true;
-        oidc = {
-          enable = true;
-        };
-      };
     };
 
     openiscsi.name = "iqn.2024-11.com.nixos:baymax";
