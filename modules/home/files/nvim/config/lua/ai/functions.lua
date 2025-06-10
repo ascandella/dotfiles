@@ -60,3 +60,10 @@ vim.keymap.set(
   ':BufInCurrentDirectory<CR>',
   { desc = 'Create file in current directory', silent = true }
 )
+
+vim.keymap.set(
+  'n',
+  '<Leader>cf',
+  'viW:BufInCurrentDirectory<CR>',
+  { desc = 'Create file in current directory from word under cursor', silent = true }
+)
