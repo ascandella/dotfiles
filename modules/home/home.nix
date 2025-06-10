@@ -137,6 +137,9 @@
       talosctl
       cilium-cli # CNI
       hubble # Cilium observability
+      # Kubernetes development
+      kind # Kubernetes in Docker
+      operator-sdk
 
       # Terraform
       tenv # newer tfenv
