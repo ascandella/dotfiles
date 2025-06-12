@@ -16,15 +16,15 @@ keybinds {
         bind "Alt l" { SwitchToMode "Normal"; }
     }
     resize {
-        bind "Ctrl n" { SwitchToMode "Normal"; }
+        bind "Alt r" { SwitchToMode "Normal"; }
         bind "h" "Left" { Resize "Increase Left"; }
-        bind "j" "Down" { Resize "Increase Down"; }
-        bind "k" "Up" { Resize "Increase Up"; }
-        bind "l" "Right" { Resize "Increase Right"; }
+        bind "t" "Down" { Resize "Increase Down"; }
+        bind "n" "Up" { Resize "Increase Up"; }
+        bind "s" "Right" { Resize "Increase Right"; }
         bind "H" { Resize "Decrease Left"; }
-        bind "J" { Resize "Decrease Down"; }
-        bind "K" { Resize "Decrease Up"; }
-        bind "L" { Resize "Decrease Right"; }
+        bind "T" { Resize "Decrease Down"; }
+        bind "N" { Resize "Decrease Up"; }
+        bind "S" { Resize "Decrease Right"; }
         bind "=" "+" { Resize "Increase"; }
         bind "-" { Resize "Decrease"; }
     }
@@ -206,7 +206,7 @@ keybinds {
         bind "Ctrl x" { SwitchToMode "Pane"; }
     }
     shared_except "resize" "locked" {
-        // bind "Ctrl n" { SwitchToMode "Resize"; }
+        bind "Alt r" { SwitchToMode "Resize"; }
     }
     shared_except "scroll" "locked" {
         bind "Ctrl s" { SwitchToMode "Scroll"; }
