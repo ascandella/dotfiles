@@ -139,6 +139,7 @@
       hubble # Cilium observability
       # Kubernetes development
       kind # Kubernetes in Docker
+      velero # backup and restore k8s clusters
 
       # Terraform
       tenv # newer tfenv
