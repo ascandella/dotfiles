@@ -126,7 +126,7 @@ in
         localNetworkInterface = "ens18";
       in
       {
-        ips = [ "10.20.0.35/24" ];
+        ips = [ "10.20.0.35/16" ];
         privateKeyFile = "/etc/wireguard/private-key";
         generatePrivateKeyFile = true;
         listenPort = 51820;
