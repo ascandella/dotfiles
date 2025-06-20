@@ -22,11 +22,11 @@ with lib;
   config = mkIf cfg.enable {
     age.secrets.buildkite-agent-token = {
       file = ../../../secrets/buildkite-agent-token.age;
-      user = "buildkite-agent-ai-cloud";
+      owner = "buildkite-agent-ai-cloud";
     };
     age.secrets.buildkite-ai-cloud-ssh-key = {
       file = ../../../secrets/buildkite-ai-cloud-ssh-key.age;
-      user = "buildkite-agent-ai-cloud";
+      owner = "buildkite-agent-ai-cloud";
     };
 
     services.buildkite-agents.ai-cloud = {
