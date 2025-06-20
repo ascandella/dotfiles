@@ -35,6 +35,7 @@ in
     ../../modules/nixos/roles/scrypted.nix
     ../../modules/nixos/roles/wireguard.nix
     ../../modules/nixos/roles/networking.nix
+    ../../modules/nixos/roles/buildkite.nix
     ../../modules/common
     ../../modules/deploy
     ../../modules/plex
@@ -217,6 +218,10 @@ in
     # Custom services
 
     aispace = {
+      buildkite = {
+        enable = true;
+      };
+
       home-assistant = {
         enable = true;
         openFirewall = true;

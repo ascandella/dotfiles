@@ -8,22 +8,18 @@ with lib;
   options = {
     my.logging = {
       vector = {
-        enable = mkEnableOption (mdDoc "enable vector quickwit") // {
-          default = false;
+        enable = mkEnableOption (mdDoc "enable vector otel") // {
+          default = true;
         };
       };
-      quickwit = {
+      otlp = {
         host = mkOption {
           type = types.str;
           default = "localhost";
         };
-        index = mkOption {
-          type = types.str;
-          default = "otel-logs-v0_7";
-        };
         port = mkOption {
           type = types.port;
-          default = 7280;
+          default = 4318;
         };
       };
     };
@@ -89,13 +85,17 @@ with lib;
             };
           };
           sinks = {
-            quickwit = {
+            otlp = {
               inputs = [ "otel-journald" ];
-              type = "http";
-              method = "post";
-              encoding.codec = "json";
-              framing.method = "newline_delimited";
-              uri = "http://${cfg.quickwit.host}:${toString cfg.quickwit.port}/api/v1/${cfg.quickwit.index}/ingest";
+              type = "opentelemetry";
+              protocol = {
+                type = "http";
+                method = "post";
+                encoding.codec = "json";
+                framing.method = "newline_delimited";
+                uri = "http://${cfg.otlp.host}:${toString cfg.otlp.port}/v1/logs";
+
+              };
             };
 
             prometheus = {

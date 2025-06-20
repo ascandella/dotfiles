@@ -62,10 +62,9 @@
           vim = "nvim";
           k = "kubectl";
           ko = "kubectl --context oracle";
-          kb = "kubectl --context baymax";
+          kb = "kustomize build --enable-helm --load-restrictor=LoadRestrictionsNone";
           kc = "kubectl config use-context";
           krp = "kubectl get pods --field-selector=status.phase=Running";
-          kk = "kubectl kustomize --enable-helm";
           less = "most";
           # From https://github.com/zellij-org/zellij/blob/09689eae8b96ddb95713e6612ec17007ced91306/zellij-utils/assets/completions/comp.zsh
           ze = "zellij edit";

@@ -1,0 +1,44 @@
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
+
+let
+  cfg = config.services.aispace.buildkite;
+in
+with lib;
+{
+  options.services.aispace.buildkite = {
+    enable = mkEnableOption "Enable Buildkite agent";
+    token = mkOption {
+      type = types.str;
+      default = "";
+      description = "Buildkite agent token";
+    };
+  };
+
+  config = mkIf cfg.enable {
+    age.secrets.buildkite-agent-token = {
+      file = ../../../secrets/buildkite-agent-token.age;
+    };
+    age.secrets.buildkite-ai-cloud-ssh-key = {
+      file = ../../../secrets/buildkite-ai-cloud-ssh-key.age;
+    };
+
+    services.buildkite-agents.ai-cloud = {
+      tokenPath = config.age.secrets.buildkite-agent-token.path;
+      privateSshKeyPath = config.age.secrets.buildkite-ai-cloud-ssh-key.path;
+      tags = [ "ai-cloud" ];
+      runtimePackages = with pkgs; [
+        bash
+        gnutar
+        gzip
+        git
+        nix
+        docker
+      ];
+    };
+  };
+}

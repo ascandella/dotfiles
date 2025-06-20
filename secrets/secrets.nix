@@ -5,6 +5,8 @@ let
       "baymax-borg"
       "baymax-ntfy-token"
       "baymax-vpn"
+      "buildkite-agent-token"
+      "buildkite-ai-cloud-ssh-key"
       "frigate-secrets"
       "mosquitto-frigate"
       "mosquitto-homeassistant"
