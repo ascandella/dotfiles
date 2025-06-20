@@ -30,7 +30,10 @@ with lib;
     services.buildkite-agents.ai-cloud = {
       tokenPath = config.age.secrets.buildkite-agent-token.path;
       privateSshKeyPath = config.age.secrets.buildkite-ai-cloud-ssh-key.path;
-      tags = [ "ai-cloud" ];
+      tags = {
+        "docker" = "true";
+        "queue" = "ai-cloud";
+      };
       runtimePackages = with pkgs; [
         bash
         gnutar
