@@ -66,7 +66,7 @@ with lib;
           privateSshKeyPath = config.age.secrets.buildkite-ai-cloud-ssh-key.path;
           tags = {
             "docker" = "true";
-            "queue" = "ai-cloud";
+            "queue" = "fantasy-football";
           };
           extraConfig = extraConfig "ff";
           inherit runtimePackages;
