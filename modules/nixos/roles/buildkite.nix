@@ -20,30 +20,52 @@ with lib;
   };
 
   config = mkIf cfg.enable {
-    age.secrets.buildkite-agent-token = {
-      file = ../../../secrets/buildkite-agent-token.age;
-      owner = "buildkite-agent-ai-cloud";
-    };
-    age.secrets.buildkite-ai-cloud-ssh-key = {
-      file = ../../../secrets/buildkite-ai-cloud-ssh-key.age;
-      owner = "buildkite-agent-ai-cloud";
+    age.secrets = {
+      buildkite-agent-token = {
+        file = ../../../secrets/buildkite-agent-token.age;
+        owner = "buildkite-agent-ai-cloud";
+      };
+      buildkite-agent-token-ff = {
+        file = ../../../secrets/buildkite-agent-token.age;
+        owner = "buildkite-agent-ff";
+      };
+      buildkite-ai-cloud-ssh-key = {
+        file = ../../../secrets/buildkite-ai-cloud-ssh-key.age;
+        owner = "buildkite-agent-ai-cloud";
+      };
     };
 
-    services.buildkite-agents.ai-cloud = {
-      tokenPath = config.age.secrets.buildkite-agent-token.path;
-      privateSshKeyPath = config.age.secrets.buildkite-ai-cloud-ssh-key.path;
-      tags = {
-        "docker" = "true";
-        "queue" = "ai-cloud";
+    services.buildkite-agents =
+      let
+        runtimePackages = with pkgs; [
+          bash
+          gnutar
+          gzip
+          git
+          nix
+          docker
+        ];
+      in
+      {
+        ai-cloud = {
+          tokenPath = config.age.secrets.buildkite-agent-token.path;
+          privateSshKeyPath = config.age.secrets.buildkite-ai-cloud-ssh-key.path;
+          tags = {
+            "docker" = "true";
+            "queue" = "ai-cloud";
+          };
+          inherit runtimePackages;
+        };
+
+        ff = {
+          tokenPath = config.age.secrets.buildkite-agent-token-ff.path;
+          privateSshKeyPath = config.age.secrets.buildkite-ai-cloud-ssh-key.path;
+          tags = {
+            "docker" = "true";
+            "queue" = "ai-cloud";
+          };
+          inherit runtimePackages;
+        };
       };
-      runtimePackages = with pkgs; [
-        bash
-        gnutar
-        gzip
-        git
-        nix
-        docker
-      ];
-    };
   };
 }

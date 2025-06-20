@@ -7,6 +7,7 @@ let
       "baymax-vpn"
       "buildkite-agent-token"
       "buildkite-ai-cloud-ssh-key"
+      "buildkite-ff-ssh-key"
       "frigate-secrets"
       "mosquitto-frigate"
       "mosquitto-homeassistant"
