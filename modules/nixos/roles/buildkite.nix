@@ -45,6 +45,9 @@ with lib;
           nix
           docker
         ];
+        extraConfig = name: ''
+          plugins-path="/var/lib/buildkite-agent-${name}/plugins"
+        '';
       in
       {
         ai-cloud = {
@@ -54,6 +57,7 @@ with lib;
             "docker" = "true";
             "queue" = "ai-cloud";
           };
+          extraConfig = extraConfig "ai-cloud";
           inherit runtimePackages;
         };
 
@@ -64,6 +68,7 @@ with lib;
             "docker" = "true";
             "queue" = "ai-cloud";
           };
+          extraConfig = extraConfig "ff";
           inherit runtimePackages;
         };
       };
