@@ -25,13 +25,17 @@ with lib;
         file = ../../../secrets/buildkite-agent-token.age;
         owner = "buildkite-agent-ai-cloud";
       };
+      buildkite-ai-cloud-ssh-key = {
+        file = ../../../secrets/buildkite-ai-cloud-ssh-key.age;
+        owner = "buildkite-agent-ai-cloud";
+      };
       buildkite-agent-token-ff = {
         file = ../../../secrets/buildkite-agent-token.age;
         owner = "buildkite-agent-ff";
       };
-      buildkite-ai-cloud-ssh-key = {
-        file = ../../../secrets/buildkite-ai-cloud-ssh-key.age;
-        owner = "buildkite-agent-ai-cloud";
+      buildkite-ff-ssh-key = {
+        file = ../../../secrets/buildkite-ff-ssh-key.age;
+        owner = "buildkite-agent-ff";
       };
     };
 
@@ -63,7 +67,7 @@ with lib;
 
         ff = {
           tokenPath = config.age.secrets.buildkite-agent-token-ff.path;
-          privateSshKeyPath = config.age.secrets.buildkite-ai-cloud-ssh-key.path;
+          privateSshKeyPath = config.age.secrets.buildkite-ff-ssh-key.path;
           tags = {
             "docker" = "true";
             "queue" = "fantasy-football";
