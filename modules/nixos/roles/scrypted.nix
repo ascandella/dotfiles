@@ -9,7 +9,7 @@ with lib;
     enable = mkEnableOption (mdDoc "enable scrypted via OCI container");
     version = mkOption {
       type = types.str;
-      default = "v0.116.0-jammy-full";
+      default = "v0.139.0-noble-full";
     };
     port = mkOption {
       type = types.int;
