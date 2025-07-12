@@ -111,6 +111,9 @@ languages:
   json:
     - <<: *prettier
 
+  json5:
+    - <<: *prettier
+
   javascript:
     - <<: *eslint_d
     - <<: *prettier

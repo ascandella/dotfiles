@@ -52,6 +52,7 @@ local function efm_config(config)
     -- .heex files, eelixir templates for Phoenix LiveView
     'heex',
     'json',
+    'json5',
     'javascript',
     'javascriptreact',
     'lua',
