@@ -44,7 +44,6 @@ end
 local function efm_config(config)
   config.filetypes = {
     'astro',
-    'caddyfile',
     'css',
     -- .eex templates
     'eelixir',

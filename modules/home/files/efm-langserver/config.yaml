@@ -78,10 +78,6 @@ languages:
   astro:
     - <<: *prettier
 
-  caddyfile:
-    # Disabled because it doesn't play well with jinja2 variable templating in
-    # ansible
-    # - <<: *caddy-fmt
   css:
     - <<: *css-prettier
 
