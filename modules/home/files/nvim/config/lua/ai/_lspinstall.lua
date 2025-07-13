@@ -38,33 +38,42 @@ local function make_config(extra_options)
   return vim.tbl_deep_extend('force', {
     capabilities = cmp_nvim_lsp.default_capabilities(capabilities),
     on_attach = on_attach,
+    init_options = {
+      documentFormatting = true,
+      documentRangeFormatting = true,
+    },
   }, extra_options or {})
 end
 
+local eslint = require('efmls-configs.linters.eslint_d')
+local prettier = require('efmls-configs.formatters.prettier_d')
+local stylua = require('efmls-configs.formatters.stylua')
+local nixfmt = require('efmls-configs.formatters.nixfmt')
+local shellcheck = require('efmls-configs.linters.shellcheck')
+local shfmt = require('efmls-configs.formatters.shfmt')
+local ruff = require('efmls-configs.linters.ruff')
+
+local efm_languages = {
+  astro = { prettier },
+  graphql = { prettier },
+  typescript = { eslint, prettier },
+  javascript = { eslint, prettier },
+  typescriptreact = { eslint, prettier },
+  javascriptreact = { eslint, prettier },
+  lua = { stylua },
+  json = { prettier },
+  json5 = { prettier },
+  nix = { nixfmt },
+  sh = { shellcheck, shfmt },
+  python = { ruff },
+}
+
 local function efm_config(config)
-  config.filetypes = {
-    'astro',
-    'css',
-    -- .eex templates
-    'eelixir',
-    'graphql',
-    -- .heex files, eelixir templates for Phoenix LiveView
-    'heex',
-    'json',
-    'json5',
-    'javascript',
-    'javascriptreact',
-    'lua',
-    'nix',
-    'python',
-    'typescript',
-    'typescriptreact',
-    'sh',
-    'zsh',
-    'svelte',
-    'yaml',
+  config.filetypes = vim.tbl_keys(efm_languages)
+  config.settings = {
+    rootMarkers = { 'mix.exs', 'package.json', 'go.mod', '.git/' },
+    languages = efm_languages,
   }
-  config.root_dir = require('lspconfig').util.root_pattern('mix.exs', 'package.json', '.git')
   return config
 end
 

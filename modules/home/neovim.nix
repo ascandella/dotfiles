@@ -9,6 +9,8 @@
       sqlite
       lua-language-server
       stylua
+      eslint_d
+      yamllint
       prettierd
       gcc
 

@@ -153,6 +153,10 @@ local packages = {
       'nvimdev/lspsaga.nvim',
       -- Extensible linters/formatters
       'mattn/efm-langserver',
+      {
+        'creativenull/efmls-configs-nvim',
+        version = 'v1.x.x', -- version is optional, but recommended
+      },
       { url = 'https://git.sr.ht/~whynothugo/lsp_lines.nvim' },
       'j-hui/fidget.nvim',
       'b0o/schemastore.nvim',

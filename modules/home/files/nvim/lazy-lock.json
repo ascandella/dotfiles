@@ -15,6 +15,7 @@
   "copilot.lua": { "branch": "master", "commit": "a5c390f8d8e85b501b22dcb2f30e0cbbd69d5ff0" },
   "diffview.nvim": { "branch": "main", "commit": "4516612fe98ff56ae0415a259ff6361a89419b0a" },
   "efm-langserver": { "branch": "master", "commit": "bad115b56bd96f517e25d66ca660d5f194af629e" },
+  "efmls-configs-nvim": { "branch": "main", "commit": "8d7ede48afa7d0344fa62fefb95132c0dad41e97" },
   "fidget.nvim": { "branch": "main", "commit": "d9ba6b7bfe29b3119a610892af67602641da778e" },
   "friendly-snippets": { "branch": "main", "commit": "fc8f183479a472df60aa86f00e295462f2308178" },
   "fugitive-gitlab.vim": { "branch": "master", "commit": "3584cf7e607ba7822f991d407a8d780e05aae287" },
