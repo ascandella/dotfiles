@@ -35,7 +35,7 @@
       };
     };
 
-    programs.zsh.initExtra = ''
+    programs.zsh.initContent = ''
       # NOT related to homebrew, this is stuff like docker
       export PATH="$PATH:/usr/local/bin"
       _iterm2_shell="''${HOME}/.iterm2_shell_integration.$(basename "''${SHELL}")"
