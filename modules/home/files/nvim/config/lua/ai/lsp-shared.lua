@@ -3,7 +3,11 @@ local M = {}
 
 M.toggle_lsp_formatting = function()
   vim.b.lsp_disable_formatting = not vim.b.lsp_disable_formatting
-  vim.notify('LSP Formatting ' .. (vim.b.lsp_formatting_disabled and 'disabled' or 'enabled'))
+  local message = (vim.b.lsp_disable_formatting and 'Disabled' or 'Enabled') .. ' formatting'
+  vim.notify(message, vim.log.levels.INFO, {
+    title = 'LSP Formatting',
+    timeout = 2000,
+  })
 end
 
 -- From: https://github.com/daliusd/cfg/blob/0e61894c689d736fa8c59ace8f149ecffb187cc4/.vimrc#L319-L332
