@@ -10,6 +10,7 @@ local nixfmt = require('efmls-configs.formatters.nixfmt')
 local shellcheck = require('efmls-configs.linters.shellcheck')
 local shfmt = require('efmls-configs.formatters.shfmt')
 local ruff = require('efmls-configs.linters.ruff')
+local ruff_fmt = require('efmls-configs.formatters.ruff')
 
 local efm_languages = {
   astro = { prettier },
@@ -23,7 +24,7 @@ local efm_languages = {
   json5 = { prettier },
   nix = { nixfmt },
   sh = { shellcheck, shfmt },
-  python = { ruff },
+  python = { ruff, ruff_fmt },
 }
 
 local function efm_config(config)
