@@ -45,38 +45,6 @@ local function make_config(extra_options)
   }, extra_options or {})
 end
 
-local eslint = require('efmls-configs.linters.eslint_d')
-local prettier = require('efmls-configs.formatters.prettier_d')
-local stylua = require('efmls-configs.formatters.stylua')
-local nixfmt = require('efmls-configs.formatters.nixfmt')
-local shellcheck = require('efmls-configs.linters.shellcheck')
-local shfmt = require('efmls-configs.formatters.shfmt')
-local ruff = require('efmls-configs.linters.ruff')
-
-local efm_languages = {
-  astro = { prettier },
-  graphql = { prettier },
-  typescript = { eslint, prettier },
-  javascript = { eslint, prettier },
-  typescriptreact = { eslint, prettier },
-  javascriptreact = { eslint, prettier },
-  lua = { stylua },
-  json = { prettier },
-  json5 = { prettier },
-  nix = { nixfmt },
-  sh = { shellcheck, shfmt },
-  python = { ruff },
-}
-
-local function efm_config(config)
-  config.filetypes = vim.tbl_keys(efm_languages)
-  config.settings = {
-    rootMarkers = { 'mix.exs', 'package.json', 'go.mod', '.git/' },
-    languages = efm_languages,
-  }
-  return config
-end
-
 local function tailwindcss_config(config)
   config.filetypes = {
     'astro',
@@ -102,8 +70,6 @@ local function tailwindcss_config(config)
 end
 
 local lspconfig = require('lspconfig')
-
-lspconfig.efm.setup(efm_config(make_config()))
 
 lspconfig.elixirls.setup(make_config({
   -- Override to disable eelixir and heex (use EFM)
@@ -142,7 +108,7 @@ lspconfig.ts_ls.setup(make_config({
     -- Disable document formatting; allow efm/prettier to win
     client.server_capabilities.documentFormattingProvider = false
     on_attach(client, bufnr)
-    vim.api.nvim_exec([[set signcolumn=yes]], true)
+    vim.api.nvim_exec2([[set signcolumn=yes]], { output = true })
   end,
 }))
 
