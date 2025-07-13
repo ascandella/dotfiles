@@ -1,6 +1,7 @@
 local notify = require('notify')
 
 notify.setup({
+  background_colour = '#000000',
   render = 'wrapped-compact',
   -- work around flickering issue with zellij
   -- https://github.com/rcarriga/nvim-notify/issues/273#issuecomment-2261563203
