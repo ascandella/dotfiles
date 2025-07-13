@@ -2,7 +2,6 @@
   pkgs,
   lib,
   inputs,
-  system,
   ...
 }:
 {
@@ -17,8 +16,6 @@
       sessionPath = [ "/opt/homebrew/bin/" ];
       packages = with pkgs; [
         jira-cli-go
-        # Install this so it doesn't get orphaned with `nix-collect-garbage -d`
-        inputs.deploy-rs.packages.${system}.default
       ];
 
       file = {
@@ -38,7 +35,7 @@
       };
     };
 
-    programs.zsh.initExtra = ''
+    programs.zsh.initContent = ''
       # NOT related to homebrew, this is stuff like docker
       export PATH="$PATH:/usr/local/bin"
       _iterm2_shell="''${HOME}/.iterm2_shell_integration.$(basename "''${SHELL}")"

@@ -79,7 +79,7 @@
         })
       ];
 
-      initExtra = ''
+      initContent = ''
         setopt correct
         # Allow c-w to backwards word but stop at e.g. path separators
         WORDCHARS='*?_-.[]~&;!#$%^(){}<>'
