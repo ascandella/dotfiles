@@ -17,12 +17,6 @@
     };
     flake-utils.url = "github:numtide/flake-utils";
 
-    # For accessing `deploy-rs`'s utility Nix functions
-    deploy-rs = {
-      url = "github:serokell/deploy-rs";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -60,7 +54,6 @@
       flake-utils,
       nixos-generators,
       comin,
-      deploy-rs,
       agenix,
       treefmt-nix,
       systems,
@@ -91,21 +84,6 @@
 
       homeDirPrefix = host: if systemForHost host == "aarch64-darwin" then "/Users" else "/home";
       homeDirectory = host: "${homeDirPrefix host}/${username host}";
-
-      deployPkgs =
-        host:
-        import nixpkgs {
-          system = systemForHost host;
-          overlays = [
-            deploy-rs.overlay
-            (_self: super: {
-              deploy-rs = {
-                inherit (pkgsForHost host) deploy-rs;
-                inherit (super.deploy-rs) lib;
-              };
-            })
-          ];
-        };
 
       # Small tool to iterate over each systems
       eachSystem = f: nixpkgs.lib.genAttrs (import systems) (system: f nixpkgs.legacyPackages.${system});
@@ -186,27 +164,6 @@
         }) linuxHosts
       );
 
-      deploy = {
-        user = "root";
-        sshUser = "deploy";
-        remoteBuild = true;
-
-        nodes = builtins.listToAttrs (
-          builtins.map (host: {
-            name = host;
-            value = {
-              hostname = host;
-              profiles.system = {
-                path = (deployPkgs host).deploy-rs.lib.activate.nixos self.nixosConfigurations.${host};
-              };
-            };
-          }) linuxHosts
-        );
-      };
-
-      # doesn't work in GitHub actions
-      # checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
-
       checks = eachSystem (pkgs: {
         formatting = treefmtEval.${pkgs.system}.config.build.check self;
       });
@@ -249,9 +206,6 @@
               ./modules/installer
             ];
           };
-        };
-        apps = {
-          inherit (deploy-rs.apps.${system}) deploy-rs;
         };
       }
     );
