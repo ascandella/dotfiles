@@ -131,6 +131,7 @@
       kubelogin-oidc # OIDC login for k8s api (e.g. authentik)
       kubernetes-helm
       kubeseal # sealed secrets
+      kubeswitch # switch kubectl context
       kustomize
       pv-migrate
       talosctl
