@@ -4,7 +4,7 @@ notify.setup({
   render = 'wrapped-compact',
   -- work around flickering issue with zellij
   -- https://github.com/rcarriga/nvim-notify/issues/273#issuecomment-2261563203
-  stages = 'static', -- 'fade',
+  stages = 'fade', -- 'static',
 })
 
 local banned_messages = {
