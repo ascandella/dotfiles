@@ -84,6 +84,7 @@
         update-notifier=false
         ${if config.my.caCert.enable then "cafile=${config.my.caCert.path}" else ""}
       '';
+      ".editorconfig".source = ./files/editorconfig;
     };
 
     sessionVariables = {
