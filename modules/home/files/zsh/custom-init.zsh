@@ -115,7 +115,11 @@ if [[ ${_UNAME} == "Darwin" ]]; then
   export HISTDB_TABULATE_CMD=(sed -e $'s/\x1f/\t/g')
 fi
 
-[[ -f "$HOME/.cargo/env" ]] && . "$HOME/.cargo/env"
+if [[ -f "$HOME/.cargo/env" ]]; then
+  . "$HOME/.cargo/env"
+elif [[ -d "$HOME/.cargo/bin" ]]; then
+  export PATH="$PATH:$HOME/.cargo/bin"
+fi
 
 # https://github.com/zellij-org/zellij/blob/09689eae8b96ddb95713e6612ec17007ced91306/zellij-utils/assets/completions/comp.zsh
 function zr() { zellij run --name "$*" -- zsh -ic "$*"; }
