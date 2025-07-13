@@ -36,7 +36,6 @@ in
     ../../modules/nixos/roles/wireguard.nix
     ../../modules/nixos/roles/networking.nix
     ../../modules/common
-    ../../modules/deploy
     ../../modules/plex
     ../../modules/torrenting
     ../../modules/mediamanagement
