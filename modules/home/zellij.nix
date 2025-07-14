@@ -39,8 +39,10 @@ let
 
         format_left   "#[bg=$surface0]{mode}#[bg=$surface0] {tabs}"
         format_center "{notifications}"
-        format_right  "#[bg=$surface0,fg=$maroon]#[bg=$maroon,fg=$crust]󰃭 #[bg=$surface1,fg=$maroon,bold] {datetime}#[bg=$surface0,fg=$surface1]"
+        format_right  "{pipe_zjstatus_hints}#[bg=$surface0,fg=$maroon]#[bg=$maroon,fg=$crust]󰃭 #[bg=$surface1,fg=$maroon,bold] {datetime}#[bg=$surface0,fg=$surface1]"
         format_space  "#[bg=$surface0]"
+
+        pipe_zjstatus_hints_format "{output}"
 
         format_hide_on_overlength "true"
         format_precedence "lrc"
