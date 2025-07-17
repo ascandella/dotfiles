@@ -1,4 +1,9 @@
-{ lib, pkgs, ... }:
+{
+  lib,
+  pkgs,
+  username,
+  ...
+}:
 {
   config = lib.mkIf pkgs.stdenv.isDarwin {
     nix = {
@@ -7,6 +12,7 @@
 
     # Reference: https://github.com/nmasur/dotfiles/blob/c697cd4e383997cdd45e6e4b76cc95d195efd6e0/modules/darwin/system.nix
     system = {
+      primaryUser = username;
       defaults = {
         trackpad = {
           TrackpadRightClick = true;

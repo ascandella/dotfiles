@@ -1,8 +1,13 @@
-{ ... }:
+{
+  username,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
-    ./system.nix
+    (import ./system.nix { inherit username lib pkgs; })
     ./yabai.nix
   ];
 
