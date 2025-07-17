@@ -226,7 +226,7 @@ plugins {
         // Hide hints in base mode (a.k.a. default mode)
         // E.g. if you have set default_mode to "locked", then
         // you can hide hints in the locked mode by setting this to true
-        hide_in_base_mode true // default
+        hide_in_base_mode true
     }
 }
 
