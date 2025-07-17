@@ -314,7 +314,7 @@ local packages = {
 
   -- Automatically set current directory (project) when loading file
   {
-    'ahmedkhalf/project.nvim',
+    'DrKJeff16/project.nvim',
     config = function()
       require('ai/project')
     end,
@@ -378,18 +378,6 @@ local packages = {
     config = function()
       require('ai/notify')
     end,
-  },
-
-  -- Code Companion
-  {
-    'olimorris/codecompanion.nvim',
-    config = function()
-      require('ai/codecompanion').setup()
-    end,
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-      'nvim-treesitter/nvim-treesitter',
-    },
   },
 
   {
