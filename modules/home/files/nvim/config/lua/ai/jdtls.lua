@@ -6,7 +6,7 @@ local function setup()
   -- calculate workspace dir
   local workspace_dir = vim.fn.stdpath('data') .. '/site/java/workspace-root/' .. project_name
   -- get the mason install path
-  local install_path = require('mason-registry').get_package('jdtls'):get_install_path()
+  local install_path = vim.fn.exepath('jdtls')
   local home_dir = os.getenv('HOME')
   -- get the debug adapter install path
   -- local debug_install_path = require('mason-registry').get_package('java-debug-adapter'):get_install_path()
