@@ -13,7 +13,7 @@ darwin-name:
   fi
 
 darwin:
-  darwin-rebuild switch --flake ".#$(just darwin-name)"
+  sudo darwin-rebuild switch --flake ".#$(just darwin-name)"
 
 home:
   home-manager switch --flake ".#$(just darwin-name)"
