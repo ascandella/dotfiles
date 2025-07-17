@@ -28,6 +28,17 @@
       oci-containers = {
         backend = "podman";
       };
+      containers = {
+        enable = true;
+        containersConf = {
+          settings = {
+            engine.cdi_spec_dirs = [
+              "/etc/cdi"
+              "/var/run/cdi"
+            ];
+          };
+        };
+      };
     };
   };
 }
