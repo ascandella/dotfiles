@@ -79,6 +79,7 @@
       bat
       btop
       bun
+      cosign # OCI container signing
       curl
       delta
       difftastic # treesitter-aware diffs
