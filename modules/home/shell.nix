@@ -98,6 +98,7 @@
         source "${pkgs.awscli2}/bin/aws_zsh_completer.sh"
         source "${config.xdg.configHome}/zsh/custom-init.zsh"
         source "${config.xdg.configHome}/zsh/plugins/zsh-autoenv/init.zsh"
+        source "${config.xdg.configHome}/television/shell/integration.zsh"
       '';
 
       envExtra = ''

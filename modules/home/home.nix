@@ -86,6 +86,7 @@
       eza # better ls
       fd # better find
       fzf
+      television # better fzf
       gnupg
       htop
       just
@@ -106,6 +107,7 @@
 
       # nix tools
       nix-search-cli
+      nix-search-tv
 
       ## Programming languages
 

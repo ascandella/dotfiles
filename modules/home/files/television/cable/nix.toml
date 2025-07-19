@@ -1,0 +1,12 @@
+[metadata]
+name = "nix"
+description = "Nix packages and options"
+
+[source]
+command = "nix-search-tv print"
+
+[preview]
+command = "nix-search-tv preview {}"
+
+[ui]
+inline = true

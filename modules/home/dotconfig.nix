@@ -7,6 +7,7 @@
 }:
 {
   xdg.configFile = {
+    "television".source = ./files/television;
     "selene".source = ./files/selene;
     "skhd".source = ./files/skhd;
     "stylua".source = ./files/stylua;
