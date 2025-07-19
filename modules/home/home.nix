@@ -93,6 +93,7 @@
       minio-client
       most
       nixfmt-rfc-style
+      nixd
       ntfy-sh # ntfy client
       ripgrep
       scc # count lines of code

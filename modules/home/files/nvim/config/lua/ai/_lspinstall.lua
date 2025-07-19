@@ -152,7 +152,15 @@ lspconfig.yamlls.setup(make_config({
 
 lspconfig.astro.setup(make_config())
 if nix_enabled then
-  lspconfig.nil_ls.setup(make_config())
+  lspconfig.nixd.setup(make_config({
+   settings = {
+      nixd = {
+         formatting = {
+            command = { "nixfmt" },
+         },
+      },
+   },
+  }))
 end
 lspconfig.pyright.setup(make_config())
 lspconfig.kotlin_language_server.setup(make_config())

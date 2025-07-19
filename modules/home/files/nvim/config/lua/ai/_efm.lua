@@ -6,7 +6,6 @@ local prettier = require('efmls-configs.formatters.prettier_d')
 local stylua = require('efmls-configs.formatters.stylua')
 local luacheck = require('efmls-configs.linters.luacheck')
 local jsonlint = require('efmls-configs.linters.jsonlint')
-local nixfmt = require('efmls-configs.formatters.nixfmt')
 local shellcheck = require('efmls-configs.linters.shellcheck')
 local shfmt = require('efmls-configs.formatters.shfmt')
 local ruff = require('efmls-configs.linters.ruff')
@@ -22,7 +21,6 @@ local efm_languages = {
   lua = { stylua, luacheck },
   json = { prettier, jsonlint },
   json5 = { prettier },
-  nix = { nixfmt },
   sh = { shellcheck, shfmt },
   python = { ruff, ruff_fmt },
 }
