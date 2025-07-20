@@ -108,11 +108,30 @@ _tv_shell_history() {
     _enable_bracketed_paste
 }
 
+_tv_git_history() {
+    emulate -L zsh
+    zle -I
+
+    current_prompt=$LBUFFER
+    _disable_bracketed_paste
+
+    local output
+    output=$(tv --inline git-log)
+
+    if [[ -n $output ]]; then
+        LBUFFER="$current_prompt$output"
+    fi
+
+    _enable_bracketed_paste
+}
+
 
 zle -N tv-smart-autocomplete _tv_smart_autocomplete
 zle -N tv-shell-history _tv_shell_history
+zle -N tv-git-history _tv_git_history
 
 
 bindkey '^T' tv-smart-autocomplete
+bindkey '^G^G' tv-git-history
 # bindkey '^R' tv-shell-history
 
