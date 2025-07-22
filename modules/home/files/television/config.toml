@@ -163,8 +163,7 @@ fallback_channel = "files"
   "git pull",
   "git push",
 ]
-"docker-images" = ["docker run"]
-"git-repos" = ["nvim", "code", "hx", "git clone"]
+"docker-images" = ["docker run", "podman run"]
 
 
 [shell_integration.keybindings]
