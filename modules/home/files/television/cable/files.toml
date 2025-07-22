@@ -5,12 +5,10 @@ requirements = ["fd", "bat", "eza"]
 
 [source]
 command = ["fd -t f --exec eza --icons=always", "fd -t f -H --exec eza --icons=always --all"]
+output = "{split: :1..}"
 
 [preview]
 command = "bat -n --color=always {substring:1..}"
 
 [ui]
 preview_panel = { "size" = 50, "scrollbar" = true }
-
-[keybindings]
-shortcut = "f1"
