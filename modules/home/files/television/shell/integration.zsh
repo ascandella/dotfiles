@@ -131,7 +131,7 @@ zle -N tv-shell-history _tv_shell_history
 zle -N tv-git-history _tv_git_history
 
 
-bindkey '^T' tv-smart-autocomplete
+bindkey '^B^B' tv-smart-autocomplete
 bindkey '^G^G' tv-git-history
 # bindkey '^R' tv-shell-history
 
