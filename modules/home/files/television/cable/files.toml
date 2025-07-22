@@ -1,17 +1,16 @@
 [metadata]
 name = "files"
 description = "A channel to select files and directories"
-requirements = ["fd", "bat"]
+requirements = ["fd", "bat", "eza"]
 
 [source]
-command = "fd -t f"
+command = ["fd -t f --exec eza --icons=always", "fd -t f -H --exec eza --icons=always --all"]
 
 [preview]
-command = "bat -n --color=always '{}'"
-env = { BAT_THEME = "Catppuccin Mocha" }
+command = "bat -n --color=always {substring:1..}"
 
 [ui]
-preview_panel = { "size" = 70, "scrollbar" = true }
+preview_panel = { "size" = 50, "scrollbar" = true }
 
 [keybindings]
 shortcut = "f1"

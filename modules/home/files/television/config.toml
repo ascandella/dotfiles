@@ -137,6 +137,7 @@ fallback_channel = "files"
   "head",
   "tail",
   "vim",
+  "nvim",
   "nano",
   "bat",
   "cp",
@@ -153,7 +154,7 @@ fallback_channel = "files"
   "gunzip",
   "xz",
 ]
-"git-diff" = ["git add", "git restore"]
+"git-diff" = ["git add", "git restore", "g add"]
 "git-branch" = [
   "git checkout",
   "git branch",
