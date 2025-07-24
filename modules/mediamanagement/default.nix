@@ -29,6 +29,7 @@ in
       };
       tautulli = {
         enable = true;
+        openFirewall = true;
       };
     };
   };
