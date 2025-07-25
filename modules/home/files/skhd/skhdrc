@@ -92,8 +92,8 @@ alt - t : yabai -m window --focus south
 
 # swap managed window
 shift + alt - v : yabai -m window --swap prev
-shift + alt - h : yabai -m window --swap west
-shift + alt - s : yabai -m window --swap east
+shift + alt - s : yabai -m window --swap west
+shift + alt - h : yabai -m window --swap east
 shift + alt - n : yabai -m window --swap north
 shift + alt - t : yabai -m window --swap south
 
