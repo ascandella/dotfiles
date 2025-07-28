@@ -62,7 +62,7 @@
           vim = "nvim";
           k = "kubectl";
           ko = "kubectl --context oracle";
-          kb = "kubectl --context baymax";
+          kb = "kubectl kustomize --enable-helm --load-restrictor=LoadRestrictionsNone";
           kc = "kubectl config use-context";
           krp = "kubectl get pods --field-selector=status.phase=Running";
           kk = "kubectl kustomize --enable-helm";
