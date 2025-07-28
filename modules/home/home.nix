@@ -88,6 +88,7 @@
       fzf
       inputs.television.packages.${system}.default # better fzf
       gnupg
+      home-manager
       htop
       just
       magic-wormhole
@@ -169,8 +170,5 @@
       GREP_OPTIONS = "--color=always";
       GREP_COLOR = "1;35;40";
     };
-
-    # Let Home Manager install and manage itself.
-    programs.home-manager.enable = true;
   };
 }
