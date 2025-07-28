@@ -127,16 +127,37 @@ function zrf() { zellij run --name "$*" --floating -- zsh -ic "$*"; }
 function zri() { zellij run --name "$*" --in-place -- zsh -ic "$*"; }
 
 kgetsec() {
-  local secret_name=$1
-  shift
-  local namespace="default"
-  if [[ -n $1 ]]; then
-    namespace="$1"
-  fi
+  local namespace="$1"
+  local secret_name="$2"
   # shellcheck disable=SC2016
   kubectl get secret "$secret_name" -n "$namespace" -o \
     go-template='{{range $k,$v := .data}}{{printf "%s: " $k}}{{if not $v}}{{$v}}{{else}}{{$v | base64decode}}{{end}}{{"\n"}}{{end}}'
 }
+
+_kgetsec() {
+  local context state state_descr line
+  typeset -A opt_args
+
+  _arguments -C \
+    '1:namespace:->namespace' \
+    '2:secret:->secret' \
+    '*::arg:->default' && return 0
+
+  case $state in
+  namespace)
+    _wanted namespaces expl 'Kubernetes namespaces' \
+      compadd -- $(kubectl get namespaces -o jsonpath='{range .items[*]}{.metadata.name}{"\n"}{end}')
+    ;;
+  secret)
+    local ns="$words[2]"
+    [[ -n "$ns" ]] || return 1
+    _wanted secrets expl 'Kubernetes secrets' \
+      compadd -- $(kubectl get secrets -n "$ns" -o jsonpath='{range .items[*]}{.metadata.name}{"\n"}{end}')
+    ;;
+  esac
+}
+
+compdef _kgetsec kgetsec
 
 update() {
   pushd "${DOTFILES_DIR}" >/dev/null 2>&1
