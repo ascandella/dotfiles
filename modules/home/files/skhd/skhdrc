@@ -70,23 +70,9 @@
 #
 #               an EOL character signifies the end of the bind.
 
-# ############################################################### #
-# THE FOLLOWING SECTION CONTAIN SIMPLE MAPPINGS DEMONSTRATING HOW #
-# TO INTERACT WITH THE YABAI WM. THESE ARE SUPPOSED TO BE USED AS #
-# A REFERENCE ONLY, WHEN MAKING YOUR OWN CONFIGURATION..          #
-# ############################################################### #
-
 # focus window
-alt - s : yabai -m query --spaces --space \
-  | jq -re ".index" \
-  | xargs -I{} yabai -m query --windows --space {} \
-  | jq -sre 'add | map(select(."is-minimized"==false)) | sort_by(.display, .frame.y, .frame.x, .id) | . as $array | length as $array_length | index(map(select(."has-focus"==true))) as $has_index | if $array_length - 1 > $has_index then nth($has_index + 1).id else nth(0).id end' \
-  | xargs -I{} yabai -m window --focus {}
-alt - h : yabai -m query --spaces --space \
-  | jq -re ".index" \
-  | xargs -I{} yabai -m query --windows --space {} \
-  | jq -sre 'add | map(select(."is-minimized"==false)) | sort_by(.display, .frame.y, .frame.x, .id) | . as $array | length as $array_length | index(map(select(."has-focus"==true))) as $has_index | if $has_index > 0 then nth($has_index - 1).id else nth($array_length - 1).id end' \
-  | xargs -I{} yabai -m window --focus {}
+alt - h : yabai -m window --focus west
+alt - s : yabai -m window --focus east
 alt - n : yabai -m window --focus north
 alt - t : yabai -m window --focus south
 
@@ -98,8 +84,8 @@ shift + alt - n : yabai -m window --swap north
 shift + alt - t : yabai -m window --swap south
 
 # move managed window
-shift + cmd - h : yabai -m window --warp east
-shift + cmd - s : yabai -m window --warp west
+shift + cmd - s : yabai -m window --warp east
+shift + cmd - h : yabai -m window --warp west
 shift + cmd - n : yabai -m window --warp north
 shift + cmd - t : yabai -m window --warp south
 
