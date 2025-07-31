@@ -80,6 +80,7 @@
       btop
       bun
       cosign # OCI container signing
+      clock-rs
       curl
       delta
       difftastic # treesitter-aware diffs
