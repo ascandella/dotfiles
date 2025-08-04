@@ -76,6 +76,9 @@
 
       window-padding-x = 6
       window-padding-y = 4
+
+      # For Claude code
+      keybind = shift+enter=text:\n
     '';
   };
 
