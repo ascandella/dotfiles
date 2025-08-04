@@ -153,13 +153,13 @@ lspconfig.yamlls.setup(make_config({
 lspconfig.astro.setup(make_config())
 if nix_enabled then
   lspconfig.nixd.setup(make_config({
-   settings = {
+    settings = {
       nixd = {
-         formatting = {
-            command = { "nixfmt" },
-         },
+        formatting = {
+          command = { 'nixfmt' },
+        },
       },
-   },
+    },
   }))
 end
 lspconfig.pyright.setup(make_config())
