@@ -188,3 +188,6 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.keymap.set('n', 'q', ':bd<cr>', { silent = true, buffer = true })
   end,
 })
+
+-- Toggle Claude Code
+vim.keymap.set('n', '<leader>cc', '<cmd>ClaudeCode<CR>', { desc = 'Toggle Claude Code' })

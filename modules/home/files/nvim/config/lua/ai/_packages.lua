@@ -386,6 +386,16 @@ local packages = {
       require('ai/jdtls').setup()
     end,
   },
+
+  {
+    'greggh/claude-code.nvim',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+    },
+    config = function()
+      require('ai/claude-code').setup()
+    end,
+  },
 }
 
 -- Github integration
