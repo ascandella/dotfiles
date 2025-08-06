@@ -1,9 +1,11 @@
 let
   studioKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG8n0CileVU4jKA43cCTD/zHeg2Ozp+JX0qW80P/7iau aiden@ai-studio";
   workbookKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJv4kmti8JLFIEWbvazw8bTPx0iCVwe5YbHi6UXgujuz ascandella@sofi";
+  ipadTermius = "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBKK7uWUFIxf1luIpp+RP3AmwOTbbW+1IvE+016cY3UcA4hNpUC7rjBjB7KAUNIJHrErcTBvFq9xG/c9s4hMbbnM= aiden@termius";
   user = [
     studioKey
     workbookKey
+    ipadTermius
   ];
   age = {
     studio = studioKey;
