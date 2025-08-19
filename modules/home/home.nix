@@ -147,6 +147,9 @@
       kind # Kubernetes in Docker
       velero # backup and restore k8s clusters
 
+      # Python
+      uv
+
       # Terraform
       tenv # newer tfenv
       tflint # linting
