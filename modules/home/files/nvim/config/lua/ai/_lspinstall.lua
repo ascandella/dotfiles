@@ -112,7 +112,7 @@ lspconfig.ts_ls.setup(make_config({
   end,
 }))
 
-lspconfig.gopls.setup(make_config({
+local gopls_config = make_config({
   settings = {
     gopls = {
       hints = {
@@ -126,7 +126,9 @@ lspconfig.gopls.setup(make_config({
       },
     },
   },
-}))
+})
+gopls_config['init_options'] = nil
+lspconfig.gopls.setup(gopls_config)
 
 lspconfig.jsonls.setup(make_config({
   settings = {
