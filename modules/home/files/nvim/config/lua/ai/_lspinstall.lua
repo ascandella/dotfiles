@@ -128,7 +128,7 @@ local gopls_config = make_config({
   },
 })
 gopls_config['init_options'] = nil
-lspconfig.gopls.setup(gopls_config)
+vim.lsp.config('gopls', gopls_config)
 
 lspconfig.jsonls.setup(make_config({
   settings = {
