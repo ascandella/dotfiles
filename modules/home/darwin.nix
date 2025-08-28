@@ -104,6 +104,14 @@
 
         git checkout -b "$USER/$ticket/$description"
       }
+
+      plainissues() {
+        local args=()
+        if [[ -n "$MY_JIRA_PROJECTS" ]]; then
+          args=("-q" "$MY_JIRA_PROJECTS")
+        fi
+        jira issue list -a$(jira me) --plain --columns KEY,SUMMARY --no-headers "$args[@]"
+      }
     '';
 
     programs.zsh.shellAliases = {
@@ -111,7 +119,6 @@
       topbar = "yabai -m config external_bar all:38:0";
       bottombar = "yabai -m config external_bar all:0:30";
 
-      plainissues = "jira issue list -a$(jira me) --plain --columns KEY,SUMMARY --no-headers";
       jiraissues = "plainissues -s '~Done' -s '~Shipped' -s '~Closed'";
       inprog = "plainissues -s 'In Progress' -s 'Review'";
 
