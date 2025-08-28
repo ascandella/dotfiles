@@ -110,7 +110,7 @@
         if [[ -n "$MY_JIRA_PROJECTS" ]]; then
           args=("-q" "$MY_JIRA_PROJECTS")
         fi
-        jira issue list -a$(jira me) --plain --columns KEY,SUMMARY --no-headers "$args[@]"
+        jira issue list -a$(jira me) --plain --columns KEY,SUMMARY --no-headers "$args[@]" "$@"
       }
     '';
 
