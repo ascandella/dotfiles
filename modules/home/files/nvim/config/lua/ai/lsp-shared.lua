@@ -137,11 +137,11 @@ M.on_attach = function(client, bufnr)
   buf_map(bufnr, 'n', '<Leader>d', ':LspDef<CR>', { silent = true, desc = 'Jump to definition' })
   buf_map(bufnr, 'n', 'gi', ':LspDef<CR>', { silent = true, desc = 'Jump to definition' })
   buf_map(bufnr, 'n', '<Leader>pd', ':Lspsaga peek_definition<CR>', { silent = true, desc = 'Peek definition' })
-  buf_map(bufnr, 'n', '<Leader>gr', ':Lspsaga rename<CR>', { silent = true, desc = 'Rename' })
+  buf_map(bufnr, 'n', '<Leader>gR', ':Lspsaga rename<CR>', { silent = true, desc = 'Rename' })
   buf_map(
     bufnr,
     'n',
-    'gr',
+    '<Leader>gr',
     ':lua require("ai/telescope-config").lsp_references() <CR>',
     { silent = true, desc = 'LSP References' }
   )
