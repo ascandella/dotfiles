@@ -103,6 +103,7 @@
       spaceship-prompt
       ssm-session-manager-plugin # for awscli
       vault
+      yq # yaml jq
       zellij
       inputs.zjstatus.packages.${system}.default
       zoxide
