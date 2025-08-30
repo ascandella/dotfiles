@@ -205,6 +205,7 @@
       .envrc
       .lsp-session-*
       .elixir_ls/
+      settings.local.json
     '';
   };
 
