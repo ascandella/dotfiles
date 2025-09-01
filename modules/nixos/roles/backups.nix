@@ -11,28 +11,27 @@
     baymax-ntfy-token.file = ../../../secrets/baymax-ntfy-token.age;
   };
 
-  systemd.services =
-    {
-      "notify-problems@" = {
-        enable = true;
-        environment.SERVICE = "%i";
-        script = ''
-          NTFY_TOKEN="$(cat ${config.age.secrets.baymax-ntfy-token.path})"
-          ${pkgs.curl}/bin/curl \
-            -H "Authorization: Bearer $NTFY_TOKEN" \
-            -H "Title: $SERVICE failed" \
-            -H "Tags: warning,skull" \
-            -d "Run journalctl -u $SERVICE for details" \
-            ${config.my.ntfy.endpoint}/${config.my.ntfy.homelabTopic}
-        '';
-      };
+  systemd.services = {
+    "notify-problems@" = {
+      enable = true;
+      environment.SERVICE = "%i";
+      script = ''
+        NTFY_TOKEN="$(cat ${config.age.secrets.baymax-ntfy-token.path})"
+        ${pkgs.curl}/bin/curl \
+          -H "Authorization: Bearer $NTFY_TOKEN" \
+          -H "Title: $SERVICE failed" \
+          -H "Tags: warning,skull" \
+          -d "Run journalctl -u $SERVICE for details" \
+          ${config.my.ntfy.endpoint}/${config.my.ntfy.homelabTopic}
+      '';
+    };
+  }
+  // lib.flip lib.mapAttrs' config.services.borgbackup.jobs (
+    name: _value:
+    lib.nameValuePair "borgbackup-job-${name}" {
+      unitConfig.OnFailure = "notify-problems@%i.service";
     }
-    // lib.flip lib.mapAttrs' config.services.borgbackup.jobs (
-      name: _value:
-      lib.nameValuePair "borgbackup-job-${name}" {
-        unitConfig.OnFailure = "notify-problems@%i.service";
-      }
-    );
+  );
 
   services.borgbackup.jobs =
     let
