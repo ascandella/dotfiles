@@ -387,6 +387,13 @@ local packages = {
       require('ai/claude-code').setup()
     end,
   },
+
+  {
+    'swaits/zellij-nav.nvim',
+    config = function()
+      require('zellij-nav').setup()
+    end,
+  },
 }
 
 -- Github integration

@@ -78,5 +78,6 @@
   "which-key.nvim": { "branch": "main", "commit": "370ec46f710e058c9c1646273e6b225acf47cbed" },
   "windline.nvim": { "branch": "master", "commit": "1630ab15aa3349f1ad32ef78d5cff632ae74625d" },
   "yaml-companion.nvim": { "branch": "main", "commit": "fc75ea810f427fe09165322b9c9bd32880650cd2" },
+  "zellij-nav.nvim": { "branch": "main", "commit": "91cc2a642d8927ebde50ced5bf71ba470a0fc116" },
   "zen-mode.nvim": { "branch": "main", "commit": "863f150ca321b3dd8aa1a2b69b5f411a220e144f" }
 }
