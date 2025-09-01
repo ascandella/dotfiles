@@ -33,7 +33,7 @@
       # zprof.enable = true;
       enableCompletion = true;
       completionInit = "";
-      dotDir = ".config/zsh";
+      dotDir = "${config.xdg.configHome}/zsh";
 
       defaultKeymap = "emacs";
 
