@@ -96,6 +96,7 @@
       minio-client
       most
       nixfmt-rfc-style
+      nix-tree # show why a nix package is installed
       nixd
       ntfy-sh # ntfy client
       ripgrep
