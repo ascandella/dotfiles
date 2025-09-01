@@ -56,24 +56,23 @@ with lib;
         "127.0.0.1:8585:5000" # internal API, not exposed through firewall, only for home-assistant
         "127.0.0.1:8554:8554" # rtsp streaming for go2rtc, not exposed through firewall, only for home-assistant
       ];
-      volumes =
-        [
-          "${cfg.dataDir}:/config"
-          "${config.my.nas.frigateDir}:/media/frigate"
-          # Make sure this is the same as what's in system configuration
-          "${config.hardware.nvidia.package}/lib/libcuda.so:/usr/lib/libcuda.so:ro"
-        ]
-        ++ map (soFile: "${lib.getLib pkgs.cudaPackages.cuda_nvrtc}/lib/${soFile}:/usr/lib/${soFile}:ro") [
-          "libnvrtc.so"
-        ]
-        ++ map (soFile: "${lib.getLib pkgs.cudaPackages.cudnn_9_8}/lib/${soFile}:/usr/lib/${soFile}:ro") [
-          "libcudnn_cnn.so.9"
-          "libcudnn_ops.so.9"
-        ]
-        ++ map (soFile: "${lib.getLib pkgs.cudaPackages.libcublas}/lib/${soFile}:/usr/lib/${soFile}:ro") [
-          "libcublas.so"
-          "libcublasLt.so"
-        ];
+      volumes = [
+        "${cfg.dataDir}:/config"
+        "${config.my.nas.frigateDir}:/media/frigate"
+        # Make sure this is the same as what's in system configuration
+        "${config.hardware.nvidia.package}/lib/libcuda.so:/usr/lib/libcuda.so:ro"
+      ]
+      ++ map (soFile: "${lib.getLib pkgs.cudaPackages.cuda_nvrtc}/lib/${soFile}:/usr/lib/${soFile}:ro") [
+        "libnvrtc.so"
+      ]
+      ++ map (soFile: "${lib.getLib pkgs.cudaPackages.cudnn_9_8}/lib/${soFile}:/usr/lib/${soFile}:ro") [
+        "libcudnn_cnn.so.9"
+        "libcudnn_ops.so.9"
+      ]
+      ++ map (soFile: "${lib.getLib pkgs.cudaPackages.libcublas}/lib/${soFile}:/usr/lib/${soFile}:ro") [
+        "libcublas.so"
+        "libcublasLt.so"
+      ];
       extraOptions = [
         # Add GPU
         "--device"

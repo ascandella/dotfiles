@@ -107,32 +107,31 @@ let
   '';
 in
 {
-  xdg.configFile =
-    {
-      "zellij/layouts/default.kdl".text = ''
-        pane_frames false
-        theme "nord"
-        layout {
-            default_tab_template {
-              children
-              ${zjstatus}
-            }
-            tab
-        }
+  xdg.configFile = {
+    "zellij/layouts/default.kdl".text = ''
+      pane_frames false
+      theme "nord"
+      layout {
+          default_tab_template {
+            children
+            ${zjstatus}
+          }
+          tab
+      }
 
-      '';
-    }
-    // builtins.listToAttrs (
-      map
-        (name: {
-          name = "zellij/${name}";
-          value = {
-            source = ./files/zellij/${name};
-          };
-        })
-        [
-          "config.kdl"
-          "layouts/default.swap.kdl"
-        ]
-    );
+    '';
+  }
+  // builtins.listToAttrs (
+    map
+      (name: {
+        name = "zellij/${name}";
+        value = {
+          source = ./files/zellij/${name};
+        };
+      })
+      [
+        "config.kdl"
+        "layouts/default.swap.kdl"
+      ]
+  );
 }
