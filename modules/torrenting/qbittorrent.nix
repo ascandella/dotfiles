@@ -9,12 +9,12 @@
 with lib;
 
 let
-  cfg = config.services.qbittorrent;
+  cfg = config.services.aispace.qbittorrent;
   UID = 888;
   GID = 888;
 in
 {
-  options.services.qbittorrent = {
+  options.services.aispace.qbittorrent = {
     enable = mkEnableOption (lib.mdDoc "qBittorrent headless");
 
     version = mkOption {

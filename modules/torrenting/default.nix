@@ -7,7 +7,7 @@
   ];
 
   services = {
-    qbittorrent = {
+    aispace.qbittorrent = {
       enable = true;
       port = 9124;
       extraGroups = [ config.my.media.group ];
