@@ -13,6 +13,7 @@
   home.sessionVariables = lib.mkIf config.my.caCert.enable {
     AWS_CA_BUNDLE = config.my.caCert.path;
     NODE_EXTRA_CA_CERTS = config.my.caCert.path;
+    CURL_CA_BUNDLE = config.my.caCert.path;
   };
 
   xdg.configFile = {
