@@ -12,6 +12,7 @@
   "cmp-path": { "branch": "main", "commit": "e52e640b7befd8113b3350f46e8cfcfe98fcf730" },
   "cmp-tmux": { "branch": "main", "commit": "95b1b921802e6f60627b3e76afb9380fddd87f9a" },
   "cmp-vsnip": { "branch": "main", "commit": "989a8a73c44e926199bfd05fa7a516d51f2d2752" },
+  "copilot.lua": { "branch": "master", "commit": "81d289a8ce5d4ee1dea9b1c8ee4ac376b2e27a5f" },
   "diffview.nvim": { "branch": "main", "commit": "4516612fe98ff56ae0415a259ff6361a89419b0a" },
   "efm-langserver": { "branch": "master", "commit": "6f93e3554a728479c28ce05281a4b05c5efc8fe5" },
   "efmls-configs-nvim": { "branch": "main", "commit": "8d7ede48afa7d0344fa62fefb95132c0dad41e97" },
