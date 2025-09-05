@@ -132,6 +132,9 @@
       # GitHub CLI, used with Octo
       gh
 
+      # Gitlab CLI
+      glab
+
       # Kubernetes
       argocd # manage argo
       k9s
