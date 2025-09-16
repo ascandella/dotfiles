@@ -60,7 +60,7 @@
 
       mouse-hide-while-typing = true
 
-      theme = catppuccin-mocha
+      theme = Catppuccin Mocha
       macos-titlebar-style = hidden
       macos-option-as-alt = true
       macos-window-shadow = false
