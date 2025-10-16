@@ -19,7 +19,7 @@ in
 
     version = mkOption {
       type = types.str;
-      default = "qbt5.0.3-20241218";
+      default = "qbt5.1.2-20250723";
       description = "Docker hub image tage";
     };
 
