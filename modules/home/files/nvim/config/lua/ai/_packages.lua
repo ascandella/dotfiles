@@ -388,16 +388,6 @@ local packages = {
   },
 
   {
-    'greggh/claude-code.nvim',
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-    },
-    config = function()
-      require('ai/claude-code').setup()
-    end,
-  },
-
-  {
     'swaits/zellij-nav.nvim',
     config = function()
       require('zellij-nav').setup()
