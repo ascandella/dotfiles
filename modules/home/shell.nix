@@ -15,6 +15,7 @@
     NODE_EXTRA_CA_CERTS = config.my.caCert.path;
     CURL_CA_BUNDLE = config.my.caCert.path;
     SSL_CERT_FILE = config.my.caCert.path;
+    REQUESTS_CA_BUNDLE = config.my.caCert.bundle;
   };
 
   xdg.configFile = {

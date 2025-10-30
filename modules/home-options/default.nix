@@ -20,6 +20,11 @@
           default = null;
           description = "Custom CA cert path";
         };
+        bundle = pkgs.lib.mkOption {
+          type = pkgs.lib.types.str;
+          default = null;
+          description = "Custom CA cert bundle path";
+        };
       };
     };
   };
