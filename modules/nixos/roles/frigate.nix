@@ -65,7 +65,7 @@ with lib;
       ++ map (soFile: "${lib.getLib pkgs.cudaPackages.cuda_nvrtc}/lib/${soFile}:/usr/lib/${soFile}:ro") [
         "libnvrtc.so"
       ]
-      ++ map (soFile: "${lib.getLib pkgs.cudaPackages.cudnn_9_8}/lib/${soFile}:/usr/lib/${soFile}:ro") [
+      ++ map (soFile: "${lib.getLib pkgs.cudaPackages.cudnn}/lib/${soFile}:/usr/lib/${soFile}:ro") [
         "libcudnn_cnn.so.9"
         "libcudnn_ops.so.9"
       ]
