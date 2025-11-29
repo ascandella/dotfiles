@@ -9,7 +9,6 @@
       sqlite
       lua-language-server
       lua54Packages.luacheck
-      nodePackages.jsonlint
       stylua
       eslint_d
       yamllint

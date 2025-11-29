@@ -12,36 +12,38 @@
       key = "C19FAEAAFD6CC39783DAEB6617C559C421D83A19";
       signByDefault = true;
     };
-    userName = "Aiden Scandella";
-    userEmail = config.my.gitEmail;
-    aliases = {
-      abbrev = "!sh -c 'git rev-parse --short '\${1-`echo HEAD`}' -";
-      add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`";
-      amend = "commit --amend";
-      branchname = "rev-parse --abbrev-ref HEAD";
-      cached = "diff --cached";
-      edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f` +Gdiff";
-      delmerged = ''!git branch --merged | grep -v "\\*" | grep -v '^master' | xargs -n 1 git branch -d'';
-      delsquash = "!git fetch -p && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -n 1 git branch -D";
-      main = "!git checkout $(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@') && git pull && git delsquash";
-      graph = "log --oneline --graph";
-      l = "log --decorate --stat";
-      lg = "log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'";
-      lol = "log --oneline --decorate";
-      patch = "add -p";
-      refresh = ''!ssh-add -l && STASH=$(git stash) && git fetch && OVERCOMMIT_DISABLE=1 git rebase origin/HEAD && test "$STASH" != "No local changes to save" && git stash pop || true'';
-      rmb = "!sh -c 'git branch -D $1 && git push origin :$1' -";
-      sha1 = "rev-parse HEAD";
-      sha = "!git rev-parse HEAD | cut -c 1-8";
-      showstash = "stash show -p stash@{0}";
-      upstream = "!git push -u origin $(git rev-parse --abbrev-ref HEAD)";
-      who = "shortlog -n -s --no-merges";
-      files = "show --pretty=format: --name-only";
-      p = "add -p";
-      unstage = "reset HEAD";
-      glg = "log --graph --pretty=lg";
-    };
-    extraConfig = {
+    settings = {
+      user = {
+        name = "Aiden Scandella";
+        email = config.my.gitEmail;
+      };
+      aliases = {
+        abbrev = "!sh -c 'git rev-parse --short '\${1-`echo HEAD`}' -";
+        add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`";
+        amend = "commit --amend";
+        branchname = "rev-parse --abbrev-ref HEAD";
+        cached = "diff --cached";
+        edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f` +Gdiff";
+        delmerged = ''!git branch --merged | grep -v "\\*" | grep -v '^master' | xargs -n 1 git branch -d'';
+        delsquash = "!git fetch -p && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -n 1 git branch -D";
+        main = "!git checkout $(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@') && git pull && git delsquash";
+        graph = "log --oneline --graph";
+        l = "log --decorate --stat";
+        lg = "log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'";
+        lol = "log --oneline --decorate";
+        patch = "add -p";
+        refresh = ''!ssh-add -l && STASH=$(git stash) && git fetch && OVERCOMMIT_DISABLE=1 git rebase origin/HEAD && test "$STASH" != "No local changes to save" && git stash pop || true'';
+        rmb = "!sh -c 'git branch -D $1 && git push origin :$1' -";
+        sha1 = "rev-parse HEAD";
+        sha = "!git rev-parse HEAD | cut -c 1-8";
+        showstash = "stash show -p stash@{0}";
+        upstream = "!git push -u origin $(git rev-parse --abbrev-ref HEAD)";
+        who = "shortlog -n -s --no-merges";
+        files = "show --pretty=format: --name-only";
+        p = "add -p";
+        unstage = "reset HEAD";
+        glg = "log --graph --pretty=lg";
+      };
       http = lib.mkIf config.my.caCert.enable { sslCAInfo = config.my.caCert.path; };
       delta = {
         # Necessary inside zellij
