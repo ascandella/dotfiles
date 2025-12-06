@@ -183,7 +183,7 @@ autovenv() { (
   if [[ -z ${3} || -n ${NO_SYSTEM_SITE_PACKAGES} ]]; then
     systemsitepackages="--system-site-packages"
   fi
-  "${pyver}" -m virtualenv "${systemsitepackages}" -p "${pyver}" "${location}"
+  "${pyver}" -m venv "${systemsitepackages}" "${location}"
 
   # TODO(ai) make this respect the venv location
   ln -s "${XDG_CONFIG_HOME}"/zsh/venv-autoenv.zsh \
