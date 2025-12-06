@@ -36,6 +36,9 @@
     borgbackup
     # For plex cache file management
     jdupes
+
+    # disk space
+    gdu
   ];
   programs.zsh = {
     enable = true;
