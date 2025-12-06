@@ -153,6 +153,7 @@
 
       # Python
       uv
+      python313
 
       # Terraform
       tenv # newer tfenv
