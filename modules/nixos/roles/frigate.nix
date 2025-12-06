@@ -14,7 +14,7 @@ with lib;
     enable = mkEnableOption (mdDoc "enable frigate via OCI container");
     version = mkOption {
       type = types.str;
-      default = "0.15.0-tensorrt";
+      default = "0.16.2-tensorrt";
     };
     port = mkOption {
       type = types.int;
@@ -66,8 +66,13 @@ with lib;
         "libnvrtc.so"
       ]
       ++ map (soFile: "${lib.getLib pkgs.cudaPackages.cudnn}/lib/${soFile}:/usr/lib/${soFile}:ro") [
+        "libcudnn_adv.so.9"
         "libcudnn_cnn.so.9"
         "libcudnn_ops.so.9"
+        "libcudnn_graph.so.9"
+        "libcudnn_heuristic.so.9"
+        "libcudnn_engines_precompiled.so.9"
+        "libcudnn_engines_runtime_compiled.so.9"
       ]
       ++ map (soFile: "${lib.getLib pkgs.cudaPackages.libcublas}/lib/${soFile}:/usr/lib/${soFile}:ro") [
         "libcublas.so"

@@ -53,6 +53,7 @@
           cat = "bat";
           e = "eza --icons=auto"; # also aliased as 'l'
           elt = "e -lt modified"; # like `ls -ltr`
+          "gimme-aws-creds" = "REQUESTS_CA_BUNDLE='' gimme-aws-creds";
           g = "git";
           gi = "git main";
           gp = "git patch";
