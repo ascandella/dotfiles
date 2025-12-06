@@ -66,8 +66,13 @@ with lib;
         "libnvrtc.so"
       ]
       ++ map (soFile: "${lib.getLib pkgs.cudaPackages.cudnn_9_8}/lib/${soFile}:/usr/lib/${soFile}:ro") [
+        "libcudnn_adv.so.9"
         "libcudnn_cnn.so.9"
         "libcudnn_ops.so.9"
+        "libcudnn_graph.so.9"
+        "libcudnn_heuristic.so.9"
+        "libcudnn_engines_precompiled.so.9"
+        "libcudnn_engines_runtime_compiled.so.9"
       ]
       ++ map (soFile: "${lib.getLib pkgs.cudaPackages.libcublas}/lib/${soFile}:/usr/lib/${soFile}:ro") [
         "libcublas.so"
