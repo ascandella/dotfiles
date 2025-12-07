@@ -2,13 +2,15 @@
   description = "Home Manager configuration";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-25.11";
+    nixpkgs.url = "nixpkgs/nixos-unstable";
+    # TODO: Remove this once we've updated off of unstable; currently only for Nextcloud on NixOS because I upgraded and don't want to downgrade
+    nixpkgs-stable.url = "nixpkgs/nixos-25.11";
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     darwin = {
-      url = "github:LnL7/nix-darwin/nix-darwin-25.11";
+      url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     simple-bar-src = {
@@ -29,13 +31,27 @@
 
     zjstatus = {
       url = "github:dj95/zjstatus";
-      # TODO: Temporarily disabled because of rust-overlay build issues
-      # inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    television = {
+      url = "github:alexpasmantier/television";
+      inputs = {
+        flake-utils.follows = "flake-utils";
+        nixpkgs.follows = "nixpkgs";
+        naersk.follows = "naersk";
+      };
+    };
+
+    # For television
+    naersk = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/naersk";
     };
 
     # For generating installer ISO
@@ -160,7 +176,17 @@
             hostname = host;
             system = systemForHost host;
             homeDirectory = homeDirectory host;
-            pkgs = pkgsForHost host;
+            pkgs = pkgsForHost host // {
+              nextcloud31 =
+                import inputs.nixpkgs-stable
+                  {
+                    system = systemForHost host;
+                    config = {
+                      allowUnfree = true;
+                    };
+                  }
+                  .nextcloud31;
+            };
           };
         }) linuxHosts
       );
