@@ -3,8 +3,6 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
-    # TODO: Remove this once we've updated off of unstable; currently only for Nextcloud on NixOS because I upgraded and don't want to downgrade
-    nixpkgs-stable.url = "nixpkgs/nixos-25.11";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -176,17 +174,7 @@
             hostname = host;
             system = systemForHost host;
             homeDirectory = homeDirectory host;
-            pkgs = pkgsForHost host // {
-              nextcloud31 =
-                import inputs.nixpkgs-stable
-                  {
-                    system = systemForHost host;
-                    config = {
-                      allowUnfree = true;
-                    };
-                  }
-                  .nextcloud31;
-            };
+            pkgs = pkgsForHost host;
           };
         }) linuxHosts
       );
