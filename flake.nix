@@ -29,7 +29,8 @@
 
     zjstatus = {
       url = "github:dj95/zjstatus";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # TODO: Temporarily disabled because of rust-overlay build issues
+      # inputs.nixpkgs.follows = "nixpkgs";
     };
 
     treefmt-nix = {
