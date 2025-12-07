@@ -17,7 +17,7 @@
         name = "Aiden Scandella";
         email = config.my.gitEmail;
       };
-      aliases = {
+      alias = {
         abbrev = "!sh -c 'git rev-parse --short '\${1-`echo HEAD`}' -";
         add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`";
         amend = "commit --amend";
