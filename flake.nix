@@ -38,21 +38,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    television = {
-      url = "github:alexpasmantier/television";
-      inputs = {
-        flake-utils.follows = "flake-utils";
-        nixpkgs.follows = "nixpkgs";
-        naersk.follows = "naersk";
-      };
-    };
-
-    # For television
-    naersk = {
-      inputs.nixpkgs.follows = "nixpkgs";
-      url = "github:nix-community/naersk";
-    };
-
     # For generating installer ISO
     # https://github.com/nix-community/nixos-generators
     nixos-generators = {

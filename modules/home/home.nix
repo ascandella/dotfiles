@@ -87,7 +87,7 @@
       eza # better ls
       fd # better find
       fzf
-      inputs.television.packages.${system}.default # better fzf
+      television # better fzf
       gnupg
       home-manager
       htop
