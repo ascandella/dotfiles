@@ -87,7 +87,7 @@
       eza # better ls
       fd # better find
       fzf
-      inputs.television.packages.${system}.default # better fzf
+      television # better fzf
       gnupg
       home-manager
       htop
@@ -103,7 +103,6 @@
       scc # count lines of code
       spaceship-prompt
       ssm-session-manager-plugin # for awscli
-      vault
       yq # yaml jq
       zellij
       inputs.zjstatus.packages.${system}.default
