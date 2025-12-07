@@ -103,7 +103,6 @@
       scc # count lines of code
       spaceship-prompt
       ssm-session-manager-plugin # for awscli
-      vault
       yq # yaml jq
       zellij
       inputs.zjstatus.packages.${system}.default
