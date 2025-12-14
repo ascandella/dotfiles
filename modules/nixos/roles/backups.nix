@@ -63,9 +63,6 @@
       frigate = basicBorgJob "frigate" // {
         paths = config.services.aispace.frigate.dataDir;
       };
-      gitea = basicBorgJob "gitea" // {
-        paths = config.services.gitea.stateDir;
-      };
       mysql = basicBorgJob "mysql" // {
         paths = config.services.mysqlBackup.location;
       };
