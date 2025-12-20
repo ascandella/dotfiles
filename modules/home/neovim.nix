@@ -9,14 +9,12 @@
       sqlite
       lua-language-server
       lua54Packages.luacheck
-      nodePackages.jsonlint
       stylua
       eslint_d
       yamllint
       prettierd
       gcc
 
-      nodejs_20 # copilot
       nodePackages.npm # mason
       pyright
       unzip # mason

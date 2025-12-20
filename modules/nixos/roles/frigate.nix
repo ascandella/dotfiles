@@ -47,6 +47,10 @@ with lib;
         # HACK ALERT: See below for manually mounting cudnn/libcublas
         LD_LIBRARY_PATH = "/usr/lib";
         FRIGATE_PODMAN_NETWORK = config.my.podman.networkCidr;
+        CUDNN_FRONTEND_LOG_FLIE = "stdout";
+        CUDNN_FRONTEND_LOG_INFO = "1";
+        CUDNN_LOGLEVEL_DBG = "3";
+        CUDNN_LOGDEST_DBG = "stdout";
       };
       environmentFiles = [
         config.age.secrets.frigate-secrets.path
@@ -65,17 +69,19 @@ with lib;
       ++ map (soFile: "${lib.getLib pkgs.cudaPackages.cuda_nvrtc}/lib/${soFile}:/usr/lib/${soFile}:ro") [
         "libnvrtc.so"
       ]
-      ++ map (soFile: "${lib.getLib pkgs.cudaPackages.cudnn_9_8}/lib/${soFile}:/usr/lib/${soFile}:ro") [
+      ++ map (soFile: "${lib.getLib pkgs.cudaPackages.cudnn}/lib/${soFile}:/usr/lib/${soFile}:ro") [
         "libcudnn_adv.so.9"
         "libcudnn_cnn.so.9"
-        "libcudnn_ops.so.9"
-        "libcudnn_graph.so.9"
-        "libcudnn_heuristic.so.9"
         "libcudnn_engines_precompiled.so.9"
         "libcudnn_engines_runtime_compiled.so.9"
+        "libcudnn_graph.so.9"
+        "libcudnn_heuristic.so.9"
+        "libcudnn_ops.so.9"
+        "libcudnn.so.9"
       ]
       ++ map (soFile: "${lib.getLib pkgs.cudaPackages.libcublas}/lib/${soFile}:/usr/lib/${soFile}:ro") [
         "libcublas.so"
+        "libnvblas.so"
         "libcublasLt.so"
       ];
       extraOptions = [
