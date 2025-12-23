@@ -16,7 +16,6 @@
       prettierd
       gcc
 
-      nodejs_20 # copilot
       nodePackages.npm # mason
       pyright
       unzip # mason

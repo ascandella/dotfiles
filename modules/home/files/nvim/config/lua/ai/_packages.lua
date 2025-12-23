@@ -242,15 +242,6 @@ local packages = {
     end,
   },
 
-  -- Copilot
-  {
-    'zbirenbaum/copilot.lua',
-    event = 'VimEnter',
-    config = function()
-      require('ai/_copilot')
-    end,
-  },
-
   -- UI
   {
     'catppuccin/nvim',
