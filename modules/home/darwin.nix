@@ -120,7 +120,7 @@
       bottombar = "yabai -m config external_bar all:0:30";
 
       jiraissues = "plainissues -s '~Done' -s '~Shipped' -s '~Closed'";
-      inprog = "plainissues -s 'In Progress' -s 'Review'";
+      inprog = "plainissues -s 'In Progress' -s 'Review' -s 'In Review'";
 
       resetdns = "sudo dscacheutil -flushcache ; sudo killall -HUP mDNSResponder";
     };
