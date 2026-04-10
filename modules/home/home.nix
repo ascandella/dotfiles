@@ -94,6 +94,7 @@
       just
       magic-wormhole
       minio-client
+      mise # project-specific tool manager
       most
       nixfmt-rfc-style
       nix-tree # show why a nix package is installed
