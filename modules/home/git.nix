@@ -11,6 +11,7 @@
     signing = lib.mkIf pkgs.stdenv.isDarwin {
       key = "C19FAEAAFD6CC39783DAEB6617C559C421D83A19";
       signByDefault = true;
+      format = "openpgp";
     };
     settings = {
       user = {

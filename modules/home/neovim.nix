@@ -4,6 +4,8 @@
   programs.neovim = {
     enable = true;
     vimAlias = true;
+    withRuby = false;
+    withPython3 = true;
 
     extraPackages = with pkgs; [
       sqlite
@@ -15,7 +17,6 @@
       prettierd
       gcc
 
-      nodePackages.npm # mason
       pyright
       unzip # mason
       gnumake # mason

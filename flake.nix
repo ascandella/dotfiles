@@ -40,16 +40,8 @@
     television = {
       url = "github:alexpasmantier/television";
       inputs = {
-        flake-utils.follows = "flake-utils";
         nixpkgs.follows = "nixpkgs";
-        naersk.follows = "naersk";
       };
-    };
-
-    # For television
-    naersk = {
-      inputs.nixpkgs.follows = "nixpkgs";
-      url = "github:nix-community/naersk";
     };
 
     # For generating installer ISO
@@ -192,10 +184,9 @@
       in
       rec {
         packages = with pkgs; {
-          inherit statix nix nixfmt-rfc-style;
-          nixfmt = nixfmt-rfc-style;
+          inherit statix nix nixfmt;
           fmt = pkgs.writeScriptBin "format" ''
-            ${nixfmt-rfc-style}/bin/nixfmt .;
+            ${nixfmt}/bin/nixfmt .;
           '';
           # So you can run lint with:
           # nix run .
