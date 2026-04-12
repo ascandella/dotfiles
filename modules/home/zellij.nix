@@ -1,13 +1,11 @@
 {
-  system,
-  inputs,
   ...
 }:
 
 let
   zjstatus = ''
     pane size=1 borderless=true {
-      plugin location="file:${inputs.zjstatus.packages.${system}.default}/bin/zjstatus.wasm" {
+      plugin location="https://github.com/dj95/zjstatus/releases/download/v0.22.0/zjstatus.wasm" {
         // Catppuccin Mocha
         // https://github.com/merikan/.dotfiles/blob/85c941c03cc7fb0496a1482bdbd055fe34e016b0/config/zellij/themes/zjstatus/catppuccin.kdl
         color_rosewater "#f5e0dc"
@@ -114,6 +112,7 @@ in
       layout {
           default_tab_template {
             children
+            ${zjstatus}
           }
           tab
       }
