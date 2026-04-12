@@ -37,6 +37,8 @@
     # For plex cache file management
     jdupes
 
+    opencode
+
     # disk space
     gdu
   ];
