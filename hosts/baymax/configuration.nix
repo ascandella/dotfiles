@@ -26,7 +26,8 @@ in
     ../../modules/nixos/roles/nas-mounts.nix
     ../../modules/nixos/roles/home-assistant.nix
     ../../modules/nixos/roles/zwave-js.nix
-    ../../modules/nixos/roles/nextcloud.nix
+    # REVERTME: Disablefor now
+    # ../../modules/nixos/roles/nextcloud.nix
     ../../modules/nixos/roles/backups.nix
     ../../modules/nixos/roles/sponsorblocktv.nix
     ../../modules/nixos/roles/ollama.nix
