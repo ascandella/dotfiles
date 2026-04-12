@@ -99,7 +99,7 @@
       nixfmt
       nix-tree # show why a nix package is installed
       nixd
-      ntfy-sh # ntfy client
+      # ntfy-sh # ntfy client
       ripgrep
       scc # count lines of code
       spaceship-prompt

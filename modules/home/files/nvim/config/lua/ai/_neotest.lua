@@ -6,17 +6,6 @@ local function init()
       require('neotest-elixir'),
       require('neotest-go'),
       require('neotest-rust'),
-      require('neotest-jest')({
-        jestCommand = 'yarn test --',
-        cwd = function(path)
-          -- Monorepo setup
-          -- https://github.com/nvim-neotest/neotest-jest?tab=readme-ov-file#monorepos
-          if string.find(path, '/packages/') then
-            return string.match(path, '(.-/[^/]+/)test')
-          end
-          return vim.fn.getcwd()
-        end,
-      }),
     },
     icons = {
       passed = '✔',

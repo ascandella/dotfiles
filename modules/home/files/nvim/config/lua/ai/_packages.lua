@@ -281,7 +281,6 @@ local packages = {
       'nvim-neotest/nvim-nio',
       'rouge8/neotest-rust',
       'jfpedroza/neotest-elixir',
-      'nvim-neotest/neotest-jest',
     },
     config = function()
       require('ai/_neotest').init()
