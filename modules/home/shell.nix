@@ -34,7 +34,7 @@
       # uncomment to enable profiling if shell init gets slow
       # zprof.enable = true;
       enableCompletion = true;
-      completionInit = "";
+      # completionInit = "";
       dotDir = "${config.xdg.configHome}/zsh";
 
       defaultKeymap = "emacs";

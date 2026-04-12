@@ -9,7 +9,6 @@ local feedkey = function(key, mode)
 end
 
 local icons = {
-  Copilot = '',
   Text = '',
   Method = '󰆧',
   Function = '󰊕',
@@ -176,12 +175,6 @@ cmp.setup({
       priority = 2,
     },
     {
-      name = 'copilot',
-      group_index = 2,
-      keyword_pattern = '.',
-      priority = 10,
-    },
-    {
       name = 'nvim_lua',
       group_index = 2,
       priority = 1,
@@ -209,15 +202,6 @@ require('cmp_git').setup({
   filetypes = { 'gitcommit' },
 })
 
--- -- Copilot integration
--- cmp.event:on('menu_opened', function()
---   -- vim.b.copilot_suggestion_hidden = true
--- end)
---
--- cmp.event:on('menu_closed', function()
---   -- vim.b.copilot_suggestion_hidden = false
--- end)
-
 vim.o.completeopt = 'menu,menuone,noselect'
 
 -- Disable in commit modes
@@ -237,7 +221,6 @@ vim.cmd([[
   augroup END
 ]])
 
-vim.api.nvim_set_hl(0, 'CmpItemKindCopilot', { fg = '#6CC644' })
 vim.o.pumheight = 15
 
 -- https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance#how-to-add-visual-studio-code-dark-theme-colors-to-the-menu
