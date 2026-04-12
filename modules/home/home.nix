@@ -87,7 +87,7 @@
       eza # better ls
       fd # better find
       fzf
-      inputs.television.packages.${system}.default # better fzf
+      television # better fzf
       gnupg
       home-manager
       htop
@@ -96,7 +96,7 @@
       minio-client
       mise # project-specific tool manager
       most
-      nixfmt-rfc-style
+      nixfmt
       nix-tree # show why a nix package is installed
       nixd
       ntfy-sh # ntfy client
@@ -106,7 +106,6 @@
       ssm-session-manager-plugin # for awscli
       yq # yaml jq
       zellij
-      inputs.zjstatus.packages.${system}.default
       zoxide
 
       # nix tools

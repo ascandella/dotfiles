@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}:
+{ config, pkgs, ... }:
 
 {
   config = {
@@ -43,13 +39,13 @@
       nextcloud = {
         enable = true;
         hostName = "cloud.ndella.com";
-        package = pkgs.nextcloud31;
+        package = pkgs.nextcloud32;
         extraApps = {
           inherit (config.services.nextcloud.package.packages.apps)
             # Set to default with:
             #   nextcloud-occ config:app:set --value=0 user_oidc allow_multiple_user_backends
             user_oidc
-            previewgenerator
+            # previewgenerator
             ;
         };
         https = true;

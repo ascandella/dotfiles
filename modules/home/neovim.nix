@@ -4,19 +4,19 @@
   programs.neovim = {
     enable = true;
     vimAlias = true;
+    withRuby = false;
+    withPython3 = true;
 
     extraPackages = with pkgs; [
       sqlite
       lua-language-server
       lua54Packages.luacheck
-      nodePackages.jsonlint
       stylua
       eslint_d
       yamllint
       prettierd
       gcc
 
-      nodePackages.npm # mason
       pyright
       unzip # mason
       gnumake # mason
