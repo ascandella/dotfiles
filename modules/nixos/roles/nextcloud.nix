@@ -45,7 +45,7 @@
             # Set to default with:
             #   nextcloud-occ config:app:set --value=0 user_oidc allow_multiple_user_backends
             user_oidc
-            previewgenerator
+            # previewgenerator
             ;
         };
         https = true;
