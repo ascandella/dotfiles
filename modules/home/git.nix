@@ -7,11 +7,13 @@
 {
   programs.git = {
     enable = true;
+    signing = {
+      format = "openpgp";
+    }
     # TODO: make this configurable, not just on macs
-    signing = lib.mkIf pkgs.stdenv.isDarwin {
+    // lib.mkIf pkgs.stdenv.isDarwin {
       key = "C19FAEAAFD6CC39783DAEB6617C559C421D83A19";
       signByDefault = true;
-      format = "openpgp";
     };
     settings = {
       user = {
