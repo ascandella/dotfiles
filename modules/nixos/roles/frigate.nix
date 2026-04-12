@@ -47,10 +47,10 @@ with lib;
         # HACK ALERT: See below for manually mounting cudnn/libcublas
         LD_LIBRARY_PATH = "/usr/lib";
         FRIGATE_PODMAN_NETWORK = config.my.podman.networkCidr;
-        CUDNN_FRONTEND_LOG_FLIE = "stdout";
-        CUDNN_FRONTEND_LOG_INFO = "1";
-        CUDNN_LOGLEVEL_DBG = "3";
-        CUDNN_LOGDEST_DBG = "stdout";
+        # CUDNN_FRONTEND_LOG_FLIE = "stdout";
+        # CUDNN_FRONTEND_LOG_INFO = "1";
+        # CUDNN_LOGLEVEL_DBG = "3";
+        # CUDNN_LOGDEST_DBG = "stdout";
       };
       environmentFiles = [
         config.age.secrets.frigate-secrets.path

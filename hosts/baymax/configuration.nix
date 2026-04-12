@@ -80,13 +80,6 @@ in
     networkmanager.enable = true;
 
     firewall = {
-      allowedTCPPortRanges = [
-        # For dog alarm / soco-cli (Sonos)
-        {
-          from = 54000;
-          to = 54100;
-        }
-      ];
       allowedUDPPorts = [
         # Wireguard
         51820

@@ -90,15 +90,15 @@
       nextcloud-setup = {
         after = [ "mysql.service" ];
       };
-      nextcloud-previewgenerator-cron = {
-        after = [ "nextcloud-setup.service" ];
-        environment.NEXTCLOUD_CONFIG_DIR = config.services.nextcloud.datadir;
-        serviceConfig = {
-          Type = "oneshot";
-          User = "nextcloud";
-          ExecStart = "${config.services.nextcloud.occ}/bin/nextcloud-occ preview:pre-generate";
-        };
-      };
+      # nextcloud-previewgenerator-cron = {
+      #   after = [ "nextcloud-setup.service" ];
+      #   environment.NEXTCLOUD_CONFIG_DIR = config.services.nextcloud.datadir;
+      #   serviceConfig = {
+      #     Type = "oneshot";
+      #     User = "nextcloud";
+      #     ExecStart = "${config.services.nextcloud.occ}/bin/nextcloud-occ preview:pre-generate";
+      #   };
+      # };
     };
   };
 }

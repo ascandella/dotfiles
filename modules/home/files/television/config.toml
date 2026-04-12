@@ -87,7 +87,7 @@ toggle_selection_down = "tab"
 # Add entry to selection and move to the previous entry
 toggle_selection_up = "backtab"
 # Confirm selection
-confirm_selection = "enter"
+# confirm_selection = "enter"
 # Copy the selected entry to the clipboard
 copy_entry_to_clipboard = "ctrl-y"
 # Toggle the remote control mode
