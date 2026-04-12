@@ -106,7 +106,7 @@
       ssm-session-manager-plugin # for awscli
       yq # yaml jq
       zellij
-      inputs.zjstatus.packages.${system}.default
+      # inputs.zjstatus.packages.${system}.default
       zoxide
 
       # nix tools
