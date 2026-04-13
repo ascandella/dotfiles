@@ -176,12 +176,13 @@ local packages = {
   },
 
   -- Wrapping/delimiters
-  {
-    'andymass/vim-matchup',
-    setup = function()
-      require('ai/_matchup')
-    end,
-  },
+  -- {
+  --   -- Disabled for now https://github.com/andymass/vim-matchup/issues/432
+  --   'andymass/vim-matchup',
+  --   setup = function()
+  --     require('ai/_matchup')
+  --   end,
+  -- },
 
   -- Automatically insert endwise pairs
   {
