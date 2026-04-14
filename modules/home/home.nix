@@ -175,7 +175,7 @@
     home.sessionVariables = {
       EDITOR = "nvim";
       CLICOLOR = "1";
-      GREP_OPTIONS = "--color=always";
+      GREP_OPTIONS = "--color=auto";
       GREP_COLOR = "1;35;40";
     };
   };
