@@ -236,5 +236,4 @@ if [[ -n $ZELLIJ ]]; then
   add-zsh-hook precmd set_tab_to_working_dir
 fi
 
-eval "$(mise activate zsh)"
 # vi: ft=sh

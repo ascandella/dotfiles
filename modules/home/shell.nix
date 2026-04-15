@@ -22,12 +22,35 @@ let
   starshipZshInit = pkgs.runCommand "starship-zsh-init.zsh" { } ''
     ${pkgs.starship}/bin/starship init zsh > $out
   '';
+
+  # mise activation: full version for first shell, nested version that skips the
+  # initial hook-env call (15ms) and PATH override for zellij child shells
+  # (tool versions + PATH already inherited from the parent shell).
+  miseZshInit = pkgs.runCommand "mise-zsh-init.zsh" { } ''
+    ${pkgs.mise}/bin/mise activate zsh > $out
+  '';
+  miseZshInitNested = pkgs.runCommand "mise-zsh-init-nested.zsh" { } ''
+    ${pkgs.mise}/bin/mise activate zsh \
+      | sed '/^export PATH=/d; /^_mise_hook$/d' > $out
+  '';
+
+  # Sources for deferred plugins (loaded after first prompt via zsh-defer).
+  zshSyntaxHighlightingSrc = pkgs.fetchFromGitHub {
+    owner = "zsh-users";
+    repo = "zsh-syntax-highlighting";
+    rev = "e0165eaa730dd0fa321a6a6de74f092fe87630b0";
+    sha256 = "4rW2N+ankAH4sA6Sa5mr9IKsdAg7WTgrmyqJ2V1vygQ=";
+  };
+  zshAutopairSrc = pkgs.fetchFromGitHub {
+    owner = "hlissner";
+    repo = "zsh-autopair";
+    rev = "2ec3fd3c9b950c01dbffbb2a4d191e1d34b8c58a";
+    sha256 = "Y7fkpvCOC/lC2CHYui+6vOdNO8dNHGrVYTGGNf9qgdg=";
+  };
 in
 
 {
-  home.packages = with pkgs; [
-    zsh-autopair
-  ];
+  home.packages = [ ];
 
   home.sessionVariables = lib.mkIf config.my.caCert.enable {
     AWS_CA_BUNDLE = config.my.caCert.path;
@@ -111,22 +134,43 @@ in
       ];
 
       initContent = ''
+        # zsh-defer: defers non-critical plugins until after first prompt
+        source ${pkgs.zsh-defer}/share/zsh-defer/zsh-defer.plugin.zsh
+
         setopt correct
         # Allow c-w to backwards word but stop at e.g. path separators
         WORDCHARS='*?_-.[]~&;!#$%^(){}<>'
         eval "$(${pkgs.fnm}/bin/fnm env --use-on-cd)"
         source ${starshipZshInit}
         export FPATH="${pkgs.eza}/completions/zsh:$FPATH"
-        source "${pkgs.awscli2}/bin/aws_zsh_completer.sh"
+        # Lazy-load aws completion: only sources on first aws<TAB>
+        _aws_lazy_completer() {
+          unfunction _aws_lazy_completer
+          source "${pkgs.awscli2}/bin/aws_zsh_completer.sh"
+          _bash_complete aws
+        }
+        compdef _aws_lazy_completer aws
         source "${config.xdg.configHome}/zsh/custom-init.zsh"
         source "${config.xdg.configHome}/zsh/plugins/zsh-autoenv/init.zsh"
-        source "${config.xdg.configHome}/television/shell/integration.zsh"
+        source "${config.xdg.configHome}/zsh/television/shell/integration.zsh"
         # Static zsh integrations pre-built as nix derivations (no subprocess)
         source ${zoxideZshInit}
         if [[ $options[zle] = on ]]; then
           source ${fzfZshInit}
         fi
         source ${direnvZshHook}
+        # mise: full activation in first shell; nested shells (zellij panes)
+        # inherit PATH + tool versions from parent -- skip the expensive
+        # initial hook-env call and PATH snapshot override.
+        if [[ -z $MISE_SHELL ]]; then
+          source ${miseZshInit}
+        else
+          source ${miseZshInitNested}
+        fi
+        # Defer cosmetic plugins until after first prompt (~30ms saving).
+        # zsh-syntax-highlighting must load last anyway (its own docs say so).
+        zsh-defer source ${zshSyntaxHighlightingSrc}/zsh-syntax-highlighting.plugin.zsh
+        zsh-defer source ${zshAutopairSrc}/zsh-autopair.plugin.zsh
       '';
 
       envExtra = ''
@@ -161,15 +205,7 @@ in
             sha256 = "houujb1CrRTjhCc+dp3PRHALvres1YylgxXwjjK6VZA=";
           };
         }
-        {
-          name = "zsh-syntax-highlighting";
-          src = pkgs.fetchFromGitHub {
-            owner = "zsh-users";
-            repo = "zsh-syntax-highlighting";
-            rev = "e0165eaa730dd0fa321a6a6de74f092fe87630b0";
-            sha256 = "4rW2N+ankAH4sA6Sa5mr9IKsdAg7WTgrmyqJ2V1vygQ=";
-          };
-        }
+        # zsh-syntax-highlighting is deferred via zsh-defer in initContent
         {
           name = "zsh-histdb";
           src = pkgs.fetchFromGitHub {
@@ -188,15 +224,7 @@ in
             sha256 = "KLUYpUu4DHRumQZ3w59m9aTW6TBKMCXl2UcKi4uMd7w=";
           };
         }
-        {
-          name = "zsh-autopair";
-          src = pkgs.fetchFromGitHub {
-            owner = "hlissner";
-            repo = "zsh-autopair";
-            rev = "2ec3fd3c9b950c01dbffbb2a4d191e1d34b8c58a";
-            sha256 = "Y7fkpvCOC/lC2CHYui+6vOdNO8dNHGrVYTGGNf9qgdg=";
-          };
-        }
+        # zsh-autopair is deferred via zsh-defer in initContent
         {
           name = "fzf-tab";
           src = pkgs.fetchFromGitHub {
