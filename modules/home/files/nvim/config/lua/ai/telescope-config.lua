@@ -171,4 +171,21 @@ M.project_files = function()
   end
 end
 
+-- Hide statusline when Telescope is open (prevents it from covering ivy layout results)
+local telescope_augroup = vim.api.nvim_create_augroup('TelescopeStatusline', { clear = true })
+vim.api.nvim_create_autocmd('FileType', {
+  group = telescope_augroup,
+  pattern = 'TelescopePrompt',
+  callback = function(args)
+    vim.opt.laststatus = 0
+    vim.api.nvim_create_autocmd('BufLeave', {
+      buffer = args.buf,
+      once = true,
+      callback = function()
+        vim.opt.laststatus = 2
+      end,
+    })
+  end,
+})
+
 return M
