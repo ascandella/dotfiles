@@ -236,7 +236,6 @@ in
       enableZshIntegration = false; # sourced via pre-built nix derivation above
       settings = {
         format = lib.concatStrings [
-          "$time"
           "$username"
           "$directory"
           "$hostname"
@@ -246,16 +245,10 @@ in
           "$cmd_duration"
           "$line_break"
           "$jobs"
-          "$status"
           "$sudo"
           "$character"
         ];
         add_newline = true;
-        time = {
-          disabled = false;
-          format = "[\\[$time\\]]($style) ";
-          time_format = "%T";
-        };
         directory = {
           truncation_length = 3;
           truncate_to_repo = true;
@@ -271,14 +264,11 @@ in
           min_time = 2000;
           format = "[$duration]($style) ";
         };
-        status = {
-          disabled = false;
-          format = "[$status]($style) ";
-        };
+        status.disabled = true;
         character = {
-          success_symbol = "[❯](bold green)";
-          error_symbol = "[❯](bold red)";
-          vimcmd_symbol = "[❮](bold green)";
+          success_symbol = "[➜](bold green)";
+          error_symbol = "[➜](bold red)";
+          vimcmd_symbol = "[➜](bold yellow)";
         };
       };
     };
