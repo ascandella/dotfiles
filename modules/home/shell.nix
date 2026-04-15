@@ -19,6 +19,9 @@ let
   zoxideZshInit = pkgs.runCommand "zoxide-zsh-init.zsh" { } ''
     ${pkgs.zoxide}/bin/zoxide init zsh > $out
   '';
+  starshipZshInit = pkgs.runCommand "starship-zsh-init.zsh" { } ''
+    ${pkgs.starship}/bin/starship init zsh > $out
+  '';
 in
 
 {
@@ -112,16 +115,7 @@ in
         # Allow c-w to backwards word but stop at e.g. path separators
         WORDCHARS='*?_-.[]~&;!#$%^(){}<>'
         eval "$(${pkgs.fnm}/bin/fnm env --use-on-cd)"
-        SPACESHIP_PROMPT_ORDER=(
-          time
-          user dir host git
-          exec_time
-          async
-          line_sep
-          jobs
-          exit_code sudo char
-        )
-        source "${pkgs.spaceship-prompt}/lib/spaceship-prompt/spaceship.zsh"
+        source ${starshipZshInit}
         export FPATH="${pkgs.eza}/completions/zsh:$FPATH"
         source "${pkgs.awscli2}/bin/aws_zsh_completer.sh"
         source "${config.xdg.configHome}/zsh/custom-init.zsh"
@@ -234,6 +228,58 @@ in
       config = {
         theme = "Coldark-Dark";
         style = "plain";
+      };
+    };
+
+    starship = {
+      enable = true;
+      enableZshIntegration = false; # sourced via pre-built nix derivation above
+      settings = {
+        format = lib.concatStrings [
+          "$time"
+          "$username"
+          "$directory"
+          "$hostname"
+          "$git_branch"
+          "$git_status"
+          "$git_state"
+          "$cmd_duration"
+          "$line_break"
+          "$jobs"
+          "$status"
+          "$sudo"
+          "$character"
+        ];
+        add_newline = true;
+        time = {
+          disabled = false;
+          format = "[\\[$time\\]]($style) ";
+          time_format = "%T";
+        };
+        directory = {
+          truncation_length = 3;
+          truncate_to_repo = true;
+        };
+        hostname = {
+          ssh_only = true;
+          format = "[@$hostname]($style) ";
+        };
+        git_branch = {
+          format = "[$symbol$branch]($style) ";
+        };
+        cmd_duration = {
+          min_time = 2000;
+          format = "[$duration]($style) ";
+        };
+        status = {
+          disabled = false;
+          format = "[$status]($style) ";
+        };
+        character = {
+          success_symbol = "[❯](bold green)";
+          error_symbol = "[❯](bold red)";
+          vimcmd_symbol = "[❮](bold green)";
+        };
       };
     };
   };

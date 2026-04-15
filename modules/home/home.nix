@@ -111,7 +111,6 @@
       # ntfy-sh # ntfy client
       ripgrep
       scc # count lines of code
-      spaceship-prompt
       ssm-session-manager-plugin # for awscli
       yq # yaml jq
       zellij
