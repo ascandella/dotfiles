@@ -1,1 +1,2 @@
 {"type":"config","name":"Zsh startup time optimization","metricName":"startup_ms","metricUnit":"ms","bestDirection":"lower"}
+{"run":1,"commit":"7f87356","metric":561,"metrics":{},"status":"keep","description":"Baseline: uncached compinit (183ms compaudit), spaceship (147ms), mise (38ms), static evals every start","timestamp":1776269115956,"segment":0,"confidence":null,"iterationTokens":582,"asi":{"hypothesis":"baseline measurement","compaudit_ms":183,"spaceship_ms":147,"mise_ms":38,"static_evals_ms":64,"path_leak":"fnm adds new multishell path each nested shell"}}

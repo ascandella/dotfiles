@@ -35,7 +35,14 @@
       # uncomment to enable profiling if shell init gets slow
       # zprof.enable = true;
       enableCompletion = true;
-      # completionInit = "";
+      # Always skip compaudit (~180ms savings per shell). All completions come
+      # from the immutable nix store so the security check is meaningless.
+      # The dump is wiped by home.activation.zcompdump on every `just home` so
+      # completions stay current after upgrades.
+      completionInit = ''
+        autoload -Uz compinit
+        compinit -C
+      '';
       dotDir = "${config.xdg.configHome}/zsh";
 
       defaultKeymap = "emacs";
