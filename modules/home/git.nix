@@ -11,7 +11,7 @@
       format = "openpgp";
     }
     # TODO: make this configurable, not just on macs
-    // lib.mkIf pkgs.stdenv.isDarwin {
+    // lib.optionalAttrs pkgs.stdenv.isDarwin {
       key = "C19FAEAAFD6CC39783DAEB6617C559C421D83A19";
       signByDefault = true;
     };
