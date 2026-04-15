@@ -152,7 +152,7 @@ in
         compdef _aws_lazy_completer aws
         source "${config.xdg.configHome}/zsh/custom-init.zsh"
         source "${config.xdg.configHome}/zsh/plugins/zsh-autoenv/init.zsh"
-        source "${config.xdg.configHome}/zsh/television/shell/integration.zsh"
+        source "${config.xdg.configHome}/television/shell/integration.zsh"
         # Static zsh integrations pre-built as nix derivations (no subprocess)
         source ${zoxideZshInit}
         if [[ $options[zle] = on ]]; then

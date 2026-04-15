@@ -55,11 +55,14 @@
     ./session.nix
     # Wipe the zcompdump on every `just home` so that compinit -C regenerates a
     # fresh dump on the next shell start (picks up completions from new packages).
-    ({ lib, config, ... }: {
-      home.activation.zcompdump = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-        rm -f "${config.xdg.configHome}/zsh/.zcompdump"
-      '';
-    })
+    (
+      { lib, config, ... }:
+      {
+        home.activation.zcompdump = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+          rm -f "${config.xdg.configHome}/zsh/.zcompdump"
+        '';
+      }
+    )
   ];
 
   config = {
@@ -77,8 +80,6 @@
       # release notes.
       stateVersion = "23.11"; # Please read the comment before changing.
     };
-
-
 
     # The home.packages option allows you to install Nix packages into your
     # environment.
