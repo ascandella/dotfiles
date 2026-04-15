@@ -1,0 +1,1 @@
+{"type":"config","name":"Zsh startup time optimization","metricName":"startup_ms","metricUnit":"ms","bestDirection":"lower"}
