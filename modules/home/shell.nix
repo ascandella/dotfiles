@@ -5,6 +5,22 @@
   ...
 }:
 
+let
+  # Pre-generate static zsh init scripts as nix derivations.
+  # At shell startup this becomes a plain `source /nix/store/…` with no
+  # subprocess overhead. Each derivation is keyed by the package content-hash,
+  # so it auto-regenerates whenever the package is upgraded.
+  fzfZshInit = pkgs.runCommand "fzf-zsh-init.zsh" { } ''
+    ${pkgs.fzf}/bin/fzf --zsh > $out
+  '';
+  direnvZshHook = pkgs.runCommand "direnv-zsh-hook.zsh" { } ''
+    ${pkgs.direnv}/bin/direnv hook zsh > $out
+  '';
+  zoxideZshInit = pkgs.runCommand "zoxide-zsh-init.zsh" { } ''
+    ${pkgs.zoxide}/bin/zoxide init zsh > $out
+  '';
+in
+
 {
   home.packages = with pkgs; [
     zsh-autopair
@@ -111,6 +127,12 @@
         source "${config.xdg.configHome}/zsh/custom-init.zsh"
         source "${config.xdg.configHome}/zsh/plugins/zsh-autoenv/init.zsh"
         source "${config.xdg.configHome}/television/shell/integration.zsh"
+        # Static zsh integrations pre-built as nix derivations (no subprocess)
+        source ${zoxideZshInit}
+        if [[ $options[zle] = on ]]; then
+          source ${fzfZshInit}
+        fi
+        source ${direnvZshHook}
       '';
 
       envExtra = ''
@@ -194,17 +216,17 @@
     };
     direnv = {
       enable = true;
-      enableZshIntegration = true;
+      enableZshIntegration = false; # handled manually via pre-built nix derivation
       nix-direnv.enable = true;
     };
     fzf = {
       enable = true;
-      enableZshIntegration = true;
+      enableZshIntegration = false; # handled manually via pre-built nix derivation
     };
 
     zoxide = {
       enable = true;
-      enableZshIntegration = true;
+      enableZshIntegration = false; # handled via pre-built nix derivation in initContent
     };
 
     bat = {
