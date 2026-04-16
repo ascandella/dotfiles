@@ -214,21 +214,21 @@ vim.api.nvim_create_user_command('LspInfo', function(opts)
     local caps = client.server_capabilities or {}
     -- Most-relevant features; keep the list compact.
     local feature_map = {
-      { 'hover',               caps.hoverProvider },
-      { 'definition',          caps.definitionProvider },
-      { 'references',          caps.referencesProvider },
-      { 'rename',              caps.renameProvider },
-      { 'completion',          caps.completionProvider },
-      { 'signature',           caps.signatureHelpProvider },
-      { 'format',              caps.documentFormattingProvider },
-      { 'range_format',        caps.documentRangeFormattingProvider },
-      { 'code_action',         caps.codeActionProvider },
-      { 'diagnostics',         caps.diagnosticProvider },
-      { 'inlay_hint',          caps.inlayHintProvider },
-      { 'semantic_tokens',     caps.semanticTokensProvider },
-      { 'document_symbol',     caps.documentSymbolProvider },
-      { 'workspace_symbol',    caps.workspaceSymbolProvider },
-      { 'document_highlight',  caps.documentHighlightProvider },
+      { 'hover', caps.hoverProvider },
+      { 'definition', caps.definitionProvider },
+      { 'references', caps.referencesProvider },
+      { 'rename', caps.renameProvider },
+      { 'completion', caps.completionProvider },
+      { 'signature', caps.signatureHelpProvider },
+      { 'format', caps.documentFormattingProvider },
+      { 'range_format', caps.documentRangeFormattingProvider },
+      { 'code_action', caps.codeActionProvider },
+      { 'diagnostics', caps.diagnosticProvider },
+      { 'inlay_hint', caps.inlayHintProvider },
+      { 'semantic_tokens', caps.semanticTokensProvider },
+      { 'document_symbol', caps.documentSymbolProvider },
+      { 'workspace_symbol', caps.workspaceSymbolProvider },
+      { 'document_highlight', caps.documentHighlightProvider },
     }
     local have = {}
     for _, entry in ipairs(feature_map) do
@@ -258,7 +258,9 @@ vim.api.nvim_create_user_command('LspInfo', function(opts)
     for b, _ in pairs(c.attached_buffers or {}) do
       table.insert(attached_bufs, tostring(b))
     end
-    table.sort(attached_bufs, function(a, b) return tonumber(a) < tonumber(b) end)
+    table.sort(attached_bufs, function(a, b)
+      return tonumber(a) < tonumber(b)
+    end)
     add(('%s  buffers      %s'):format(indent, #attached_bufs > 0 and table.concat(attached_bufs, ', ') or '-'))
     local caps = capability_list(c)
     add(('%s  capabilities %s'):format(indent, #caps > 0 and table.concat(caps, ', ') or '-'))
@@ -281,7 +283,9 @@ vim.api.nvim_create_user_command('LspInfo', function(opts)
     header(('Attached (%d):'):format(#attached))
     for i, c in ipairs(attached) do
       render_client(c)
-      if i < #attached then add('') end
+      if i < #attached then
+        add('')
+      end
     end
   end
 
@@ -300,7 +304,9 @@ vim.api.nvim_create_user_command('LspInfo', function(opts)
     header(('Other active clients (%d):'):format(#others))
     for i, c in ipairs(others) do
       render_client(c)
-      if i < #others then add('') end
+      if i < #others then
+        add('')
+      end
     end
   end
 
