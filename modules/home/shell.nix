@@ -289,7 +289,7 @@ in
           format = "[$symbol$branch]($style) ";
         };
         cmd_duration = {
-          min_time = 2000;
+          min_time = 5000;
           format = "[$duration]($style) ";
         };
         status.disabled = true;

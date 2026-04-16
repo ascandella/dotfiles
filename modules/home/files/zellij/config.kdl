@@ -311,7 +311,26 @@ load_plugins {
 //         white 255 255 255
 //     }
 // }
-theme "catppuccin-mocha"
+
+// Catppuccin Mocha with enhanced pane focus visibility:
+//   - Active pane border: peach/orange (250 179 135) instead of mint green
+//   - Inactive pane border: surface0 dark (49 50 68) instead of surface1
+themes {
+    catppuccin-mocha-focus {
+        fg 205 214 244     // text
+        bg 30 30 46        // base
+        black 49 50 68     // surface0 — dim inactive pane borders
+        red 243 139 168    // red
+        green 250 179 135  // peach — used for ACTIVE pane border (replaces mint green)
+        yellow 249 226 175 // yellow
+        blue 137 180 250   // blue
+        magenta 245 194 231 // pink
+        orange 250 179 135 // peach
+        cyan 148 226 213   // teal
+        white 205 214 244  // text
+    }
+}
+theme "catppuccin-mocha-focus"
 
 // Choose the theme that is specified in the themes section.
 // Default: default
