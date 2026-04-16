@@ -38,10 +38,6 @@ local function make_config(extra_options)
   return vim.tbl_deep_extend('force', {
     capabilities = cmp_nvim_lsp.default_capabilities(capabilities),
     on_attach = on_attach,
-    init_options = {
-      documentFormatting = true,
-      documentRangeFormatting = true,
-    },
   }, extra_options or {})
 end
 
@@ -112,23 +108,24 @@ lspconfig.ts_ls.setup(make_config({
   end,
 }))
 
-local gopls_config = make_config({
-  settings = {
-    gopls = {
-      hints = {
-        assignVariableTypes = true,
-        compositeLiteralFields = true,
-        compositeLiteralTypes = true,
-        constantValues = true,
-        functionTypeParameters = true,
-        parameterNames = true,
-        rangeVariableTypes = true,
+vim.lsp.config(
+  'gopls',
+  make_config({
+    settings = {
+      gopls = {
+        hints = {
+          assignVariableTypes = true,
+          compositeLiteralFields = true,
+          compositeLiteralTypes = true,
+          constantValues = true,
+          functionTypeParameters = true,
+          parameterNames = true,
+          rangeVariableTypes = true,
+        },
       },
     },
-  },
-})
-gopls_config['init_options'] = nil
-vim.lsp.config('gopls', gopls_config)
+  })
+)
 
 lspconfig.jsonls.setup(make_config({
   settings = {

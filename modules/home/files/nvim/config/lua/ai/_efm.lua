@@ -27,6 +27,10 @@ local efm_languages = {
 
 local function efm_config(config)
   config.filetypes = vim.tbl_keys(efm_languages)
+  config.init_options = {
+    documentFormatting = true,
+    documentRangeFormatting = true,
+  }
   config.settings = {
     rootMarkers = { 'mix.exs', 'package.json', 'go.mod', '.git/' },
     languages = efm_languages,

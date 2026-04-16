@@ -54,6 +54,7 @@ local packages = {
 
   {
     'nvim-treesitter/nvim-treesitter',
+    branch = 'master',
     dependencies = {
       -- Autoclose HTML/TSX tags
       'windwp/nvim-ts-autotag',
@@ -69,6 +70,7 @@ local packages = {
   {
     -- Additional text objects via treesitter
     'nvim-treesitter/nvim-treesitter-textobjects',
+    branch = 'master',
     after = 'nvim-treesitter',
   },
 
