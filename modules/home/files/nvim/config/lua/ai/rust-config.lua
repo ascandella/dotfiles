@@ -1,16 +1,30 @@
-local rt = require('rust-tools')
+-- rustaceanvim replaces the archived simrat39/rust-tools.nvim.
+--
+-- It auto-configures rust-analyzer (do NOT also `vim.lsp.enable('rust_analyzer')`
+-- — rustaceanvim does that itself). Extra settings are set via the global
+-- `vim.g.rustaceanvim` table before the plugin loads.
 
-rt.setup({
+local on_attach = require('ai/lsp-shared').on_attach
+
+vim.g.rustaceanvim = {
+  tools = {
+    hover_actions = {
+      auto_focus = true,
+    },
+    -- rustaceanvim uses Neovim's built-in inlay hint support (vim.lsp.inlay_hint)
+    -- rather than a custom implementation.
+  },
   server = {
     on_attach = function(client, bufnr)
-      -- Hover actions
-      vim.keymap.set('n', '<Leader>ra', rt.hover_actions.hover_actions, { buffer = bufnr })
-      -- Code action groups
-      vim.keymap.set('n', '<Leader>rc', rt.code_action_group.code_action_group, { buffer = bufnr })
-
-      require('ai/lsp-shared').on_attach(client, bufnr)
+      on_attach(client, bufnr)
+      -- Hover actions and code action groups moved to :RustLsp commands.
+      vim.keymap.set('n', '<Leader>ra', function()
+        vim.cmd.RustLsp('hover', 'actions')
+      end, { buffer = bufnr, desc = 'Rust hover actions' })
+      vim.keymap.set('n', '<Leader>rc', function()
+        vim.cmd.RustLsp('codeAction')
+      end, { buffer = bufnr, desc = 'Rust code action group' })
     end,
-
     capabilities = {
       textDocument = {
         completion = {
@@ -20,31 +34,12 @@ rt.setup({
         },
       },
     },
-
-    completion = {
-      snippets = {
-        custom = {},
-      },
-    },
   },
-
-  tools = {
-    hover_actions = {
-      auto_focus = true,
-    },
-    inlay_hints = {
-      right_align = false,
-      auto = false,
-    },
-    executor = require('rust-tools/executors').toggleterm,
-  },
-
   dap = {
-    -- adapter = require('dap').adapters.lldb,
     adapter = {
       type = 'executable',
       command = 'codelldb',
       name = 'rt_lldb',
     },
   },
-})
+}

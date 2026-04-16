@@ -1,5 +1,6 @@
 -- From: https://github.com/justinrassier/dotfiles/blob/223bd1007773ff8ef2df7e8c31087c3895a793de/nvim/.config/nvim/lua/jr/custom/tailwind.lua
-local ts_utils = require('nvim-treesitter.ts_utils')
+-- Use built-in vim.treesitter.get_node() instead of the removed
+-- nvim-treesitter.ts_utils module (gone in nvim-treesitter main branch).
 
 local attribute_query = vim.treesitter.parse_query(
   'tsx',
@@ -60,7 +61,7 @@ local element_queries = {
 
 local M = {}
 function M.add_or_insert_class_attribute()
-  local node = ts_utils.get_node_at_cursor()
+  local node = vim.treesitter.get_node()
 
   if not node then
     return
