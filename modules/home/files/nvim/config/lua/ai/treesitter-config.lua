@@ -1,8 +1,9 @@
 -- nvim-treesitter `main` branch setup.
 --
--- Highlighting, folding, and indent are enabled per-filetype via the FileType
+-- Highlighting and indent are enabled per-filetype via the FileType
 -- autocommand below (the equivalent of ftplugin snippets recommended by the
--- plugin's new README).
+-- plugin's new README). Folding is intentionally left disabled — see the
+-- autocmd callback for details.
 
 local nvim_ts = require('nvim-treesitter')
 
@@ -97,9 +98,11 @@ vim.api.nvim_create_autocmd('FileType', {
     -- Highlighting (provided by Neovim)
     pcall(vim.treesitter.start, bufnr)
 
-    -- Folding (provided by Neovim)
-    vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-    vim.wo[0][0].foldmethod = 'expr'
+    -- NOTE: Treesitter folding is intentionally NOT enabled here. With the
+    -- default `foldlevel=0`, every fold starts closed and folds re-close
+    -- whenever the cursor leaves them. The old master-branch
+    -- nvim-treesitter setup also left folds off by default. Use `zc` / `zM`
+    -- manually if you want to fold.
 
     -- Indent (experimental, provided by nvim-treesitter)
     if opts.indent ~= false then
