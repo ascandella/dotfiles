@@ -1,5 +1,6 @@
-local lspconfig = require('lspconfig')
-local make_config = require('ai/_lspinstall').make_config
+-- efm-langserver setup via the new vim.lsp.config() API.
+-- mason-lspconfig's automatic_enable handles calling vim.lsp.enable('efm'),
+-- so we only register the overrides.
 
 local eslint = require('efmls-configs.linters.eslint_d')
 local prettier = require('efmls-configs.formatters.prettier_d')
@@ -25,16 +26,17 @@ local efm_languages = {
   python = { ruff, ruff_fmt },
 }
 
-local function efm_config(config)
-  config.filetypes = vim.tbl_keys(efm_languages)
-  config.settings = {
+vim.lsp.config('efm', {
+  filetypes = vim.tbl_keys(efm_languages),
+  init_options = {
+    documentFormatting = true,
+    documentRangeFormatting = true,
+  },
+  settings = {
     rootMarkers = { 'mix.exs', 'package.json', 'go.mod', '.git/' },
     languages = efm_languages,
     -- For debugging
-    -- ['logFile'] = '/tmp/efm.log',
-    -- ['logLevel'] = 1,
-  }
-  return config
-end
-
-lspconfig.efm.setup(efm_config(make_config()))
+    -- logFile = '/tmp/efm.log',
+    -- logLevel = 1,
+  },
+})

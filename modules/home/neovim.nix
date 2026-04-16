@@ -17,6 +17,9 @@
       prettierd
       gcc
 
+      # Required by nvim-treesitter main branch to (re)generate parsers
+      tree-sitter
+
       pyright
       unzip # mason
       gnumake # mason

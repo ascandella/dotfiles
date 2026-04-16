@@ -23,15 +23,35 @@
     '';
     # Bypass tenv's `terraform` for terraform-ls otherwise it can't format
     "nvim/lua/ai/nix/terraformls.lua".text = ''
-      local lspinstall = require('ai/_lspinstall')
-      local lspconfig = require('lspconfig')
-      lspconfig.terraformls.setup(lspinstall.make_config({
+      -- Configure terraform-ls via the new vim.lsp.config() API
+      -- (nvim-lspconfig's `require('lspconfig').*.setup` framework is
+      -- deprecated in nvim-lspconfig v3). mason-lspconfig auto-enables
+      -- installed servers, so we only need to register overrides here.
+      local util = require('lspconfig.util')
+      vim.lsp.config('terraformls', {
+        -- Scope terraform-ls to the .tf file's own directory (the module
+        -- boundary in terraform) so it doesn't index the whole monorepo.
+        -- Large workspaces like monitoring-as-code freeze the UI on every
+        -- keystroke when terraform-ls walks hundreds of .tf files rooted
+        -- at the repo's .git.
+        root_dir = function(bufnr, on_dir)
+          local fname = vim.api.nvim_buf_get_name(bufnr)
+          on_dir(util.root_pattern('.terraform')(fname) or vim.fs.dirname(fname))
+        end,
+        workspace_required = false,
         init_options = {
           terraform = {
             path = "${pkgs.terraform.out}/bin/terraform",
-          }
-        }
-      }))
+          },
+        },
+        -- Semantic tokens are computed on every edit and are the usual
+        -- source of UI stalls in large terraform workspaces. Treesitter
+        -- already provides good highlighting.
+        on_attach = function(client, bufnr)
+          require('ai/lsp-shared').on_attach(client, bufnr)
+          client.server_capabilities.semanticTokensProvider = nil
+        end,
+      })
     '';
     "nvim/lazy-lock.json".source =
       config.lib.file.mkOutOfStoreSymlink "${config.my.configDir}/modules/home/files/nvim/lazy-lock.json";

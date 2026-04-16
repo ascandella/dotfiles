@@ -54,22 +54,20 @@ local packages = {
 
   {
     'nvim-treesitter/nvim-treesitter',
+    branch = 'main',
+    lazy = false,
+    build = ':TSUpdate',
     dependencies = {
+      -- Additional text objects via treesitter (main branch has a new setup API)
+      { 'nvim-treesitter/nvim-treesitter-textobjects', branch = 'main' },
       -- Autoclose HTML/TSX tags
       'windwp/nvim-ts-autotag',
       -- rainbow pairs
       'https://gitlab.com/HiPhish/rainbow-delimiters.nvim',
     },
-    run = ':TSUpdate',
     config = function()
       require('ai/treesitter-config')
     end,
-  },
-
-  {
-    -- Additional text objects via treesitter
-    'nvim-treesitter/nvim-treesitter-textobjects',
-    after = 'nvim-treesitter',
   },
 
   {
@@ -149,7 +147,11 @@ local packages = {
     dependencies = {
       'williamboman/mason-lspconfig.nvim',
       'neovim/nvim-lspconfig',
-      'simrat39/rust-tools.nvim',
+      -- rustaceanvim replaces the archived simrat39/rust-tools.nvim.
+      -- It configures rust-analyzer on its own (do not also enable it via
+      -- mason-lspconfig's automatic_enable list for rust_analyzer, otherwise
+      -- rust-analyzer would attach twice).
+      { 'mrcjkb/rustaceanvim', version = '^6', lazy = false, ft = { 'rust' } },
       'nvimdev/lspsaga.nvim',
       -- Extensible linters/formatters
       'mattn/efm-langserver',
@@ -261,8 +263,6 @@ local packages = {
     end,
   },
 
-  'nvim-treesitter/playground',
-
   -- Screenshot tool
   {
     'krivahtoo/silicon.nvim',
@@ -306,6 +306,9 @@ local packages = {
   -- Automatically set current directory (project) when loading file
   {
     'DrKJeff16/project.nvim',
+    -- Needs to load before telescope-config calls `load_extension('projects')`.
+    lazy = false,
+    priority = 100,
     config = function()
       require('ai/project')
     end,
@@ -349,7 +352,9 @@ local packages = {
     },
     config = function(_, opts)
       local cfg = require('yaml-companion').setup(opts)
-      require('lspconfig')['yamlls'].setup(cfg)
+      -- Merge yaml-companion's settings into our yamlls config and (re-)enable.
+      vim.lsp.config('yamlls', cfg)
+      vim.lsp.enable('yamlls')
       require('telescope').load_extension('yaml_schema')
     end,
   },

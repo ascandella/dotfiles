@@ -46,12 +46,15 @@ M.settings = {
 }
 
 if vim.fn.isdirectory(sumneko_root_path) ~= 0 then
-  require('lspconfig').sumneko_lua.setup({
+  -- Fallback for machines with a hand-built sumneko; `lua_ls` from mason is
+  -- preferred and is already configured in ai/_lspinstall.lua.
+  vim.lsp.config('lua_ls', {
     on_attach = require('ai/lsp-shared').on_attach,
     capabilities = require('ai/lsp-shared').capabilities(),
     cmd = { sumneko_binary, '-E', sumneko_root_path .. '/main.lua' },
     settings = M.settings,
   })
+  vim.lsp.enable('lua_ls')
 end
 
 return M
