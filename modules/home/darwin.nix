@@ -15,6 +15,7 @@
     home = {
       sessionPath = [ "/opt/homebrew/bin/" ];
       packages = with pkgs; [
+        acli
         jira-cli-go
       ];
 
