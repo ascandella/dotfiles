@@ -107,11 +107,42 @@
       }
 
       plainissues() {
-        local args=()
+        local statuses=() not_statuses=()
+        while [[ $# -gt 0 ]]; do
+          case "$1" in
+            -s)
+              shift
+              if [[ "''${1:0:1}" == "~" ]]; then
+                not_statuses+=("''${1:1}")
+              else
+                statuses+=("$1")
+              fi
+              ;;
+          esac
+          shift
+        done
+
+        local jql="assignee = currentUser()"
         if [[ -n "$MY_JIRA_PROJECTS" ]]; then
-          args=("-q" "$MY_JIRA_PROJECTS")
+          jql+=" AND $MY_JIRA_PROJECTS"
         fi
-        jira issue list -a$(jira me) --plain --columns KEY,SUMMARY --no-headers "$args[@]" "$@"
+        if [[ ''${#statuses[@]} -gt 0 ]]; then
+          local s status_list=""
+          for s in "''${statuses[@]}"; do
+            status_list+="'$s',"
+          done
+          jql+=" AND status in (''${status_list%,})"
+        fi
+        if [[ ''${#not_statuses[@]} -gt 0 ]]; then
+          local s not_list=""
+          for s in "''${not_statuses[@]}"; do
+            not_list+="'$s',"
+          done
+          jql+=" AND status NOT IN (''${not_list%,})"
+        fi
+
+        acli jira workitem search --jql "$jql" --fields key,summary --json | \
+          jq -r '.[] | [.key, .fields.summary] | @tsv'
       }
     '';
 
