@@ -88,4 +88,32 @@ The following env vars are already set (exported by parent shell):
 
 ## What's Been Tried
 
-_(Start experiments — update this section as results accumulate.)_
+### Kept experiments (cumulative −41% Zellij, 152ms → 89ms)
+
+1. **Skip fnm subprocess in Zellij panes** (−27ms Zellij)  
+   `[[ -n $ZELLIJ ]]` guard: source `pkgs.writeText` static shims (functions+alias only)
+   instead of `eval "$(fnm env --use-on-cd)"`. PATH/FNM_* already inherited.  
+   _Note: pkgs.runCommand fails in nix sandbox (HOME=/homeless-shelter); must use pkgs.writeText._
+
+2. **Defer fzf-tab, npm-autocomplete, history-substring-search** (−21ms combined)  
+   Moved from `plugins` array (eager) to `zsh-defer source` in `initContent`.  
+   bindkey calls bind to widget *names* so deferring history-substring-search is safe.
+
+3. **Strip duplicate fpath entries before compinit** (−15ms)  
+   Removed `/run/current-system/sw/share/zsh/$ZSH_VERSION/functions` (967 dupes of nix-profile)
+   and `/usr/share/zsh/$ZSH_VERSION/functions` (966 dupes, zero unique files).  
+   Kept `/run/current-system/sw/share/zsh/site-functions` for `_darwin-rebuild` etc.  
+   Compdump: 2985→1052 scanned files. Also dropped redundant `export FPATH` for eza
+   (already in `~/.nix-profile/share/zsh/site-functions`).
+
+### Discarded
+- Remove duplicate autosuggestions from plugins array: autosuggestions self-guards
+  against double-init; cost of second source is ~0.
+
+### Hard floor (zprof on current config)
+- compinit -C: 14ms (73% of all function time) — user requested: do not defer
+- ZLE interactive overhead: ~30ms — unavoidable
+- Remaining script loading (starship/autoenv/histdb/…): ~35ms  
+- zsh-autoenv: NOT safe to defer — calls `_autoenv_chpwd_handler` immediately on load
+  to source .autoenv.zsh for current directory.
+- See `autoresearch.ideas.md` for remaining opportunities.
