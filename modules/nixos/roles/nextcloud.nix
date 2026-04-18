@@ -56,7 +56,11 @@
           dbuser = "nextcloud";
           dbpassFile = config.age.secrets.nextcloud-db-pass.path;
         };
+        phpOptions = {
+          "opcache.interned_strings_buffer" = "23";
+        };
         settings = {
+          log_type = "errorlog";
           loglevel = 2;
           trusted_proxies = [
             "10.42.0.0/24"
