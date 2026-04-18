@@ -123,6 +123,20 @@ in
       # The dump is wiped by home.activation.zcompdump on every `just home` so
       # completions stay current after upgrades.
       completionInit = ''
+        # De-duplicate fpath before compinit: remove the two copies of zsh's
+        # built-in 5.9/functions that mirror ~/.nix-profile (the authoritative one):
+        #   /run/current-system/sw  — nix-darwin system profile, same 967 files
+        #   /usr/share/zsh          — macOS system zsh, same 966 files (zero unique)
+        # Also remove empty vendor-completions and usr/local dirs.
+        # Keeps /run/current-system/sw/share/zsh/site-functions (_darwin-rebuild etc.).
+        # Result: compdump shrinks from ~2985 scanned files to ~1050.
+        fpath=(''${fpath:#/run/current-system/sw/share/zsh/$ZSH_VERSION/functions})
+        fpath=(''${fpath:#/run/current-system/sw/share/zsh/vendor-completions})
+        fpath=(''${fpath:#/nix/var/nix/profiles/default/share/zsh/$ZSH_VERSION/functions})
+        fpath=(''${fpath:#/nix/var/nix/profiles/default/share/zsh/vendor-completions})
+        fpath=(''${fpath:#/usr/share/zsh/$ZSH_VERSION/functions})
+        fpath=(''${fpath:#/usr/share/zsh/site-functions})
+        fpath=(''${fpath:#/usr/local/share/zsh/site-functions})
         autoload -Uz compinit
         compinit -C
       '';
@@ -190,7 +204,8 @@ in
           eval "$(${pkgs.fnm}/bin/fnm env --use-on-cd)"
         fi
         source ${starshipZshInit}
-        export FPATH="${pkgs.eza}/completions/zsh:$FPATH"
+        # eza completions are already in ~/.nix-profile/share/zsh/site-functions
+        # via the nix package; explicit FPATH addition was redundant.
         # Lazy-load aws completion: only sources on first aws<TAB>
         _aws_lazy_completer() {
           unfunction _aws_lazy_completer
