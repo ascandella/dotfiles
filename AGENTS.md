@@ -38,6 +38,7 @@ nix fmt
 ```
 
 This runs [treefmt](https://github.com/numtide/treefmt-nix) with the following formatters configured in `treefmt.nix`:
+
 - **nixfmt** — Nix files
 - **deadnix** — removes unused Nix bindings
 - **stylua** — Lua files
