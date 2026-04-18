@@ -38,21 +38,44 @@ let
   # multishell dir (~27ms). In Zellij panes PATH + FNM_* env are already
   # inherited from the parent, so we only need the shell functions/alias —
   # no subprocess, no new multishell dir.
-  fnmZshInit = pkgs.runCommand "fnm-zsh-init-nested.zsh" { } ''
-    ${pkgs.fnm}/bin/fnm env --use-on-cd \
-      | grep -v '^export PATH=' \
-      | grep -v '^export FNM_MULTISHELL_PATH=' \
-      | grep -v '^export FNM_VERSION_FILE_STRATEGY=' \
-      | grep -v '^export FNM_DIR=' \
-      | grep -v '^export FNM_LOGLEVEL=' \
-      | grep -v '^export FNM_NODE_DIST_MIRROR=' \
-      | grep -v '^export FNM_COREPACK_ENABLED=' \
-      | grep -v '^export FNM_RESOLVE_ENGINES=' \
-      | grep -v '^export FNM_ARCH=' \
-      | grep -v '^__fnm_use_if_file_found$' > $out
+  # Static fnm shims for Zellij subshells: just the function definitions + alias.
+  # All FNM_* env vars and PATH are already inherited from the parent shell,
+  # so no subprocess and no new multishell dir is needed.
+  # pkgs.writeText (pure, no execution) avoids the nix-sandbox HOME issue that
+  # pkgs.runCommand hits when fnm tries to create its multishell dir.
+  fnmZshInit = pkgs.writeText "fnm-zsh-init-nested.zsh" ''
+    __fnm_use_if_file_found() {
+      if [[ -f .node-version || -f .nvmrc || -f package.json ]]; then
+        fnm use --silent-if-unchanged
+      fi
+    }
+    __fnmcd() {
+      \cd "$@" || return $?
+      __fnm_use_if_file_found
+    }
+    alias cd=__fnmcd
+    __fnm_use_if_file_found
   '';
 
   # Sources for deferred plugins (loaded after first prompt via zsh-defer).
+  fzfTabSrc = pkgs.fetchFromGitHub {
+    owner = "Aloxaf";
+    repo = "fzf-tab";
+    rev = "6aced3f35def61c5edf9d790e945e8bb4fe7b305";
+    sha256 = "EWMeslDgs/DWVaDdI9oAS46hfZtp4LHTRY8TclKTNK8=";
+  };
+  zshNpmScriptsSrc = pkgs.fetchFromGitHub {
+    owner = "grigorii-zander";
+    repo = "zsh-npm-scripts-autocomplete";
+    rev = "5d145e13150acf5dbb01dac6e57e57c357a47a4b";
+    sha256 = "sha256-Y34VXOU7b5z+R2SssCmbooVwrlmSxUxkObTV0YtsS50=";
+  };
+  zshHistorySubstringSrc = pkgs.fetchFromGitHub {
+    owner = "zsh-users";
+    repo = "zsh-history-substring-search";
+    rev = "8dd05bfcc12b0cd1ee9ea64be725b3d9f713cf64";
+    sha256 = "houujb1CrRTjhCc+dp3PRHALvres1YylgxXwjjK6VZA=";
+  };
   zshSyntaxHighlightingSrc = pkgs.fetchFromGitHub {
     owner = "zsh-users";
     repo = "zsh-syntax-highlighting";
@@ -194,6 +217,13 @@ in
         fi
         # Defer cosmetic plugins until after first prompt (~30ms saving).
         # zsh-syntax-highlighting must load last anyway (its own docs say so).
+        # history-substring-search, npm-autocomplete, fzf-tab: ~20ms combined.
+        # bindkey calls in custom-init.zsh bind to widget *names* so deferring
+        # history-substring-search is safe -- widgets are defined before first keypress.
+        zsh-defer source ${zshHistorySubstringSrc}/zsh-history-substring-search.plugin.zsh
+        zsh-defer source ${zshNpmScriptsSrc}/zsh-npm-scripts-autocomplete.plugin.zsh
+        zsh-defer source ${fzfTabSrc}/fzf-tab.plugin.zsh
+        # zsh-syntax-highlighting must load last (its own requirement).
         zsh-defer source ${zshSyntaxHighlightingSrc}/zsh-syntax-highlighting.plugin.zsh
         zsh-defer source ${zshAutopairSrc}/zsh-autopair.plugin.zsh
       '';
@@ -212,24 +242,8 @@ in
             sha256 = "sha256-8HznSWSBj1baetvDOIZ+H9mWg5gbbzF52nIEG+u9Di8=";
           };
         }
-        {
-          name = "zsh-npm-scripts-autocomplete";
-          src = pkgs.fetchFromGitHub {
-            owner = "grigorii-zander";
-            repo = "zsh-npm-scripts-autocomplete";
-            rev = "5d145e13150acf5dbb01dac6e57e57c357a47a4b";
-            sha256 = "sha256-Y34VXOU7b5z+R2SssCmbooVwrlmSxUxkObTV0YtsS50=";
-          };
-        }
-        {
-          name = "zsh-history-substring-search";
-          src = pkgs.fetchFromGitHub {
-            owner = "zsh-users";
-            repo = "zsh-history-substring-search";
-            rev = "8dd05bfcc12b0cd1ee9ea64be725b3d9f713cf64";
-            sha256 = "houujb1CrRTjhCc+dp3PRHALvres1YylgxXwjjK6VZA=";
-          };
-        }
+        # zsh-npm-scripts-autocomplete + zsh-history-substring-search deferred
+        # via zsh-defer in initContent (saves ~12ms at startup).
         # zsh-syntax-highlighting is deferred via zsh-defer in initContent
         {
           name = "zsh-histdb";
@@ -249,16 +263,7 @@ in
             sha256 = "KLUYpUu4DHRumQZ3w59m9aTW6TBKMCXl2UcKi4uMd7w=";
           };
         }
-        # zsh-autopair is deferred via zsh-defer in initContent
-        {
-          name = "fzf-tab";
-          src = pkgs.fetchFromGitHub {
-            owner = "Aloxaf";
-            repo = "fzf-tab";
-            rev = "6aced3f35def61c5edf9d790e945e8bb4fe7b305";
-            sha256 = "EWMeslDgs/DWVaDdI9oAS46hfZtp4LHTRY8TclKTNK8=";
-          };
-        }
+        # zsh-autopair + fzf-tab are deferred via zsh-defer in initContent
       ];
     };
     direnv = {

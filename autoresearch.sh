@@ -6,9 +6,9 @@ cd "$(dirname "$0")"
 # Use full path so it works inside env -i / stripped-PATH subshells
 HYPERFINE=$(command -v hyperfine)
 
-# Apply current config
+# Apply current config — hard fail if the build breaks
 echo "[autoresearch] Running just home..." >&2
-just home 2>&1 | grep -E "^(Activating|Warning|Error)" >&2 || true
+just home >&2
 
 # --- helpers ---
 median() {
@@ -20,7 +20,7 @@ p90() {
   printf '%s\n' "$@" | sort -n | awk '{a[NR]=$1} END { print a[int(NR*0.9)+1] }'
 }
 
-RUNS=7
+RUNS=9
 
 # Warmup: one throwaway run to prime file-system caches before measurement
 echo "[autoresearch] Warmup run..." >&2
