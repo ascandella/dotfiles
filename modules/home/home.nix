@@ -101,6 +101,7 @@
       gnupg
       home-manager
       htop
+      hyperfine
       just
       magic-wormhole
       minio-client

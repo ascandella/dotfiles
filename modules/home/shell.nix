@@ -34,7 +34,48 @@ let
       | sed '/^export PATH=/d; /^_mise_hook$/d' > $out
   '';
 
+  # fnm activation: full version forks a subprocess to create a per-shell
+  # multishell dir (~27ms). In Zellij panes PATH + FNM_* env are already
+  # inherited from the parent, so we only need the shell functions/alias —
+  # no subprocess, no new multishell dir.
+  # Static fnm shims for Zellij subshells: just the function definitions + alias.
+  # All FNM_* env vars and PATH are already inherited from the parent shell,
+  # so no subprocess and no new multishell dir is needed.
+  # pkgs.writeText (pure, no execution) avoids the nix-sandbox HOME issue that
+  # pkgs.runCommand hits when fnm tries to create its multishell dir.
+  fnmZshInit = pkgs.writeText "fnm-zsh-init-nested.zsh" ''
+    __fnm_use_if_file_found() {
+      if [[ -f .node-version || -f .nvmrc || -f package.json ]]; then
+        fnm use --silent-if-unchanged
+      fi
+    }
+    __fnmcd() {
+      \cd "$@" || return $?
+      __fnm_use_if_file_found
+    }
+    alias cd=__fnmcd
+    __fnm_use_if_file_found
+  '';
+
   # Sources for deferred plugins (loaded after first prompt via zsh-defer).
+  fzfTabSrc = pkgs.fetchFromGitHub {
+    owner = "Aloxaf";
+    repo = "fzf-tab";
+    rev = "6aced3f35def61c5edf9d790e945e8bb4fe7b305";
+    sha256 = "EWMeslDgs/DWVaDdI9oAS46hfZtp4LHTRY8TclKTNK8=";
+  };
+  zshNpmScriptsSrc = pkgs.fetchFromGitHub {
+    owner = "grigorii-zander";
+    repo = "zsh-npm-scripts-autocomplete";
+    rev = "5d145e13150acf5dbb01dac6e57e57c357a47a4b";
+    sha256 = "sha256-Y34VXOU7b5z+R2SssCmbooVwrlmSxUxkObTV0YtsS50=";
+  };
+  zshHistorySubstringSrc = pkgs.fetchFromGitHub {
+    owner = "zsh-users";
+    repo = "zsh-history-substring-search";
+    rev = "8dd05bfcc12b0cd1ee9ea64be725b3d9f713cf64";
+    sha256 = "houujb1CrRTjhCc+dp3PRHALvres1YylgxXwjjK6VZA=";
+  };
   zshSyntaxHighlightingSrc = pkgs.fetchFromGitHub {
     owner = "zsh-users";
     repo = "zsh-syntax-highlighting";
@@ -82,6 +123,20 @@ in
       # The dump is wiped by home.activation.zcompdump on every `just home` so
       # completions stay current after upgrades.
       completionInit = ''
+        # De-duplicate fpath before compinit: remove the two copies of zsh's
+        # built-in 5.9/functions that mirror ~/.nix-profile (the authoritative one):
+        #   /run/current-system/sw  — nix-darwin system profile, same 967 files
+        #   /usr/share/zsh          — macOS system zsh, same 966 files (zero unique)
+        # Also remove empty vendor-completions and usr/local dirs.
+        # Keeps /run/current-system/sw/share/zsh/site-functions (_darwin-rebuild etc.).
+        # Result: compdump shrinks from ~2985 scanned files to ~1050.
+        fpath=(''${fpath:#/run/current-system/sw/share/zsh/$ZSH_VERSION/functions})
+        fpath=(''${fpath:#/run/current-system/sw/share/zsh/vendor-completions})
+        fpath=(''${fpath:#/nix/var/nix/profiles/default/share/zsh/$ZSH_VERSION/functions})
+        fpath=(''${fpath:#/nix/var/nix/profiles/default/share/zsh/vendor-completions})
+        fpath=(''${fpath:#/usr/share/zsh/$ZSH_VERSION/functions})
+        fpath=(''${fpath:#/usr/share/zsh/site-functions})
+        fpath=(''${fpath:#/usr/local/share/zsh/site-functions})
         autoload -Uz compinit
         compinit -C
       '';
@@ -140,9 +195,17 @@ in
         setopt correct
         # Allow c-w to backwards word but stop at e.g. path separators
         WORDCHARS='*?_-.[]~&;!#$%^(){}<>'
-        eval "$(${pkgs.fnm}/bin/fnm env --use-on-cd)"
+        # fnm: full init (creates multishell dir, ~27ms) only in a fresh terminal.
+        # In Zellij panes PATH+FNM_* are already inherited; source the pre-built
+        # shims file (functions + alias only, no subprocess) instead.
+        if [[ -n $ZELLIJ ]]; then
+          source ${fnmZshInit}
+        else
+          eval "$(${pkgs.fnm}/bin/fnm env --use-on-cd)"
+        fi
         source ${starshipZshInit}
-        export FPATH="${pkgs.eza}/completions/zsh:$FPATH"
+        # eza completions are already in ~/.nix-profile/share/zsh/site-functions
+        # via the nix package; explicit FPATH addition was redundant.
         # Lazy-load aws completion: only sources on first aws<TAB>
         _aws_lazy_completer() {
           unfunction _aws_lazy_completer
@@ -169,6 +232,13 @@ in
         fi
         # Defer cosmetic plugins until after first prompt (~30ms saving).
         # zsh-syntax-highlighting must load last anyway (its own docs say so).
+        # history-substring-search, npm-autocomplete, fzf-tab: ~20ms combined.
+        # bindkey calls in custom-init.zsh bind to widget *names* so deferring
+        # history-substring-search is safe -- widgets are defined before first keypress.
+        zsh-defer source ${zshHistorySubstringSrc}/zsh-history-substring-search.plugin.zsh
+        zsh-defer source ${zshNpmScriptsSrc}/zsh-npm-scripts-autocomplete.plugin.zsh
+        zsh-defer source ${fzfTabSrc}/fzf-tab.plugin.zsh
+        # zsh-syntax-highlighting must load last (its own requirement).
         zsh-defer source ${zshSyntaxHighlightingSrc}/zsh-syntax-highlighting.plugin.zsh
         zsh-defer source ${zshAutopairSrc}/zsh-autopair.plugin.zsh
       '';
@@ -187,24 +257,8 @@ in
             sha256 = "sha256-8HznSWSBj1baetvDOIZ+H9mWg5gbbzF52nIEG+u9Di8=";
           };
         }
-        {
-          name = "zsh-npm-scripts-autocomplete";
-          src = pkgs.fetchFromGitHub {
-            owner = "grigorii-zander";
-            repo = "zsh-npm-scripts-autocomplete";
-            rev = "5d145e13150acf5dbb01dac6e57e57c357a47a4b";
-            sha256 = "sha256-Y34VXOU7b5z+R2SssCmbooVwrlmSxUxkObTV0YtsS50=";
-          };
-        }
-        {
-          name = "zsh-history-substring-search";
-          src = pkgs.fetchFromGitHub {
-            owner = "zsh-users";
-            repo = "zsh-history-substring-search";
-            rev = "8dd05bfcc12b0cd1ee9ea64be725b3d9f713cf64";
-            sha256 = "houujb1CrRTjhCc+dp3PRHALvres1YylgxXwjjK6VZA=";
-          };
-        }
+        # zsh-npm-scripts-autocomplete + zsh-history-substring-search deferred
+        # via zsh-defer in initContent (saves ~12ms at startup).
         # zsh-syntax-highlighting is deferred via zsh-defer in initContent
         {
           name = "zsh-histdb";
@@ -224,16 +278,7 @@ in
             sha256 = "KLUYpUu4DHRumQZ3w59m9aTW6TBKMCXl2UcKi4uMd7w=";
           };
         }
-        # zsh-autopair is deferred via zsh-defer in initContent
-        {
-          name = "fzf-tab";
-          src = pkgs.fetchFromGitHub {
-            owner = "Aloxaf";
-            repo = "fzf-tab";
-            rev = "6aced3f35def61c5edf9d790e945e8bb4fe7b305";
-            sha256 = "EWMeslDgs/DWVaDdI9oAS46hfZtp4LHTRY8TclKTNK8=";
-          };
-        }
+        # zsh-autopair + fzf-tab are deferred via zsh-defer in initContent
       ];
     };
     direnv = {
