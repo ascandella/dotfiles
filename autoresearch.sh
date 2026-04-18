@@ -22,6 +22,11 @@ p90() {
 
 RUNS=7
 
+# Warmup: one throwaway run to prime file-system caches before measurement
+echo "[autoresearch] Warmup run..." >&2
+ZELLIJ=0 zsh -i -c exit >/dev/null 2>&1 || true
+env -u ZELLIJ zsh -i -c exit >/dev/null 2>&1 || true
+
 # --- Zellij subshell scenario ---
 # Simulates: open new pane inside an active Zellij session.
 # Key inherited vars: ZELLIJ, MISE_SHELL, FNM_MULTISHELL_PATH, FNM_DIR, etc.

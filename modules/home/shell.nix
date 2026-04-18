@@ -34,6 +34,24 @@ let
       | sed '/^export PATH=/d; /^_mise_hook$/d' > $out
   '';
 
+  # fnm activation: full version forks a subprocess to create a per-shell
+  # multishell dir (~27ms). In Zellij panes PATH + FNM_* env are already
+  # inherited from the parent, so we only need the shell functions/alias —
+  # no subprocess, no new multishell dir.
+  fnmZshInit = pkgs.runCommand "fnm-zsh-init-nested.zsh" { } ''
+    ${pkgs.fnm}/bin/fnm env --use-on-cd \
+      | grep -v '^export PATH=' \
+      | grep -v '^export FNM_MULTISHELL_PATH=' \
+      | grep -v '^export FNM_VERSION_FILE_STRATEGY=' \
+      | grep -v '^export FNM_DIR=' \
+      | grep -v '^export FNM_LOGLEVEL=' \
+      | grep -v '^export FNM_NODE_DIST_MIRROR=' \
+      | grep -v '^export FNM_COREPACK_ENABLED=' \
+      | grep -v '^export FNM_RESOLVE_ENGINES=' \
+      | grep -v '^export FNM_ARCH=' \
+      | grep -v '^__fnm_use_if_file_found$' > $out
+  '';
+
   # Sources for deferred plugins (loaded after first prompt via zsh-defer).
   zshSyntaxHighlightingSrc = pkgs.fetchFromGitHub {
     owner = "zsh-users";
@@ -140,7 +158,14 @@ in
         setopt correct
         # Allow c-w to backwards word but stop at e.g. path separators
         WORDCHARS='*?_-.[]~&;!#$%^(){}<>'
-        eval "$(${pkgs.fnm}/bin/fnm env --use-on-cd)"
+        # fnm: full init (creates multishell dir, ~27ms) only in a fresh terminal.
+        # In Zellij panes PATH+FNM_* are already inherited; source the pre-built
+        # shims file (functions + alias only, no subprocess) instead.
+        if [[ -n $ZELLIJ ]]; then
+          source ${fnmZshInit}
+        else
+          eval "$(${pkgs.fnm}/bin/fnm env --use-on-cd)"
+        fi
         source ${starshipZshInit}
         export FPATH="${pkgs.eza}/completions/zsh:$FPATH"
         # Lazy-load aws completion: only sources on first aws<TAB>
