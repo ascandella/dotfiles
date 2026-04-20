@@ -34,29 +34,6 @@ let
       | sed '/^export PATH=/d; /^_mise_hook$/d' > $out
   '';
 
-  # fnm activation: full version forks a subprocess to create a per-shell
-  # multishell dir (~27ms). In Zellij panes PATH + FNM_* env are already
-  # inherited from the parent, so we only need the shell functions/alias —
-  # no subprocess, no new multishell dir.
-  # Static fnm shims for Zellij subshells: just the function definitions + alias.
-  # All FNM_* env vars and PATH are already inherited from the parent shell,
-  # so no subprocess and no new multishell dir is needed.
-  # pkgs.writeText (pure, no execution) avoids the nix-sandbox HOME issue that
-  # pkgs.runCommand hits when fnm tries to create its multishell dir.
-  fnmZshInit = pkgs.writeText "fnm-zsh-init-nested.zsh" ''
-    __fnm_use_if_file_found() {
-      if [[ -f .node-version || -f .nvmrc || -f package.json ]]; then
-        fnm use --silent-if-unchanged
-      fi
-    }
-    __fnmcd() {
-      \cd "$@" || return $?
-      __fnm_use_if_file_found
-    }
-    alias cd=__fnmcd
-    __fnm_use_if_file_found
-  '';
-
   # Sources for deferred plugins (loaded after first prompt via zsh-defer).
   fzfTabSrc = pkgs.fetchFromGitHub {
     owner = "Aloxaf";
@@ -195,13 +172,11 @@ in
         setopt correct
         # Allow c-w to backwards word but stop at e.g. path separators
         WORDCHARS='*?_-.[]~&;!#$%^(){}<>'
-        # fnm: full init (creates multishell dir, ~27ms) only in a fresh terminal.
-        # In Zellij panes PATH+FNM_* are already inherited; source the pre-built
-        # shims file (functions + alias only, no subprocess) instead.
-        if [[ -n $ZELLIJ ]]; then
-          source ${fnmZshInit}
-        else
-          eval "$(${pkgs.fnm}/bin/fnm env --use-on-cd)"
+        # fnm: set up PATH+FNM_* vars in fresh terminals only.
+        # Skipping --use-on-cd avoids aliasing cd=__fnmcd (breaks tab completion).
+        # In Zellij panes PATH+FNM_* are already inherited from the parent shell.
+        if [[ -z $ZELLIJ ]]; then
+          eval "$(${pkgs.fnm}/bin/fnm env)"
         fi
         source ${starshipZshInit}
         # eza completions are already in ~/.nix-profile/share/zsh/site-functions
