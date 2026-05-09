@@ -62,7 +62,7 @@ in
         environment = {
           PUID = toString overseerrCfg.user.uid;
           PGID = toString overseerrCfg.user.gid;
-          PORT = 5055;
+          PORT = toString 5055;
           TZ = "America/Los_Angeles";
         };
         extraOptions = [
