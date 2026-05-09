@@ -15,6 +15,8 @@ in
         type = lib.types.int;
         default = 5055;
       };
+      # TODO: no longer using this user, the seerr image runs as uid 1000
+      # and doesn't have an option to change
       user = {
         uid = lib.mkOption {
           type = lib.types.int;
