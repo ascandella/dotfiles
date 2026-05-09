@@ -11,6 +11,10 @@ in
         type = lib.types.str;
         default = "v3.2.0";
       };
+      port = lib.mkOption {
+        type = lib.types.int;
+        default = 5055;
+      };
       user = {
         uid = lib.mkOption {
           type = lib.types.int;
@@ -46,8 +50,7 @@ in
 
     networking.firewall = {
       allowedTCPPorts = [
-        # TODO: Expose via reverse proxy. Overseerr
-        5055
+        overseerrCfg.port
       ];
     };
 
@@ -62,7 +65,7 @@ in
         environment = {
           PUID = toString overseerrCfg.user.uid;
           PGID = toString overseerrCfg.user.gid;
-          PORT = toString 5055;
+          PORT = toString overseerrCfg.port;
           TZ = "America/Los_Angeles";
         };
         extraOptions = [
