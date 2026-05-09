@@ -9,7 +9,7 @@ in
     my.overseerr = {
       version = lib.mkOption {
         type = lib.types.str;
-        default = "1.35.0";
+        default = "v3.2.0";
       };
       user = {
         uid = lib.mkOption {
@@ -53,15 +53,17 @@ in
 
     virtualisation.oci-containers.containers = {
       overseerr = {
-        image = "ghcr.io/linuxserver/overseerr:${overseerrCfg.version}";
+        image = "ghcr.io/seerr-team/seerr:${overseerrCfg.version}";
         volumes = [
           # NOTE: Need to manually chown on first initialization
-          "${dataDir}/overseerr:/config"
+          "${dataDir}/overseerr:/app/config"
         ];
         # Can't run as user, but at least the files are owned by the proper user
         environment = {
           PUID = toString overseerrCfg.user.uid;
           PGID = toString overseerrCfg.user.gid;
+          PORT = 5055;
+          TZ = "America/Los_Angeles";
         };
         extraOptions = [
           # Acess to Radarr / Sonarr
