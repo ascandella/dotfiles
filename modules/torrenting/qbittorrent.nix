@@ -93,6 +93,12 @@ in
 
     systemd.services."${config.virtualisation.oci-containers.backend}-qbittorrent" = {
       after = [ "media-downloads.mount" ];
+      serviceConfig = {
+        Restart = mkForce "always";
+        RestartSec = "30s";
+        StartLimitBurst = 5;
+        StartLimitIntervalSec = "5min";
+      };
     };
 
     virtualisation.oci-containers.containers.qbittorrent = {
