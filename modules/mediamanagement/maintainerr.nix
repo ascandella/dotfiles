@@ -56,6 +56,9 @@ in
 
     virtualisation.oci-containers.containers = {
       maintainerr = {
+        podman = {
+          user = maintainerrCfg.user.user;
+        };
         image = "ghcr.io/maintainerr/maintainerr:${maintainerrCfg.version}";
         volumes = [
           # NOTE: Need to manually chown on first initialization
@@ -66,9 +69,6 @@ in
           TZ = "America/Los_Angeles";
           UI_PORT = toString maintainerrCfg.port;
         };
-        extraOptions = [
-          "--user=${toString maintainerrCfg.user.uid}:${toString maintainerrCfg.user.gid}"
-        ];
       };
     };
 
