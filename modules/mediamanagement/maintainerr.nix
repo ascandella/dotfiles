@@ -43,7 +43,7 @@ in
         inherit (maintainerrCfg.user) uid group;
         isSystemUser = true;
         linger = true;
-        home = "${dataDir}/maintainerr";
+        home = "${dataDir}/maintainerr/home";
         createHome = true;
       };
       groups.${maintainerrCfg.user.group} = {
@@ -66,7 +66,7 @@ in
         volumes = [
           # NOTE: Need to manually chown on first initialization
           # chown -R 993:991 ${dataDir}/maintainerr
-          "${dataDir}/maintainerr:/opt/data"
+          "${dataDir}/maintainerr/data:/opt/data"
         ];
         environment = {
           TZ = "America/Los_Angeles";
