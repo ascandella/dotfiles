@@ -5,6 +5,7 @@ let
 in
 {
   imports = [
+    ./maintainerr.nix
     ./overseerr.nix
   ];
 

@@ -147,7 +147,7 @@ keybinds {
         bind "l" { MoveFocus "Right"; SwitchToMode "Normal"; }
         bind "j" { MoveFocus "Down"; SwitchToMode "Normal"; }
         bind "k" { MoveFocus "Up"; SwitchToMode "Normal"; }
-        bind "o" { FocusNextPane; }
+        bind "o" { FocusNextPane; SwitchToMode "Normal"; }
         bind "d" { Detach; }
         bind "s" {
             LaunchOrFocusPlugin "zellij:session-manager" {
