@@ -42,6 +42,7 @@ in
         name = "maintainerr";
         inherit (maintainerrCfg.user) uid group;
         isSystemUser = true;
+        linger = true;
       };
       groups.${maintainerrCfg.user.group} = {
         inherit (maintainerrCfg.user) gid;
