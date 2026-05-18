@@ -18,11 +18,11 @@ in
       user = {
         uid = lib.mkOption {
           type = lib.types.int;
-          default = 995;
+          default = 985;
         };
         gid = lib.mkOption {
           type = lib.types.int;
-          default = 995;
+          default = 985;
         };
         group = lib.mkOption {
           type = lib.types.str;
