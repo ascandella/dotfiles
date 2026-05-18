@@ -43,6 +43,8 @@ in
         inherit (maintainerrCfg.user) uid group;
         isSystemUser = true;
         linger = true;
+        home = "${dataDir}/maintainerr";
+        createHome = true;
       };
       groups.${maintainerrCfg.user.group} = {
         inherit (maintainerrCfg.user) gid;
