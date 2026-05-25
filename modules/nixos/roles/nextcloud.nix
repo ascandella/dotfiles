@@ -2,14 +2,6 @@
 
 {
   config = {
-    age.secrets.nextcloud-db-pass = {
-      owner = "nextcloud";
-      group = "nextcloud";
-      file = ../../../secrets/nextcloud-db-pass.age;
-      mode = "0400";
-      path = "/etc/nextcloud/db-pass";
-    };
-
     services = {
       mysqlBackup = {
         enable = true;
