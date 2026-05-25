@@ -58,7 +58,6 @@
         nfsMappings = {
           movies = config.my.nas.moviesDir;
           tv = config.my.nas.tvDir;
-          nextcloud = config.my.nas.nextcloudDir;
           downloads = config.my.nas.downloadsDir;
           server-config = config.my.nas.serverConfigDir;
           frigate = config.my.nas.frigateDir;
