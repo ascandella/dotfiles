@@ -27,10 +27,6 @@
         type = lib.types.str;
         default = "/media/downloads";
       };
-      nextcloudDir = lib.mkOption {
-        type = lib.types.str;
-        default = "/var/lib/nextcloud/data";
-      };
       squashGroup = lib.mkOption {
         type = lib.types.str;
         default = "nfs-mounts";

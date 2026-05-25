@@ -9,7 +9,6 @@ let
       "mosquitto-frigate"
       "mosquitto-homeassistant"
       "mosquitto-opensprinkler"
-      "nextcloud-db-pass"
       "nutuser"
       "sponsorblocktv"
       "truenas-nixos"
