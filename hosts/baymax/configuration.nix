@@ -180,6 +180,10 @@ in
       driver = "usbhid-ups";
       port = "auto";
       description = "USB UPS";
+      directives = [
+        "vendorid = 0764"
+        "productid = 0601"
+      ];
     };
     upsmon.monitor.usbups = {
       user = "nutuser";
