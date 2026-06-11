@@ -1,3 +1,4 @@
+{ inputs, system }:
 {
   config,
   lib,
@@ -6,6 +7,7 @@
 }:
 
 let
+  zsh-patina = inputs.zsh-patina.packages.${system}.default;
   # Pre-generate static zsh init scripts as nix derivations.
   # At shell startup this becomes a plain `source /nix/store/…` with no
   # subprocess overhead. Each derivation is keyed by the package content-hash,
@@ -52,12 +54,6 @@ let
     repo = "zsh-history-substring-search";
     rev = "8dd05bfcc12b0cd1ee9ea64be725b3d9f713cf64";
     sha256 = "houujb1CrRTjhCc+dp3PRHALvres1YylgxXwjjK6VZA=";
-  };
-  zshSyntaxHighlightingSrc = pkgs.fetchFromGitHub {
-    owner = "zsh-users";
-    repo = "zsh-syntax-highlighting";
-    rev = "e0165eaa730dd0fa321a6a6de74f092fe87630b0";
-    sha256 = "4rW2N+ankAH4sA6Sa5mr9IKsdAg7WTgrmyqJ2V1vygQ=";
   };
   zshAutopairSrc = pkgs.fetchFromGitHub {
     owner = "hlissner";
@@ -213,9 +209,8 @@ in
         zsh-defer source ${zshHistorySubstringSrc}/zsh-history-substring-search.plugin.zsh
         zsh-defer source ${zshNpmScriptsSrc}/zsh-npm-scripts-autocomplete.plugin.zsh
         zsh-defer source ${fzfTabSrc}/fzf-tab.plugin.zsh
-        # zsh-syntax-highlighting must load last (its own requirement).
-        zsh-defer source ${zshSyntaxHighlightingSrc}/zsh-syntax-highlighting.plugin.zsh
         zsh-defer source ${zshAutopairSrc}/zsh-autopair.plugin.zsh
+        eval "$(${zsh-patina}/bin/zsh-patina activate)"
       '';
 
       envExtra = ''

@@ -39,6 +39,12 @@
       };
     };
 
+    # Zsh syntax highlighting... blazingly fast
+    zsh-patina = {
+      url = "github:michel-kraemer/zsh-patina";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # For generating installer ISO
     # https://github.com/nix-community/nixos-generators
     nixos-generators = {
