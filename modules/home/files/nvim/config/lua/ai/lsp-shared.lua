@@ -124,6 +124,7 @@ local filetype_attach = setmetatable({
   python = default_formatter,
 
   sh = default_formatter,
+  zig = default_formatter,
 }, {
   __index = function()
     return function() end

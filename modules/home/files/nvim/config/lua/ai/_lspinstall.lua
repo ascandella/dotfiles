@@ -20,6 +20,7 @@ local servers = {
   'pyright',
   'lua_ls',
   'yamlls',
+  'zls',
   'rust_analyzer',
 }
 

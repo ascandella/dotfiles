@@ -41,6 +41,7 @@ local parsers = {
   'vim',
   'vimdoc',
   'yaml',
+  'zig',
 }
 nvim_ts.install(parsers)
 
