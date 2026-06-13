@@ -342,8 +342,7 @@ local packages = {
 
   -- YAML detection, for k8s
   {
-    -- Fork from main, to update deprecated LSP usage
-    'alteriks/yaml-companion.nvim',
+    'mosheavni/yaml-companion.nvim',
     ft = { 'yaml' },
     requires = {
       { 'neovim/nvim-lspconfig' },
@@ -355,7 +354,7 @@ local packages = {
       -- Merge yaml-companion's settings into our yamlls config and (re-)enable.
       vim.lsp.config('yamlls', cfg)
       vim.lsp.enable('yamlls')
-      require('telescope').load_extension('yaml_schema')
+      -- No telescope extension in this fork; uses vim.ui.select instead
     end,
   },
 
