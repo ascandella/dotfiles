@@ -42,7 +42,7 @@ _:
         yabai -m rule --apply "$@"
       }
       yabai_rule app="^System Settings$" manage=off sub-layer=below
-      yabai_rule app="^zoom.us" manage=off sub-layer=below
+      yabai_rule app="^Zoom$" manage=off sub-layer=below
       yabai_rule app="^Messages$" manage=off sub-layer=below
       yabai_rule app="^Todoist$" manage=off sub-layer=below
 
