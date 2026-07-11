@@ -5,6 +5,9 @@ vim.o.expandtab = true
 vim.o.incsearch = true
 vim.o.hlsearch = false
 
+-- load .nvim.lua from directory
+vim.o.exrc = true
+
 -- Highlight current line number
 vim.o.cursorline = true
 
