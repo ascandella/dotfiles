@@ -211,6 +211,10 @@ in
         zsh-defer source ${fzfTabSrc}/fzf-tab.plugin.zsh
         zsh-defer source ${zshAutopairSrc}/zsh-autopair.plugin.zsh
         eval "$(${zsh-patina}/bin/zsh-patina activate)"
+        # wt (worktrunk): shell integration for worktree management (installed via Homebrew)
+        if (( $+commands[wt] )); then
+          zsh-defer eval "$(wt config shell init zsh)"
+        fi
       '';
 
       envExtra = ''
