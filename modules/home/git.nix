@@ -201,6 +201,7 @@
       .envrc
       .lsp-session-*
       .elixir_ls/
+      kls_database.db
       settings.local.json
     '';
   };
