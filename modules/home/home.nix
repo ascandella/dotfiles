@@ -114,6 +114,7 @@
       ripgrep
       scc # count lines of code
       ssm-session-manager-plugin # for awscli
+      tea # gitea cli
       yq # yaml jq
       zellij
       zoxide
