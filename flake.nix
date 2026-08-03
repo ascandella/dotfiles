@@ -11,10 +11,6 @@
       url = "github:nix-darwin/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    simple-bar-src = {
-      url = "github:Jean-Tinland/simple-bar";
-      flake = false;
-    };
     flake-utils.url = "github:numtide/flake-utils";
 
     agenix = {

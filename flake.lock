@@ -252,7 +252,6 @@
         "home-manager": "home-manager_2",
         "nixos-generators": "nixos-generators",
         "nixpkgs": "nixpkgs",
-        "simple-bar-src": "simple-bar-src",
         "systems": "systems_3",
         "television": "television",
         "treefmt-nix": "treefmt-nix",
@@ -277,22 +276,6 @@
       "original": {
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "type": "github"
-      }
-    },
-    "simple-bar-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1763220091,
-        "narHash": "sha256-1kchlfGVXzlSXC5s3pUVrVyXCKj596mJILCKlucyfHQ=",
-        "owner": "Jean-Tinland",
-        "repo": "simple-bar",
-        "rev": "72fde02899c0b2ce2a9f69e6a198929dfac8600c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Jean-Tinland",
-        "repo": "simple-bar",
         "type": "github"
       }
     },

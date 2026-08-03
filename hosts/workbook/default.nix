@@ -17,12 +17,19 @@ darwin.lib.darwinSystem {
   };
   modules = [
     ../../modules/home-options
-    (import ./modules/home-options/host.nix {
+    (import ../../modules/home-options/host.nix {
       inherit pkgs;
       hostname = "workbook";
     })
     ../../modules/darwin
     ../../modules/common
+    (
+      { lib, ... }:
+      {
+        # Determinate Nix manages the daemon on this host
+        nix.enable = lib.mkForce false;
+      }
+    )
     home-manager.darwinModules.home-manager
     {
       users.users.${username} = {

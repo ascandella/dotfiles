@@ -1,7 +1,6 @@
 {
   pkgs,
   lib,
-  inputs,
   ...
 }:
 {
@@ -147,10 +146,6 @@
     '';
 
     programs.zsh.shellAliases = {
-      # TODO: remove these, I'm not using them
-      topbar = "yabai -m config external_bar all:38:0";
-      bottombar = "yabai -m config external_bar all:0:30";
-
       jiraissues = "plainissues -s '~Done' -s '~Shipped' -s '~Closed'";
       inprog = "plainissues -s 'In Progress' -s 'Review' -s 'In Review'";
 
@@ -158,7 +153,6 @@
     };
 
     home.file = {
-      "Library/Application Support/Übersicht/widgets/simple-bar".source = inputs.simple-bar-src.outPath;
       ".ignore".source = ./files/ignore;
       ".pylintrc".source = ./files/.pylintrc;
       ".luacheckrc".source = ./files/.luacheckrc;
