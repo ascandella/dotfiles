@@ -141,7 +141,11 @@
 
     _gb() {
       is_in_git_repo || return
-      git branch --color=always | grep -v '/HEAD\s' | sort |
+      local branches
+      branches=$(git branch --color=always | grep -v '/HEAD\s')
+      [ "$1" = "--no-current" ] && branches=$(echo "$branches" | grep -v '^\*')
+      [ -z "$branches" ] && return
+      echo "$branches" | sort |
       fzf-down --ansi --multi --tac --preview-window right:70% \
         --preview 'git log --oneline --graph --date=short --color=always --pretty="format:%C(auto)%cd %h%d %s" $(sed s/^..// <<< {} | cut -d" " -f1) | head -'$LINES |
       sed 's/^..//' | cut -d' ' -f1 |
@@ -153,7 +157,7 @@
     }
 
     db() {
-      \git branch -D $(_gb)
+      \git branch -D $(_gb --no-current)
     }
 
     _gr() {
