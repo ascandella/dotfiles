@@ -103,6 +103,7 @@ in
               "aiphone"
               "workbook"
               "aipad"
+              "studio"
             ]
           )
         );
