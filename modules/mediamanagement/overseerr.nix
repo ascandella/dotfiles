@@ -9,7 +9,7 @@ in
     my.overseerr = {
       version = lib.mkOption {
         type = lib.types.str;
-        default = "v3.2.0";
+        default = "v3.4.1";
       };
       port = lib.mkOption {
         type = lib.types.int;
