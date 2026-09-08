@@ -28,10 +28,12 @@ _:
       normal_window_opacity = "0.9";
     };
     extraConfig = ''
-      # Not sure why this is necessary, but running it without sudo doesn't
-      # load the scripting additions and makes workspace switching not work
-      yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
-      sudo yabai --load-sa
+      # Only use sudo if the current user is in the sudoers list, otherwise
+      # fall back to calling yabai directly.
+      if sudo -n true 2>/dev/null; then
+        yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+        sudo yabai --load-sa
+      fi
 
       # Exclusions
       # https://github.com/koekeishiya/yabai/issues/2199#issuecomment-2031528636
